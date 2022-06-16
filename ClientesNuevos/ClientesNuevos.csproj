@@ -44,7 +44,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.6.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -68,9 +74,6 @@
     <Reference Include="AspNet.ScriptManager.bootstrap">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="AspNet.ScriptManager.jQuery">
-      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ScriptManager.MSAjax">
       <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
     </Reference>
@@ -79,9 +82,6 @@
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -106,7 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="cliente\F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx" />
+    <Content Include="cliente\F14\ClienteNuevo.aspx" />
+    <Content Include="F20\CriteriosMinimos.aspx" />
+    <Content Include="F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -125,13 +127,58 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="proveedor\F14\ProveedorNuevo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -155,6 +202,88 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="template\assets\css\style.css" />
+    <Content Include="template\assets\img\apple-touch-icon.png" />
+    <Content Include="template\assets\img\blog\blog-1.jpg" />
+    <Content Include="template\assets\img\blog\blog-2.jpg" />
+    <Content Include="template\assets\img\blog\blog-3.jpg" />
+    <Content Include="template\assets\img\blog\blog-4.jpg" />
+    <Content Include="template\assets\img\blog\blog-author.jpg" />
+    <Content Include="template\assets\img\blog\blog-inside-post.jpg" />
+    <Content Include="template\assets\img\blog\blog-recent-1.jpg" />
+    <Content Include="template\assets\img\blog\blog-recent-2.jpg" />
+    <Content Include="template\assets\img\blog\blog-recent-3.jpg" />
+    <Content Include="template\assets\img\blog\blog-recent-4.jpg" />
+    <Content Include="template\assets\img\blog\blog-recent-5.jpg" />
+    <Content Include="template\assets\img\blog\comments-1.jpg" />
+    <Content Include="template\assets\img\blog\comments-2.jpg" />
+    <Content Include="template\assets\img\blog\comments-3.jpg" />
+    <Content Include="template\assets\img\blog\comments-4.jpg" />
+    <Content Include="template\assets\img\blog\comments-5.jpg" />
+    <Content Include="template\assets\img\blog\comments-6.jpg" />
+    <Content Include="template\assets\img\cta-bg.jpg" />
+    <Content Include="template\assets\img\favicon.png" />
+    <Content Include="template\assets\img\hero-bg.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-1.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-2.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-3.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-4.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-5.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-6.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-7.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-8.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-9.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-details-1.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-details-2.jpg" />
+    <Content Include="template\assets\img\portfolio\portfolio-details-3.jpg" />
+    <Content Include="template\assets\img\team\team-1.jpg" />
+    <Content Include="template\assets\img\team\team-2.jpg" />
+    <Content Include="template\assets\img\team\team-3.jpg" />
+    <Content Include="template\assets\img\team\team-4.jpg" />
+    <Content Include="template\assets\js\main.js" />
+    <Content Include="template\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="template\assets\vendor\bootstrap-icons\index.html" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="template\assets\vendor\boxicons\css\animations.css" />
+    <Content Include="template\assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="template\assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="template\assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="template\assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="template\assets\vendor\glightbox\css\glightbox.css" />
+    <Content Include="template\assets\vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="template\assets\vendor\glightbox\js\glightbox.js" />
+    <Content Include="template\assets\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="template\assets\vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="template\assets\vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="template\assets\vendor\php-email-form\validate.js" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.css" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.svg" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="template\assets\vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="template\assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="template\forms\contact.php" />
+    <Content Include="template\forms\Readme.txt" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -170,11 +299,25 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="cliente\F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx.cs">
+    <Compile Include="cliente\F14\ClienteNuevo.aspx.cs">
+      <DependentUpon>ClienteNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cliente\F14\ClienteNuevo.aspx.designer.cs">
+      <DependentUpon>ClienteNuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F20\CriteriosMinimos.aspx.cs">
+      <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F20\CriteriosMinimos.aspx.designer.cs">
+      <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx.cs">
       <DependentUpon>EvaluacionSeguridadRiesgoBussinessPartner.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="cliente\F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx.designer.cs">
+    <Compile Include="F5\EvaluacionSeguridadRiesgoBussinessPartner.aspx.designer.cs">
       <DependentUpon>EvaluacionSeguridadRiesgoBussinessPartner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
@@ -195,6 +338,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proveedor\F14\ProveedorNuevo.aspx.cs">
+      <DependentUpon>ProveedorNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proveedor\F14\ProveedorNuevo.aspx.designer.cs">
+      <DependentUpon>ProveedorNuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,8 +372,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="template\assets\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="template\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="template\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="template\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="template\assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="template\assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="template\assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="template\assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.eot" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.less" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.ttf" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.woff" />
+    <Content Include="template\assets\vendor\remixicon\remixicon.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
