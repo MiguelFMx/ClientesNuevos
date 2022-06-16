@@ -50,7 +50,7 @@
                     </ul>
                    
                  <hr />
-                    <h6> Los transportistas de largo recorrido deben tener un proceso documentado y verificable para determinar el riesgo en todas sus cadenas de suministro basado en su modelo empresarial (es decir, volumen, Estado Mexicano, ruta, afiliación a C-TPAT, posible amenaza terrorista mediante información de fuente abierta, que tiene seguridad inadecuada, previos incidentes de seguridad, etc.).</h6>
+                    <h5> Los transportistas de largo recorrido deben tener un proceso documentado y verificable para determinar el riesgo en todas sus cadenas de suministro basado en su modelo empresarial (es decir, volumen, Estado Mexicano, ruta, afiliación a C-TPAT, posible amenaza terrorista mediante información de fuente abierta, que tiene seguridad inadecuada, previos incidentes de seguridad, etc.).</h5>
                 </section>
                 <br />
 

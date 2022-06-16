@@ -105,7 +105,7 @@
                             
                         </div>
 
-                        <h6>En caso de contar con más contactos podrá agregarlos mas adelante</h6>
+                        
 
                     
                 </div>
