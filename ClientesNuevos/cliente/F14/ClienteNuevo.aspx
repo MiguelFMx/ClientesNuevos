@@ -21,72 +21,142 @@
         <form class="form" method="post">
             <!-- fieldset información de compañia -->
             <fieldset style="display: block;">
-                <legend>Información de la compañia</legend>
-                <div class="container">
+                <legend style="font-size:25px;">Información de la compañia</legend>
+                
+                <div class="container" id="contenedorComp">
                     <div class="row">
-                        <div class="col">
-                            <label for="txtNombreCompania">Nombre de la compañia:</label>
-                            <input type="text" name="name" value="" id="txtNombreCompania" class="form-control" />
-                        </div>
-                        <div class="col">
-                            <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
-                            <input type="text" name="name" value="" id="txtNombrCom" class="form-control" />
-                        </div>
-                    </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="txtNombreCompania">Nombre de la compañia:</label>
 
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="txtRfc">RFC:</label>
-                            <input type="text" name="name" value="" id="txtRfc" class="form-control " />
-                        </div>
-                        <div class="col-4">
-                            <label for="txtAnosNegocio">Años de negocio:</label>
-                            <input type="number" name="name" value="" id="txtAnosNegocio" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <div class="row"> <input type="text" name="name" value="" id="txtNombreCompania" class="form-control" /></div>
+                                   </div>
+                            </div>
+                            </div>
+                
+                        
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
+                                </div>
+                                <div class="col">
+                                    <div class="row"><input type="text" name="name" value="" id="txtNombrCom" class="form-control" /></div>                                  
+                                </div>
+                            </div>                           
                         </div>
                     </div>
+                    <br />
                     <div class="row">
-                        <label for="txtDirecFiscal">Dirección fiscal:</label>
-                        <input type="text" name="name" value="" id="txtDirecFiscal" class="form-control" />
-                    </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="txtRfc">RFC:</label></div>
+                                <div class="col">
+                                    <div class="row"><input type="text" name="name" value="" id="txtRfc" class="form-control " /></div>
+                                    </div>
+                            </div>
 
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="txtAnosNegocio">Años de negocio:</label>
+                                </div>
+                                <div class="col">
+                                    <div class="row"><input type="number" name="name" value="" id="txtAnosNegocio" class="form-control" /></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="txtDirecFiscal">Dirección fiscal:</label></div>
+                        <div class="col">
+                            <div class="row">
+                               <%-- <input type="text" name="name" value="" id="txtDirecFiscal" class="form-control" />--%>
+                                <textarea id="txtDirecFiscal" class="form-control" ></textarea>
+                            </div>
+                            </div>                       
+                      
+                    </div>
+                    <br />
                     <div class="row">
                         <div class="col">
-                            <label for="txtCiudad">Ciudad:</label>
-                            <input type="text" name="name" value="" id="txtCiudad" class="form-control" />
+                            <div class="row">
+                                <div class="col-auto"><label for="txtCiudad">Ciudad:</label></div>
+                                <div class="col"> <input type="text" name="name" value="" id="txtCiudad" class="form-control" /></div>
+                            </div>
+                            
+                           
                         </div>
                         <div class="col">
-                            <label for="txtEstado">Estado:</label>
-                            <input type="text" name="name" value="" id="txtEstado" class="form-control" />
+                                <div class="row">
+                                <div class="col-auto"> <label for="txtEstado">Estado:</label></div>
+                                <div class="col"><input type="text" name="name" value="" id="txtEstado" class="form-control" /></div>
+
+                                </div>
+
+                           
+                            
                         </div>
                         <div class="col">
-                            <label for="txtPais">Pais:</label>
-                            <input type="text" name="name" value="" id="txtPais" class="form-control" />
+                                <div class="row">
+                                <div class="col-auto"><label for="txtPais">Pais:</label></div>
+                                <div class="col"><input type="text" name="name" value="" id="txtPais" class="form-control" /></div>
+                                </div>
+                            
+                            
+                            
                         </div>
                         <div class="col">
-                            <label for="txtCP">CP:</label>
-                            <input type="text" name="name" value="" id="txtCP" class="form-control" />
+                                <div class="row">
+                                <div class="col-auto"> <label for="txtCP">CP:</label></div>
+                                <div class="col"><input type="text" name="name" value="" id="txtCP" class="form-control" />
+
+                                </div>
+                                </div>
                         </div>
                     </div>
 
                     <hr />
-
-                        <h3>Contacto</h3>
+                    <section id="contactoCompania" class="card">
+                        <h3 class="card-header">Contacto</h3>
                         <div class="row">
+                            <br />
+                        </div>
+                        <div class="row">
+                            
                             <div class="col">
-                                <label for="txtNombrCont">Nombre:</label>
-                                <input type="text" name="name" value="" id="txtNombrCont" class="form-control" />
+                                <div class="row">
+                                <div class="col-auto"><label for="txtNombrCont">Nombre:</label></div>
+                                <div class="col"> <input type="text" name="name" value="" id="txtNombrCont" class="form-control" /></div>
+
+                                </div>
+                                
+                               
                             </div>
                             <div class="col">
-                                <label for="txtpustoCont">Puesto:</label>
-                                <input type="text" name="name" value="" id="txtpustoCont" class="form-control" />
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <label for="txtpustoCont">Puesto:</label></div>
+                                    <div class="col">
+                                        <input type="text" name="name" value="" id="txtpustoCont" class="form-control" /></div>
+                                </div>
+
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="txtCorreoCont">Correo:</label>
                                 <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" />
-                            </div>
-                            
+                            </div>                            
                         </div>
 
                         <div class="row">
@@ -101,13 +171,10 @@
                             <div class="col">
                                 <label for="txtCelCont">Celular:</label>
                                 <input type="tel" name="name" value="" id="txtCelCont" class="form-control" />
-                            </div>
-                            
+                            </div>                            
                         </div>
-
-                        
-
-                    
+                       
+                    </section>
                 </div>
                 <hr />
                 <input type="button" name="data[info]" class="next btn btn-info" value="Siguiente" />
@@ -663,6 +730,7 @@
   
     <script type="text/javascript">
 
+
         $(document).ready(function () {
             var current = 1, current_step, next_step, steps;
             steps = $("fieldset").length;
@@ -678,6 +746,9 @@
                 next_step.show();
                 current_step.hide();
             });
+
+
+           
         });
     </script>
 

@@ -108,6 +108,7 @@
     <Content Include="About.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
     <Content Include="F20\CriteriosMinimos.aspx" />
+    <Content Include="F5\Autoevaluacion\1.0.0\RequerimientoDeSociosComerciales.aspx" />
     <Content Include="F5\EvaluacionSeguridad.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -312,6 +313,13 @@
     </Compile>
     <Compile Include="F20\CriteriosMinimos.aspx.designer.cs">
       <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F5\Autoevaluacion\1.0.0\RequerimientoDeSociosComerciales.aspx.cs">
+      <DependentUpon>RequerimientoDeSociosComerciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F5\Autoevaluacion\1.0.0\RequerimientoDeSociosComerciales.aspx.designer.cs">
+      <DependentUpon>RequerimientoDeSociosComerciales.aspx</DependentUpon>
     </Compile>
     <Compile Include="F5\EvaluacionSeguridad.aspx.cs">
       <DependentUpon>EvaluacionSeguridad.aspx</DependentUpon>

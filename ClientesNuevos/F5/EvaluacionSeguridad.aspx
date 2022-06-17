@@ -18,7 +18,7 @@
 
                     <form action="/" method="post">
                         <div class="row ">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.0.0
                             </div>
 
@@ -34,7 +34,7 @@
                         <hr />
                         <!-- 2 -->
                         <div class=" row">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.2.0
                             </div>
 
@@ -60,7 +60,7 @@
                         </div>
                         <hr />
                         <div class=" row">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.3.0
                             </div>
                             <div class="col">
@@ -69,15 +69,15 @@
 
 
                                     <div class="col-auto">
-                                        <input type="radio" class="form-check-input" id="si130" value="" name="radioMiembro" />
+                                        <input type="radio" class="form-check-input" id="si130" value="si" name="radioMiembro" />
                                         <label class="form-check-label" for="si130">SI</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="radio" class="form-check-input" id="NO130" value="" name="radioMiembro" />
+                                        <input type="radio" class="form-check-input" id="NO130" value="no" name="radioMiembro" />
                                         <label class="form-check-label" for="NO130">NO</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="radio" class="form-check-input" id="NA130" value="" name="radioMiembro" />
+                                        <input type="radio" class="form-check-input" id="NA130" value="N/A" name="radioMiembro" />
                                         <label class="form-check-label" for="NA130">N/A</label>
                                     </div>
                                 </div>
@@ -86,10 +86,10 @@
 
                         </div>
                         <hr />
-                        <section id="seccionSI" style="display: block">
+                        <section id="seccionSI" style="display: none; background-color:#EEE8E7;">
                             <div class="row">
-                                <div class="col-auto">
-                                    1.3.1
+                                <div class="col-auto backgroudtag">
+                                    1.3.1&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div class="col">
                                     <h2>Si la respuesta a la pregunta 1.3.0 es <strong>SI</strong> :</h2>
@@ -97,7 +97,7 @@
                             </div>
                             <hr style="width: 50%;">
                             <div class="row">
-                                <div class="col-auto">
+                                <div class="col-auto backgroudtag">
                                     1.3.1.1
                                 </div>
                                 <div class="col">
@@ -115,7 +115,7 @@
                             </div>
                             <hr />
                             <div class=" row">
-                                <div class="col-auto">
+                                <div class="col-auto backgroudtag">
                                     1.3.1.2
                                 </div>
                                 <div class="col">
@@ -132,7 +132,7 @@
                             </div>
                             <hr />
                             <div class="row">
-                                <div class="col-auto">
+                                <div class="col-auto backgroudtag">
                                     1.3.1.3
                                 </div>
                                 <div class="col">
@@ -150,10 +150,10 @@
 
                         </section>
 
-                        <section id="seccionNO" style="display: block">
+                        <section id="seccionNO" style="display: none; background-color:#EEE8E7;">
                             <div class="row">
-                                <div class="col-auto">
-                                    1.3.2
+                                <div class="col-auto backgroudtag">
+                                    1.3.2&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div class="col">
                                     <h2>Si la respuesta a la pregunta 1.3.0 es <strong>NO o N/A</strong> :</h2>
@@ -162,7 +162,7 @@
                             <hr style="width: 50%;">
 
                             <div class=" row">
-                                <div class="col-auto">
+                                <div class="col-auto backgroudtag">
                                     1.3.2.1
                                 </div>
                                 <div class="col">
@@ -190,7 +190,7 @@
                             <hr />
 
                             <div class=" row">
-                                <div class="col-auto">
+                                <div class="col-auto backgroudtag">
                                     1.3.2.2
                                 </div>
                                 <div class="col">
@@ -219,7 +219,7 @@
                         </section>
 
                         <div class=" row">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.4.0
                             </div>
                             <div class="col">
@@ -246,22 +246,22 @@
                         </div>
                         <hr />
                         <div class=" row ">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.5.0
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <h2>Nuestra compañía <strong>NO ES ELEGIBLE PARA SER MIEMBRO C_TPAT </strong>pero está de acuerdo en cumplir con los lineamientos de seguridad</h2>
 
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="si150" value="" name="radio150" />
                                         <label class="form-check-label" for="si150">SI</label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-inline" id="NO150" value="" name="radio150" />
                                         <label class="form-check-label" for="NO150">NO</label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="NA150" value="" name="radio150" />
                                         <label class="form-check-label" for="NA150">N/A</label>
                                     </div>
@@ -272,7 +272,7 @@
                         <hr />
 
                         <div class=" row">
-                            <div class="col-auto">
+                            <div class="col-auto backgroudtag">
                                 1.6.0
                             </div>
                             <div class="col">
@@ -280,22 +280,28 @@
                                     <h2>¿Esta usted respondiendo por todas las Unidades de Negocio de su Compañía?</h2>
 
 
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="si160" value="" name="radio160" />
                                         <label class="form-check-label" for="si130">SI</label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="NO160" value="" name="radio160" />
                                         <label class="form-check-label" for="NO130">NO</label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="NA160" value="" name="radio160" />
                                         <label class="form-check-label" for="NA130">N/A</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <br />
+                        <br />
+                        <%--<div class="row">
+                            <div class="col">
+                                <input type="submit" name="btnContinuar" value="Continuar" class="miBoton" />
+                            </div>
+                        </div>--%>
                     </form>
                 </section>
 
@@ -304,89 +310,24 @@
         </div>
  
 
-    <section id="evaluacion" style="display:none;">
-
-        <div id="contenedor">
-
-            <section id="">
-                <h3>Requerimientos  de los socios comerciales</h3>
-                <table id="100Requerimientos" class="table">
-                    <thead></thead>
-                    <tbody>
-                        <tr>
-                            <th>1.0.0.</th>
-                            <th>Requerimientos de los socios comerciales</th>
-                            <th>SI</th>
-                            <th>PARCIAL</th>
-                            <th>NO</th>
-                            <th>N/A</th>
-
-                        </tr>
-                        <tr>
-                            <td>
-                            1.0.1
-                                </td>
-                       
-                        <td>
-                            La empresa cuenta con procesos verificables y por escrito para la selección de socios comerciales, incluyendo transportistas, otros fabricantes, proveedores de productos y vendedores.. 
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="">
-                            </div>
-                        </td>
-                            <td>
-                           <div class="form-check">
-                               <input class="form-check-input" type="radio" name="flexRadioDefault" id="">
-
-                           </div>
-                        </td>
-                            <td>
-                            <div class="form-check">
-                               <input class="form-check-input" type="radio" name="flexRadioDefault" id="">
-
-                           </div>
-                        </td>
-                            <td>
-                            <div class="form-check">
-                               <input class="form-check-input" type="radio" name="flexRadioDefault" id="">
-
-                           </div>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                1.1.0.
-                            </td>
-                            <td>
-                                Procedimientos de seguridad
-                            </td>
-
-                        </tr>
-                        
-                    </tbody>
-
-                </table>
-            </section>
-
-        </div>
-
-    </section>
+                
    </div>
 
     <script type="text/javascript">
 
-        function showMe(seccion) {
-            var chboxs = document.getElementById(seccion).style.display;
-            var vis = "none";
-            if (chboxs == "none") {
-                vis = "block";
+        
+
+        $('input[type=radio][name=radioMiembro]').change(function () {
+            if (this.value == 'si') {
+                $('#seccionSI').show();
+                $('#seccionNO').hide();
             }
-            if (chboxs == "block") {
-                vis = "none";
+            else if (this.value == 'no' || this.value == 'N/A') {
+                $('#seccionNO').show();
+                $('#seccionSI').hide();
+                
             }
-            document.getElementById(box).style.display = vis;
-        }
+        });
 
     </script>
 
