@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ClientesNuevos.F5.Autoevaluacion._1._0._0
+namespace ClientesNuevos.F5.Autoevaluacion
 {
-    public partial class RequerimientoDeSociosComerciales : System.Web.UI.Page
+    public partial class autoevaluacion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

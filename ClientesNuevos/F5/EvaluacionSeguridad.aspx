@@ -297,11 +297,11 @@
                         </div>
                         <br />
                         <br />
-                        <%--<div class="row">
+                        <div class="row">
                             <div class="col">
                                 <input type="submit" name="btnContinuar" value="Continuar" class="miBoton" />
                             </div>
-                        </div>--%>
+                        </div>
                     </form>
                 </section>
 
