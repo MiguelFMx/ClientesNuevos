@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="autoevaluacion.aspx.cs" Inherits="ClientesNuevos.F5.Autoevaluacion.autoevaluacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Autoevaluación</title>
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
+    <script src="../Evaluacion.js"></script>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -22,12 +27,13 @@
         <div class="row">
 
             <div class="col">
-                <table class="table table-hover" id="preguntas">
+                <table class="table table-hover" id="tPreguntas">
                     <thead>
                         <tr>
                             <th>Numero</th>
                             <th>Pregunta</th>
                             <th>Si</th>
+                            <th>Parcial</th>
                             <th>No</th>
                             <th>N/A</th>
                             <th>Observciones</th>
@@ -40,6 +46,7 @@
                             <td>  <input type="radio" name="name" value="5" />    </td>
                             <td> <input type="radio" name="name" value="3" /> </td>
                             <td> <input type="radio" name="name" value="0" /> </td>
+                             <td> <input type="radio" name="name" value="0" /> </td>
                             <td> <input type="text" name="name" value="" id="txtObservacion" /> </td> 
                         </tr>
                     </tbody>
@@ -51,5 +58,11 @@
         </div>
         <div class="row"></div>
     </div>
+
+    <script type="text/javascript">
+
+        cargarTabla();
+
+    </script>
 
 </asp:Content>

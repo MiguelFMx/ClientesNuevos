@@ -310,6 +310,7 @@
     <Compile Include="cliente\F14\ClienteNuevo.aspx.designer.cs">
       <DependentUpon>ClienteNuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\Evaluacion\clsEvaluacion.cs" />
     <Compile Include="F20\CriteriosMinimos.aspx.cs">
       <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,7 +385,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

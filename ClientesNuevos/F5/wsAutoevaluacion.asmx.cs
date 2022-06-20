@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Data.Sql;
+using System.Data;
 
 namespace ClientesNuevos.F5
 {
@@ -19,10 +22,45 @@ namespace ClientesNuevos.F5
     {
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        [WebMethod]
-        public string HelloWorld()
+        public class ListaPreguntas
         {
-            return "Hola a todos";
+            public string numero;
+            public string pregunta;
         }
+
+       [WebMethod]
+       public List<ListaPreguntas> LlenarTabla()
+        {
+            string strSQL = "SELECT Pregunta, Descripcion FROM table_preguntas";
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            List<ListaPreguntas> lstPreguntas = new List<ListaPreguntas>();
+            ListaPreguntas objItem;
+            foreach (DataRow row in dt.Rows)
+            {
+                objItem = new ListaPreguntas();
+                objItem.numero = row["Pregunta"].ToString();
+                objItem.pregunta = row["Descripcion"].ToString();
+
+                lstPreguntas.Add(objItem);
+            }
+
+            return lstPreguntas;
+        }
+
     }
 }
