@@ -9,26 +9,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="container">
+    <div class="container" >
         <!-- Como llenar xd
             automatico
             capturar la informacion del usuario
             
             -->
         <!-- barra de progreso -->
-        <!-- Tabla -->
-
+       
         <div class="row">
-            <div class="progress">
-                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning progress-bar-striped" style="width: 1%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="barradeprogreso"></div>
             </div>
         </div>
+ <!-- Tabla -->
 
         <div class="row">
 
             <div class="col">
                 <table class="table table-hover" id="tPreguntas">
-                    <thead>
+                    <caption>1 de 8</caption>
+                    <thead class="table-dark">
                         <tr>
                             <th>Numero</th>
                             <th>Pregunta</th>
@@ -36,13 +37,18 @@
                             <th>Parcial</th>
                             <th>No</th>
                             <th>N/A</th>
-                            <th>Observciones</th>
+                            <th>Observaciones</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>  
+
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td> <span>1.0.1</span> </td>
-                            <td> <span>La empresa cuenta con procesos verificables y por escrito para la selección de socios comerciales, incluyendo transportistas, otros fabricantes, proveedores de productos y vendedores.. </span> </td>
+                            <td> <span>La empresa cuenta con procesos verificables y por escrito para la selección de .. </span> </td>
                             <td>  <input type="radio" name="name" value="5" />    </td>
                             <td> <input type="radio" name="name" value="3" /> </td>
                             <td> <input type="radio" name="name" value="0" /> </td>
@@ -56,13 +62,18 @@
             </div>
 
         </div>
-        <div class="row"></div>
+        <!-- Botones -->
+        <div class="row">
+            <div class="col-1">
+                <button class="btn btn-secondary" style="font-size:15px;" id="btnAntrior" >Anterior</button>
+            </div>
+            <div class="col-5"></div>
+            <div class="col-5"></div>
+            <div class="col-1"> 
+                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente">Siguiente</button>
+            </div>
+        </div>
     </div>
 
-    <script type="text/javascript">
-
-        cargarTabla();
-
-    </script>
 
 </asp:Content>
