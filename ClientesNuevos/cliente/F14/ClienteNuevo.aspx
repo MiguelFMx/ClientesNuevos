@@ -604,8 +604,12 @@
                 <div class="container">
                 <div class="row">
                     <div class="col">
-                        <label for="txtCTPATSatuts">C-TPAT status:</label>
-                        <input type="text" name="txtCTPATSatuts" value="" id="txtCTPATSatuts" class="form-control" />
+                        <label for="cbCTPATSatuts">C-TPAT status:</label>
+                        <select name="cbCTPATSatuts" id="cbCTPATSatuts" class="form-select" style="font-size:14px;">
+                            <option value="0">Ninguno</option>
+                            <option value="1">Certificado no validado</option>
+                            <option value="2">Certificado validado</option>
+                        </select>
                     </div>
                     <div class="col">
                         <label for="txtCTPATSVI">C-TPAT SVI Numero:</label>
@@ -633,11 +637,6 @@
                     <label for="dtFechaVal">Fecha de validacion:</label>
                     <input type="date" name="" value="" id="dtFechaVal" class="form-control" />
                       </div>
-                <div class="row">
-                    <label for="txtCTPATComment">Comentarios:</label>
-                    <textarea id="txtCTPATComment" class="form-control"></textarea>
-
-                </div>
                     <div class="row">
                         <label>
                             ¿Esta Certificado en CT-PAT o equivalente/WCO acreditado en programa de seguridad de comercio exterior?
@@ -667,10 +666,15 @@
                         <label for="radPropCertificadoNo">No</label>
                     </div>
                 </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="txtCodCrtificado">Codigo de certificacion:</label>
+                            <input type="text" name="txtCodCrtificado" value="" id="txtCodCrtificado" class="form-control" />
+                        </div>
+                    </div>
                 
                </div>
                 <hr />
-
 
                 <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
                 <input type="submit" name="submit" class="submit btn btn-info" value="Finalizar" />

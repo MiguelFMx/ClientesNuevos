@@ -109,7 +109,9 @@
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.js" />
     <Content Include="F14\JsClienteNuevo.js" />
+    <Content Include="F14\JS\InfoComJS.js" />
     <Content Include="F14\Registro.aspx" />
+    <Content Include="F14\Secciones\InformacionCadenaSuministro.html" />
     <Content Include="F14\Secciones\InformacionCompania.html" />
     <Content Include="F14\Secciones\InformacionFacturacion.html" />
     <Content Include="F20\CriteriosMinimos.aspx" />
