@@ -299,7 +299,8 @@
                         <br />
                         <div class="row">
                             <div class="col">
-                                <input type="submit" name="btnContinuar" value="Continuar" class="miBoton" />
+                                <a href="Autoevaluacion/autoevaluacion.aspx" class="btn  btn-success" style="font-size:15px;">Continuar</a>
+                               <%-- <input type="button" name="btnContinuar" value="Continuar" class="miBoton" id="btnContinuar" />--%>
                             </div>
                         </div>
                     </form>
@@ -315,6 +316,15 @@
 
     <script type="text/javascript">
 
+        $(document).ready(function () {
+
+            $('#btnContinuar').click(function () {
+
+                
+
+            });
+
+        });
         
 
         $('input[type=radio][name=radioMiembro]').change(function () {

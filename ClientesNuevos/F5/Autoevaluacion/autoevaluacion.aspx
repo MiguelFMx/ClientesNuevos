@@ -5,6 +5,8 @@
     <script src="../../Scripts/JS/ajax.js"></script>
     <script src="../Evaluacion.js"></script>
 
+    <script src="../../Scripts/bootstrap/js/bootstrap.min.js"></script>
+
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -27,22 +29,15 @@
         <div class="row">
 
             <div class="col">
+                <form action="/" method="post">
                 <table class="table table-hover" id="tPreguntas">
                     <caption>1 de 8</caption>
-                    <thead class="table-dark">
-                        <tr>
+                    <thead class="table-primary">
+                        <tr >
                             <th>Numero</th>
                             <th>Pregunta</th>
-                            <th>Si</th>
-                            <th>Parcial</th>
-                            <th>No</th>
-                            <th>N/A</th>
-                            <th>Observaciones</th>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>  
-
-                            
+                            <th colspan="4">Opciones</th>
+                            <th style="width:300px;">Observaciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +54,8 @@
                     <tfoot></tfoot>
 
                 </table>
+
+                </form>
             </div>
 
         </div>
@@ -67,10 +64,10 @@
             <div class="col-1">
                 <button class="btn btn-secondary" style="font-size:15px;" id="btnAntrior" >Anterior</button>
             </div>
-            <div class="col-5"></div>
-            <div class="col-5"></div>
+            <div class="col-10" ></div>
+           
             <div class="col-1"> 
-                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente">Siguiente</button>
+                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="submit">Siguiente</button>
             </div>
         </div>
     </div>

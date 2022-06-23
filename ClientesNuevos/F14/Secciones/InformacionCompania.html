@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+
+    <script src="../JsClienteNuevo.js"></script>
+</head>
+<body>
+
+    <fieldset >
+        <legend style="font-size:25px;">Información de la compañia</legend>
+
+        <div class="container" id="contenedorComp">
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtNombreCompania">Nombre de la compañia:</label>
+                    <input type="text" name="name" value="" id="txtNombreCompania" class="form-control" style="font-size:16px;" />
+                </div>
+
+
+                <div class="col-6">
+
+                    <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
+                    <input type="text" name="name" value="" id="txtNombrCom" class="form-control" style="font-size:16px;" />
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label for="txtRfc">RFC:</label>
+                    <input type="text" name="name" value="" id="txtRfc" class="form-control " style="font-size:16px;" />
+                </div>
+                <div class="col">
+                    <label for="txtAnosNegocio">Años de negocio:</label>
+                    <input type="number" name="name" value="" id="txtAnosNegocio" class="form-control" style="font-size:16px;" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label for="txtDirecFiscal">Dirección fiscal:</label>
+
+                    <textarea id="txtDirecFiscal" class="form-control" style="font-size:16px;"></textarea>
+                </div>
+            </div>
+
+        </div>
+            <br />
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-3">
+                    <label for="txtCiudad">Ciudad:</label>
+                    <input type="text" name="name" value="" id="txtCiudad" class="form-control" style="font-size:16px;" />
+                </div>
+                <div class="col-2">
+                    <label for="txtEstado">Estado:</label>
+                    <input type="text" name="name" value="" id="txtEstado" class="form-control" style="font-size:16px;" />
+                </div>
+                <div class="col-2">
+                    <label for="txtPais">Pais:</label>
+                    <input type="text" name="name" value="" id="txtPais" class="form-control" style="font-size:16px;" />
+                </div>
+                <div class="col-2">
+                    <label for="txtCP">CP:</label>
+                    <input type="text" name="name" value="" id="txtCP" class="form-control" style="font-size:16px;" />
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <hr />
+            <div id="contactoCompania" class="card" style="padding-bottom:30px;">
+               
+                <div class="card-header">Contacto</div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-1"></div>
+
+                        <div class="col">
+                            <label for="txtNombrCont">Nombre:</label>
+                            <input type="text" name="name" value="" id="txtNombrCont" class="form-control" style="font-size:16px;" />
+                        </div>
+                        <div class="col">
+                            <label for="txtpustoCont">Puesto:</label>
+                            <input type="text" name="name" value="" id="txtpustoCont" class="form-control" style="font-size:16px;" />
+                        </div>
+                        <div class="col-1"></div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-10">
+                        <label for="txtCorreoCont">Correo:&nbsp;</label>
+                        <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" style="font-size:16px;" />
+                    </div>
+                    <div class="col"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <label for="txtFaxCont">Extensión:</label>
+                        <input type="number" name="name" value="" id="txtFaxCont" class="form-control" style="font-size:16px;" />
+                    </div>
+                    <div class="col-4">
+                        <label for="txtTelCont">Telefono:</label>
+                        <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size:16px;" />
+                    </div>
+                    <div class="col-4">
+                        <label for="txtCelCont">Celular:</label>
+                        <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size:16px;" />
+                    </div>
+                    <div col="1"></div>
+
+                </div>
+                </div>
+            
+
+            <hr />
+            <!--<input type="button" name="data[info]" class="next btn btn-info" value="Siguiente" />-->
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <table class="table table-bordered table-dark">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Puesto</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Celular</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!--<td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>-->
+                            </tr>
+                        </tbody>
+                        <tfoot></tfoot>
+
+                    </table>
+                </div>
+                <div class="col-1"></div>
+
+            </div>
+       
+    </fieldset>
+
+
+   
+
+</body>
+</html>

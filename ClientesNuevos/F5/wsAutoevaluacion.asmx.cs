@@ -24,8 +24,8 @@ namespace ClientesNuevos.F5
 
         public class ListaPreguntas
         {
-            public string numero;
-            public string pregunta;
+            public string numero { get; set; }
+            public string pregunta { get; set; }
         }
 
         [WebMethod]
@@ -67,8 +67,9 @@ namespace ClientesNuevos.F5
         [WebMethod]
         public List<ListaPreguntas> LlenarTablaS(string currentStep)
         {
-            //string strSQL = "SELECT Pregunta, Descripcion FROM table_preguntas";
-            string strSQL = "SELECT *, ROW_NUMBER() OVER (ORDER BY ID) AS RowN FROM table_preguntas WHERE Pregunta LIKE '"+currentStep+"%' ORDER BY ID ";
+            
+            //string strSQL = "SELECT *, ROW_NUMBER() OVER (ORDER BY ID) AS RowN FROM table_preguntas WHERE Pregunta LIKE '"+currentStep+"%' ORDER BY ID ";
+            string strSQL = "EXEC getPreguntas2 "+currentStep;
 
             SqlConnection con = new SqlConnection(strConnction);
             SqlCommand cmd = new SqlCommand(strSQL, con);
