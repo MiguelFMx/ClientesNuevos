@@ -70,6 +70,10 @@
                 <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="submit">Siguiente</button>
             </div>
         </div>
+
+        <div>
+            <button id="btnCheck">Checar</button>
+        </div>
     </div>
 
 

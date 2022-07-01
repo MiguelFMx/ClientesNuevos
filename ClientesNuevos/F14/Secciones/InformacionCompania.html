@@ -9,7 +9,7 @@
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../JS/InfoComJS.js"></script>
-
+    <script src="../../Scripts/JS/ajax.js"></script>
     <script src="../JsClienteNuevo.js"></script>
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 
@@ -17,18 +17,46 @@
 <body>
 
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-auto">
+                    <label for="cbTipoDePersona" name="cbTipoDePersona" class="form-label"> Tipo de persona</label>
+                </div>
+                <div class="col-3">
+                    <select id="cbTipoDePersona" class="form-select">
+                        <option value="0">Moral</option>
+                        <option value="1">Fisica</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-auto">
+                    <label for="cbTipoDeRegistro" name="cbTipoDeRegistro" class="form-label"> Tipo de cliente</label>
+                </div>
+                <div class="col-3">
+                    <select id="cbTipoDeRegistro" class="form-select">
+                        <option value="0">Cliente</option>
+                        <option value="1">Proveedor</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <br />
+        <!-- Informacion de compañia-->
         <fieldset>
+
             <legend style="font-size:25px;">Información de la compañia</legend>
 
             <div class="container" id="contenedorComp">
                 <div class="row">
                     <div class="col">
                         <label for="txtNombreCompania">Nombre de la compañia:</label>
-                        <input type="text" name="name" value="" id="txtNombreCompania" class="form-control"  />
+                        <input type="text" name="name" value="" id="txtNombreCompania" class="form-control" />
                     </div>
                     <div class="col">
                         <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
-                        <input type="text" name="name" value="" id="txtNombrCom" class="form-control"  />
+                        <input type="text" name="name" value="" id="txtNombrCom" class="form-control" />
                     </div>
                 </div>
 
@@ -50,34 +78,43 @@
 
                         <textarea id="txtDirecFiscal" class="form-control" style="font-size:16px;"></textarea>
                     </div>
+                    <div class="col">
+                        <label for="txtCP">CP:</label>
+                        <input type="text" name="name" value="" id="txtCP" class="form-control" style="font-size:16px;" />
+                    </div>
                 </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col">
-                    <label for="txtPais">Pais:</label>
-                    <input type="text" name="name" value="" id="txtPais" class="form-control" style="font-size:16px;" />
-                </div>
-                <div class="col">
-                    <label for="txtCiudad">Ciudad:</label>
-                    <input type="text" name="name" value="" id="txtCiudad" class="form-control" style="font-size:16px;" />
-                </div>
-                <div class="col">
-                    <label for="txtEstado">Estado:</label>
-                    <input type="text" name="name" value="" id="txtEstado" class="form-control" style="font-size:16px;" />
-                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="cbPais">Pais:</label>
+                        <select id="cbPais" class="form-select" style="font-size:16px;">
+                            <option value="...">...</option>
+                        </select>
+                        
+                    </div>
+                    <div class="col">
+                        <label for="cboEstado">Estado:</label>
+                        <select id="cboEstado" class="form-select">
+                            <option value="value">...</option>
+                        </select>
+                        
+                    </div>
+                    <div class="col">
+                        <label for="cbCiudad">Ciudad:</label>
+                        <select id="cbCiudad" class="form-select">
+                            <option value="value">...</option>
+                        </select>
+                    </div>
 
-                <div class="col">
-                    <label for="txtCP">CP:</label>
-                    <input type="text" name="name" value="" id="txtCP" class="form-control" style="font-size:16px;" />
                 </div>
+                <br />
             </div>
             <hr />
+            <!--Contactos-->
             <div class="row">
                 <div class="col">
                     <div id="contactoCompania" class="card">
 
-                        <div class="card-header">Contacto</div>
+                        <div class="card-header">Datos de contacto</div>
                         <div class="card-body">
 
                             <div class="row">
@@ -100,21 +137,20 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-5">
+                                    <label for="txtTelCont">Telefono:</label>
+                                    <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size:16px;" />
+                                </div>
                                 <div class="col-2">
                                     <label for="txtFaxCont">Extensión:</label>
                                     <input type="number" name="name" value="" id="txtExtCont" class="form-control" style="font-size:16px;" />
                                 </div>
                                 <div class="col-5">
-                                    <label for="txtTelCont">Telefono:</label>
-                                    <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size:16px;" />
-                                </div>
-                                <div class="col-5">
                                     <label for="txtCelCont">Celular:</label>
                                     <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size:16px;" />
                                 </div>
-
-
                             </div>
+                            <br /><br />
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -125,8 +161,85 @@
                         </div>
                     </div>
                 </div>
+                <!--Datos bancarios-->
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Datos bancarios
+                        </div>
+                          
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="cbMetodoPago">Metodo de pago</label>
+                                    <select id="cbMetodoPago" class="form-select">
+                                        <option value="0">MP1</option>
+                                        <option value="1">MP2</option>
+                                        <option value="2">MP3</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="cbFormaPago">Forma de pago</label>
+                                    <select id="cbFormaPago" class="form-select">
+                                        <option value="0">FP1</option>
+                                        <option value="1">FP2</option>
+                                        <option value="2">FP3</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="cbMoneda">Moneda</label>
+                                    <select id="cbMoneda" class="form-select">
+                                        <option value="0">MXN</option>
+                                        <option value="1">USD</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="cbUsoCFDI">Uso de CFDI</label>
+                                        <select id="cbUsoCFDI" class="form-select">
+                                            <option value="0">uso1</option>
+                                            <option value="1">Uso2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="txtBanco">Nombre del banco</label>
+                                        <input type="text" name="txtBanco" value="" id="txtBanco" class="form-control" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="txtBanco">RFC del banco</label>
+                                        <input type="text" name="txtBancoRFC" value="" id="txtBanco" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="txtNoCuenta">Numero de cuenta</label>
+                                        <input type="text" name="txtNoCuenta" value="" id="txtNoCuenta" class="form-control" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="txtClaveBancaria">Clave bancaria</label>
+                                        <input type="text" name="txtClaveBancaria" value="" id="txtClaveBancaria" class="form-control" maxlength="18" />
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;"id="CURP">
+                                    <div class="col">
+                                        <label for="txtCURP">CURP</label>
+                                        <input type="text" name="txtCURP" value="" id="txtCURP" class="form-control" maxlength="18" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            <br /><br />
+            <div class="row">
                 <div class="col">
                     <table class="table " id="tContactoCom">
+                        <caption>Contactos registrados</caption>
                         <thead class="table-secondary">
                             <tr>
                                 <th>Nombre</th>
@@ -146,10 +259,120 @@
                     </table>
                 </div>
             </div>
-            <hr />          
+            <hr />
         </fieldset>
+
+        <!--Facturacion-->
+        <fieldset>
+
+            <legend style="font-size:25px;">Datos de facturación</legend>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="txtDirecFacturacion">Dirección facturación:</label>
+                            <textarea id="txtDirecFacturacion" class="form-control"></textarea>
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cbPaisFact">Pais:</label>
+                            <select id="cbPaisFact" class="form-select">
+                                <option value="value">...</option>
+                            </select>
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cbEstadoFact">Estado:</label>
+                            <select id="cbEstadoFact" class="form-select">
+                                <option value="value">...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cbCiudadFact">Ciudad:</label>
+                            <select id="cbCiudadFact" class="form-select">
+                                <option value="value">...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="txtCPFacturacion">CP:</label>
+                            <input type="text" name="name" value="" id="txtCPFacturacion" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chkDireccionIgual">
+                                <label class="form-check-label" for="chkDireccionIgual">
+                                    Direccion de facturacion es igual a direccion fiscal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Datos de contacto de facturacion</div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtNombrContFacturacion">Nombre:</label>
+                                    <input type="text" name="name" value="" id="txtNombrContFacturacion" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtCorreoContFacturacion">Correo:</label>
+                                    <input type="email" name="name" value="" id="txtCorreoContFacturacion" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label for="txtCorreoFacturacion2">Correo(si es diferente):</label>
+                                    <input type="email" name="name" value="" id="txtCorreoFacturacion2" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtTelContFacturacion">Telefono:</label>
+                                    <input type="tel" name="name" value="" id="txtTelContFacturacion" class="form-control" />
+                                </div>
+                                <div class="col-2">
+                                    <label for="txtFaxContFacturacion">Extension:</label>
+                                    <input type="number" name="name" value="" id="txtFaxContFacturacion" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label for="txtCelContFacturacion">Celular:</label>
+                                    <input type="tel" name="name" value="" id="txtCelContFacturacion" class="form-control" />
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+        <br /><br />
+              <!--<div class="row">
+                  <div class="col">
+                      <button id="botonBonito" class="btn btn-danger"> Tocame </button>
+                  </div>
+              </div>-->
     </div>
    
-
+    <script type="text/javascript">
+        fillComboPais($("#cbPais"));
+        fillComboPais($("#cbPaisFact"));
+    </script>
 </body>
 </html>

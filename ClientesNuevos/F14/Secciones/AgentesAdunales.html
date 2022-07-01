@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../JS/InfoComJS.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
+    <script src="../JsClienteNuevo.js"></script>
+    <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- fieldset Agente aduanal; cambia con el boton-->
+        <fieldset >
+            <legend style="font-size:25px;" id="lblTitulo">Agente aduanal mexicano </legend>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <label for="txtNombreCompaniaAA" class="form-label">Nombre de la compañia:</label>
+                        <input type="text" name="txtNombreCompaniaAA" value="" id="txtNombreCompaniaAA" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col">
+                        <label for="txtNoPatAA" class="form-label">Numero de patente:</label>
+                        <input type="text" name="txtNoPatAA" value="" id="txtNoPatAA" class="form-control form-control-sm" />
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+                        <label for="txtNombrComAA" class="form-label">Nombre comercial:</label>
+                        <input type="text" name="txtNombrComAA" value="" id="txtNombrComAA" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label for="txtRFCTaxAA" id="lblRFCTaxAAA">RFC:</label> <br />
+                        <input type="text" name="txtRFCTaxAA" value="" id="txtRFCTaxAA" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="txtDirecAA">Dirección:</label>
+                        <textarea name="txtDirecAA"  id="txtDirecAA" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col">
+                        <label for="txtEstadoAA">Estado:</label>
+                        <select id="cbEstadoAA" class="form-select">
+                            <option value="value">...</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="txtCiudadAA">Ciudad:</label>
+                        <select id="cbCiudadAA" class="form-select">
+                            <option value="value">...</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="txtCPAA" id="lblCPAA">Codgio Postal:</label>
+                        <input type="text" name="txtCPAA" value="" id="txtCPAA" class="form-control" />
+                    </div>
+                </div>
+
+                <hr />
+                <div class="card">
+                    <div class="card-header">Contacto</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <label for="txtNombrContAA">Nombre:</label>
+                                <input type="text" name="txtNombrContAA" value="" id="txtNombrContAA" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="txtpuestoContAA">Puesto:</label>
+                                <input type="text" name="txtpuestoContAA" value="" id="txtpuestoContAA" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="txtCorreoContAA">Correo:</label>
+                                <input type="email" name="txtCorreoContAA" value="" id="txtCorreoContAA" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="txtTelContAA">Telefono:</label>
+                                <input type="tel" name="txtTelContAA" value="" id="txtTelContAA" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="txtExtxContAA">Extension:</label>
+                                <input type="text" name="txtExtxContAA" value="" id="txtExtxContAA" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="txtCelContAA">Celular:</label>
+                                <input type="tel" name="name" value="" id="txtCelContAA" class="form-control" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />          
+
+        </fieldset>
+       
+
+        <div class="row">
+            <div class="col">
+                <button id="button" class="btn btn-primary">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fillComboEstado(142, $('#cbEstadoAA'));
+
+
+            $('#button').click(function () {
+                
+                
+
+                if (document.getElementById('button').innerText == 'Siguiente') {
+                    alert('ya es todo');
+                } else {
+                    document.getElementById('button').innerText = 'Siguiente';
+                    document.getElementById("lblTitulo").innerText = "Agente aduanal americano";
+                    document.getElementById("lblRFCTaxAAA").innerText = "Tax ID:";
+                    document.getElementById("lblCPAA").innerText = "Zip code:";
+
+                    //Limpiar textbox
+                    $('#txtNombreCompaniaAA').val('');
+                    $('#txtNoPatAA').val('');
+                    $('#txtNombrComAA').val('');
+                    $('#txtRFCTaxAA').val('');
+                    $('#txtDirecAA').val('');
+                    $('#txtCPAA').val('');
+                    $('#txtNombrContAA').val('');
+                    $('#txtpuestoContAA').val('');
+                    $('#txtCorreoContAA').val('');
+                    $('#txtTelContAA').val('');
+                    $('#txtExtxContAA').val('');
+                    $('#txtCelContAA').val('');
+
+                    fillComboEstado(231, $('#cbEstadoAA'));
+                    $('#cbCiudadAA').empty();
+
+                }
+
+            });
+
+            $("#cbEstadoAA").change(function () {
+                var EstadoSeleccionado = $('#cbEstadoAA option:selected').val();
+
+                fillComboCiudad(EstadoSeleccionado, $('#cbCiudadAA'));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -84,18 +84,20 @@
                         <label>¿Puede proporcionar copia del certificado?</label>
                         <br />
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="radPropCertificado" value="" id="radPropCertificadoSi" class="form-check-input" />
+                            <input type="radio" name="radPropCertificado" value="si" id="radPropCertificadoSi" class="form-check-input" />
                             <label for="radPropCertificadoSi">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="radPropCertificado" value="" id="radPropCertificadoNo" class="form-check-input" />
+                            <input type="radio" name="radPropCertificado" value="no" id="radPropCertificadoNo" class="form-check-input" />
                             <label for="radPropCertificadoNo">No</label>
                         </div>
                     </div>
                 </div>
                 <div class="row" id="divDropZone" style="display:none;">
-                    <div class="col-3">
-                        <div id="dropzone"></div>
+                    <div class="col">
+                        <div id="dropzone">
+                            <input type="file" id="btnFile" accept=".pdf" class="form-group" />
+                        </div>
                     </div>
                 </div>
 
@@ -110,19 +112,28 @@
     <script type="text/javascript">
         $('input[type=radio][name=radCertificado]').change(function () {
             if (this.value == 'si') {
-                $('#divCertificado').show();
+                $('#divCertificado').show('fast');
             }
             else if (this.value == 'no' ) {
-                $('#divCertificado').hide();
+                $('#divCertificado').hide('fast');
 
             }
         });
         $('input[type=radio][name=radValidado]').change(function () {
             if (this.value == 'si') {
-                $('#divFecha').show();
+                $('#divFecha').show('fast');
             }
             else if (this.value == 'no') {
-                $('#divFecha').hide();
+                $('#divFecha').hide('fast');
+
+            }
+        });
+        $('input[type=radio][name=radPropCertificado]').change(function () {
+            if (this.value == 'si') {
+                $('#divDropZone').show('fast');
+            }
+            else if (this.value == 'no') {
+                $('#divDropZone').hide('fast');
 
             }
         });

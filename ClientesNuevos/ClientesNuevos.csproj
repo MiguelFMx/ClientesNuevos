@@ -110,10 +110,13 @@
     <Content Include="cliente\F14\ClienteNuevo.js" />
     <Content Include="F14\JsClienteNuevo.js" />
     <Content Include="F14\JS\InfoComJS.js" />
+    <Content Include="F14\JS\tiposervicioJS.js" />
     <Content Include="F14\Registro.aspx" />
+    <Content Include="F14\Secciones\AgentesAdunales.html" />
     <Content Include="F14\Secciones\InformacionCadenaSuministro.html" />
     <Content Include="F14\Secciones\InformacionCompania.html" />
-    <Content Include="F14\Secciones\InformacionFacturacion.html" />
+    <Content Include="F14\Secciones\TipoServicioProductos.html" />
+    <Content Include="F14\wsUbicacion.asmx" />
     <Content Include="F20\CriteriosMinimos.aspx" />
     <Content Include="F5\Autoevaluacion\autoevaluacion.aspx" />
     <Content Include="F5\EvaluacionSeguridad.aspx" />
@@ -323,6 +326,10 @@
     </Compile>
     <Compile Include="F14\Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\wsUbicacion.asmx.cs">
+      <DependentUpon>wsUbicacion.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="F20\CriteriosMinimos.aspx.cs">
       <DependentUpon>CriteriosMinimos.aspx</DependentUpon>

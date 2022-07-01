@@ -26,6 +26,26 @@ $(document).ready(function () {
         }
     });
 
+
+    $("#btnCheck").click(function () {
+        var pregunta = [];
+        var respuesta = [];
+
+        var numero, radio, texto;
+        $('tr').each(function () {
+
+                numero = $(this).find('.numero').text();
+                radio = $(this).find('.respuesta:checked').val();
+                texto = $(this).find('.observacion').val();
+            if (numero != "") {
+                respuesta = [numero, radio, texto];
+                pregunta.push(respuesta);
+            }
+
+           
+        });
+        console.log(pregunta);
+    });
 });
 
 
@@ -87,7 +107,7 @@ function cargarTablaStepS(currentStep) {
             objBodyPreguntas.append(
                 "<tr>" +
                 //Numero de prgunta
-                "<th style='background-color:#015DAC; color:white;'><span>" + objPrgunta.numero + "</span></th>" +
+                "<td style='background-color:#015DAC; color:white;' class='numero'><span>" + objPrgunta.numero + "</span></td>" +
                 //Descripcion de pregunta
                 "<td><span> " + objPrgunta.pregunta + "</span></td>" + 
                 //Opciones
@@ -95,34 +115,34 @@ function cargarTablaStepS(currentStep) {
                 "<td>" +
                 "<div class='form-check'>" +
                 "<label class='form-check-label' for='si" + objPrgunta.numero + "'>Si</label>" +
-                "<input type='radio' class='form-check-input' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5'  />" +
+                "<input type='radio' class='form-check-input respuesta' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5'  />" +
                 "</div>" +
                 "</td>" +
                 //parcial
                 "<td>" +
                 "<div class='form-check'>" +
                 "<label class='form-check-label' for='parcial" + objPrgunta.numero + "'>Parcial</label>" +
-                "<input type='radio' class='form-check-input' id='parcial" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='3'  />" +
+                "<input type='radio' class='form-check-input respuesta' id='parcial" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='3'  />" +
                 "</div>" +
                 "</td>" +
                 //NO
                 "<td>" +
                 "<div class='form-check'>" +
                 "<label class='form-check-label' for='no" + objPrgunta.numero + "'>No</label>" +
-                "<input type='radio' class='form-check-input' id='no" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='1'  />" +
+                "<input type='radio' class='form-check-input respuesta' id='no" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='1'  />" +
                 "</div>" +                
                 "</td>" +
                 //N/A
                 "<td>" +
                 "<div class='form-check'>" +
                 "<label class='form-check-label' for='na" + objPrgunta.numero + "'>N/A</label>" +
-                "<input type='radio' class='form-check-input' id='na" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='0'  />" +
+                "<input type='radio' class='form-check-input respuesta' id='na" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='0'  />" +
                 "</div>" +
                 "</td>" +
                
                 //texto
                 "<td >" +
-                "<input type='text'  class='form-control form-control-lg' id='txtObservacion" + objPrgunta.numero + "' required/>" +
+                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' required/>" +
                 "</td>" +
                 "</tr>"
             );
@@ -402,3 +422,8 @@ function save(steps) {
 
 }
 
+
+function sacaInfo() {
+
+
+}

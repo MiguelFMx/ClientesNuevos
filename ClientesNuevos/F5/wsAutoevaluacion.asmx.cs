@@ -66,8 +66,7 @@ namespace ClientesNuevos.F5
 
         [WebMethod]
         public List<ListaPreguntas> LlenarTablaS(string currentStep)
-        {
-            
+        {           
             //string strSQL = "SELECT *, ROW_NUMBER() OVER (ORDER BY ID) AS RowN FROM table_preguntas WHERE Pregunta LIKE '"+currentStep+"%' ORDER BY ID ";
             string strSQL = "EXEC getPreguntas2 "+currentStep;
 
