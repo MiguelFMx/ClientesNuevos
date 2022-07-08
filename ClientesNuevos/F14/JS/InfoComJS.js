@@ -3,15 +3,12 @@
 /// <reference path="../../scripts/js/ajax.js" />
 
 
+
 $(document).ready(function () {
     var contador = 0;
 
-    $(document).on('click', '#remove', function () {
-       
-        $(this).parent().closest("tr").remove();
-        contador--;
-    });
 
+    //Alamcenar informacion de contacto
     $('#btnContactoCompañia').on('click', function () {
         var nombre = $('#txtNombrCont');
         var puesto = $('#txtpuestoCont');
@@ -50,7 +47,55 @@ $(document).ready(function () {
             alert('Rellena los campos necesarios');
         }
     });
+    $(document).on('click', '#remove', function () {
+       
+        $(this).parent().closest("tr").remove();
+        contador--;
+    });
 
+    //Almacenar contacto de facturacion
+    $('#btnContactoFact').on('click', function () {
+        var nombreF = $('#txtNombrContFacturacion');
+        var correoF = $('#txtCorreoContFacturacion');
+        var extF = $('#txtExtContFacturacion');
+        var telF = $('#txtTelContFacturacion');
+        var celF = $('#txtCelContFacturacion');
+
+
+        if (nombreF.val() != "" && correoF.val() != "" && telF.val() != "" && celF.val() != "" && extF.val() != "") {
+            if (contador <= 2) {
+                contador++;
+                var tabla = $('#tContactoComFact tbody');
+
+                tabla.append(
+                    "<tr>" +
+                    "<td><span>" + nombreF.val() + "</span></td>" +
+                    "<td><span>" + correoF.val() + "</span></td>" +
+                    "<td><span>" + telF.val() + "</span></td>" +
+                    "<td><span>" + extF.val() + "</span></td>" +
+                    "<td><span>" + celF.val() + "</span></td>" +
+                    "<td><button type='button'class='btn btn-danger' name='removeFact' id='removeFact' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                    "</tr>"
+                );
+                nombreF.val(""); correoF.val(""); extF.val(""); telF.val(""); celF.val("");
+
+                nombre.focus();
+            } else {
+                alert("Solo se pueden registrar 3 contactos");
+            }
+        } else {
+            alert('Rellena los campos necesarios');
+        }
+    });
+    $(document).on('click', '#removeFact', function () {
+
+        $(this).parent().closest("tr").remove();
+        contador--;
+    });
+
+
+
+    //Almacenar informacion de compañia filial en la tabla
     $('#btnAgregarComFilial').on('click', function () {
 
         let nombreCompania = $('#txtNombreCompaniaFilial');
@@ -106,7 +151,8 @@ $(document).ready(function () {
         $(this).parent().closest("tr").remove();
         contador--;
     });
-    
+
+    //Cambio en l tipo de persona ante el SAT
     $("#cbTipoDePersona").change(function () {
         var persona = $('#cbTipoDePersona option:selected').val();
 
@@ -121,6 +167,7 @@ $(document).ready(function () {
 
     });
 
+    //cambio en eel combo de Pais de compañia
     $("#cbPais").change(function () {
         var PaisSeleccionado = $('#cbPais option:selected').val();
 
@@ -132,12 +179,14 @@ $(document).ready(function () {
 
     });
 
+    //cambio en el combobox de Estado de compañia
     $("#cboEstado").change(function () {
         var EstadoSeleccionado = $('#cboEstado option:selected').val();
 
         fillComboCiudad(EstadoSeleccionado, $('#cbCiudad'));
     });
 
+    //cambio en combobox del Pais de dirccion d facturacion
     $("#cbPaisFact").change(function () {
         var PaisSeleccionado = $('#cbPaisFact option:selected').val();
 
@@ -148,12 +197,14 @@ $(document).ready(function () {
 
     });
 
+        //Cambio de opcion en combobox del Estado de dirccion de facturacion
     $("#cbEstadoFact").change(function () {
         var EstadoSeleccionado = $('#cbEstadoFact option:selected').val();
 
         fillComboCiudad(EstadoSeleccionado, $('#cbCiudadFact'));
     });
 
+     //Cambio de opcion en combobox del Pais de Compañia filial
     $("#cbPaisComFilial").change(function () {
         var PaisSeleccionado = $('#cbPaisComFilial option:selected').val();
 
@@ -163,12 +214,14 @@ $(document).ready(function () {
         $('#cbCiudadComFilial').empty();
     });
 
+    //Cambio de opcion en combobox del Estado de Compañia filial
     $("#cboEstadoComFilial").change(function () {
         var EstadoSeleccionado = $('#cboEstadoComFilial option:selected').val();
 
         fillComboCiudad(EstadoSeleccionado, $('#cbCiudadComFilial'));
     });
 
+    //CheckBox para ver si la dirccion es la misma
     $('#chkDireccionIgual').change(function () {
         if ($(this).is(':checked')) {
 
@@ -201,12 +254,22 @@ $(document).ready(function () {
         }
     });
 
-   
+      //creacion de cookie que el tipo de rgistro para no mostrar algunas paginas
+    $('#cbTipoDeRegistro').change(function () {
+        var tipo = $('#cbTipoDeRegistro option:selected').val();
+         //creacion de cookie que el tipo de rgistro para no mostrar algunas paginas
+        switch (tipo) {
+            case 'cliente':
+                sessionStorage.setItem('ctipo', 'cliente');
+                break;
+            case 'proveedor':
+                sessionStorage.setItem('ctipo', 'proveedor');
+                break;
+        }
+    });
    
 });
- $("#botonBonito").on("click", function () {
-        alert('omg');
-    });
+
 
 function fillComboPais(combo) {
 
@@ -302,5 +365,4 @@ function fillComboCiudad(id_ciudad, combo_c) {
     });
     return false;
 }
-
 

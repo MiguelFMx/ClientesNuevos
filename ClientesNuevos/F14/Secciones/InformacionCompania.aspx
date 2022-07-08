@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformacionCompania.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.ImformacionCompania" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <title>Agentes aduanales</title>
+
+    
     <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
@@ -14,21 +13,21 @@
     <script src="../JsClienteNuevo.js"></script>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
-
-</head>
-<body>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
         <div class="row">
 
             <div class="col">
                 <div class="col-auto">
-                    <label for="cbTipoDeRegistro" name="cbTipoDeRegistro" class="form-label"> Tipo de registro</label>
+                    <label for="cbTipoDeRegistro"  class="form-label"> Tipo de registro</label>
                 </div>
                 <div class="col-3">
                     <select id="cbTipoDeRegistro" class="form-select">
-                        <option value="0">Cliente</option>
-                        <option value="1">Proveedor</option>
+                        <option value="" selected>...</option>
+                        <option value="cliente" >Cliente</option>
+                        <option value="proveedor">Proveedor</option>
                     </select>
                 </div>
             </div>
@@ -43,7 +42,7 @@
             <div class="container" id="contenedorComp">
                 <div class="row">
                     <div class="col">                       
-                        <label for="txtNombreCompania" class="form-label">Nombre de la compañia:</label>
+                        <label for="txtNombreCompania" style="margin-bottom: 9px;">Nombre de la compañia:</label>
                         <input type="text" name="name" value="" id="txtNombreCompania" class="form-control" />
                     </div>
                     <div class="col">
@@ -53,8 +52,8 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col" >
-                        <label for="cbTipoDePersona" name="cbTipoDePersona" class="form-label"> Tipo de persona</label>
+                    <div class="col" style="margin-top: -8px;">
+                        <label for="cbTipoDePersona"  class="form-label"> Tipo de persona</label>
                         <select id="cbTipoDePersona" class="form-select">
                             <option value="">...</option>
                             <option value="0" >Moral</option>
@@ -62,47 +61,47 @@
                         </select>
                     </div>
                     <div class="col">
-                        <label for="txtRfc" class="form-label">RFC:</label>
+                        <label for="txtRfc">RFC:</label>
                         <input type="text" name="name" value="" id="txtRfc" class="form-control " style="font-size:16px;" />
                     </div>
                     <div class="col">
-                        <label for="txtAnosNegocio" class="form-label">CURP:</label>
+                        <label for="txtAnosNegocio">CURP:</label>
                         <input type="number" name="txtCURP" value="" id="txtCURP" class="form-control" style="font-size:16px;" />
                     </div>
                     <div class="col">
-                        <label for="txtAnosNegocio" class="form-label">Años de negocio:</label>
+                        <label for="txtAnosNegocio">Años de negocio:</label>
                         <input type="number" name="txtAnosNegocio" value="" id="txtAnosNegocio" class="form-control"  />
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-8">
-                        <label for="txtDirecFiscal" class="form-label">Dirección fiscal:</label>
+                        <label for="txtDirecFiscal">Dirección fiscal:</label>
                         <input type="text" name="txtDirecFiscal" value="" class="form-control"  />
                     </div>
                     <div class="col-4">
-                        <label for="txtCP" class="form-label" >CP:</label>
-                        <input type="text" name="name" value="" id="txtCP" class="form-control" style="font-size:16px;" />
+                        <label for="txtCP">CP:</label>
+                        <input type="text" name="name" value="" id="txtCP" class="form-control" />
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col">
-                        <label for="cbPais" class="form-label">Pais:</label>
-                        <select id="cbPais" class="form-select" style="font-size:16px;">
+                        <label for="cbPais">Pais:</label>
+                        <select id="cbPais" class="form-select">
                             <option value="...">...</option>
                         </select>
                         
                     </div>
                     <div class="col">
-                        <label for="cboEstado" class="form-label">Estado:</label>
+                        <label for="cboEstado">Estado:</label>
                         <select id="cboEstado" class="form-select">
                             <option value="value">...</option>
                         </select>
                         
                     </div>
                     <div class="col">
-                        <label for="cbCiudad" class="form-label">Ciudad:</label>
+                        <label for="cbCiudad">Ciudad:</label>
                         <select id="cbCiudad" class="form-select">
                             <option value="value">...</option>
                         </select>
@@ -133,19 +132,19 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label for="txtDirecFacturacion" class="form-label">Dirección facturación:</label>
+                                    <label for="txtDirecFacturacion">Dirección facturación:</label>
                                     <textarea id="txtDirecFacturacion" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="cbPaisFact" class="form-label">Pais:</label>
+                                    <label for="cbPaisFact">Pais:</label>
                                     <select id="cbPaisFact" class="form-select">
                                         <option value="value">...</option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label for="cbEstadoFact" class="form-label">Estado:</label>
+                                    <label for="cbEstadoFact">Estado:</label>
                                     <select id="cbEstadoFact" class="form-select">
                                         <option value="value">...</option>
                                     </select>
@@ -153,13 +152,13 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="cbCiudadFact" class="form-label">Ciudad:</label>
+                                    <label for="cbCiudadFact">Ciudad:</label>
                                     <select id="cbCiudadFact" class="form-select">
                                         <option value="value">...</option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label for="txtCPFacturacion" class="form-label">CP:</label>
+                                    <label for="txtCPFacturacion">CP:</label>
                                     <input type="text" name="name" value="" id="txtCPFacturacion" class="form-control" />
                                 </div>
                             </div>
@@ -176,7 +175,7 @@
                         <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="cbMetodoPago" class="form-label">Metodo de pago:</label>
+                                        <label for="cbMetodoPago">Metodo de pago</label>
                                         <select id="cbMetodoPago" class="form-select">
                                             <option value="">...</option>
                                             <option value="PUE">PUE - Pago en una sola exhibición</option>
@@ -185,14 +184,14 @@
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <label for="cbFormaPago" class="form-label">Forma de pago:</label>
+                                        <label for="cbFormaPago">Forma de pago</label>
                                         <select id="cbFormaPago" class="form-select">
                                             <option value="">...</option>
 
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <label for="cbMoneda" class="form-label">Moneda:</label>
+                                        <label for="cbMoneda">Moneda</label>
                                         <select id="cbMoneda" class="form-select">
                                             <option value="MXN">MXN</option>
                                             <option value="USD">USD</option>
@@ -201,7 +200,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="cbUsoCFDI" class="form-label">Uso de CFDI:</label>
+                                        <label for="cbUsoCFDI">Uso de CFDI</label>
                                         <select id="cbUsoCFDI" class="form-select">
                                             <option value="">...</option>
                                             
@@ -210,21 +209,21 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="txtBanco"class="form-label">Nombre del banco:</label>
+                                        <label for="txtBanco">Nombre del banco</label>
                                         <input type="text" name="txtBanco" value="" id="txtBanco" class="form-control" />
                                     </div>
                                     <div class="col">
-                                        <label for="txtBanco" class="form-label">RFC del banco:</label>
+                                        <label for="txtBanco">RFC del banco</label>
                                         <input type="text" name="txtBancoRFC" value="" id="txtBanco" class="form-control" />
                                     </div>
                                 </div>
-                                <div class="row" style="padding-bottom: 13px;">
+                                <div class="row" style="padding-bottom: 1.3rem;">
                                     <div class="col">
-                                        <label for="txtNoCuenta" class="form-label">Numero de cuenta:</label>
+                                        <label for="txtNoCuenta">Numero de cuenta</label>
                                         <input type="text" name="txtNoCuenta" value="" id="txtNoCuenta" class="form-control" />
                                     </div>
                                     <div class="col">
-                                        <label for="txtClaveBancaria" class="form-label">Clave bancaria:</label>
+                                        <label for="txtClaveBancaria">Clave bancaria</label>
                                         <input type="text" name="txtClaveBancaria" value="" id="txtClaveBancaria" class="form-control" maxlength="18" />
                                     </div>
                                 </div>
@@ -244,18 +243,18 @@
 
                                       <div class="row">
                                           <div class="col">
-                                              <label for="txtNombrCont" class="form-label">Nombre:</label>
+                                              <label for="txtNombrCont">Nombre:</label>
                                               <input type="text" name="name" value="" id="txtNombrCont" class="form-control" style="font-size:16px;"required />
                                           </div>
                                           <div class="col">
-                                              <label for="txtpustoCont" class="form-label">Puesto:</label>
+                                              <label for="txtpustoCont">Puesto:</label>
                                               <input type="text" name="name" value="" id="txtpuestoCont" class="form-control" style="font-size:16px;"required />
                                           </div>
                                       </div>
 
                                       <div class="row">
                                           <div class="col">
-                                              <label for="txtCorreoCont" class="form-label">Correo:&nbsp;</label>
+                                              <label for="txtCorreoCont">Correo:&nbsp;</label>
                                               <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" style="font-size:16px;" required/>
                                           </div>
 
@@ -263,16 +262,16 @@
 
                                       <div class="row">
                                           <div class="col-5">
-                                              <label for="txtTelCont"class="form-label">Telefono:</label>
+                                              <label for="txtTelCont">Telefono:</label>
                                               <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size:16px;" required/>
                                           </div>
                                           <div class="col-3">
-                                              <label for="txtFaxCont" class="form-label">Extensión:</label>
+                                              <label for="txtFaxCont">Extensión:</label>
                                               <input type="number" name="name" value="" id="txtExtCont" class="form-control" style="font-size:16px;"required />
                                           </div>
 
                                           <div class="col-4">
-                                              <label for="txtCelCont" class="form-label">Celular:</label>
+                                              <label for="txtCelCont">Celular:</label>
                                               <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size:16px;" required />
                                           </div>
                                       </div><br />
@@ -324,13 +323,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <label for="txtNombrContFacturacion" class="form-label">Nombre:</label>
+                                    <label for="txtNombrContFacturacion">Nombre:</label>
                                     <input type="text" name="name" value="" id="txtNombrContFacturacion" class="form-control" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="txtCorreoContFacturacion" class="form-label">Correo:</label>
+                                    <label for="txtCorreoContFacturacion">Correo:</label>
                                     <input type="email" name="name" value="" id="txtCorreoContFacturacion" class="form-control" />
                                 </div>
                                 
@@ -338,15 +337,15 @@
 
                             <div class="row">
                                 <div class="col-5">
-                                    <label for="txtTelContFacturacion" class="form-label">Telefono:</label>
+                                    <label for="txtTelContFacturacion">Telefono:</label>
                                     <input type="tel" name="name" value="" id="txtTelContFacturacion" class="form-control" />
                                 </div>
                                 <div class="col-3">
-                                    <label for="txtFaxContFacturacion" class="form-label">Extension:</label>
-                                    <input type="number" name="name" value="" id="txtFaxContFacturacion" class="form-control" />
+                                    <label for="txtExtContFacturacion">Extension:</label>
+                                    <input type="number" name="name" value="" id="txtExtContFacturacion" class="form-control" />
                                 </div>
                                 <div class="col-4">
-                                    <label for="txtCelContFacturacion" class="form-label">Celular:</label>
+                                    <label for="txtCelContFacturacion">Celular:</label>
                                     <input type="tel" name="name" value="" id="txtCelContFacturacion" class="form-control" />
                                 </div>
                             </div>
@@ -368,7 +367,6 @@
                         <thead class="cabezal">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Puesto</th>
                                 <th>Telefono</th>
                                 <th>Ext</th>
                                 <th>Celular</th>
@@ -386,11 +384,37 @@
 
         </fieldset>
         <br />
+        <div class="row">
+            <br />
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button id="btnContinuar" class="btn btn-success">Continuar</button>
+            </div>
+            <br />
+        </div>
+        <hr />
     </div>
    
     <script type="text/javascript">
         fillComboPais($("#cbPais"));
         fillComboPais($("#cbPaisFact"));
+        fillFP();
+
+
+        $('#btnContinuar').click(function () {
+            switch (sessionStorage.getItem('ctipo')) {
+                case 'cliente':
+                    window.location.href = 'AgentesAduanales.aspx';
+                    break;
+                case 'proveedor':
+                    window.location.href = 'InformacionCadenaSuministro.aspx';
+
+                    break;
+                default:
+                    alert('selecciona un tipo de registro');
+                    break;
+            }
+        });
     </script>
-</body>
-</html>
+
+</asp:Content>

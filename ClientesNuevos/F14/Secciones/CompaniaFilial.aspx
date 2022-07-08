@@ -165,11 +165,11 @@
                     </table>
             </div>--%>
         </div>
-
+        <hr />
         <div class="row" >
-            <div class="col">
-                <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-                <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button id="btnContinuar" class="btn btn-success">Continuar</button>
             </div>
         </div>
         
@@ -178,6 +178,8 @@
     
     <script type="text/javascript">
         fillComboPais($('#cbPaisComFilial'));
-
+        $('#btnContinuar').click(function () {
+            window.location.href = 'TipoServicioProductos.aspx';
+        });
     </script>
 </asp:Content>

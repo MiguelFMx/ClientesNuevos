@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgentesAduanales.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.AgentesAduanales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-   
+   <title>Agentes aduanales</title>
+
      <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
      <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
@@ -223,11 +224,11 @@
 
         </fieldset>
        
-
+            <hr />
         <div class="row">
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-primary"> Continuar </button>
+                <button id="btnContinuar" class="btn btn-success"> Continuar </button>
             </div>
         </div>
     </div>
@@ -248,6 +249,10 @@
                 var EstadoSeleccionado = $('#cbEstadoAA option:selected').val();
 
                 fillComboCiudad(EstadoSeleccionado, $('#cbCiudadAAm'));
+            });
+
+            $('#btnContinuar').click(function () {
+                window.location.href = 'CompaniaFilial.aspx';
             });
         });
     </script>
