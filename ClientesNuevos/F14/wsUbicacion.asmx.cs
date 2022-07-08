@@ -27,6 +27,12 @@ namespace ClientesNuevos.F14
             public string id { get; set; }
             public string fullname { get; set; }
         }
+        public class CFDI
+        {
+            public string clave { get; set; }
+            public string descripcion { get; set; }
+        }
+
         List<ListaPais> lstPais;
 
 
@@ -137,6 +143,88 @@ namespace ClientesNuevos.F14
             }
 
             return lstPais;
+        }
+
+
+        [WebMethod]
+        public List<CFDI> llenarCFDI(int tipo)
+        {
+            string strSQL = "";
+            
+            if(tipo == 0) //moral
+            {
+                strSQL = "SELECT * FROM table_UsoCFDI WHERE Regimen='1' ";
+
+            }else if(tipo == 1) //fisica
+            {
+                strSQL = "SELECT * FROM table_UsoCFDI";
+            }
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL,con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            List<CFDI> lstCFDI = new List<CFDI>();
+            CFDI objCFDI;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                objCFDI = new CFDI();
+                objCFDI.clave = row["Clave"].ToString();
+                objCFDI.descripcion = row["Descripcion"].ToString();
+
+                lstCFDI.Add(objCFDI);
+            }
+
+            return lstCFDI;
+        }
+
+
+
+        [WebMethod]
+        public List<CFDI> llenarFormaPago()
+        {
+
+            string strSQL = "SELECT * FROM table_FormaPago";
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException e)
+            {
+                
+            }
+
+           List<CFDI> lstFP = new List<CFDI>();
+            CFDI objCFDI;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                objCFDI = new CFDI();
+                objCFDI.clave = row["clave"].ToString();
+                objCFDI.descripcion = row["descripcion"].ToString();
+
+                lstFP.Add(objCFDI);
+            }
+
+            return lstFP;
         }
     }
 }

@@ -10,7 +10,7 @@
         
 
             <iframe src="Secciones/InformacionCompania.html" style="width:100%; border:none; height:100%;" title="IframeComp" id="IframeComp" scrolling="no" onload="resizeIframe(this)" ></iframe>
-       
+
 
         <div class="row">
             <div class="col-10"></div>

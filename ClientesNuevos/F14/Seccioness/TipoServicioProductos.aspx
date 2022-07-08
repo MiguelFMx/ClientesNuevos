@@ -1,9 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TipoServicioProductos.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.TipoServicioProductos" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+        <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
@@ -11,9 +9,10 @@
     <script src="../JsClienteNuevo.js"></script>
     <script src="../JS/tiposervicioJS.js"></script>
 
-</head>
-<body>
-    <div class="container">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+     <div class="container">
         <div class="row" id="ServicioRqurido">
             <h3>Tipo de servicio requerido</h3>
 
@@ -348,10 +347,6 @@
                     </div>
                 </div>
             </section>
-
-
-
-
             <section id="Otro">
                 <div class="row">
                     <div class="col">
@@ -394,9 +389,6 @@
                 </table>
             </fieldset>
         </div>
-
-
-        
     </div>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
@@ -404,4 +396,5 @@
 
     </script>
 </body>
-</html>
+
+</asp:Content>

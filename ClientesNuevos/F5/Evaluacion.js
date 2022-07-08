@@ -1,83 +1,292 @@
 ﻿/// <reference path="../scripts/js/ajax.js" />
 /// <reference path="../scripts/jquery-3.6.0.min.js" />
 
-var current = 1;
-$(document).ready(function () {
 
+
+var current = 1;
+
+var error = [];
+var pregunta = [];
+var A1 = [],
+    A2 = [],
+    A3 = [],
+    A4 = [],
+    A5 = [],
+    A6 = [],
+    A7 = [],
+    A8 = [];
+var respuestas = [];
+
+$(document).ready(function () {
+   
     setProgressBar(current);
 
     cargarTablaStepS(current);
 
 
-    $("#btnSiguiente").click(function () {
+    //$("#btnnext").click(function () {
 
-        if (current < 8) {
-            current++;
-            setProgressBar(current);
-            cargarTablaStepS(current);
+    //    if (current < 8) {
+    //        current++;
+    //        setProgressBar(current);
+    //        cargarTablaStepS(current);
+    //    }
+    //});
+    $('#btnSiguiente').click(function () {
+
+        guardarRespuestas();
+
+        if (error.length == 0) {
+            if (current < 8) {
+                current++;
+                setProgressBar(current);
+                switch (current) {
+                    case 1:
+                        if (A1.length != 0) {
+                            cargarTablaRespuesta(current, A1);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 2:
+                        if (A2.length != 0) {
+                            cargarTablaRespuesta(current, A2);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 3:
+                        if (A3.length != 0) {
+                            cargarTablaRespuesta(current, A3);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 4:
+                        if (A4.length != 0) {
+                            cargarTablaRespuesta(current, A4);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 5:
+                        if (A5.length != 0) {
+                            cargarTablaRespuesta(current, A5);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 6:
+                        if (A6.length != 0) {
+                            cargarTablaRespuesta(current, A6);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 7:
+                        if (A7.length != 0) {
+                            cargarTablaRespuesta(current, A7);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                    case 8:
+                        if (A8.length != 0) {
+                            cargarTablaRespuesta(current, A8);
+                        } else {
+                            cargarTablaStepS(current);
+                        }
+                        break;
+                }
+            } else {
+                if (A8.length != 0) {
+                    cargarTablaRespuesta(current, A8);
+                }
+
+                let alert = confirm('Esta seguro que desea continuar?');
+                if (alert) {
+                    respuestas.push(A1);
+                    respuestas.push(A2);
+                    respuestas.push(A3);
+                    respuestas.push(A4);
+                    respuestas.push(A5);
+                    respuestas.push(A6);
+                    respuestas.push(A7);
+                    respuestas.push(A8);
+
+                    console.log(respuestas);
+
+                    console.log(respuestas[0], respuestas[0][0]);
+                }
+            }
+        } else {
+            error = [];
         }
     });
-
-    $("#btnAntrior").click(function () {
+    //$("#btnback").click(function () {
+    //    if (current >= 2) {
+    //        current--;
+    //        setProgressBar(current);
+    //        cargarTablaStepS(current);
+    //    }
+    //});
+    $('#btnAnterior').click(function () {
         if (current >= 2) {
             current--;
             setProgressBar(current);
-            cargarTablaStepS(current);
+
+            switch (current) {
+                case 1:
+                    if (A1.length != 0) {
+                        cargarTablaRespuesta(current, A1);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 2:
+                    if (A2.length != 0) {
+                        cargarTablaRespuesta(current, A2);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 3:
+                    if (A3.length != 0) {
+                        cargarTablaRespuesta(current, A3);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 4:
+                    if (A4.length != 0) {
+                        cargarTablaRespuesta(current, A4);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 5:
+                    if (A5.length != 0) {
+                        cargarTablaRespuesta(current, A5);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 6:
+                    if (A6.length != 0) {
+                        cargarTablaRespuesta(current, A6);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 7:
+                    if (A7.length != 0) {
+                        cargarTablaRespuesta(current, A7);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+                case 8:
+                    if (A8.length != 0) {
+                        cargarTablaRespuesta(current, A8);
+                    } else {
+                        cargarTablaStepS(current);
+                    }
+                    break;
+            }
+            
         }
     });
 
+    $('#btnMostrar2').click(function () {
+        console.log(respuestas);
+        console.log('------------');
+        console.log(respuestas[0]);
+        console.log('-----');
+        console.log(respuestas[0][0]);
+        console.log('-----------');
+        console.log(respuestas[0][0][0]);
+    });
 
     $("#btnCheck").click(function () {
-        var pregunta = [];
+
         var respuesta = [];
-
+        var error = []
         var numero, radio, texto;
+
+        //Limpio arreglo tmporal para que volver a llenarlo
+        vaciarTemp(current);
+
+        //recorro cada tag tr de la  tabla
         $('tr').each(function () {
+            numero = $(this).find('.numero').text();
+            radio = $(this).find('.respuesta:checked').val();
+            texto = $(this).find('.observacion').val();
 
-                numero = $(this).find('.numero').text();
-                radio = $(this).find('.respuesta:checked').val();
-                texto = $(this).find('.observacion').val();
+            //si numero esta vacio significa que es titulo, si hay un numero es pregunta
             if (numero != "") {
-                respuesta = [numero, radio, texto];
-                pregunta.push(respuesta);
-            }
+                //reviso si se selecciono un radio
+                if (radio == 5 || radio == 3 || radio == 1 || radio == 0) {
 
-           
+                    //Guardo los valores en un arreglo
+                    respuesta = [numero, radio, texto];
+
+                    //inserto ese arreglo en un arreglo temporal dependiendo del bloque
+                    GuardarTemp(current, respuesta);
+                   
+                } else {
+                    //si no se selecciono un radio,agrego el numero de pregunta a un arreglo de error
+                    error.push(numero);                   
+                }
+                
+               
+            }           
         });
-        console.log(pregunta);
+
+        //si el arreglo tiene objetos
+        if (error.length > 0) {
+
+            let aux = 'Falto llenar las preguntas:\n';
+
+            //Recorro arreglo error
+        for (var i = 0; i < error.length; i++) {
+            aux += error[i] + '\n';
+            }
+            //vacio el arreglo temporal para que no se llene de nuevo
+            vaciarTemp(current);
+
+            //Muestro listado de preguntas faltantes
+            alert(aux);
+        }
+
     });
+
+    $('#btnMostrar').click(function () {
+        console.log('Bloque 1');
+        console.log(A1);
+        console.log('Bloque 2');
+        console.log(A2);
+        console.log('Bloque 3');
+        console.log(A3);
+        console.log('Bloque 4');
+        console.log(A4);
+        console.log('Bloque 5');
+        console.log(A5);
+        console.log('Bloque 6');
+        console.log(A6);
+        console.log('Bloque 7');
+        console.log(A7);
+        console.log('Bloque 8');
+        console.log(A8);
+    });
+
+    //$('#tPreguntas').click(function () {
+    //    var row = $(this).closest('tr');
+    //    row.removeAttr('style');
+      
+    //});
+    
 });
 
-
-
-
-
-function cargarTabla() {
-    
-
-    GetAjax("../wsAutoevaluacion.asmx/LlenarTabla", "", false, function (lstPreguntas){
-        var objPrgunta;
-        var objBodyPreguntas = $("#tPreguntas tbody");
-        objBodyPreguntas.empty();
-        for (var i = 0; i < lstPreguntas.length; i++) {
-            objPrgunta = lstPreguntas[i];
-            objBodyPreguntas.append(
-                "<tr>" +
-                "<th scop='col' ><span>" + objPrgunta.numero + "</span></th>" +
-                "<td><span> " + objPrgunta.pregunta + "</span></td>" + //<th scope="row">1</th>
-                "<td><input type='radio' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5'  /></td>" +
-                "<td><input type='radio'  id='parcial" + objPrgunta.numero + "'name='pregunta" + objPrgunta.numero + "' value='3'  /></td>" +
-                "<td><input type='radio'  id='no" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='0'  /></td>" +
-                "<td><input type='radio'  id='na" + objPrgunta.numero + "'  name='pregunta" + objPrgunta.numero + "' value='0'  /></td>" +
-                "<td><input type='text' id='txtObservacion" + objPrgunta.numero + "' /></td>" +
-                "</tr>"
-            );
-        }
-        return false;
-    });
-        setProgressBar(current);
-    return false;
-}
 
 // actualizar barra
 function setProgressBar(curStep) {
@@ -105,7 +314,7 @@ function cargarTablaStepS(currentStep) {
             objBodyPreguntas.append(Titulos(objPrgunta.numero));
 
             objBodyPreguntas.append(
-                "<tr>" +
+                "<tr id='" + objPrgunta.numero +"'>" +
                 //Numero de prgunta
                 "<td style='background-color:#015DAC; color:white;' class='numero'><span>" + objPrgunta.numero + "</span></td>" +
                 //Descripcion de pregunta
@@ -142,7 +351,7 @@ function cargarTablaStepS(currentStep) {
                
                 //texto
                 "<td >" +
-                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' required/>" +
+                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' value=''/>" +
                 "</td>" +
                 "</tr>"
             );
@@ -416,14 +625,219 @@ function Titulos(numeroPregunta) {
     return tittle;
 }
 
-function save(steps) {
 
 
 
+//Cargar tabla con respuestas, numro de paso(bloque) y arreglo de respuestas
+function cargarTablaRespuesta(currentStep, arreglo) {
+
+    GetAjax("../wsAutoevaluacion.asmx/LlenarTablaS", "'currentStep':'" + currentStep + "'", false, function (lstPreguntas) {
+        var objPrgunta, radiosi, radioparcial, radiono, radiona;
+        var objBodyPreguntas = $("#tPreguntas tbody");
+        objBodyPreguntas.empty();
+        for (var i = 0; i < lstPreguntas.length; i++) { //en teoria ambos arreglo son iguales
+            objPrgunta = lstPreguntas[i];
+
+            //colocacion de titulos
+            objBodyPreguntas.append(Titulos(objPrgunta.numero));
+
+            radiosi = 
+                "<input type='radio' class='form-check-input respuesta' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5'  />";
+
+            radioparcial = 
+                "<input type='radio' class='form-check-input respuesta' id='parcial" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='3'  />";
+
+            radiono =
+                "<input type='radio' class='form-check-input respuesta' id='no" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='1'  />";
+
+            radiona = 
+                "<input type='radio' class='form-check-input respuesta' id='na" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='0'  />";
+
+       
+            switch (arreglo[i][1]) {
+                case '5':
+                    radiosi =
+                        "<input type='radio' class='form-check-input respuesta' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5' checked />";
+                    break;
+                case '3':
+                    radioparcial =
+                        "<input type='radio' class='form-check-input respuesta' id='parcial" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='3'  checked/>";
+                    break;
+                case '1':
+                    radiono =
+                        "<input type='radio' class='form-check-input respuesta' id='no" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='1'  checked/>";
+                    break;
+                case '0':
+                    radiona =
+                        "<input type='radio' class='form-check-input respuesta' id='na" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='0'  checked/>";
+                    break;
+            }
+            objBodyPreguntas.append(
+                "<tr id='" + objPrgunta.numero+"'>" +
+                //Numero de prgunta
+                "<td style='background-color:#015DAC; color:white;' class='numero'><span>" + objPrgunta.numero + "</span></td>" +
+                //Descripcion de pregunta
+                "<td><span> " + objPrgunta.pregunta + "</span></td>" +
+                //Opciones
+                //si
+                "<td>" +
+                "<div class='form-check'>" +
+                "<label class='form-check-label' for='si" + objPrgunta.numero + "'>Si</label>" +
+                radiosi +
+                "</div>" +
+                "</td>" +
+                //parcial
+                "<td>" +
+                "<div class='form-check'>" +
+                "<label class='form-check-label' for='parcial" + objPrgunta.numero + "'>Parcial</label>" +
+                radioparcial +
+                "</div>" +
+                "</td>" +
+                //NO
+                "<td>" +
+                "<div class='form-check'>" +
+                "<label class='form-check-label' for='no" + objPrgunta.numero + "'>No</label>" +
+                radiono +
+                "</div>" +
+                "</td>" +
+                //N/A
+                "<td>" +
+                "<div class='form-check'>" +
+                "<label class='form-check-label' for='na" + objPrgunta.numero + "'>N/A</label>" +
+                radiona+
+                "</div>" +
+                "</td>" +
+
+                //texto
+                "<td >" +
+                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' value='" + arreglo[i][2] +"' required/>" +
+                "</td>" +
+                "</tr>"
+            );
+        }
+        return false;
+    });
+    setProgressBar(current);
+    document.documentElement.scrollTop = 0;
+
+
+    return false;
+}
+
+function guardarRespuestas() {
+    var respuesta = [];
+    var numero, radio, texto;
+
+    //Limpio arreglo tmporal para que volver a llenarlo
+    vaciarTemp(current);
+
+    //recorro cada tag tr de la  tabla
+    $('tr').each(function () {
+        numero = $(this).find('.numero').text();
+        radio = $(this).find('.respuesta:checked').val();
+        texto = $(this).find('.observacion').val();
+
+        //si numero esta vacio significa que es titulo, si hay un numero es pregunta
+        if (numero != "") {
+            //reviso si se selecciono un radio
+            if (radio == 5 || radio == 3 || radio == 1 || radio == 0) {
+
+                //Guardo los valores en un arreglo
+                respuesta = [numero, radio, texto];
+
+                //inserto ese arreglo en un arreglo temporal dependiendo del bloque
+                GuardarTemp(current, respuesta);
+
+            } else {
+                //si no se selecciono un radio,agrego el numero de pregunta a un arreglo de error
+                error.push(numero);
+            }
+
+
+        }
+    });
+
+    //si el arreglo tiene objetos
+    if (error.length > 0) {
+
+        let aux = 'Falto llenar las preguntas:\n';
+
+        //Recorro arreglo error
+        for (var i = 0; i < error.length; i++) {
+            aux += error[i] + '\n';
+
+        /*Mostrar las respuestas faltantes */
+
+            document.getElementById((error[i])).style.outline = 'red solid 1px';
+            document.getElementById((error[i])).style.borderColor = 'red';
+            document.getElementById((error[i])).style.boxShadow = '0 0 30px red';
+        }
+        //vacio el arreglo temporal para que no se llene de nuevo
+        vaciarTemp(current);
+
+        //Muestro listado de preguntas faltantes
+        alert(aux);
+    }
 }
 
 
-function sacaInfo() {
 
+function GuardarTemp(step,arreglo) {
+    switch (step) {
+        case 1:
+            A1.push(arreglo);
+            break;
+        case 2:
+            A2.push(arreglo);
+            break;
+        case 3:
+            A3.push(arreglo);
+            break;
+        case 4:
+            A4.push(arreglo);
+            break;
+        case 5:
+            A5.push(arreglo);
+            break;
+        case 6:
+            A6.push(arreglo);
+            break;
+        case 7:
+            A7.push(arreglo);
+            break;
+        case 8:
+            A8.push(arreglo);
+            break;
 
+    }
+}
+
+function vaciarTemp(step) {
+    switch (step) {
+        case 1:
+            A1 = [];
+            break;
+        case 2:
+            A2 = [];
+            break;
+        case 3:
+            A3 = [];
+            break;
+        case 4:
+            A4 = [];
+            break;
+        case 5:
+            A5 = [];
+            break;
+        case 6:
+            A6 = [];
+            break;
+        case 7:
+            A7 = [];
+            break;
+        case 8:
+            A8 = [];
+            break;
+
+    }
 }

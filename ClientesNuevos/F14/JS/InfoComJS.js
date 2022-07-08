@@ -6,51 +6,130 @@
 $(document).ready(function () {
     var contador = 0;
 
-    $('#btnContactoCompañia').click(function () {
-        if (contador <= 2) {
-            contador++;
-            //tContactoCom
-            var nombre = $('#txtNombrCont');
-            var puesto = $('#txtpuestoCont');
-            var correo = $('#txtCorreoCont');
-            var ext = $('#txtExtCont');
-            var tel = $('#txtTelCont');
-            var cel = $('#txtCelCont');
-
-            var tabla = $('#tContactoCom tbody');
-
-            tabla.append(
-                "<tr>" +
-                "<td><span>" + nombre.val() + "</span></td>" +
-                "<td><span>" + puesto.val() + "</span></td>" +
-                "<td><span>" + correo.val() + "</span></td>" +
-                "<td><span>" + ext.val() + "</span></td>" +
-                "<td><span>" + tel.val() + "</span></td>" +
-                "<td><span>" + cel.val() + "</span></td>" +
-                "<td><button type='button'class='btn btn-danger' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
-                "</tr>"
-            );
-            nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
-
-            nombre.focus();
-        } else {
-            alert("Solo se pueden registrar 3 contactos");
-        }
-
-    });
     $(document).on('click', '#remove', function () {
        
         $(this).parent().closest("tr").remove();
         contador--;
     });
 
+    $('#btnContactoCompañia').on('click', function () {
+        var nombre = $('#txtNombrCont');
+        var puesto = $('#txtpuestoCont');
+        var correo = $('#txtCorreoCont');
+        var ext = $('#txtExtCont');
+        var tel = $('#txtTelCont');
+        var cel = $('#txtCelCont');
+
+
+        if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
+            if (contador <= 2) {
+                contador++;
+                //tContactoCom
+
+
+                var tabla = $('#tContactoCom tbody');
+
+                tabla.append(
+                    "<tr>" +
+                    "<td><span>" + nombre.val() + "</span></td>" +
+                    "<td><span>" + puesto.val() + "</span></td>" +
+                    "<td><span>" + correo.val() + "</span></td>" +
+                    "<td><span>" + tel.val() + "</span></td>" +
+                    "<td><span>" + ext.val() + "</span></td>" +
+                    "<td><span>" + cel.val() + "</span></td>" +
+                    "<td><button type='button'class='btn btn-danger' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                    "</tr>"
+                );
+                nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
+
+                nombre.focus();
+            } else {
+                alert("Solo se pueden registrar 3 contactos");
+            }
+        } else {
+            alert('Rellena los campos necesarios');
+        }
+    });
+
+    $('#btnAgregarComFilial').on('click', function () {
+
+        let nombreCompania = $('#txtNombreCompaniaFilial');
+        let nombreComercial = $('#txtNombrComFilial');
+        let direccion = $('#txtDirecFiscalComFilial');
+        let rfc = $('#txtRfcComFilial');
+        let pais = $('#cbPaisComFilial option:selected');
+        let estado = $('#cboEstadoComFilial option:selected');
+        let ciudad = $('#cbCiudadComFilial option:selected');
+        let cp = $('#txtCPComFIlial');
+        let contacto = $('#txtNombrContFilial');
+        let puesto = $('#txtPuestoContFilial');
+        let correo = $('#txtCorreoContFilial');
+        let tel = $('#txtTelContFilial');
+        let ext = $('#txtExtContFilial');
+        let cel = $('#txtCelContFilial');
+       
+
+        //if (nombreCompania.val() != "" && nombreComercial.val() != "" && direccion.val() != "" && rfc.val() != "" && pais.val() != "" && estado.val() != "" && ciudad.val() != "" && cp.val() != "" && contacto.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
+
+                //tContactoCom
+        var tabla2 = $('#tComFil tbody');
+
+                tabla2.append(
+                    "<tr>" +
+                    "<td><span>" + nombreCompania.val() + "</span></td>" +
+                    "<td><span>" + nombreComercial.val() + "</span></td>" +
+                    "<td><span>" + direccion.val() + "</span></td>" +
+                    "<td><span>" + rfc.val() + "</span></td>" +
+                    "<td><span>" + pais.html() + "</span></td>" +
+                    "<td><span>" + estado.val() + "</span></td>" +
+                    "<td><span>" + ciudad.val() + "</span></td>" +
+                    "<td><span>" + cp.val() + "</span></td>" +
+                    "<td><span>" + contacto.val() + "</span></td>" +
+                    "<td><span>" + puesto.val() + "</span></td>" +
+                    "<td><span>" + correo.val() + "</span></td>" +
+                    "<td><span>" + tel.val() + "</span></td>" +
+                    "<td><span>" + ext.val() + "</span></td>" +
+                    "<td><span>" + cel.val() + "</span></td>" +
+                    "<td><button type='button'class='btn btn-danger' name='removefil' id='removefil' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                    "</tr>"
+                );
+                //nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
+
+                //nombre.focus();
+            
+        //} else {
+        //    alert('Rellena los campos necesarios');
+        //}
+    });
+    $(document).on('click', '#removefil', function () {
+
+        $(this).parent().closest("tr").remove();
+        contador--;
+    });
+    
+    $("#cbTipoDePersona").change(function () {
+        var persona = $('#cbTipoDePersona option:selected').val();
+
+        if (persona == '1') {
+            $('#txtCURP').prop('readonly', false);
+            fillCFDI('1');
+        } else {
+            $('#txtCURP').prop('readonly', true);
+            fillCFDI('0');
+
+        }
+
+    });
 
     $("#cbPais").change(function () {
         var PaisSeleccionado = $('#cbPais option:selected').val();
 
         fillComboEstado(PaisSeleccionado, $('#cboEstado'));
 
-        $("#cbPaisFact option[value='" + PaisSeleccionado + "']").prop('selected', true);
+        $('#cbCiudad').empty();
+        $('#cbPais option[value=0]').remove();
+
+
     });
 
     $("#cboEstado").change(function () {
@@ -59,11 +138,14 @@ $(document).ready(function () {
         fillComboCiudad(EstadoSeleccionado, $('#cbCiudad'));
     });
 
-
     $("#cbPaisFact").change(function () {
         var PaisSeleccionado = $('#cbPaisFact option:selected').val();
 
         fillComboEstado(PaisSeleccionado, $('#cbEstadoFact'));
+
+        $('#cbCiudadFact').empty();
+        $('#cbPaisFact option[value=0]').remove();
+
     });
 
     $("#cbEstadoFact").change(function () {
@@ -72,6 +154,20 @@ $(document).ready(function () {
         fillComboCiudad(EstadoSeleccionado, $('#cbCiudadFact'));
     });
 
+    $("#cbPaisComFilial").change(function () {
+        var PaisSeleccionado = $('#cbPaisComFilial option:selected').val();
+
+        fillComboEstado(PaisSeleccionado, $('#cboEstadoComFilial'));
+
+        $('#cbPaisComFilial option[value=0]').remove();
+        $('#cbCiudadComFilial').empty();
+    });
+
+    $("#cboEstadoComFilial").change(function () {
+        var EstadoSeleccionado = $('#cboEstadoComFilial option:selected').val();
+
+        fillComboCiudad(EstadoSeleccionado, $('#cbCiudadComFilial'));
+    });
 
     $('#chkDireccionIgual').change(function () {
         if ($(this).is(':checked')) {
@@ -105,7 +201,7 @@ $(document).ready(function () {
         }
     });
 
-
+   
    
 });
  $("#botonBonito").on("click", function () {
@@ -118,6 +214,9 @@ function fillComboPais(combo) {
         var ObjPais;
         var ObjcbPais = combo;
         ObjcbPais.empty();
+        ObjcbPais.append(
+            "<option value='0'>...</option>"
+        );
         for (var i = 0; i < lstPais.length; i++) {
             ObjPais = lstPais[i];
 
@@ -125,10 +224,48 @@ function fillComboPais(combo) {
                 "<option value=" + ObjPais.id + ">" + ObjPais.fullname + "</option>"                       
             );
         }
+        ObjcbPais.val('0').prop('selectd', true);
         return false;
     });
 
 
+    return false;
+}
+
+//llenarCFDI
+function fillCFDI(regimen) {
+    GetAjax("../wsUbicacion.asmx/llenarCFDI", "'tipo':"+regimen, false, function (lstCFDI) {
+        var ObjCFDI;
+        var cbCFDI = $('#cbUsoCFDI');
+        cbCFDI.empty();
+        for (var i = 0; i < lstCFDI.length; i++) {
+            ObjCFDI = lstCFDI[i];
+
+            cbCFDI.append(
+                "<option value=" + ObjCFDI.clave + ">" + ObjCFDI.clave + " - " + ObjCFDI.descripcion + "</option>"
+            );
+        }
+        cbCFDI.val('P01').prop('selected', true);
+        return false;
+    });
+    return false;
+}
+
+function fillFP() {
+    GetAjax("../wsUbicacion.asmx/llenarFormaPago", "", false, function (lstFP) {
+        var ObjFP;
+        var cbFP = $('#cbFormaPago');
+        cbFP.empty();
+        for (var i = 0; i < lstFP.length; i++) {
+            ObjFP = lstFP[i];
+
+            cbFP.append(
+                "<option value=" + ObjFP.clave + ">" + ObjFP.clave + " - " + ObjFP.descripcion + "</option>"
+            );
+        }
+        cbFP.val('99').prop('selected', true);
+        return false;
+    });
     return false;
 }
 
@@ -165,4 +302,5 @@ function fillComboCiudad(id_ciudad, combo_c) {
     });
     return false;
 }
+
 

@@ -1,16 +1,19 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformacionCadenaSuministro.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.InformacionCadenaSuministro" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+       <link href="../../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
-
+    <script src="../JS/InfoComJS.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
     <script src="../JsClienteNuevo.js"></script>
-</head>
-<body>
+
+    <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <div class="container">
         <!-- fieldset Información de programa de cadena de suministro-->
         <fieldset >
@@ -137,5 +140,5 @@
             }
         });
     </script>
-</body>
-</html>
+
+</asp:Content>

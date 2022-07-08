@@ -43,12 +43,13 @@
                     <tbody>
                         <tr>
                             <td> <span>1.0.1</span> </td>
-                            <td> <span>La empresa cuenta con procesos verificables y por escrito para la selección de .. </span> </td>
-                            <td>  <input type="radio" name="name" value="5" />    </td>
+
+                            <td> <span>La empresa cuenta con procesos verificables y por escrito para la selección de .. </span> </td>                            
+                            <td>  <input type="radio" name="name" value="5" /></td>
                             <td> <input type="radio" name="name" value="3" /> </td>
                             <td> <input type="radio" name="name" value="0" /> </td>
                              <td> <input type="radio" name="name" value="0" /> </td>
-                            <td> <input type="text" name="name" value="" id="txtObservacion" /> </td> 
+                            <td> <input type="text" name="txtObservacion" value="" id="txtObservacion" /> </td> 
                         </tr>
                     </tbody>
                     <tfoot></tfoot>
@@ -62,17 +63,21 @@
         <!-- Botones -->
         <div class="row">
             <div class="col-1">
-                <button class="btn btn-secondary" style="font-size:15px;" id="btnAntrior" >Anterior</button>
+                <button class="btn btn-secondary" style="font-size:15px;" id="btnAnterior" >Anterior</button>
             </div>
             <div class="col-10" ></div>
-           
+
+
             <div class="col-1"> 
                 <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="submit">Siguiente</button>
             </div>
         </div>
 
         <div>
-            <button id="btnCheck">Checar</button>
+            <button id="btnCheck">guardar respuesta</button>
+           <button id="btnMostrar">Mostrar respuestas</button>
+
+            <button id="btnMostrar2"> respuestas</button>
         </div>
     </div>
 

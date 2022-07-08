@@ -12,6 +12,7 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #444444;
     font-size:15px;
+    height:100%;
 }
 
 input{
@@ -31,6 +32,20 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Nunito", sans-serif;
 }
+
+
+.sinRespuesta {
+    outline: red solid 1px;
+    border-color: red;
+    box-shadow: 0 0 10px red;
+}
+
+.cabezal {
+    background-color: #0169C2;
+    color: white;
+    font-weight: bold;
+}
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -396,7 +411,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  /*padding: 20px 0;*/
   /*overflow: hidden;*/
  
 }
@@ -1745,5 +1760,8 @@ section {
         position: relative;
         top: 1px;
     }
+
+
+
 
         

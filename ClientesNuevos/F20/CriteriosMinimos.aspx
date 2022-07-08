@@ -10,7 +10,6 @@
         <div style="text-align:center">
             <h2>Criterios minimos de seguridad</h2>
             <h2>Customs-Trade Partnership Against Terrorism (C-TPAT)</h2>
-            <br />
         </div>
         <section>
             <article style="text-align:justify">
@@ -38,7 +37,6 @@
                     <br />
                     Los fabricantes extranjeros deben tener procesos escritos y verificables para la selección de asociados de negocios, incluso los agentes del transportista, transportistas de largo recorrido subcontratados y proveedores de servicio, además de procedimientos de evaluación de nuevos clientes que vayan más allá de los asuntos de solidez financiera e incluyan indicadores de seguridad, tal como referencias comerciales y asociaciones profesionales.   
                 </p>
-                <br />
                 <p style="text-indent: 15px;">
                     <strong style="text-decoration:underline">Procedimientos de seguridad</strong></p>
                     <ul>
@@ -52,7 +50,7 @@
                  <hr />
                     <h5> Los transportistas de largo recorrido deben tener un proceso documentado y verificable para determinar el riesgo en todas sus cadenas de suministro basado en su modelo empresarial (es decir, volumen, Estado Mexicano, ruta, afiliación a C-TPAT, posible amenaza terrorista mediante información de fuente abierta, que tiene seguridad inadecuada, previos incidentes de seguridad, etc.).</h5>
                 </section>
-                <br />
+
 
                 <section id="pg3">
                 <p>
@@ -60,7 +58,6 @@
                     <br />
                     Se debe mantener la integridad de los vehículos (tractor y remolque) para protegerlos contra la introducción de personal y/o materiales no autorizados. 
                 </p>
-                <br />
                 <p style="text-indent: 15px;">
                     <strong>Procedimientos de inspección de vehículos</strong></p>
                     <ul>
@@ -81,8 +78,6 @@
                                     <li>Compartimientos del interior de la cabina, litera</li>
                                     <li>Sección de pasajeros y techo</li>
                                 </ul>
-                            
-                            <br />
                             <p style="text-indent: 40px;">
                                 2.Remolques:</p> 
                                 <ul>
@@ -100,7 +95,7 @@
                                 </ul>
                         </li>                       
                     </ul>
-                <br />
+
 
                 </section>
 
@@ -116,7 +111,6 @@
                 <ul style="margin-left:30px;">
                     <li>Cuando se transporte un contenedor o remolque destinado a los Estados Unidos, se debe utilizar un sello de alta seguridad que cumpla o exceda la norma PAS ISO 17712 actual para sellos de alta seguridad. </li>
                 </ul>
-                <br />
                 </section>
 
                 <section id="pg5">
@@ -147,7 +141,7 @@
                         </ul>
                     </li>
                 </ul>
-                <br />
+
 
                 </section>
 
@@ -183,7 +177,6 @@
                 </section>
 
                 <section id="pg7">
-                <br />
                 <p><strong style="text-decoration:underline">Seguridad de procesos</strong>
                     <br />
                     Debe haber medidas de seguridad establecidas para garantizar la integridad y seguridad de los procesos relevantes a la carga, recogida, transporte, manejo y almacenaje de carga en la cadena de suministro. Debe haber procedimientos establecidos para impedir, detectar o disuadir que materiales no declarados y personal no autorizado ganen acceso al vehículo, incluso ocultados en los remolques.  

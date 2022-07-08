@@ -3,15 +3,10 @@
 
     <div id="container" class="container" style="width: 100%">
         
- <%--<div class="row">
-     <div id="Encabezado">
-         <h1 style="text-align: center">Cuestionario C-TPAT para SOCIO COMERCIAL </h1>
 
-     </div>
- </div>--%>
         <div class="row">
-            <div id="formulario" class="card w-100">
-                <h2 style="text-align: center" class="card-header">Cuestionario C-TPAT para SOCIO COMERCIAL </h2> <br />
+            <div id="formulario" class="card">
+                <h6 style="text-align: center" class="card-header  cabezal">Cuestionario C-TPAT para SOCIO COMERCIAL </h6>
 
                 <div class="card-body">
                 <section id="portada">
@@ -23,7 +18,7 @@
                             </div>
 
                             <div class="col-auto">
-                                <h2>Nuestra compañia <strong>ya esta certificada</strong>  en C-TPAT y nuestro numero SVI es:</h2>
+                                <h6>Nuestra compañia <strong>ya esta certificada</strong>  en C-TPAT y nuestro numero SVI es:</h6>
 
                             </div>
                             <div class="col-4">
@@ -40,7 +35,7 @@
 
 
                             <div class="col">
-                                <h2>Nuestra Compañía <strong>ES</strong> elegible para ser miembro C-TPAT</h2>
+                                <h6>Nuestra Compañía <strong>ES</strong> elegible para ser miembro C-TPAT</h6>
                                 <div class="row">
 
                                     <div class="col-auto">
@@ -65,7 +60,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <h2>Es miembro o está en proceso de ser Miembro C-TPAT</h2>
+                                    <h6>Es miembro o está en proceso de ser Miembro C-TPAT</h6>
 
 
                                     <div class="col-auto">
@@ -92,7 +87,7 @@
                                     1.3.1&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div class="col">
-                                    <h2>Si la respuesta a la pregunta 1.3.0 es <strong>SI</strong> :</h2>
+                                    <h6>Si la respuesta a la pregunta 1.3.0 es <strong>SI</strong> :</h6>
                                 </div>
                             </div>
                             <hr style="width: 50%;">
@@ -167,7 +162,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="row">
-                                        <h2>No esta interesada en aplicar por el momento</h2>
+                                        <h6>No esta interesada en aplicar por el momento</h6>
                                         <div class="row row-cols-auto">
 
                                             <div class="col">
@@ -195,7 +190,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="row">
-                                        <h2>Esta interesada y desea recibir más información</h2>
+                                        <h6>Esta interesada y desea recibir más información</h6>
                                         <div class="row row-cols-auto">
 
                                             <div class="col">
@@ -224,7 +219,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <h2>Nuestra Compañía comprende las Normas Mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</h2>
+                                    <h6>Nuestra Compañía comprende las Normas Mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</h6>
                                     <div class="row row-cols-auto">
 
                                         <div class="col">
@@ -251,7 +246,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <h2>Nuestra compañía <strong>NO ES ELEGIBLE PARA SER MIEMBRO C_TPAT </strong>pero está de acuerdo en cumplir con los lineamientos de seguridad</h2>
+                                    <h6>Nuestra compañía <strong>NO ES ELEGIBLE PARA SER MIEMBRO C_TPAT </strong>pero está de acuerdo en cumplir con los lineamientos de seguridad</h6>
 
                                     <div class="col-auto">
                                         <input type="radio" class="form-check-input" id="si150" value="" name="radio150" />
@@ -277,7 +272,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <h2>¿Esta usted respondiendo por todas las Unidades de Negocio de su Compañía?</h2>
+                                    <h6>¿Esta usted respondiendo por todas las Unidades de Negocio de su Compañía?</h6>
 
 
                                     <div class="col-auto">
@@ -299,7 +294,7 @@
                         <br />
                         <div class="row">
                             <div class="col">
-                                <a href="Autoevaluacion/autoevaluacion.aspx" class="btn  btn-success" style="font-size:15px;">Continuar</a>
+                                <a href="Autoevaluacion/autoevaluacion.aspx" class="btn  btn-success">Continuar</a>
                                <%-- <input type="button" name="btnContinuar" value="Continuar" class="miBoton" id="btnContinuar" />--%>
                             </div>
                         </div>

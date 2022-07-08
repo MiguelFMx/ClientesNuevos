@@ -112,7 +112,13 @@
     <Content Include="F14\JS\InfoComJS.js" />
     <Content Include="F14\JS\tiposervicioJS.js" />
     <Content Include="F14\Registro.aspx" />
+    <Content Include="F14\Seccioness\AgentesAduanales.aspx" />
+    <Content Include="F14\Seccioness\CompaniaFilial.aspx" />
+    <Content Include="F14\Seccioness\ImformacionCompania.aspx" />
+    <Content Include="F14\Seccioness\InformacionCadenaSuministro.aspx" />
+    <Content Include="F14\Seccioness\TipoServicioProductos.aspx" />
     <Content Include="F14\Secciones\AgentesAdunales.html" />
+    <Content Include="F14\Secciones\CompaniaFilial.html" />
     <Content Include="F14\Secciones\InformacionCadenaSuministro.html" />
     <Content Include="F14\Secciones\InformacionCompania.html" />
     <Content Include="F14\Secciones\TipoServicioProductos.html" />
@@ -326,6 +332,41 @@
     </Compile>
     <Compile Include="F14\Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\Seccioness\AgentesAduanales.aspx.cs">
+      <DependentUpon>AgentesAduanales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F14\Seccioness\AgentesAduanales.aspx.designer.cs">
+      <DependentUpon>AgentesAduanales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\Seccioness\CompaniaFilial.aspx.cs">
+      <DependentUpon>CompaniaFilial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F14\Seccioness\CompaniaFilial.aspx.designer.cs">
+      <DependentUpon>CompaniaFilial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\Seccioness\ImformacionCompania.aspx.cs">
+      <DependentUpon>ImformacionCompania.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F14\Seccioness\ImformacionCompania.aspx.designer.cs">
+      <DependentUpon>ImformacionCompania.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\Seccioness\InformacionCadenaSuministro.aspx.cs">
+      <DependentUpon>InformacionCadenaSuministro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F14\Seccioness\InformacionCadenaSuministro.aspx.designer.cs">
+      <DependentUpon>InformacionCadenaSuministro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\Seccioness\TipoServicioProductos.aspx.cs">
+      <DependentUpon>TipoServicioProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F14\Seccioness\TipoServicioProductos.aspx.designer.cs">
+      <DependentUpon>TipoServicioProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="F14\wsUbicacion.asmx.cs">
       <DependentUpon>wsUbicacion.asmx</DependentUpon>
