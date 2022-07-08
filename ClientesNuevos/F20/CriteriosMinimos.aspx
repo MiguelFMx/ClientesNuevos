@@ -300,23 +300,42 @@
        
             <div  style=" padding-top:50px;">
                 <input type="checkbox" name="cbLeido" value="" id="cbLeido"/>
-                 <label for="cbLeido"> He leído y cumplo con los criterios minimos de sguridad. </label>
-
+                 <label for="cbLeido"> He leído y cumplo con los criterios minimos de seguridad. </label>
+                <br />
             </div>
-            <div class="row" id="divBotones">
+            <div class="row" id="divBotones" style="display:none">
                 <div class="col" >
-                    <input type="button" name="btnDescargar" value="Descargar documento" id="btnDscargar" class="btn btn-info"/>
+                    <input type="button" name="btnDescargar" value="Descargar documento" id="btnDscargar" class="btn btn-info" />
                 </div>
+                <div class="col-8"></div>
                 <div class="col">
-                     <input type="button" name="btnContinuar" value="Continuar" id="btnContiuar" class="btn btn-success"/>
+                     <input type="button" name="btnContinuar" value="Continuar" id="btnContinuar" class="btn btn-success" />
                 </div>
             </div>
-       
+
     </div>
 
     <script type="text/javascript">
-        function DescargarDoc() {
+        $(document).ready(function () {
 
+            $('#cbLeido').change(function () {
+                if (this.checked) {
+                    $('#divBotones').show();
+
+                } else {
+                    $('#divBotones').hide();
+
+                }
+            });
+
+
+            $('#btnContinuar').click(function () {
+                window.location.href = '../F14/Secciones/InformacionCompania.aspx';
+                
+            });
+        });
+       
+        function DescargarDoc() {
         }
     </script>
 </asp:Content>

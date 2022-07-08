@@ -93,7 +93,7 @@
             </Scripts>
 
         </asp:ScriptManager>
-    </form>
+   
 
 
     <!-- Contenedor-->
@@ -102,6 +102,9 @@
             </asp:ContentPlaceHolder>
         
        <div style="padding-top:120px;"></div>
+
+
+    </form>
     <!-- Footer-->
     <footer id="footer" style="bottom:0px; position:fixed; left:0px; width:100%; z-index:999999; ">
 

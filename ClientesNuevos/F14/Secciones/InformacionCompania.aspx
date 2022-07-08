@@ -383,7 +383,7 @@
             </div>
 
         </fieldset>
-        <br />
+        <br /><hr />
         <div class="row">
             <br />
             <div class="col-10"></div>
@@ -392,7 +392,7 @@
             </div>
             <br />
         </div>
-        <hr />
+        
     </div>
    
     <script type="text/javascript">

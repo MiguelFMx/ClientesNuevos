@@ -117,6 +117,8 @@
     <Content Include="F14\Secciones\TipoServicioProductos.aspx" />
     <Content Include="F14\wsUbicacion.asmx" />
     <Content Include="F20\CriteriosMinimos.aspx" />
+    <Content Include="F43\MapeoFlujo.aspx" />
+    <Content Include="F43\MapeoFlujoJS.js" />
     <Content Include="F5\Autoevaluacion\autoevaluacion.aspx" />
     <Content Include="F5\EvaluacionSeguridad.aspx" />
     <Content Include="Contact.aspx" />
@@ -364,6 +366,13 @@
     </Compile>
     <Compile Include="F20\CriteriosMinimos.aspx.designer.cs">
       <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F43\MapeoFlujo.aspx.cs">
+      <DependentUpon>MapeoFlujo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F43\MapeoFlujo.aspx.designer.cs">
+      <DependentUpon>MapeoFlujo.aspx</DependentUpon>
     </Compile>
     <Compile Include="F5\Autoevaluacion\autoevaluacion.aspx.cs">
       <DependentUpon>autoevaluacion.aspx</DependentUpon>
