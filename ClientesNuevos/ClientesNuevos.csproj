@@ -56,6 +56,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -105,9 +106,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.js" />
+    <Content Include="F12\PoliticaSeguridad.aspx" />
+    <Content Include="F12\PoliticaSeguridadJS.js" />
     <Content Include="F14\JS\InfoComJS.js" />
     <Content Include="F14\JS\tiposervicioJS.js" />
     <Content Include="F14\Secciones\AgentesAduanales.aspx" />
@@ -120,6 +122,8 @@
     <Content Include="F43\MapeoFlujo.aspx" />
     <Content Include="F43\MapeoFlujoJS.js" />
     <Content Include="F5\Autoevaluacion\autoevaluacion.aspx" />
+    <Content Include="F5\Autoevaluacion\Calculos.js" />
+    <Content Include="F5\Autoevaluacion\Resultados.aspx" />
     <Content Include="F5\EvaluacionSeguridad.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -127,7 +131,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Default.aspx" />
     <Content Include="F5\wsAutoevaluacion.asmx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -140,7 +143,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="proveedor\F14\ProveedorNuevo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css.map" />
@@ -194,7 +196,18 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\JS\ajax.js" />
     <Content Include="F5\Evaluacion.js" />
+    <Content Include="Scripts\JS\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\JS\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\JS\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\JS\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\JS\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\JS\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\JS\jquery-ui.min.css" />
+    <Content Include="Scripts\JS\jquery-ui.min.js" />
+    <Content Include="Scripts\JS\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\JS\jquery-ui.theme.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\printThis.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -306,13 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="cliente\F14\ClienteNuevo.aspx.cs">
       <DependentUpon>ClienteNuevo.aspx</DependentUpon>
@@ -320,6 +326,13 @@
     </Compile>
     <Compile Include="cliente\F14\ClienteNuevo.aspx.designer.cs">
       <DependentUpon>ClienteNuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F12\PoliticaSeguridad.aspx.cs">
+      <DependentUpon>PoliticaSeguridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F12\PoliticaSeguridad.aspx.designer.cs">
+      <DependentUpon>PoliticaSeguridad.aspx</DependentUpon>
     </Compile>
     <Compile Include="F14\Secciones\AgentesAduanales.aspx.cs">
       <DependentUpon>AgentesAduanales.aspx</DependentUpon>
@@ -381,6 +394,13 @@
     <Compile Include="F5\Autoevaluacion\autoevaluacion.aspx.designer.cs">
       <DependentUpon>autoevaluacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="F5\Autoevaluacion\Resultados.aspx.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="F5\Autoevaluacion\Resultados.aspx.designer.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="F5\EvaluacionSeguridad.aspx.cs">
       <DependentUpon>EvaluacionSeguridad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,13 +415,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="F5\wsAutoevaluacion.asmx.cs">
       <DependentUpon>wsAutoevaluacion.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -410,13 +423,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="proveedor\F14\ProveedorNuevo.aspx.cs">
-      <DependentUpon>ProveedorNuevo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="proveedor\F14\ProveedorNuevo.aspx.designer.cs">
-      <DependentUpon>ProveedorNuevo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -481,6 +487,7 @@
     <Content Include="template\assets\vendor\remixicon\remixicon.ttf" />
     <Content Include="template\assets\vendor\remixicon\remixicon.woff" />
     <Content Include="template\assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="Scripts\JS\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

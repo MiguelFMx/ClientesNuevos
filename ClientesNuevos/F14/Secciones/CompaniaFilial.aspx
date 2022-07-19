@@ -1,23 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompaniaFilial.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.CompaniaFilial" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link href="../../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<%--    <link href="../../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../JS/InfoComJS.js"></script>
-    <script src="../../Scripts/JS/ajax.js"></script>
-    <script src="../JsClienteNuevo.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>--%>
 
-    <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
+
+   <%-- <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-
+        
         <div class="row">
-            <h4>Información de compañia filial en cadena de suministro de otra ciudad </h4>
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 45%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-auto">
+                <h4>Información de compañia filial
+                    <span style="font-size: 15px;">
+                        <i class="bi bi-question-circle"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="bottom"
+                            title="Compañia filial es considerada cualquier empresa subcontratada para realizar cualquier servicio de transporte, almacenaje o resguardo de unidades de transporte internacional"></i>
+                    </span>
+                </h4>
+            </div>
+            
             <div class="row">
                 <div class="col">
                     <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
@@ -169,17 +186,22 @@
         <div class="row" >
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success">Continuar</button>
+                <button id="btnContinuar" class="btn btn-success" type="button">Continuar</button>
             </div>
         </div>
         
 
     </div>
-    
+        <script src="../JS/InfoComJS.js"></script>
     <script type="text/javascript">
-        fillComboPais($('#cbPaisComFilial'));
-        $('#btnContinuar').click(function () {
-            window.location.href = 'TipoServicioProductos.aspx';
+        $(document).ready(function () {
+
+            fillComboPais($('#cbPaisComFilial'));
+            $('#btnContinuar').click(function () {
+                window.location.href = 'TipoServicioProductos.aspx';
+            });
+
         });
+
     </script>
 </asp:Content>

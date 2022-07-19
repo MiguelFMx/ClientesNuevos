@@ -10,13 +10,21 @@
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../JS/InfoComJS.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
-    <script src="../JsClienteNuevo.js"></script>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 0%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <br />
         <div class="row">
 
             <div class="col">
@@ -37,9 +45,11 @@
         <!-- Informacion de compañia-->
         <fieldset>
 
-            <legend style="font-size:25px;">Información de la compañia</legend>
-
-            <div class="container" id="contenedorComp">
+            <%--<legend style="font-size:25px;">Información de la compañia</legend>--%>
+            <div class="card border-primary">
+                <div class="card-header cabezal">Información de la compañia</div>
+                <div class="card-body">
+            <div id="contenedorComp">
                 <div class="row">
                     <div class="col">                       
                         <label for="txtNombreCompania" style="margin-bottom: 9px;">Nombre de la compañia:</label>
@@ -110,12 +120,14 @@
                 </div>
                 <br />
             </div>
+            </div>
+                </div>
             <hr />
             <!--Contactos-->
             <div class="row">                
                 <!--Datos de facturacion-->
                 <div class="col">
-                    <div class="card border-warning">
+                    <div class="card border-primary">
                         <div class="card-header cabezal">
                             <div class="col">
                                 <h6 style="font-weight:bold;">Datos de facturacion</h6>
@@ -170,7 +182,7 @@
                 </div>
                 <!--Datos bancarios-->
                 <div class="col">
-                    <div class="card border-warning">
+                    <div class="card border-primary">
                             <h6 class="card-header cabezal"> Datos bancarios </h6>                          
                         <div class="card-body">
                                 <div class="row">
@@ -237,7 +249,7 @@
                   <div class="row">
                       <!--Datos de contacto-->
                       <div class="col">                         
-                              <div id="contactoCompania" class="card border-warning">
+                              <div id="contactoCompania" class="card border-primary">
                                   <h6 class="card-header cabezal">Datos de contacto</h6>
                                   <div class="card-body">
 
@@ -274,12 +286,23 @@
                                               <label for="txtCelCont">Celular:</label>
                                               <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size:16px;" required />
                                           </div>
-                                      </div><br />
+                                      </div>
+                                      <div class="row">
+                                          <div class="col">
+                                              <div class="form-check">
+                                                  <input class="form-check-input" type="checkbox" value="" id="cbContactoFactura">
+                                                  <label class="form-check-label" for="flexCheckDefault">
+                                                      Enviar factura
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <br />
                                   </div>
                                   <div class="card-footer">
                                       <div class="row">
                                           <div class="col-3">
-                                              <input type="submit"  class="btn btn-warning btn-sm" id="btnContactoCompañia" name="btnContactoCompañia" value="Agregar contacto" />
+                                              <input type="button"  class="btn btn-primary btn-sm" id="btnContactoCompañia" name="btnContactoCompañia" value="Agregar contacto" />
 
                                           </div>
                                       </div>
@@ -297,9 +320,11 @@
                                       <th>Telefono</th>
                                       <th>Ext</th>
                                       <th>Celular</th>
+                                      <th>Fra.</th>
+                                      <th></th>
                                   </tr>
                               </thead>
-                              <tbody>
+                              <tbody class="table-bordered border-primary">
                                   <tr>
                                   </tr>
                               </tbody>
@@ -311,84 +336,13 @@
             <hr />
         </fieldset>
 
-        <!--Facturacion-->
-        <fieldset>
-            <div class="row">
-                <div class="col">
-                    <div class="card border-warning">
 
-                        <h6 class="card-header cabezal"> Datos de contacto de facturacion </h6>
-
-
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <label for="txtNombrContFacturacion">Nombre:</label>
-                                    <input type="text" name="name" value="" id="txtNombrContFacturacion" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="txtCorreoContFacturacion">Correo:</label>
-                                    <input type="email" name="name" value="" id="txtCorreoContFacturacion" class="form-control" />
-                                </div>
-                                
-                            </div>
-
-                            <div class="row">
-                                <div class="col-5">
-                                    <label for="txtTelContFacturacion">Telefono:</label>
-                                    <input type="tel" name="name" value="" id="txtTelContFacturacion" class="form-control" />
-                                </div>
-                                <div class="col-3">
-                                    <label for="txtExtContFacturacion">Extension:</label>
-                                    <input type="number" name="name" value="" id="txtExtContFacturacion" class="form-control" />
-                                </div>
-                                <div class="col-4">
-                                    <label for="txtCelContFacturacion">Celular:</label>
-                                    <input type="tel" name="name" value="" id="txtCelContFacturacion" class="form-control" />
-                                </div>
-                            </div>
-                        </div><br />
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-3">
-                                    <input type="submit" class="btn btn-warning btn-sm" id="btnContactoFact" name="btnContactoFact" value="Agregar contacto" />
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col">
-                    <table class="table " id="tContactoComFact">
-                        <caption>Contactos registrados</caption>
-                        <thead class="cabezal">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Telefono</th>
-                                <th>Ext</th>
-                                <th>Celular</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-
-                    </table>
-                </div>
-            </div>
-
-        </fieldset>
         <br /><hr />
         <div class="row">
             <br />
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success">Continuar</button>
+                <button id="btnContinuar" class="btn btn-success" type="button">Continuar</button>
             </div>
             <br />
         </div>

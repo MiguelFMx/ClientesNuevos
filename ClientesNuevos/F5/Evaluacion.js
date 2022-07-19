@@ -19,7 +19,6 @@ var respuestas = [];
 
 $(document).ready(function () {
    
-    setProgressBar(current);
 
     cargarTablaStepS(current);
 
@@ -105,18 +104,20 @@ $(document).ready(function () {
 
                 let alert = confirm('Esta seguro que desea continuar?');
                 if (alert) {
-                    respuestas.push(A1);
-                    respuestas.push(A2);
-                    respuestas.push(A3);
-                    respuestas.push(A4);
-                    respuestas.push(A5);
-                    respuestas.push(A6);
-                    respuestas.push(A7);
-                    respuestas.push(A8);
+                    llenarRespuesta(A1);
+                    llenarRespuesta(A2);
+                    llenarRespuesta(A3);
+                    llenarRespuesta(A4);
+                    llenarRespuesta(A5);
+                    llenarRespuesta(A6);
+                    llenarRespuesta(A7);
+                    llenarRespuesta(A8);
 
                     console.log(respuestas);
+                    console.log(respuestas[0][1]);
 
-                    console.log(respuestas[0], respuestas[0][0]);
+                    
+                    GuardarRespuestas(respuestas);
                 }
             }
         } else {
@@ -133,7 +134,6 @@ $(document).ready(function () {
     $('#btnAnterior').click(function () {
         if (current >= 2) {
             current--;
-            setProgressBar(current);
 
             switch (current) {
                 case 1:
@@ -203,8 +203,6 @@ $(document).ready(function () {
         console.log(respuestas[0]);
         console.log('-----');
         console.log(respuestas[0][0]);
-        console.log('-----------');
-        console.log(respuestas[0][0][0]);
     });
 
     $("#btnCheck").click(function () {
@@ -290,7 +288,7 @@ $(document).ready(function () {
 
 // actualizar barra
 function setProgressBar(curStep) {
-    var percent = parseFloat(100 / 8) * curStep;
+    var percent = parseFloat(100 / 7) * curStep;
     percent = percent.toFixed();
     $("#barradeprogreso")
         .css("width", percent + "%")
@@ -324,7 +322,7 @@ function cargarTablaStepS(currentStep) {
                 "<td>" +
                 "<div class='form-check'>" +
                 "<label class='form-check-label' for='si" + objPrgunta.numero + "'>Si</label>" +
-                "<input type='radio' class='form-check-input respuesta' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5'  />" +
+                "<input type='radio' class='form-check-input respuesta' id='si" + objPrgunta.numero + "' name='pregunta" + objPrgunta.numero + "' value='5' />" +
                 "</div>" +
                 "</td>" +
                 //parcial
@@ -351,14 +349,14 @@ function cargarTablaStepS(currentStep) {
                
                 //texto
                 "<td >" +
-                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' value=''/>" +
+                "<input type='text'  class='form-control observacion' id='txtObservacion" + objPrgunta.numero + "' value=''/>" +
                 "</td>" +
                 "</tr>"
             );
         }
         return false;
     });
-    setProgressBar(current);
+    setProgressBar(current-1);
     document.documentElement.scrollTop = 0;
     
 
@@ -625,9 +623,6 @@ function Titulos(numeroPregunta) {
     return tittle;
 }
 
-
-
-
 //Cargar tabla con respuestas, numro de paso(bloque) y arreglo de respuestas
 function cargarTablaRespuesta(currentStep, arreglo) {
 
@@ -710,14 +705,14 @@ function cargarTablaRespuesta(currentStep, arreglo) {
 
                 //texto
                 "<td >" +
-                "<input type='text'  class='form-control form-control-lg observacion' id='txtObservacion" + objPrgunta.numero + "' value='" + arreglo[i][2] +"' required/>" +
+                "<input type='text'  class='form-control observacion' id='txtObservacion" + objPrgunta.numero + "' value='" + arreglo[i][2] +"' required/>" +
                 "</td>" +
                 "</tr>"
             );
         }
         return false;
     });
-    setProgressBar(current);
+    setProgressBar(current-1);
     document.documentElement.scrollTop = 0;
 
 
@@ -780,8 +775,6 @@ function guardarRespuestas() {
     }
 }
 
-
-
 function GuardarTemp(step,arreglo) {
     switch (step) {
         case 1:
@@ -840,4 +833,58 @@ function vaciarTemp(step) {
             break;
 
     }
+}
+
+function llenarRespuesta(array) {
+    for (var i = 0; i < array.length; i++) {
+        respuestas.push(array[i]);
+    }
+}
+
+
+
+function GuardarRespuestas(arr) {
+
+    var list = [];
+    for (var i = 0; i < arr.length; i++) {
+
+        //let numero = arr[i][0];
+        //let respuesta = arr[i][1];
+        //let observacion = arr[i][2];
+
+        //var res = {
+        //    numero: arr[i][0],
+        //    respuesta: arr[i][1],
+        //    observacion: arr[i][2]
+        //}
+
+        //list.push(res);
+    $.ajax({
+            type: "POST",
+            url: "../wsAutoevaluacion.asmx/RegistrarRespuesta",
+            contentType: "application/json; charset=utf-8",
+            processData: false,
+            data: "{"+
+                "numero:'" + arr[i][0] +"',"+
+                "respuesta: '" + arr[i][1] + "',"+
+                "descripcion:'" + arr[i][2] + "'"
+                + "}",
+            dataType: 'json',
+            async: false,
+            success: function (result) {
+                if (result.d === "") {
+                    console.log("Actualizacion exitosa");
+
+                } else {
+                    console.log("Error: " + result.d);
+                }
+            },
+            error: function ( err) {
+                console.log(" Error "+err);
+            }
+        });
+       
+  }
+   
+   return false;
 }

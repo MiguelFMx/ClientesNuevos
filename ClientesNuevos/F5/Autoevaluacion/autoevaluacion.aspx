@@ -20,8 +20,11 @@
         <!-- barra de progreso -->
        
         <div class="row">
+            <div class="col">
             <div class="progress" style="height: 20px;">
                 <div class="progress-bar bg-warning progress-bar-striped" style="width: 1%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="barradeprogreso"></div>
+            </div>
+                <br />
             </div>
         </div>
  <!-- Tabla -->
@@ -29,7 +32,6 @@
         <div class="row">
 
             <div class="col">
-                <form action="/" method="post">
                 <table class="table table-hover" id="tPreguntas">
                     <caption>1 de 8</caption>
                     <thead class="table-primary">
@@ -56,28 +58,28 @@
 
                 </table>
 
-                </form>
+
             </div>
 
         </div>
         <!-- Botones -->
         <div class="row">
             <div class="col-1">
-                <button class="btn btn-secondary" style="font-size:15px;" id="btnAnterior" >Anterior</button>
+                <button class="btn btn-secondary" style="font-size:15px;" id="btnAnterior" type="button">Anterior</button>
             </div>
             <div class="col-10" ></div>
 
 
             <div class="col-1"> 
-                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="submit">Siguiente</button>
+                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="button">Siguiente</button>
             </div>
         </div>
 
         <div>
-            <button id="btnCheck">guardar respuesta</button>
-           <button id="btnMostrar">Mostrar respuestas</button>
+            <button id="btnCheck" type="button">guardar respuesta</button>
+           <button id="btnMostrar" type="button">Mostrar respuestas</button>
 
-            <button id="btnMostrar2"> respuestas</button>
+            <button id="btnMostrar2" type="button"> respuestas</button>
         </div>
     </div>
 

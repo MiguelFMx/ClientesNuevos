@@ -27,12 +27,26 @@ namespace ClientesNuevos.F5
             public string numero { get; set; }
             public string pregunta { get; set; }
         }
+        public class LstRespuesta
+        {
+            public string numero { get; set; }
+            public string respuesta { get; set; }
+            public string observacion { get; set; }
 
+        }
+        public class LstRes
+        {
+            public string numero { get; set; }
+            public string descripcion { get; set; }
+            public string respuesta { get; set; }
+            public string observacion { get; set; }
+
+        }
         [WebMethod]
         public List<ListaPreguntas> LlenarTabla()
         {
             //string strSQL = "SELECT Pregunta, Descripcion FROM table_preguntas";
-            string strSQL = "SELECT *, ROW_NUMBER() OVER (ORDER BY ID) AS RowN FROM table_preguntas WHERE Pregunta LIKE '1%' ORDER BY ID ";
+            string strSQL = "SELECT * FROM table_preguntas";
 
             SqlConnection con = new SqlConnection(strConnction);
             SqlCommand cmd = new SqlCommand(strSQL, con);
@@ -61,6 +75,43 @@ namespace ClientesNuevos.F5
             }
 
             return lstPreguntas;
+        }
+
+        [WebMethod]
+        public List<LstRes> LlenarTablaRespuesta(string id)
+        {
+           
+            string strSQL = "exec ObtenerRespuestas '" + id + "'";
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            List<LstRes> lstRes = new List<LstRes>();
+
+            LstRes objItem;
+            foreach (DataRow row in dt.Rows)
+            {
+                objItem = new LstRes();
+                objItem.numero = row["Numero"].ToString();
+                objItem.descripcion = row["Descripcion"].ToString();
+                objItem.respuesta = row["Respuesta"].ToString();
+                objItem.observacion = row["Observacion"].ToString();
+                lstRes.Add(objItem);
+            }
+
+            return lstRes;
         }
 
 
@@ -97,6 +148,65 @@ namespace ClientesNuevos.F5
             }
 
             return lstPreguntas;
+        }
+
+
+        [WebMethod]
+        public  string RegistrarRespuesta(string numero, string respuesta, string descripcion)
+        {
+            string strSql = "INSERT INTO table_respuestasAutoEv (ID_evaluacion, Numero, Respuesta, Observacion)" +
+                "VALUES ('1','" +numero + "'," + respuesta + ",'" + descripcion + "')";
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSql, con);
+
+
+
+            string strError = "";
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+                strError = ex.Message ;
+            }
+
+            return strError;
+
+        }
+
+        [WebMethod]
+        public string RegistrarRespuestas(List<LstRespuesta> lista)
+        {
+            string strSql = "INSERT INTO table_respuestasAutoEv (ID_evaluacion, Numero, Respuesta, Observacion)" +
+                "VALUES ('1','" + lista[0].numero + "'," + lista[0].respuesta + ",'" +lista[0].observacion + "')";
+
+            SqlConnection con = new SqlConnection(strConnction);
+            SqlCommand cmd = new SqlCommand(strSql, con);
+
+
+
+            string strError = "";
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+                strError = ex.Message;
+            }
+
+            return strError;
+
         }
 
     }

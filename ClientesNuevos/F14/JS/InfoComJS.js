@@ -5,6 +5,10 @@
 
 
 $(document).ready(function () {
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
     var contador = 0;
 
 
@@ -16,7 +20,31 @@ $(document).ready(function () {
         var ext = $('#txtExtCont');
         var tel = $('#txtTelCont');
         var cel = $('#txtCelCont');
+        var check="";
 
+       if( $('#cbContactoFactura').is(':checked')){
+           check =
+               '<div class="form-check">' +
+               '<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>' +
+               '</div>';
+        }
+        /*
+         
+         '<div class="form-check">'+
+  '<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>'+
+'</div>'   
+         
+         
+         
+         */
+        //$('#cbContactoFactura').change(function () {
+        //        if ($(this).is(':checked')) {
+        //            check = "✔";
+        //            alert(':O');
+        //        } else {
+        //            check = "";
+        //        }
+        //    });
 
         if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
             if (contador <= 2) {
@@ -34,7 +62,8 @@ $(document).ready(function () {
                     "<td><span>" + tel.val() + "</span></td>" +
                     "<td><span>" + ext.val() + "</span></td>" +
                     "<td><span>" + cel.val() + "</span></td>" +
-                    "<td><button type='button'class='btn btn-danger' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                    "<td><span>" + check + "</span></td>" +
+                    "<td><button type='button'class='btn btn-danger btn-sm' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
                     "</tr>"
                 );
                 nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
@@ -53,45 +82,6 @@ $(document).ready(function () {
         contador--;
     });
 
-    //Almacenar contacto de facturacion
-    $('#btnContactoFact').on('click', function () {
-        var nombreF = $('#txtNombrContFacturacion');
-        var correoF = $('#txtCorreoContFacturacion');
-        var extF = $('#txtExtContFacturacion');
-        var telF = $('#txtTelContFacturacion');
-        var celF = $('#txtCelContFacturacion');
-
-
-        if (nombreF.val() != "" && correoF.val() != "" && telF.val() != "" && celF.val() != "" && extF.val() != "") {
-            if (contador <= 2) {
-                contador++;
-                var tabla = $('#tContactoComFact tbody');
-
-                tabla.append(
-                    "<tr>" +
-                    "<td><span>" + nombreF.val() + "</span></td>" +
-                    "<td><span>" + correoF.val() + "</span></td>" +
-                    "<td><span>" + telF.val() + "</span></td>" +
-                    "<td><span>" + extF.val() + "</span></td>" +
-                    "<td><span>" + celF.val() + "</span></td>" +
-                    "<td><button type='button'class='btn btn-danger' name='removeFact' id='removeFact' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
-                    "</tr>"
-                );
-                nombreF.val(""); correoF.val(""); extF.val(""); telF.val(""); celF.val("");
-
-                nombre.focus();
-            } else {
-                alert("Solo se pueden registrar 3 contactos");
-            }
-        } else {
-            alert('Rellena los campos necesarios');
-        }
-    });
-    $(document).on('click', '#removeFact', function () {
-
-        $(this).parent().closest("tr").remove();
-        contador--;
-    });
 
 
 

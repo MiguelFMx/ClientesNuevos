@@ -6,13 +6,21 @@
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
 
-    <script src="../JsClienteNuevo.js"></script>
     <script src="../JS/tiposervicioJS.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
      <div class="container">
+         
+        <div class="row">
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 65%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <br />
         <div class="row" id="ServicioRqurido">
             <h3>Tipo de servicio requerido</h3>
 
@@ -393,7 +401,7 @@
          <div class="row">
              <div class="col-10"></div>
              <div class="col-2">
-                 <button id="btnContinuar" class="btn btn-success">Continuar</button>
+                 <button id="btnContinuar" class="btn btn-success" type="button">Continuar</button>
              </div>
          </div>
     </div>

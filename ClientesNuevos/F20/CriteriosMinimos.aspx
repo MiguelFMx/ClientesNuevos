@@ -4,15 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
+        <div id="imprimir" class="printable">
         <div class="content">
-            FOTO
+            
         </div>
         <div style="text-align:center">
             <h2>Criterios minimos de seguridad</h2>
             <h2>Customs-Trade Partnership Against Terrorism (C-TPAT)</h2>
         </div>
         <section>
-            <article style="text-align:justify">
+            <article >
                 <section id="pg1">
                 <p>
                     Estos criterios mínimos de seguridad son fundamentalmente diseñados para ser las bases para los fabricantes extranjeros de establecer prácticas efectivas de seguridad diseñadas para optimizar el rendimiento de la cadena de suministro, para reducir el riesgo de pérdida, robo y contrabando que potencialmente podrían introducir terroristas en la cadena de suministro internacional. La determinación y el alcance de los elementos delictivos contra el comercio mundial mediante conspiraciones internas exigen de las empresas, y en particular a los fabricantes foráneos a elevar sus prácticas de seguridad.
@@ -31,7 +32,7 @@
                 </p>
 
                 </section>
-                <section id="pg2">
+                <section id="pg2" style="break-before:page;">
                 <p>
                     <strong>Requisitos de los asociados de negocios</strong>
                     <br />
@@ -48,11 +49,11 @@
                     </ul>
                    
                  <hr />
-                    <h5> Los transportistas de largo recorrido deben tener un proceso documentado y verificable para determinar el riesgo en todas sus cadenas de suministro basado en su modelo empresarial (es decir, volumen, Estado Mexicano, ruta, afiliación a C-TPAT, posible amenaza terrorista mediante información de fuente abierta, que tiene seguridad inadecuada, previos incidentes de seguridad, etc.).</h5>
+                    <h6> Los transportistas de largo recorrido deben tener un proceso documentado y verificable para determinar el riesgo en todas sus cadenas de suministro basado en su modelo empresarial (es decir, volumen, Estado Mexicano, ruta, afiliación a C-TPAT, posible amenaza terrorista mediante información de fuente abierta, que tiene seguridad inadecuada, previos incidentes de seguridad, etc.).</h6>
                 </section>
 
 
-                <section id="pg3">
+                <section id="pg3" style="break-before:page;">
                 <p>
                     <strong style="text-decoration:underline" >Seguridad de los vehículos</strong>
                     <br />
@@ -78,7 +79,7 @@
                                     <li>Compartimientos del interior de la cabina, litera</li>
                                     <li>Sección de pasajeros y techo</li>
                                 </ul>
-                            <p style="text-indent: 40px;">
+                            <p style="margin-left:30px;">
                                 2.Remolques:</p> 
                                 <ul>
                                     <li>Área de la quinta rueda – inspeccionar el compartimiento natural/placa del patín <br />
@@ -99,7 +100,7 @@
 
                 </section>
 
-                <section id="pg4">
+                <section id="pg4" >
                 <p style="text-indent: 40px;"><strong>Seguridad de los remolques </strong></p>
                 <ul style="margin-left:30px;">
                     <li>Para todos los remolques bajo la custodia del transportista de largo recorrido se debe mantener la integridad del remolque para protegerlo contra introducción de personas y/o materiales no autorizados.   Los transportistas de largo recorrido deben tener procedimientos establecidos para mantener la integridad de sus remolques en todo momento.</li>
@@ -120,7 +121,7 @@
                 <ul style="margin-left:30px;">
                     <li>Debe haber un acople o conector de un sensor desde el tractor al remolque para también supervisar y llevar un registro del remolque.  Los datos de supervisión y registro de todos los vehículos en tránsito que transportan carga con destino a los Estados Unidos deben preservarse durante 6 meses en caso que la gerencia de U.S. Customs and Border Protection (CBP) y del transportista de largo recorrido deba realizar una evaluación debido a un incidente de seguridad.</li>
                     <li>Un empleado del transportista de largo recorrido, que asume responsabilidad ante la gerencia ejecutiva, debe saber en todo momento la ubicación del vehículo del transportista en tránsito al norte con carga destinada a los Estados Unidos.     </li>
-                    <li>Se deben identificar rutas predeterminadas y los procedimientos deben consistir en verificaciones de rutas al azar, además de documentar y verificar el tiempo entre el punto de carga/recogida del remolque, la frontera con los Estados Unidos y los destinos de entrega, durante horas de máxima actividad y de poca actividad.  Los choferes deben notificar a despacho cualquier retraso en la ruta debido a condiciones climáticas, tráfico o cambios de ruta.</li>
+                    <li style="break-before:page;">Se deben identificar rutas predeterminadas y los procedimientos deben consistir en verificaciones de rutas al azar, además de documentar y verificar el tiempo entre el punto de carga/recogida del remolque, la frontera con los Estados Unidos y los destinos de entrega, durante horas de máxima actividad y de poca actividad.  Los choferes deben notificar a despacho cualquier retraso en la ruta debido a condiciones climáticas, tráfico o cambios de ruta.</li>
                     <li>La gerencia del transportista de largo recorrido debe aplicar un proceso de verificación documentada, periódica e imprevista para asegurar que se mantengan los diarios y que se sigan y se cumplan los procedimientos de seguimiento y supervisión.</li>
                     <li>Durante las inspecciones extranjeras del Departamento de Transporte (DOT) u otras inspecciones físicas del vehículo exigidas por las leyes estatales, locales o federales extranjeras, los choferes deben denunciar y documentar cualquier anomalía o modificaciones estructurales inusuales descubiertas en el vehículo.</li>
                 </ul>
@@ -149,7 +150,7 @@
                 <p><strong style="text-decoration:underline">Carga fraccionada (LTL)</strong></p>
                 <ul >
                     <li>Los transportistas de carga fraccionada (LTL) deben utilizar un candado de alta seguridad o dispositivo de cierre similar al recoger un flete local en un entorno LTL internacional. Los transportistas de cargas fraccionadas deben aplicar controles estrictos para limitar el acceso a las llaves o combinaciones que pueden abrir estos candados. </li>
-                    <li>Después que el flete del viaje recogida y entrega sea clasificado, consolidado y cargado en un vehículo de una línea de transporte destinado a cruzar la frontera a los Estados Unidos, el remolque debe ser sellado con un sello de alta seguridad que cumpla o exceda la norma PAS ISO 17712 para sellos de alta seguridad. </li>
+                    <li >Después que el flete del viaje recogida y entrega sea clasificado, consolidado y cargado en un vehículo de una línea de transporte destinado a cruzar la frontera a los Estados Unidos, el remolque debe ser sellado con un sello de alta seguridad que cumpla o exceda la norma PAS ISO 17712 para sellos de alta seguridad. </li>
                     <li>En las operaciones de carga fraccionada o de recogida y entrega (P&D) que no utilizan centros de consolidación para clasificar o consolidad el flete antes de cruzar la frontera con los Estados Unidos, el importador y/o transportista por carretera debe utilizar sellos de alta seguridad ISO 17712 para el remolque en cada parada y para cruzar la frontera.  </li>
                     <li>Se deben establecer procedimientos por escrito para registrar el cambio de sellos y estipular cómo se controlan y distribuyen los sellos, y cómo se notan y se denuncian las discrepancias.  Estos procedimientos por escrito deben ser mantenidos en la terminal/a nivel local.</li>
                     <li>En el entorno de cargas fraccionadas y no fraccionadas, también debe haber procedimientos para reconocer y denunciar sellos y/o remolques comprometidos al Servicio de Aduanas y Protección de Fronteras de EE.UU. o a la autoridad extranjera apropiada.  </li>
@@ -176,7 +177,7 @@
                 </ul>
                 </section>
 
-                <section id="pg7">
+                <section id="pg7" style="break-before:page;">
                 <p><strong style="text-decoration:underline">Seguridad de procesos</strong>
                     <br />
                     Debe haber medidas de seguridad establecidas para garantizar la integridad y seguridad de los procesos relevantes a la carga, recogida, transporte, manejo y almacenaje de carga en la cadena de suministro. Debe haber procedimientos establecidos para impedir, detectar o disuadir que materiales no declarados y personal no autorizado ganen acceso al vehículo, incluso ocultados en los remolques.  
@@ -296,25 +297,25 @@
 
             </article>
         </section>
-
+            </div>
        
-            <div  style=" padding-top:50px;">
+            <div  style="padding-top:30px;">
                 <input type="checkbox" name="cbLeido" value="" id="cbLeido"/>
                  <label for="cbLeido"> He leído y cumplo con los criterios minimos de seguridad. </label>
                 <br />
             </div>
-            <div class="row" id="divBotones" style="display:none">
+            <div class="row" id="divBotones" style="display:none; padding-top:30px;">
                 <div class="col" >
-                    <input type="button" name="btnDescargar" value="Descargar documento" id="btnDscargar" class="btn btn-info" />
+                    <button type="button" id="btnDescargar" class="btn btn-info" onclick="DescargarDoc()" style="color:white;">Descargar documento <i class="bi bi-chevron-bar-down"></i></button>
                 </div>
-                <div class="col-8"></div>
+                <div class="col-5"></div>
                 <div class="col">
-                     <input type="button" name="btnContinuar" value="Continuar" id="btnContinuar" class="btn btn-success" />
+                    
+                    <button type="button" id="btnContinuar" class="btn btn-success">Continuar <i class="bi bi-chevron-right"></i></button>
                 </div>
             </div>
 
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -328,14 +329,16 @@
                 }
             });
 
-
             $('#btnContinuar').click(function () {
                 window.location.href = '../F14/Secciones/InformacionCompania.aspx';
                 
             });
         });
+
        
-        function DescargarDoc() {
+
+        function DescargarDoc(nombre) {
+            $('#imprimir').printThis();
         }
     </script>
 </asp:Content>

@@ -15,6 +15,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
+        
+        <div class="row">
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 100%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <br />
         <!-- fieldset Información de programa de cadena de suministro-->
         <fieldset >
             <legend style="font-size:25px;">Información de cadena de suministro</legend>
@@ -57,39 +66,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" id="divCertificado" style="display:none;">
-                    <div class="col">
-                        <label for="txtDescripcion">Descripción:</label>
-                        <textarea id="txtDescripcion" name="txtDescripcion" class="form-control"></textarea>
-                    </div>
-                    <div class="col">
-                        <label for="txtCodCrtificado">Codigo de certificacion:</label>
-                        <input type="text" name="txtCodCrtificado" value="" id="txtCodCrtificado" class="form-control" />
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col">
-                        <label>¿Puede proporcionar copia del certificado?</label>
-                        <br />
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="radPropCertificado" value="si" id="radPropCertificadoSi" class="form-check-input" />
-                            <label for="radPropCertificadoSi">Si</label>
+                <div class="row" id="divCertificado" style="display: none;">
+                    <div class="row">
+                        <div class="col">
+                            <label for="txtDescripcion">Descripción:</label>
+                            <textarea id="txtDescripcion" name="txtDescripcion" class="form-control"></textarea>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="radPropCertificado" value="no" id="radPropCertificadoNo" class="form-check-input" />
-                            <label for="radPropCertificadoNo">No</label>
+                        <div class="col">
+                            <label for="txtCodCrtificado">Codigo de certificacion:</label>
+                            <input type="text" name="txtCodCrtificado" value="" id="txtCodCrtificado" class="form-control" />
                         </div>
                     </div>
-                </div>
-                <div class="row" id="divDropZone" style="display:none;">
-                    <div class="col">
-                        <div id="dropzone">
-                            <input type="file" id="btnFile" accept=".pdf" class="form-group" />
-                        </div>
-                    </div>
-                </div>
 
+                    <div class="row">
+                        <div class="col">
+                            <label>¿Puede proporcionar copia del certificado?</label>
+                            <br />
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="radPropCertificado" value="si" id="radPropCertificadoSi" class="form-check-input" />
+                                <label for="radPropCertificadoSi">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="radPropCertificado" value="no" id="radPropCertificadoNo" class="form-check-input" />
+                                <label for="radPropCertificadoNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="divDropZone" style="display: none;">
+                        <div class="col">
+                            <div id="dropzone">
+                                <input type="file" id="btnFile" accept=".pdf" class="form-group" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 

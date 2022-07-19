@@ -10,12 +10,21 @@
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../JS/InfoComJS.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
-    <script src="../JsClienteNuevo.js"></script>
+    
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
         <div class="container">
+            
+        <div class="row">
+            <div class="col">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 25%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <br />
         <!-- fieldset Agente aduanal; cambia con el boton-->
             <fieldset>
                 <legend style="font-size: 25px;" id="lblTitulo">Agente aduanal mexicano </legend>
@@ -75,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card border-warning h-100">
+                            <div class="card h-100">
                                 <h5 class="cabezal card-header ">Contacto</h5>
                                 <div class="card-body">
                                     <div class="row">
@@ -180,7 +189,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card border-warning h-100">
+                            <div class="card  h-100">
                                 <h5 class="cabezal card-header ">Contacto</h5>
                                 <div class="card-body">
                                     <div class="row">
@@ -220,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-            <hr />          
+       
 
         </fieldset>
        
@@ -228,7 +237,7 @@
         <div class="row">
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success"> Continuar </button>
+                <button id="btnContinuar" class="btn btn-success" type="button"> Continuar </button>
             </div>
         </div>
     </div>
@@ -237,7 +246,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             fillComboEstado(142, $('#cbEstadoAA'));
-            fillComboEstado(231, $('#txtEstadoAAm'));
+            fillComboEstado(231, $('#cbEstadoAAm'));
 
             $("#cbEstadoAAm").change(function () {
                 var EstadoSeleccionado = $('#cbEstadoAAm option:selected').val();

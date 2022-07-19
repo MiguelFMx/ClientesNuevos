@@ -34,9 +34,14 @@
     <link href="template/assets/vendor/remixicon/remixicon.css" rel="stylesheet"/>
     <link href="template/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 
+    <link href="Scripts/JS/jquery-ui.min.css" rel="stylesheet" />
+
     <!-- Template Main CSS File -->
     <link href="template/assets/css/style.css" rel="stylesheet"/>
 
+    <link href="Scripts/JS/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Scripts/JS/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="Scripts/JS/jquery-ui.theme.min.css" rel="stylesheet" />
     <!-- =======================================================
   * Template Name: Tempo - v4.7.0
   * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
@@ -93,7 +98,7 @@
             </Scripts>
 
         </asp:ScriptManager>
-   
+      
 
 
     <!-- Contenedor-->
@@ -103,8 +108,8 @@
         
        <div style="padding-top:120px;"></div>
 
+ </form>
 
-    </form>
     <!-- Footer-->
     <footer id="footer" style="bottom:0px; position:fixed; left:0px; width:100%; z-index:999999; ">
 
@@ -123,16 +128,13 @@
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="position:fixed;7"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
     <script src="../../../Scripts/jquery-3.6.0.js"></script>
@@ -148,7 +150,8 @@
   <!-- Template Main JS File -->
     <script src="../../template/assets/js/main.js"></script>
 
-        
+    <script src="../Scripts/JS/jquery-ui.min.js"></script>
+    <script src="../Scripts/printThis.js"></script>
    
 </body>
 </html>

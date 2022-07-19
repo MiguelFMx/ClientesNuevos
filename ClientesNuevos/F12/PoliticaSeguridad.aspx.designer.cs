@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClientesNuevos.proveedor.F14
+namespace ClientesNuevos.F12
 {
 
 
-    public partial class ProveedorNuevo
+    public partial class PoliticaSeguridad
     {
     }
 }
