@@ -124,8 +124,6 @@ $(document).ready(function () {
         }
     });
 
-
-
     //Tabla de informacion de productos
     var count = 1;
     dynamic_field(count);

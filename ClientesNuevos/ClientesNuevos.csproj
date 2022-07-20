@@ -110,6 +110,7 @@
     <Content Include="cliente\F14\ClienteNuevo.js" />
     <Content Include="F12\PoliticaSeguridad.aspx" />
     <Content Include="F12\PoliticaSeguridadJS.js" />
+    <Content Include="F14\JS\cadenaDeSuministrosJS.js" />
     <Content Include="F14\JS\InfoComJS.js" />
     <Content Include="F14\JS\tiposervicioJS.js" />
     <Content Include="F14\Secciones\AgentesAduanales.aspx" />

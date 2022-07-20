@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <div class="progress">
-                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 25%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 25%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
             </div>
         </div>
@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success" type="button"> Continuar </button>
+                <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
     </div>

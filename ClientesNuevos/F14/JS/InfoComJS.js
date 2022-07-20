@@ -28,23 +28,6 @@ $(document).ready(function () {
                '<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>' +
                '</div>';
         }
-        /*
-         
-         '<div class="form-check">'+
-  '<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>'+
-'</div>'   
-         
-         
-         
-         */
-        //$('#cbContactoFactura').change(function () {
-        //        if ($(this).is(':checked')) {
-        //            check = "✔";
-        //            alert(':O');
-        //        } else {
-        //            check = "";
-        //        }
-        //    });
 
         if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
             if (contador <= 2) {
@@ -213,34 +196,14 @@ $(document).ready(function () {
 
     //CheckBox para ver si la dirccion es la misma
     $('#chkDireccionIgual').change(function () {
-        if ($(this).is(':checked')) {
+        if ($(this).is(':checked')) {                     
 
-            var direccion = $('#txtDirecFiscal').val();
-            var cp = $('#txtCP').val();
-
-            $('#cbPaisFact').prop('disabled', true);
-            $('#cbEstadoFact').prop('disabled', true);
-            $('#cbCiudadFact').prop('disabled', true);
-            $('#txtDirecFacturacion').prop('readonly', true);
-            $('#txtCPFacturacion').prop('readonly', true);
-
-            $('#txtDirecFacturacion').prop('readonly', true);
-            $('#txtDirecFacturacion').val(direccion);
-
-            $('#txtCPFacturacion').prop('readonly', true);
-            $('#txtCPFacturacion').val(cp);
-
-            
-
+            $('#DirFra *').prop('disabled', false);
+            $('#DirFra').css('background-color', 'white');
         } else {
-            $('#cbPaisFact').prop('disabled', false);
-            $('#cbEstadoFact').prop('disabled', false);
-            $('#cbCiudadFact').prop('disabled', false);
-            $('#txtCPFacturacion').prop('readonly', false);
-            $('#txtDirecFacturacion').prop('readonly', false);
+            $('#DirFra *').prop('disabled', true);
+            $('#DirFra').css('background-color','#e9ecef');
 
-            $('#txtDirecFacturacion').val("");
-            $('#txtCPFacturacion').val("");
         }
     });
 
@@ -257,6 +220,7 @@ $(document).ready(function () {
                 break;
         }
     });
+
    
 });
 

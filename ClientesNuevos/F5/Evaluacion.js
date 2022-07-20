@@ -7,14 +7,15 @@ var current = 1;
 
 var error = [];
 var pregunta = [];
-var A1 = [],
-    A2 = [],
-    A3 = [],
-    A4 = [],
-    A5 = [],
-    A6 = [],
-    A7 = [],
-    A8 = [];
+var bloque1 = [],
+    bloque2 = [],
+    bloque3 = [],
+    bloque4 = [],
+    bloque5 = [],
+    bloque6 = [],
+    bloque7 = [],
+    bloque8 = [],
+    resultados = [];
 var respuestas = [];
 
 $(document).ready(function () {
@@ -22,15 +23,6 @@ $(document).ready(function () {
 
     cargarTablaStepS(current);
 
-
-    //$("#btnnext").click(function () {
-
-    //    if (current < 8) {
-    //        current++;
-    //        setProgressBar(current);
-    //        cargarTablaStepS(current);
-    //    }
-    //});
     $('#btnSiguiente').click(function () {
 
         guardarRespuestas();
@@ -41,77 +33,103 @@ $(document).ready(function () {
                 setProgressBar(current);
                 switch (current) {
                     case 1:
-                        if (A1.length != 0) {
-                            cargarTablaRespuesta(current, A1);
+                        if (bloque1.length != 0) {
+                            cargarTablaRespuesta(current, bloque1);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 2:
-                        if (A2.length != 0) {
-                            cargarTablaRespuesta(current, A2);
+                        if (bloque2.length != 0) {
+                            cargarTablaRespuesta(current, bloque2);
                         } else {
                             cargarTablaStepS(current);
                         }
+
+                        /*Prubas---------------------------------------------------------------------------------------------------------------------------------------*/
+                        var aux,  aux2=0;
+
+                        aux = ((valor(bloque1[0][1]) + valor(bloque1[1][1]) + valor(bloque1[2][1]) + valor(bloque1[3][1]) + valor(bloque1[4][1])) / 5) / 5;
+                        resultados.push(aux);
+
+                        aux = ((valor(bloque1[5][1]) + valor(bloque1[6][1])) / 2) / 5;
+                        resultados.push(aux);
+
+                        aux = valor(bloque1[7][1]) / 5;
+                        resultados.push(aux);
+
+                        aux = ((valor(bloque1[8][1]) + valor(bloque1[9][1])) / 2) / 5;
+                        resultados.push(aux);
+
+                        for (var i = 0; i < resultados.length; i++) {
+                            aux2 += parseFloat( resultados[i]);
+                        }
+                        aux = parseFloat(aux2) / resultados.length;
+                        resultados.push(aux);
+
+                        console.log(bloque1)
+                        console.log(resultados);
+
+                        /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
                         break;
                     case 3:
-                        if (A3.length != 0) {
-                            cargarTablaRespuesta(current, A3);
+                        if (bloque3.length != 0) {
+                            cargarTablaRespuesta(current, bloque3);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 4:
-                        if (A4.length != 0) {
-                            cargarTablaRespuesta(current, A4);
+                        if (bloque4.length != 0) {
+                            cargarTablaRespuesta(current, bloque4);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 5:
-                        if (A5.length != 0) {
-                            cargarTablaRespuesta(current, A5);
+                        if (bloque5.length != 0) {
+                            cargarTablaRespuesta(current, bloque5);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 6:
-                        if (A6.length != 0) {
-                            cargarTablaRespuesta(current, A6);
+                        if (bloque6.length != 0) {
+                            cargarTablaRespuesta(current, bloque6);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 7:
-                        if (A7.length != 0) {
-                            cargarTablaRespuesta(current, A7);
+                        if (bloque7.length != 0) {
+                            cargarTablaRespuesta(current, bloque7);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                     case 8:
-                        if (A8.length != 0) {
-                            cargarTablaRespuesta(current, A8);
+                        if (bloque8.length != 0) {
+                            cargarTablaRespuesta(current, bloque8);
                         } else {
                             cargarTablaStepS(current);
                         }
                         break;
                 }
             } else {
-                if (A8.length != 0) {
-                    cargarTablaRespuesta(current, A8);
+                if (bloque8.length != 0) {
+                    cargarTablaRespuesta(current, bloque8);
                 }
 
                 let alert = confirm('Esta seguro que desea continuar?');
                 if (alert) {
-                    llenarRespuesta(A1);
-                    llenarRespuesta(A2);
-                    llenarRespuesta(A3);
-                    llenarRespuesta(A4);
-                    llenarRespuesta(A5);
-                    llenarRespuesta(A6);
-                    llenarRespuesta(A7);
-                    llenarRespuesta(A8);
+                    llenarRespuesta(bloque1);
+                    llenarRespuesta(bloque2);
+                    llenarRespuesta(bloque3);
+                    llenarRespuesta(bloque4);
+                    llenarRespuesta(bloque5);
+                    llenarRespuesta(bloque6);
+                    llenarRespuesta(bloque7);
+                    llenarRespuesta(bloque8);
 
                     console.log(respuestas);
                     console.log(respuestas[0][1]);
@@ -124,70 +142,64 @@ $(document).ready(function () {
             error = [];
         }
     });
-    //$("#btnback").click(function () {
-    //    if (current >= 2) {
-    //        current--;
-    //        setProgressBar(current);
-    //        cargarTablaStepS(current);
-    //    }
-    //});
+
     $('#btnAnterior').click(function () {
         if (current >= 2) {
             current--;
 
             switch (current) {
                 case 1:
-                    if (A1.length != 0) {
-                        cargarTablaRespuesta(current, A1);
+                    if (bloque1.length != 0) {
+                        cargarTablaRespuesta(current, bloque1);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 2:
-                    if (A2.length != 0) {
-                        cargarTablaRespuesta(current, A2);
+                    if (bloque2.length != 0) {
+                        cargarTablaRespuesta(current, bloque2);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 3:
-                    if (A3.length != 0) {
-                        cargarTablaRespuesta(current, A3);
+                    if (bloque3.length != 0) {
+                        cargarTablaRespuesta(current, bloque3);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 4:
-                    if (A4.length != 0) {
-                        cargarTablaRespuesta(current, A4);
+                    if (bloque4.length != 0) {
+                        cargarTablaRespuesta(current, bloque4);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 5:
-                    if (A5.length != 0) {
-                        cargarTablaRespuesta(current, A5);
+                    if (bloque5.length != 0) {
+                        cargarTablaRespuesta(current, bloque5);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 6:
-                    if (A6.length != 0) {
-                        cargarTablaRespuesta(current, A6);
+                    if (bloque6.length != 0) {
+                        cargarTablaRespuesta(current, bloque6);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 7:
-                    if (A7.length != 0) {
-                        cargarTablaRespuesta(current, A7);
+                    if (bloque7.length != 0) {
+                        cargarTablaRespuesta(current, bloque7);
                     } else {
                         cargarTablaStepS(current);
                     }
                     break;
                 case 8:
-                    if (A8.length != 0) {
-                        cargarTablaRespuesta(current, A8);
+                    if (bloque8.length != 0) {
+                        cargarTablaRespuesta(current, bloque8);
                     } else {
                         cargarTablaStepS(current);
                     }
@@ -260,21 +272,21 @@ $(document).ready(function () {
 
     $('#btnMostrar').click(function () {
         console.log('Bloque 1');
-        console.log(A1);
+        console.log(bloque1);
         console.log('Bloque 2');
-        console.log(A2);
+        console.log(bloque2);
         console.log('Bloque 3');
-        console.log(A3);
+        console.log(bloque3);
         console.log('Bloque 4');
-        console.log(A4);
+        console.log(bloque4);
         console.log('Bloque 5');
-        console.log(A5);
+        console.log(bloque5);
         console.log('Bloque 6');
-        console.log(A6);
+        console.log(bloque6);
         console.log('Bloque 7');
-        console.log(A7);
+        console.log(bloque7);
         console.log('Bloque 8');
-        console.log(A8);
+        console.log(bloque8);
     });
 
     //$('#tPreguntas').click(function () {
@@ -740,7 +752,7 @@ function guardarRespuestas() {
                 //Guardo los valores en un arreglo
                 respuesta = [numero, radio, texto];
 
-                //inserto ese arreglo en un arreglo temporal dependiendo del bloque
+                //inserto ese arreglo en un arreglo temporal dependiendo del bloque, se guarda respuesta
                 GuardarTemp(current, respuesta);
 
             } else {
@@ -777,29 +789,29 @@ function guardarRespuestas() {
 
 function GuardarTemp(step,arreglo) {
     switch (step) {
-        case 1:
-            A1.push(arreglo);
+        case 1:           
+            bloque1.push(arreglo);
             break;
         case 2:
-            A2.push(arreglo);
+            bloque2.push(arreglo);
             break;
         case 3:
-            A3.push(arreglo);
+            bloque3.push(arreglo);
             break;
         case 4:
-            A4.push(arreglo);
+            bloque4.push(arreglo);
             break;
         case 5:
-            A5.push(arreglo);
+            bloque5.push(arreglo);
             break;
         case 6:
-            A6.push(arreglo);
+            bloque6.push(arreglo);
             break;
         case 7:
-            A7.push(arreglo);
+            bloque7.push(arreglo);
             break;
         case 8:
-            A8.push(arreglo);
+            bloque8.push(arreglo);
             break;
 
     }
@@ -808,28 +820,28 @@ function GuardarTemp(step,arreglo) {
 function vaciarTemp(step) {
     switch (step) {
         case 1:
-            A1 = [];
+            bloque1 = [];
             break;
         case 2:
-            A2 = [];
+            bloque2 = [];
             break;
         case 3:
-            A3 = [];
+            bloque3 = [];
             break;
         case 4:
-            A4 = [];
+            bloque4 = [];
             break;
         case 5:
-            A5 = [];
+            bloque5 = [];
             break;
         case 6:
-            A6 = [];
+            bloque6 = [];
             break;
         case 7:
-            A7 = [];
+            bloque7 = [];
             break;
         case 8:
-            A8 = [];
+            bloque8 = [];
             break;
 
     }
@@ -887,4 +899,11 @@ function GuardarRespuestas(arr) {
   }
    
    return false;
+}
+
+function valor(aux) {
+    var x;
+    x = parseInt((aux < 3 ? 0 : aux));
+
+    return x;
 }

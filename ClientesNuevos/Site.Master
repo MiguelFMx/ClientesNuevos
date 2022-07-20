@@ -150,8 +150,8 @@
   <!-- Template Main JS File -->
     <script src="../../template/assets/js/main.js"></script>
 
-    <script src="../Scripts/JS/jquery-ui.min.js"></script>
-    <script src="../Scripts/printThis.js"></script>
+    <script src="../../Scripts/JS/jquery-ui.min.js"></script>
+    <script src="../../Scripts/printThis.js"></script>
    
 </body>
 </html>

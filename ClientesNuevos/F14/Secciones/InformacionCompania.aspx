@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-3">
                     <select id="cbTipoDeRegistro" class="form-select">
-                        <option value="" selected>...</option>
+                        <option value="" selected disabled>...</option>
                         <option value="cliente" >Cliente</option>
                         <option value="proveedor">Proveedor</option>
                     </select>
@@ -44,8 +44,6 @@
         <br />
         <!-- Informacion de compañia-->
         <fieldset>
-
-            <%--<legend style="font-size:25px;">Información de la compañia</legend>--%>
             <div class="card border-primary">
                 <div class="card-header cabezal">Información de la compañia</div>
                 <div class="card-body">
@@ -116,14 +114,12 @@
                             <option value="value">...</option>
                         </select>
                     </div>
-
                 </div>
                 <br />
             </div>
             </div>
                 </div>
             <hr />
-            <!--Contactos-->
             <div class="row">                
                 <!--Datos de facturacion-->
                 <div class="col">
@@ -135,13 +131,13 @@
                                 <div class="form-check ">
                                     <input class="form-check-input" type="checkbox" value="" id="chkDireccionIgual">
                                     <label class="form-check-label" for="chkDireccionIgual" style="font-size:13px;">
-                                        Direccion de facturacion es igual a direccion fiscal
+                                        Direccion de facturacion es diferente a direccion fiscal
                                     </label>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" id="DirFra">
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="txtDirecFacturacion">Dirección facturación:</label>
@@ -222,11 +218,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="txtBanco">Nombre del banco</label>
-                                        <input type="text" name="txtBanco" value="" id="txtBanco" class="form-control" />
+                                        <input type="text" name="txtBanco" value="" id="txtBancoNombre" class="form-control" />
                                     </div>
                                     <div class="col">
                                         <label for="txtBanco">RFC del banco</label>
-                                        <input type="text" name="txtBancoRFC" value="" id="txtBanco" class="form-control" />
+                                        <input type="text" name="txtBancoRFC" value="" id="txtBancoRFC" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="row" style="padding-bottom: 1.3rem;">
@@ -333,7 +329,6 @@
                           </table>
                       </div>
                   </div>
-            <hr />
         </fieldset>
 
 
@@ -342,7 +337,7 @@
             <br />
             <div class="col-10"></div>
             <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success" type="button">Continuar</button>
+                <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>
             </div>
             <br />
         </div>
@@ -354,6 +349,8 @@
         fillComboPais($("#cbPaisFact"));
         fillFP();
 
+        $('#DirFra *').prop('disabled', true);
+        $('#DirFra').css('background-color', '#e9ecef');
 
         $('#btnContinuar').click(function () {
             switch (sessionStorage.getItem('ctipo')) {
@@ -369,6 +366,7 @@
                     break;
             }
         });
+        
     </script>
 
 </asp:Content>

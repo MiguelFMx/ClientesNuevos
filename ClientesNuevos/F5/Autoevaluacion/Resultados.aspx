@@ -33,6 +33,11 @@
             <div class="col">
                 <table id ="tRespuesta" class="table table-bordered">
                     <thead>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Opcion</th>
+                            <th>Observaciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>

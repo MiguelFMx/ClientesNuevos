@@ -108,7 +108,7 @@
         <div class="row">
             <div class="col-10"></div>
             <div class="col">
-                <button class="btn btn-success" id="btnContinuar">Continuar <span><i class="bi-chevron-right"></i></span></button>
+                <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
             </div>
         </div>
     </div>
