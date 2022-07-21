@@ -241,7 +241,7 @@
                 </div>
                 
             </div>
-            <br /><br />
+            <hr />
                   <div class="row">
                       <!--Datos de contacto-->
                       <div class="col">                         
@@ -267,6 +267,16 @@
                                           </div>
 
                                       </div>
+                                      <div class="row">
+                                          <div class="col">
+                                              <div class="form-check">
+                                                  <input class="form-check-input" type="checkbox" value="" id="cbContactoFactura">
+                                                  <label class="form-check-label" for="flexCheckDefault">
+                                                      Enviar factura
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
 
                                       <div class="row">
                                           <div class="col-5">
@@ -281,16 +291,6 @@
                                           <div class="col-4">
                                               <label for="txtCelCont">Celular:</label>
                                               <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size:16px;" required />
-                                          </div>
-                                      </div>
-                                      <div class="row">
-                                          <div class="col">
-                                              <div class="form-check">
-                                                  <input class="form-check-input" type="checkbox" value="" id="cbContactoFactura">
-                                                  <label class="form-check-label" for="flexCheckDefault">
-                                                      Enviar factura
-                                                  </label>
-                                              </div>
                                           </div>
                                       </div>
                                       <br />

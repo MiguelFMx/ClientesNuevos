@@ -9,6 +9,11 @@
 
     <script src="../../Scripts/JS/ajax.js"></script>
 
+    <style>
+        .custom-tooltip {
+            --bs-tooltip-bg: #ffc107;
+        }
+    </style>
    <%-- <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,6 +37,7 @@
                         <i class="bi bi-question-circle"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
+                            data-bs-custom-class="custom-tooltip"
                             title="Compañia filial es considerada cualquier empresa subcontratada para realizar cualquier servicio de transporte,
                             almacenaje o resguardo de unidades de transporte internacional. Si no cuenta con una compañia filial de clic en continuar"></i>
                     </span>
@@ -177,27 +183,6 @@
 
                     </table>
             </div>
-            <%--<div class="col">
-                 <table class="table table-responsive" id="tContactoFil">
-                       
-                        <thead class="cabezal">
-                            <tr>
-                                
-                                <th>Nombre</th>
-                                <th>Puesto</th>
-                                <th>Telefono</th>
-                                <th>Ext</th>
-                                <th>Celular</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-
-                    </table>
-            </div>--%>
         </div>
         <hr />
         <div class="row" >
