@@ -1,15 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TipoServicioProductos.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.TipoServicioProductos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-        <link href="../../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../template/assets/css/style.css" rel="stylesheet" />
-
-    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-
-    <script src="../JS/tiposervicioJS.js"></script>
-
-
+<title>Servicio y producto</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -17,8 +8,52 @@
 
         <div class="row">
             <div class="col">
-                <div class="progress">
+                <div class="progress" hidden>
                     <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">75%</div>
+                </div>
+                <div id="wizard" class="form_wizard wizard_horizontal">
+                    <ul class="wizard_steps">
+                       <li>
+                            <a href="#" class="done">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">Paso 1<br />
+                                    <small>Información de la compañia</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="done">
+                                <span class="step_no">2</span>
+                                <span class="step_descr">Paso 2<br />
+                                    <small>Información de agentes aduanales</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="done">
+                                <span class="step_no">3</span>
+                                <span class="step_descr">Paso 3<br />
+                                    <small>Informacion de compañia filial</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="selected">
+                                <span class="step_no">4</span>
+                                <span class="step_descr">Paso 4<br />
+                                    <small>Tipo de servicio requerido</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" >
+                                <span class="step_no">5</span>
+                                <span class="step_descr">Paso 5<br />
+                                    <small>Acreditación en programa de seguridad</small>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -423,4 +458,7 @@
     </script>
 
 
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../JS/tiposervicioJS.js"></script>
 </asp:Content>

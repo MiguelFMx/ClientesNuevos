@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 .tooltip-custom .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before, .bs-tooltip-top .tooltip-arrow::before {
     top: -1px;
     border-width: .4rem .4rem 0;
-    border-top-color: #ffc107
+    border-top-color: #ffc107;
 }
 
 .bs-tooltip-auto[data-popper-placement^=right], .bs-tooltip-end {

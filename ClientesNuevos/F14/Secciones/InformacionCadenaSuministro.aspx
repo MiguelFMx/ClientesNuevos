@@ -1,14 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformacionCadenaSuministro.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.InformacionCadenaSuministro" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-       <link href="../../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
-    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-
-    <script src="../../Scripts/JS/ajax.js"></script>
-    <script src="../JS/InfoComJS.js"></script>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 </asp:Content>
@@ -18,9 +11,75 @@
         
         <div class="row">
             <div class="col">
-                <div class="progress">
+                <div class="progress" hidden>
                     <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 100%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
+
+                <div id="wizard" class="form_wizard wizard_horizontal" hidden>
+                    <ul class="wizard_steps">
+                        <li>
+                            <a href="#" class="done">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">Paso 1<br />
+                                    <small>Información de la compañia</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="remove">
+                            <a href="#" class="done">
+                                <span class="step_no">2</span>
+                                <span class="step_descr">Paso 2<br />
+                                    <small>Información de agentes aduanales</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="remove">
+                            <a href="#" class="done">
+                                <span class="step_no">3</span>
+                                <span class="step_descr">Paso 3<br />
+                                    <small>Informacion de compañia filial</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="remove">
+                            <a href="#" class="done">
+                                <span class="step_no">4</span>
+                                <span class="step_descr">Paso 4<br />
+                                    <small>Tipo de servicio requerido</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="selected">
+                                <span class="step_no" id="paso">5</span>
+                                <span class="step_descr" id="descripcion">Paso 5<br />
+                                    <small>Acreditación en programa de seguridad</small>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                 <div id="wizard2" class="form_wizard wizard_horizontal" hidden>
+                    <ul class="wizard_steps">
+                        <li>
+                            <a href="#" class="done">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">Paso 1<br />
+                                    <small>Información de la compañia</small>
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="#" class="selected">
+                                <span class="step_no" >2</span>
+                                <span class="step_descr" >Paso 2<br />
+                                    <small>Acreditación en programa de seguridad</small>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>                
             </div>
         </div>
         <br />
@@ -149,6 +208,10 @@
     </script>
 
     
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../JS/InfoComJS.js"></script>
     <script src="../JS/cadenaDeSuministrosJS.js"></script>
 
 </asp:Content>

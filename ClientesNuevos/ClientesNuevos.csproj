@@ -233,6 +233,7 @@
     <Content Include="Site.Master" />
     <Content Include="template\assets\css\style.css" />
     <Content Include="template\assets\css\dropzone.css" />
+    <Content Include="template\assets\css\wizard.css" />
     <Content Include="template\assets\img\apple-touch-icon.png" />
     <Content Include="template\assets\img\blog\blog-1.jpg" />
     <Content Include="template\assets\img\blog\blog-2.jpg" />

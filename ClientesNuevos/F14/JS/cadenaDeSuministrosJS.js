@@ -1,5 +1,16 @@
 ﻿$(document).ready(function () {
 
+
+    if (sessionStorage.getItem('ctipo') == 'proveedor') {
+        $('#wizard2').prop('hidden', false);
+        $('#wizard').prop('hidden', true);
+    } else {
+        $('#wizard2').prop('hidden', true);
+        $('#wizard').prop('hidden', false);
+
+    }
+
+
     var count = 1;
     dynamic_field(count);
 

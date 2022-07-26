@@ -211,15 +211,22 @@ $(document).ready(function () {
       //creacion de cookie que el tipo de rgistro para no mostrar algunas paginas
     $('#cbTipoDeRegistro').change(function () {
         var tipo = $('#cbTipoDeRegistro option:selected').val();
+    
          //creacion de cookie que el tipo de rgistro para no mostrar algunas paginas
         switch (tipo) {
             case 'cliente':
                 sessionStorage.setItem('ctipo', 'cliente');
+                $('#wizard').prop('hidden', false);
+                $('#wizard2').prop('hidden', true);
                 break;
             case 'proveedor':
                 sessionStorage.setItem('ctipo', 'proveedor');
+                $('#wizard2').prop('hidden', false);
+                $('#wizard').prop('hidden', true);
                 break;
         }
+
+
     });
 
    
