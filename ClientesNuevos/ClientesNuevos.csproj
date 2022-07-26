@@ -232,6 +232,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="template\assets\css\style.css" />
+    <Content Include="template\assets\css\dropzone.css" />
     <Content Include="template\assets\img\apple-touch-icon.png" />
     <Content Include="template\assets\img\blog\blog-1.jpg" />
     <Content Include="template\assets\img\blog\blog-2.jpg" />
@@ -269,6 +270,7 @@
     <Content Include="template\assets\img\team\team-2.jpg" />
     <Content Include="template\assets\img\team\team-3.jpg" />
     <Content Include="template\assets\img\team\team-4.jpg" />
+    <Content Include="template\assets\js\dropjs.js" />
     <Content Include="template\assets\js\main.js" />
     <Content Include="template\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
     <Content Include="template\assets\vendor\bootstrap-icons\index.html" />
@@ -314,6 +316,7 @@
     <Content Include="template\forms\contact.php" />
     <Content Include="template\forms\Readme.txt" />
     <Content Include="usuario\Index.aspx" />
+    <Content Include="usuario\indexJS.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />

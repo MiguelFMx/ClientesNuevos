@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
     font-family: "Open Sans", sans-serif;
-    color: #444444;
+    color: black;
     font-size: 15px;
     height: 100%;
 }
@@ -44,6 +44,66 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #0169C2;
     color: white;
     font-weight: bold;
+}
+
+.tooltip-custom .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before, .bs-tooltip-top .tooltip-arrow::before {
+    top: -1px;
+    border-width: .4rem .4rem 0;
+    border-top-color: #ffc107
+}
+
+.bs-tooltip-auto[data-popper-placement^=right], .bs-tooltip-end {
+    padding: 0 .4rem
+}
+
+    .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow, .bs-tooltip-end .tooltip-arrow {
+        left: 0;
+        width: .4rem;
+        height: .8rem
+    }
+
+        .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before, .bs-tooltip-end .tooltip-arrow::before {
+            right: -1px;
+            border-width: .4rem .4rem .4rem 0;
+            border-right-color: #ffc107
+        }
+
+.bs-tooltip-auto[data-popper-placement^=bottom], .bs-tooltip-bottom {
+    padding: .4rem 0
+}
+
+    .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow, .bs-tooltip-bottom .tooltip-arrow {
+        top: 0
+    }
+
+        .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before, .bs-tooltip-bottom .tooltip-arrow::before {
+            bottom: -1px;
+            border-width: 0 .4rem .4rem;
+            border-bottom-color: #ffc107
+        }
+
+.bs-tooltip-auto[data-popper-placement^=left], .bs-tooltip-start {
+    padding: 0 .4rem
+}
+
+    .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow, .bs-tooltip-start .tooltip-arrow {
+        right: 0;
+        width: .4rem;
+        height: .8rem
+    }
+
+        .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before, .bs-tooltip-start .tooltip-arrow::before {
+            left: -1px;
+            border-width: .4rem 0 .4rem .4rem;
+            border-left-color: #ffc107
+        }
+.tooltip-inner {
+    max-width: 200px;
+    padding: .25rem .5rem;
+    color: white;
+    text-align: center;
+    background-color: #e6ae06;
+    border-radius: .25rem
 }
 
 
@@ -2046,3 +2106,21 @@ section {
     border: 1px solid black;
     padding: 20px 20px 20px 20px;
 }
+
+.etiqueta{
+    background-color: #22c74e;
+    color: white;
+    border-radius: 22px;
+    padding: 4px 2em 4px 2em;
+    font-size:12px;
+}
+.falta {
+    background-color: #ea0101;
+}
+.actualizar {
+    background-color: #ffc107;
+}
+.pendiente {
+    background-color: #6c757d;
+}
+

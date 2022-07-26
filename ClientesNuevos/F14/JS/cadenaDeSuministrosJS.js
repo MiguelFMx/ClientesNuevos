@@ -19,14 +19,12 @@
 
     $('#btnContinuar').click(function () {
 
-        let aler = confirm('¿Desea continuar?');
+        let alert = confirm('¿Desea continuar?');
         if (alert) {
             window.location.href = '../../F43/MapeoFlujo.aspx';
 
         } else {
-            window.location.href = '../../F43/MapeoFlujo.aspx';
-
-            "../../usuario/Index.aspx
+            window.location.href = '../../usuario/Index.aspx';
         }
     });
 });

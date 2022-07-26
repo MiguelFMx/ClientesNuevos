@@ -37,7 +37,6 @@
                         <i class="bi bi-question-circle"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            data-bs-custom-class="custom-tooltip"
                             title="Compañia filial es considerada cualquier empresa subcontratada para realizar cualquier servicio de transporte,
                             almacenaje o resguardo de unidades de transporte internacional. Si no cuenta con una compañia filial de clic en continuar"></i>
                     </span>

@@ -385,6 +385,7 @@
                 </div>
             </div>
         </div>
+        <hr />
         <br />
         <div class="row" id="InfoProd">
             <fieldset>
@@ -404,6 +405,7 @@
                 </table>
             </fieldset>
         </div>
+        <hr />
         <br />
         <div class="row">
             <div class="col-10"></div>
