@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformacionCompania.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.ImformacionCompania" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-   <title>Agentes aduanales</title>
+    <title>Agentes aduanales</title>
 
-    
+
     <link href="../../template/assets/css/style.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
@@ -40,7 +41,7 @@
                     <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 0%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
 
-                <div id="wizard" class="form_wizard wizard_horizontal" hidden>
+                <div id="wizard" class="form_wizard wizard_horizontal" >
                     <ul class="wizard_steps">
                         <li>
                             <a href="#" class="selected">
@@ -94,11 +95,11 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#" class="">
-                                <span class="step_no" >2</span>
-                                <span class="step_descr" >Paso 2<br />
+                                <span class="step_no">2</span>
+                                <span class="step_descr">Paso 2<br />
                                     <small>Acreditación en programa de seguridad</small>
                                 </span>
                             </a>
@@ -119,24 +120,29 @@
                             <div class="col">
                                 <label for="txtNombreCompania" style="margin-bottom: 9px;">Nombre de la compañia:</label>
                                 <%--<input type="text" name="name" value="" id="txtNombreCompania" />--%>
-                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                             <div class="col">
                                 <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
                                 <%--<input type="text" name="name" value="" id="txtNombrCom" class="form-control" />--%>
-                                <asp:TextBox ID="txtNombrCom" runat="server"  CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col" style="margin-top: -8px;">
                                 <label for="cbTipoDePersona" class="form-label">Tipo de persona</label>
-                                <select id="cbTipoDePersona" class="form-select">
+                                <%--<select id="cbTipoDePersona" class="form-select">
                                     <option value="">...</option>
                                     <option value="0">Moral</option>
                                     <option value="1">Fisica</option>
-                                </select>
-                                
+                                </select>--%>
+
+                                <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
+                                    <asp:ListItem Text="..." Value="0" Enabled="false"  />
+                                    <asp:ListItem Text="Moral" Value="0" />
+                                    <asp:ListItem Text="Fisica" Value="1" />
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
                                 <label for="txtRfc">RFC:</label>
@@ -172,22 +178,28 @@
                         <div class="row">
                             <div class="col">
                                 <label for="cbPais">Pais:</label>
-                                <select id="cbPais" class="form-select">
+                                <%--<select id="cbPais" class="form-select">
                                     <option value="...">...</option>
-                                </select>
+                                </select>--%>
+                                <asp:DropDownList ID="ddPais" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPais_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
                                 <label for="cboEstado">Estado:</label>
-                                <select id="cboEstado" class="form-select">
+                                <%--<select id="cboEstado" class="form-select">
                                     <option value="value">...</option>
-                                </select>
-
+                                </select>--%>
+                                <asp:DropDownList ID="ddEstado" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstado_SelectedIndexChanged">
+                                    <asp:ListItem Text="..." Value="0" Enabled="false" />
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
                                 <label for="cbCiudad">Ciudad:</label>
-                                <select id="cbCiudad" class="form-select">
+                                <%--<select id="cbCiudad" class="form-select">
                                     <option value="value">...</option>
-                                </select>
+                                </select>--%>
+
+                                <asp:DropDownList ID="ddCiudad" runat="server" AutoPostBack="True" CssClass="form-select" OnSelectedIndexChanged="ddCiudad_SelectedIndexChanged"></asp:DropDownList>
                             </div>
                         </div>
                         <br />
@@ -204,51 +216,62 @@
                                 <h6 style="font-weight: bold;">Datos de facturacion</h6>
 
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" value="" id="chkDireccionIgual">
+                                    <%--<input class="form-check-input" type="checkbox" value="" id="chkDireccionIgual">--%>
+                                    <asp:CheckBox ID="chkDireccionIgual" runat="server" OnCheckedChanged="chkDireccionIgual_CheckedChanged" AutoPostBack="True" />
+
                                     <label class="form-check-label" for="chkDireccionIgual" style="font-size: 13px;">
                                         Direccion de facturacion es diferente a direccion fiscal
                                     </label>
-                                </div>                                
+                                </div>
+                            </div>
+                        </div>
+                        <asp:Panel runat="server" ID="pFra" Enabled="False" BackColor="#E9ECEF">
+                            <div class="card-body" id="DirFra">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="txtDirecFacturacion">Dirección facturación:</label>
+                                        <%--<textarea id="txtDirecFacturacion" class="form-control"></textarea>--%>
+                                        <asp:TextBox ID="txtDirecFacturacion" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="cbPaisFact">Pais:</label>
+                                        <%--<select id="cbPaisFact" class="form-select">
+                                            <option value="value">...</option>
+                                        </select>--%>
+                                        <asp:DropDownList ID="ddPaisFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddPaisFra_SelectedIndexChanged"></asp:DropDownList>
+                                    </div>
+                                    <div class="col">
+                                        <label for="cbEstadoFact">Estado:</label>
+                                        <%--<select id="cbEstadoFact" class="form-select">
+                                            <option value="value">...</option>
+                                        </select>--%>
+                                        <asp:DropDownList ID="ddEstadoFra" runat="server" CssClass="form-select" AutoPostBack="True"></asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="cbCiudadFact">Ciudad:</label>
+                                        <%-- <select id="cbCiudadFact" class="form-select">
+                                            <option value="value">...</option>
+                                        </select>--%>
+                                        <asp:DropDownList ID="ddCiudadFra" runat="server" CssClass="form-select"></asp:DropDownList>
+                                    </div>
+                                    <div class="col">
+                                        <label for="txtCPFacturacion">CP:</label>
+                                        <%--<input type="text" name="name" value="" id="txtCPFacturacion" class="form-control" />--%>
+                                        <asp:TextBox ID="txtCPFra" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <br />
+                                </div>
+
                             </div>
 
-                        </div>
-                        <div class="card-body" id="DirFra">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="txtDirecFacturacion">Dirección facturación:</label>
-                                    <textarea id="txtDirecFacturacion" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="cbPaisFact">Pais:</label>
-                                    <select id="cbPaisFact" class="form-select">
-                                        <option value="value">...</option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label for="cbEstadoFact">Estado:</label>
-                                    <select id="cbEstadoFact" class="form-select">
-                                        <option value="value">...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="cbCiudadFact">Ciudad:</label>
-                                    <select id="cbCiudadFact" class="form-select">
-                                        <option value="value">...</option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label for="txtCPFacturacion">CP:</label>
-                                    <input type="text" name="name" value="" id="txtCPFacturacion" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <br />
-                            </div>
-                        </div>
+                        </asp:Panel>
                     </div>
                 </div>
                 <!--Datos bancarios-->
@@ -259,26 +282,37 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="cbMetodoPago">Metodo de pago</label>
-                                    <select id="cbMetodoPago" class="form-select">
+                                    <%--<select id="cbMetodoPago" class="form-select">
                                         <option value="">...</option>
                                         <option value="PUE">PUE - Pago en una sola exhibición</option>
                                         <option value="PPD">PPD - Pago Diferido</option>
 
-                                    </select>
+                                    </select>--%>
+                                    <asp:DropDownList ID="ddMetodoPago" runat="server" CssClass="form-select">
+                                        <asp:ListItem Text="..." value="0" Enabled="false"/>
+                                        <asp:ListItem Text="PUE" value="PUE"/>
+                                        <asp:ListItem Text="PPD" value="PPD"/>
+                                    </asp:DropDownList>
+
                                 </div>
                                 <div class="col">
                                     <label for="cbFormaPago">Forma de pago</label>
                                     <select id="cbFormaPago" class="form-select">
                                         <option value="">...</option>
-
                                     </select>
+                                    <asp:DropDownList ID="ddFormaPago" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col">
                                     <label for="cbMoneda">Moneda</label>
-                                    <select id="cbMoneda" class="form-select">
+                                    <%--<select id="cbMoneda" class="form-select">
                                         <option value="MXN">MXN</option>
                                         <option value="USD">USD</option>
-                                    </select>
+                                    </select>--%>
+                                    <asp:DropDownList ID="ddMoneda" runat="server" CssClass="form-select">
+                                        <asp:ListItem Text="..."  Selected="True" Value="x" Enabled="false" />
+                                        <asp:ListItem Text="MXN" Value="MXN" />
+                                        <asp:ListItem Text="USD" Value="USD" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                             <div class="row">
@@ -288,6 +322,7 @@
                                         <option value="">...</option>
 
                                     </select>
+                                    <asp:DropDownList ID="ddUsoCFDI" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="row">
@@ -311,7 +346,7 @@
                                 <div class="col">
                                     <label for="txtClaveBancaria">Clave bancaria</label>
                                     <%--<input type="text" name="txtClaveBancaria" value="" id="txtClaveBancaria" class="form-control" maxlength="18" />--%>
-                                    <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18" ></asp:TextBox>
+                                    <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -402,7 +437,6 @@
                         <tbody class="table-bordered border-primary">
                         </tbody>
                         <tfoot></tfoot>
-
                     </table>
                 </div>
             </div>
@@ -416,15 +450,15 @@
             <div class="col-10"></div>
             <div class="col-2">
                 <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>
-                <asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False"/>
+                <asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />
 
-                <asp:TextBox ID="txtTest" runat="server"></asp:TextBox>
+
             </div>
             <br />
         </div>
 
     </div>
-   
+
     <script type="text/javascript">
 
         $(document).ready(() => {
@@ -439,8 +473,6 @@
         fillComboPais($("#cbPaisFact"));
         fillFP();
 
-        $('#DirFra *').prop('disabled', true);
-        $('#DirFra').css('background-color', '#e9ecef');
 
         $('#btnContinuar').click(function () {
             switch (sessionStorage.getItem('ctipo')) {
@@ -456,7 +488,7 @@
                     break;
             }
         });
-        
+
     </script>
 
 </asp:Content>

@@ -328,3 +328,7 @@ function fillComboCiudad(id_ciudad, combo_c) {
     return false;
 }
 
+
+function alertameEsta() {
+    alert('esta 😆🤙');
+}
