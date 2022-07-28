@@ -7,9 +7,7 @@ using System.Data.Sql;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-
-
-
+using System.Web.UI;
 
 namespace ClientesNuevos.F14
 {
@@ -212,7 +210,8 @@ namespace ClientesNuevos.F14
             }
             catch (SqlException e)
             {
-                
+              Context.Response.Write("<script language=javascript>alert('ERROR "+e.Message+"');</script>");
+
             }
 
            List<CFDI> lstFP = new List<CFDI>();

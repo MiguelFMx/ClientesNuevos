@@ -134,7 +134,7 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="position:fixed;7"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="position:fixed;"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
     <script src="../../../Scripts/jquery-3.6.0.js"></script>
@@ -156,8 +156,6 @@
     <script src="../../Scripts/printThis.js"></script>
     <script src="../../template/assets/js/dropjs.js"></script>
 
-<%--    <script src="../../F14/JS/InfoComJS.js"></script>
-    <script src="../../F14/JS/cadenaDeSuministrosJS.js"></script>--%>
 
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server" >
 

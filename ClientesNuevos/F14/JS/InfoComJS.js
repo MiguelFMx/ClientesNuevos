@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 
     //Alamcenar informacion de contacto
-    $('#btnContactoCompañia').on('click', function () {
+    $('#btnContactoCompania').on('click', function () {
         var nombre = $('#txtNombrCont');
         var puesto = $('#txtpuestoCont');
         var correo = $('#txtCorreoCont');
@@ -30,12 +30,10 @@ $(document).ready(function () {
                '</div>';
         }
 
-        if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
+        if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
             if (contador <= 2) {
                 contador++;
                 //tContactoCom
-
-
                 var tabla = $('#tContactoCom tbody');
 
                 tabla.append(
@@ -57,7 +55,7 @@ $(document).ready(function () {
                 alert("Solo se pueden registrar 3 contactos");
             }
         } else {
-            alert('Rellena los campos necesarios');
+           alert('Rellena los campos necesarios');
         }
     });
     $(document).on('click', '#remove', function () {

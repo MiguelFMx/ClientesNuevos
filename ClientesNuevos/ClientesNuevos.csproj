@@ -325,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\clsHerramientaBD.cs" />
+    <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="cliente\F14\ClienteNuevo.aspx.cs">

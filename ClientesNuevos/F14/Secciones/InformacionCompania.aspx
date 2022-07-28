@@ -120,12 +120,14 @@
                             <div class="col">
                                 <label for="txtNombreCompania" style="margin-bottom: 9px;">Nombre de la compañia:</label>
                                 <%--<input type="text" name="name" value="" id="txtNombreCompania" />--%>
-                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control" ></asp:TextBox>
                             </div>
                             <div class="col">
                                 <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
                                 <%--<input type="text" name="name" value="" id="txtNombrCom" class="form-control" />--%>
-                                <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control" ></asp:TextBox>
+
+                                
                             </div>
                         </div>
                         <br />
@@ -139,7 +141,7 @@
                                 </select>--%>
 
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
-                                    <asp:ListItem Text="..." Value="0" Enabled="false"  />
+                                    <asp:ListItem Text="..." Value="2"/>
                                     <asp:ListItem Text="Moral" Value="0" />
                                     <asp:ListItem Text="Fisica" Value="1" />
                                 </asp:DropDownList>
@@ -148,6 +150,10 @@
                                 <label for="txtRfc">RFC:</label>
                                 <%--<input type="text" name="name" value="" id="txtRfc" class="form-control" style="font-size: 16px;" />--%>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                    ErrorMessage="Es necesario que llene este campo"
+                                    ControlToValidate="txtRfc"
+                                    Display="Dynamic" ValidateRequestMode="Enabled"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col">
                                 <label for="txtAnosNegocio">CURP:</label>
@@ -200,6 +206,9 @@
                                 </select>--%>
 
                                 <asp:DropDownList ID="ddCiudad" runat="server" AutoPostBack="True" CssClass="form-select" OnSelectedIndexChanged="ddCiudad_SelectedIndexChanged"></asp:DropDownList>
+                            
+                                <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" />
+                                <asp:Label ID="lblresultado" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                         <br />
@@ -289,7 +298,7 @@
 
                                     </select>--%>
                                     <asp:DropDownList ID="ddMetodoPago" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="..." value="0" Enabled="false"/>
+                                        <asp:ListItem Text="..." value="0"/>
                                         <asp:ListItem Text="PUE" value="PUE"/>
                                         <asp:ListItem Text="PPD" value="PPD"/>
                                     </asp:DropDownList>
@@ -297,9 +306,9 @@
                                 </div>
                                 <div class="col">
                                     <label for="cbFormaPago">Forma de pago</label>
-                                    <select id="cbFormaPago" class="form-select">
+                                   <%-- <select id="cbFormaPago" class="form-select">
                                         <option value="">...</option>
-                                    </select>
+                                    </select>--%>
                                     <asp:DropDownList ID="ddFormaPago" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col">
@@ -309,7 +318,7 @@
                                         <option value="USD">USD</option>
                                     </select>--%>
                                     <asp:DropDownList ID="ddMoneda" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="..."  Selected="True" Value="x" Enabled="false" />
+                                        <asp:ListItem Text="..."  Selected="True" Value="x" />
                                         <asp:ListItem Text="MXN" Value="MXN" />
                                         <asp:ListItem Text="USD" Value="USD" />
                                     </asp:DropDownList>
@@ -318,10 +327,10 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="cbUsoCFDI">Uso de CFDI</label>
-                                    <select id="cbUsoCFDI" class="form-select">
+                                    <%--<select id="cbUsoCFDI" class="form-select">
                                         <option value="">...</option>
 
-                                    </select>
+                                    </select>--%>
                                     <asp:DropDownList ID="ddUsoCFDI" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                             </div>
@@ -351,7 +360,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -366,18 +374,18 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="txtNombrCont">Nombre:</label>
-                                    <input type="text" name="name" value="" id="txtNombrCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="text" name="name" value="" id="txtNombrCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
                                 <div class="col">
                                     <label for="txtpustoCont">Puesto:</label>
-                                    <input type="text" name="name" value="" id="txtpuestoCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="text" name="name" value="" id="txtpuestoCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col">
                                     <label for="txtCorreoCont">Correo:&nbsp;</label>
-                                    <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
 
                             </div>
@@ -395,16 +403,16 @@
                             <div class="row">
                                 <div class="col-5">
                                     <label for="txtTelCont">Telefono:</label>
-                                    <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="tel" name="name" value="" id="txtTelCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
                                 <div class="col-3">
                                     <label for="txtFaxCont">Extensión:</label>
-                                    <input type="number" name="name" value="" id="txtExtCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="number" name="name" value="" id="txtExtCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
 
                                 <div class="col-4">
                                     <label for="txtCelCont">Celular:</label>
-                                    <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size: 16px;" required />
+                                    <input type="tel" name="name" value="" id="txtCelCont" class="form-control" style="font-size: 16px;"  />
                                 </div>
                             </div>
                             <br />
@@ -412,7 +420,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-3">
-                                    <input type="button" class="btn btn-primary btn-sm" id="btnContactoCompañia" name="btnContactoCompañia" value="Agregar contacto" />
+                                    <input type="button" class="btn btn-primary btn-sm" id="btnContactoCompania" value="Agregar contacto" />
 
                                 </div>
                             </div>
@@ -493,6 +501,5 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
-    <script src="../JS/InfoComJS.js"></script>
 
 </asp:Content>
