@@ -20,14 +20,13 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            BloquearOpcion(ref ddTipoDePersona , "2");
 
             if (!IsPostBack)
             {
-
-                llenarPaisCB(ddPais);
-                llenarPaisCB(ddPaisFra);
-                llenarMetodoPago();
+                LlenarPaisCB(ddPais);
+                LlenarPaisCB(ddPaisFra);
+                LlenarMetodoPago();
             }
         }
 
@@ -44,7 +43,7 @@ namespace ClientesNuevos.F14.Seccioness
         }
 
 
-        protected void llenarPaisCB( DropDownList dropDown )
+        protected void LlenarPaisCB( DropDownList dropDown )
         {
             lstPais = new List<wsUbicacion.ListaPais>();
             lstPais = wsUbicacion.llenarCbPais();
@@ -61,7 +60,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         }
 
-        protected void llenarEstado(DropDownList dropDown, int id)
+        protected void LlenarEstado(DropDownList dropDown, int id)
         {
             lstPais = new List<wsUbicacion.ListaPais>();
             lstPais = wsUbicacion.llenarCbEstados(id);
@@ -79,10 +78,8 @@ namespace ClientesNuevos.F14.Seccioness
             ddEstado.Items.Clear();
             ddCiudad.Items.Clear();
             var pais = Convert.ToInt32(ddPais.SelectedItem.Value);
-            llenarEstado(ddEstado, pais);
+            LlenarEstado(ddEstado, pais);
         }
-
-       
 
         protected void ddCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -113,7 +110,7 @@ namespace ClientesNuevos.F14.Seccioness
             ddEstadoFra.Items.Clear();
             ddCiudadFra.Items.Clear();
             var pais = Convert.ToInt32(ddPaisFra.SelectedItem.Value);
-            llenarEstado(ddEstadoFra, pais);
+            LlenarEstado(ddEstadoFra, pais);
         }
 
         protected void chkDireccionIgual_CheckedChanged(object sender, EventArgs e)
@@ -150,13 +147,13 @@ namespace ClientesNuevos.F14.Seccioness
                     txtCURP.Enabled = true;                 
 
                 }
-                llenarCFDI(regimen);
+                LlenarCFDI(regimen);
 
             }
 
         }
 
-        protected void llenarCFDI(int regimen)
+        protected void LlenarCFDI(int regimen)
         {
             ddUsoCFDI.Items.Clear();
 
@@ -172,7 +169,7 @@ namespace ClientesNuevos.F14.Seccioness
             ddUsoCFDI.SelectedIndex = ddUsoCFDI.Items.IndexOf(ddUsoCFDI.Items.FindByText("P01"));
         }
 
-        protected void llenarMetodoPago()
+        protected void LlenarMetodoPago()
         {
             List<wsUbicacion.CFDI> cFDIs = new List<wsUbicacion.CFDI>();
             cFDIs = wsUbicacion.llenarFormaPago();
@@ -187,8 +184,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnPrueba_Click(object sender, EventArgs e)
         {
-            string ID_compania = "", nombre_comp = "", nombre_comercial = "", rfc = "", CURP = "", direccion = "", cp = "",
-                pais = "", estado = "", ciudad = "", fecha_registro = "", id_user = "", resultado="";
+            string ID_compania, nombre_comp, nombre_comercial, rfc, CURP, direccion, cp, pais, estado, ciudad, fecha_registro, id_user, resultado, resDir;
             int tipo_persona, tiempo_negocio;
 
             ID_compania = txtRfc.Text;
@@ -209,8 +205,67 @@ namespace ClientesNuevos.F14.Seccioness
 
             resultado = ClsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
 
+            if (chkDireccionIgual.Checked)
+            {
+                resDir = ClsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text,ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue,ddCiudadFra.SelectedValue);
+            }
+            else
+            {
+                resDir = ClsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+            }
 
-            lblresultado.Text = resultado;
+            lblresultado.Text = resultado+"  "+resDir;
+
+
+            HttpCookie cookie = new HttpCookie("compania_id")
+            {
+                Value = ID_compania,
+                Expires = DateTime.Now.AddMinutes(60d)
+            };
+            Response.Cookies.Add(cookie);
+
+        }
+
+        protected void BloquearOpcion(ref DropDownList dd, string val)
+        {
+            ListItem i = dd.Items.FindByValue(val);
+            i.Attributes.Add("style", "color:gray;");
+            i.Attributes.Add("disabled", "true");
+        }
+
+        protected void btnBanco_Click(object sender, EventArgs e)
+        {
+            string ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda;
+            ID_compania = Request.Cookies.Get("compania_id").Value;
+            Nombre_banco = txtBanco.Text;
+            rfc_banco = txtBancoRFC.Text;
+            no_cuenta = txtNoCuenta.Text;
+            clave_bancaria = txtClaveBancaria.Text;
+            Uso_CFDI = ddUsoCFDI.SelectedValue;
+            Metodo_pago = ddMetodoPago.SelectedValue;
+            Forma_pago = ddFormaPago.SelectedValue;
+            Moneda = ddMoneda.SelectedValue;
+
+            lblresultado.Text = ClsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+        }
+
+        protected void ddEstadoFra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddCiudadFra.Items.Clear();
+
+            lstPais = new List<wsUbicacion.ListaPais>();
+            var estado = Convert.ToInt32(ddEstadoFra.SelectedItem.Value);
+
+            lstPais = wsUbicacion.llenarCbCiudades(estado);
+
+
+            for (int i = 0; i < lstPais.Count; i++)
+            {
+                item = new ListItem(lstPais[i].fullname, lstPais[i].id);
+                ddCiudadFra.Items.Add(item);
+            }
+
+            ddCiudad.DataBind();
         }
     }
 }

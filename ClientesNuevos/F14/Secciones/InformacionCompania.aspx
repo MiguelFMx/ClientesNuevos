@@ -257,7 +257,7 @@
                                         <%--<select id="cbEstadoFact" class="form-select">
                                             <option value="value">...</option>
                                         </select>--%>
-                                        <asp:DropDownList ID="ddEstadoFra" runat="server" CssClass="form-select" AutoPostBack="True"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddEstadoFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoFra_SelectedIndexChanged"></asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -356,6 +356,8 @@
                                     <label for="txtClaveBancaria">Clave bancaria</label>
                                     <%--<input type="text" name="txtClaveBancaria" value="" id="txtClaveBancaria" class="form-control" maxlength="18" />--%>
                                     <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
+
+                                    <asp:Button Text="pruebaBanco" runat="server" ID="btnBanco" OnClick="btnBanco_Click"/>
                                 </div>
                             </div>
                         </div>
