@@ -7,56 +7,56 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClientesNuevos.F12
+namespace ClientesNuevos.usuario
 {
 
 
-    public partial class PoliticaSeguridad
+    public partial class Index
     {
 
         /// <summary>
-        /// Control lblNombre.
+        /// Control lblCompania.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lblCompania;
 
         /// <summary>
-        /// Control lblDireccion.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control inputFile.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.FileUpload inputFile;
 
         /// <summary>
-        /// Control chFirma.
+        /// Control lblErr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chFirma;
+        protected global::System.Web.UI.WebControls.Label lblErr;
 
         /// <summary>
-        /// Control btnNext.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNext;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }

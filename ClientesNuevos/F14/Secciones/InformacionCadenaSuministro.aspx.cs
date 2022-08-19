@@ -9,9 +9,11 @@ namespace ClientesNuevos.F14.Seccioness
 {
     public partial class InformacionCadenaSuministro : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
+
     }
 }

@@ -58,71 +58,70 @@ $(document).ready(function () {
            alert('Rellena los campos necesarios');
         }
     });
+
+    $('#btnContact').click(function () {
+        var nombre = $('#txtNombrCont');
+        var puesto = $('#txtpuestoCont');
+        var correo = $('#txtCorreoCont');
+        var ext = $('#txtExtCont');
+        var tel = $('#txtTelCont');
+        var cel = $('#txtCelCont');
+        var rfc = $('#MainContent_txtRfc');
+        var tipo = "";
+
+        if ($('#cbContactoFactura').is(':checked')) {
+            tipo = "Fra";
+        } else {
+            tipo = "Comp";
+        }
+        if (nombre.val() != "" && puesto.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
+            GetAjax("../wsBaseDatos.asmx/LlenarContacto",
+                "'Nombre':'" + nombre.val() + "'," +
+                "'Puesto':'" + puesto.val() + "'," +
+                "'Telefono':'" + tel.val() + "'," +
+                "'Extension':'" + ext.val() + "'," +
+                "'Celular':'" + cel.val() + "'," +
+                "'Correo':'" + correo.val() + "'," +
+                "'Tipo':'" + tipo + "'," +
+                "'ID_compania':'" + rfc.val() + "'", false,
+                function (resultado) {
+
+                    alert(resultado);
+                    CargarContactos(rfc.val());
+                    return false;
+                });
+            nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
+
+            nombre.focus();
+        } else {
+            alert("Rellene los campos necesarios");
+        }
+        return false;
+    });
+
     $(document).on('click', '#remove', function () {
-       
-        $(this).parent().closest("tr").remove();
-        contador--;
+
+        var id_contacto = $(this).closest('tr').find('.index').text();
+
+        let pregunta = confirm('¿Seguro que desea eliminar este contacto?');
+
+        if (pregunta ==true) {
+            GetAjax("../wsBaseDatos.asmx/BorrarContacto", "'index':'" + id_contacto + "'", false, function (msg) {
+                alert(msg);
+            });
+
+            $(this).parent().closest("tr").remove();
+            contador--;
+        }
+        
     });
 
 
-
-
-    //Almacenar informacion de compañia filial en la tabla
-    $('#btnAgregarComFilial').on('click', function () {
-
-        let nombreCompania = $('#txtNombreCompaniaFilial');
-        let nombreComercial = $('#txtNombrComFilial');
-        let direccion = $('#txtDirecFiscalComFilial');
-        let rfc = $('#txtRfcComFilial');
-        let pais = $('#cbPaisComFilial option:selected');
-        let estado = $('#cboEstadoComFilial option:selected');
-        let ciudad = $('#cbCiudadComFilial option:selected');
-        let cp = $('#txtCPComFIlial');
-        let contacto = $('#txtNombrContFilial');
-        let puesto = $('#txtPuestoContFilial');
-        let correo = $('#txtCorreoContFilial');
-        let tel = $('#txtTelContFilial');
-        let ext = $('#txtExtContFilial');
-        let cel = $('#txtCelContFilial');
-       
-
-        //if (nombreCompania.val() != "" && nombreComercial.val() != "" && direccion.val() != "" && rfc.val() != "" && pais.val() != "" && estado.val() != "" && ciudad.val() != "" && cp.val() != "" && contacto.val() != "" && puesto.val() != "" && correo.val() != "" && correo.val() != "" && tel.val() != "" && cel.val() != "") {
-
-                //tContactoCom
-        var tabla2 = $('#tComFil tbody');
-
-                tabla2.append(
-                    "<tr>" +
-                    "<td><span>" + nombreCompania.val() + "</span></td>" +
-                    "<td><span>" + nombreComercial.val() + "</span></td>" +
-                    "<td><span>" + direccion.val() + "</span></td>" +
-                    "<td><span>" + rfc.val() + "</span></td>" +
-                    "<td><span>" + pais.html() + "</span></td>" +
-                    "<td><span>" + estado.val() + "</span></td>" +
-                    "<td><span>" + ciudad.val() + "</span></td>" +
-                    "<td><span>" + cp.val() + "</span></td>" +
-                    "<td><span>" + contacto.val() + "</span></td>" +
-                    "<td><span>" + puesto.val() + "</span></td>" +
-                    "<td><span>" + correo.val() + "</span></td>" +
-                    "<td><span>" + tel.val() + "</span></td>" +
-                    "<td><span>" + ext.val() + "</span></td>" +
-                    "<td><span>" + cel.val() + "</span></td>" +
-                    "<td><button type='button'class='btn btn-danger' name='removefil' id='removefil' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
-                    "</tr>"
-                );
-                //nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
-
-                //nombre.focus();
-            
-        //} else {
-        //    alert('Rellena los campos necesarios');
-        //}
+    $('#btnCargar').click(function () {
+        //CargarContactos($('#MainContent_txtRfc').val());
     });
-    $(document).on('click', '#removefil', function () {
 
-        $(this).parent().closest("tr").remove();
-        contador--;
-    });
+   
 
     //Cambio en l tipo de persona ante el SAT
     $("#cbTipoDePersona").change(function () {
@@ -231,6 +230,7 @@ $(document).ready(function () {
 });
 
 
+
 function fillComboPais(combo) {
 
     GetAjax("../wsUbicacion.asmx/llenarCbPais","", false, function (lstPais) {
@@ -329,4 +329,58 @@ function fillComboCiudad(id_ciudad, combo_c) {
 
 function alertameEsta() {
     alert('esta 😆🤙');
+}
+
+function CargarContactos() {
+    var tabla = $('#tContactoCom tbody');
+    var check;
+
+
+    var id_cuenta = '';
+    GetAjax("../wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id_cuenta = res;
+        });
+
+    GetAjax("../wsBaseDatos.asmx/getContacto",
+        "'id':'" + id_cuenta + "'"
+        , false,
+        function (lstContacto) {
+
+            if (lstContacto.length > 0) {
+                tabla.empty();
+
+                for (var i = 0; i < lstContacto.length; i++) {
+                    if (lstContacto[i].Tipo == "Fra") {
+                        check =
+                            '<div class="form-check">' +
+                            '<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>' +
+                            '</div>';
+                    } else {
+                        check = " ";
+                    }
+                    tabla.append(
+                        "<tr>" +
+                        "<td class='index' hidden><span>" + lstContacto[i].ID + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Nombre + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Puesto + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Correo + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Telefono + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Extension + "</span></td>" +
+                        "<td><span>" + lstContacto[i].Celular + "</span></td>" +
+                        "<td><span>" + check + "</span></td>" +
+                        "<td><button type='button'class='btn btn-danger btn-sm' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                        "</tr>"
+                    );
+                }
+            } else {
+                tabla.empty();
+                tabla.append("<tr><td colspan='9' style='text-align:center;' ><span class='text-secondary'>No hay registros</span></td></tr>");
+            }
+
+            return false;
+        });
+    return false;
 }

@@ -7,56 +7,65 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClientesNuevos.F12
+namespace ClientesNuevos
 {
 
 
-    public partial class PoliticaSeguridad
+    public partial class login
     {
 
         /// <summary>
-        /// Control lblNombre.
+        /// Control lbluser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lbluser;
 
         /// <summary>
-        /// Control lblDireccion.
+        /// Control txtUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
+        protected global::System.Web.UI.WebControls.TextBox txtUser;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control lblPass.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.Label lblPass;
 
         /// <summary>
-        /// Control chFirma.
+        /// Control txtPass.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chFirma;
+        protected global::System.Web.UI.WebControls.TextBox txtPass;
 
         /// <summary>
-        /// Control btnNext.
+        /// Control lbltest.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNext;
+        protected global::System.Web.UI.WebControls.Label lbltest;
+
+        /// <summary>
+        /// Control btnLogin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }

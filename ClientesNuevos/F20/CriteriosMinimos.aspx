@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CriteriosMinimos.aspx.cs" Inherits="ClientesNuevos.F20.CriteriosMinimos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <title><%: Page.Title %> Criterios minimos de seguridad C-TPAT</title>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -9,8 +12,8 @@
             
         </div>
         <div style="text-align:center">
-            <h2>Criterios minimos de seguridad</h2>
-            <h2>Customs-Trade Partnership Against Terrorism (C-TPAT)</h2>
+            <h5>Criterios minimos de seguridad</h5>
+            <h5>Customs-Trade Partnership Against Terrorism (C-TPAT)</h5>
         </div>
         <section>
             <article >
@@ -27,12 +30,12 @@
                 <p>
                    <i> Trimestralmente, o según lo dicten las circunstancias (como por ejemplo durante períodos de alto estado de alerta, una infracción o incidente de seguridad), los transportistas de largo recorrido deben evaluar en forma rutinaria su grado de vulnerabilidad al riesgo y establecer medidas de seguridad para reforzar o ajustar su situación de seguridad para impedir infracciones de seguridad y conspiraciones internas.  La determinación y objetivos de los elementos criminales interesados en atacar el comercio mundial mediante conspiraciones internas hacen que sea necesario que las empresas, y los transportistas de largo recorrido en particular, mejoren sus prácticas de seguridad, especialmente si la carga será transportada por la vía de Comercio Libre y Seguro (FAST).</i>
                 </p>
-                <p> 
+                <p style="break-before:page;"> 
                     <i>C-TPAT reconoce la complejidad de las cadenas de suministro y prácticas de seguridad internacionales, y apoya la aplicación e implementación de medidas de seguridad basadas en el riesgo.    Por lo tanto, el programa brinda flexibilidad y permite adaptar los planes de seguridad en base al modelo empresarial del miembro.  Las medidas de seguridad apropiadas indicadas en este documento deben ser implementadas y mantenidas. </i>
                 </p>
 
                 </section>
-                <section id="pg2" style="break-before:page;">
+                <section id="pg2">
                 <p>
                     <strong>Requisitos de los asociados de negocios</strong>
                     <br />
@@ -147,7 +150,7 @@
                 </section>
 
                 <section id="pg6">
-                <p><strong style="text-decoration:underline">Carga fraccionada (LTL)</strong></p>
+                <p><strong style="text-decoration:underline; break-before:page;">Carga fraccionada (LTL)</strong></p>
                 <ul >
                     <li>Los transportistas de carga fraccionada (LTL) deben utilizar un candado de alta seguridad o dispositivo de cierre similar al recoger un flete local en un entorno LTL internacional. Los transportistas de cargas fraccionadas deben aplicar controles estrictos para limitar el acceso a las llaves o combinaciones que pueden abrir estos candados. </li>
                     <li >Después que el flete del viaje recogida y entrega sea clasificado, consolidado y cargado en un vehículo de una línea de transporte destinado a cruzar la frontera a los Estados Unidos, el remolque debe ser sellado con un sello de alta seguridad que cumpla o exceda la norma PAS ISO 17712 para sellos de alta seguridad. </li>
@@ -156,7 +159,7 @@
                     <li>En el entorno de cargas fraccionadas y no fraccionadas, también debe haber procedimientos para reconocer y denunciar sellos y/o remolques comprometidos al Servicio de Aduanas y Protección de Fronteras de EE.UU. o a la autoridad extranjera apropiada.  </li>
                    
                 </ul>
-                <p><strong style="text-decoration:underline">Carga fraccionada (LTL)</strong>
+                <p><strong style="text-decoration:underline">Controles de acceso fisico</strong>
                     <br />
                     Los controles de acceso impiden la entrada no autorizada a camiones, remolques e instalaciones, mantienen control de los empleados y visitantes, y protegen los bienes de la compañía.  Los puntos de acceso deben incluir la identificación positiva de todos los empleados, visitantes, proveedores de servicio y vendedores en todos los puntos de entrada.  Los empleados y proveedores de servicio sólo deben tener acceso a aquellas áreas de una instalación donde tengan necesidad comercial legítima.  
                 </p>
@@ -177,7 +180,7 @@
                 </ul>
                 </section>
 
-                <section id="pg7" style="break-before:page;">
+                <section id="pg7">
                 <p><strong style="text-decoration:underline">Seguridad de procesos</strong>
                     <br />
                     Debe haber medidas de seguridad establecidas para garantizar la integridad y seguridad de los procesos relevantes a la carga, recogida, transporte, manejo y almacenaje de carga en la cadena de suministro. Debe haber procedimientos establecidos para impedir, detectar o disuadir que materiales no declarados y personal no autorizado ganen acceso al vehículo, incluso ocultados en los remolques.  
@@ -218,7 +221,7 @@
                         <strong>Procedimientos de conocimiento de embarque / manifiesto</strong> <br />
                         La información del conocimiento de embarque presentada al CBP debe mostrar la primera ubicación/instalación extranjera donde el transportista por carretera toma posesión de la carga destinada a los Estados Unidos.  Además, para ayudar a garantizar la integridad de la carga recibida del extranjero, debe haber procedimientos establecidos para asegurar que la información recibida de los asociados de negocios sea reportada en forma exacta y oportuna.  
                     </li>
-                    <li>
+                    <li style="break-before:page;">
                         <strong>Carga </strong>
                         <br />
                         La carga debe estar correctamente marcada e indicada en el manifiesto, incluso el peso exacto y la cuenta de unidades.  Se debe notificar a las autoridades extranjeras apropiadas si se detectan actividades ilegales o sospechosas, según corresponda.
@@ -271,7 +274,7 @@
 
                 <br />
                 <section id="pg9">
-                <p>
+                <p style="break-before:page;">
                     <strong style="text-decoration:underline">Capacitación en seguridad y concientización sobre amenazas </strong>
                     <br />
                     Debe haber un programa de concientización sobre amenazas establecido y mantenido por el personal de seguridad para reconocer y crear conciencia sobre las amenazas de terroristas y traficantes de drogas en cada punto de la cadena de suministro.  Una vez al año, los empleados deben recibir información sobre los procedimientos establecidos por el transportista de largo recorrido para considerar una situación y cómo denunciarla.
@@ -311,7 +314,7 @@
                 <div class="col-5"></div>
                 <div class="col">
                     
-                    <button type="button" id="btnContinuar" class="btn btn-success">Continuar <i class="bi bi-chevron-right"></i></button>
+                    <button type="button" id="btnContinuar" class="btn btn-success">Continuar <i class="bi bi-chevron-double-right"></i></button>
                 </div>
             </div>
 
@@ -338,7 +341,10 @@
        
 
         function DescargarDoc(nombre) {
-            $('#imprimir').printThis();
+            $('#imprimir').printThis({
+                pageTitle: "Criterios minimos de sguridad C-TPAP",
+                header: "<img src='../template/assets/img/logo/HungarosTexto.png' width='250' height='100' style='display:block; margin:auto;'/><br>"
+            });
         }
     </script>
 </asp:Content>

@@ -13,5 +13,15 @@ namespace ClientesNuevos.F14.Seccioness
         {
 
         }
+
+        protected void btnAnterior_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.Redirect("CompaniaFilial.aspx");
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
+        }
     }
 }

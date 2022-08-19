@@ -1,25 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ClientesNuevos.usuario.Index" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="user_index.aspx.cs" Inherits="ClientesNuevos.usuario.Index" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
+
     <div class="container">
-        <%--Nombre de la empresa--%>
+        <!-----------------------------------Nombre de la empresa---------------------------------- -->
         <div class="row">
             <div class="col">
-                <label>
-                    Compañia
-                </label>
-            </div>
-            <div class="col">
-                <label>
-                    Usuario
-                </label>
+                <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
         <br />
-        <!--Documentos-->
+        <!-----------------------------------------------------------------------------Documentos-->
+        <div class="row">
+            <div class="col">
+                <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <div class="card border-primary">
@@ -69,7 +67,7 @@
                                 </td>
                                 <td></td>
                                 <td>
-                                     <div class="btn-group" role="group" aria-label="curp-group">
+                                    <div class="btn-group" role="group" aria-label="curp-group">
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
                                         <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                         <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
@@ -98,8 +96,9 @@
                                 </td>
                                 <td></td>
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+
+                                    <div class="btn-group" role="group" aria-label="rfc-group">
                                         <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                         <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                     </div>
@@ -202,7 +201,7 @@
                             <tr>
                                 <td>Admision de cliente nuevo</td>
                                 <td>
-                                    <span class="etiqueta listo">completado</span>
+                                    <span class="etiqueta pendiente">pendiente</span>
                                 </td>
                                 <td>
                                     <label></label>
@@ -224,7 +223,7 @@
                             <tr>
                                 <td>Evaluacion de seguridad</td>
                                 <td>
-                                    <span class="etiqueta actualizar">Actualizar</span>
+                                    <span class="etiqueta pendiente">pendiente</span>
 
                                 </td>
                                 <td></td>
@@ -235,7 +234,7 @@
                             <tr>
                                 <td>Carta compromiso</td>
                                 <td>
-                                    <span class="etiqueta listo">completado</span>
+                                    <span class="etiqueta pendiente">pendiente</span>
 
                                 </td>
                                 <td></td>
@@ -253,7 +252,7 @@
 
 
 
-        <!-- Modal -->
+        <!------------------------------------------------------------------- Modal --------------------------------------->
         <div class="modal fade" id="UploadDoc" tabindex="-1" aria-labelledby="UploadDocLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -261,10 +260,10 @@
                         <h5 class="modal-title" id="lblUploadDocModal">Subir archivo</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body" style="text-align:center;">
+                    <div class="modal-body" style="text-align: center;">
                         <div class="row">
-                            <div class="col" >
-                                <label id="lblarchivo">Seleccione el archivo correspondiente</label>
+                            <div class="col">
+                                <label id="lblarchivo">Seleccione el archivo correspondiente</label>                                
                             </div>
                         </div>
                         <br />
@@ -272,18 +271,28 @@
                             <div class="col">
                                 <div class="drop-zone" id="dropzone">
                                     <span class="drop-zone__prompt">Suelte el archivo o haga click aqui</span>
-                                    <input type="file" name="inputFile" value="" class="drop-zone__input"  id="inputFile" accept="application/pdf"/>
+                                    <%--<input type="file" name="inputFile" value="" class="drop-zone__input"  id="inputFile" accept="application/pdf"/>--%>
+                                    <asp:FileUpload ID="inputFile" runat="server" CssClass="drop-zone__input" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelarFile">Cancelar</button>
-                        <button type="button" class="btn btn-success">Guardar</button>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnGuardar_Click" UseSubmitBehavior="False" />
+                        <%--<button type="button" class="btn btn-success">Guardar</button>--%>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="indexJS.js"></script>
+
+        <script src="indexJS.js"></script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="ScriptsContent" runat="server">
+
+
 </asp:Content>

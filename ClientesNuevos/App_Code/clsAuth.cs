@@ -5,13 +5,12 @@ using System.Web;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace ClientesNuevos.App_Code
 {
-    public class clsHerramientaBD
+    public class clsAuth
     {
-        public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
 
     }
 }

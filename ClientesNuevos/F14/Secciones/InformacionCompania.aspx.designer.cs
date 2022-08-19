@@ -24,6 +24,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtNombreCompania;
 
         /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
         /// Control txtNombrCom.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombrCom;
+
+        /// <summary>
+        /// Control RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
         /// Control ddTipoDePersona.
@@ -78,6 +96,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtAnosNegocio;
 
         /// <summary>
+        /// Control RequiredFieldValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
         /// Control txtDirecFiscal.
         /// </summary>
         /// <remarks>
@@ -87,6 +114,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtDirecFiscal;
 
         /// <summary>
+        /// Control RequiredFieldValidator5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
         /// Control txtCP.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCP;
+
+        /// <summary>
+        /// Control RequiredFieldValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// Control ddPais.
@@ -249,6 +294,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtBanco;
 
         /// <summary>
+        /// Control RequiredFieldValidator7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+
+        /// <summary>
         /// Control txtBancoRFC.
         /// </summary>
         /// <remarks>
@@ -256,6 +310,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBancoRFC;
+
+        /// <summary>
+        /// Control RequiredFieldValidator8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
         /// Control txtNoCuenta.
@@ -267,6 +330,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtNoCuenta;
 
         /// <summary>
+        /// Control RequiredFieldValidator9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+
+        /// <summary>
         /// Control txtClaveBancaria.
         /// </summary>
         /// <remarks>
@@ -274,6 +346,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClaveBancaria;
+
+        /// <summary>
+        /// Control RequiredFieldValidator10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
 
         /// <summary>
         /// Control btnBanco.
@@ -285,12 +366,39 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Button btnBanco;
 
         /// <summary>
-        /// Control btnNext.
+        /// Control btnHome.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
+        protected global::System.Web.UI.WebControls.LinkButton btnHome;
+
+        /// <summary>
+        /// Control bntNext.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton bntNext;
+
+        /// <summary>
+        /// Control btnSiguiente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSiguiente;
+
+        /// <summary>
+        /// Control btnSalir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalir;
     }
 }

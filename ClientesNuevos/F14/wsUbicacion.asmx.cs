@@ -40,10 +40,11 @@ namespace ClientesNuevos.F14
         [WebMethod]
         public List<ListaPais> llenarCbPais()
         {
+
             
             string strSQL = "SELECT * FROM countries ORDER BY fullname ASC";
 
-            SqlConnection con = new SqlConnection(strConnction);
+            SqlConnection con = new SqlConnection(  strConnction);
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

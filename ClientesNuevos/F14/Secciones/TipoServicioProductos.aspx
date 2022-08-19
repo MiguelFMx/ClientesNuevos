@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TipoServicioProductos.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.TipoServicioProductos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<title>Servicio y producto</title>
+    <title>Servicio y producto</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -13,7 +14,7 @@
                 </div>
                 <div id="wizard" class="form_wizard wizard_horizontal">
                     <ul class="wizard_steps">
-                       <li>
+                        <li>
                             <a href="#" class="done">
                                 <span class="step_no">1</span>
                                 <span class="step_descr">Paso 1<br />
@@ -46,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" >
+                            <a href="#">
                                 <span class="step_no">5</span>
                                 <span class="step_descr">Paso 5<br />
                                     <small>Acreditación en programa de seguridad</small>
@@ -423,32 +424,47 @@
         <hr />
         <br />
         <div class="row" id="InfoProd">
-            <fieldset>
-                <legend style="font-size: 20px;">Información de productos</legend>
+            <div class="col">
+                <span id="error"></span>
+                <fieldset>
+                    <legend style="font-size: 20px;">Información de productos</legend>
 
-                <table class="table table-responsive table-hover">
-                    <thead class="cabezal">
-                        <tr>
-                            <th>Descripción de mercancia</th>
-                            <th>Comentarios</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbodyProductos">
-                    </tbody>
-                    <tfoot></tfoot>
-                </table>
-            </fieldset>
-        </div>
-        <hr />
-        <br />
-        <div class="row">
-            <div class="col-10"></div>
-            <div class="col-2">
-                <button id="btnContinuar" class="btn btn-success" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
+                    <table class="table table-responsive table-hover" id="tProductos">
+                        <thead class="cabezal">
+                            <tr>
+                                <th>#</th>
+                                <th>Descripción de mercancia</th>
+                                <th>Comentarios</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyProductos">
+                        </tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </fieldset>
+                <button type="button" id="btnProd">Productos</button>
             </div>
         </div>
     </div>
+    <hr />
+    <br />
+    <div class="row">
+        <div class="col-8">
+            <button id="btnTest" type="button">test </button>
+
+        </div>
+        <div class="col" style="display: flex; justify-content: flex-end">
+            <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
+            &nbsp;&nbsp;
+                <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                <button id="btnContinuar" class="btn btn-primary" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
+        </div>
+    </div>
+    
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
     <script type="text/javascript">

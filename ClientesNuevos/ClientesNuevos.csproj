@@ -106,6 +106,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="F14\JS\ComFilialJS.js" />
+    <Content Include="F14\wsBaseDatos.asmx" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.js" />
     <Content Include="F12\PoliticaSeguridad.aspx" />
@@ -144,6 +146,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css.map" />
@@ -168,6 +171,10 @@
     <Content Include="Scripts\bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Scripts\bootstrap\js\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="template\assets\img\logo\Hungaros.png" />
+    <Content Include="template\assets\img\logo\HungarosTexto.png" />
+    <Content Include="wsLogin.asmx" />
+    <Content Include="F14\FileUploadHandler.ashx" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
@@ -316,7 +323,7 @@
     <Content Include="template\assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="template\forms\contact.php" />
     <Content Include="template\forms\Readme.txt" />
-    <Content Include="usuario\Index.aspx" />
+    <Content Include="usuario\user_index.aspx" />
     <Content Include="usuario\indexJS.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -324,8 +331,16 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\clsHerramientaBD.cs" />
+    <Compile Include="App_Code\clsAuth.cs" />
+    <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsF14.cs" />
+    <Compile Include="F14\FileUploadHandler.ashx.cs">
+      <DependentUpon>FileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="F14\wsBaseDatos.asmx.cs">
+      <DependentUpon>wsBaseDatos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="cliente\F14\ClienteNuevo.aspx.cs">
@@ -430,6 +445,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -445,12 +467,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="usuario\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="usuario\user_index.aspx.cs">
+      <DependentUpon>user_index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="usuario\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="usuario\user_index.aspx.designer.cs">
+      <DependentUpon>user_index.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -459,9 +481,14 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="wsLogin.asmx.cs">
+      <DependentUpon>wsLogin.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="archivos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
