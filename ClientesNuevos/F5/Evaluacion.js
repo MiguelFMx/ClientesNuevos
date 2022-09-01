@@ -19,7 +19,7 @@ var bloque1 = [],
 var respuestas = [];
 
 $(document).ready(function () {
-   
+    
 
     cargarTablaStepS(current);
 

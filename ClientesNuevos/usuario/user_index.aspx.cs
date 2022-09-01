@@ -114,6 +114,19 @@ namespace ClientesNuevos.usuario
                         }
                         lblF43_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    if (Docs[i].Documento == "F5")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblF5_estatus.Text = "completado";
+                            lblF5_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblF5_estatus.Text = "Pendiente:"+ Docs[i].Estatus;
+                        }
+                        lblF5_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
                 }
             }
             catch (Exception)

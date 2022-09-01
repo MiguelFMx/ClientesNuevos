@@ -253,7 +253,10 @@ namespace ClientesNuevos.F5
             string sqlStr = "Master_F5Cuestionario";
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
 
+            DataTable data;
+
             con.Open();
+            data = clsHerramientaBD.Existe("SELECT * FROM Table_CuestionarioCTPAT WHERE ID_Cuestionario='" + ID_cuestionario + "'");
             try
             {
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
@@ -272,7 +275,17 @@ namespace ClientesNuevos.F5
                 cmd.Parameters.AddWithValue("@p1313", p1313);
                 cmd.Parameters.AddWithValue("@p1321", p1321);
                 cmd.Parameters.AddWithValue("@p1322", p1322);
-                cmd.Parameters.AddWithValue("@accion", "insert");
+
+                if (data.Rows.Count > 0)
+                {
+                    cmd.Parameters.AddWithValue("@accion", "update");
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@accion", "insert");
+
+                }
 
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
 

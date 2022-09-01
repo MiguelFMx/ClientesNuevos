@@ -179,7 +179,6 @@ public class ClsF14
         return resultado;
     }
 
-
     public static string Actualizar_info_bancaria(string ID_compania, string Nombre_banco, string rfc_banco, string no_cuenta, string clave_bancaria, string Uso_CFDI, string Metodo_pago, string Forma_pago, string Moneda)
     {
         string resultado;
