@@ -122,6 +122,7 @@
     <Content Include="F14\Secciones\TipoServicioProductos.aspx" />
     <Content Include="F14\wsUbicacion.asmx" />
     <Content Include="F20\CriteriosMinimos.aspx" />
+    <Content Include="F43\MapeoBD.asmx" />
     <Content Include="F43\MapeoFlujo.aspx" />
     <Content Include="F43\MapeoFlujoJS.js" />
     <Content Include="F5\Autoevaluacion\autoevaluacion.aspx" />
@@ -334,6 +335,7 @@
     <Compile Include="App_Code\clsAuth.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsF14.cs" />
+    <Compile Include="App_Code\clsUserIndex.cs" />
     <Compile Include="F14\FileUploadHandler.ashx.cs">
       <DependentUpon>FileUploadHandler.ashx</DependentUpon>
     </Compile>
@@ -402,6 +404,10 @@
     </Compile>
     <Compile Include="F20\CriteriosMinimos.aspx.designer.cs">
       <DependentUpon>CriteriosMinimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="F43\MapeoBD.asmx.cs">
+      <DependentUpon>MapeoBD.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="F43\MapeoFlujo.aspx.cs">
       <DependentUpon>MapeoFlujo.aspx</DependentUpon>

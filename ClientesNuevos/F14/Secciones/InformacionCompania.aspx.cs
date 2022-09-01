@@ -107,7 +107,9 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnNext_Click(object sender, EventArgs e){
 
             string resultado = RegistrarInfo();
-            //Response.Redirect("AgentesAduanales.aspx?res=" + resultado);
+            //lblresultado.Text = resultado;
+            
+            Response.Redirect("AgentesAduanales.aspx?res=" + resultado);
         }
 
 
@@ -405,7 +407,7 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     banco += ClsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
 
-                    documento += ClsF14.Insertar_Documento(ID_compania, "F14", "", "20%");
+                    documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
                 }
                 catch (Exception ex)
                 {

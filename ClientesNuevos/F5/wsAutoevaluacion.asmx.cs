@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data;
+using ClientesNuevos.App_Code;
 
 namespace ClientesNuevos.F5
 {
@@ -207,6 +208,89 @@ namespace ClientesNuevos.F5
 
             return strError;
 
+        }
+
+        [WebMethod]
+        public string Registrar_F5(string ID_compania, string ID_cuestionario, string ID_autoevaluacion)
+        {
+            string resultado = "";
+            string Fecha = DateTime.Now.ToString("MM-dd-yyyy");
+
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Master_F5", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
+                cmd.Parameters.AddWithValue("@ID_Cuestionario", ID_cuestionario);
+                cmd.Parameters.AddWithValue("@ID_Evaluacion", ID_compania);
+                cmd.Parameters.AddWithValue("@Fecha", Fecha);
+                cmd.Parameters.AddWithValue("@accion", "insert");
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+                resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);
+            }
+            catch (SqlException ex)
+            {
+                resultado = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return resultado;
+        }
+
+
+        [WebMethod]
+        public string Registrar_cuestionario(string ID_cuestionario, string p100, string p120, string p130, string p140, string p150, string p160, string p1311, string p1312, string p1313, string p1321, string p1322)
+        {
+            string resultado = "";
+
+            string sqlStr = "Master_F5Cuestionario";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_cuestionario", ID_cuestionario);
+                cmd.Parameters.AddWithValue("@p100", p100);
+                cmd.Parameters.AddWithValue("@p120", p120);
+                cmd.Parameters.AddWithValue("@p130", p130);
+                cmd.Parameters.AddWithValue("@p140", p140);
+                cmd.Parameters.AddWithValue("@p150", p150);
+                cmd.Parameters.AddWithValue("@p160", p160);
+                cmd.Parameters.AddWithValue("@p1311", p1311);
+                cmd.Parameters.AddWithValue("@p1312", p1312);
+                cmd.Parameters.AddWithValue("@p1313", p1313);
+                cmd.Parameters.AddWithValue("@p1321", p1321);
+                cmd.Parameters.AddWithValue("@p1322", p1322);
+                cmd.Parameters.AddWithValue("@accion", "insert");
+
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+
+
+                cmd.ExecuteNonQuery();
+                resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);
+
+            }
+            catch (SqlException e)
+            {
+                resultado = e.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return resultado;
         }
 
     }

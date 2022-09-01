@@ -12,8 +12,28 @@ namespace ClientesNuevos.F14.Seccioness
         
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
+            try
+            {
+                string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
+                if (resultado == "Exito")
+                {
+                    pAlert.Visible = true;
+                }
+            }
+            catch (Exception)
+            {
+                pAlert.Visible = false;
+            }
+            if (IsPostBack)
+            {
+                
+            }
         }
 
+        protected void btnAnterior_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.Redirect("tiposervicioproductos.aspx");
+        }
     }
 }

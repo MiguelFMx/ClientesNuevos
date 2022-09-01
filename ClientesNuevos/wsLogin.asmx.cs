@@ -44,7 +44,7 @@ namespace ClientesNuevos
             }
             catch (SqlException e)
             {
-                throw;
+                return null;
             }
             finally
             {

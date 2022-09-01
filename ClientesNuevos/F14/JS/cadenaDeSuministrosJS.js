@@ -1,6 +1,19 @@
 ﻿
 $(document).ready(function () {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    let radio = '';
 
+    $('input[type=radio][name=radCertificado]').change(function () {
+        if (this.value == 'si') {
+            radio = 'si';
+            $('#divCertificado').show('fast');
+        }
+        else if (this.value == 'no') {
+            radio = 'no';
+            $('#divCertificado').hide('fast');
+        }
+    });
 
     if (sessionStorage.getItem('ctipo') == 'proveedor') {
         $('#wizard2').prop('hidden', false);
@@ -30,16 +43,86 @@ $(document).ready(function () {
     //$('#tProgramaDeSeguridad tbody').sortable();
 
     $('#btnContinuar').click(function () {
+        var id;
+        GetAjax("../wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id = res;
+            });
 
-        let alert = confirm('¿Desea continuar?');
-        if (alert) {
-            window.location.href = '../../F43/MapeoFlujo.aspx';
+        
 
-        } else {
-            window.location.href = '../../usuario/Index.aspx';
+        if (radio == 'si') {
+
+            insertar_certificacion();
+            insertar_estatus();
+
+        } else if (radio == 'no') {
+
+            insertar_estatus();
+            //     documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+                let alert = confirm('¿Desea continuar?');
+                if (alert) {
+                    window.location.href = '../../F43/MapeoFlujo.aspx?res=Exito';
+                } else {
+                    window.location.href = '../../usuario/user_index.aspx?res=f14';
+                }
+
+            });
+        } else if (radio == '') {
+            $('#errorRadio').html(
+                '<div class="alert alert-warning" role="alert">' +
+                '<div class="row">' +
+                '<div class="col"><h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Error</h5></div>' +
+                '<div class="col" style="display:flex; justify-content:flex-end;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>' +
+                '</div>' +
+                '<div class="row">Selecione una respuesta a la pregunta</div>' +
+                '</div>');
+        }
+
+        
+    });
+    $('#btnHome').click(function () {
+        var id;
+        GetAjax("../wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id = res;
+            });
+
+        if (radio == 'si') {
+
+            insertar_certificacion();
+            insertar_estatus();
+
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+                console.log(res);
+                window.location.href = '../../usuario/user_index.aspx?res=f14';
+
+            });
+        } else if (radio == 'no') {
+
+            insertar_estatus();
+            //     documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+                console.log(res);
+                window.location.href = '../../usuario/user_index.aspx?res=f14';
+
+            });
+        } else if (radio == '') {
+            $('#errorRadio').html(
+                '<div class="alert alert-warning" role="alert">' +
+                '<div class="row">' +
+                '<div class="col"><h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Error</h5></div>' +
+                '<div class="col" style="display:flex; justify-content:flex-end;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>' +
+                '</div>' +
+                '<div class="row">Selecione una respuesta a la pregunta</div>' +
+                '</div>');
         }
     });
-
 
     $('#btnPrueba').click(function (ev) {
         insertar_certificacion();
@@ -72,7 +155,7 @@ $("#cbCTPATSatuts").change(function () {
 
 function dynamic_field(number) {
     var html = '<tr>';
-    //html += '<td><span>' + number + '</sapn></td>';
+    html += '<td><span>' + number + '</sapn></td>';
     html += '<td><div class="col"><input type="text" name="in_Descripcion" class="form-control descripcion"></div></td > ';   
     html += '<td><div class="col"><input type="text" name="in_Codigo" class="form-control codigo"></div></td>';
     html += '<td>' +
@@ -160,9 +243,9 @@ function insertar_certificacion() {
                     data: null,
                     contentType: false,
                     processData: false,
-                    success: function (result) { alert(result); },
+                    success: function (result) { console.log(result); },
                     error: function (err) {
-                        alert(err.statusText)
+                        console.log(err.statusText)
                     }
                 });
             } else {
@@ -173,19 +256,25 @@ function insertar_certificacion() {
                     data: arrDocumento[i],
                     contentType: false,
                     processData: false,
-                    success: function (result) { alert(result); },
+                    success: function (result) { console.log(result); },
                     error: function (err) {
-                        alert(err.statusText)
+                        console.log(err.statusText)
                     }
                 });
 
             }
         }
     } else {
-        $('#error').html('<div class="alert alert-danger">' + error + '</div>');
+        $('#error').html(
+            '<div class="alert alert-warning" role="alert">' +
+            '<div class="row">' +
+            '<div class="col"><h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Error</h5></div>' +
+            '<div class="col" style="display:flex; justify-content:flex-end;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>' +
+            '</div>' +
+            '<div class="row">' + error + '</div>' +
+            '</div>');
     }    
 }
-
 
 function getEstatus() {
     var id_cuenta = '';
@@ -225,4 +314,37 @@ function getEstatus() {
         }
     });
 
+}
+
+
+function insertar_estatus() {
+    var id_cuenta = '';
+    GetAjax("../wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id_cuenta = res;
+        });
+
+    var cuenta = $('#MainContent_txtCTPATCuenta').val();
+    var fecha = document.getElementById("MainContent_dtFechaVal").value;
+    var opcion = $('#cbCTPATSatuts option:selected').val();
+
+    if (opcion != 0) {
+        if (cuenta == '' || fecha == '') {
+            alert('Llene los campos necesarios');
+        } else {
+            GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
+                console.log('Exito ' + res);
+            });
+
+        }
+    } else {
+        GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
+            console.log('Exito, vacio ' + res);
+        });
+        $('#MainContent_txtCTPATCuenta').val('');
+        $('#MainContent_dtFechaVal').val('');
+    }
+    getEstatus();
 }

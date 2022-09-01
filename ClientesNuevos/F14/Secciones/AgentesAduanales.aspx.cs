@@ -54,16 +54,24 @@ namespace ClientesNuevos.F14.Seccioness
 
                 if (dtAAM.Rows.Count > 0)
                 {
-                    LlenarCamposAAM(dtAAM);
-                    // Obtiene los datos de contacto Mexicano
-                    dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '"+id_comp+ "' AND tipo ='AAMX'");
-                    llenarContactoAAM(dtContactoAAM);
+                    try
+                    {
+                        LlenarCamposAAM(dtAAM);
+                        // Obtiene los datos de contacto Mexicano
+                        dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_comp + "' AND tipo ='AAMX'");
+                        llenarContactoAAM(dtContactoAAM);
 
-                    //obtener los datos de contacto usa
-                    dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_comp + "' AND tipo ='AAUSA'");
-                    llenarContactoAA(dtContactoAAU);
+                        //obtener los datos de contacto usa
+                        dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_comp + "' AND tipo ='AAUSA'");
+                        llenarContactoAA(dtContactoAAU);
 
-                    LlenarCamposAA(dtAAU);
+                        LlenarCamposAA(dtAAU);
+                    }
+                    catch (Exception er)
+                    {
+
+                        lblResultado.Text = er.Message;
+                    }
                 }
             }
         }
@@ -277,10 +285,22 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            string res;
-            res = Registrar_AgenteAduanal();
+            string res, documento;
 
-            lblResultado.Text = res;
+            try
+            {
+                documento = ClsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "40%");
+
+                res = Registrar_AgenteAduanal();
+
+                lblResultado.Text = res + " " + documento;
+
+                HttpContext.Current.Response.Redirect("CompaniaFilial.aspx?res=Exito");
+            }
+            catch (Exception ex)
+            {
+                lblResultado.Text = ex.Message;
+            }
         }
 
 

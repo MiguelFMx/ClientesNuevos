@@ -42,45 +42,6 @@ namespace ClientesNuevos.App_Code
         }
 
 
-        [WebMethod]
-        public string insertar_servicio(string id_compania, string grupo, string subgrupo)
-        {
-            string resultado;
-            string sqlStr = "Master_TablaServicios";
-            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
-
-            con.Open();
-            try
-            {
-                SqlCommand cmd = new SqlCommand(sqlStr, con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.AddWithValue("@ID_compania", id_compania);
-                cmd.Parameters.AddWithValue("@grupoPrincipal", grupo);
-                cmd.Parameters.AddWithValue("@subGrupo", subgrupo);
-                cmd.Parameters.AddWithValue("@accion", "insert");
-
-                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
-
-
-                cmd.ExecuteNonQuery();
-                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
-
-                resultado = " " + res;
-            }
-            catch (SqlException e)
-            {
-                resultado = e.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            return resultado;
-
-        }
 
         [WebMethod]
         public string insertar_estatus(string id_compania, string status, string fecha, string no_cuenta)
@@ -493,6 +454,20 @@ namespace ClientesNuevos.App_Code
             return resultado;
         }
 
+
+        [WebMethod]
+        public string InsertarDocumento(string ID_compania, string Doc, string Ruta, string Estatus)
+        {
+            string documento;
+            documento = ClsF14.Insertar_Documento(ID_compania, Doc, Ruta, Estatus);
+
+            return documento;
+        }
+
+
+
+        //=====================================================Servicios y productos================================================================
+
         [WebMethod]
         public string Insertar_Productos(string ID_compania, string descripcion, string comentarios)
         {
@@ -500,6 +475,8 @@ namespace ClientesNuevos.App_Code
             string sqlStr = "Master_tableMercancia";
 
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+
+           
             con.Open();
 
             try
@@ -531,6 +508,148 @@ namespace ClientesNuevos.App_Code
 
             return resultado;
         }
-          
+
+
+        [WebMethod]
+        public string insertar_servicio(string id_compania, string grupo, string subgrupo)
+        {
+            string resultado;
+            string sqlStr = "Master_TablaServicios";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+
+
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", id_compania);
+                cmd.Parameters.AddWithValue("@grupoPrincipal", grupo);
+                cmd.Parameters.AddWithValue("@subGrupo", subgrupo);
+                cmd.Parameters.AddWithValue("@accion", "insert");
+
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+
+
+                cmd.ExecuteNonQuery();
+                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
+
+                resultado = " " + res;
+            }
+            catch (SqlException e)
+            {
+                resultado = e.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return resultado;
+
+        }
+
+        public class Mercancia
+        {
+            public string Descripcion { get; set; }
+            public string Comentarios { get; set; }
+
+        }
+        public class Servicio
+        {
+            public string GrupoPrincipal { get; set; }
+            public string SubGrupo { get; set; }
+
+        }
+
+        [WebMethod]
+        public List<Mercancia> Obtener_Productos(string ID_compania)
+        {
+            string sqlCommand = "SELECT * FROM Table_mercancia WHERE ID_compania= '" + ID_compania + "'";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlCommand cmd = new SqlCommand(sqlCommand, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+
+            Mercancia objMerc;
+            List<Mercancia> lstMerc = new List<Mercancia>();
+
+            try
+            {
+                da.Fill(data);               
+
+                foreach (DataRow row in data.Rows)
+                {
+                    objMerc = new Mercancia
+                    {
+                        Descripcion = row["Descripcion"].ToString(),
+                        Comentarios = row["Comentarios"].ToString()
+                    };
+                    lstMerc.Add(objMerc);
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                System.Diagnostics.Trace.WriteLine(ex.Message);
+            }
+
+            return lstMerc;
+        }
+
+
+        [WebMethod]
+        public List<Servicio> Obtener_Servicios(string ID_compania)
+        {
+            string sqlCommand = "SELECT * FROM Table_Servicios WHERE ID_compania= '" + ID_compania + "'";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlCommand cmd = new SqlCommand(sqlCommand, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+
+            Servicio objServicio;
+            List<Servicio> lstServ = new List<Servicio>();
+            try
+            {
+                da.Fill(data);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    objServicio = new  Servicio
+                    {
+                        GrupoPrincipal = row["grupoPrincipal"].ToString(),
+                        SubGrupo = row["subGrupo"].ToString()
+                    };
+                    lstServ.Add(objServicio);
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                System.Diagnostics.Trace.WriteLine(ex.Message);
+            }
+
+            return lstServ;
+
+        }
+
+        [WebMethod]
+        public string EncontrarEliminar(string ID_Compania, string tabla)
+        {
+            string resultado;
+            DataTable data = new DataTable();
+            data = Existe("SELECT * FROM "+tabla+" WHERE ID_compania='" + ID_Compania + "'");
+            if (data.Rows.Count > 0)
+            {
+                data = Existe("DELETE FROM " + tabla + " WHERE ID_compania='" + ID_Compania + "'");
+                resultado = "Se borraron los registros anteriores";
+            }
+            resultado = "No habia rgistros";
+
+            return resultado;
+        }
+
     }
 }

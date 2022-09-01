@@ -15,7 +15,7 @@
                 <div id="wizard" class="form_wizard wizard_horizontal">
                     <ul class="wizard_steps">
                         <li>
-                            <a href="#" class="done">
+                            <a href="InformacionCompania.aspx" class="done">
                                 <span class="step_no">1</span>
                                 <span class="step_descr">Paso 1<br />
                                     <small>Información de la compañia</small>
@@ -23,7 +23,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="done">
+                            <a href="AgentesAduanales.aspx" class="done">
                                 <span class="step_no">2</span>
                                 <span class="step_descr">Paso 2<br />
                                     <small>Información de agentes aduanales</small>
@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="done">
+                            <a href="CompaniaFilial.aspx" class="done">
                                 <span class="step_no">3</span>
                                 <span class="step_descr">Paso 3<br />
                                     <small>Informacion de compañia filial</small>
@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="InformacionCadenaSuministro.aspx">
                                 <span class="step_no">5</span>
                                 <span class="step_descr">Paso 5<br />
                                     <small>Acreditación en programa de seguridad</small>
@@ -59,6 +59,12 @@
             </div>
         </div>
         <br />
+
+        <div class="row">
+            <div class="col">
+                <span id="errorServicio"></span>
+            </div>
+        </div>
         <div class="row" id="ServicioRqurido">
             <div class="row">
                 <div class="col">
@@ -295,7 +301,7 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkRntaCajas">
-                                                <label class="form-check-label" for="chkExpoCS">
+                                                <label class="form-check-label" for="chkRntaCajas">
                                                     Cajas
                                                 </label>
                                             </div>
@@ -303,7 +309,7 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkRentaSD">
-                                                <label class="form-check-label" for="chkExpoCS">
+                                                <label class="form-check-label" for="chkRentaSD">
                                                     Servicio dedicado
                                                 </label>
                                             </div>
@@ -443,18 +449,16 @@
                         <tfoot></tfoot>
                     </table>
                 </fieldset>
-                <button type="button" id="btnProd">Productos</button>
+               
             </div>
         </div>
-    </div>
+
     <hr />
     <br />
     <div class="row">
-        <div class="col-8">
-            <button id="btnTest" type="button">test </button>
-
-        </div>
+       
         <div class="col" style="display: flex; justify-content: flex-end">
+            <button type="button" id="prueba">abr</button>
             <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
             &nbsp;&nbsp;
                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
@@ -464,13 +468,11 @@
                 <button id="btnContinuar" class="btn btn-primary" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
         </div>
     </div>
+    </div>
     
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('#btnContinuar').click(function () {
-            window.location.href = 'InformacionCadenaSuministro.aspx';
-        });
     </script>
 
 

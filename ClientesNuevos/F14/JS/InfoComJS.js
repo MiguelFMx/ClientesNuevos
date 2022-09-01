@@ -55,7 +55,10 @@ $(document).ready(function () {
                 alert("Solo se pueden registrar 3 contactos");
             }
         } else {
-           alert('Rellena los campos necesarios');
+            if (nombre.val() == '') {
+                $('#sNombre').html('Es necesario que llene este campo');
+            }
+
         }
     });
 
@@ -91,15 +94,35 @@ $(document).ready(function () {
                     return false;
                 });
             nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
+            $('#sNombre').html('');
+            $('#sPuesto').html('');
+            $('#sCorreo').html('');
+            $('#sTelefono').html('');
+            $('#sCelular').html('');
 
             nombre.focus();
         } else {
-            alert("Rellene los campos necesarios");
+            if (nombre.val() == '') {
+                $('#sNombre').html('*campo obligatorio');
+            }
+            if (puesto.val() == '') {
+                $('#sPuesto').html('*campo obligatorio');
+            }
+            if (correo.val() == '') {
+                $('#sCorreo').html('*campo obligatorio');
+            }
+            if (tel.val() == '') {
+                $('#sTelefono').html('*campo obligatorio');
+            }
+            if (cel.val() == '') {
+                $('#sCelular').html('*campo obligatorio');
+            }
         }
         return false;
     });
 
     $(document).on('click', '#remove', function () {
+        let id = $('#MainContent_txtRfc');
 
         var id_contacto = $(this).closest('tr').find('.index').text();
 
@@ -112,16 +135,12 @@ $(document).ready(function () {
 
             $(this).parent().closest("tr").remove();
             contador--;
+
+            CargarContactos(id.val());
         }
         
     });
 
-
-    $('#btnCargar').click(function () {
-        //CargarContactos($('#MainContent_txtRfc').val());
-    });
-
-   
 
     //Cambio en l tipo de persona ante el SAT
     $("#cbTipoDePersona").change(function () {

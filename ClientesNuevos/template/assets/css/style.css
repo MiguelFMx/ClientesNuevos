@@ -166,7 +166,8 @@ h1, h2, h3, h4, h5, h6 {
 
         #header .logo img {
             max-height: 40px;
-        }
+    width: 107px;
+}
 
     #header.header-scrolled, #header.header-inner-pages {
         background: rgba(0, 0, 0, 0.9);
@@ -2122,5 +2123,14 @@ section {
 }
 .pendiente {
     background-color: #6c757d;
+}
+
+.spaced input[type="radio"] {
+    /* Or any other value */
+    margin-left:20px;
+}
+.spaced label {
+    margin-right: 20px;
+    margin-left:4px;
 }
 

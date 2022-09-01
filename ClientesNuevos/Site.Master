@@ -68,7 +68,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="usuario/user_index.aspx">Home</a>
+          <li><a class="nav-link scrollto " href="../../../usuario/user_index.aspx">Home</a>
           </li>         
           <li><a class="nav-link scrollto" href="#">Contact</a></li>
         </ul>

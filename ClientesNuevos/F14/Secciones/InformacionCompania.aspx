@@ -122,7 +122,7 @@
                                 <label for="txtNombreCompania" style="margin-bottom: 9px;">Nombre de la compañia:</label>
                                 <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control" AutoPostBack="True"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtNombreCompania"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -131,7 +131,7 @@
                                 <label for="txtNombrCom" class="form-label">Nombre comercial:</label>
                                 <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtNombrCom"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -153,7 +153,7 @@
                                 <label for="txtRfc">RFC:</label>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtRfc"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -167,7 +167,7 @@
                                 <label for="txtAnosNegocio">Años de negocio:</label>
                                 <asp:TextBox ID="txtAnosNegocio" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtAnosNegocio"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -180,7 +180,7 @@
                                 <label for="txtDirecFiscal">Dirección fiscal:</label>
                                 <asp:TextBox ID="txtDirecFiscal" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtDirecFiscal"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -189,7 +189,7 @@
                                 <label for="txtCP">CP:</label>
                                 <asp:TextBox ID="txtCP" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                                    ErrorMessage="Es necesario que llene este campo"
+                                    ErrorMessage="*campo obligatorio"
                                     ControlToValidate="txtCP"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -213,8 +213,8 @@
 
                                 <asp:DropDownList ID="ddCiudad" runat="server" AutoPostBack="True" CssClass="form-select" OnSelectedIndexChanged="ddCiudad_SelectedIndexChanged"></asp:DropDownList>
 
-                                <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" />
-                                <asp:Label ID="lblresultado" runat="server" Text="Label"></asp:Label>
+                                <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" Visible="false" />
+                                <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="false"></asp:Label>
                             </div>
                         </div>
                         <br />
@@ -319,7 +319,7 @@
                                     <label for="txtBanco">Nombre del banco</label>
                                     <asp:TextBox ID="txtBanco" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
-                                        ErrorMessage="Es necesario que llene este campo"
+                                        ErrorMessage="*campo obligatorio"
                                         ControlToValidate="txtBanco"
                                         Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                     </asp:RequiredFieldValidator>
@@ -328,7 +328,7 @@
                                     <label for="txtBanco">RFC del banco</label>
                                     <asp:TextBox ID="txtBancoRFC" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                        ErrorMessage="Es necesario que llene este campo"
+                                        ErrorMessage="*campo obligatorio"
                                         ControlToValidate="txtBancoRFC"
                                         Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                     </asp:RequiredFieldValidator>
@@ -339,7 +339,7 @@
                                     <label for="txtNoCuenta">Numero de cuenta</label>
                                     <asp:TextBox ID="txtNoCuenta" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
-                                        ErrorMessage="Es necesario que llene este campo"
+                                        ErrorMessage="*campo obligatorio"
                                         ControlToValidate="txtNoCuenta"
                                         Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                     </asp:RequiredFieldValidator>
@@ -348,11 +348,11 @@
                                     <label for="txtClaveBancaria">Clave bancaria</label>
                                     <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                                        ErrorMessage="Es necesario que llene este campo"
+                                        ErrorMessage="*campo obligatorio"
                                         ControlToValidate="txtClaveBancaria"
                                         Display="Dynamic" ValidateRequestMode="Enabled">
                                     </asp:RequiredFieldValidator>
-                                    <asp:Button Text="pruebaBanco" runat="server" ID="btnBanco" OnClick="btnBanco_Click" />
+                                    <asp:Button Text="pruebaBanco" runat="server" ID="btnBanco" OnClick="btnBanco_Click" Visible="false" />
                                 </div>
                             </div>
                         </div>
@@ -364,7 +364,11 @@
                 <!-- ==============================================Datos de contacto=========================================================== -->
                 <div class="col-6">
                     <div id="contactoCompania" class="card border-primary">
-                        <h6 class="card-header cabezal">Datos de contacto</h6>
+                        <h6 class="card-header cabezal">Datos de contacto 
+                            <span><i class="bi bi-question-circle"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Llene los campos necesarios y haga clic en el boton 'Registrar contacto' "></i></span></h6>
                         <div class="card-body">
 
                             <div class="row">
@@ -372,11 +376,14 @@
                                     <label for="txtNombrCont">Nombre:</label>
                                     <%--<asp:TextBox ID="txtNombrCont" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                     <input type="text" name="name" value="" id="txtNombrCont" class="form-control" />
+                                    <span id="sNombre" style="color: red;"></span>
                                 </div>
                                 <div class="col">
                                     <label for="txtpustoCont">Puesto:</label>
                                     <%--<asp:TextBox ID="txtpuestoCont" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                     <input type="text" name="name" value="" id="txtpuestoCont" class="form-control" />
+                                    <span id="sPuesto" style="color: red;"></span>
+
                                 </div>
                             </div>
 
@@ -385,6 +392,8 @@
                                     <label for="txtCorreoCont">Correo:&nbsp;</label>
                                     <%--<asp:TextBox ID="txtCorreoCont" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>--%>
                                     <input type="email" name="name" value="" id="txtCorreoCont" class="form-control" />
+                                    <span id="sCorreo" style="color: red;"></span>
+
                                 </div>
                             </div>
                             <div class="row">
@@ -403,18 +412,23 @@
                                     <label for="txtTelCont">Telefono:</label>
                                     <%--<asp:TextBox ID="txtTelCont" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>--%>
                                     <input type="tel" name="name" value="" id="txtTelCont" class="form-control" />
+                                    <span id="sTelefono" style="color: red;"></span>
+
 
                                 </div>
                                 <div class="col-3">
                                     <label for="txtFaxCont">Extensión:</label>
                                     <%--<asp:TextBox ID="txtExtCont" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>--%>
                                     <input type="number" name="name" value="" id="txtExtCont" class="form-control" />
+
                                 </div>
 
                                 <div class="col-4">
                                     <label for="txtCelCont">Celular:</label>
                                     <%--<asp:TextBox ID="txtCelCont" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>--%>
                                     <input type="tel" name="name" value="" id="txtCelCont" class="form-control" />
+                                    <span id="sCelular" style="color: red;"></span>
+
                                 </div>
                             </div>
                             <br />
@@ -436,7 +450,7 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="table-responsive">
-                            <table class="table  table-sm" id="tContactoCom">
+                            <table class="table  table-sm" id="tContactoCom" >
                                 <caption>Contactos registrados</caption>
                                 <thead class="cabezal">
                                     <tr>
@@ -466,15 +480,14 @@
         <hr />
         <div class="row">
             <br />
-            <div class="col" style="display:flex; justify-content:flex-end;">
+            <div class="col" style="display: flex; justify-content: flex-end;">
                 <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOpciones">
                     ojo
                 </button>--%>
                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary" OnClick="btnHome_Click"
                     data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="Guardar y salir"                    
-                    > <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                    data-bs-placement="top"
+                    title="Guardar y salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
 
                 <%--<button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>--%>
                 <%--<asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />--%>

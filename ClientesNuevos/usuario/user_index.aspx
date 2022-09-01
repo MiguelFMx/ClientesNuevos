@@ -5,6 +5,25 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
+        
+        <div class="row">
+            <div class="col">
+                <asp:Panel ID="AlertResultado" runat="server" Visible="False">
+                    <div class="alert alert-success" role="alert">
+                        <div class="row">
+                            <div class="col" style="display: flex; justify-content:center;">
+                                <asp:Label ID="lblAlert" runat="server" Text=""></asp:Label>
+
+                            </div>
+                            <div class="col-2" style="display: flex; justify-content: flex-end;">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </asp:Panel>
+            </div>
+
         <!-----------------------------------Nombre de la empresa---------------------------------- -->
         <div class="row">
             <div class="col">
@@ -21,165 +40,167 @@
         <div class="row">
             <div class="col">
                 <div class="card border-primary">
-                    <table class="table table-hover table-responsive">
-                        <thead class="cabezal">
-                            <tr>
-                                <th>Documento</th>
-                                <th>Estatus</th>
-                                <th>Fecha de entrega</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>RFC</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-warning"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>CIF</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="cabezal">
+                                <tr>
+                                    <th>Documento</th>
+                                    <th>Estatus</th>
+                                    <th>Fecha de entrega</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>RFC</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CIF</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
 
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="cif-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Cedula de identificación fiscal"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>CURP</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="curp-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carta de no antecedentes penales</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="cif-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Cedula de identificación fiscal"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CURP</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="curp-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Carta de no antecedentes penales</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
 
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Comprobante de domicilio</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Comprobante de domicilio</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
 
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Identificacion de representante legal</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Identificacion de representante legal</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
 
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Poder de representante legal</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Poder de representante legal</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>Opinion positiva</td>
-                                <td>
-                                    <span class="etiqueta pendiente">Pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Crtificación C-TPAT</td>
-                                <td>
-                                    <span class="etiqueta pendiente">Pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Certificacion OEA</td>
-                                <td>
-                                    <span class="etiqueta pendiente">Pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="rfc-group">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
+                                <tr>
+                                    <td>Opinion positiva</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">Pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Crtificación C-TPAT</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">Pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Certificacion OEA</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">Pendiente</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,64 +209,75 @@
         <div class="row">
             <div class="col">
                 <div class="card border-primary">
-                    <table class="table table-hover table-responsive">
-                        <thead class="cabezal">
-                            <tr>
-                                <th>Formulario</th>
-                                <th>Estatus</th>
-                                <th>Fecha de actualizacion</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Admision de cliente nuevo</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td>
-                                    <label></label>
-                                </td>
-                                <td>
-                                    <button id="btnRegistro" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mapeo de flujo de carga</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="btnMapeo" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Evaluacion de seguridad</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="cabezal">
+                                <tr>
+                                    <th>Formulario</th>
+                                    <th>Estatus</th>
+                                    <th>Fecha de actualizacion</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Admision de cliente nuevo</td>
+                                    <td>
+                                        <!-- <span class="etiqueta pendiente">pendiente</span> -->
+                                        <asp:Label ID="lblF14_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="btnEvaluacion" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carta compromiso</td>
-                                <td>
-                                    <span class="etiqueta pendiente">pendiente</span>
+                                    </td>
+                                    <td>
 
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="btnCartaCompromiso" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
+                                        <asp:Label ID="lblF14_fecha" runat="server" Text=""></asp:Label>
 
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="btnRegistro" runat="server" Text="Llenar formulario" CssClass="btn btn-sm btn-success" OnClick="btnRegistro_Click" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mapeo de flujo de carga</td>
+                                    <td>
+                                        <asp:Label ID="lblF43_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblF43_fecha" runat="server" Text=""></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="btnMapeo" runat="server" Text="LLenar formulario" CssClass="btn btn-sm btn-success" OnClick="btnMapeo_Click" />
+                                        <%--<button id="btnMapeo" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Evaluacion de seguridad</td>
+                                    <td>
+                                        <asp:Label ID="lblF5_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblF5_fecha" runat="server" Text=""></asp:Label>
+                                    </td>
+                                    <td>
+                                        <button id="btnEvaluacion" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Carta compromiso</td>
+                                    <td>
+                                        <span class="etiqueta pendiente">pendiente</span>
+
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <button id="btnCartaCompromiso" class="btn btn-success btn-sm" type="button">Llenar formulario</button>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,7 +295,7 @@
                     <div class="modal-body" style="text-align: center;">
                         <div class="row">
                             <div class="col">
-                                <label id="lblarchivo">Seleccione el archivo correspondiente</label>                                
+                                <label id="lblarchivo">Seleccione el archivo correspondiente</label>
                             </div>
                         </div>
                         <br />
@@ -282,7 +314,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelarFile">Cancelar</button>
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnGuardar_Click" UseSubmitBehavior="False" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" UseSubmitBehavior="False" />
                         <%--<button type="button" class="btn btn-success">Guardar</button>--%>
                     </div>
                 </div>
@@ -290,9 +322,7 @@
         </div>
     </div>
 
-        <script src="indexJS.js"></script>
+    <script src="indexJS.js"></script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ScriptsContent" runat="server">
-
-
 </asp:Content>

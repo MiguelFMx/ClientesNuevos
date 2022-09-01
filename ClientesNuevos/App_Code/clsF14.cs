@@ -562,28 +562,12 @@ public class ClsF14
 
         DataTable dt = wsBaseDatos.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + ID_compania + "' AND Documento='" + nombreDocumento + "'");
 
-        fecha = DateTime.Now.Year.ToString();
-        if (DateTime.Now.Month.ToString().Length == 1)
-        {
-            fecha += "-0" + DateTime.Now.Month.ToString();
-        }
-        else
-        {
-            fecha += "-" + DateTime.Now.Month.ToString();
-        }
-
-        if (DateTime.Now.Day.ToString().Length == 1)
-        {
-            fecha += "-0" + DateTime.Now.Day.ToString();
-        }
-        else
-        {
-            fecha += "-"+DateTime.Now.Day.ToString();
-        }
+        
+        fecha = DateTime.Now.ToString("MM-dd-yyyy");
         con.Open();
         try
         {
-            SqlCommand cmd = new SqlCommand("Master_Master_Documentos", con)
+            SqlCommand cmd = new SqlCommand("Master_Documentos", con)
             {
                 CommandType = CommandType.StoredProcedure
             };

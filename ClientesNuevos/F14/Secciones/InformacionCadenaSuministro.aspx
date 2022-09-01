@@ -19,7 +19,7 @@
                 <div id="wizard" class="form_wizard wizard_horizontal" hidden>
                     <ul class="wizard_steps">
                         <li>
-                            <a href="#" class="done">
+                            <a href="InformacionCompania.aspx" class="done">
                                 <span class="step_no">1</span>
                                 <span class="step_descr">Paso 1<br />
                                     <small>Información de la compañia</small>
@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="remove">
-                            <a href="#" class="done">
+                            <a href="AgentesAduanales.aspx" class="done">
                                 <span class="step_no">2</span>
                                 <span class="step_descr">Paso 2<br />
                                     <small>Información de agentes aduanales</small>
@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li class="remove">
-                            <a href="#" class="done">
+                            <a href="CompaniaFilial.aspx" class="done">
                                 <span class="step_no">3</span>
                                 <span class="step_descr">Paso 3<br />
                                     <small>Informacion de compañia filial</small>
@@ -43,7 +43,7 @@
                             </a>
                         </li>
                         <li class="remove">
-                            <a href="#" class="done">
+                            <a href="TipoServicioProductos.aspx" class="done">
                                 <span class="step_no">4</span>
                                 <span class="step_descr">Paso 4<br />
                                     <small>Tipo de servicio requerido</small>
@@ -84,6 +84,27 @@
             </div>
         </div>
         <br />
+        <span id="errorRadio"></span>
+        <!--============================================================== Alert ======================================================================= -->
+        <asp:Panel ID="pAlert" runat="server" Visible="false">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-success" role="alert">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="alert-heading"><i class="bi bi-check-circle-fill"></i> Exito</h5>
+                            </div>
+                            <div class="col" style="display: flex; justify-content: flex-end;">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <asp:Label ID="lblExito" runat="server" Text="Se ha registrado la información con exito"></asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
         <!-- ============================= fieldset Información de programa de cadena de suministro=================================================== -->
         <div class="row">
             <div class="col">
@@ -144,6 +165,7 @@
                                             <table class="table table-hover" id="tProgramaDeSeguridad">
                                                 <thead class="cabezal">
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>Descripción</th>
                                                         <th>Código de certificación</th>
                                                         <th>¿Puede proporcionar el certificado?</th>
@@ -165,12 +187,19 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-10">
-                <button id="btnprobar" type="button" onclick="Boton();">almacenar estatus</button>
-                <button type="button" id="btnPrueba" style="display: block">Almacenar certificacion</button>
+            <div class="col">
 
             </div>
-            <div class="col">
+            <div class="col" style="display: flex; justify-content: flex-end;">
+                <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary" id="btnHome"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Guardar y salir">
+                    <i class="bi bi-house-door"></i>
+                </button>
+                &nbsp;&nbsp;
                 <button id="btnContinuar" type="button" class="btn btn-success">Continuar <i class="bi bi-chevron-double-right"></i></button>
             </div>
         </div>
@@ -181,49 +210,8 @@
         $(document).ready(function () {
             getEstatus();
         });
+
        
-
-        $('input[type=radio][name=radCertificado]').change(function () {
-            if (this.value == 'si') {
-                $('#divCertificado').show('fast');
-            }
-            else if (this.value == 'no') {
-                $('#divCertificado').hide('fast');
-
-            }
-        });
-
-        function Boton() {
-            var id_cuenta = '';
-            GetAjax("../wsBaseDatos.asmx/GetID",
-                "",
-                false,
-                function (res) {
-                    id_cuenta = res;
-                });
-
-            var cuenta = $('#<%=txtCTPATCuenta.ClientID%>').val();
-            var fecha = document.getElementById("<%=dtFechaVal.ClientID%>").value;
-            var opcion = $('#cbCTPATSatuts option:selected').val();
-
-            if (opcion != 0) {
-                if (cuenta == '' || fecha == '') {
-                    alert('Llene los campos necesarios');
-                } else {
-                    GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
-                        console.log('Exito ' + res);
-                    });
-
-                }
-            } else {
-                GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
-                    console.log('Exito, vacio ' + res);
-                });
-                $('#<%=txtCTPATCuenta.ClientID%>').val('');
-                $('#<%=dtFechaVal.ClientID%>').val('');
-            }
-            getEstatus();
-        }
 
 
     </script>
