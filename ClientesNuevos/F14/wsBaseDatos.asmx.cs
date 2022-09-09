@@ -44,7 +44,7 @@ namespace ClientesNuevos.App_Code
 
 
         [WebMethod]
-        public string insertar_estatus(string id_compania, string status, string fecha, string no_cuenta)
+        public string insertar_estatus(string id_compania, string status, string fecha, string no_cuenta, string programa)
         {
             string res;
             string sqlStr = "Master_Tablactpat";
@@ -52,11 +52,7 @@ namespace ClientesNuevos.App_Code
             SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
 
             DataTable tabla = Existe("SELECT * FROM Table_ctpat WHERE ID_compania='"+id_compania+"'");
-            if(tabla.Rows.Count > 0)
-            {
-              res= Actualizar_estatus(id_compania, status, fecha, no_cuenta);
-            }
-            else{
+           
             conn.Open();
                 try
                 {
@@ -68,13 +64,19 @@ namespace ClientesNuevos.App_Code
                     cmd.Parameters.AddWithValue("@Estatus", status);
                     cmd.Parameters.AddWithValue("@fecha_validacion", fecha);
                     cmd.Parameters.AddWithValue("@no_cuenta", no_cuenta);
+                    cmd.Parameters.AddWithValue("@Programa", programa);
+                if (tabla.Rows.Count > 0)
+                {
+                    cmd.Parameters.AddWithValue("@accion", "update");
+                }
+                else
+                {
                     cmd.Parameters.AddWithValue("@accion", "insert");
-                    cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
 
-
+                }
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
                     res = Convert.ToString(cmd.Parameters["@Msg"].Value);
-
                 }
                 catch (SqlException e)
                 {
@@ -84,7 +86,7 @@ namespace ClientesNuevos.App_Code
                 {
                     conn.Close();
                 }
-            }
+            
             return res;
         }
         [WebMethod]

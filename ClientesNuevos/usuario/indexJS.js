@@ -5,6 +5,8 @@ $(document).ready(function() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
+
+    var tipo = "";
     const UploadDoc = document.getElementById('UploadDoc');
     if (UploadDoc) {
         UploadDoc.addEventListener('show.bs.modal', event => {
@@ -22,7 +24,9 @@ $(document).ready(function() {
             modalLabel.textContent = `Seleccione el archivo correspondiente a su ${recipient}`;
 
             const lblErr = UploadDoc.querySelector('#MainContent_lblErr');
-            lblErr.textContent = `${recipient}`;
+            //lblErr.textContent = `${recipient}`;
+
+            tipo = `${recipient}`;
          });
     }
 
@@ -43,7 +47,9 @@ $(document).ready(function() {
         limpiar();       
     });
 
-
+    $('#btnPrueba').click(function () {
+        guardarDocumento(tipo);
+    });
 });
 
 
@@ -52,4 +58,42 @@ function limpiar() {
     $("span").remove(".drop-zone__prompt");
     $('#MainContent_inputFile').val("");
     $("#dropzone").append("<span class='drop-zone__prompt'>Suelte el archivo o haga click aqui</span>");
+}
+
+
+function guardarDocumento(tipo) {
+    var data = new FormData();
+    var id_cuenta = "";
+    GetAjax("../F14/wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id_cuenta = res;
+        });
+
+    document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
+       
+        if (inputElement.files.length) {
+            data.append(inputElement.files[0].name, inputElement.files[0])
+            $.ajax({
+                url: "hFileController.ashx?idcomp=" + id_cuenta + "&desc=" + tipo,
+                type: "POST",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    console.log(result);
+                    location.reload();
+                },
+                error: function (err) {
+                    console.log(err.statusText);
+                }
+            });
+        } else {
+            console.log('Seleccione un documento');
+            $('#MainContent_lblErr').html('*Seleccione un documento');
+        }
+        
+    });
+
 }

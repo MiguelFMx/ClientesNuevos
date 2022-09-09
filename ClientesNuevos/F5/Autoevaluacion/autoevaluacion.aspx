@@ -18,7 +18,6 @@
             
             -->
         <!-- barra de progreso -->
-       
         <div class="row">
             <div class="col">
             <div class="progress" style="height: 20px;">
@@ -30,11 +29,11 @@
  <!-- Tabla -->
 
         <div class="row">
-
+            <span class="text-secondary">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
             <div class="col">
                 <table class="table table-hover" id="tPreguntas">
                     <caption>1 de 8</caption>
-                    <thead class="table-primary">
+                    <thead class="table-primary border-primary">
                         <tr >
                             <th>Numero</th>
                             <th>Pregunta</th>
@@ -42,7 +41,7 @@
                             <th style="width:300px;">Observaciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="border-primary">
                         <tr>
                             <td> <span>1.0.1</span> </td>
 
@@ -64,22 +63,19 @@
         </div>
         <!-- Botones -->
         <div class="row">
-            <div class="col-1">
-                <button class="btn btn-secondary" style="font-size:15px;" id="btnAnterior" type="button">Anterior</button>
+            <div class="col" style="display:flex; justify-content:flex-start;">
+                <button class="btn btn-secondary" id="btnAnterior" type="button"><i class="bi bi-chevron-left"></i> Anterior</button>
             </div>
-            <div class="col-10" ></div>
-
-
-            <div class="col-1"> 
-                <button class="btn btn-warning" style="font-size:15px;" id="btnSiguiente" type="button">Siguiente</button>
+            <div class="col" style="display:flex; justify-content:flex-end;"> 
+                <button class="btn btn-warning text-white"  id="btnSiguiente" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
 
         <div>
-            <button id="btnCheck" type="button">guardar respuesta</button>
-           <button id="btnMostrar" type="button">Mostrar respuestas</button>
+            <button id="btnCheck" type="button" hidden>guardar respuesta</button>
+           <button id="btnMostrar" type="button" hidden>Mostrar respuestas</button>
 
-            <button id="btnMostrar2" type="button"> respuestas</button>
+            <button id="btnMostrar2" type="button" hidden> respuestas</button>
         </div>
     </div>
 

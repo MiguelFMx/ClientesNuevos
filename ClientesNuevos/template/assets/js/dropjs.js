@@ -10,8 +10,10 @@
         if (inputElement.files.length) {
             if (inputElement.files[0].type == "application/pdf") {
                 updateThumbnail(dropZoneElement, inputElement.files[0]);
+                $('#MainContent_lblErr').html("");
+
             } else {
-                alert("Solo se admiten documentos en formato pdf");
+                $('#MainContent_lblErr').html("Solo se admiten documentos en formato pdf");
             }
         }
     });
@@ -33,12 +35,15 @@
             if (e.dataTransfer.files[0].type == "application/pdf") {
                 inputElement.files = e.dataTransfer.files;
                 updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+                $('#MainContent_lblErr').html("");
+
             } else {
-                alert("Solo se admiten documentos en formato pdf");
+                $('#MainContent_lblErr').html("Solo se admiten documentos en formato pdf");
+                inputElement.val("");
             }
             
         } else {
-            alert("Solo puede subir un archivo");
+            $('#MainContent_lblErr').html("Solo puede subir un archivo");
         }
 
         dropZoneElement.classList.remove("drop-zone--over");

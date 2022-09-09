@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CriteriosMinimos.aspx.cs" Inherits="ClientesNuevos.F20.CriteriosMinimos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <title><%: Page.Title %> Criterios minimos de seguridad C-TPAT</title>
+    <title><%:Page.Title %> Criterios minimos de seguridad C-TPAT</title>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -333,12 +333,12 @@
             });
 
             $('#btnContinuar').click(function () {
-                window.location.href = '../F14/Secciones/InformacionCompania.aspx';
+                
+                    window.location.href = '../F14/Secciones/InformacionCompania.aspx';
+
                 
             });
         });
-
-       
 
         function DescargarDoc(nombre) {
             $('#imprimir').printThis({

@@ -127,6 +127,151 @@ namespace ClientesNuevos.usuario
                         }
                         lblF5_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    if (Docs[i].Documento == "F12")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblF12_estatus.Text = "completado";
+                            lblF12_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblF12_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblF12_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "RFC")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblRFC_estatus.Text = "completado";
+                            lblRFC_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblRFC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblRFC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    //
+                    if (Docs[i].Documento == "Cedula de identificación fiscal")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblCIF_estatus.Text = "completado";
+                            lblCIF_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblCIF_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblCIF_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "CURP")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblCURP_estatus.Text = "completado";
+                            lblCURP_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblCURP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblCURP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Carta de no antecedentes penales")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblCNAP_estatus.Text = "completado";
+                            lblCNAP_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblCNAP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblCNAP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Comprobante de domicilio")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblCompDom_estatus.Text = "completado";
+                            lblCompDom_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblCompDom_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblCompDom_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Identificacion de representante legal")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblIRL_estatus.Text = "completado";
+                            lblIRL_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblIRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblIRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    //Poder de representante legal
+                    if (Docs[i].Documento == "Poder de representante legal")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblPRL_estatus.Text = "completado";
+                            lblPRL_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblPRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblPRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Opinion positiva")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblOP_estatus.Text = "completado";
+                            lblOP_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblOP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblOP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Certificación C-TPAT")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblCTPAT_estatus.Text = "completado";
+                            lblCTPAT_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblCTPAT_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblCTPAT_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    if (Docs[i].Documento == "Certificación OEA")
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblOEA_estatus.Text = "completado";
+                            lblOEA_estatus.CssClass = "etiqueta";
+                        }
+                        else
+                        {
+                            lblOEA_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
                 }
             }
             catch (Exception)
@@ -196,6 +341,55 @@ namespace ClientesNuevos.usuario
             }
 
             return res;
+        }
+
+
+        protected string Obtener_estatus_f5()
+        {
+            string res = "";
+
+            try
+            {
+                List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value);
+
+                for (int i = 0; i < Docs.Count; i++)
+                {
+                    if (Docs[i].Documento == "F5")
+                    {
+                        res = Docs[i].Estatus;
+
+                        break;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                res = "";
+            }
+
+            return res;
+        }
+
+        protected void btnCartaCompromiso_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../F12/politicaseguridad.aspx");
+        }
+
+        protected void btnEvaluacion_Click(object sender, EventArgs e)
+        {
+            string estatus = Obtener_estatus_f5();
+            if(estatus == "50%")
+            {
+                Response.Redirect("../F5/Autoevaluacion/autoevaluacion.aspx");
+            }else if(estatus == "100%")
+            {
+                Response.Redirect("../F5/Autoevaluacion/Resultados.aspx");
+            }
+            else
+            {
+                Response.Redirect("../F5/evaluacionseguridad.aspx");
+            }
         }
     }
 }

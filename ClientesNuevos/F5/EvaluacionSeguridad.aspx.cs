@@ -87,14 +87,17 @@ namespace ClientesNuevos.cliente.F5
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
+            //Boton de home, guarda respuestas y se actualiza el avance en 50%; redireccion a index
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
 
+            //Dclaracion de variables
             string rad130, rad120, rad140, rad150, rad160, rad1321, rad1322, p1311, p1312, p1313, res = "", id = "", id_custionario = "", id_evaluacion = "";
             string no_cuenta = "", doc="";
             id = GetID();
             id_custionario = id + "F5C";
             id_evaluacion = id + "F5E";
 
+            //Asignacion d valores
             no_cuenta = txt100.Text;
             rad120 = radio120.SelectedValue;
             rad130 = radio130.SelectedValue;
@@ -109,10 +112,13 @@ namespace ClientesNuevos.cliente.F5
 
             if (rad130 == "SI")
             {
+                //Si la respuesta a 1.3.0 es si
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, p1311, p1312, p1313, "", "");
             }
             else if (rad130 == "NO" || rad130 == "N/A")
             {
+                //Si la respuesta a 1.3.0 es no o n/a
+
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, "", "", "", rad1321, rad1322);
             }
 
@@ -121,6 +127,7 @@ namespace ClientesNuevos.cliente.F5
 
 
             doc = wsBaseDatos.InsertarDocumento(GetID(), "F5", "", "50%");
+            Registrar_F5();
             lbluno.Text = doc;
 
             Response.Redirect("../usuario/user_index.aspx?res="+doc);
@@ -129,12 +136,16 @@ namespace ClientesNuevos.cliente.F5
 
         protected void btnContinue_Click(object sender, EventArgs e)
         {
+            //Boton continuar, redirecciona a la autoevaluacion, s guarda elavance en 50%
+
+            //Declaracion de variables
             string rad130, rad120, rad140, rad150, rad160, rad1321, rad1322, p1311, p1312, p1313, res = "", id = "", id_custionario = "", id_evaluacion = "";
             string no_cuenta = "";
             id = GetID();
             id_custionario = id + "F5C";
             id_evaluacion = id + "F5E";
 
+            //asignacion de valores
             no_cuenta = txt100.Text;
             rad120 = radio120.SelectedValue;
             rad130 = radio130.SelectedValue;
@@ -149,16 +160,29 @@ namespace ClientesNuevos.cliente.F5
 
             if (rad130 == "SI")
             {
+                //Si la respuesta a la pregunta es 1.3.0 es si.
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, p1311, p1312, p1313, "", "");
             }
             else if (rad130 == "NO" || rad130 == "N/A")
             {
+                //Si la respuesta a la pregunta es 1.3.0 es no o n/a.
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, "", "", "", rad1321, rad1322);
             }
-
+            Registrar_F5();
             lbluno.Text = res;
             Response.Redirect("Autoevaluacion/autoevaluacion.aspx");
         }
+
+        protected void Registrar_F5()
+        {
+            wsAutoevaluacion wsAutoevaluacion = new wsAutoevaluacion();
+            //Registra en la tabla
+            string str = "";
+            string id = "";
+            id = GetID();
+            str = wsAutoevaluacion.Registrar_F5(id, id + "F5C", id+"F5E");
+        }
+
     }
 
 }

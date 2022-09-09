@@ -153,21 +153,29 @@ namespace ClientesNuevos.F5
 
 
         [WebMethod]
-        public  string RegistrarRespuesta(string numero, string respuesta, string descripcion)
+        public  string RegistrarRespuesta(string id_evaluacion, string numero, string respuesta, string descripcion)
         {
-            string strSql = "INSERT INTO table_respuestasAutoEv (ID_evaluacion, Numero, Respuesta, Observacion)" +
-                "VALUES ('1','" +numero + "'," + respuesta + ",'" + descripcion + "')";
-
+            string strSql = "";
+            string  table="";
+            SqlCommand cmd;
             SqlConnection con = new SqlConnection(strConnction);
-            SqlCommand cmd = new SqlCommand(strSql, con);
-
-
 
             string strError = "";
+
+            if (numero == "1.0.1")
+            {
+                table = clsHerramientaBD.ExecuteSql("DELETE FROM table_respuestasAutoEv WHERE ID_evaluacion = '" + id_evaluacion + "' ");
+            }
+            
+                strSql = "INSERT INTO table_respuestasAutoEv (ID_evaluacion, Numero, Respuesta, Observacion)" +
+               "VALUES ('" + id_evaluacion + "','" + numero + "'," + respuesta + ",'" + descripcion + "')";
+            cmd = new SqlCommand(strSql, con);
+
             try
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
+                strError = "Respuestas de  la pregunta " + numero + " Se guardo";
                 con.Close();
             }
             catch (SqlException ex)
@@ -180,6 +188,7 @@ namespace ClientesNuevos.F5
             return strError;
 
         }
+
 
         [WebMethod]
         public string RegistrarRespuestas(List<LstRespuesta> lista)
@@ -216,6 +225,8 @@ namespace ClientesNuevos.F5
             string resultado = "";
             string Fecha = DateTime.Now.ToString("MM-dd-yyyy");
 
+            DataTable dt;
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania = '"+ID_compania+"'");
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
             con.Open();
             try
@@ -226,9 +237,18 @@ namespace ClientesNuevos.F5
                 };
                 cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
                 cmd.Parameters.AddWithValue("@ID_Cuestionario", ID_cuestionario);
-                cmd.Parameters.AddWithValue("@ID_Evaluacion", ID_compania);
+                cmd.Parameters.AddWithValue("@ID_Evaluacion", ID_autoevaluacion);
                 cmd.Parameters.AddWithValue("@Fecha", Fecha);
-                cmd.Parameters.AddWithValue("@accion", "insert");
+                if(dt.Rows.Count > 0)
+                {
+                    cmd.Parameters.AddWithValue("@accion", "update");
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@accion", "insert");
+
+                }
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
                 resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);

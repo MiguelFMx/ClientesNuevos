@@ -329,18 +329,19 @@ function insertar_estatus() {
     var cuenta = $('#MainContent_txtCTPATCuenta').val();
     var fecha = document.getElementById("MainContent_dtFechaVal").value;
     var opcion = $('#cbCTPATSatuts option:selected').val();
+    var programa = $('input[type=radio][name=radCertificado]').val();
 
     if (opcion != 0) {
         if (cuenta == '' || fecha == '') {
             alert('Llene los campos necesarios');
         } else {
-            GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
+            GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "','programa':'" + programa + "'", function (res) {
                 console.log('Exito ' + res);
             });
 
         }
     } else {
-        GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "'", function (res) {
+        GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "','programa':'" + programa + "'", function (res) {
             console.log('Exito, vacio ' + res);
         });
         $('#MainContent_txtCTPATCuenta').val('');

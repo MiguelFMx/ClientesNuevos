@@ -106,6 +106,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\carpetilla\fisica.aspx" />
+    <Content Include="admin\carpetilla\moral.aspx" />
+    <Content Include="admin\index.aspx" />
+    <Content Include="F12\wsPoliticaSeguridad.asmx" />
     <Content Include="F14\JS\ComFilialJS.js" />
     <Content Include="F14\wsBaseDatos.asmx" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
@@ -172,10 +176,14 @@
     <Content Include="Scripts\bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Scripts\bootstrap\js\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\chart.min.js" />
     <Content Include="template\assets\img\logo\Hungaros.png" />
     <Content Include="template\assets\img\logo\HungarosTexto.png" />
     <Content Include="wsLogin.asmx" />
     <Content Include="F14\FileUploadHandler.ashx" />
+    <Content Include="admin\AdminMaster.Master" />
+    <Content Include="usuario\hFileController.ashx" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
@@ -332,10 +340,45 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\carpetilla\fisica.aspx.cs">
+      <DependentUpon>fisica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\carpetilla\fisica.aspx.designer.cs">
+      <DependentUpon>fisica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\carpetilla\moral.aspx.cs">
+      <DependentUpon>moral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\carpetilla\moral.aspx.designer.cs">
+      <DependentUpon>moral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
+    <Compile Include="usuario\hFileController.ashx.cs">
+      <DependentUpon>hFileController.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="F12\wsPoliticaSeguridad.asmx.cs">
+      <DependentUpon>wsPoliticaSeguridad.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="F14\FileUploadHandler.ashx.cs">
       <DependentUpon>FileUploadHandler.ashx</DependentUpon>
     </Compile>

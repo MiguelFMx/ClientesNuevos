@@ -46,30 +46,6 @@ $(document).ready(function () {
                             cargarTablaStepS(current);
                         }
 
-                        /*Prubas---------------------------------------------------------------------------------------------------------------------------------------*/
-                        var aux,  aux2=0;
-
-                        aux = ((valor(bloque1[0][1]) + valor(bloque1[1][1]) + valor(bloque1[2][1]) + valor(bloque1[3][1]) + valor(bloque1[4][1])) / 5) / 5;
-                        resultados.push(aux);
-
-                        aux = ((valor(bloque1[5][1]) + valor(bloque1[6][1])) / 2) / 5;
-                        resultados.push(aux);
-
-                        aux = valor(bloque1[7][1]) / 5;
-                        resultados.push(aux);
-
-                        aux = ((valor(bloque1[8][1]) + valor(bloque1[9][1])) / 2) / 5;
-                        resultados.push(aux);
-
-                        for (var i = 0; i < resultados.length; i++) {
-                            aux2 += parseFloat( resultados[i]);
-                        }
-                        aux = parseFloat(aux2) / resultados.length;
-                        resultados.push(aux);
-
-                        console.log(bloque1)
-                        console.log(resultados);
-
                         /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
                         break;
                     case 3:
@@ -130,12 +106,10 @@ $(document).ready(function () {
                     llenarRespuesta(bloque6);
                     llenarRespuesta(bloque7);
                     llenarRespuesta(bloque8);
-
-                    console.log(respuestas);
-                    console.log(respuestas[0][1]);
-
-                    
+                   
                     GuardarRespuestas(respuestas);
+
+                    Actualizarstado();
                 }
             }
         } else {
@@ -289,14 +263,25 @@ $(document).ready(function () {
         console.log(bloque8);
     });
 
-    //$('#tPreguntas').click(function () {
-    //    var row = $(this).closest('tr');
-    //    row.removeAttr('style');
-      
-    //});
+
     
 });
 
+
+function Actualizarstado() {
+    var id;
+    
+    GetAjax("../../../F14/wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id = res;
+        });
+
+    GetAjax("../../../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F5', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+        window.location.href = 'Resultados.aspx';
+    });
+}
 
 // actualizar barra
 function setProgressBar(curStep) {
@@ -817,6 +802,7 @@ function GuardarTemp(step,arreglo) {
     }
 }
 
+//Limpiar arrays temporales
 function vaciarTemp(step) {
     switch (step) {
         case 1:
@@ -858,25 +844,23 @@ function llenarRespuesta(array) {
 function GuardarRespuestas(arr) {
 
     var list = [];
+    var id;
+    GetAjax("../../F14/wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id = res+"F5E";
+        });
+
     for (var i = 0; i < arr.length; i++) {
 
-        //let numero = arr[i][0];
-        //let respuesta = arr[i][1];
-        //let observacion = arr[i][2];
-
-        //var res = {
-        //    numero: arr[i][0],
-        //    respuesta: arr[i][1],
-        //    observacion: arr[i][2]
-        //}
-
-        //list.push(res);
     $.ajax({
             type: "POST",
             url: "../wsAutoevaluacion.asmx/RegistrarRespuesta",
             contentType: "application/json; charset=utf-8",
             processData: false,
-            data: "{"+
+        data: "{" +
+                "id_evaluacion:'"+id+"',"+
                 "numero:'" + arr[i][0] +"',"+
                 "respuesta: '" + arr[i][1] + "',"+
                 "descripcion:'" + arr[i][2] + "'"
@@ -889,6 +873,7 @@ function GuardarRespuestas(arr) {
 
                 } else {
                     console.log("Error: " + result.d);
+                    
                 }
             },
             error: function ( err) {
@@ -897,8 +882,7 @@ function GuardarRespuestas(arr) {
         });
        
   }
-   
-   return false;
+    
 }
 
 function valor(aux) {
