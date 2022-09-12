@@ -466,7 +466,42 @@ namespace ClientesNuevos.App_Code
             return documento;
         }
 
+        [WebMethod]
+        public  string Actualizar_Estado(string ID_compania, string Documento, string Estatus)
+        {
+            string resultado = "";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Master_Documentos", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
+                cmd.Parameters.AddWithValue("@Documento", Documento);
+                cmd.Parameters.AddWithValue("@Estatus", Estatus);
+                cmd.Parameters.AddWithValue("@accion", "check");
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+                resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);
 
+                //resultado = res;
+            }
+            catch (SqlException ex)
+            {
+
+                resultado = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+
+            return resultado;
+        }
 
         //=====================================================Servicios y productos================================================================
 
@@ -653,5 +688,43 @@ namespace ClientesNuevos.App_Code
             return resultado;
         }
 
+
+        //===========================F14
+        [WebMethod]
+        public string Mostrar_compani(string ID_compania)
+        {
+            string resultado = "";
+            string sqlStr = "select_compania";
+            DataTable data = new DataTable();
+
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlDataAdapter da;
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
+                cmd.Parameters.AddWithValue("@accion", "insert");
+
+               
+
+                
+            }
+            catch (SqlException ex)
+            {
+                resultado = ex.Message;
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+            return resultado;
+        }
     }
 }

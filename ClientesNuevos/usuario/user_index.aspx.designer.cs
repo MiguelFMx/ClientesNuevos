@@ -69,24 +69,6 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblRFC_fecha;
 
         /// <summary>
-        /// Control lblCIF_estatus.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCIF_estatus;
-
-        /// <summary>
-        /// Control lblCIF_fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCIF_fecha;
-
-        /// <summary>
         /// Control lblCURP_estatus.
         /// </summary>
         /// <remarks>

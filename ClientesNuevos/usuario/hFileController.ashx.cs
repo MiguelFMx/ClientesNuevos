@@ -29,7 +29,7 @@ namespace ClientesNuevos.App_Code
 
 
                 string ruta = fname.ToString();
-                strRsultado = ClsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "100%");
+                strRsultado = ClsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
                 
             }
 

@@ -69,25 +69,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>CIF</td>
-                                        <td>
-                                            <asp:Label ID="lblCIF_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblCIF_fecha" runat="server" Text="--/--/----"></asp:Label>
-
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="cif-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Cedula de identificación fiscal"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>CURP</td>
                                         <td>
                                             <asp:Label ID="lblCURP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
@@ -272,7 +253,7 @@
 
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnRegistro" runat="server" Text="Llenar formulario" CssClass="btn btn-sm btn-success" OnClick="btnRegistro_Click" />
+                                            <asp:Button ID="btnRegistro" runat="server" Text="Llenar formulario" CssClass="btn btn-success" OnClick="btnRegistro_Click" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -285,7 +266,7 @@
                                             <asp:Label ID="lblF43_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnMapeo" runat="server" Text="LLenar formulario" CssClass="btn btn-sm btn-success" OnClick="btnMapeo_Click" />
+                                            <asp:Button ID="btnMapeo" runat="server" Text="LLenar formulario" CssClass="btn btn-success" OnClick="btnMapeo_Click" />
                                             <%--<button id="btnMapeo" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
                                         </td>
                                     </tr>
@@ -299,7 +280,7 @@
                                         </td>
                                         <td>
                                             <%--<button id="btnEvaluacion" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
-                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success btn-sm" runat="server" Text="LLenar formulario" OnClick="btnEvaluacion_Click" />
+                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success " runat="server" Text="LLenar formulario" OnClick="btnEvaluacion_Click" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -311,7 +292,7 @@
                                             <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success btn-sm" runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" />
+                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" />
 
                                         </td>
                                     </tr>

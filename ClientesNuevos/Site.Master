@@ -140,22 +140,22 @@
   <!-- Vendor JS Files -->
     <script src="../../../Scripts/jquery-3.6.0.js"></script>
 
-    <script src="../../template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../template/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="../../template/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../../../template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../template/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../../../template/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     
-    <script src="../../template/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="../../template/assets/vendor/php-email-form/validate.js"></script>
+    <script src="../../../template/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../../../template/assets/vendor/php-email-form/validate.js"></script>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 
-    <script src="../../Scripts/JS/ajax.js"></script>
+    <script src="../../../Scripts/JS/ajax.js"></script>
   <!-- Template Main JS File -->
-    <script src="../../template/assets/js/main.js"></script>
+    <script src="../../../template/assets/js/main.js"></script>
 
-    <script src="../../Scripts/JS/jquery-ui.min.js"></script>
-    <script src="../../Scripts/printThis.js"></script>
-    <script src="../../template/assets/js/dropjs.js"></script>
+    <script src="../../../Scripts/JS/jquery-ui.min.js"></script>
+    <script src="../../../Scripts/printThis.js"></script>
+    <script src="../../../template/assets/js/dropjs.js"></script>
 
 
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server" >

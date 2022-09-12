@@ -62,7 +62,7 @@ $(document).ready(function () {
 
             insertar_estatus();
             //     documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
-            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'revision'", false, function (res) {
                 let alert = confirm('¿Desea continuar?');
                 if (alert) {
                     window.location.href = '../../F43/MapeoFlujo.aspx?res=Exito';

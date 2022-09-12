@@ -38,18 +38,20 @@
                                         <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_Acta" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_RFC" runat="server" CssClass="btn btn-secondary "
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
-                                        <asp:LinkButton ID="btnActualizar_Acta" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                            title="Ver" OnClick="btnRFC_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+
+                                        <asp:LinkButton ID="btnActualizar_RFC" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
-                                        <asp:LinkButton ID="btnCheck_Acta" CssClass="btn btn-success btn-sm" runat="server"
+                                            title="Solicitar actualizacion" OnClick="btnRFC_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+
+                                        <asp:LinkButton ID="btnCheck_RFC" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnRFC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -63,17 +65,17 @@
                                         <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_CURP" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_CURP" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             title="Ver" OnClick="btnClick"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_CURP" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_CURP" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             title="Solicitar actualizacion" OnClick="btnClick"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             title="Aprovar" OnClick="btnClick"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -91,20 +93,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_CNAP" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_CNAP" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_CNAP" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_CNAP" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnCNAP_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnCNAP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -119,20 +121,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_CompDom" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_CompDom" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_CompDom" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_CompDom" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnCompDom_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnCompDom_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
 
                                 </tr>
@@ -147,20 +149,20 @@
                                         <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_IRL" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_IRL" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnIRL_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_IRL" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_IRL" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnIRL_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnIRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
 
                                 </tr>
@@ -176,20 +178,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_PRL" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_PRL" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnPRL_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_PRL" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_PRL" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnPRL_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnPRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -204,20 +206,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_CTPAT" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_CTPAT" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_CTPAT" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_CTPAT" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnCTPAT_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnCTPAT_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -232,20 +234,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_OEA" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_OEA" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnOEA_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_OEA" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_OEA" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnOEA_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnOEA_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -260,20 +262,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_OP" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_OP" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnOP_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_OP" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_OP" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnOP_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnOP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -288,20 +290,20 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_F5" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_F5" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnF5_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_F5" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_F5" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnF5_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_F5" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_F5" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnF5_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
@@ -315,35 +317,24 @@
                                         <asp:Label ID="lblF14_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_F14" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_F14" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnF14_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizacion_F14" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_F14" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnF14_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_F14" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_F14" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnF14_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
 
                                 </tr>
-                                <tr>
-                                    <td>Evaluación In-situ(F-16)</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: center">
-                                            <asp:Label ID="lblF16_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblF16_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
-                                    </td>
-                                    <td></td>
-                                </tr>
+                                
                                 <tr>
                                     <td>Politica de seguridad C-TPAT (F-12)</td>
                                     <td>
@@ -355,33 +346,21 @@
                                         <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_F12" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_F12" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnF12_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActualizar_F12" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_F12" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnF12_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_F12" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_F12" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnF12_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>Criterios minimos de seguridad C-TPAT (F-20)</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: center">
-                                            <asp:Label ID="lblF20_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblF20_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
-                                    </td>
-                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td>Mapeo de flujo de carga(F-43)</td>
@@ -395,21 +374,45 @@
 
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="btnVer_F43" runat="server" CssClass="btn btn-secondary btn-sm"
+                                        <asp:LinkButton ID="btnVer_F43" runat="server" CssClass="btn btn-secondary"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Ver"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                            title="Ver" OnClick="btnF43_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnActuaizar_F43" CssClass="btn btn-warning btn-sm" runat="server" ForeColor="White"
+                                        <asp:LinkButton ID="btnActualizar_F43" CssClass="btn btn-warning" runat="server" ForeColor="White"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                            title="Solicitar actualizacion" OnClick="btnF43_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                        <asp:LinkButton ID="btnCheck_F43" CssClass="btn btn-success btn-sm" runat="server"
+                                        <asp:LinkButton ID="btnCheck_F43" CssClass="btn btn-success" runat="server"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            title="Aprovar"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            title="Aprovar" OnClick="btnF43_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>Evaluación In-situ(F-16)</td>
+                                    <td>
+                                        <div style="display: flex; justify-content: center">
+                                            <asp:Label ID="lblF16_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblF16_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                 <tr>
+                                    <td>Criterios minimos de seguridad C-TPAT (F-20)</td>
+                                    <td>
+                                        <div style="display: flex; justify-content: center">
+                                            <asp:Label ID="lblF20_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblF20_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
+                                    </td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>

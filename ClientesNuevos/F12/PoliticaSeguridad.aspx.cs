@@ -119,7 +119,7 @@ namespace ClientesNuevos.F12
                 strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.Cookies.Get("id_comp").Value, OEA, repre, "si");
                 if(strRes != "")
                 {
-                    strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "100%");
+                    strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
                     Response.Redirect("../usuario/user_index.aspx");
                 }
             }

@@ -2115,8 +2115,8 @@ section {
     padding: 4px 2em 4px 2em;
     font-size:12px;
 }
-.falta {
-    background-color: #ea0101;
+.revision {
+    background-color: #ff8000;
 }
 .actualizar {
     background-color: #ffc107;

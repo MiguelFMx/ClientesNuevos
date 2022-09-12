@@ -189,7 +189,7 @@ function Insertar_Registros() {
         }
         if (result != '') {
 
-            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
                 let pregunta = confirm('¿Desea continuar con el registro?');
                 if (pregunta) {
                     window.location.href = '../F5/evaluacionseguridad.aspx';

@@ -42,31 +42,31 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblRFC_fecha;
 
         /// <summary>
-        /// Control btnVer_Acta.
+        /// Control btnVer_RFC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnVer_Acta;
+        protected global::System.Web.UI.WebControls.LinkButton btnVer_RFC;
 
         /// <summary>
-        /// Control btnActualizar_Acta.
+        /// Control btnActualizar_RFC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnActualizar_Acta;
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizar_RFC;
 
         /// <summary>
-        /// Control btnCheck_Acta.
+        /// Control btnCheck_RFC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCheck_Acta;
+        protected global::System.Web.UI.WebControls.LinkButton btnCheck_RFC;
 
         /// <summary>
         /// Control lblCURP_estatus.
@@ -501,13 +501,13 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.LinkButton btnVer_F14;
 
         /// <summary>
-        /// Control btnActualizacion_F14.
+        /// Control btnActualizar_F14.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnActualizacion_F14;
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizar_F14;
 
         /// <summary>
         /// Control btnCheck_F14.
@@ -517,24 +517,6 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnCheck_F14;
-
-        /// <summary>
-        /// Control lblF16_estatus.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblF16_estatus;
-
-        /// <summary>
-        /// Control lblF16_fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblF16_fecha;
 
         /// <summary>
         /// Control lblF12_estatus.
@@ -582,24 +564,6 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.LinkButton btnCheck_F12;
 
         /// <summary>
-        /// Control lblF20_estatus.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblF20_estatus;
-
-        /// <summary>
-        /// Control lblF20_fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblF20_fecha;
-
-        /// <summary>
         /// Control lblF43_estatus.
         /// </summary>
         /// <remarks>
@@ -627,13 +591,13 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.LinkButton btnVer_F43;
 
         /// <summary>
-        /// Control btnActuaizar_F43.
+        /// Control btnActualizar_F43.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnActuaizar_F43;
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizar_F43;
 
         /// <summary>
         /// Control btnCheck_F43.
@@ -643,6 +607,42 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnCheck_F43;
+
+        /// <summary>
+        /// Control lblF16_estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF16_estatus;
+
+        /// <summary>
+        /// Control lblF16_fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF16_fecha;
+
+        /// <summary>
+        /// Control lblF20_estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF20_estatus;
+
+        /// <summary>
+        /// Control lblF20_fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF20_fecha;
 
         /// <summary>
         /// Control lblPrueba.

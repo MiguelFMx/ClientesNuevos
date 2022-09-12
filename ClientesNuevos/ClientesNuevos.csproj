@@ -109,6 +109,7 @@
     <Content Include="admin\carpetilla\fisica.aspx" />
     <Content Include="admin\carpetilla\moral.aspx" />
     <Content Include="admin\index.aspx" />
+    <Content Include="admin\vistas\F14.aspx" />
     <Content Include="F12\wsPoliticaSeguridad.asmx" />
     <Content Include="F14\JS\ComFilialJS.js" />
     <Content Include="F14\wsBaseDatos.asmx" />
@@ -367,6 +368,13 @@
     </Compile>
     <Compile Include="admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vistas\F14.aspx.cs">
+      <DependentUpon>F14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vistas\F14.aspx.designer.cs">
+      <DependentUpon>F14.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />

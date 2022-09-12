@@ -92,6 +92,10 @@ namespace ClientesNuevos.usuario
                             lblF14_estatus.Text = "completado";
                             lblF14_estatus.CssClass = "etiqueta";
 
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblF14_estatus.Text = "en revision";
+                            lblF14_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -107,6 +111,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblF43_estatus.Text = "completado";
                             lblF43_estatus.CssClass = "etiqueta";
+                        }else if(Docs[i].Estatus == "revision")
+                        {
+                            lblF43_estatus.Text = "en revision";
+                            lblF43_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -120,6 +128,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblF5_estatus.Text = "completado";
                             lblF5_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblF5_estatus.Text = "en revision";
+                            lblF5_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -133,6 +145,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblF12_estatus.Text = "completado";
                             lblF12_estatus.CssClass = "etiqueta";
+                        }else if(Docs[i].Estatus == "revision")
+                        {
+                            lblF12_estatus.Text = "en revision";
+                            lblF12_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -146,6 +162,9 @@ namespace ClientesNuevos.usuario
                         {
                             lblRFC_estatus.Text = "completado";
                             lblRFC_estatus.CssClass = "etiqueta";
+                        }else if(Docs[i].Estatus == "revision"){
+                            lblRFC_estatus.Text = "en revision";
+                            lblRFC_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -154,25 +173,22 @@ namespace ClientesNuevos.usuario
                         lblRFC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
                     //
-                    if (Docs[i].Documento == "Cedula de identificación fiscal")
-                    {
-                        if (Docs[i].Estatus == "100%")
-                        {
-                            lblCIF_estatus.Text = "completado";
-                            lblCIF_estatus.CssClass = "etiqueta";
-                        }
-                        else
-                        {
-                            lblCIF_estatus.Text = "Pendiente:" + Docs[i].Estatus;
-                        }
-                        lblCIF_fecha.Text = Docs[i].Fecha.Substring(0, 10);
-                    }
+                    
                     if (Docs[i].Documento == "CURP")
                     {
                         if (Docs[i].Estatus == "100%")
                         {
                             lblCURP_estatus.Text = "completado";
                             lblCURP_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblCURP_estatus.Text = "en revision";
+                            lblCURP_estatus.CssClass = "etiqueta revision";
+                        }
+                        else if (Docs[i].Estatus == "act")
+                        {
+                            lblCURP_estatus.Text = "actualizar";
+                            lblCURP_estatus.CssClass = "etiqueta actualizar";
                         }
                         else
                         {
@@ -186,6 +202,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblCNAP_estatus.Text = "completado";
                             lblCNAP_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblCNAP_estatus.Text = "en revision";
+                            lblCNAP_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -199,6 +219,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblCompDom_estatus.Text = "completado";
                             lblCompDom_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblCompDom_estatus.Text = "en revision";
+                            lblCompDom_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -212,6 +236,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblIRL_estatus.Text = "completado";
                             lblIRL_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblIRL_estatus.Text = "en revision";
+                            lblIRL_estatus.CssClass = "etiqueta revision";
+
                         }
                         else
                         {
@@ -226,6 +255,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblPRL_estatus.Text = "completado";
                             lblPRL_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblPRL_estatus.Text = "en revision";
+                            lblPRL_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -239,6 +272,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblOP_estatus.Text = "completado";
                             lblOP_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblOP_estatus.Text = "en revision";
+                            lblOP_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -252,6 +289,10 @@ namespace ClientesNuevos.usuario
                         {
                             lblCTPAT_estatus.Text = "completado";
                             lblCTPAT_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblCTPAT_estatus.Text = "en revision";
+                            lblCTPAT_estatus.CssClass = "etiqueta revision";
                         }
                         else
                         {
@@ -265,6 +306,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblOEA_estatus.Text = "completado";
                             lblOEA_estatus.CssClass = "etiqueta";
+                        }else if (Docs[i].Estatus == "revision")
+                        {
+                            lblOEA_estatus.Text = "en revision";
+                            lblOEA_estatus.CssClass = "etiqueta revision";
+
                         }
                         else
                         {

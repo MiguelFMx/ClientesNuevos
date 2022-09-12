@@ -278,7 +278,7 @@ function Actualizarstado() {
             id = res;
         });
 
-    GetAjax("../../../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F5', 'Ruta':'null','Estatus':'100%'", false, function (res) {
+    GetAjax("../../../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F5', 'Ruta':'null','Estatus':'revision'", false, function (res) {
         window.location.href = 'Resultados.aspx';
     });
 }
