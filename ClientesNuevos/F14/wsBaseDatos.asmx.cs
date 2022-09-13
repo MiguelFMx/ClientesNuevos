@@ -723,6 +723,11 @@ namespace ClientesNuevos.F14
 
             return resultado;
         }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 
 }
