@@ -617,7 +617,7 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F14")
             {
                 lblPrueba.Text = "Ver F14";
-                Response.Redirect("../vistas/f14?id=" + id_comp);
+                Response.Redirect("../vistas/f14admin?id=" + id_comp);
             }
             else if (buttonId == "btnCheck_F14")
             {
