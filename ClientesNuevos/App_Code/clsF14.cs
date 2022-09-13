@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Configuration;
 using ClientesNuevos.App_Code;
-using ClientesNuevos.F14;
+
 
 public class ClsF14
     {
@@ -18,7 +18,7 @@ public class ClsF14
 
     public static string Insertar_info_compania(string ID_compania, string nombre_comp, string nombre_comercial, int tipo_persona, string rfc, string CURP,int tiempo_negocio, string direccion, string cp, string pais,string estado, string ciudad, string fecha_registro, string id_user)
     {
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+        ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
         
         string resultado;
         DataTable table = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania ='"+ID_compania+"'");
@@ -126,7 +126,7 @@ public class ClsF14
     }
     public static string Insertar_info_bancaria(string ID_compania, string Nombre_banco, string rfc_banco, string no_cuenta, string clave_bancaria,string Uso_CFDI, string Metodo_pago, string Forma_pago, string Moneda)
     {
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+               ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
         string resultado;
         DataTable data = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania='"+ID_compania+"'");
         string sqlStr = "Master_TablaInfoBancaria";
@@ -259,7 +259,7 @@ public class ClsF14
 
     public static string Insertar_dir_fra(string ID_compania, string Direccion_fra, string CP_fra, string Pais_fra, string Estado_fra, string Ciudad_fra)
     {
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+               ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
         string resultado;
         string sqlStr = "Master_TablaDireccionFra";
         SqlConnection con = new SqlConnection(strConnction);
@@ -310,7 +310,8 @@ public class ClsF14
 
     public static string Insertar_AgenteAduanal(string ID_compania, string Nombre, string Nombre_comercial, string no_patente, string rfc, string direccion, string cp,  string estado, string ciudad, string tipo)
     {
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+        ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
+
         string resultado;
         string sqlStr = "Master_TablaAgentAduanal";
         SqlConnection con = new SqlConnection(strConnction);
@@ -415,7 +416,7 @@ public class ClsF14
         string resultado;
         string sqlStr = "Master_TablaContacto";
         SqlConnection con = new SqlConnection(strConnction);
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+               ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
         DataTable data = wsBaseDatos.Existe(" SELECT * FROM Table_Contacto WHERE ID_compania ='" + ID_compania+"'AND tipo ='"+tipo+"'");
 
         con.Open();
@@ -559,7 +560,7 @@ public class ClsF14
     public static string Insertar_Documento(string ID_compania, string nombreDocumento, string Ruta, string Estatus)
     {
         string resultado = "", fecha="";
-        wsBaseDatos wsBaseDatos = new wsBaseDatos();
+               ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
         SqlConnection con = new SqlConnection(strConnction);
 
         DataTable dt = wsBaseDatos.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + ID_compania + "' AND Documento='" + nombreDocumento + "'");
