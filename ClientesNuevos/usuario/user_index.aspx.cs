@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using ClientesNuevos.App_Code;
-using ClientesNuevos.F14;
+
 using System.Web.Security;
 
 namespace ClientesNuevos.usuario
@@ -74,7 +74,7 @@ namespace ClientesNuevos.usuario
 
         protected void getCompania()
         {
-            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+            ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
             dt = new DataTable();
             
             
