@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using System.Data.Sql;
 using System.Data;
+using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Configuration;
 using ClientesNuevos.App_Code;
 
-namespace ClientesNuevos.App_Code
+namespace ClientesNuevos.F14
 {
     /// <summary>
     /// Descripción breve de wsBaseDatos
@@ -18,7 +17,7 @@ namespace ClientesNuevos.App_Code
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class wsBaseDatos : System.Web.Services.WebService
     {
         [WebMethod]
@@ -42,30 +41,28 @@ namespace ClientesNuevos.App_Code
             return dt;
         }
 
-
-
         [WebMethod]
         public string insertar_estatus(string id_compania, string status, string fecha, string no_cuenta, string programa)
         {
             string res;
             string sqlStr = "Master_Tablactpat";
-           
+
             SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
 
-            DataTable tabla = Existe("SELECT * FROM Table_ctpat WHERE ID_compania='"+id_compania+"'");
-           
+            DataTable tabla = Existe("SELECT * FROM Table_ctpat WHERE ID_compania='" + id_compania + "'");
+
             conn.Open();
-                try
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlStr, conn)
                 {
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd.Parameters.AddWithValue("@ID_compania", id_compania);
-                    cmd.Parameters.AddWithValue("@Estatus", status);
-                    cmd.Parameters.AddWithValue("@fecha_validacion", fecha);
-                    cmd.Parameters.AddWithValue("@no_cuenta", no_cuenta);
-                    cmd.Parameters.AddWithValue("@Programa", programa);
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", id_compania);
+                cmd.Parameters.AddWithValue("@Estatus", status);
+                cmd.Parameters.AddWithValue("@fecha_validacion", fecha);
+                cmd.Parameters.AddWithValue("@no_cuenta", no_cuenta);
+                cmd.Parameters.AddWithValue("@Programa", programa);
                 if (tabla.Rows.Count > 0)
                 {
                     cmd.Parameters.AddWithValue("@accion", "update");
@@ -76,18 +73,18 @@ namespace ClientesNuevos.App_Code
 
                 }
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
-                    cmd.ExecuteNonQuery();
-                    res = Convert.ToString(cmd.Parameters["@Msg"].Value);
-                }
-                catch (SqlException e)
-                {
-                    res = e.Message;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            
+                cmd.ExecuteNonQuery();
+                res = Convert.ToString(cmd.Parameters["@Msg"].Value);
+            }
+            catch (SqlException e)
+            {
+                res = e.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
             return res;
         }
         [WebMethod]
@@ -138,7 +135,7 @@ namespace ClientesNuevos.App_Code
         {
             List<Estatus> lstEstatus = new List<Estatus>();
             Estatus objEsattus;
-            string strSQL = "SELECT * FROM Table_ctpat WHERE ID_compania = '" + id+"'";
+            string strSQL = "SELECT * FROM Table_ctpat WHERE ID_compania = '" + id + "'";
             DataTable dt = new DataTable();
 
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
@@ -171,7 +168,7 @@ namespace ClientesNuevos.App_Code
         [WebMethod]
         public DataTable getCompania(string id)
         {
-            string strSQL = "SELECT * FROM Table_compania WHERE ID_user = "+id;
+            string strSQL = "SELECT * FROM Table_compania WHERE ID_user = " + id;
             DataTable dt = new DataTable();
 
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
@@ -198,7 +195,6 @@ namespace ClientesNuevos.App_Code
             return res;
         }
 
-
         public class Contacto
         {
             public string ID { get; set; }
@@ -214,12 +210,12 @@ namespace ClientesNuevos.App_Code
         [WebMethod]
         public List<Contacto> getContacto(string id)
         {
-            string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + id+ "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+            string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + id + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
             DataTable dt = new DataTable();
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
+
             try
             {
                 da.Fill(dt);
@@ -236,7 +232,7 @@ namespace ClientesNuevos.App_Code
             {
                 objContacto = new Contacto();
                 objContacto.ID = row["ID"].ToString();
-                objContacto.Nombre= row["Nombre"].ToString();
+                objContacto.Nombre = row["Nombre"].ToString();
                 objContacto.Puesto = row["Puesto"].ToString();
                 objContacto.Telefono = row["Telefono"].ToString();
                 objContacto.Extension = row["Extension"].ToString();
@@ -254,7 +250,7 @@ namespace ClientesNuevos.App_Code
         [WebMethod]
         public string BorrarContacto(string index)
         {
-            string resultado="";
+            string resultado = "";
 
             string strSQL = "DELETE FROM Table_Contacto WHERE ID = " + index;
             DataTable dt = new DataTable();
@@ -283,8 +279,8 @@ namespace ClientesNuevos.App_Code
 
         //=====================================================Compañia filial ============================================================
         [WebMethod]
-        public string insertar_CompaniaFilial(string ID_compania, string Nombre, string Nombre_comercial, string RFC, string Direccion, string Pais, string Estado, 
-            string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular )
+        public string insertar_CompaniaFilial(string ID_compania, string Nombre, string Nombre_comercial, string RFC, string Direccion, string Pais, string Estado,
+            string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular)
         {
             string resultado = "";
 
@@ -296,10 +292,10 @@ namespace ClientesNuevos.App_Code
 
         [WebMethod]
         public string GetID()
-        {           
+        {
             string id_com = "";
-            DataTable dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='"+HttpContext.Current.Request.Cookies.Get("id").Value+ "'");
-            if(dt.Rows.Count > 0)
+            DataTable dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+            if (dt.Rows.Count > 0)
             {
                 id_com = dt.Rows[0]["RFC"].ToString();
             }
@@ -331,15 +327,15 @@ namespace ClientesNuevos.App_Code
         [WebMethod]
         public List<ComFil> Get_companiaFilial(string id_comp)
         {
-            string strSql = "exec select_ComFilial @id_compania= '" + id_comp+"'";
+            string strSql = "exec select_ComFilial @id_compania= '" + id_comp + "'";
             DataTable dt = new DataTable();
-            SqlConnection con = new SqlConnection( clsHerramientaBD.strConnction);
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
             SqlCommand cmd = new SqlCommand(strSql, con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
                 con.Open();
-               
+
 
                 da.Fill(dt);
             }
@@ -468,7 +464,7 @@ namespace ClientesNuevos.App_Code
         }
 
         [WebMethod]
-        public  string Actualizar_Estado(string ID_compania, string Documento, string Estatus)
+        public string Actualizar_Estado(string ID_compania, string Documento, string Estatus)
         {
             string resultado = "";
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
@@ -514,7 +510,7 @@ namespace ClientesNuevos.App_Code
 
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
 
-           
+
             con.Open();
 
             try
@@ -616,7 +612,7 @@ namespace ClientesNuevos.App_Code
 
             try
             {
-                da.Fill(data);               
+                da.Fill(data);
 
                 foreach (DataRow row in data.Rows)
                 {
@@ -655,7 +651,7 @@ namespace ClientesNuevos.App_Code
 
                 foreach (DataRow row in data.Rows)
                 {
-                    objServicio = new  Servicio
+                    objServicio = new Servicio
                     {
                         GrupoPrincipal = row["grupoPrincipal"].ToString(),
                         SubGrupo = row["subGrupo"].ToString()
@@ -678,7 +674,7 @@ namespace ClientesNuevos.App_Code
         {
             string resultado;
             DataTable data = new DataTable();
-            data = Existe("SELECT * FROM "+tabla+" WHERE ID_compania='" + ID_Compania + "'");
+            data = Existe("SELECT * FROM " + tabla + " WHERE ID_compania='" + ID_Compania + "'");
             if (data.Rows.Count > 0)
             {
                 data = Existe("DELETE FROM " + tabla + " WHERE ID_compania='" + ID_Compania + "'");
@@ -710,9 +706,9 @@ namespace ClientesNuevos.App_Code
                 cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
                 cmd.Parameters.AddWithValue("@accion", "insert");
 
-               
 
-                
+
+
             }
             catch (SqlException ex)
             {
@@ -728,4 +724,6 @@ namespace ClientesNuevos.App_Code
             return resultado;
         }
     }
+
 }
+

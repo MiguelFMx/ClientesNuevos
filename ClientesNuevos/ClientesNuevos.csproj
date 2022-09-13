@@ -109,7 +109,6 @@
     <Content Include="admin\vistas\F14.aspx" />
     <Content Include="F12\wsPoliticaSeguridad.asmx" />
     <Content Include="F14\JS\ComFilialJS.js" />
-    <Content Include="F14\wsBaseDatos.asmx" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
     <Content Include="cliente\F14\ClienteNuevo.js" />
     <Content Include="F12\PoliticaSeguridad.aspx" />
@@ -122,6 +121,7 @@
     <Content Include="F14\Secciones\InformacionCompania.aspx" />
     <Content Include="F14\Secciones\InformacionCadenaSuministro.aspx" />
     <Content Include="F14\Secciones\TipoServicioProductos.aspx" />
+    <Content Include="F14\wsBaseDatos.asmx" />
     <Content Include="F14\wsUbicacion.asmx" />
     <Content Include="F20\CriteriosMinimos.aspx" />
     <Content Include="F43\MapeoBD.asmx" />
@@ -377,6 +377,10 @@
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
+    <Compile Include="F14\wsBaseDatos.asmx.cs">
+      <DependentUpon>wsBaseDatos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>
     </Compile>
@@ -386,10 +390,6 @@
     </Compile>
     <Compile Include="F14\FileUploadHandler.ashx.cs">
       <DependentUpon>FileUploadHandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="F14\wsBaseDatos.asmx.cs">
-      <DependentUpon>wsBaseDatos.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
