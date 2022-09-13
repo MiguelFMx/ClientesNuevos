@@ -33,6 +33,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblAlert;
 
         /// <summary>
+        /// Control prueba.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label prueba;
+
+        /// <summary>
         /// Control lblCompania.
         /// </summary>
         /// <remarks>

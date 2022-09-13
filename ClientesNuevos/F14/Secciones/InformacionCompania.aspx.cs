@@ -39,13 +39,13 @@ namespace ClientesNuevos.F14.Seccioness
                 dt = new DataTable();
                 dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '"+id_user+"'");
                 if(dt.Rows.Count > 0)
-                {
-                    
+                {                    
                     dtBanco = new DataTable();
-
                     dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
                     llenarCampos(dt);
                 }
+
+                
             }
         }
 
@@ -343,6 +343,28 @@ namespace ClientesNuevos.F14.Seccioness
         {
             HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
 
+        }
+
+        protected void cbTipoRegistro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string index = cbTipoRegistro.SelectedValue;
+            if(index == "cliente")
+            {
+                step2.Visible = true;
+                step3.Visible = true;
+                step4.Visible = true;
+                lblstep5.Text = "5";
+                lblsub5.Text = "Paso 5";
+            }
+            else
+            {
+                step2.Visible = false;
+                step3.Visible = false;
+                step4.Visible = false;
+                lblsub5.Text = "Paso 2";
+                lblstep5.Text = "2";
+
+            }
         }
 
         protected string RegistrarInfo()

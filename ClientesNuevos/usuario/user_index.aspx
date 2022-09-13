@@ -17,7 +17,6 @@
                             </div>
                             <div class="col-2" style="display: flex; justify-content: flex-end;">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-
                             </div>
                         </div>
                     </div>
@@ -27,6 +26,7 @@
             <!-----------------------------------Nombre de la empresa---------------------------------- -->
             <div class="row">
                 <div class="col">
+                    <asp:Label ID="prueba" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using ClientesNuevos.App_Code;
+using System.Web.Security;
 
 namespace ClientesNuevos.usuario
 {
@@ -29,6 +30,7 @@ namespace ClientesNuevos.usuario
                     {
 
                         Documentos();
+                        prueba.Text = User.Identity.Name;
                     }
                     catch (Exception ex)
                     {
@@ -73,8 +75,12 @@ namespace ClientesNuevos.usuario
         {
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
             dt = new DataTable();
+            
+            
             string id_user = Request.Cookies.Get("id").Value;
             dt = wsBaseDatos.getCompania(id_user);
+
+            
         }
 
         protected void Documentos()

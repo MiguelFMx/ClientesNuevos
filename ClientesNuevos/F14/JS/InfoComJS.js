@@ -90,7 +90,7 @@ $(document).ready(function () {
                 function (resultado) {
 
                     alert(resultado);
-                    CargarContactos(rfc.val());
+                    CargarContactos();
                     return false;
                 });
             nombre.val(""); puesto.val(""); correo.val(""); ext.val(""); tel.val(""); cel.val("");
@@ -390,7 +390,7 @@ function CargarContactos() {
                         "<td><span>" + lstContacto[i].Extension + "</span></td>" +
                         "<td><span>" + lstContacto[i].Celular + "</span></td>" +
                         "<td><span>" + check + "</span></td>" +
-                        "<td><button type='button'class='btn btn-danger btn-sm' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
+                        "<td><button type='button'class='btn btn-danger' name='remove' id='remove' style='border-radius:42px;'><i class='fas fa-minus-circle'></i></button></td></tr>" +
                         "</tr>"
                     );
                 }

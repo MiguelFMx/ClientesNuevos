@@ -31,13 +31,24 @@ namespace ClientesNuevos
         [WebMethod]
         public static List<Usuario> getUsuario(string user, string pass)
         {
-            string sqlStr = "SELECT * FROM usuarios WHERE user_name='" + user + "' AND password='" + pass + "'";
+            string sqlStr = "LogINprocedure";
             SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
-            SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
 
             conn.Open();
+
+            SqlCommand cmd = new SqlCommand(sqlStr,conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@password", pass);
+
+            
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            
+
+            
             try
             {
                 da.Fill(dt);

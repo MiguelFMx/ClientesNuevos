@@ -25,11 +25,16 @@
                     <label for="cbTipoDeRegistro" class="form-label">Tipo de registro</label>
                 </div>
                 <div class="col-3">
-                    <select id="cbTipoDeRegistro" class="form-select">
+                    <select id="cbTipoDeRegistro" class="form-select" hidden>
                         <option value="" selected disabled>...</option>
                         <option value="cliente">Cliente</option>
                         <option value="proveedor">Proveedor</option>
                     </select>
+
+                    <asp:DropDownList ID="cbTipoRegistro" runat="server" class="form-select" AutoPostBack="true" OnSelectedIndexChanged="cbTipoRegistro_SelectedIndexChanged">
+                        <asp:ListItem Text="Cliente" Value="cliente" />
+                        <asp:ListItem Text="proveedor" Value="proveedor" />
+                    </asp:DropDownList>
                 </div>
             </div>
         </div>
@@ -43,45 +48,50 @@
 
                 <div id="wizard" class="form_wizard wizard_horizontal">
                     <ul class="wizard_steps">
-                        <li>
-                            <a href="#" class="selected">
-                                <span class="step_no">1</span>
-                                <span class="step_descr">Paso 1<br />
+                        <li>                          
+                            <asp:HyperLink ID="step1" runat="server">
+                                <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc1" runat="server" Text="">
+                                    Paso 1 <br />   
                                     <small>Información de la compañia</small>
-                                </span>
-                            </a>
+                                </asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="AgentesAduanales.aspx" class="">
-                                <span class="step_no">2</span>
-                                <span class="step_descr">Paso 2<br />
+                            <asp:HyperLink ID="step2" runat="server" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
+                                <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc2" runat="server" Text="">
+                                    Paso 2 <br />   
                                     <small>Información de agentes aduanales</small>
-                                </span>
-                            </a>
+                                </asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="CompaniaFilial.aspx" class="">
-                                <span class="step_no">3</span>
-                                <span class="step_descr">Paso 3<br />
+                            <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
+                                <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc3" runat="server" Text="">
+                                    Paso 3 <br />   
                                     <small>Informacion de compañia filial</small>
-                                </span>
-                            </a>
+                                </asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="TipoServicioProductos.aspx" class="">
-                                <span class="step_no">4</span>
-                                <span class="step_descr">Paso 4<br />
+                            <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
+                                <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lbldesc4" runat="server" Text="">
+                                    Paso 4 <br />   
                                     <small>Tipo de servicio requerido</small>
-                                </span>
-                            </a>
+                                </asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="InformacionCadenaSuministro.aspx" class="">
-                                <span class="step_no">5</span>
-                                <span class="step_descr">Paso 5<br />
+                            <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
+                                <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc5" runat="server" Text="">
+                                    <asp:Label ID="lblsub5" runat="server" Text="Paso 5"></asp:Label> <br />   
                                     <small>Acreditación en programa de seguridad</small>
-                                </span>
-                            </a>
+                                </asp:Label>
+                            </asp:HyperLink>
                         </li>
                     </ul>
                 </div>
@@ -440,7 +450,7 @@
                                 <div class="col">
                                     <input type="button" class="btn btn-primary btn-sm" id="btnContactoCompania" value="Agregar contacto" hidden />
                                     <%--<asp:Button ID="btnAgregarContacto" runat="server" Text="Agregar" />--%>
-                                    <button id="btnContact" type="button" class="btn btn-primary btn-sm">Registrar contacto</button>
+                                    <button id="btnContact" type="button" class="btn btn-primary">Registrar contacto</button>
                                     <button id="btnCargar" type="button" style="display: none">cargar</button>
                                 </div>
                             </div>
@@ -491,6 +501,8 @@
 
                 <%--<button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>--%>
                 <%--<asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />--%>
+                <asp:LinkButton ID="btnAdNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary" Visible="false">Siguiente <i class="bi bi-chevron-right"></i> </asp:LinkButton>
+
                 <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">Siguiente <i class="bi bi-chevron-right"></i> </asp:LinkButton>
             </div>
             <br />
