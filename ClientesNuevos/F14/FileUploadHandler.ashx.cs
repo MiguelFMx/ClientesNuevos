@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientesNuevos.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,11 +31,11 @@ namespace ClientesNuevos.F14
 
 
                 string ruta = fname.ToString();
-                strRsultado = ClsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
+                strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
             }
             else
             {
-                strRsultado = ClsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
+                strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
             }
 
 
