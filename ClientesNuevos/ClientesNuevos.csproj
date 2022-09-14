@@ -460,8 +460,9 @@
       <DependentUpon>F14Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
+    <Content Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
-    <Compile Include="App_Code\clsF14.cs" />
+    <Compile Include="App_Code\clsF142.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
     <Compile Include="F14\wsBaseDatos.asmx.cs">
       <DependentUpon>wsBaseDatos.asmx</DependentUpon>
