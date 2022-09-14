@@ -9,7 +9,7 @@ using System.Configuration;
 using ClientesNuevos.App_Code;
 
 
-public class ClsF14
+public class ClsF142
     {
 
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
