@@ -15,10 +15,15 @@ namespace ClientesNuevos.F14.Seccioness
 
             try
             {
+                if (Request.QueryString["res"] != null)
+                {
+
+               
                 string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
                 if (resultado == "Exito")
                 {
                     pAlert.Visible = true;
+                }
                 }
             }
             catch (Exception)

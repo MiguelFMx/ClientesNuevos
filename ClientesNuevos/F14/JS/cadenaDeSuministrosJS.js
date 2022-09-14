@@ -49,14 +49,21 @@ $(document).ready(function () {
             false,
             function (res) {
                 id = res;
-            });
-
-        
+            });        
 
         if (radio == 'si') {
 
             insertar_certificacion();
             insertar_estatus();
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'revision'", false, function (res) {
+                let alert = confirm('¿Desea continuar?');
+                if (alert) {
+                    window.location.href = '../../F43/MapeoFlujo.aspx?res=Exito';
+                } else {
+                    window.location.href = '../../usuario/user_index.aspx?res=f14';
+                }
+
+            });
 
         } else if (radio == 'no') {
 
