@@ -35,7 +35,7 @@ namespace ClientesNuevos.F14
             }
             else
             {
-               // strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
+              //  strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
             }
 
 

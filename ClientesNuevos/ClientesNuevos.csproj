@@ -464,11 +464,13 @@
     <Compile Include="App_Code\clsAuth.cs" />
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
-    <Compile Include="App_Code\clsF142.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
     <Compile Include="F14\wsBaseDatos.asmx.cs">
       <DependentUpon>wsBaseDatos.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>
@@ -584,9 +586,6 @@
     <Compile Include="F5\wsAutoevaluacion.asmx.cs">
       <DependentUpon>wsAutoevaluacion.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
