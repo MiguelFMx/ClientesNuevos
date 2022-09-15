@@ -110,6 +110,7 @@
     <Content Include="admin\carpetilla\moral.aspx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\vistas\F14Admin.aspx" />
+    <Content Include="App_Code\Global.asax" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -144,7 +145,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="F5\wsAutoevaluacion.asmx" />
     <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -465,12 +465,12 @@
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
+    <Compile Include="App_Code\Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="F14\wsBaseDatos.asmx.cs">
       <DependentUpon>wsBaseDatos.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>
