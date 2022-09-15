@@ -18,7 +18,7 @@ namespace ClientesNuevos.F14
             string Descripcion = context.Request["desc"].ToString();
             string codigo=context.Request["codigo"].ToString();
             string fname="";
-            string strRsultado;
+            string strRsultado="";
             if (context.Request.Files.Count > 0)
             {
                 HttpFileCollection files = context.Request.Files;
@@ -31,11 +31,11 @@ namespace ClientesNuevos.F14
 
 
                 string ruta = fname.ToString();
-                strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
+                //strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
             }
             else
             {
-                strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
+               // strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
             }
 
 

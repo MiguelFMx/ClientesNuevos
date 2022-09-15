@@ -281,16 +281,16 @@ namespace ClientesNuevos.F14.Seccioness
             estado = ddEstado.SelectedValue;
             id_user = Request.Cookies.Get("id").Value;
             
-            resultado = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
+           // resultado = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
             if (chkDireccionIgual.Checked)
             {
-                resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+             //   resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
             }
             else
             {
-                resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+               // resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
             }
-            lblresultado.Text = resultado + "  " + resDir;
+            //lblresultado.Text = resultado + "  " + resDir;
             HttpCookie cookie = new HttpCookie("id_comp")
             {
                 Value = ID_compania,
@@ -318,7 +318,7 @@ namespace ClientesNuevos.F14.Seccioness
             Forma_pago = ddFormaPago.SelectedValue;
             Moneda = ddMoneda.SelectedValue;
             
-            lblresultado.Text = clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+           // lblresultado.Text = clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
         
         }
 
@@ -402,14 +402,14 @@ namespace ClientesNuevos.F14.Seccioness
 
             try
             {
-                compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
+                //compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
                 if (chkDireccionIgual.Checked)
                 {
-                    resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                  //  resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
                 }
                 else
                 {
-                    resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                   // resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
                 }
                 
                 HttpCookie cookie = new HttpCookie("id_comp")
@@ -427,9 +427,9 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 try
                 {
-                    banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+                   // banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
 
-                    documento += clsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+                   // documento += clsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
                 }
                 catch (Exception ex)
                 {
