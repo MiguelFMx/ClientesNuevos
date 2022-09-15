@@ -13,9 +13,6 @@ namespace ClientesNuevos.App_Code
     {
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-
-
-        
         public static DataTable Existe(string sqlCommand)
         {
             DataTable dt = new DataTable();
