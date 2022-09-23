@@ -106,11 +106,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\carpetilla\carpetilla.aspx" />
     <Content Include="admin\carpetilla\fisica.aspx" />
     <Content Include="admin\carpetilla\moral.aspx" />
     <Content Include="admin\index.aspx" />
+    <Content Include="admin\index_admin.js" />
     <Content Include="admin\vistas\F14Admin.aspx" />
-    <Content Include="App_Code\Global.asax" />
+    <Content Include="admin\wsAdminIndex.asmx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -145,6 +147,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="F5\wsAutoevaluacion.asmx" />
     <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -174,6 +177,119 @@
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap4.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap5.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bootstrap5.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bulma.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.bulma.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.dataTables.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.foundation.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.foundation.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.jqueryui.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.semanticui.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\dataTables.semanticui.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\jquery.dataTables.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\images\sort_asc.png" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\images\sort_both.png" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\images\sort_desc.png" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap5.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bootstrap5.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bulma.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.bulma.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.dataTables.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\DataTables-1.12.1\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\datatables.css" />
+    <Content Include="Scripts\DataTables\datatables.js" />
+    <Content Include="Scripts\DataTables\datatables.min.css" />
+    <Content Include="Scripts\DataTables\datatables.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap4.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap4.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap5.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap5.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bulma.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bulma.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.dataTables.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.foundation.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.foundation.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.jqueryui.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.jqueryui.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.semanticui.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.semanticui.min.css" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap5.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bootstrap5.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bulma.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.bulma.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.dataTables.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables\Responsive-2.3.0\js\responsive.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap4.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap4.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap5.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bootstrap5.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bulma.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.bulma.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.dataTables.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.foundation.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.foundation.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.jqueryui.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.jqueryui.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.semanticui.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\css\scroller.semanticui.min.css" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap5.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bootstrap5.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bulma.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.bulma.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.dataTables.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.foundation.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.foundation.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.jqueryui.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.semanticui.js" />
+    <Content Include="Scripts\DataTables\Scroller-2.0.7\js\scroller.semanticui.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -270,6 +386,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\DataTables\es-ES.json" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
@@ -433,6 +550,13 @@
     <Compile Include="admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin\carpetilla\carpetilla.aspx.cs">
+      <DependentUpon>carpetilla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\carpetilla\carpetilla.aspx.designer.cs">
+      <DependentUpon>carpetilla.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\carpetilla\fisica.aspx.cs">
       <DependentUpon>fisica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,16 +585,20 @@
     <Compile Include="admin\vistas\F14Admin.aspx.designer.cs">
       <DependentUpon>F14Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\wsAdminIndex.asmx.cs">
+      <DependentUpon>wsAdminIndex.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
-    <Compile Include="App_Code\Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="F14\wsBaseDatos.asmx.cs">
       <DependentUpon>wsBaseDatos.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>

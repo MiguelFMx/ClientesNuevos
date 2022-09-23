@@ -32,13 +32,39 @@ namespace ClientesNuevos.F14.Seccioness
 
             if (!IsPostBack)
             {
+
                 LlenarPaisCB(ddPais);
                 LlenarPaisCB(ddPaisFra);
                 llenarMetodoPago();
 
                 dt = new DataTable();
-                dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '"+id_user+"'");
-                if(dt.Rows.Count > 0)
+
+                if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
+                {
+                    if (Request.Cookies.Get("id_comp").Value != null)
+                    {
+                        dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
+
+                    }
+                    pAdminControl.Visible = true;
+                    pUserControl.Visible = false;
+
+                }
+                else
+                {
+                    dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
+                }
+
+
+                if(Request.Cookies.Get("lang") != null)
+                {
+                    if (Request.Cookies.Get("lang").Value == "en")
+                    {
+                        Traducir();
+                    }
+                }
+
+                    if (dt.Rows.Count > 0)
                 {                    
                     dtBanco = new DataTable();
                     dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
@@ -163,7 +189,18 @@ namespace ClientesNuevos.F14.Seccioness
                 ddCiudad.Items.Clear();
                 var pais = Convert.ToInt32(ddPais.SelectedItem.Value);
                 LlenarEstado(ddEstado, pais);
+
+            if(ddPais.SelectedItem.Value == "231")
+            {
+               ddTipoDePersona.Enabled = false;
+                
             }
+            else
+            {
+                ddTipoDePersona.Enabled = true;
+
+            }
+        }
 
         protected void ddCiudad_SelectedIndexChanged(object sender, EventArgs e)
             {
@@ -195,6 +232,7 @@ namespace ClientesNuevos.F14.Seccioness
                 ddCiudadFra.Items.Clear();
                 var pais = Convert.ToInt32(ddPaisFra.SelectedItem.Value);
                 LlenarEstado(ddEstadoFra, pais);
+
             }
 
         protected void chkDireccionIgual_CheckedChanged(object sender, EventArgs e)
@@ -353,18 +391,36 @@ namespace ClientesNuevos.F14.Seccioness
                 step2.Visible = true;
                 step3.Visible = true;
                 step4.Visible = true;
+                lblDesc5.Text = "Paso 5";
                 lblstep5.Text = "5";
-                lblsub5.Text = "Paso 5";
+
             }
             else
             {
                 step2.Visible = false;
                 step3.Visible = false;
                 step4.Visible = false;
-                lblsub5.Text = "Paso 2";
+                lblDesc5.Text = "Paso 2";
                 lblstep5.Text = "2";
 
+
             }
+        }
+
+        protected void btnAdminH_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../../admin/index.aspx");
+        }
+
+        protected void btnAdinSave_Click(object sender, EventArgs e)
+        {
+            Traducir();
+        }
+
+        protected void btnAdminBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id="+ Request.QueryString["id"].ToString()+"&type="+Request.Cookies["tipo"].Value);
+
         }
 
         protected string RegistrarInfo()
@@ -447,6 +503,81 @@ namespace ClientesNuevos.F14.Seccioness
             }
 
             return resultado;
+        }
+
+
+        protected void Traducir()
+        {
+            //cbBox
+            lblRegistro.Text = "Business partner type:";
+            cbClient.Text = "Customer";
+            cbProv.Text = "Provider";
+
+            //Wizard
+            lblDesc1.Text = "Step 1";
+            lblDesc2.Text = "Step 2";
+            lblDesc3.Text = "Step 3";
+            lblDesc4.Text = "Step 4";
+            lblDesc5.Text = "Step 5";
+            lblsub1.Text = "Company information";
+            lblsub2.Text = "Customs broker";
+            lblsub3.Text = "Foreign manufacturing company information";
+            lblsub4.Text = "Requested service type";
+            lblsub5.Text = "Supply chain security program information";
+
+            //Infromacion de la compañia
+            lblTitulo_infoCom.Text = "Company information";
+            lblNombreComercial.Text = "Doing business as:";
+            lblNombreCompania.Text = "Name of the company:";
+            lblTipoPersona.Text = "Person type (SAT):";
+            lblRFC.Text = "RFC or TaxID number:";
+            lblAnosNegocio.Text = "Years in business:";
+            lblCURP.Text = "CURP (Mexico):";
+            lblDirecFiscal.Text = "Fiscal address:";
+            lblCP.Text = "Postal code:";
+            lblCiudad.Text = "City:";
+            lblEstado.Text = "State";
+            lblPais.Text = "Country";
+
+            //informacion de fra
+            lblTitulo_DatosFra.Text = "Billing information(bill to party):";
+            lblDireccionIgual.Text = "Billing address and fiscal address are different";
+            lblDirecFacturacion.Text = "Billing address:";
+            lblPaisFact.Text = "Country";
+            lblEstadoFra.Text = "State";
+            lblCiudadFact.Text = "City:";
+
+            //Datos bancarios
+            lblTitulo_DatosBancarios.Text = "Bank details";
+            lblBanco.Text = "Bank name:";
+            lblMoneda.Text = "Currency:";
+            lblNoCuenta.Text = "Account number";
+            lblClaveBancaria.Text = "Bank code:";
+
+
+            //Contacto
+            lblTitulo_DatosContacto.Text = "Contac details";
+            lblNombreCont.Text = "Name:";
+            lblpuestoCont.Text = "Tittle:";
+            lblCorreoCont.Text = "E-mail:";
+            lblFactura.Text = "Send invoice";
+            lblTelCont.Text = "Phone:";
+            lblCelCont.Text = "Celphone:";
+            lblExtension.Text = "Extension:";
+            pInfo_en.Visible = true;
+            pInfo_es.Visible = false;
+
+            lbl_tNombre.Text = "Name";
+            lbl_tPuesto.Text = "Titlte";
+            lbl_tCorreo.Text = "E-mail";
+            lbl_tTel.Text = "Phone";
+            lbl_tCel.Text = "Cephone";
+            lbl_tFra.Text = "Invoice";
+
+            btnContact.Text = "Add contact";
+            lbl_tCaption.Text = "Registered contacts";
+
+            lbl_btnNext.Text = "Next";
         }
     }
 }

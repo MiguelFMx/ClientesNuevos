@@ -16,10 +16,26 @@ namespace ClientesNuevos.F5.Autoevaluacion
         {
             if (!IsPostBack)
             {
-                dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania='"+Request.Cookies.Get("id_comp").Value+"'");
-                data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_user='"+Request.Cookies.Get("id").Value+"'");
-                lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 9);
-                lblEmpresa.Text = data.Rows[0]["Nombre_comp"].ToString();
+                if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
+                {
+                    dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania='" + Request.QueryString["id"].ToString() + "'");
+                    data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania='" + Request.QueryString["id"].ToString() + "'");
+                    
+                    if(dt.Rows.Count != 0) { 
+                    lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 9);
+                    }
+                    lblEmpresa.Text = data.Rows[0]["Nombre_comp"].ToString();
+                }
+                else
+                {
+                    dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+                    data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_user='" + Request.Cookies.Get("id").Value + "'");
+                    if (dt.Rows.Count != 0)
+                    {
+                        lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 9);
+                    }
+                    lblEmpresa.Text = data.Rows[0]["Nombre_comp"].ToString();
+                }
             }
         }
 

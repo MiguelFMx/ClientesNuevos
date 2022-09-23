@@ -39,6 +39,9 @@ namespace ClientesNuevos
             FormsAuthenticationTicket AuthTicket;
             string encTicket;
 
+
+            Response.Cookies.Add(new HttpCookie("lang", ddLang.SelectedItem.Value));
+
             if (lstuser.Count > 0)
             {
                 ID = lstuser[0].ID;
@@ -61,7 +64,6 @@ namespace ClientesNuevos
                     default:
                         break;
                 }
-                
 
             }
             else

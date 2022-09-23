@@ -62,7 +62,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#btnContact').click(function () {
+    $('#MainContent_btnContact').click(function () {
         var nombre = $('#txtNombrCont');
         var puesto = $('#txtpuestoCont');
         var correo = $('#txtCorreoCont');

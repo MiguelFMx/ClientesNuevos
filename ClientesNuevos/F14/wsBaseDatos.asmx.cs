@@ -294,8 +294,18 @@ namespace ClientesNuevos.F14
         [WebMethod]
         public string GetID()
         {
+            DataTable dt = new DataTable();
             string id_com = "";
-            DataTable dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+            if (HttpContext.Current.Request.Cookies.Get("id_comp").Value != "")
+            {
+                id_com = HttpContext.Current.Request.Cookies.Get("id_comp").Value;
+            }
+            else
+            {
+             dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+
+            }
+
             if (dt.Rows.Count > 0)
             {
                 id_com = dt.Rows[0]["RFC"].ToString();

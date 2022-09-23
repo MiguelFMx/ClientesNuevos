@@ -36,6 +36,10 @@
     <link href="../Scripts/JS/jquery-ui.structure.min.css" rel="stylesheet" />
     <link href="../Scripts/JS/jquery-ui.theme.min.css" rel="stylesheet" />
 
+    <link href="../Scripts/DataTables/datatables.css" rel="stylesheet" />
+    <link href="../Scripts/DataTables/datatables.min.css" rel="stylesheet" />
+    
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,8 +49,8 @@
         </div>
     </form>
 
-    <script src="../../../../Scripts/jquery-3.6.0.js"></script>
-    <script src="../../../../Scripts/JS/ajax.js"></script>
+    <script src="../../Scripts/jquery-3.6.0.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
 
     <script src="../../../../Scripts/bootstrap.min.js"></script>
     <script src="../../../../Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -57,6 +61,9 @@
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 
+    <script src="../../Scripts/DataTables/datatables.min.js"></script>
+
+    <script src="../../Scripts/DataTables/datatables.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </body>

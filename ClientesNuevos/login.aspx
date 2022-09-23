@@ -11,6 +11,14 @@
                 <asp:Panel runat="server">
                     <div class="row">
                         <div class="col">
+                            <asp:DropDownList ID="ddLang" runat="server" CssClass="form-select">
+                                <asp:ListItem Text="Español" Value="es" Selected/>
+                                <asp:ListItem Text="English" Value="en" />
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <asp:Label ID="lbluser" runat="server" Text="Usuario:" CssClass="form-label"></asp:Label>
                             <asp:TextBox ID="txtUser" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
