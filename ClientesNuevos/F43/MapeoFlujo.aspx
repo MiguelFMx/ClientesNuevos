@@ -117,6 +117,10 @@
             <div class="col-10">
             </div>
             <div class="col">
+                <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Guardar y salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
                 <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
             </div>
         </div>

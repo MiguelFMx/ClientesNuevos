@@ -12,7 +12,7 @@ namespace ClientesNuevos.App_Code
     {
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-                /*
+             
         public static string Insertar_info_compania(string ID_compania, string nombre_comp, string nombre_comercial, int tipo_persona, string rfc, string CURP, int tiempo_negocio, string direccion, string cp, string pais, string estado, string ciudad, string fecha_registro, string id_user)
         {
             F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
@@ -575,15 +575,26 @@ namespace ClientesNuevos.App_Code
                 cmd.Parameters.AddWithValue("@Documento", nombreDocumento);
                 cmd.Parameters.AddWithValue("@Ruta", Ruta);
                 cmd.Parameters.AddWithValue("@Fecha", fecha);
-                cmd.Parameters.AddWithValue("@Estatus", Estatus);
 
                 if (dt.Rows.Count > 0)
                 {
+                    if (dt.Rows[0]["Estatus"].ToString() == "100%")
+                    {
+                        cmd.Parameters.AddWithValue("@Estatus", "100%");
+
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Estatus", Estatus);
+
+                    }
                     cmd.Parameters.AddWithValue("@accion", "update");
                 }
                 else
                 {
                     cmd.Parameters.AddWithValue("@accion", "insert");
+                    cmd.Parameters.AddWithValue("@Estatus", Estatus);
+
                 }
 
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
@@ -606,6 +617,5 @@ namespace ClientesNuevos.App_Code
 
             return resultado;
         }
-*/
     }
 }

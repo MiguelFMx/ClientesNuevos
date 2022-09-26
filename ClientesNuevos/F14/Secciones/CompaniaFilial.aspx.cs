@@ -19,6 +19,12 @@ namespace ClientesNuevos.F14.Seccioness
                 ddEstadoComFilial.Items.Add(new ListItem("...", "0", true));
 
                 LlenarPaisCB(ddPaisComFilial);
+
+
+                if (Request.QueryString["id"]!=null && Request.QueryString["admin"] != null)
+                {
+
+                }
             }
         }
 

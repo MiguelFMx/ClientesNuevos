@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ClientesNuevos.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+
+    <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+    <!-- Favicons -->
+    <link href="template/assets/img/favicon.png" rel="icon"/>
+    <link href="template/assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+
+    <!-- Vendor CSS Files -->
+
+    <link href="template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="template/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+    <link href="template/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+    <link href="template/assets/vendor/remixicon/remixicon.css" rel="stylesheet"/>
+    <link href="template/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+    <link href="Scripts/JS/jquery-ui.min.css" rel="stylesheet" />
+
+
+    <link href="Scripts/JS/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Scripts/JS/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="Scripts/JS/jquery-ui.theme.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="template/assets/css/style.css" rel="stylesheet"/>
+    <link href="template/assets/css/dropzone.css" rel="stylesheet" />
+    <link href="template/assets/css/wizard.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Tempo - v4.7.0
+  * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+    <title><%: Page.Title %> Hungaro's</title>
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <%--<h1 class="logo"><a href="../../../usuario/Index.aspx">Hungaro's</a></h1>--%>
+      <!-- Uncomment below if you prefer to use an image logo -->
+     <a href="../../../usuario/user_index.aspx" class="logo"><img src="../../template/assets/img/logo/Hungaros.png" alt="Hungaro's" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="../../../usuario/user_index.aspx">Home</a>
+          </li>         
+          <li><a class="nav-link scrollto" href="#">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+
+        </asp:ScriptManager>
+      
+
+
+    <!-- Contenedor-->
+    <div style="padding-top:120px;"></div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        
+       <div style="padding-top:120px;"></div>
+
+ </form>
+
+    <!-- Footer-->
+    <footer id="footer" style="bottom:0px; position:fixed; left:0px; width:100%; z-index:999999; ">
+
+    <div class="container d-md-flex py-4" >
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="position:fixed;"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+    <script src="../../../Scripts/jquery-3.6.0.js"></script>
+
+    <script src="../../../template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../template/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../../../template/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    
+    <script src="../../../template/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../../../template/assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+
+    <script src="../../../Scripts/JS/ajax.js"></script>
+  <!-- Template Main JS File -->
+    <script src="../../../template/assets/js/main.js"></script>
+
+    <script src="../../../Scripts/JS/jquery-ui.min.js"></script>
+    <script src="../../../Scripts/printThis.js"></script>
+    <script src="../../../template/assets/js/dropjs.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server" >
+
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>
