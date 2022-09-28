@@ -41,15 +41,10 @@
         <br />
 
         <div class="row">
-            <div class="col">
-                <div class="progress" hidden>
-                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 0%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-
                 <div id="wizard" class="form_wizard wizard_horizontal">
                     <ul class="wizard_steps">
                         <li>
-                            <asp:HyperLink ID="step1" runat="server">
+                            <asp:HyperLink ID="step1" runat="server" CssClass="selected">
                                 <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
                                 <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
                                 <br />
@@ -91,31 +86,9 @@
                         </li>
                     </ul>
                 </div>
-                <div id="wizard2" class="form_wizard wizard_horizontal" hidden>
-                    <ul class="wizard_steps">
-                        <li>
-                            <a href="#" class="selected">
-                                <span class="step_no">1</span>
-                                <span class="step_descr">Paso 1<br />
-                                    <small>Información de la compañia</small>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="InformacionCadenaSuministro.aspx" class="">
-                                <span class="step_no">2</span>
-                                <span class="step_descr">Paso 2<br />
-                                    <small>Acreditación en programa de seguridad</small>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
             </div>
-        </div>
-
+      
         <br />
         <!------------------------------------------------- Informacion de compañia------------------------------->
         <fieldset>

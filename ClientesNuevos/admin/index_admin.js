@@ -11,12 +11,21 @@ function GetData() {
     GetAjax("wsAdminIndex.asmx/Obtener_registros", "", false, function (result) {
         let table = $('#tClientes tbody');
         let tipo = "";
+        let estado = "";
         table.empty();
         for (var i = 0; i < result.length; i++) {
             if (result[i].Tipo_persona == '1') {
                 tipo = "moral";
-            } else {
+            } else if (result[i].Tipo_persona == '0') {
                 tipo = "fisica";
+            } else {
+                tipo = "extranjero";
+            }
+
+            if (result[i].Estatus == 'activo') {
+                estado = '<span class="badge bg-success">Activo</span>';
+            } else {
+                estado = '<span class="badge bg-danger">Inactivo</span>';
             }
             table.append(
                 "<tr>" +
@@ -30,6 +39,7 @@ function GetData() {
                 "</div>" +
                 "<small>" + result[i].Progreso + "% completo</small>" +
                 "</td>" +
+                "<td>"+estado+"</td>"+
                 //"<td><button name='view' class='btn btn-primary'>ver</button></td>" +
                 "<td><a href='carpetilla/carpetilla.aspx?id=" + result[i].RFC+"&type="+tipo+"' class='btn btn-secondary'>View</a></td>" +
 

@@ -33,6 +33,7 @@ namespace ClientesNuevos.admin
             public string Estado { get; set; }
             public string Ciudad { get; set; }
             public string Fecha_registro { get; set; }
+            public string Estatus { get; set; }
 
             public string Progreso { get; set; }
 
@@ -62,6 +63,7 @@ namespace ClientesNuevos.admin
                     Estado = row["Estado"].ToString(),
                     Ciudad = row["Ciudad"].ToString(),
                     Fecha_registro = row["Fecha_registro"].ToString(),
+                    Estatus = row["Estatus"].ToString(),
                     Progreso = GetProgreso(row["ID_compania"].ToString(), row["Tipo_persona"].ToString())
                 };
                 lst.Add(objR);

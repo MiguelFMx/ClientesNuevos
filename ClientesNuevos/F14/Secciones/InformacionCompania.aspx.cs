@@ -30,6 +30,15 @@ namespace ClientesNuevos.F14.Seccioness
         {            
             BloquearOpcion(ref ddTipoDePersona, "2");
 
+            if (Request.Cookies.Get("ctipo").Value == "proveedor")
+            {
+                step2.Visible = false;
+                step3.Visible = false;
+                step4.Visible = false;
+                lblDesc5.Text = "Paso 2";
+                lblstep5.Text = "2";
+            }
+
             if (!IsPostBack)
             {
 
@@ -132,12 +141,20 @@ namespace ClientesNuevos.F14.Seccioness
         }
         protected void btnNext_Click(object sender, EventArgs e){
 
-            string resultado = RegistrarInfo();
-            //lblresultado.Text = resultado;
+            string resultado = RegistrarInfo();           //lblresultado.Text = resultado;
             
-            Response.Redirect("AgentesAduanales.aspx?res=" + resultado);
-        }
 
+            if (Request.Cookies.Get("ctipo").Value == "proveedor")
+            {
+                Response.Redirect("InformacionCadenaSuministro.aspx?res=" + resultado);
+
+            }
+            else
+            {
+                Response.Redirect("AgentesAduanales.aspx?res=" + resultado);
+
+            }
+        }
 
         protected void LlenarPaisCB(DropDownList dropDown){
             lstPais = new List<wsUbicacion.ListaPais>();
@@ -393,6 +410,7 @@ namespace ClientesNuevos.F14.Seccioness
                 step4.Visible = true;
                 lblDesc5.Text = "Paso 5";
                 lblstep5.Text = "5";
+                Response.Cookies.Add(new HttpCookie("ctipo", "cliente"));
 
             }
             else
@@ -403,6 +421,7 @@ namespace ClientesNuevos.F14.Seccioness
                 lblDesc5.Text = "Paso 2";
                 lblstep5.Text = "2";
 
+                Response.Cookies.Add(new HttpCookie("ctipo", "proveedor"));
 
             }
         }
@@ -504,7 +523,6 @@ namespace ClientesNuevos.F14.Seccioness
 
             return resultado;
         }
-
 
         protected void Traducir()
         {

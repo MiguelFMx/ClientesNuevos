@@ -11,11 +11,10 @@
                     <table class="table" id="tClientes">
                         <thead>
                             <tr>
-                                <%--<th>RFC</th>--%>
-                                <%--<th>Tipo de persona</th>--%>
                                 <th>Empresa</th>
                                 <th>Fecha de registro</th>
                                 <th>Progreso</th>
+                                <th>Estatus</th>
                                 <th>Accion</th>
                             </tr>
                         </thead>

@@ -10,7 +10,7 @@
             <div class="col">
                 <asp:Panel runat="server">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-4">
                             <asp:DropDownList ID="ddLang" runat="server" CssClass="form-select">
                                 <asp:ListItem Text="Español" Value="es" Selected/>
                                 <asp:ListItem Text="English" Value="en" />

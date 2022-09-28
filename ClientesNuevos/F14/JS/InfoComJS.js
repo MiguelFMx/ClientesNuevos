@@ -141,7 +141,6 @@ $(document).ready(function () {
         
     });
 
-
     //Cambio en l tipo de persona ante el SAT
     $("#cbTipoDePersona").change(function () {
         var persona = $('#cbTipoDePersona option:selected').val();
@@ -152,7 +151,6 @@ $(document).ready(function () {
         } else {
             $('#txtCURP').prop('readonly', true);
             fillCFDI('0');
-
         }
 
     });
