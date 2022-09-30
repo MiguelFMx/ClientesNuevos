@@ -32,53 +32,55 @@
         <div class="row">
             <div class="col">
                 <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
-                <div class="progress" hidden>
-                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Warning example" style="width: 25%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">25%</div>
-                </div>
+               
+                 <div class="row">
                 <div id="wizard" class="form_wizard wizard_horizontal">
                     <ul class="wizard_steps">
                         <li>
-                            <a href="InformacionCompania.aspx" class="done">
-                                <span class="step_no">1</span>
-                                <span class="step_descr">Paso 1<br />
-                                    <small>Información de la compañia</small>
-                                </span>
-                            </a>
+                            <asp:HyperLink ID="step1" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx">
+                                <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                                <br />
+                                <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="#" class="selected">
-                                <span class="step_no">2</span>
-                                <span class="step_descr">Paso 2<br />
-                                    <small>Información de agentes aduanales</small>
-                                </span>
-                            </a>
+                            <asp:HyperLink ID="step2" runat="server" NavigateUrl="#" CssClass="selected">
+                                <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                                <br />
+                                <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="CompaniaFilial.aspx" class="">
-                                <span class="step_no">3</span>
-                                <span class="step_descr">Paso 3<br />
-                                    <small>Informacion de compañia filial</small>
-                                </span>
-                            </a>
+                            <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
+                                <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                                <br />
+                                <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="TipoServicioProductos.aspx" class="">
-                                <span class="step_no">4</span>
-                                <span class="step_descr">Paso 4<br />
-                                    <small>Tipo de servicio requerido</small>
-                                </span>
-                            </a>
+                            <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
+                                <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
+
+                                <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                                <br />
+                                <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                            </asp:HyperLink>
                         </li>
                         <li>
-                            <a href="InformacionCadenaSuministro.aspx" class="">
-                                <span class="step_no">5</span>
-                                <span class="step_descr">Paso 5<br />
-                                    <small>Acreditación en programa de seguridad</small>
-                                </span>
-                            </a>
+                            <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
+                                <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
+                                <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                                <br />
+                                <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                            </asp:HyperLink>
                         </li>
                     </ul>
                 </div>
+
+            </div>
             </div>
         </div>
         <br />

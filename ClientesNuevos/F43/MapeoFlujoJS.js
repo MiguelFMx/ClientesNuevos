@@ -15,6 +15,12 @@ $(document).ready(function () {
         Insertar_Registros();        
     });
 
+    $('#MainContent_btnHome').click(function () {
+        $('#error').html('');
+        Insertar_Registros();
+        window.location("../usuario/user_index.aspx");
+    });
+
     $('#add').click(function () {
         count++;
         dynamic_field(count);

@@ -191,7 +191,7 @@ namespace ClientesNuevos.F14
         public string LlenarContacto(string Nombre, string Puesto, string Telefono, string Extension, string Celular, string Tipo, string Correo, string ID_compania)
         {
             string res="";
-          //  res = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo);
+           res = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo);
 
             return res;
         }
@@ -285,7 +285,7 @@ namespace ClientesNuevos.F14
         {
             string resultado = "";
 
-           //resultado = clsF14.Insertar_CompaniaFilial(ID_compania, Nombre, Nombre_comercial, RFC, Direccion, Pais, Estado, Ciudad, CP, Nombre_contacto, Puesto_contacto, correo, Telefono, Extension, Celular);
+           resultado = clsF14.Insertar_CompaniaFilial(ID_compania, Nombre, Nombre_comercial, RFC, Direccion, Pais, Estado, Ciudad, CP, Nombre_contacto, Puesto_contacto, correo, Telefono, Extension, Celular);
 
             return resultado;
         }
@@ -294,8 +294,18 @@ namespace ClientesNuevos.F14
         [WebMethod]
         public string GetID()
         {
+            DataTable dt = new DataTable();
             string id_com = "";
-            DataTable dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+            if (HttpContext.Current.Request.Cookies.Get("id_comp").Value != "")
+            {
+                id_com = HttpContext.Current.Request.Cookies.Get("id_comp").Value;
+            }
+            else
+            {
+             dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+
+            }
+
             if (dt.Rows.Count > 0)
             {
                 id_com = dt.Rows[0]["RFC"].ToString();
@@ -459,7 +469,7 @@ namespace ClientesNuevos.F14
         public string InsertarDocumento(string ID_compania, string Doc, string Ruta, string Estatus)
         {
             string documento="";
-           // documento = clsF14.Insertar_Documento(ID_compania, Doc, Ruta, Estatus);
+           documento = clsF14.Insertar_Documento(ID_compania, Doc, Ruta, Estatus);
 
             return documento;
         }

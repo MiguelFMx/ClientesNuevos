@@ -28,15 +28,12 @@ namespace ClientesNuevos.F14.Seccioness
             
             if (!IsPostBack){
 
-                try
+                if (Request.QueryString["res"] != null)
                 {
                     string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
                     AlertResultado.Visible = true;
                     lblAlert.Text = resultado;
-                }
-                catch (Exception)
-                {
-                    lblResultado.Text = "";
+
                 }
 
                 LlenarEstado(ddEstadoAA,142);
@@ -202,7 +199,7 @@ namespace ClientesNuevos.F14.Seccioness
             estado = ddEstadoAA.SelectedValue;
             ciudad = ddCiudadAA.SelectedValue;
             tipo = "AAMX";
-           // res= "////"+clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
+            res= "////"+clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
 
             return res;
         }
@@ -220,7 +217,7 @@ namespace ClientesNuevos.F14.Seccioness
             estado = ddEstadoAAm.SelectedValue;
             ciudad = ddCiudadAAm.SelectedValue;
             tipo = "AAUSA";
-            //res = "/////"+clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
+            res = "/////"+clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
 
             return res;
         }
@@ -237,7 +234,7 @@ namespace ClientesNuevos.F14.Seccioness
             tipo = "AAMX";
             Correo = txtCorreoContAA.Text;
 
-          //  res="////"+ clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
+            res="////"+ clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
 
             return res;
         }
@@ -253,7 +250,7 @@ namespace ClientesNuevos.F14.Seccioness
             Correo = txtCorreoContAAm.Text;
             tipo = "AAUSA";
 
-           // res="////"+clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
+            res="////"+clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
 
             return res;
         }
@@ -289,7 +286,7 @@ namespace ClientesNuevos.F14.Seccioness
 
             try
             {
-              //  documento = clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "40%");
+                documento = clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "40%");
 
                 res = Registrar_AgenteAduanal();
 

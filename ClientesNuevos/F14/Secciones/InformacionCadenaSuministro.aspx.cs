@@ -14,33 +14,47 @@ namespace ClientesNuevos.F14.Seccioness
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies.Get("ctipo").Value == "proveedor")
+            {
+                step2.Visible = false;
+                step3.Visible = false;
+                step4.Visible = false;
+                lblDesc5.Text = "Paso 2";
+                lblstep5.Text = "2";
+            }
 
-            try
+            if (IsPostBack)
             {
                 if (Request.QueryString["res"] != null)
                 {
-
-               
-                string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
-                if (resultado == "Exito")
+                    string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
+                    if (resultado == "Exito")
+                    {
+                        pAlert.Visible = true;
+                    }
+                }
+                else
                 {
-                    pAlert.Visible = true;
+                    pAlert.Visible = false;
                 }
-                }
-            }
-            catch (Exception)
-            {
-                pAlert.Visible = false;
-            }
-            if (IsPostBack)
-            {
+
+
                 
             }
         }
 
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.Redirect("tiposervicioproductos.aspx");
+            if(Request.Cookies.Get("ctipo").Value == "proveedor")
+            {
+                HttpContext.Current.Response.Redirect("informacionCompania.aspx");
+
+            }
+            else
+            {
+                HttpContext.Current.Response.Redirect("tiposervicioproductos.aspx");
+
+            }
         }
     }
 }
