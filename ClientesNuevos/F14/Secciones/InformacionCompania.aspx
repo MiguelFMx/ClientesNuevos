@@ -398,8 +398,8 @@
 
                             <div class="row">
                                 <div class="col-5">
-                                    <asp:Label ID="lblTelCont" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
-                                    <input type="tel" value="" id="txtTelCont" class="form-control" />
+                                    <asp:Label ID="lblTelCont" runat="server" Text="Telefono:" CssClass="form-label" ></asp:Label>
+                                    <input type="tel" value="" id="txtTelCont" class="form-control" placeholder="ex. 6311001010" />
                                     <span id="sTelefono" style="color: red;"></span>
 
 

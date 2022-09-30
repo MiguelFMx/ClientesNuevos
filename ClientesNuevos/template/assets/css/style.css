@@ -2112,7 +2112,7 @@ section {
     background-color: #22c74e;
     color: white;
     border-radius: 22px;
-    padding: 4px 2em 4px 2em;
+    padding: 0px 2em 0px 2em;
     font-size:12px;
 }
 .revision {
@@ -2123,6 +2123,10 @@ section {
 }
 .pendiente {
     background-color: #6c757d;
+    padding: 0 2.5em;
+}
+.peligro{
+    background-color: red;
 }
 
 .spaced input[type="radio"] {

@@ -23,9 +23,9 @@ function GetData() {
             }
 
             if (result[i].Estatus == 'activo') {
-                estado = '<span class="badge bg-success">Activo</span>';
+                estado = '<span class="etiqueta" style="padding: 4px 2.5em;">Activo</span>';
             } else {
-                estado = '<span class="badge bg-danger">Inactivo</span>';
+                estado = '<span class="etiqueta peligro">Inactivo</span>';
             }
             table.append(
                 "<tr>" +
@@ -33,9 +33,9 @@ function GetData() {
                /* "<td>" + tipo + "</td>" +*/
                 "<td><a>" + result[i].Nombre_comp + "</a><br/><small>" + result[i].Nombre_comercial + "</small></td>" +
                 "<td>" + result[i].Fecha_registro.substring(0, 10) + "</td>" +
-                "<td>" + 
-                "<div class='progress'>"+
-                "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-label='progreso' style='width: " + result[i].Progreso + "%;' aria-valuenow='" + result[i].Progreso+"' aria-valuemin='0' aria-valuemax='100'></div>"+
+                "<td class='project_progress'>" + 
+                "<div class='progress progress_sm'>"+
+                "<div class='progress-bar bg-warning' role='progressbar' aria-label='progreso' style='width: " + result[i].Progreso + "%;' aria-valuenow='" + result[i].Progreso+"' aria-valuemin='0' aria-valuemax='100'></div>"+
                 "</div>" +
                 "<small>" + result[i].Progreso + "% completo</small>" +
                 "</td>" +

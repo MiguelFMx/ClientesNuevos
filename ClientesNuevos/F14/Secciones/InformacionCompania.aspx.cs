@@ -30,14 +30,7 @@ namespace ClientesNuevos.F14.Seccioness
         {            
             BloquearOpcion(ref ddTipoDePersona, "2");
 
-            if (Request.Cookies.Get("ctipo").Value == "proveedor")
-            {
-                step2.Visible = false;
-                step3.Visible = false;
-                step4.Visible = false;
-                lblDesc5.Text = "Paso 2";
-                lblstep5.Text = "2";
-            }
+            
 
             if (!IsPostBack)
             {

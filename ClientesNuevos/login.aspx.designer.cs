@@ -15,6 +15,15 @@ namespace ClientesNuevos
     {
 
         /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// Control ddLang.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace ClientesNuevos
         protected global::System.Web.UI.WebControls.TextBox txtUser;
 
         /// <summary>
+        /// Control UserNameRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
+
+        /// <summary>
         /// Control lblPass.
         /// </summary>
         /// <remarks>
@@ -60,6 +78,15 @@ namespace ClientesNuevos
         protected global::System.Web.UI.WebControls.TextBox txtPass;
 
         /// <summary>
+        /// Control PasswordRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
+
+        /// <summary>
         /// Control lbltest.
         /// </summary>
         /// <remarks>
@@ -69,6 +96,15 @@ namespace ClientesNuevos
         protected global::System.Web.UI.WebControls.Label lbltest;
 
         /// <summary>
+        /// Control FailureText.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FailureText;
+
+        /// <summary>
         /// Control btnLogin.
         /// </summary>
         /// <remarks>
@@ -76,5 +112,14 @@ namespace ClientesNuevos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
+
+        /// <summary>
+        /// Control RememberMe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
     }
 }
