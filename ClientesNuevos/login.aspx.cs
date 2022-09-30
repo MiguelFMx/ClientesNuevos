@@ -76,5 +76,33 @@ namespace ClientesNuevos
         {
           
         }
+
+        protected void ddLang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string index = ddLang.SelectedItem.Value;
+            if (index == "en")
+            {
+                lblIdiomas.Text = "Language";
+                lblPass.Text = "Password";
+                txtPass.Attributes.Add("placeholder", "Password");
+                lbluser.Text = "User";
+                txtUser.Attributes.Add("placeholder", "User");
+                lblHeading.Text = "Welcome to Hungaro's Transportistas";
+                btnLogin.Text = "Log in";
+                RememberMe.Text = "&nbsp;Rememeber me";
+            }
+            else
+            {
+                lblIdiomas.Text = "Idioma";
+                lblPass.Text = "Contraseña";
+                txtPass.Attributes.Add("placeholder", "Contraseña");
+                lbluser.Text = "Usuario";
+                txtUser.Attributes.Add("placeholder", "Usuario");
+                lblHeading.Text = "Bienvenido a Hungaro's Transportistas";
+                btnLogin.Text = "Iniciar sesión";
+                RememberMe.Text = "&nbsp;Recuerdame";
+
+            }
+        }
     }
 }

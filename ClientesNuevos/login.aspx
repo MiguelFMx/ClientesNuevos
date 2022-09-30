@@ -34,54 +34,43 @@
 
 </head>
 <body>
-      <form id="form1" runat="server">
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Bienvenido a Hungaro's Transportistas</h2>
+    <form id="form1" runat="server">
+
+        <nav class="navbar ">
+            <div class="container-fluid">
+                <a class="navbar-brand"></a>
+                <div class="d-flex">
+                    <asp:Label ID="lblIdiomas" runat="server" Text="Idioma" AssociatedControlID="ddLang" CssClass="navbar-text"></asp:Label>
+                    <asp:DropDownList ID="ddLang" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddLang_SelectedIndexChanged">
+                        <asp:ListItem Text="Español" Value="es" Selected />
+                        <asp:ListItem Text="English" Value="en" />
+                    </asp:DropDownList>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-10">
-                    <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url(template/assets/img/logo/Tractor.jpg);">
-<%--                            <img src="template/assets/img/logo/Tractor.jpg" width="100%" height="100%"/>--%>
-                        </div>
-                        <div class="login-wrap p-4 p-md-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <div style="display:flex; justify-content:center">
-                                    <img src="template/assets/img/logo/Hungaros.png" width="60%" height="100%"/>
-                                        </div>
-                                </div>
-                            </div>
-                          
-
-        <div>
+        </nav>
+        <section class="ftco-section">
             <div class="container">
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col">
-                        <asp:Panel runat="server">
-                            <div class="row">
-                                <div class="col-4">
-                                    <asp:DropDownList ID="ddLang" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="Español" Value="es" Selected />
-                                        <asp:ListItem Text="English" Value="en" />
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-                        </asp:Panel>
-                       
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h3 class="heading-section">
+                            <asp:Label Text="Bienvenido a Hungaro's Transportistas" runat="server" ID="lblHeading" />
+                            </h3>
                     </div>
-                    <div class="col"></div>
                 </div>
-                <br />
-                
-            </div>
-        </div>
-
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="wrap d-md-flex">
+                            <div class="img" style="background-image: url(template/assets/img/logo/Tractor.jpg);">
+                                <%--<img src="template/assets/img/logo/Tractor.jpg" width="100%" height="100%"/>--%>
+                            </div>
+                            <div class="login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <div style="display: flex; justify-content: center">
+                                            <img src="template/assets/img/logo/Hungaros.png" width="60%" height="100%" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group mb-3">
                                     <asp:Label ID="lbluser" runat="server" Text="Usuario" CssClass="label"></asp:Label>
                                     <asp:TextBox ID="txtUser" runat="server" CssClass="form-control" placeholder="Usuario"></asp:TextBox>
@@ -93,11 +82,11 @@
                                     <asp:Label ID="lblPass" runat="server" Text="Contraseña" CssClass="label"></asp:Label>
                                     <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPass" ErrorMessage="La contrase&#241;a es obligatoria." ValidationGroup="Login1" ToolTip="La contrase&#241;a es obligatoria." ID="PasswordRequired">*</asp:RequiredFieldValidator>
-                                   
+
 
                                     <asp:Label ID="lbltest" runat="server" Text="" ForeColor="#ff0000"></asp:Label>
                                 </div>
-                                <div class="form-group" style="color:red;">
+                                <div class="form-group" style="color: red;">
                                     <asp:Literal runat="server" ID="FailureText" EnableViewState="False"></asp:Literal>
                                 </div>
 
@@ -107,7 +96,7 @@
                                 <div class="form-group d-md-flex">
                                     <div class="w-50 text-left">
                                         <asp:CheckBox runat="server" Text="&nbsp;Recuerdame" ID="RememberMe" CssClass="checkbox-primary mb-0"></asp:CheckBox>
-   
+
                                     </div>
                                     <div class="w-50 text-md-right">
                                         <a href="#">Forgot Password</a>
@@ -115,19 +104,15 @@
                                 </div>
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-                                </form>
+        </section>
+    </form>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="template/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-   
-
-
 </body>
 </html>
 
