@@ -34,11 +34,16 @@ namespace ClientesNuevos
             string usuario = txtUser.Text;
             string password = txtPass.Text;
             string ID = "", Rol = "";
+            bool persistente = false;
             HttpCookie cUserID;
             lstuser = wsLogin.getUsuario(usuario,password);
             FormsAuthenticationTicket AuthTicket;
             string encTicket;
 
+            if (RememberMe.Checked)
+            {
+                persistente = true;
+            }
 
             Response.Cookies.Add(new HttpCookie("lang", ddLang.SelectedItem.Value));
 
@@ -46,17 +51,24 @@ namespace ClientesNuevos
             {
                 ID = lstuser[0].ID;
                 Rol = lstuser[0].type;
-                AuthTicket = new FormsAuthenticationTicket(1,ID, DateTime.Now, DateTime.Now.AddDays(1), false, Rol, FormsAuthentication.FormsCookiePath);
+
+                
+
+                AuthTicket = new FormsAuthenticationTicket(1,usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol, FormsAuthentication.FormsCookiePath);
                 encTicket = FormsAuthentication.Encrypt(AuthTicket);
                 HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
 
                 cUserID = new HttpCookie("id", lstuser[0].ID);
                 HttpContext.Current.Response.Cookies.Add(cUserID);
 
+                
+
                 switch (Rol)
                 {
                     case "1":
+                        
                         Response.Redirect("admin/index.aspx");
+                        
                         break;
                     case "2":
                         Response.Redirect("usuario/user_index.aspx");
@@ -89,7 +101,8 @@ namespace ClientesNuevos
                 txtUser.Attributes.Add("placeholder", "User");
                 lblHeading.Text = "Welcome to Hungaro's Transportistas";
                 btnLogin.Text = "Log in";
-                RememberMe.Text = "&nbsp;Rememeber me";
+                RememberMe.Text = "&nbsp;Remember me";
+                btnPasswordOlvidado.Text = "Forgot Password";
             }
             else
             {
@@ -100,6 +113,7 @@ namespace ClientesNuevos
                 txtUser.Attributes.Add("placeholder", "Usuario");
                 lblHeading.Text = "Bienvenido a Hungaro's Transportistas";
                 btnLogin.Text = "Iniciar sesión";
+                btnPasswordOlvidado.Text = "Olvidé la contraseña";
                 RememberMe.Text = "&nbsp;Recuerdame";
 
             }

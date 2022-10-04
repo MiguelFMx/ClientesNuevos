@@ -48,7 +48,7 @@
                 </div>
             </div>
         </nav>
-        <section class="ftco-section">
+        <section>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center mb-5">
@@ -99,7 +99,7 @@
 
                                     </div>
                                     <div class="w-50 text-md-right">
-                                        <a href="#">Forgot Password</a>
+                                        <asp:LinkButton ID="btnPasswordOlvidado" runat="server">Olvidé la contraseña</asp:LinkButton>
                                     </div>
                                 </div>
 
