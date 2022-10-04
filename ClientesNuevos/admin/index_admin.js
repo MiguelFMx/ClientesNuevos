@@ -23,9 +23,9 @@ function GetData() {
             }
 
             if (result[i].Estatus == 'activo') {
-                estado = '<span class="etiqueta" style="padding: 4px 2.5em;">Activo</span>';
+                estado = '<span class="etiqueta">Activo</span>';
             } else {
-                estado = '<span class="etiqueta peligro">Inactivo</span>';
+                estado = '<span class="etiqueta peligro" style="padding: 0 1.7em;">Inactivo</span>';
             }
             table.append(
                 "<tr>" +

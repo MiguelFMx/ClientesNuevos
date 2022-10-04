@@ -76,11 +76,12 @@
                             <i class="bi bi-person-circle"> </i><asp:LoginName ID="LoginName1" runat="server" />
                         </a>
                         <div class="dropdown-menu">
+
                             <div class="dropdown-item">                                
-                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" />                  
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" ForeColor="Black" />                  
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
+                            <a class="dropdown-item" href="#"  style="color:black;">Configuracion</a>
                         </div>
                     </li>
                     <li><a class="nav-link scrollto " href="../../../usuario/user_index.aspx">Home</a>

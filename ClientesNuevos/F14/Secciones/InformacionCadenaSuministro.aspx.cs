@@ -14,6 +14,8 @@ namespace ClientesNuevos.F14.Seccioness
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+           /*Quitar esta parte*/
             if (Request.Cookies.Get("ctipo").Value == "proveedor")
             {
                 step2.Visible = false;

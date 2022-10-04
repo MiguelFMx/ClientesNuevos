@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Administrador</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -36,8 +36,9 @@
 </head>
 
 <body class="nav-md">
-     <form id="form1" runat="server">
     <div class="container body" style="max-width:100%">
+     <form id="form1" runat="server">
+
       <div class="main_container"  style="padding-left:10px;">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
@@ -132,7 +133,6 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </form>
 
      <footer>
           <div class="pull-right">
@@ -142,6 +142,8 @@
         </footer>
         <!-- /footer content -->
       </div>
+    </form>
+
     </div>
 
     <!-- jQuery -->
