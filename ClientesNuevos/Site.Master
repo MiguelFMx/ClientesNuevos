@@ -73,11 +73,11 @@
                 <ul>
                     <li>
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-person-circle"></i><asp:LoginName ID="LoginName1" runat="server" />
+                            <i class="bi bi-person-circle"> </i><asp:LoginName ID="LoginName1" runat="server" />
                         </a>
                         <div class="dropdown-menu">
                             <div class="dropdown-item">                                
-                                    <asp:LoginStatus ID="LoginStatus1" runat="server" />                  
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" />                  
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a>

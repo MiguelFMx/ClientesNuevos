@@ -22,28 +22,30 @@ namespace ClientesNuevos.usuario
             if (!IsPostBack)
             {
 
-                getCompania();
-                if (dt.Rows.Count > 0)
-                {
-                    lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
-                    cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
-                    Response.Cookies.Add(cook);
-                    try
+                
+                    getCompania();
+                    if (dt.Rows.Count > 0)
                     {
+                        lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
+                        cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
+                        Response.Cookies.Add(cook);
+                        try
+                        {
 
-                        Documentos();
-                        prueba.Text = User.Identity.Name;
+                            Documentos();
+                            prueba.Text = User.Identity.Name;
+                        }
+                        catch (Exception ex)
+                        {
+                            lblError.Text = ex.Message;
+
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        lblError.Text = ex.Message;
-
+                        Response.Redirect("../F20/CriteriosMinimos.aspx");
                     }
-                }
-                else
-                {
-                    Response.Redirect("../F20/CriteriosMinimos.aspx");
-                }
+                
             }
         }
         

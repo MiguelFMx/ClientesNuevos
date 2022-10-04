@@ -34,7 +34,9 @@
     
 
 </head>
+
 <body class="nav-md">
+     <form id="form1" runat="server">
     <div class="container body" style="max-width:100%">
       <div class="main_container"  style="padding-left:10px;">
         <div class="col-md-3 left_col">
@@ -49,7 +51,9 @@
             <div class="profile clearfix">
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>
+                    <asp:LoginName ID="LoginName1" runat="server" />
+                </h2>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -93,10 +97,16 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    John Doe
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
+                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-circle"> </i><asp:LoginName ID="LoginName2" runat="server" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item">                                
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" />                  
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
                     <li>
@@ -117,7 +127,7 @@
         </div>
         <!-- /top navigation -->
 
-    <form id="form1" runat="server">
+   
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
