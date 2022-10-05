@@ -29,11 +29,9 @@ namespace ClientesNuevos.App_Code
 
 
                 string ruta = fname.ToString();
-               // strRsultado = clsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
+                strRsultado = clsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
                 
             }
-
-
             context.Response.ContentType = "text/plain";
             context.Response.Write(strRsultado +" "+ fname.ToString());
         

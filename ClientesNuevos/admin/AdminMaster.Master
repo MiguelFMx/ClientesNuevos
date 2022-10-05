@@ -9,12 +9,12 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-     <!-- Favicons -->
-    <link href="template/assets/img/favicon.png" rel="icon"/>
-    <link href="template/assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+    <!-- Favicons -->
+    <link href="template/assets/img/favicon.png" rel="icon" />
+    <link href="template/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
     <link href="../template/assets/css/style.css" rel="stylesheet" />
@@ -31,64 +31,59 @@
 
     <!-- Custom Theme Style -->
     <link href="template/build/css/custom.min.css" rel="stylesheet">
-    
-
 </head>
 
 <body class="nav-md">
-    <div class="container body" style="max-width:100%">
-     <form id="form1" runat="server">
+    <div class="container body" style="max-width: 100%">
+        <form id="form1" runat="server">
 
-      <div class="main_container"  style="padding-left:10px;">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><span>Hungaro's</span></a>
-            </div>
+            <div class="main_container" style="padding-left: 10px;">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="index.aspx" class="site_title"><span>Hungaro's</span></a>
+                        </div>
 
-            <div class="clearfix"></div>
+                        <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>
-                    <asp:LoginName ID="LoginName1" runat="server" />
-                </h2>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <!-- /menu profile quick info -->
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_info">
+                                <span>Bienvenido, <br />                                    
+                                    <asp:LoginName ID="LoginName1" runat="server" />                                
+                                </span>
+                                
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- /menu profile quick info -->
+                        <br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a href="../index.aspx"><i class="fa fa-home"></i>Home</a>
+                                    </li>
 
-            <br />
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /sidebar menu -->
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li>
-                      <a href="../index.aspx"><i class="fa fa-home"></i> Home</a>
-                  </li>
-                  
-                </ul>
-              </div>
+                        <!-- /menu footer buttons -->
+                        <div class="sidebar-footer hidden-small">
 
-            </div>
-            <!-- /sidebar menu -->
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="../login.aspx">
+                                <i class="bi bi-power"></i>
+                            </a>
+                        </div>
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <i class="bi bi-power"></i>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
-          </div>
-        </div>
-
-        <!-- top navigation -->
+                <!-- top navigation
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
@@ -126,39 +121,39 @@
             </nav>
           </div>
         </div>
-        <!-- /top navigation -->
+         /top navigation -->
 
-   
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
 
-     <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </form>
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </form>
 
     </div>
 
     <!-- jQuery -->
-    <script src="template/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="../Scripts/JS/ajax.js"></script>
+    <script src="../template/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
 
     <!-- Bootstrap -->
-    <script src="template/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../template/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="template/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../template/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="template/vendors/nprogress/nprogress.js"></script>
-    
+    <script src="../template/vendors/nprogress/nprogress.js"></script>
+
     <!-- Custom Theme Scripts -->
-    <script src="template/build/js/custom.min.js"></script>
+    <script src="../template/build/js/custom.min.js"></script>
 
 
     <asp:ContentPlaceHolder ID="script" runat="server">

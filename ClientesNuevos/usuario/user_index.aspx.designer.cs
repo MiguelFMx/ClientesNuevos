@@ -33,15 +33,6 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblAlert;
 
         /// <summary>
-        /// Control prueba.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prueba;
-
-        /// <summary>
         /// Control lblCompania.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,96 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// Control Table1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table1;
+
+        /// <summary>
+        /// Control row_AC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_AC;
+
+        /// <summary>
+        /// Control lblAC_estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAC_estatus;
+
+        /// <summary>
+        /// Control lblAC_fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAC_fecha;
+
+        /// <summary>
+        /// Control HyperLink1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+        /// Control row_W9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_W9;
+
+        /// <summary>
+        /// Control lblW9_estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblW9_estatus;
+
+        /// <summary>
+        /// Control lblW9_fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblW9_fecha;
+
+        /// <summary>
+        /// Control HyperLink2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+
+        /// <summary>
+        /// Control row_RFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_RFC;
 
         /// <summary>
         /// Control lblRFC_estatus.
@@ -78,6 +159,24 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblRFC_fecha;
 
         /// <summary>
+        /// Control RFC_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink RFC_ver;
+
+        /// <summary>
+        /// Control row_CURP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_CURP;
+
+        /// <summary>
         /// Control lblCURP_estatus.
         /// </summary>
         /// <remarks>
@@ -94,6 +193,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCURP_fecha;
+
+        /// <summary>
+        /// Control row_CNAP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_CNAP;
 
         /// <summary>
         /// Control lblCNAP_estatus.
@@ -114,6 +222,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblCNAP_fecha;
 
         /// <summary>
+        /// Control row_CompDom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_CompDom;
+
+        /// <summary>
         /// Control lblCompDom_estatus.
         /// </summary>
         /// <remarks>
@@ -130,6 +247,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCompDom_fecha;
+
+        /// <summary>
+        /// Control row_IRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_IRL;
 
         /// <summary>
         /// Control lblIRL_estatus.
@@ -150,6 +276,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblIRL_fecha;
 
         /// <summary>
+        /// Control row_PRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_PRL;
+
+        /// <summary>
         /// Control lblPRL_estatus.
         /// </summary>
         /// <remarks>
@@ -166,6 +301,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPRL_fecha;
+
+        /// <summary>
+        /// Control row_OP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_OP;
 
         /// <summary>
         /// Control lblOP_estatus.
@@ -186,6 +330,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblOP_fecha;
 
         /// <summary>
+        /// Control row_CTPAT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_CTPAT;
+
+        /// <summary>
         /// Control lblCTPAT_estatus.
         /// </summary>
         /// <remarks>
@@ -202,6 +355,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCTPAT_fecha;
+
+        /// <summary>
+        /// Control row_OEA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow row_OEA;
 
         /// <summary>
         /// Control lblOEA_estatus.

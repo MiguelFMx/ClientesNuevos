@@ -37,8 +37,7 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                </div>
-                            
+                                </div>                            
                         </div>
                     </div>
                 </div>
@@ -49,5 +48,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="template/vendors/jquery/dist/jquery.js"></script>
     <script src="index_admin.js"></script>
+
 </asp:Content>

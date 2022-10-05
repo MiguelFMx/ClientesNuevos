@@ -50,12 +50,12 @@ namespace ClientesNuevos
             if (lstuser.Count > 0)
             {
                 ID = lstuser[0].ID;
-                Rol = lstuser[0].type;
-
-                
+                Rol = lstuser[0].type;                
 
                 AuthTicket = new FormsAuthenticationTicket(1,usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol, FormsAuthentication.FormsCookiePath);
+                
                 encTicket = FormsAuthentication.Encrypt(AuthTicket);
+
                 HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
 
                 cUserID = new HttpCookie("id", lstuser[0].ID);
@@ -65,8 +65,7 @@ namespace ClientesNuevos
 
                 switch (Rol)
                 {
-                    case "1":
-                        
+                    case "1":                        
                         Response.Redirect("admin/index.aspx");
                         
                         break;

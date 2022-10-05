@@ -14,7 +14,8 @@ namespace ClientesNuevos.App_Code
         {
             public string Documento { get; set; }
             public string Estatus { get; set; }
-            public string  Fecha{ get; set; }
+            public string  Fecha{ get; set; }            
+            public string Ruta { get; set; }
         }
 
         public static List<ControlDocumento> Obtener_Documentos(string id_comp)
@@ -39,11 +40,13 @@ namespace ClientesNuevos.App_Code
 
             foreach (DataRow row in dt.Rows)
             {
-                objDoc = new ControlDocumento();
-                objDoc.Documento = row["Documento"].ToString();
-                objDoc.Estatus = row["Estatus"].ToString();
-                objDoc.Fecha = row["Fecha_creacion"].ToString();
-
+                objDoc = new ControlDocumento
+                {
+                    Documento = row["Documento"].ToString(),
+                    Estatus = row["Estatus"].ToString(),
+                    Fecha = row["Fecha_creacion"].ToString(),
+                    Ruta = row["Ruta"].ToString()
+                };
                 documentos.Add(objDoc);
             }
 

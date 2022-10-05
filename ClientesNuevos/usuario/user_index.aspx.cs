@@ -20,9 +20,7 @@ namespace ClientesNuevos.usuario
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-
-                
+            {           
                     getCompania();
                     if (dt.Rows.Count > 0)
                     {
@@ -31,14 +29,13 @@ namespace ClientesNuevos.usuario
                         Response.Cookies.Add(cook);
                         try
                         {
-
                             Documentos();
-                            prueba.Text = User.Identity.Name;
+                        OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
+                           // prueba.Text = User.Identity.Name;
                         }
                         catch (Exception ex)
                         {
                             lblError.Text = ex.Message;
-
                         }
                     }
                     else
@@ -95,6 +92,7 @@ namespace ClientesNuevos.usuario
 
                 for (int i = 0; i < Docs.Count ; i++)
                 {
+                    //=================================== F14
                     if(Docs[i].Documento == "F14")
                     {
                         if(Docs[i].Estatus == "100%")
@@ -119,6 +117,7 @@ namespace ClientesNuevos.usuario
                         lblF14_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
                     }
+                    //================================ F43
                     if (Docs[i].Documento == "F43")
                     {
                         if(Docs[i].Estatus == "100%")
@@ -141,6 +140,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblF43_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //================================================= F5
                     if (Docs[i].Documento == "F5")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -163,6 +163,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblF5_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //==================================================== F12
                     if (Docs[i].Documento == "F12")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -185,8 +186,10 @@ namespace ClientesNuevos.usuario
                         }
                         lblF12_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //==================================================== RFC
                     if (Docs[i].Documento == "RFC")
                     {
+                        RFC_ver.NavigateUrl = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblRFC_estatus.Text = "completado";
@@ -205,9 +208,9 @@ namespace ClientesNuevos.usuario
                             lblRFC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblRFC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
                     }
-                    //
-                    
+                    //=============================================== CURP                    
                     if (Docs[i].Documento == "CURP")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -235,6 +238,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblCURP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //============================== Carta de no antecedentes
                     if (Docs[i].Documento == "Carta de no antecedentes penales")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -257,6 +261,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblCNAP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //=========================== Comprobante de domicilio
                     if (Docs[i].Documento == "Comprobante de domicilio")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -279,6 +284,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblCompDom_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //===================== Identificacion de representante legal
                     if (Docs[i].Documento == "Identificacion de representante legal")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -301,7 +307,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblIRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
-                    //Poder de representante legal
+                    //==================== Poder de representante legal
                     if (Docs[i].Documento == "Poder de representante legal")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -324,6 +330,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblPRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //=============================== Opinion positiva
                     if (Docs[i].Documento == "Opinion positiva")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -346,6 +353,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblOP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //============================== Certificacion CTPAT
                     if (Docs[i].Documento == "Certificación C-TPAT")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -368,6 +376,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblCTPAT_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //=================================== Certificacion OEA
                     if (Docs[i].Documento == "Certificación OEA")
                     {
                         if (Docs[i].Estatus == "100%")
@@ -438,7 +447,6 @@ namespace ClientesNuevos.usuario
         protected string Obtener_estatus_f14()
         {
             string res="";
-
             try
             {
                 List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value);
@@ -508,6 +516,35 @@ namespace ClientesNuevos.usuario
             else
             {
                 Response.Redirect("../F5/evaluacionseguridad.aspx");
+            }
+        }
+
+
+        private void OcultarCampos(string tipo)
+        {
+            switch (tipo)
+            {
+                case "0": //moral
+                    row_W9.Visible = false;
+                    row_AC.Visible = false;
+                    break;
+                case "1": //fisico
+                    row_CNAP.Visible = false;
+                    row_W9.Visible = false;
+                    row_CURP.Visible = false;
+                    break;
+                case "2": //extranjero
+                    row_CNAP.Visible = false;
+                    row_RFC.Visible = false;
+                    row_CURP.Visible = false;
+                    row_IRL.Visible = false;
+                    row_PRL.Visible = false;
+                    row_OP.Visible = false;
+                    row_AC.Visible = false;
+                    break;
+
+                default:
+                    break;
             }
         }
     }

@@ -26,7 +26,6 @@
             <!-----------------------------------Nombre de la empresa---------------------------------- -->
             <div class="row">
                 <div class="col">
-                    <asp:Label ID="prueba" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>
@@ -41,185 +40,221 @@
                 <div class="col">
                     <div class="card border-primary">
                         <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead class="cabezal">
-                                    <tr>
-                                        <th>Documento</th>
-                                        <th>Estatus</th>
-                                        <th>Fecha de entrega</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>RFC</td>
-                                        <td>
-                                            <asp:Label ID="lblRFC_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                            <asp:Table ID="Table1" runat="server" CssClass="table table-hover">
+                                <asp:TableHeaderRow TableSection="TableHeader" CssClass="cabezal">
+                                    <asp:TableHeaderCell>Documento</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Estatus</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Fecha de entrega</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Acciones</asp:TableHeaderCell>
+                                </asp:TableHeaderRow>
+                                <%-- =========================Acta constitutiva ================== --%>
+                                <asp:TableRow ID="row_AC">
+                                    <asp:TableCell>Acta constitutiva</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblAC_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>CURP</td>
-                                        <td>
-                                            <asp:Label ID="lblCURP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblAC_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="curp-group">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                         <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                        </div>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                              
+                                <%-- ============== W9 =========================================== --%>
+                                <asp:TableRow ID="row_W9">
+                                    <asp:TableCell>W9</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblW9_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblW9_fecha" runat="server" Text="--/--/----"></asp:Label>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                        </div>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ============RFC============================================== --%>
+                                <asp:TableRow ID="row_RFC">
+                                    <asp:TableCell>RFC</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblRFC_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                            <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
+                                            <asp:HyperLink ID="RFC_ver" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                        </div>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ================CURP=============================== --%>
+                                <asp:TableRow ID="row_CURP">
+                                    <asp:TableCell>
+                                        CURP
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCURP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="curp-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carta de no antecedentes penales</td>
-                                        <td>
-                                            <asp:Label ID="lblCNAP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblCNAP_fecha" runat="server" Text="--/--/----"></asp:Label>
-
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- =============== CNAP ============================= --%>
+                                <asp:TableRow ID="row_CNAP">
+                                    <asp:TableCell>Carta de no antecedentes penales</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCNAP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCNAP_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                          <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Comprobante de domicilio</td>
-                                        <td>
-                                            <asp:Label ID="lblCompDom_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblCompDom_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ============================= Comprobante de domicilio ============ --%>
+                                <asp:TableRow ID="row_CompDom">
+                                    <asp:TableCell>Comprobante de domicilio</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCompDom_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCompDom_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        
                                             <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Identificacion de representante legal</td>
-                                        <td>
-                                            <asp:Label ID="lblIRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----"></asp:Label>
-
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ============== Identificacion de representante legal =========== --%>
+                                <asp:TableRow ID="row_IRL">
+                                    <asp:TableCell>Identificacion de representante legal</asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblIRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                         <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Poder de representante legal</td>
-                                        <td>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ============== Poder de representante legal ============================= --%>
+                                <asp:TableRow ID="row_PRL">
+                                    <asp:TableCell>Poder de representante legal</asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblPRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblPRL_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                         <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Opinion positiva</td>
-                                        <td>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ==================== Opinion positiva===================== --%>
+                                <asp:TableRow ID="row_OP">
+                                    <asp:TableCell>Opinion positiva</asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblOP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblOP_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Certificacion C-TPAT</td>
-                                        <td>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ===================== CTPAT============================= --%>
+                                <asp:TableRow ID="row_CTPAT">
+                                    <asp:TableCell>Certificacion C-TPAT</asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblCTPAT_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblCTPAT_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Certificacion OEA</td>
-                                        <td>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                                <%-- ============ OEA ==================================== --%>
+                                <asp:TableRow ID="row_OEA">
+                                    <asp:TableCell>Certificacion OEA</asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblOEA_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
-                                            
-                                        </td>
-                                        <td>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                             <asp:Label ID="lblOEA_fecha" runat="server" Text="--/--/----"></asp:Label>
 
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                                 <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot></tfoot>
-
-                            </table>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                           
                         </div>
                     </div>
                 </div>
@@ -343,9 +378,9 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
-        <script src="indexJS.js"></script>
+    <script src="indexJS.js"></script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ScriptsContent" runat="server">
 </asp:Content>
