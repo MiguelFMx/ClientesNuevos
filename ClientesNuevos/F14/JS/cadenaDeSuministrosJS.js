@@ -1,8 +1,11 @@
-﻿
+﻿var count = 1;
+
 $(document).ready(function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     let radio = '';
+
+    ObtenerPrograma();
 
     $('input[type=radio][name=radCertificado]').change(function () {
         if (this.value == 'si') {
@@ -13,22 +16,9 @@ $(document).ready(function () {
             radio = 'no';
             $('#divCertificado').hide('fast');
         }
-    });
+    });    
 
-    if (sessionStorage.getItem('ctipo') == 'proveedor') {
-        $('#wizard2').prop('hidden', false);
-        $('#wizard').prop('hidden', true);
-    } else {
-        $('#wizard2').prop('hidden', true);
-        $('#wizard').prop('hidden', false);
-
-    }
-
-
-    var count = 1;
     dynamic_field(count);
-
-
 
     $('#add').click(function () {
         count++;
@@ -39,8 +29,6 @@ $(document).ready(function () {
         count--;
         $(this).parent().closest("tr").remove();
     });
-
-    //$('#tProgramaDeSeguridad tbody').sortable();
 
     $('#btnContinuar').click(function () {
         var id;
@@ -162,7 +150,7 @@ $("#cbCTPATSatuts").change(function () {
 
 function dynamic_field(number) {
     var html = '<tr>';
-    html += '<td><span>' + number + '</sapn></td>';
+    html += '<th><label>' + number + '</label></th>';
     html += '<td><div class="col"><input type="text" name="in_Descripcion" class="form-control descripcion"></div></td > ';   
     html += '<td><div class="col"><input type="text" name="in_Codigo" class="form-control codigo"></div></td>';
     html += '<td>' +
@@ -323,7 +311,6 @@ function getEstatus() {
 
 }
 
-
 function insertar_estatus() {
     var id_cuenta = '';
     GetAjax("../wsBaseDatos.asmx/GetID",
@@ -355,4 +342,94 @@ function insertar_estatus() {
         $('#MainContent_dtFechaVal').val('');
     }
     getEstatus();
+}
+
+function ObtenerPrograma() {
+    let descrip;
+    let codigo;
+    let ruta;
+    let comp;
+    let aux;
+    let IdProgram;
+    let hayRuta;
+    GetAjax("../wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            comp = res;
+        });
+    GetAjax("../wsBaseDatos.asmx/ObtenerProgramas", "'ID_compania':'" + comp + "'", false, function (programa) {
+        if (programa.length > 0) {
+            $('#radCertificadoSi').prop('checked', true);
+            $('#divCertificado').show('fast');
+            
+            for (var i = 0; i < programa.length; i++) {
+                descrip = programa[i].Descripcion;
+                codigo = programa[i].Codigo;
+                ruta = programa[i].ruta;
+                IdProgram = programa[i].ID;
+                aux = i + 1;
+
+                if (ruta == "null") {
+                    hayRuta = '<div class="col">' + //col principal
+                        '<div class="row">' + //row
+                        '<div class="col">' + //col1
+                        '<div class="input-group mb-3">' + //input
+                        '<input type = "file" class="form-control documento" name="in_Certificado[]"  accept = ".pdf" >' +
+                        '</div >' + //input
+                        '</div>' + //col1
+                        '</div>' + //row
+                        '</div>'; //col principal
+                } else {
+                    hayRuta = '<div class="col">' + //col principal
+                        '<div class="row">' + //row
+                        '<div class="col">' + //col1
+                            '<div class="input-group mb-3">' + //input
+                                '<input type = "file" class="form-control documento" name="in_Certificado[]"  accept = ".pdf" hidden>' +
+                                    '<input type="text" name="ruta" class="form-control ruta" value="' + ruta + '"hidden> ' +
+                                '</div >' + //input
+                        '</div>' + //col1
+                        '<div class="col">' + //col2
+                            '<button class="btn btn-warning edit" name="edit" type="button"><i class="bi bi-pencil-square"></i>Editar</button>' +
+                            '<button class="btn btn-secondary ver" name="ver" type="button"><i class="bi bi-folder-fill"></i>Ver</button>' +
+                        '</div>' + //col2
+                        '</div>' + //row
+                       
+                        '</div>'; //col principal
+                }
+
+                var html = '<tr>';
+                //numero
+                html += '<th><label>' + aux + '</label></th>';
+                //Descripcion
+                html += '<td>' +
+                    '<div class="col">' +
+                    '<label class="lblId" hidden>' + IdProgram + '</label>' +
+                    '<input type="text" name="in_Descripcion" class="form-control descripcion" value="' + descrip + '">'
+                '</div>' +
+                    '</td > ';
+                //codigo
+                html += '<td><div class="col"><input type="text" name="in_Codigo" class="form-control codigo" value="' + codigo + '"></div></td > ';
+                
+                //certificado
+                html += '<td>' + hayRuta + '</td>';
+                //boton
+                if (aux > 1) {                    
+                    html += '<td><button type="button" class="btn btn-danger" name="remove" id="remove" style="border-radius:42px;"><i class="fas fa-minus-circle"></i></button></td></tr>';
+                    $('#tProgramaDeSeguridad tbody').append(html);
+                } else {
+                    html += '<td><button type="button"class="btn btn-success" name="add" id="add" style="border-radius:42px;"><i class="fas fa-plus-circle"></i></button></td></tr>';
+                    $('#tProgramaDeSeguridad tbody').html(html);
+                }
+                count = aux;
+            }
+            count++;
+        } else {
+            $('#radCertificadoNo').prop('checked', true);
+
+            dynamic_field(1);
+
+        }
+
+    });
 }

@@ -15,17 +15,17 @@ namespace ClientesNuevos.F14.Seccioness
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           /*Quitar esta parte*/
-            if (Request.Cookies.Get("ctipo").Value == "proveedor")
-            {
-                step2.Visible = false;
-                step3.Visible = false;
-                step4.Visible = false;
-                lblDesc5.Text = "Paso 2";
-                lblstep5.Text = "2";
-            }
+            /*Quitar esta parte
+             if (Request.Cookies.Get("ctipo").Value == "proveedor")
+             {
+                 step2.Visible = false;
+                 step3.Visible = false;
+                 step4.Visible = false;
+                 lblDesc5.Text = "Paso 2";
+                 lblstep5.Text = "2";
+             }*/
 
-            if (IsPostBack)
+            if (!IsPostBack)
             {
                 if (Request.QueryString["res"] != null)
                 {
@@ -40,11 +40,20 @@ namespace ClientesNuevos.F14.Seccioness
                     pAlert.Visible = false;
                 }
 
+                if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
+                {
+                    CambiarLinks();
+                }
 
-                
             }
         }
-
+        private void CambiarLinks()
+        {
+            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?admin=si&id=" + Request.QueryString["id"];
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?admin=si&id=" + Request.QueryString["id"];
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?admin=si&id=" + Request.QueryString["id"];
+            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id=" + Request.QueryString["id"];
+        }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
             if(Request.Cookies.Get("ctipo").Value == "proveedor")

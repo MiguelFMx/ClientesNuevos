@@ -423,6 +423,14 @@ namespace ClientesNuevos.F14
         //======================================================== Info. Cadena Servicio =====================================================
 
         //================= Programas de seguridad
+        public class ProgramSeguridad
+        {
+            public string ID { get; set; }
+            public string Descripcion { get; set; }
+            public string Codigo { get; set; }
+            public string ruta { get; set; } 
+        }
+
         [WebMethod]
         public string Insertar_ProgramaSeguridad(string ID_compania, string Descripcion, string Codigo, string Ruta)
         {
@@ -446,11 +454,8 @@ namespace ClientesNuevos.F14
 
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
 
-
                 cmd.ExecuteNonQuery();
-                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
-
-                resultado = res;
+                resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);
             }
             catch (SqlException e)
             {
@@ -464,6 +469,42 @@ namespace ClientesNuevos.F14
             return resultado;
         }
 
+        [WebMethod]
+        public List<ProgramSeguridad> ObtenerProgramas(string ID_compania)
+        {
+            List<ProgramSeguridad> lstprograma = new List<ProgramSeguridad>();
+            ProgramSeguridad objPS;
+
+            string sqlCommand = "SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania= '" + ID_compania + "'";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlCommand cmd = new SqlCommand(sqlCommand, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+
+            try
+            {
+                da.Fill(data);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    objPS = new ProgramSeguridad
+                    {
+                        ID = row["ID"].ToString(),
+                        Descripcion = row["Descripcion"].ToString(),
+                        Codigo = row["codigo_certificacion"].ToString(),
+                        ruta = row["ruta"].ToString()
+                    };
+                    lstprograma.Add(objPS);
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                System.Diagnostics.Trace.WriteLine(ex.Message);
+            }
+
+            return lstprograma;
+        }
 
         [WebMethod]
         public string InsertarDocumento(string ID_compania, string Doc, string Ruta, string Estatus)

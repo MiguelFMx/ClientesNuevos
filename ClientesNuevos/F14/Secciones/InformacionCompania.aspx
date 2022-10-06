@@ -41,54 +41,53 @@
         <br />
 
         <div class="row">
-                <div id="wizard" class="form_wizard wizard_horizontal">
-                    <ul class="wizard_steps">
-                        <li>
-                            <asp:HyperLink ID="step1" runat="server" CssClass="selected">
-                                <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step2" runat="server" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
-                                <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
-                                <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
-                                <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
+            <div id="wizard" class="form_wizard wizard_horizontal">
+                <ul class="wizard_steps">
+                    <li>
+                        <asp:HyperLink ID="step1" runat="server" CssClass="selected">
+                            <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step2" runat="server" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
+                            <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
+                            <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
+                            <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                                <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
-                                <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                    </ul>
-                </div>
-
+                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
+                            <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                </ul>
             </div>
-      
+        </div>
+
         <br />
         <!------------------------------------------------- Informacion de compañia------------------------------->
         <fieldset>
@@ -355,7 +354,7 @@
                                     data-bs-placement="bottom"
                                     title="Llene los campos necesarios y haga clic en el boton 'Registrar contacto' "></i></span>
                             </asp:Label>
-                            
+
                             <asp:Label ID="pInfo_en" runat="server" Visible="false">
                                 <span><i class="bi bi-question-circle"
                                     data-bs-toggle="tooltip"
@@ -398,7 +397,7 @@
 
                             <div class="row">
                                 <div class="col-5">
-                                    <asp:Label ID="lblTelCont" runat="server" Text="Telefono:" CssClass="form-label" ></asp:Label>
+                                    <asp:Label ID="lblTelCont" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
                                     <input type="tel" value="" id="txtTelCont" class="form-control" placeholder="ex. 6311001010" />
                                     <span id="sTelefono" style="color: red;"></span>
 
@@ -496,10 +495,11 @@
                     <%--<asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />--%>
 
                     <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">
-                        <asp:Label ID="lbl_btnNext" runat="server" Text="Siguiente"></asp:Label><i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                        <asp:Label ID="lbl_btnNext" runat="server" Text="Siguiente"></asp:Label><i class="bi bi-chevron-right"></i>
+                    </asp:LinkButton>
 
                 </asp:Panel>
-
+                <%-- ========================= Botonones de administrador: solo visibles si eres admin =========== --%>
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
                     <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminBack_Click"
                         data-bs-toggle="tooltip"

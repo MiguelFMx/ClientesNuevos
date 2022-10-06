@@ -46,7 +46,7 @@ namespace ClientesNuevos.F14.Seccioness
                     if (Request.Cookies.Get("id_comp").Value != null)
                     {
                         dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
-
+                        CambiarLinks();
                     }
                     pAdminControl.Visible = true;
                     pUserControl.Visible = false;
@@ -77,6 +77,13 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
+        private void CambiarLinks()
+        {
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?admin=si&id="+ Request.QueryString["id"];
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?admin=si&id="+ Request.QueryString["id"];
+            step4.NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id="+ Request.QueryString["id"];
+            step5.NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx?admin=si&id="+ Request.QueryString["id"];
+        }
 
         protected void llenarCampos(DataTable table)
         {
@@ -199,15 +206,19 @@ namespace ClientesNuevos.F14.Seccioness
                 ddCiudad.Items.Clear();
                 var pais = Convert.ToInt32(ddPais.SelectedItem.Value);
                 LlenarEstado(ddEstado, pais);
+               string id = ddTipoDePersona.SelectedItem.Value;
 
-            if(ddPais.SelectedItem.Value == "231")
+            if (ddPais.SelectedItem.Value == "231")
             {
                ddTipoDePersona.Enabled = false;
-                
+                ddTipoDePersona.Items.FindByValue(id).Selected = false;
+                ddTipoDePersona.Items.FindByValue("2").Selected = true;
+                lblRFC.Text = "TaxID";
             }
             else
             {
                 ddTipoDePersona.Enabled = true;
+                lblRFC.Text = "RFC";
 
             }
         }
@@ -366,7 +377,7 @@ namespace ClientesNuevos.F14.Seccioness
             Forma_pago = ddFormaPago.SelectedValue;
             Moneda = ddMoneda.SelectedValue;
             
-         //  lblresultado.Text = clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+           lblresultado.Text = clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
         
         }
 

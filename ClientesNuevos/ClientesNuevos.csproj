@@ -107,8 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\carpetilla\carpetilla.aspx" />
-    <Content Include="admin\carpetilla\fisica.aspx" />
-    <Content Include="admin\carpetilla\moral.aspx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\index_admin.js" />
     <Content Include="admin\template\build\css\custom.css" />
@@ -4765,20 +4763,6 @@
     </Compile>
     <Compile Include="admin\carpetilla\carpetilla.aspx.designer.cs">
       <DependentUpon>carpetilla.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\carpetilla\fisica.aspx.cs">
-      <DependentUpon>fisica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\carpetilla\fisica.aspx.designer.cs">
-      <DependentUpon>fisica.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\carpetilla\moral.aspx.cs">
-      <DependentUpon>moral.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\carpetilla\moral.aspx.designer.cs">
-      <DependentUpon>moral.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
