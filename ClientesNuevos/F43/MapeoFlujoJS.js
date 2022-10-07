@@ -2,23 +2,59 @@
 
 /// <reference path="../scripts/js/ajax.js" />
 
+
+
+var count = 1;
+
 $(document).ready(function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     //Tabla de informacion 
-    var count = 1;
-    dynamic_field(count);
+    ObtenerMapeoInfo();
+    //dynamic_field(count);
 
     $('#btnContinuar').click(function () {
+        var id;
+        GetAjax("../F14/wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id = res;
+            });
 
-        $('#error').html('');
-        Insertar_Registros();        
-    });
-
-    $('#MainContent_btnHome').click(function () {
         $('#error').html('');
         Insertar_Registros();
-        window.location("../usuario/user_index.aspx");
+
+        if ($('#error').html() == '') {
+            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
+                let pregunta = confirm('Informacion registrada con exito ¿desea continuar con el registro?');
+                if (pregunta) {
+                    window.location.href = '../F5/evaluacionseguridad.aspx';
+                } else {
+                    window.location.href = '../usuario/user_index.aspx';
+                }
+            });
+        }
+    });
+
+    $('#btnHome').click(function () {
+
+        var id;
+        GetAjax("../F14/wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id = res;
+            });
+
+        $('#error').html('');
+        Insertar_Registros();
+
+        if ($('#error').html() == '') {
+            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
+                window.location.href = '../usuario/user_index.aspx';
+            });
+        }
     });
 
     $('#add').click(function () {
@@ -72,9 +108,6 @@ function dynamic_field(number) {
             $('#tMapeo tbody').html(html);
         }
 }
-
-
-
 function Insertar_Registros() {
     var aux = 1, aux1 = 1, aux2 = 1, aux3 = 1, aux4 = 1, aux5 = 1, aux6 = 1, aux8 = 0;
     var numero = [];
@@ -193,19 +226,12 @@ function Insertar_Registros() {
                     result = res;
                 });
         }
-        if (result != '') {
+        //if (result != '') {
 
-            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
-                let pregunta = confirm('¿Desea continuar con el registro?');
-                if (pregunta) {
-                    window.location.href = '../F5/evaluacionseguridad.aspx';
-                } else {
-                    window.location.href = '../usuario/user_index.aspx';
-                }
-            });
+        //   
 
 
-        }
+        //}
 
 
 
@@ -219,4 +245,75 @@ function Insertar_Registros() {
             '<div class="row">' + error + '</div>' +
             '</div>');
     }    
+}
+
+function ObtenerMapeoInfo() {
+    let comp;
+    GetAjax("../F14/wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            comp = res;
+        });
+    GetAjax("MapeoBD.asmx/ObtenerInfoMapeo", "'ID_Mapeo':'" + comp + "'", false, function (infoMapeo) {
+        if (infoMapeo.length > 0) {
+            $('#MainContent_lblFecha').html('Fecha: ' + infoMapeo[0].Fecha);
+            $('#txtAuditor').val(infoMapeo[0].Auditor);
+
+            MostrarMapeo(infoMapeo[0].ID_Mapeo);
+        }
+    });
+}
+
+function MostrarMapeo(comp) {
+    let opciones='';
+    let aux;    
+    GetAjax("MapeoBD.asmx/ObtenerMapeo", "'ID_Mapeo':'" + comp + "'", false, function (mapeo) {
+        if (mapeo.length > 0) {
+            for (var i = 0; i < mapeo.length; i++) {
+                aux = i + 1;
+
+                if (mapeo[i].Movimiento == "Si") {
+                    opciones = '<option value="si" selected>Si</option>' +
+                        '<option value="no">No</option>' +
+                        '<option value="na">N/A</option>';
+                } else if (mapeo[i].Movimiento == "No") {
+                    opciones = '<option value="si">Si</option>' +
+                        '<option value="no" selected>No</option>' +
+                        '<option value="na">N/A</option>';
+                } else if (mapeo[i].Movimiento == "na") {
+                    opciones = '<option value="si">Si</option>' +
+                        '<option value="no">No</option>' +
+                        '<option value="na" selected>N/A</option>';
+                }
+
+                var html = '<tr>';
+                html += '<td><span name="in_numero">' + aux + '</sapn></td>';
+                html += '<td><div class="col"><textarea  name="in_proveedor" class="form-control" >' + mapeo[i].Proveedor + '</textarea></div></td > ';
+                html += '<td><div class="col"><textarea type="text" name="in_proceso" class="form-control">' + mapeo[i].Proceso + '</textarea></div></td>';
+                html += '<td>' +
+                    '<div class="col">' +
+                    '<select name="in_movimiento" class="form-select">' +
+                    opciones +
+                    '</select>' +
+                    '</div>' +
+                    '</td>';
+                html += '<td><div class="col"><textarea type="text" name="in_detalles" class="form-control">' + mapeo[i].Detalles + '</textarea></div></td>';
+                html += '<td><div class="col"><textarea type="text" name="in_dias" class="form-control">' + mapeo[i].dias_reposo + '</textarea></div></td>';
+                html += '<td><div class="col"><textarea name="in_modo" class="form-control">' + mapeo[i].modo_transporte + '</textarea></div></td>';
+                html += '<td><div class="col"><textarea name="in_pregunta" class="form-control">' + mapeo[i].pregunta + '</textarea></div></td>';
+
+                if (aux > 1) {
+                    html += '<td><button type="button" class="btn btn-danger" name="remove" id="remove" style="border-radius:42px;"><i class="fas fa-minus-circle"></i></button></td></tr>';
+                    $('#tMapeo tbody').append(html);
+                } else {
+                    html += '<td><button type="button"class="btn btn-success" name="add" id="add" style="border-radius:42px;"><i class="fas fa-plus-circle"></i></button></td></tr>';
+                    $('#tMapeo tbody').html(html);
+                }
+                count = aux;
+            }
+        } else {
+            dynamic_field(1);
+        }
+    });
 }

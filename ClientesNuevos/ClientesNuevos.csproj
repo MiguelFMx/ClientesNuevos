@@ -3785,6 +3785,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="template\assets\css\login\style.css" />
+    <Content Include="template\assets\css\style_f5.css" />
     <Content Include="template\assets\img\logo\Hungaros.png" />
     <Content Include="template\assets\img\logo\HungarosTexto.png" />
     <Content Include="template\assets\img\logo\Tractor.jpg" />

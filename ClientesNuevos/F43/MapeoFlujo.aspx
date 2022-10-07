@@ -114,13 +114,13 @@
         <br />
         <hr />
         <div class="row">
-            <div class="col-10">
+            <div class="col-9">
             </div>
             <div class="col">
-                <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
-                        data-bs-toggle="tooltip"
+                <button class="btn btn-secondary" id="btnHome" data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Guardar y salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                        title="Guardar y salir" type="button" ><i class="bi bi-house-door"></i></button>
+                &nbsp;&nbsp;
                 <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
             </div>
         </div>

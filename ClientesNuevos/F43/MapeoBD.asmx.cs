@@ -7,6 +7,10 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using ClientesNuevos.App_Code;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Permissions;
+using System.Runtime.Remoting;
+
 namespace ClientesNuevos.F43
 {
     /// <summary>
@@ -19,7 +23,106 @@ namespace ClientesNuevos.F43
      [System.Web.Script.Services.ScriptService]
     public class MapeoBD : System.Web.Services.WebService
     {
+        public class MapeoFlujo
+        {
+            public string ID { get; set; } 
+            public string ID_Mapeo { get; set; }
+            public string no_paso { get; set; }
+            public string Proveedor { get; set; }
+            public string Proceso { get; set; }
+            public string Movimiento { get; set; }
+            public string Detalles { get; set; }
+            public string dias_reposo { get; set; }
+            public string modo_transporte { get; set; }
+            public string pregunta { get; set; }
 
+        }
+        public class infoMapeo
+        {
+            public string ID_Mapeo { get; set; }
+            public string ID_Compania { get; set; }
+            public string Fecha { get; set; } 
+            public string Auditor { get; set; }
+
+        }
+        [WebMethod]
+        public List<infoMapeo> ObtenerInfoMapeo(string ID_Mapeo)
+        {
+            List<infoMapeo> lstMapeo = new List<infoMapeo>();
+            infoMapeo objMapeo;
+
+            string strSQL = "SELECT * FROM Table_Mapeo WHERE ID_compania = '" + ID_Mapeo + "'";
+            DataTable dt = new DataTable();
+
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                objMapeo = new infoMapeo
+                {
+                    ID_Mapeo = row["ID_Mapeo"].ToString(),
+                    ID_Compania = row["ID_Compania"].ToString(),
+                    Auditor = row["Auditor"].ToString(),
+                    Fecha = row["Fecha"].ToString().Substring(0, 10)
+                };
+                lstMapeo.Add(objMapeo);
+            }
+
+            return lstMapeo;
+        }
+
+        [WebMethod]
+        public List<MapeoFlujo> ObtenerMapeo(string ID_Mapeo)
+        {
+            List<MapeoFlujo> lstMapeo = new List<MapeoFlujo>();
+            MapeoFlujo objMF;            
+             
+            string strSQL = "SELECT * FROM Table_MapeoDetalle WHERE ID_mapeo = '" + ID_Mapeo + "'";
+            DataTable dt = new DataTable();
+           
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+           foreach (DataRow row in dt.Rows)
+           {
+               objMF = new MapeoFlujo
+               {
+                   ID = row["ID"].ToString(),
+                   ID_Mapeo = row["ID_Mapeo"].ToString(),
+                   no_paso = row["no_paso"].ToString(),
+                   Proveedor = row["Proveedor"].ToString(),
+                   Proceso = row["Proceso"].ToString(),
+                   Movimiento = row["Movimiento"].ToString(),
+                   Detalles = row["Detalles"].ToString(),
+                   dias_reposo = row["dias_reposo"].ToString(),
+                   modo_transporte = row["modo_transporte"].ToString(),
+                   pregunta = row["pregunta"].ToString()
+               };
+               lstMapeo.Add(objMF);
+           }
+            return lstMapeo;
+        }
        //Insertar en tabla de detalles de Mapeo
        [WebMethod]
        public string Insertar_DetallesMapeo(string ID_Mapeo, string no_paso, string Provedor, string Proceso, string Movimiento, string Detalles, string dias_reposo, string modo_transporte, string pregunta)

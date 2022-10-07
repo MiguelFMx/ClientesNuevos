@@ -39,15 +39,7 @@ namespace ClientesNuevos.F5.Autoevaluacion
             }
         }
 
-        protected void btnAtras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("autoevaluacion.aspx");
-        }
-
-        protected void btnFinalizar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../.././usuario/user_index.aspx");
-        }
+       
 
     }
 }

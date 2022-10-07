@@ -2,6 +2,7 @@
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../../template/assets/css/style_f5.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
@@ -37,8 +38,8 @@
                 </div>
             </div>
             <br />
-            <div  style="break-before: page;"></div>
-             <h3 class="text-secondary">Resultados de autoevaluación</h3>
+            <div style="break-before: page;"></div>
+            <h3 class="text-secondary">Resultados de autoevaluación</h3>
             <hr />
             <div class="row">
                 <div class="col">
@@ -74,9 +75,9 @@
                     </div>
                 </div>
             </div>
-          
 
-            
+
+
             <div class="row">
                 <div class="col-5">
                     <table class="table table-bordered" id="tabla1">
@@ -509,32 +510,42 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <table class="table table-bordered" style="font-weight:bold;">
+                    <table class="table table-bordered" style="font-weight: bold;">
                         <thead>
-                           <tr>
-                               <th colspan="3">Niveles de riesgo</th>
-                           </tr>  
+                            <tr>
+                                <th colspan="3">Niveles de riesgo</th>
+                            </tr>
                         </thead>
                         <tr>
-                            <td style="background-color:#ff0000;"><span>Nivel 3. Risgo alto: 0 a 49% de cumplimiento</span></td>
-                            <td style="background-color:#eddb11;"><span>Nivel 2. Risgo medio: 50% a 74% de cumplimiento</span></td>
-                            <td style="background-color:#39c922;"><span>Nivel 1. Risgo bajo: 75% a 100% de cumplimiento</span></td>
+                            <td style="background-color: #ff0000;"><span>Nivel 3. Risgo alto: 0 a 49% de cumplimiento</span></td>
+                            <td style="background-color: #eddb11;"><span>Nivel 2. Risgo medio: 50% a 74% de cumplimiento</span></td>
+                            <td style="background-color: #39c922;"><span>Nivel 1. Risgo bajo: 75% a 100% de cumplimiento</span></td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-2"></div>
             </div>
+        </div>
+        <asp:Panel ID="pUser" runat="server">
+            <div class="acciones">
+                <asp:LinkButton ID="btnAtras" runat="server" CssClass="btn btn-secondary" PostBackUrl="~/F5/Autoevaluacion/autoevaluacion.aspx" data-bs-toggle="tooltip"
+                    data-bs-placement="left"
+                    title="Rehacer evaluacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+
+                <button class="btn btn-primary" onclick="DescargarDoc();" type="button" data-bs-toggle="tooltip"
+                    data-bs-placement="left"
+                    title="Imprimir">
+                    <i class="bi bi-printer-fill"></i>
+                </button>
+                <asp:LinkButton ID="btnFinalizar" runat="server" CssClass="btn btn-success" PostBackUrl="~/usuario/user_index.aspx" data-bs-toggle="tooltip"
+                    data-bs-placement="left"
+                    title="Ir al inicio"><i class="bi bi-house-door-fill"></i></asp:LinkButton>
             </div>
-            <div class="row">
-                <div class="col" style="display:flex; justify-content:flex-start;">
-                    <asp:Button ID="btnAtras" runat="server" Text="Rehacer autoevaluación" CssClass="btn btn-secondary" OnClick="btnAtras_Click"/>
-                </div>
-                <div class="col"></div>
-                <div class="col"style="display:flex; justify-content:flex-end;">
-                    <button class="btn btn-info" onclick="DescargarDoc();" type="button" style="margin-right:10px;">Imprimir</button>
-                    <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" CssClass="btn btn-success" OnClick="btnFinalizar_Click" />
-                </div>
-            </div>        
+        </asp:Panel>
+
+        <asp:Panel ID="Panel2" runat="server">
+        </asp:Panel>
+
     </div>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
