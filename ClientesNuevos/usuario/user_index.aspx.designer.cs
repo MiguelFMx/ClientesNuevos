@@ -492,6 +492,33 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Button btnCartaCompromiso;
 
         /// <summary>
+        /// Control lblF20_estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF20_estatus;
+
+        /// <summary>
+        /// Control lblF20_fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblF20_fecha;
+
+        /// <summary>
+        /// Control btnCriteriosMinimos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCriteriosMinimos;
+
+        /// <summary>
         /// Control inputFile.
         /// </summary>
         /// <remarks>

@@ -86,6 +86,7 @@ namespace ClientesNuevos.usuario
 
         protected void Documentos()
         {
+            string id = Request.Cookies.Get("id").Value;
             try
             {
                 List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos( HttpContext.Current.Request.Cookies.Get("id_comp").Value );
@@ -400,6 +401,30 @@ namespace ClientesNuevos.usuario
                         }
                         lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    if (Docs[i].Documento == "F20" && Docs[i].ID_compania== id )
+                    {
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblF20_estatus.Text = "completado";
+                            lblF20_estatus.CssClass = "etiqueta";
+                        }
+                        else if (Docs[i].Estatus == "revision")
+                        {
+                            lblF20_estatus.Text = "en revision";
+                            lblF20_estatus.CssClass = "etiqueta revision";
+
+                        }
+                        else if (Docs[i].Estatus == "act")
+                        {
+                            lblF20_estatus.Text = "actualizar";
+                            lblF20_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else
+                        {
+                            lblF20_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblF20_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
                 }
             }
             catch (Exception)
@@ -546,6 +571,11 @@ namespace ClientesNuevos.usuario
                 default:
                     break;
             }
+        }
+
+        protected void btnCriteriosMinimos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../F20/CriteriosMinimos.aspx");
         }
     }
 }

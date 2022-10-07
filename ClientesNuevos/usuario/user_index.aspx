@@ -276,7 +276,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Admision de cliente nuevo</td>
+                                        <td>Admision de cliente nuevo (F-14)</td>
                                         <td>
                                             <!-- <span class="etiqueta pendiente">pendiente</span> -->
                                             <asp:Label ID="lblF14_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
@@ -292,7 +292,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Mapeo de flujo de carga</td>
+                                        <td>Mapeo de flujo de carga (F-43)</td>
                                         <td>
                                             <asp:Label ID="lblF43_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
@@ -306,7 +306,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Evaluacion de seguridad</td>
+                                        <td>Evaluacion de seguridad (F-5)</td>
                                         <td>
                                             <asp:Label ID="lblF5_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
                                         </td>
@@ -319,7 +319,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Carta compromiso</td>
+                                        <td>Carta compromiso (F-12)</td>
                                         <td>
                                             <asp:Label ID="lblF12_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
                                         </td>
@@ -328,6 +328,19 @@
                                         </td>
                                         <td>
                                             <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" />
+
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>Criterios minimos de seguridad C-TPAT (F-20)</td>
+                                        <td>
+                                            <asp:Label ID="lblF20_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblF20_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnCriteriosMinimos" CssClass="btn btn-success " runat="server" Text="    Leer criterios    " OnClick="btnCriteriosMinimos_Click" />
 
                                         </td>
                                     </tr>

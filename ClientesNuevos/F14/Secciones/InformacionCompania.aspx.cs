@@ -23,7 +23,9 @@ namespace ClientesNuevos.F14.Seccioness
         List<wsUbicacion.ListaPais> lstPais;
         ListItem item;
         DataTable dt, dtBanco;
-        
+        //Detecta si la seccion de info bancaria esta activa
+        bool boolbanco = true;
+
         string id_user = HttpContext.Current.Request.Cookies.Get("id").Value;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -506,9 +508,11 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 try
                 {
+                    if (boolbanco) { 
                    banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
-
+                    }
                     documento += clsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+                    
                 }
                 catch (Exception ex)
                 {

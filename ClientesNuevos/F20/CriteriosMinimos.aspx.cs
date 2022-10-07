@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientesNuevos.F14;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,20 @@ namespace ClientesNuevos.F20
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnContinuar_Click(object sender, EventArgs e)
+        {
+            string id = Request.Cookies.Get("id").Value;
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+            string res;
+
+            res = wsBaseDatos.InsertarDocumento(id,"F20","","100%");
+
+            if(res != "")
+            {
+                Response.Redirect("~/usuario/user_index.aspx");
+            }
         }
     }
 }

@@ -852,6 +852,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblF16_fecha;
 
         /// <summary>
+        /// Control btnCheck_F16.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCheck_F16;
+
+        /// <summary>
         /// Control lblF20_estatus.
         /// </summary>
         /// <remarks>

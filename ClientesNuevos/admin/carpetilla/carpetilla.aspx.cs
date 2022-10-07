@@ -381,6 +381,29 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         lblOEA_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    if (fila["Documento"].ToString() == "F16")
+                    {
+                        if (fila["Estatus"].ToString() == "100%")
+                        {
+                            lblF16_estatus.Text = "completado";
+                            lblF16_estatus.CssClass = "etiqueta";
+                        }
+                        else if (fila["Estatus"].ToString() == "revision")
+                        {
+                            lblF16_estatus.Text = "revision";
+                            lblF16_estatus.CssClass = "etiqueta revision";
+                        }
+                        else if (fila["Estatus"].ToString() == "act")
+                        {
+                            lblF16_estatus.Text = "actualizar";
+                            lblF16_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else
+                        {
+                            lblF16_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
+                        }
+                        lblF16_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                    }
                 }
             }
         }
@@ -762,6 +785,8 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F43")
             {
                 lblPrueba.Text = "Ver F43";
+                Response.Redirect("../../F43/MapeoFlujo.aspx?id=" + id_comp + "&admin=si");
+
             }
             else if (buttonId == "btnCheck_F43")
             {
@@ -774,6 +799,14 @@ namespace ClientesNuevos.admin.carpetilla
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "act");
                 Response.Redirect(Request.RawUrl);
             }
+        }
+
+        protected void btnCheck_F16_Click(object sender, EventArgs e)
+        {
+            id_comp = Request.QueryString["id"].ToString();
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+            lblPrueba.Text = wsBaseDatos.InsertarDocumento(id_comp, "F16", "", "100%");
+            
         }
     }
 }

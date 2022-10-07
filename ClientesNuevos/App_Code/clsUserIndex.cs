@@ -12,6 +12,7 @@ namespace ClientesNuevos.App_Code
     {
         public class ControlDocumento
         {
+            public string ID_compania { get; set; }
             public string Documento { get; set; }
             public string Estatus { get; set; }
             public string  Fecha{ get; set; }            
@@ -42,6 +43,7 @@ namespace ClientesNuevos.App_Code
             {
                 objDoc = new ControlDocumento
                 {
+                    ID_compania = row["ID_compania"].ToString(),
                     Documento = row["Documento"].ToString(),
                     Estatus = row["Estatus"].ToString(),
                     Fecha = row["Fecha_creacion"].ToString(),

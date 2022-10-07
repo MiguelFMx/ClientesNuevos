@@ -476,7 +476,10 @@
                                             <asp:Label ID="lblF16_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
-
+                                            <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success" runat="server"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                title="Aprovar" OnClick="btnCheck_F16_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                     <%--<!-- =============================================================Criterios minimos de seguridad C-TPAT (F-20)======================================== -->--%>

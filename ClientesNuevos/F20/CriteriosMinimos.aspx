@@ -313,8 +313,8 @@
                 </div>
                 <div class="col-5"></div>
                 <div class="col">
-                    
-                    <button type="button" id="btnContinuar" class="btn btn-success">Continuar <i class="bi bi-chevron-double-right"></i></button>
+                    <asp:Button ID="btnContinuar" runat="server" Text="Continuar" CssClass="btn btn-success" OnClick="btnContinuar_Click"/>
+                    <%--<button type="button" id="btnContinuar" class="btn btn-success">Continuar <i class="bi bi-chevron-double-right"></i></button>--%>
                 </div>
             </div>
 
@@ -332,10 +332,8 @@
                 }
             });
 
-            $('#btnContinuar').click(function () {
-                
+            $('#btnContinuar').click(function () {                
                     window.location.href = '../F14/Secciones/InformacionCompania.aspx';
-
                 
             });
         });
