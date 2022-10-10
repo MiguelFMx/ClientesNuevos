@@ -77,16 +77,14 @@
             </div>
             <div class="card-body">
                 <div class="row">
-
-
                     <div class="row">
-                        <div class="col">
+                        <div class="col-sm">
                             <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
                             <!--<input type="text" name="name" value="" id="txtNombreCompaniaFilial" class="form-control " />-->
                             <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
                             <span id="NombreCompaniaFilial" style="color: red;"></span>
                         </div>
-                        <div class="col">
+                        <div class="col-sm">
                             <label for="txtNombrComFilial" class="form-label">Nombre comercial:</label>
                             <%--<input type="text" name="name" value="" id="txtNombrComFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtNombrComFilial" runat="server" CssClass="form-control"></asp:TextBox>
@@ -95,7 +93,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-md-9">
                             <label for="txtDirecFiscalComFilial" class="form-label">Dirección fiscal:</label>
                             <%--<input type="text" name="name" value="" id="txtDirecFiscalComFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtDirecFiscalComFilial" runat="server" CssClass="form-control"></asp:TextBox>
@@ -103,7 +101,7 @@
 
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-md-3">
 
                             <label for="txtRfcComFilial" class="form-label">RFC:</label>
                             <%--<input type="text" name="name" value="" id="txtRfcComFilial" class="form-control " />--%>
@@ -114,7 +112,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-3">
                             <label for="cbPaisComFilial" class="form-label">Pais:</label>
                             <%--<select id="cbPaisComFilial" class="form-select">
                                 <option value="...">...</option>
@@ -122,21 +120,21 @@
                             <asp:DropDownList ID="ddPaisComFilial" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPaisComFilial_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
 
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             <label for="cboEstadoComFilial" class="form-label">Estado:</label>
                             <%--<select id="cboEstadoComFilial" class="form-select">
                                 <option value="value">...</option>
                             </select>--%>
                             <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             <label for="cbCiudadComFilial" class="form-label">Ciudad:</label>
                             <%--<select id="cbCiudadComFilial" class="form-select">
                                 <option value="value">...</option>
                             </select>--%>
                             <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             <label for="txtCPComFIlial" class="form-label">CP:</label>
                             <%--<input type="text" name="name" value="" id="txtCPComFIlial" class="form-control" />--%>
                             <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
@@ -157,7 +155,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="txtNombrContFilial" class="form-label">Nombre:</label>
                             <%--<input type="text" name="name" value="" id="txtNombrContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtNombrContFilial" runat="server" CssClass="form-control"></asp:TextBox>
@@ -165,14 +163,14 @@
 
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label for="txtPuestoContFilial" class="form-label">Puesto:</label>
                             <%--<input type="text" name="name" value="" id="txtPuestoContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtPuestoContFilial" runat="server" CssClass="form-control"></asp:TextBox>
                             <span id="PuestoContFilial" style="color: red;"></span>
 
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label for="txtCorreoContFilial" class="form-label">Correo:</label>
                             <%--<input type="email" name="name" value="" id="txtCorreoContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtCorreoContFilial" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
@@ -181,19 +179,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="txtTelContFilial" class="form-label">Telefono:</label>
                             <%--<input type="tel" name="name" value="" id="txtTelContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtTelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                             <span id="TelContFilial" style="color: red;"></span>
 
                         </div>
-                        <div class="col-2">
+                        <div class="col-md-2">
                             <label for="txtExtContFilial" class="form-label">Extension:</label>
                             <%--<input type="text" name="name" value="" id="txtExtContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtExtContFilial" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <label for="txtCelContFilial" class="form-label">Celular:</label>
                             <%--<input type="tel" name="name" value="" id="txtCelContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtCelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
@@ -252,7 +250,6 @@
         </div>
         <hr />
         <div class="row">
-            <div class="col-9"></div>
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUsrControl" runat="server">
                     <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;

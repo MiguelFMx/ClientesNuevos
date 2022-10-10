@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
     });    
 
-    dynamic_field(count);
+   
 
     $('#add').click(function () {
         count++;
@@ -56,7 +56,7 @@ $(document).ready(function () {
         } else if (radio == 'no') {
 
             insertar_estatus();
-            //     documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+                 documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
             GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'revision'", false, function (res) {
                 let alert = confirm('¿Desea continuar?');
                 if (alert) {
@@ -360,7 +360,9 @@ function ObtenerPrograma() {
         });
     GetAjax("../wsBaseDatos.asmx/ObtenerProgramas", "'ID_compania':'" + comp + "'", false, function (programa) {
         if (programa.length > 0) {
-            $('#radCertificadoSi').prop('checked', true);
+            //$('#radCertificadoSi').prop('checked', true);
+            document.getElementById('radCertificadoSi').checked = true;
+
             $('#divCertificado').show('fast');
             
             for (var i = 0; i < programa.length; i++) {
@@ -423,9 +425,10 @@ function ObtenerPrograma() {
                 }
                 count = aux;
             }
-            count++;
         } else {
-            $('#radCertificadoNo').prop('checked', true);
+            //$('#radCertificadoNo').prop('checked', true);
+            document.getElementById('radCertificadoNo').checked = true;
+
 
             dynamic_field(1);
 

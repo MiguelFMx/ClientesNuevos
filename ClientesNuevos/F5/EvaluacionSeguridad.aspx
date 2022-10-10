@@ -28,7 +28,7 @@
                                         <div class="col-auto">
                                             <span style="padding-top: 10px;">Nuestra compañia <strong>ya esta certificada</strong>  en C-TPAT y nuestro numero de cuenta es:</span>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-md-5">
                                             <asp:TextBox ID="txt100" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
@@ -87,6 +87,7 @@
                                 </div>
                             </div>
                             <hr />
+                            <%-- ==============Si la respuesta es si ================================================== --%>
                             <asp:Panel ID="PanelSi" runat="server" Visible="false">
                                 <section id="seccionSI" style="background-color: #EEE8E7;">
                                     <div class="row">
@@ -107,7 +108,7 @@
                                                 <div class="col-auto">
                                                     <span>Número de Cuenta C-TPAT:</span>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-md-4">
                                                     <asp:TextBox ID="txt1311" runat="server" CssClass="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -125,7 +126,7 @@
                                                 <div class="col-auto">
                                                     <span>Estatus de cuenta:</span>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-md-4">
                                                     <asp:DropDownList ID="cb1312" runat="server" CssClass="form-select">
                                                         <asp:ListItem Text="Certificado" Value="0" />
                                                         <asp:ListItem Text="Certificado validado" Value="1" />
@@ -146,7 +147,7 @@
                                                 <div class="col-auto">
                                                     <span>Estatus de revisión de su perfil de seguridad:</span>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-md-4">
                                                     <asp:DropDownList ID="cb1313" runat="server" CssClass="form-select">
                                                         <asp:ListItem Text="Actualizado" Value="1" />
                                                         <asp:ListItem Text="En Revision" Value="2" />
@@ -159,7 +160,7 @@
 
                                 </section>
                             </asp:Panel>
-
+                            <%-- ==============Si la respuesta es no ================================================== --%>
                             <asp:Panel ID="PanelNo" runat="server" Visible="false">
                                 <section id="seccionNO" style="background-color: #EEE8E7;">
                                     <div class="row">
@@ -317,10 +318,9 @@
             </div>
         </div>
         <br />
-        <asp:Label ID="lbluno" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lbluno" runat="server" Text="Label" Visible="false"></asp:Label>
 
         <div class="row">
-            <div class="col"></div>
             <div class="col" style="display:flex; justify-content:flex-end;">
                  <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                     data-bs-toggle="tooltip"

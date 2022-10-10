@@ -645,6 +645,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Label lblTitulo_DatosBancarios;
 
         /// <summary>
+        /// Control pDatosBancarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pDatosBancarios;
+
+        /// <summary>
         /// Control lblMetodoPago.
         /// </summary>
         /// <remarks>

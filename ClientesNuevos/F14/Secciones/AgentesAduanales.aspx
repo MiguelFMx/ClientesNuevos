@@ -90,31 +90,29 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col">
-
-
+                    <div class="col-md">
                         <div class="card h-100">
                             <h5 class="card-header cabezal">Información</h5>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNombreCompaniaAA" class="form-label">Nombre de la compañia:</label>
                                         <%--<input type="text" name="txtNombreCompaniaAA" value="" id="txtNombreCompaniaAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombreCompaniaAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNoPatAA" class="form-label">Numero de patente:</label>
                                         <%--<input type="text" name="txtNoPatAA" value="" id="txtNoPatAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtNoPatAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNombrComAA" class="form-label">Nombre comercial:</label>
                                         <%--<input type="text" name="txtNombrComAA" value="" id="txtNombrComAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombrComAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtRFCTaxAA" id="lblRFCTaxAAA" class="form-label">RFC:</label>
                                         <br />
                                         <%--<input type="text" name="txtRFCTaxAA" value="" id="txtRFCTaxAA" class="form-control" />--%>
@@ -129,21 +127,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtEstadoAA" class="form-label">Estado:</label>
                                         <%--<select id="cbEstadoAA" class="form-select">
                                                 <option value="value">...</option>
                                             </select>--%>
                                         <asp:DropDownList ID="ddEstadoAA" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddEstadoAA_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtCiudadAA" class="form-label">Ciudad:</label>
                                         <%--<select id="cbCiudadAA" class="form-select">
                                                 <option value="value">...</option>
                                             </select>--%>
                                         <asp:DropDownList ID="ddCiudadAA" runat="server" CssClass="form-select"></asp:DropDownList>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtCPAA" id="lblCPAA" class="form-label">Codgio Postal:</label>
                                         <%--<input type="text" name="txtCPAA" value="" id="txtCPAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtCPAA" runat="server" CssClass="form-control"></asp:TextBox>
@@ -152,17 +150,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md">
                         <div class="card h-100">
                             <h5 class="cabezal card-header ">Contacto</h5>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNombrContAA" class="form-label">Nombre:</label>
                                         <%--<input type="text" name="txtNombrContAA" value="" id="txtNombrContAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombrContAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtpuestoContAA" class="form-label">Puesto:</label>
                                         <%--<input type="text" name="txtpuestoContAA" value="" id="txtpuestoContAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtpuestoContAA" runat="server" CssClass="form-control"></asp:TextBox>
@@ -177,17 +175,17 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtTelContAA" class="form-label">Telefono:</label>
                                         <%--<input type="tel" name="txtTelContAA" value="" id="txtTelContAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtTelContAA" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtExtxContAA" class="form-label">Extension:</label>
                                         <%--<input type="text" name="txtExtxContAA" value="" id="txtExtxContAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtExtxContAA" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtCelContAA" class="form-label">Celular:</label>
                                         <%--<input type="tel" name="name" value="" id="txtCelContAA" class="form-control" />--%>
                                         <asp:TextBox ID="txtCelContAA" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
@@ -207,31 +205,29 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md">
                         <div class="card h-100">
                             <h5 class="card-header cabezal">Información</h5>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNombreCompaniaAAm" class="form-label">Nombre de la compañia:</label>
                                         <%--<input type="text" name="txtNombreCompaniaAA" value="" id="txtNombreCompaniaAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombreCompaniaAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNoPatAAm" class="form-label">Numero de patente:</label>
                                         <%--<input type="text" name="txtNoPatAA" value="" id="txtNoPatAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtNoPatAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtNombrComAAm" class="form-label">Nombre comercial:</label>
                                         <%--<input type="text" name="txtNombrComAA" value="" id="txtNombrComAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombrComAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtTaxAAm" id="lblRFCTaxAAAm" class="form-label">Tax ID:</label>
                                         <br />
                                         <%--<input type="text" name="txtRFCTaxAA" value="" id="txtRFCTaxAAm" class="form-control" />--%>
@@ -245,24 +241,22 @@
                                         <asp:TextBox ID="txtDirecAAm" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                                     </div>
                                 </div>
-
                                 <div class="row">
-
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="cbEstadoAAm" class="form-label">Estado:</label>
                                         <%--<select id="cbEstadoAAm" class="form-select">
                                             <option value="value">...</option>
                                         </select>--%>
                                         <asp:DropDownList ID="ddEstadoAAm" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoAAm_SelectedIndexChanged"></asp:DropDownList>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="cbCiudadAAm" class="form-label">Ciudad:</label>
                                         <%--<select id="cbCiudadAAm" class="form-select">
                                             <option value="value">...</option>
                                         </select>--%>
                                         <asp:DropDownList ID="ddCiudadAAm" runat="server" CssClass="form-select"></asp:DropDownList>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtCPAAm" id="lblCPAAm" class="form-label">Zip code:</label>
                                         <%--<input type="text" name="txZCPAA" value="" id="txtCPAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtCPAAm" runat="server" CssClass="form-control"></asp:TextBox>
@@ -271,17 +265,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md">
                         <div class="card  h-100">
                             <h5 class="cabezal card-header ">Contacto</h5>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtNombrContAAm" class="form-label">Nombre:</label>
                                         <%--<input type="text" name="txtNombrContAA" value="" id="txtNombrContAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtNombrContAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="txtpuestoContAAm" class="form-label">Puesto:</label>
                                         <%--<input type="text" name="txtpuestoContAAm" value="" id="txtpuestoContAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtpuestoContAAm" runat="server" CssClass="form-control"></asp:TextBox>
@@ -296,17 +290,17 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtTelContAAm" class="form-label">Telefono:</label>
                                         <%--<input type="tel" name="txtTelContAAm" value="" id="txtTelContAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtTelContAAm" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtExtContAAm" class="form-label">Extension:</label>
                                         <%--<input type="text" name="txtExtContAAm" value="" id="txtExtxContAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtExtContAAm" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md">
                                         <label for="txtCelContAAm" class="form-label">Celular:</label>
                                         <%--<input type="tel" name="name" value="" id="txtCelContAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtCelContAAm" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>

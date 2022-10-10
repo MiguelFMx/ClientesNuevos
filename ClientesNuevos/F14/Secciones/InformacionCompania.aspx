@@ -98,7 +98,7 @@
                 <div class="card-body">
                     <div id="contenedorComp">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-sm">
                                 <asp:Label ID="lblNombreCompania" runat="server" Text="Nombre de la compañia:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control" AutoPostBack="True"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
@@ -107,7 +107,7 @@
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>
-                            <div class="col">
+                            <div class="col-sm">
                                 <asp:Label ID="lblNombreComercial" runat="server" Text="Nombre comercial:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
@@ -121,7 +121,7 @@
                         <br />
                         <div class="row">
 
-                            <div class="col">
+                            <div class="col-md">
                                 <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
                                     <asp:ListItem Text="Extranjero" Value="2" />
@@ -129,7 +129,7 @@
                                     <asp:ListItem Text="Fisica" Value="1" />
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
@@ -138,12 +138,12 @@
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 <asp:Label ID="lblCURP" runat="server" Text="CURP" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control"></asp:TextBox>
 
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 <asp:Label ID="lblAnosNegocio" runat="server" Text="Años de negocio:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtAnosNegocio" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
@@ -156,7 +156,7 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-md-8">
                                 <asp:Label ID="lblDirecFiscal" runat="server" Text="Dirección fiscal:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtDirecFiscal" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
@@ -165,7 +165,7 @@
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 <asp:Label ID="lblCP" runat="server" Text="CP:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCP" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
@@ -177,18 +177,18 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col">
+                            <div class="col-sm">
                                 <asp:Label ID="lblPais" runat="server" Text="Pais:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddPais" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPais_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col-sm">
                                 <asp:Label ID="lblEstado" runat="server" Text="Estado:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddEstado" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstado_SelectedIndexChanged">
                                     <asp:ListItem Text="..." Value="0" Enabled="false" />
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col-sm">
                                 <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:" CssClass="form-label"></asp:Label>
 
                                 <asp:DropDownList ID="ddCiudad" runat="server" AutoPostBack="True" CssClass="form-select" OnSelectedIndexChanged="ddCiudad_SelectedIndexChanged"></asp:DropDownList>
@@ -205,7 +205,7 @@
 
             <div class="row">
                 <!--------------------------------------------Datos de facturacion--------------------------------------------------------->
-                <div class="col">
+                <div class="col-md">
                     <div class="card border-primary">
                         <div class="card-header cabezal">
                             <div class="col">
@@ -256,15 +256,17 @@
                         </asp:Panel>
                     </div>
                 </div>
-                <!-- ============================Datos bancarios======================================= -->
-                <div class="col">
+                <!-- ===============================================Datos bancarios=================================================== -->
+                <div class="col-md">
                     <div class="card border-primary">
                         <h6 class="card-header cabezal">
                             <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="Datos bancarios"></asp:Label>
                         </h6>
+                    <asp:Panel runat="server" ID="pDatosBancarios">
+
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-md-5">
                                     <asp:Label ID="lblMetodoPago" runat="server" Text="Metodo de pago:" CssClass="form-label"></asp:Label>
                                     <asp:DropDownList ID="ddMetodoPago" runat="server" CssClass="form-select" AutoPostBack="False">
                                         <asp:ListItem Text="..." Value="0" Selected="False" />
@@ -273,12 +275,12 @@
                                     </asp:DropDownList>
 
                                 </div>
-                                <div class="col-4">
+                                <div class="col-md-4">
                                     <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago:" CssClass="form-label"></asp:Label>
                                     <asp:DropDownList ID="ddFormaPago" runat="server" CssClass="form-select">
                                     </asp:DropDownList>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-md-3">
                                     <asp:Label ID="lblMoneda" runat="server" Text="Moneda"></asp:Label>
                                     <asp:DropDownList ID="ddMoneda" runat="server" CssClass="form-select">
                                         <asp:ListItem Text="..." Value="x" />
@@ -337,13 +339,15 @@
                                 </div>
                             </div>
                         </div>
+                        </asp:Panel>
+
                     </div>
                 </div>
             </div>
             <hr />
             <div class="row">
                 <!-- ==============================================Datos de contacto=========================================================== -->
-                <div class="col-6">
+                <div class="col-md-6">
                     <div id="contactoCompania" class="card border-primary">
                         <h6 class="card-header cabezal">
                             <asp:Label ID="lblTitulo_DatosContacto" runat="server" Text="Datos de contacto"></asp:Label>
@@ -365,12 +369,12 @@
                         <div class="card-body">
 
                             <div class="row">
-                                <div class="col">
+                                <div class="col-sm">
                                     <asp:Label ID="lblNombreCont" runat="server" Text="Nombre:"></asp:Label>
                                     <input type="text" value="" id="txtNombrCont" class="form-control" />
                                     <span id="sNombre" style="color: red;"></span>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm">
                                     <asp:Label ID="lblpuestoCont" runat="server" Text="Puesto:"></asp:Label>
                                     <input type="text" value="" id="txtpuestoCont" class="form-control" />
                                     <span id="sPuesto" style="color: red;"></span>
@@ -396,20 +400,20 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-sm-4">
                                     <asp:Label ID="lblTelCont" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
                                     <input type="tel" value="" id="txtTelCont" class="form-control" placeholder="ex. 6311001010" />
                                     <span id="sTelefono" style="color: red;"></span>
 
 
                                 </div>
-                                <div class="col-3">
+                                <div class="col-sm-4">
                                     <asp:Label ID="lblExtension" runat="server" Text="Extensión:"></asp:Label>
                                     <input type="number" value="" id="txtExtCont" class="form-control" />
 
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-sm-4">
                                     <asp:Label ID="lblCelCont" runat="server" Text="Celular:"></asp:Label>
                                     <input type="tel" name="name" value="" id="txtCelCont" class="form-control" />
                                     <span id="sCelular" style="color: red;"></span>
@@ -430,7 +434,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="table-responsive">
                             <table class="table  table-sm" id="tContactoCom">

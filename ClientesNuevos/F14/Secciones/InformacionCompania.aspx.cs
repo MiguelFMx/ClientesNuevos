@@ -216,9 +216,16 @@ namespace ClientesNuevos.F14.Seccioness
                 ddTipoDePersona.Items.FindByValue(id).Selected = false;
                 ddTipoDePersona.Items.FindByValue("2").Selected = true;
                 lblRFC.Text = "TaxID";
+                pDatosBancarios.Enabled = false;
+                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+
             }
             else
             {
+                pDatosBancarios.Enabled = true;
+                pDatosBancarios.BackColor = System.Drawing.Color.White;
+
                 ddTipoDePersona.Enabled = true;
                 lblRFC.Text = "RFC";
 
@@ -342,14 +349,14 @@ namespace ClientesNuevos.F14.Seccioness
             estado = ddEstado.SelectedValue;
             id_user = Request.Cookies.Get("id").Value;
             
-           // resultado = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
+            resultado = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
             if (chkDireccionIgual.Checked)
             {
-              // resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+               resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
             }
             else
             {
-              //  resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
             }
             lblresultado.Text = resultado + "  " + resDir;
             HttpCookie cookie = new HttpCookie("id_comp")

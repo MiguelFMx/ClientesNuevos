@@ -20,21 +20,42 @@
             </div>
 
             <br />
+
+
             <div class="row">
                 <div class="col">
-                    <table id="tRespuesta" class="table table-bordered">
-                        <thead class="cabezal">
-                            <tr>
-                                <th>Pregunta</th>
-                                <th>Opcion</th>
-                                <th>Observaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        <tfoot></tfoot>
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                    Respuestas
+                                </button>
+                            </h4>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table id="tRespuesta" class="table table-bordered">
+                                                <thead class="cabezal">
+                                                    <tr>
+                                                        <th>Pregunta</th>
+                                                        <th>Opcion</th>
+                                                        <th>Observaciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                                <tfoot></tfoot>
 
-                    </table>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <br />
@@ -49,7 +70,7 @@
             <hr />
             <br />
             <div class="row">
-                <div class="col-5">
+                <div class="col-md-6">
                     <div class="table-responsive">
                         <table class="table table-bordered border-primary">
                             <tr>
@@ -61,8 +82,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
+                <div class="col-md-6">
                     <div class="table-responsive">
                         <table class="table table-bordered border-primary">
                             <tr>
@@ -76,440 +96,444 @@
                 </div>
             </div>
 
-
-
             <div class="row">
-                <div class="col-5">
-                    <table class="table table-bordered" id="tabla1">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>1.0.0.</td>
-                                <td>Requerimientos  de los socios comerciales</td>
-                                <td>
-                                    <asp:Label ID="lbl100" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td id="tNR1" style="font-weight: bold;">
-                                    <asp:Label ID="NR1" runat="server" Text=".."></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">1.1.0.</td>
-                                <td>Procedimientos de seguridad</td>
-                                <td>
-                                    <asp:Label ID="lbl110" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">1.2.0.</td>
-                                <td>Punto de origen</td>
-                                <td>
-                                    <asp:Label ID="lbl120" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">1.3.0.</td>
-                                <td>Participación / Certificación en programas de seguridad de la cadena de abastecimiento de administraciones aduanales extranjeras</td>
-                                <td>
-                                    <asp:Label ID="lbl130" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">1.4.0.</td>
-                                <td>Procedimientos de Seguridad</td>
-                                <td>
-                                    <asp:Label ID="lbl140" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla1">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>1.0.0.</td>
+                                    <td>Requerimientos  de los socios comerciales</td>
+                                    <td>
+                                        <asp:Label ID="lbl100" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td id="tNR1" style="font-weight: bold;">
+                                        <asp:Label ID="NR1" runat="server" Text=".."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.1.0.</td>
+                                    <td>Procedimientos de seguridad</td>
+                                    <td>
+                                        <asp:Label ID="lbl110" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.2.0.</td>
+                                    <td>Punto de origen</td>
+                                    <td>
+                                        <asp:Label ID="lbl120" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.3.0.</td>
+                                    <td>Participación / Certificación en programas de seguridad de la cadena de abastecimiento de administraciones aduanales extranjeras</td>
+                                    <td>
+                                        <asp:Label ID="lbl130" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.4.0.</td>
+                                    <td>Procedimientos de Seguridad</td>
+                                    <td>
+                                        <asp:Label ID="lbl140" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <table class="table table-bordered" id="tabla5">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>5.0.0.</td>
-                                <td>Seguridad de los Procesos</td>
-                                <td>
-                                    <asp:Label ID="lbl500" runat="server" Text="Label"></asp:Label></td>
-                                <td id="tNR5" style="font-weight: bold;">
-                                    <asp:Label ID="NR5" runat="server" Text="Label"></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">5.1.0.</td>
-                                <td>Procesamiento de la documentación</td>
-                                <td>
-                                    <asp:Label ID="lbl510" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">5.2.0.</td>
-                                <td>Procedimientos de declaración</td>
-                                <td>
-                                    <asp:Label ID="lbl520" runat="server" Text=".."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">5.3.0.</td>
-                                <td>Embarque y recepción</td>
-                                <td>
-                                    <asp:Label ID="lbl530" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">5.4.0.</td>
-                                <td>Discrepancias de la carga</td>
-                                <td>
-                                    <asp:Label ID="lbl540" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla5">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>5.0.0.</td>
+                                    <td>Seguridad de los Procesos</td>
+                                    <td>
+                                        <asp:Label ID="lbl500" runat="server" Text="Label"></asp:Label></td>
+                                    <td id="tNR5" style="font-weight: bold;">
+                                        <asp:Label ID="NR5" runat="server" Text="Label"></asp:Label></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">5.1.0.</td>
+                                    <td>Procesamiento de la documentación</td>
+                                    <td>
+                                        <asp:Label ID="lbl510" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">5.2.0.</td>
+                                    <td>Procedimientos de declaración</td>
+                                    <td>
+                                        <asp:Label ID="lbl520" runat="server" Text=".."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">5.3.0.</td>
+                                    <td>Embarque y recepción</td>
+                                    <td>
+                                        <asp:Label ID="lbl530" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">5.4.0.</td>
+                                    <td>Discrepancias de la carga</td>
+                                    <td>
+                                        <asp:Label ID="lbl540" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-5">
-
-                    <table class="table table-bordered" id="tabla2">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>2.0.0.</td>
-                                <td>Seguridad de Contenedores y Remolques</td>
-                                <td>
-                                    <asp:Label ID="lbl200" runat="server" Text="..."></asp:Label></td>
-                                <td id="tNR2" style="font-weight: bold;">
-                                    <asp:Label ID="NR2" runat="server" Text="..."></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">2.1.0.</td>
-                                <td>Inspección de los contenedores</td>
-                                <td>
-                                    <asp:Label ID="lbl210" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">2.2.0.</td>
-                                <td>Inspección del Remolque</td>
-                                <td>
-                                    <asp:Label ID="lbl220" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">2.3.0.</td>
-                                <td>Sellos de los remolques y contenedores</td>
-                                <td>
-                                    <asp:Label ID="lbl230" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">2.4.0.</td>
-                                <td>Almacenamiento de contenedores y remolques</td>
-                                <td>
-                                    <asp:Label ID="lbl240" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
-
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla2">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>2.0.0.</td>
+                                    <td>Seguridad de Contenedores y Remolques</td>
+                                    <td>
+                                        <asp:Label ID="lbl200" runat="server" Text="..."></asp:Label></td>
+                                    <td id="tNR2" style="font-weight: bold;">
+                                        <asp:Label ID="NR2" runat="server" Text="..."></asp:Label></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">2.1.0.</td>
+                                    <td>Inspección de los contenedores</td>
+                                    <td>
+                                        <asp:Label ID="lbl210" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">2.2.0.</td>
+                                    <td>Inspección del Remolque</td>
+                                    <td>
+                                        <asp:Label ID="lbl220" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">2.3.0.</td>
+                                    <td>Sellos de los remolques y contenedores</td>
+                                    <td>
+                                        <asp:Label ID="lbl230" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">2.4.0.</td>
+                                    <td>Almacenamiento de contenedores y remolques</td>
+                                    <td>
+                                        <asp:Label ID="lbl240" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <table class="table table-bordered" id="tabla6">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>6.0.0.</td>
-                                <td>Seguridad Física</td>
-                                <td>
-                                    <asp:Label ID="lbl600" runat="server" Text="..."></asp:Label></td>
-                                <td id="tNR6" style="font-weight: bold;">
-                                    <asp:Label ID="NR6" runat="server" Text="..."></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.1.0.</td>
-                                <td>Cercado</td>
-                                <td>
-                                    <asp:Label ID="lbl610" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.2.0.</td>
-                                <td>Puertas y casetas de vigilancia</td>
-                                <td>
-                                    <asp:Label ID="lbl620" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.3.0.</td>
-                                <td>Estacionamiento</td>
-                                <td>
-                                    <asp:Label ID="lbl630" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.4.0.</td>
-                                <td>Estructura del edificio</td>
-                                <td>
-                                    <asp:Label ID="lbl640" runat="server" Text=".."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.5.0.</td>
-                                <td>Dispositivos de cierre y control de llaves</td>
-                                <td>
-                                    <asp:Label ID="lbl650" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.6.0.</td>
-                                <td>Iluminación</td>
-                                <td>
-                                    <asp:Label ID="lbl660" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">6.7.0.</td>
-                                <td>Sistemas de alrma y cámaras de vigilancia por video</td>
-                                <td>
-                                    <asp:Label ID="lbl670" runat="server" Text="..-"></asp:Label></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla6">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>6.0.0.</td>
+                                    <td>Seguridad Física</td>
+                                    <td>
+                                        <asp:Label ID="lbl600" runat="server" Text="..."></asp:Label></td>
+                                    <td id="tNR6" style="font-weight: bold;">
+                                        <asp:Label ID="NR6" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.1.0.</td>
+                                    <td>Cercado</td>
+                                    <td>
+                                        <asp:Label ID="lbl610" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.2.0.</td>
+                                    <td>Puertas y casetas de vigilancia</td>
+                                    <td>
+                                        <asp:Label ID="lbl620" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.3.0.</td>
+                                    <td>Estacionamiento</td>
+                                    <td>
+                                        <asp:Label ID="lbl630" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.4.0.</td>
+                                    <td>Estructura del edificio</td>
+                                    <td>
+                                        <asp:Label ID="lbl640" runat="server" Text=".."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.5.0.</td>
+                                    <td>Dispositivos de cierre y control de llaves</td>
+                                    <td>
+                                        <asp:Label ID="lbl650" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.6.0.</td>
+                                    <td>Iluminación</td>
+                                    <td>
+                                        <asp:Label ID="lbl660" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">6.7.0.</td>
+                                    <td>Sistemas de alrma y cámaras de vigilancia por video</td>
+                                    <td>
+                                        <asp:Label ID="lbl670" runat="server" Text="..-"></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <div class="row" style="break-before: page;">
-                <div class="col-5">
-
-                    <table class="table table-bordered" id="tabla3">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>3.0.0.</td>
-                                <td>Controles de acceso físico</td>
-                                <td>
-                                    <asp:Label ID="lbl300" runat="server" Text="..."></asp:Label></td>
-                                <td id="tNR3" style="font-weight: bold;">
-                                    <asp:Label ID="NR3" runat="server" Text="..."></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">3.1.0.</td>
-                                <td>Control de Empleados</td>
-                                <td>
-                                    <asp:Label ID="lbl310" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">3.2.0.</td>
-                                <td>Control de visitantes</td>
-                                <td>
-                                    <asp:Label ID="lbl320" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">3.3.0.</td>
-                                <td>Control de Entregas (incluyendo la correspondencia)</td>
-                                <td>
-                                    <asp:Label ID="lbl330" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">3.4.0.</td>
-                                <td>Abordaje y remoción de personas no autorizadas</td>
-                                <td>
-                                    <asp:Label ID="lbl340" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
-
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla3">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>3.0.0.</td>
+                                    <td>Controles de acceso físico</td>
+                                    <td>
+                                        <asp:Label ID="lbl300" runat="server" Text="..."></asp:Label></td>
+                                    <td id="tNR3" style="font-weight: bold;">
+                                        <asp:Label ID="NR3" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">3.1.0.</td>
+                                    <td>Control de Empleados</td>
+                                    <td>
+                                        <asp:Label ID="lbl310" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">3.2.0.</td>
+                                    <td>Control de visitantes</td>
+                                    <td>
+                                        <asp:Label ID="lbl320" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">3.3.0.</td>
+                                    <td>Control de Entregas (incluyendo la correspondencia)</td>
+                                    <td>
+                                        <asp:Label ID="lbl330" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">3.4.0.</td>
+                                    <td>Abordaje y remoción de personas no autorizadas</td>
+                                    <td>
+                                        <asp:Label ID="lbl340" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <table class="table table-bordered" id="tabla7">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>7.0.0.</td>
-                                <td>Seguridad de Tecnologías de la Información</td>
-                                <td>
-                                    <asp:Label ID="lbl700" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td id="tNR7" style="font-weight: bold;">
-                                    <asp:Label ID="NR7" runat="server" Text="..."></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">7.1.0.</td>
-                                <td>Protección de contraseñas</td>
-                                <td>
-                                    <asp:Label ID="lbl710" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">7.2.0.</td>
-                                <td>Responsabilidad</td>
-                                <td>
-                                    <asp:Label ID="lbl720" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla7">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>7.0.0.</td>
+                                    <td>Seguridad de Tecnologías de la Información</td>
+                                    <td>
+                                        <asp:Label ID="lbl700" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td id="tNR7" style="font-weight: bold;">
+                                        <asp:Label ID="NR7" runat="server" Text="..."></asp:Label></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">7.1.0.</td>
+                                    <td>Protección de contraseñas</td>
+                                    <td>
+                                        <asp:Label ID="lbl710" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">7.2.0.</td>
+                                    <td>Responsabilidad</td>
+                                    <td>
+                                        <asp:Label ID="lbl720" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-5">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla4">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>4.0.0.</td>
+                                    <td>Seguridad del personal</td>
+                                    <td>
+                                        <asp:Label ID="lbl400" runat="server" Text="..."></asp:Label></td>
+                                    <td id="tNR4" style="font-weight: bold;">
+                                        <asp:Label ID="NR4" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">4.1.0.</td>
+                                    <td>Verificación previa a la contratación<</td>
+                                    <td>
+                                        <asp:Label ID="lbl410" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">4.2.0.</td>
+                                    <td>Verificación / investigación</td>
+                                    <td>
+                                        <asp:Label ID="lbl420" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">4.3.0.</td>
+                                    <td>Porcedimientos deteerminación de relaciones laborales</td>
+                                    <td>
+                                        <asp:Label ID="lbl430" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
 
-                    <table class="table table-bordered" id="tabla4">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>4.0.0.</td>
-                                <td>Seguridad del personal</td>
-                                <td>
-                                    <asp:Label ID="lbl400" runat="server" Text="..."></asp:Label></td>
-                                <td id="tNR4" style="font-weight: bold;">
-                                    <asp:Label ID="NR4" runat="server" Text="..."></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">4.1.0.</td>
-                                <td>Verificación previa a la contratación<</td>
-                                <td>
-                                    <asp:Label ID="lbl410" runat="server" Text="..."></asp:Label></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">4.2.0.</td>
-                                <td>Verificación / investigación</td>
-                                <td>
-                                    <asp:Label ID="lbl420" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="table-primary">4.3.0.</td>
-                                <td>Porcedimientos deteerminación de relaciones laborales</td>
-                                <td>
-                                    <asp:Label ID="lbl430" runat="server" Text="..."></asp:Label>
-                                </td>
-                                <td></td>
-                            </tr>
-
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
-
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <table class="table table-bordered" id="tabla8">
-                        <thead>
-                            <tr class="cabezal">
-                                <th></th>
-                                <th></th>
-                                <th>Promedio</th>
-                                <th>N.R.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-primary">
-                                <td>8.0.0.</td>
-                                <td>Entrenamiento de seguridad y concintización de amenazas</td>
-                                <td>
-                                    <asp:Label ID="lbl800" runat="server" Text="..."></asp:Label></td>
-                                <td id="tNR8" style="font-weight: bold;">
-                                    <asp:Label ID="NR8" runat="server" Text="..."></asp:Label>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot></tfoot>
-                    </table>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla8">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>8.0.0.</td>
+                                    <td>Entrenamiento de seguridad y concintización de amenazas</td>
+                                    <td>
+                                        <asp:Label ID="lbl800" runat="server" Text="..."></asp:Label></td>
+                                    <td id="tNR8" style="font-weight: bold;">
+                                        <asp:Label ID="NR8" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                     <table class="table table-bordered" style="font-weight: bold;">
                         <thead>
                             <tr>
@@ -523,7 +547,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-md-2"></div>
             </div>
         </div>
         <asp:Panel ID="pUser" runat="server">
@@ -543,7 +567,7 @@
             </div>
         </asp:Panel>
 
-        
+
 
     </div>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>

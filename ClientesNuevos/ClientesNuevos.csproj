@@ -3568,6 +3568,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="login.aspx" />
+    <Content Include="mobile.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -3789,6 +3790,7 @@
     <Content Include="template\assets\img\logo\Hungaros.png" />
     <Content Include="template\assets\img\logo\HungarosTexto.png" />
     <Content Include="template\assets\img\logo\Tractor.jpg" />
+    <Content Include="usuario\user_config.aspx" />
     <Content Include="wsLogin.asmx" />
     <Content Include="F14\FileUploadHandler.ashx" />
     <Content Include="admin\AdminMaster.Master" />
@@ -4794,6 +4796,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="mobile.aspx.cs">
+      <DependentUpon>mobile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile.aspx.designer.cs">
+      <DependentUpon>mobile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>
     </Compile>
@@ -4930,6 +4939,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\user_config.aspx.cs">
+      <DependentUpon>user_config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuario\user_config.aspx.designer.cs">
+      <DependentUpon>user_config.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario\user_index.aspx.cs">
       <DependentUpon>user_index.aspx</DependentUpon>

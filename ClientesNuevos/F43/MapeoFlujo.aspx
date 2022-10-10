@@ -114,9 +114,7 @@
         <br />
         <hr />
         <div class="row">
-            <div class="col-9">
-            </div>
-            <div class="col">
+            <div class="col" style="display:flex; justify-content:flex-end;">
                 <button class="btn btn-secondary" id="btnHome" data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Guardar y salir" type="button" ><i class="bi bi-house-door"></i></button>
