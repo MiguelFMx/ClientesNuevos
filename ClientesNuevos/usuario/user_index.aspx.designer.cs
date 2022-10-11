@@ -159,13 +159,22 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblRFC_fecha;
 
         /// <summary>
+        /// Control txtRFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRFC;
+
+        /// <summary>
         /// Control RFC_ver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RFC_ver;
+        protected global::System.Web.UI.WebControls.LinkButton RFC_ver;
 
         /// <summary>
         /// Control row_CURP.
@@ -195,6 +204,24 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblCURP_fecha;
 
         /// <summary>
+        /// Control txtCURP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCURP;
+
+        /// <summary>
+        /// Control CURP_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CURP_ver;
+
+        /// <summary>
         /// Control row_CNAP.
         /// </summary>
         /// <remarks>
@@ -220,6 +247,24 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCNAP_fecha;
+
+        /// <summary>
+        /// Control txtCNAP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCNAP;
+
+        /// <summary>
+        /// Control CNAP_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CNAP_ver;
 
         /// <summary>
         /// Control row_CompDom.

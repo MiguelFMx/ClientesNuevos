@@ -10,6 +10,8 @@ using System.Data;
 using ClientesNuevos.App_Code;
 
 using System.Web.Security;
+using System.Net;
+using System.Net.Mail;
 
 namespace ClientesNuevos.usuario
 {
@@ -20,32 +22,32 @@ namespace ClientesNuevos.usuario
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {           
-                    getCompania();
-                    if (dt.Rows.Count > 0)
+            {
+                getCompania();
+                if (dt.Rows.Count > 0)
+                {
+                    lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
+                    cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
+                    Response.Cookies.Add(cook);
+                    try
                     {
-                        lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
-                        cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
-                        Response.Cookies.Add(cook);
-                        try
-                        {
-                            Documentos();
+                        Documentos();
                         OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
-                           // prueba.Text = User.Identity.Name;
-                        }
-                        catch (Exception ex)
-                        {
-                            lblError.Text = ex.Message;
-                        }
+                        // prueba.Text = User.Identity.Name;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Response.Redirect("../F20/CriteriosMinimos.aspx");
+                        lblError.Text = ex.Message;
                     }
-                
+                }
+                else
+                {
+                    Response.Redirect("../F20/CriteriosMinimos.aspx");
+                }
+
             }
         }
-        
+
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -62,10 +64,10 @@ namespace ClientesNuevos.usuario
                 string documento = inputFile.PostedFile.FileName;
                 string extension = documento.Substring(documento.Length - 4, 4);
 
-                if(extension == ".pdf")
+                if (extension == ".pdf")
                 {
-                    inputFile.SaveAs(uploadFolder + "\\usuario\\" + compania_id+"_"+ documento);
-                    lblError.Text = "Archivo guardado con exito"+ uploadFolder;
+                    inputFile.SaveAs(uploadFolder + "\\usuario\\" + compania_id + "_" + documento);
+                    lblError.Text = "Archivo guardado con exito" + uploadFolder;
                 }
             }
 
@@ -76,12 +78,12 @@ namespace ClientesNuevos.usuario
         {
             ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
             dt = new DataTable();
-            
-            
+
+
             string id_user = Request.Cookies.Get("id").Value;
             dt = wsBaseDatos.getCompania(id_user);
 
-            
+
         }
 
         protected void Documentos()
@@ -89,23 +91,25 @@ namespace ClientesNuevos.usuario
             string id = Request.Cookies.Get("id").Value;
             try
             {
-                List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos( HttpContext.Current.Request.Cookies.Get("id_comp").Value );
+                List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value);
 
-                for (int i = 0; i < Docs.Count ; i++)
+                for (int i = 0; i < Docs.Count; i++)
                 {
                     //=================================== F14
-                    if(Docs[i].Documento == "F14")
+                    if (Docs[i].Documento == "F14")
                     {
-                        if(Docs[i].Estatus == "100%")
+                        if (Docs[i].Estatus == "100%")
                         {
                             lblF14_estatus.Text = "completado";
                             lblF14_estatus.CssClass = "etiqueta";
 
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblF14_estatus.Text = "en revision";
                             lblF14_estatus.CssClass = "etiqueta revision";
-                        }else if(Docs[i].Estatus == "act")
+                        }
+                        else if (Docs[i].Estatus == "act")
                         {
                             lblF14_estatus.Text = "actualizar";
                             lblF14_estatus.CssClass = "etiqueta actualizar";
@@ -114,18 +118,19 @@ namespace ClientesNuevos.usuario
                         {
                             lblF14_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
-                        
+
                         lblF14_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
                     }
                     //================================ F43
                     if (Docs[i].Documento == "F43")
                     {
-                        if(Docs[i].Estatus == "100%")
+                        if (Docs[i].Estatus == "100%")
                         {
                             lblF43_estatus.Text = "completado";
                             lblF43_estatus.CssClass = "etiqueta";
-                        }else if(Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblF43_estatus.Text = "en revision";
                             lblF43_estatus.CssClass = "etiqueta revision";
@@ -148,7 +153,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblF5_estatus.Text = "completado";
                             lblF5_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblF5_estatus.Text = "en revision";
                             lblF5_estatus.CssClass = "etiqueta revision";
@@ -160,7 +166,7 @@ namespace ClientesNuevos.usuario
                         }
                         else
                         {
-                            lblF5_estatus.Text = "Pendiente:"+ Docs[i].Estatus;
+                            lblF5_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblF5_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
@@ -171,7 +177,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblF12_estatus.Text = "completado";
                             lblF12_estatus.CssClass = "etiqueta";
-                        }else if(Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblF12_estatus.Text = "en revision";
                             lblF12_estatus.CssClass = "etiqueta revision";
@@ -190,12 +197,14 @@ namespace ClientesNuevos.usuario
                     //==================================================== RFC
                     if (Docs[i].Documento == "RFC")
                     {
-                        RFC_ver.NavigateUrl = Docs[i].Ruta;
+                        txtRFC.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblRFC_estatus.Text = "completado";
                             lblRFC_estatus.CssClass = "etiqueta";
-                        }else if(Docs[i].Estatus == "revision"){
+                        }
+                        else if (Docs[i].Estatus == "revision")
+                        {
                             lblRFC_estatus.Text = "en revision";
                             lblRFC_estatus.CssClass = "etiqueta revision";
                         }
@@ -214,11 +223,13 @@ namespace ClientesNuevos.usuario
                     //=============================================== CURP                    
                     if (Docs[i].Documento == "CURP")
                     {
+                        txtCURP.Text = Docs[i].Ruta;    
                         if (Docs[i].Estatus == "100%")
                         {
                             lblCURP_estatus.Text = "completado";
                             lblCURP_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblCURP_estatus.Text = "en revision";
                             lblCURP_estatus.CssClass = "etiqueta revision";
@@ -242,11 +253,13 @@ namespace ClientesNuevos.usuario
                     //============================== Carta de no antecedentes
                     if (Docs[i].Documento == "Carta de no antecedentes penales")
                     {
+                        txtCNAP.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblCNAP_estatus.Text = "completado";
                             lblCNAP_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblCNAP_estatus.Text = "en revision";
                             lblCNAP_estatus.CssClass = "etiqueta revision";
@@ -269,7 +282,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblCompDom_estatus.Text = "completado";
                             lblCompDom_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblCompDom_estatus.Text = "en revision";
                             lblCompDom_estatus.CssClass = "etiqueta revision";
@@ -292,7 +306,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblIRL_estatus.Text = "completado";
                             lblIRL_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblIRL_estatus.Text = "en revision";
                             lblIRL_estatus.CssClass = "etiqueta revision";
@@ -315,7 +330,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblPRL_estatus.Text = "completado";
                             lblPRL_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblPRL_estatus.Text = "en revision";
                             lblPRL_estatus.CssClass = "etiqueta revision";
@@ -338,7 +354,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblOP_estatus.Text = "completado";
                             lblOP_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblOP_estatus.Text = "en revision";
                             lblOP_estatus.CssClass = "etiqueta revision";
@@ -361,7 +378,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblCTPAT_estatus.Text = "completado";
                             lblCTPAT_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblCTPAT_estatus.Text = "en revision";
                             lblCTPAT_estatus.CssClass = "etiqueta revision";
@@ -384,7 +402,8 @@ namespace ClientesNuevos.usuario
                         {
                             lblOEA_estatus.Text = "completado";
                             lblOEA_estatus.CssClass = "etiqueta";
-                        }else if (Docs[i].Estatus == "revision")
+                        }
+                        else if (Docs[i].Estatus == "revision")
                         {
                             lblOEA_estatus.Text = "en revision";
                             lblOEA_estatus.CssClass = "etiqueta revision";
@@ -401,7 +420,7 @@ namespace ClientesNuevos.usuario
                         }
                         lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
-                    if (Docs[i].Documento == "F20" && Docs[i].ID_compania== id )
+                    if (Docs[i].Documento == "F20" && Docs[i].ID_compania == id)
                     {
                         if (Docs[i].Estatus == "100%")
                         {
@@ -471,7 +490,7 @@ namespace ClientesNuevos.usuario
 
         protected string Obtener_estatus_f14()
         {
-            string res="";
+            string res = "";
             try
             {
                 List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value);
@@ -531,10 +550,11 @@ namespace ClientesNuevos.usuario
         protected void btnEvaluacion_Click(object sender, EventArgs e)
         {
             string estatus = Obtener_estatus_f5();
-            if(estatus == "50%")
+            if (estatus == "50%")
             {
                 Response.Redirect("../F5/Autoevaluacion/autoevaluacion.aspx");
-            }else if(estatus == "100%")
+            }
+            else if (estatus == "100%")
             {
                 Response.Redirect("../F5/Autoevaluacion/Resultados.aspx");
             }
@@ -576,6 +596,49 @@ namespace ClientesNuevos.usuario
         protected void btnCriteriosMinimos_Click(object sender, EventArgs e)
         {
             Response.Redirect("../F20/CriteriosMinimos.aspx");
+        }
+
+        protected void Ver_Click(object sender, EventArgs e)
+        {
+            LinkButton button = (LinkButton)sender;
+            string buttonId = button.ID;
+
+            switch (buttonId)
+            {
+                case "RFC_ver":
+                    AbrirArchivo(txtRFC.Text);
+                    break;
+                case "CURP_ver":
+                    AbrirArchivo(txtCURP.Text);
+                    break;
+                case "CNAP_ver":
+                    AbrirArchivo(txtCNAP.Text);
+                    break;
+                default:
+                    break;
+            }
+
+            
+
+        }
+
+
+        protected void AbrirArchivo(string flocation)
+        {
+            string FilePath = @flocation;
+            WebClient wClient = new WebClient();
+            Byte[] FileBuffer = wClient.DownloadData(FilePath);
+
+            if (FileBuffer != null)
+            {
+                //Response.ContentType = "application/pdf";
+                //Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                //Response.BinaryWrite(FileBuffer);
+                Session["buffer"] = FileBuffer;
+                //Response.Redirect("~/Viewer.aspx");
+                Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+            }
+
         }
     }
 }

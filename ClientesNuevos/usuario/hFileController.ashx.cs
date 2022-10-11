@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -24,11 +25,13 @@ namespace ClientesNuevos.App_Code
                 HttpPostedFile file = files[0];
                 //ddMMyyyy
                 string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                //string link = @"~/Archivos/"+IDcompania;
+                //System.IO.Directory.CreateDirectory(link);
                 fname = context.Server.MapPath("~/Archivos/usuario/" + fecha + "_" + Descripcion + "_" + file.FileName);
                 file.SaveAs(fname);
 
-
                 string ruta = fname.ToString();
+                // ruta = "Archivos/" + IDcompania + "/" + fecha + "_" + Descripcion + "_" + file.FileName;
                 strRsultado = clsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
                 
             }

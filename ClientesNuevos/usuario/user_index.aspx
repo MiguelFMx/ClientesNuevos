@@ -97,12 +97,14 @@
                                     <asp:TableCell>
                                         <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </asp:TableCell>
-                                    <asp:TableCell>
+                                    <asp:TableCell> 
+                                        <asp:TextBox ID="txtRFC" runat="server" Visible="true"></asp:TextBox>
+                                        
                                         <div class="btn-group" role="group" aria-label="rfc-group">
                                             <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
                                             <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                             <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
-                                            <asp:HyperLink ID="RFC_ver" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                            <asp:LinkButton ID="RFC_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
                                         </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
@@ -118,10 +120,13 @@
                                         <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
+                                        <asp:TextBox ID="txtCURP" runat="server" Visible="true"></asp:TextBox>
+
                                         <div class="btn-group" role="group" aria-label="curp-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                            <asp:LinkButton ID="CURP_ver" runat="server"  CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
                                             </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
@@ -135,10 +140,13 @@
                                         <asp:Label ID="lblCNAP_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
+                                        <asp:TextBox ID="txtCNAP" runat="server" Visible="true"></asp:TextBox>
+
                                           <div class="btn-group" role="group" aria-label="rfc-group">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
+                                            <asp:LinkButton ID="CNAP_ver" runat="server"  CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
                                             </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
