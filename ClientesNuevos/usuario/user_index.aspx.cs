@@ -12,6 +12,9 @@ using ClientesNuevos.App_Code;
 using System.Web.Security;
 using System.Net;
 using System.Net.Mail;
+using System.Resources;
+using System.Web.UI.WebControls.WebParts;
+using System.Security.Policy;
 
 namespace ClientesNuevos.usuario
 {
@@ -114,6 +117,11 @@ namespace ClientesNuevos.usuario
                             lblF14_estatus.Text = "actualizar";
                             lblF14_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblF14_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -140,6 +148,11 @@ namespace ClientesNuevos.usuario
                             lblF43_estatus.Text = "actualizar";
                             lblF43_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblF43_estatus.Text = "actualizado";
+                            lblF43_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblF43_estatus.Text = "Pendiente";
@@ -163,6 +176,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblF5_estatus.Text = "actualizar";
                             lblF5_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblF5_estatus.Text = "actualizado";
+                            lblF5_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
@@ -188,6 +206,11 @@ namespace ClientesNuevos.usuario
                             lblF12_estatus.Text = "actualizar";
                             lblF12_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblF12_estatus.Text = "actualizado";
+                            lblF12_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblF12_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -212,6 +235,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblRFC_estatus.Text = "actualizar";
                             lblRFC_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblRFC_estatus.Text = "actualizado";
+                            lblRFC_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
@@ -243,6 +271,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblCURP_estatus.Text = "actualizar";
                             lblCURP_estatus.CssClass = "etiqueta actualizar";
+                        } 
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblCURP_estatus.Text = "actualizado";
+                            lblCURP_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
@@ -269,6 +302,11 @@ namespace ClientesNuevos.usuario
                             lblCNAP_estatus.Text = "actualizar";
                             lblCNAP_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblCNAP_estatus.Text = "actualizado";
+                            lblCNAP_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCNAP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -278,6 +316,7 @@ namespace ClientesNuevos.usuario
                     //=========================== Comprobante de domicilio
                     if (Docs[i].Documento == "Comprobante de domicilio")
                     {
+                        txtCompDom.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblCompDom_estatus.Text = "completado";
@@ -293,6 +332,11 @@ namespace ClientesNuevos.usuario
                             lblCompDom_estatus.Text = "actualizar";
                             lblCompDom_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblCompDom_estatus.Text = "actualizado";
+                            lblCompDom_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCompDom_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -302,6 +346,7 @@ namespace ClientesNuevos.usuario
                     //===================== Identificacion de representante legal
                     if (Docs[i].Documento == "Identificacion de representante legal")
                     {
+                        txtIRL.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblIRL_estatus.Text = "completado";
@@ -317,6 +362,11 @@ namespace ClientesNuevos.usuario
                             lblIRL_estatus.Text = "actualizar";
                             lblIRL_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblIRL_estatus.Text = "actualizado";
+                            lblIRL_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblIRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -326,6 +376,7 @@ namespace ClientesNuevos.usuario
                     //==================== Poder de representante legal
                     if (Docs[i].Documento == "Poder de representante legal")
                     {
+                        txtPRL.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblPRL_estatus.Text = "completado";
@@ -341,6 +392,11 @@ namespace ClientesNuevos.usuario
                             lblPRL_estatus.Text = "actualizar";
                             lblPRL_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblPRL_estatus.Text = "actualizado";
+                            lblPRL_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblPRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -350,6 +406,7 @@ namespace ClientesNuevos.usuario
                     //=============================== Opinion positiva
                     if (Docs[i].Documento == "Opinion positiva")
                     {
+                        txtOP.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblOP_estatus.Text = "completado";
@@ -365,6 +422,11 @@ namespace ClientesNuevos.usuario
                             lblOP_estatus.Text = "actualizar";
                             lblOP_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblOP_estatus.Text = "actualizado";
+                            lblOP_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblOP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -374,6 +436,7 @@ namespace ClientesNuevos.usuario
                     //============================== Certificacion CTPAT
                     if (Docs[i].Documento == "Certificación C-TPAT")
                     {
+                        txtCTPAT.Text=Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblCTPAT_estatus.Text = "completado";
@@ -389,6 +452,11 @@ namespace ClientesNuevos.usuario
                             lblCTPAT_estatus.Text = "actualizar";
                             lblCTPAT_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblCTPAT_estatus.Text = "actualizado";
+                            lblCTPAT_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCTPAT_estatus.Text = "Pendiente:" + Docs[i].Estatus;
@@ -398,6 +466,7 @@ namespace ClientesNuevos.usuario
                     //=================================== Certificacion OEA
                     if (Docs[i].Documento == "Certificación OEA")
                     {
+                        txtOEA.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblOEA_estatus.Text = "completado";
@@ -414,12 +483,80 @@ namespace ClientesNuevos.usuario
                             lblOEA_estatus.Text = "actualizar";
                             lblOEA_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblOEA_estatus.Text = "actualizado";
+                            lblOEA_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblOEA_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                    //=================================== W9
+                    if (Docs[i].Documento == "W9")
+                    {
+                        txtW9.Text = Docs[i].Ruta;
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblW9_estatus.Text = "completado";
+                            lblW9_estatus.CssClass = "etiqueta";
+                        }
+                        else if (Docs[i].Estatus == "revision")
+                        {
+                            lblW9_estatus.Text = "en revision";
+                            lblW9_estatus.CssClass = "etiqueta revision";
+
+                        }
+                        else if (Docs[i].Estatus == "act")
+                        {
+                            lblW9_estatus.Text = "actualizar";
+                            lblW9_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblW9_estatus.Text = "actualizado";
+                            lblW9_estatus.CssClass = "etiqueta updated";
+                        }
+                        else
+                        {
+                            lblW9_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblW9_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    //=================================== Acta constitutiva
+                    if (Docs[i].Documento == "Acta constitutiva")
+                    {
+                        txtAC.Text = Docs[i].Ruta;
+                        if (Docs[i].Estatus == "100%")
+                        {
+                            lblAC_estatus.Text = "completado";
+                            lblAC_estatus.CssClass = "etiqueta";
+                        }
+                        else if (Docs[i].Estatus == "revision")
+                        {
+                            lblAC_estatus.Text = "en revision";
+                            lblAC_estatus.CssClass = "etiqueta revision";
+
+                        }
+                        else if (Docs[i].Estatus == "act")
+                        {
+                            lblAC_estatus.Text = "actualizar";
+                            lblAC_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblAC_estatus.Text = "actualizado";
+                            lblAC_estatus.CssClass = "etiqueta updated";
+                        }
+                        else
+                        {
+                            lblAC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                        }
+                        lblAC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                    }
+                    //=================================== Certificacion F20
                     if (Docs[i].Documento == "F20" && Docs[i].ID_compania == id)
                     {
                         if (Docs[i].Estatus == "100%")
@@ -437,6 +574,11 @@ namespace ClientesNuevos.usuario
                         {
                             lblF20_estatus.Text = "actualizar";
                             lblF20_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (Docs[i].Estatus == "updated")
+                        {
+                            lblF20_estatus.Text = "actualizado";
+                            lblF20_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
@@ -505,15 +647,14 @@ namespace ClientesNuevos.usuario
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                res = "";
+                res = ex.Message;
             }
 
             return res;
         }
-
 
         protected string Obtener_estatus_f5()
         {
@@ -564,7 +705,6 @@ namespace ClientesNuevos.usuario
             }
         }
 
-
         private void OcultarCampos(string tipo)
         {
             switch (tipo)
@@ -602,24 +742,55 @@ namespace ClientesNuevos.usuario
         {
             LinkButton button = (LinkButton)sender;
             string buttonId = button.ID;
-
+            string url = "";
             switch (buttonId)
             {
+                case "W9_ver":
+                    url = txtW9.Text;
+                    break;
+                case "AC_ver":
+                    url = txtAC.Text;
+                    break;
                 case "RFC_ver":
-                    AbrirArchivo(txtRFC.Text);
+                    url = txtRFC.Text;
                     break;
                 case "CURP_ver":
-                    AbrirArchivo(txtCURP.Text);
+                    url = txtCURP.Text;
                     break;
                 case "CNAP_ver":
-                    AbrirArchivo(txtCNAP.Text);
+                    url = txtCNAP.Text;
+                    break;
+                case "CompDom_ver":
+                    url = txtCompDom.Text;
+                    break;
+                case "IRL_ver":
+                    url = txtIRL.Text;
+                    break;
+                case "PRL_ver":
+                    url = txtPRL.Text;
+                    break;
+                case "OP_ver":
+                    url = txtOP.Text;
+                    break;
+                case "CTPAT_ver":
+                    url = txtCTPAT.Text;
+                    break;
+                case "OEA_ver":
+                    url = txtOEA.Text;
                     break;
                 default:
                     break;
             }
-
+            if (url != "")
+            {
+                AbrirArchivo(url);
+            }
+            else
+            {
+                lblError.Text = "No se encontró el archivo";
+            }
+             
             
-
         }
 
 
@@ -627,16 +798,118 @@ namespace ClientesNuevos.usuario
         {
             string FilePath = @flocation;
             WebClient wClient = new WebClient();
-            Byte[] FileBuffer = wClient.DownloadData(FilePath);
 
-            if (FileBuffer != null)
+            try
             {
-                //Response.ContentType = "application/pdf";
-                //Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                //Response.BinaryWrite(FileBuffer);
-                Session["buffer"] = FileBuffer;
-                //Response.Redirect("~/Viewer.aspx");
-                Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                Byte[] FileBuffer = wClient.DownloadData(FilePath);
+
+                if (FileBuffer != null)
+                {
+                    //Response.ContentType = "application/pdf";
+                    //Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                    //Response.BinaryWrite(FileBuffer);
+                    Session["buffer"] = FileBuffer;
+                    Response.Redirect("~/Viewer.aspx");
+                   // Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblError.Text = ex.Message+"\n"+"No se encontro el archivo";
+            }
+
+        }
+
+        protected void BorrarDoc(string doc, string path)
+        {
+            string accion = "";
+            string compania_id = Request.Cookies.Get("id_comp").Value;                       
+            var file = @path;
+            try
+            {
+                if (System.IO.File.Exists(file))
+                {
+                    //Eliminar de carpeta
+                    accion = clsHerramientaBD.ExecuteSql("DELETE FROM Table_Documentos WHERE Documento='" + doc + "' AND ID_compania='" + compania_id + "'");
+                    //ELiminar de la base de datos
+                    System.IO.File.Delete(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
+            //Reload
+            Response.Redirect(Request.RawUrl);
+        }
+        protected void Borrar_Click(object sender, EventArgs e)
+        {
+            LinkButton button = (LinkButton)sender;
+            string buttonId = button.ID;
+
+            string path = "", doc = "";
+            switch (buttonId)
+            {
+                case "W9_borrar":
+                    path = txtW9.Text;
+                    doc = "W9";
+                    break;
+                case "AC_borrar":
+                   path = txtAC.Text;
+                    doc = "Acta constitutiva";
+
+                    break;
+                case "RFC_borrar":
+                    path = txtRFC.Text;
+                    doc = "RFC";
+
+                    break;
+                case "CURP_borrar":
+                    path = txtCURP.Text;
+                    doc = "CURP";
+
+                    break;
+                case "CNAP_borrar":
+                    path = txtCNAP.Text;
+                    doc = "Carta de no antecedentes penales";
+
+                    break;
+                case "CompDom_borrar":
+                    path = txtCompDom.Text;
+                    doc = "Comprobante de domicilio";
+                    break;
+                case "IRL_borrar":
+                    path = txtIRL.Text;
+                    doc = "Identificacion de representante legal";
+                    break;
+                case "PRL_borrar":
+                    path = txtPRL.Text;
+                    doc = "Poder de representante legal";
+                    break;
+                case "OP_borrar":
+                    path = txtOP.Text;
+                    doc = "Opinion positiva";
+                    break;
+                case "CTPAT_borrar":
+                    path = txtCTPAT.Text;
+                    doc = "Certificación C-TPAT";
+                    break;
+                case "OEA_borrar":
+                    path = txtOEA.Text;
+                    doc = "Certificación OEA";
+                    break;
+                default:
+                    break;
+            }
+
+            if(path!= "" && doc != "")
+            {
+                BorrarDoc(doc, path);
+            }
+            else
+            {
+                lblError.Text = "No se encontró el archivo";
             }
 
         }

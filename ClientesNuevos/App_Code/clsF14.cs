@@ -580,7 +580,7 @@ namespace ClientesNuevos.App_Code
                 {
                     if (dt.Rows[0]["Estatus"].ToString() == "100%")
                     {
-                        cmd.Parameters.AddWithValue("@Estatus", "100%");
+                        cmd.Parameters.AddWithValue("@Estatus", "updated");
 
                     }
                     else

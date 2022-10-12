@@ -2128,6 +2128,9 @@ section {
 .peligro{
     background-color: red;
 }
+.updated {
+    background-color: #158dcf;
+}
 
 .spaced input[type="radio"] {
     /* Or any other value */

@@ -87,13 +87,31 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblAC_fecha;
 
         /// <summary>
-        /// Control HyperLink1.
+        /// Control txtAC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.TextBox txtAC;
+
+        /// <summary>
+        /// Control AC_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton AC_borrar;
+
+        /// <summary>
+        /// Control AC_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton AC_ver;
 
         /// <summary>
         /// Control row_W9.
@@ -123,13 +141,31 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblW9_fecha;
 
         /// <summary>
-        /// Control HyperLink2.
+        /// Control txtW9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.TextBox txtW9;
+
+        /// <summary>
+        /// Control W9_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton W9_borrar;
+
+        /// <summary>
+        /// Control W9_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton W9_ver;
 
         /// <summary>
         /// Control row_RFC.
@@ -166,6 +202,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRFC;
+
+        /// <summary>
+        /// Control RFC_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton RFC_borrar;
 
         /// <summary>
         /// Control RFC_ver.
@@ -213,6 +258,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TextBox txtCURP;
 
         /// <summary>
+        /// Control CURP_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CURP_borrar;
+
+        /// <summary>
         /// Control CURP_ver.
         /// </summary>
         /// <remarks>
@@ -258,6 +312,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TextBox txtCNAP;
 
         /// <summary>
+        /// Control CNAP_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CNAP_borrar;
+
+        /// <summary>
         /// Control CNAP_ver.
         /// </summary>
         /// <remarks>
@@ -294,6 +357,33 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblCompDom_fecha;
 
         /// <summary>
+        /// Control txtCompDom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompDom;
+
+        /// <summary>
+        /// Control CompDom_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CompDom_borrar;
+
+        /// <summary>
+        /// Control CompDom_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CompDom_ver;
+
+        /// <summary>
         /// Control row_IRL.
         /// </summary>
         /// <remarks>
@@ -319,6 +409,33 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIRL_fecha;
+
+        /// <summary>
+        /// Control txtIRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIRL;
+
+        /// <summary>
+        /// Control IRL_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton IRL_borrar;
+
+        /// <summary>
+        /// Control IRL_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton IRL_ver;
 
         /// <summary>
         /// Control row_PRL.
@@ -348,6 +465,33 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblPRL_fecha;
 
         /// <summary>
+        /// Control txtPRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPRL;
+
+        /// <summary>
+        /// Control PRL_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton PRL_borrar;
+
+        /// <summary>
+        /// Control PRL_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton PRL_ver;
+
+        /// <summary>
         /// Control row_OP.
         /// </summary>
         /// <remarks>
@@ -373,6 +517,33 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOP_fecha;
+
+        /// <summary>
+        /// Control txtOP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOP;
+
+        /// <summary>
+        /// Control OP_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton OP_borrar;
+
+        /// <summary>
+        /// Control OP_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton OP_ver;
 
         /// <summary>
         /// Control row_CTPAT.
@@ -402,6 +573,33 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Label lblCTPAT_fecha;
 
         /// <summary>
+        /// Control txtCTPAT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCTPAT;
+
+        /// <summary>
+        /// Control CTPAT_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CTPAT_borrar;
+
+        /// <summary>
+        /// Control CTPAT_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CTPAT_ver;
+
+        /// <summary>
         /// Control row_OEA.
         /// </summary>
         /// <remarks>
@@ -427,6 +625,33 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOEA_fecha;
+
+        /// <summary>
+        /// Control txtOEA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOEA;
+
+        /// <summary>
+        /// Control OEA_borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton OEA_borrar;
+
+        /// <summary>
+        /// Control OEA_ver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton OEA_ver;
 
         /// <summary>
         /// Control lblF14_estatus.

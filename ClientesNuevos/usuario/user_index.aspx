@@ -36,7 +36,7 @@
                     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-bottom: 1em;">
                 <div class="col">
                     <div class="card border-primary">
                         <div class="table-responsive">
@@ -59,15 +59,16 @@
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                         <div class="btn-group" role="group" aria-label="rfc-group">
+                                        <asp:TextBox ID="txtAC" runat="server" Visible="true"></asp:TextBox>
+                                        <div class="btn-group" role="group" aria-label="ac-group">
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva"><i class="bi bi-upload"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
-                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                            <asp:LinkButton ID="AC_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+
+                                            <asp:LinkButton ID="AC_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
                                         </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
-                              
+
                                 <%-- ============== W9 =========================================== --%>
                                 <asp:TableRow ID="row_W9">
                                     <asp:TableCell>W9</asp:TableCell>
@@ -80,11 +81,14 @@
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <div class="btn-group" role="group" aria-label="rfc-group">
+                                        <asp:TextBox ID="txtW9" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="w9-group">
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
-                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#" CssClass="btn btn-secondary"><i class="bi bi-eye"></i></asp:HyperLink>
+                                            <asp:LinkButton ID="W9_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+
+                                            <asp:LinkButton ID="W9_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
                                         </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
@@ -97,13 +101,12 @@
                                     <asp:TableCell>
                                         <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </asp:TableCell>
-                                    <asp:TableCell> 
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtRFC" runat="server" Visible="true"></asp:TextBox>
-                                        
+
                                         <div class="btn-group" role="group" aria-label="rfc-group">
                                             <button type="button" id="btnActualizar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <%--<button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>--%>
+                                            <asp:LinkButton ID="RFC_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                             <asp:LinkButton ID="RFC_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
                                         </div>
                                     </asp:TableCell>
@@ -123,11 +126,10 @@
                                         <asp:TextBox ID="txtCURP" runat="server" Visible="true"></asp:TextBox>
 
                                         <div class="btn-group" role="group" aria-label="curp-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <asp:LinkButton ID="CURP_ver" runat="server"  CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
-
-                                            </div>
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="CURP_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="CURP_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- =============== CNAP ============================= --%>
@@ -142,12 +144,13 @@
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtCNAP" runat="server" Visible="true"></asp:TextBox>
 
-                                          <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <asp:LinkButton ID="CNAP_ver" runat="server"  CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+                                        <div class="btn-group" role="group" aria-label="cnap-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="CNAP_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
 
-                                            </div>
+                                            <asp:LinkButton ID="CNAP_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ============================= Comprobante de domicilio ============ --%>
@@ -161,12 +164,14 @@
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        
-                                            <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtCompDom" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="cp-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="CompDom_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="CompDom_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ============== Identificacion de representante legal =========== --%>
@@ -179,95 +184,109 @@
                                         <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                         <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtIRL" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="irl-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="IRL_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>                                           
+                                            <asp:LinkButton ID="IRL_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ============== Poder de representante legal ============================= --%>
                                 <asp:TableRow ID="row_PRL">
                                     <asp:TableCell>Poder de representante legal</asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblPRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblPRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblPRL_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                        <asp:Label ID="lblPRL_fecha" runat="server" Text="--/--/----"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                         <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtPRL" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="prl-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="PRL_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>                                            
+                                            <asp:LinkButton ID="PRL_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ==================== Opinion positiva===================== --%>
                                 <asp:TableRow ID="row_OP">
                                     <asp:TableCell>Opinion positiva</asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblOP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblOP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblOP_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                        <asp:Label ID="lblOP_fecha" runat="server" Text="--/--/----"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtOP" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="op-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="OP_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>                                            
+                                            <asp:LinkButton ID="OP_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ===================== CTPAT============================= --%>
                                 <asp:TableRow ID="row_CTPAT">
                                     <asp:TableCell>Certificacion C-TPAT</asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblCTPAT_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblCTPAT_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblCTPAT_fecha" runat="server" Text="--/--/----"></asp:Label>
-
+                                        <asp:Label ID="lblCTPAT_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                        
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtCTPAT" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="ctpat-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="CTPAT_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>                                            
+                                            <asp:LinkButton ID="CTPAT_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                                 <%-- ============ OEA ==================================== --%>
                                 <asp:TableRow ID="row_OEA">
                                     <asp:TableCell>Certificacion OEA</asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblOEA_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblOEA_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                            <asp:Label ID="lblOEA_fecha" runat="server" Text="--/--/----"></asp:Label>
+                                        <asp:Label ID="lblOEA_fecha" runat="server" Text="--/--/----"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <div class="btn-group" role="group" aria-label="rfc-group">
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                                            </div>
+                                        <asp:TextBox ID="txtOEA" runat="server" Visible="true"></asp:TextBox>
+
+                                        <div class="btn-group" role="group" aria-label="oea-group">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
+                                            <asp:LinkButton ID="OEA_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>                                            
+                                            <asp:LinkButton ID="OEA_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
+
+                                        </div>
                                     </asp:TableCell>
                                 </asp:TableRow>
                             </asp:Table>
-                           
+
                         </div>
                     </div>
                 </div>
             </div>
-            <br />
+
             <!--Formularios-->
             <div class="row">
                 <div class="col">
@@ -286,7 +305,6 @@
                                     <tr>
                                         <td>Admision de cliente nuevo (F-14)</td>
                                         <td>
-                                            <!-- <span class="etiqueta pendiente">pendiente</span> -->
                                             <asp:Label ID="lblF14_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
 
                                         </td>
@@ -339,7 +357,7 @@
 
                                         </td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <td>Criterios minimos de seguridad C-TPAT (F-20)</td>
                                         <td>
                                             <asp:Label ID="lblF20_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
