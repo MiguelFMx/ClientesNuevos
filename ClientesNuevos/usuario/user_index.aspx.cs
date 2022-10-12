@@ -94,7 +94,7 @@ namespace ClientesNuevos.usuario
             string id = Request.Cookies.Get("id").Value;
             try
             {
-                List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value);
+                List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value, id);
 
                 for (int i = 0; i < Docs.Count; i++)
                 {
@@ -793,7 +793,6 @@ namespace ClientesNuevos.usuario
             
         }
 
-
         protected void AbrirArchivo(string flocation)
         {
             string FilePath = @flocation;
@@ -843,6 +842,7 @@ namespace ClientesNuevos.usuario
             //Reload
             Response.Redirect(Request.RawUrl);
         }
+
         protected void Borrar_Click(object sender, EventArgs e)
         {
             LinkButton button = (LinkButton)sender;

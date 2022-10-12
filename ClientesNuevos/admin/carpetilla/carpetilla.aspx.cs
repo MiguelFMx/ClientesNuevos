@@ -70,6 +70,7 @@ namespace ClientesNuevos.admin.carpetilla
                 for (int i = 0; i < data.Rows.Count; i++)
                 {
                     var fila = data.Rows[i];
+                    //==================================================F5
                     if (fila["Documento"].ToString() == "F5")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -89,6 +90,11 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF5_estatus.CssClass = "etiqueta actualizar";
 
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF5_estatus.Text = "actualizado";
+                            lblF5_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblF5_estatus.Text = "pendiente: " + fila["Estatus"].ToString();
@@ -96,6 +102,7 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================F4
                     if (fila["Documento"].ToString() == "F4")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -109,8 +116,14 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.CssClass = "etiqueta revision";
 
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================F43
                     if (fila["Documento"].ToString() == "F43")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -128,8 +141,14 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF43_estatus.Text = "actualizar";
                             lblF43_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF43_estatus.Text = "actualizado";
+                            lblF43_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF43_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================F12
                     if (fila["Documento"].ToString() == "F12")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -147,8 +166,14 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF12_estatus.Text = "actualizar";
                             lblF12_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF12_estatus.Text = "actualizado";
+                            lblF12_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF12_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================F14
                     if (fila["Documento"].ToString() == "F14")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -166,12 +191,14 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.Text = "pendiente: " + fila["Estatus"].ToString();
                             lblF14_estatus.CssClass = "etiqueta pendiente";
                         }
-                        else
+                        else if (fila["Estatus"].ToString() == "updated")
                         {
-
+                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.CssClass = "etiqueta updated";
                         }
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================RFC
                     if (fila["Documento"].ToString() == "RFC")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -189,13 +216,18 @@ namespace ClientesNuevos.admin.carpetilla
                             lblRFC_estatus.Text = "actualizar";
                             lblRFC_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblRFC_estatus.Text = "actualizado";
+                            lblRFC_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblRFC_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblRFC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
-                    //                
+                    //=================================================CURP                
                     if (fila["Documento"].ToString() == "CURP")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -213,12 +245,18 @@ namespace ClientesNuevos.admin.carpetilla
                             lblCURP_estatus.Text = "actualizar";
                             lblCURP_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblCURP_estatus.Text = "actualizado";
+                            lblCURP_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCURP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblCURP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //=================================================CNAP
                     if (fila["Documento"].ToString() == "Carta de no antecedentes penales")
                     {
                         if (fila["Estatus"].ToString() == "100%")

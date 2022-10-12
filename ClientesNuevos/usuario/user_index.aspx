@@ -26,6 +26,7 @@
             <!-----------------------------------Nombre de la empresa---------------------------------- -->
             <div class="row">
                 <div class="col">
+                    <asp:Label ID="lblcomp" runat="server" Text="Compañia:"></asp:Label>
                     <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>
