@@ -44,6 +44,8 @@
                                             <asp:Label ID="lblAC_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtAC" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_AC" runat="server" CssClass="btn btn-secondary "
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -72,6 +74,8 @@
                                             <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtRFC" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_RFC" runat="server" CssClass="btn btn-secondary "
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -102,6 +106,8 @@
                                             <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtCURP" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_CURP" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -132,6 +138,8 @@
                                             <asp:Label ID="lblCNAP_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtCNAP" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_CNAP" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -162,6 +170,8 @@
                                             <asp:Label ID="lblCompDom_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtCompDom" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_CompDom" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -190,6 +200,8 @@
                                             <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtIRL" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_IRL" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -220,6 +232,8 @@
                                             <asp:Label ID="lblPRL_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtPRL" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_PRL" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -250,6 +264,8 @@
                                             <asp:Label ID="lblCTPAT_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtCTPAT" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_CTPAT" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -278,6 +294,8 @@
                                             <asp:Label ID="lblOEA_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtOEA" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_OEA" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -306,6 +324,8 @@
                                             <asp:Label ID="lblOP_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtOP" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_OP" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -334,6 +354,8 @@
                                             <asp:Label ID="lblW9_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+                                            <asp:TextBox ID="txtW9" runat="server" Visible="true"></asp:TextBox>
+
                                             <asp:LinkButton ID="btnVer_W9" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
@@ -362,6 +384,7 @@
                                             <asp:Label ID="lblF5_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                         </asp:TableCell>
                                         <asp:TableCell>
+
                                             <asp:LinkButton ID="btnVer_F5" runat="server" CssClass="btn btn-secondary"
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"

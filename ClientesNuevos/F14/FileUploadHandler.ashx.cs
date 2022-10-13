@@ -31,11 +31,11 @@ namespace ClientesNuevos.F14
 
 
                 string ruta = fname.ToString();
-                //strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
+                strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, ruta);
             }
             else
             {
-              //  strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
+               strRsultado = clsF14.Insertar_ProgramaSeguridad(IDcompania, Descripcion, codigo, "null");
             }
 
 

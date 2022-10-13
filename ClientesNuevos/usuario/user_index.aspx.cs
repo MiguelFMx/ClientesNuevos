@@ -809,7 +809,9 @@ namespace ClientesNuevos.usuario
                     //Response.BinaryWrite(FileBuffer);
                     Session["buffer"] = FileBuffer;
                     Response.Redirect("~/Viewer.aspx");
-                   // Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                    //Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                    
+
                 }
             }
             catch (Exception ex)

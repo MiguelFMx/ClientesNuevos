@@ -5,7 +5,7 @@ $(document).ready(function () {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     let radio = '';
 
-    ObtenerPrograma();
+    //ObtenerPrograma();
 
     $('input[type=radio][name=radCertificado]').change(function () {
         if (this.value == 'si') {
@@ -388,13 +388,14 @@ function ObtenerPrograma() {
                         '<div class="col">' + //col1
                             '<div class="input-group mb-3">' + //input
                                 '<input type = "file" class="form-control documento" name="in_Certificado[]"  accept = ".pdf" hidden>' +
-                                    '<input type="text" name="ruta" class="form-control ruta" value="' + ruta + '"hidden> ' +
+
                                 '</div >' + //input
                         '</div>' + //col1
                         '<div class="col">' + //col2
-                            '<button class="btn btn-warning edit" name="edit" type="button"><i class="bi bi-pencil-square"></i>Editar</button>' +
+                            '<button class="btn btn-warning edit" name="edit" type="button"><i class="bi bi-pencil-square"></i>Cambiar archivo</button>' +
+                            '<a href="../../hViewer.ashx?url='+ruta+'" class="btn btn-secondary">Ver</a>'+
                             '<button class="btn btn-secondary ver" name="ver" type="button"><i class="bi bi-folder-fill"></i>Ver</button>' +
-                        '</div>' + //col2
+                            '</div>' + //col2
                         '</div>' + //row
                        
                         '</div>'; //col principal
@@ -407,7 +408,7 @@ function ObtenerPrograma() {
                 html += '<td>' +
                     '<div class="col">' +
                     '<label class="lblId" hidden>' + IdProgram + '</label>' +
-                    '<input type="text" name="in_Descripcion" class="form-control descripcion" value="' + descrip + '">'
+                    '<input type="text" name="in_Descripcion" class="form-control descripcion" value="' + descrip + '">'+
                 '</div>' +
                     '</td > ';
                 //codigo

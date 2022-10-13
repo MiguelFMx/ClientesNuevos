@@ -8,6 +8,7 @@ namespace ClientesNuevos
 {
     /// <summary>
     /// Descripción breve de hViewer
+    /// Controlador que permite abrir archivos pdf en la misma ventana
     /// </summary>
     public class hViewer : IHttpHandler
     {

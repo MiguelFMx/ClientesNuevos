@@ -60,6 +60,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblAC_fecha;
 
         /// <summary>
+        /// Control txtAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAC;
+
+        /// <summary>
         /// Control btnVer_AC.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRFC_fecha;
+
+        /// <summary>
+        /// Control txtRFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRFC;
 
         /// <summary>
         /// Control btnVer_RFC.
@@ -168,6 +186,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblCURP_fecha;
 
         /// <summary>
+        /// Control txtCURP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCURP;
+
+        /// <summary>
         /// Control btnVer_CURP.
         /// </summary>
         /// <remarks>
@@ -220,6 +247,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCNAP_fecha;
+
+        /// <summary>
+        /// Control txtCNAP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCNAP;
 
         /// <summary>
         /// Control btnVer_CNAP.
@@ -276,6 +312,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblCompDom_fecha;
 
         /// <summary>
+        /// Control txtCompDom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompDom;
+
+        /// <summary>
         /// Control btnVer_CompDom.
         /// </summary>
         /// <remarks>
@@ -328,6 +373,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIRL_fecha;
+
+        /// <summary>
+        /// Control txtIRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIRL;
 
         /// <summary>
         /// Control btnVer_IRL.
@@ -384,6 +438,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblPRL_fecha;
 
         /// <summary>
+        /// Control txtPRL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPRL;
+
+        /// <summary>
         /// Control btnVer_PRL.
         /// </summary>
         /// <remarks>
@@ -436,6 +499,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCTPAT_fecha;
+
+        /// <summary>
+        /// Control txtCTPAT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCTPAT;
 
         /// <summary>
         /// Control btnVer_CTPAT.
@@ -492,6 +564,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblOEA_fecha;
 
         /// <summary>
+        /// Control txtOEA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOEA;
+
+        /// <summary>
         /// Control btnVer_OEA.
         /// </summary>
         /// <remarks>
@@ -546,6 +627,15 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblOP_fecha;
 
         /// <summary>
+        /// Control txtOP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOP;
+
+        /// <summary>
         /// Control btnVer_OP.
         /// </summary>
         /// <remarks>
@@ -598,6 +688,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblW9_fecha;
+
+        /// <summary>
+        /// Control txtW9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtW9;
 
         /// <summary>
         /// Control btnVer_W9.

@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Optimization;
-
+using System.Net;
+using ClientesNuevos.App_Code;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -45,6 +46,9 @@ namespace ClientesNuevos.F14.Seccioness
                     CambiarLinks();
                 }
 
+                gvProgramas.DataSource = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+                gvProgramas.DataBind();
+
             }
         }
         private void CambiarLinks()
@@ -66,6 +70,65 @@ namespace ClientesNuevos.F14.Seccioness
                 HttpContext.Current.Response.Redirect("tiposervicioproductos.aspx");
 
             }
+        }
+
+        protected void AbrirArchivo(string flocation)
+        {
+            string FilePath = @flocation;
+            WebClient wClient = new WebClient();
+
+            try
+            {
+                Byte[] FileBuffer = wClient.DownloadData(FilePath);
+
+                if (FileBuffer != null)
+                {
+                    //Response.ContentType = "application/pdf";
+                    //Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                    //Response.BinaryWrite(FileBuffer);
+                    Session["buffer"] = FileBuffer;
+                    Response.Redirect("~/Viewer.aspx");
+                    // Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message + "\n" + "No se encontro el archivo";
+            }
+
+        }
+
+        protected void btnVer_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void BindData()
+        {
+            gvProgramas.DataSource = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+            gvProgramas.DataBind();
+        }
+        protected void gvProgramas_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            int index = gvProgramas.SelectedIndex;
+            gvProgramas.EditIndex = e.NewEditIndex;
+
+            BindData();
+
+           
+            
+        }
+
+        protected void gvProgramas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvProgramas.EditIndex = -1;
+            BindData();
+        }
+
+        protected void btnVer_Click1(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            txtCodigo.Text = gvProgramas.Rows[rowIndex].Cells[2].Text;
+            txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[1].Text; 
         }
     }
 }

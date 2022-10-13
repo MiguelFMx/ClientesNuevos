@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,7 +15,7 @@ namespace ClientesNuevos.admin.carpetilla
     public partial class carpetilla1 : System.Web.UI.Page
     {
         DataTable data;
-        string id_comp = "";
+        string id_comp = "",id_user="";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,10 +23,12 @@ namespace ClientesNuevos.admin.carpetilla
                 if (Request.QueryString["id"] != null && Request.QueryString["type"]!=null)
                 {
                     Ocultar(Request.QueryString["type"].ToString());
-                    Obtener_Documentos(Request.QueryString["id"].ToString());
                     data = Obtener_inf(Request.QueryString["id"].ToString());
                     lblCompania.Text += " " + data.Rows[0]["Nombre_comp"].ToString();
                     id_comp = Request.QueryString["id"].ToString();
+                    id_user = data.Rows[0]["ID_user"].ToString();
+
+                    Obtener_Documentos(Request.QueryString["id"].ToString(),id_user);
 
                     Response.Cookies.Add(new HttpCookie("id_comp", id_comp));
                     Response.Cookies.Add(new HttpCookie("tipo", Request.QueryString["type"].ToString()));
@@ -60,10 +63,10 @@ namespace ClientesNuevos.admin.carpetilla
                     break;
             }
         }
-        private void Obtener_Documentos(string id_comp)
+        private void Obtener_Documentos(string id_comp, string id_user)
         {
             DataTable data;
-            data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "'");
+            data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR ID_compania='"+id_user+"'");
 
             if (data.Rows.Count > 0)
             {
@@ -72,7 +75,7 @@ namespace ClientesNuevos.admin.carpetilla
                     var fila = data.Rows[i];
                     //==================================================F5
                     if (fila["Documento"].ToString() == "F5")
-                    {
+                    {                        
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblF5_estatus.Text = "completado";
@@ -121,6 +124,11 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.Text = "actualizado";
                             lblF14_estatus.CssClass = "etiqueta updated";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================F43
@@ -140,6 +148,11 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblF43_estatus.Text = "actualizar";
                             lblF43_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF43_estatus.Text = "actualizado";
+                            lblF43_estatus.CssClass = "etiqueta updated";
                         }
                         else if (fila["Estatus"].ToString() == "updated")
                         {
@@ -171,6 +184,11 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF12_estatus.Text = "actualizado";
                             lblF12_estatus.CssClass = "etiqueta updated";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF12_estatus.Text = "actualizado";
+                            lblF12_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF12_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================F14
@@ -196,11 +214,17 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.Text = "actualizado";
                             lblF14_estatus.CssClass = "etiqueta updated";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.CssClass = "etiqueta updated";
+                        }
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================RFC
                     if (fila["Documento"].ToString() == "RFC")
                     {
+                        txtRFC.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblRFC_estatus.Text = "completado";
@@ -230,6 +254,7 @@ namespace ClientesNuevos.admin.carpetilla
                     //=================================================CURP                
                     if (fila["Documento"].ToString() == "CURP")
                     {
+                        txtCURP.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblCURP_estatus.Text = "completado";
@@ -259,6 +284,7 @@ namespace ClientesNuevos.admin.carpetilla
                     //=================================================CNAP
                     if (fila["Documento"].ToString() == "Carta de no antecedentes penales")
                     {
+                        txtCNAP.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblCNAP_estatus.Text = "completado";
@@ -274,14 +300,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblCNAP_estatus.Text = "actualizar";
                             lblCNAP_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblCNAP_estatus.Text = "actualizado";
+                            lblCNAP_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCNAP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblCNAP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==============================================CompDom
                     if (fila["Documento"].ToString() == "Comprobante de domicilio")
                     {
+                        txtCompDom.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblCompDom_estatus.Text = "completado";
@@ -297,14 +330,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblCompDom_estatus.Text = "actualizar";
                             lblCompDom_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblCompDom_estatus.Text = "actualizado";
+                            lblCompDom_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCompDom_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblCompDom_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //===================================================IRL
                     if (fila["Documento"].ToString() == "Identificacion de representante legal")
                     {
+                        txtIRL.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblIRL_estatus.Text = "completado";
@@ -320,15 +360,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblIRL_estatus.Text = "actualizar";
                             lblIRL_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblIRL_estatus.Text = "actualizado";
+                            lblIRL_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblIRL_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblIRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
-                    //Poder de representante legal
+                    //====================================Poder de representante legal
                     if (fila["Documento"].ToString() == "Poder de representante legal")
                     {
+                        txtPRL.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblPRL_estatus.Text = "completado";
@@ -344,14 +390,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblPRL_estatus.Text = "actualizar";
                             lblPRL_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblPRL_estatus.Text = "actualizado";
+                            lblPRL_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblPRL_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblPRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //==================================================OP
                     if (fila["Documento"].ToString() == "Opinion positiva")
                     {
+                        txtOP.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblOP_estatus.Text = "completado";
@@ -367,14 +420,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblOP_estatus.Text = "actualizar";
                             lblOP_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblOP_estatus.Text = "actualizado";
+                            lblOP_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblOP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblOP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //===================================================CTPAT
                     if (fila["Documento"].ToString() == "Certificación C-TPAT")
                     {
+                        txtCTPAT.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblCTPAT_estatus.Text = "completado";
@@ -390,14 +450,21 @@ namespace ClientesNuevos.admin.carpetilla
                             lblCTPAT_estatus.Text = "actualizar";
                             lblCTPAT_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblCTPAT_estatus.Text = "actualizado";
+                            lblCTPAT_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblCTPAT_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblCTPAT_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //===================================================OEA
                     if (fila["Documento"].ToString() == "Certificación OEA")
                     {
+                        txtOEA.Text = fila["Ruta"].ToString();
                         if (fila["Estatus"].ToString() == "100%")
                         {
                             lblOEA_estatus.Text = "completado";
@@ -413,12 +480,18 @@ namespace ClientesNuevos.admin.carpetilla
                             lblOEA_estatus.Text = "actualizar";
                             lblOEA_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblOEA_estatus.Text = "actualizado";
+                            lblOEA_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblOEA_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblOEA_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
+                    //===================================================F16
                     if (fila["Documento"].ToString() == "F16")
                     {
                         if (fila["Estatus"].ToString() == "100%")
@@ -436,11 +509,40 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF16_estatus.Text = "actualizar";
                             lblF16_estatus.CssClass = "etiqueta actualizar";
                         }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblF16_estatus.Text = "actualizado";
+                            lblF16_estatus.CssClass = "etiqueta updated";
+                        }
                         else
                         {
                             lblF16_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblF16_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                    }
+                    //===================================================F20
+                    if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)
+                    {
+                        if (fila["Estatus"].ToString() == "100%")
+                        {
+                            lblF20_estatus.Text = "completado";
+                            lblF20_estatus.CssClass = "etiqueta";
+                        }
+                        else if (fila["Estatus"].ToString() == "revision")
+                        {
+                            lblF20_estatus.Text = "revision";
+                            lblF20_estatus.CssClass = "etiqueta revision";
+                        }
+                        else if (fila["Estatus"].ToString() == "act")
+                        {
+                            lblF20_estatus.Text = "actualizar";
+                            lblF20_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else
+                        {
+                            lblF20_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
+                        }
+                        lblF20_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                 }
             }
@@ -455,6 +557,7 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_CURP")
             {
+                AbrirArchivo(txtCURP.Text);
                 lblPrueba.Text = "Ver curp";
             }
             else if (buttonId == "btnCheck_CURP")
@@ -494,7 +597,9 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_RFC")
             {
+                AbrirArchivo(txtRFC.Text);
                 lblPrueba.Text = "Ver rfc";
+
             }
             else if (buttonId == "btnCheck_RFC")
             {
@@ -519,6 +624,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_CNAP")
             {
+                AbrirArchivo(txtCNAP.Text);
+
                 lblPrueba.Text = "Ver CNAP";
             }
             else if (buttonId == "btnCheck_CNAP")
@@ -544,6 +651,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_CompDom")
             {
+                AbrirArchivo(txtCompDom.Text);
+
                 lblPrueba.Text = "Ver comprobante";
             }
             else if (buttonId == "btnCheck_CompDom")
@@ -569,6 +678,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_IRL")
             {
+                AbrirArchivo(txtIRL.Text);
+
                 lblPrueba.Text = "Ver IRL";
             }
             else if (buttonId == "btnCheck_IRL")
@@ -594,6 +705,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_AC")
             {
+                AbrirArchivo(txtAC.Text);
+
                 lblPrueba.Text = "Ver AC";
             }
             else if (buttonId == "btnCheck_AC")
@@ -619,6 +732,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_W9")
             {
+                AbrirArchivo(txtW9.Text);
+
                 lblPrueba.Text = "Ver W9";
             }
             else if (buttonId == "btnCheck_W9")
@@ -644,6 +759,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_PRL")
             {
+                AbrirArchivo(txtPRL.Text);
+
                 lblPrueba.Text = "Ver PRL";
             }
             else if (buttonId == "btnCheck_PRL")
@@ -669,6 +786,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_CTPAT")
             {
+                AbrirArchivo(txtCTPAT.Text);
+
                 lblPrueba.Text = "Ver ctpat";
             }
             else if (buttonId == "btnCheck_CTPAT")
@@ -694,6 +813,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_OEA")
             {
+                AbrirArchivo(txtOEA.Text);
+
                 lblPrueba.Text = "Ver OEA";
             }
             else if (buttonId == "btnCheck_OEA")
@@ -719,6 +840,8 @@ namespace ClientesNuevos.admin.carpetilla
 
             if (buttonId == "btnVer_OP")
             {
+                AbrirArchivo(txtOP.Text);
+
                 lblPrueba.Text = "Ver OP";
             }
             else if (buttonId == "btnCheck_OP")
@@ -846,5 +969,33 @@ namespace ClientesNuevos.admin.carpetilla
             lblPrueba.Text = wsBaseDatos.InsertarDocumento(id_comp, "F16", "", "100%");
             
         }
+
+        protected void AbrirArchivo(string flocation)
+        {
+            string FilePath = @flocation;
+            WebClient wClient = new WebClient();
+
+            try
+            {
+                Byte[] FileBuffer = wClient.DownloadData(FilePath);
+
+                if (FileBuffer != null)
+                {
+                    //Response.ContentType = "application/pdf";
+                    //Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                    //Response.BinaryWrite(FileBuffer);
+                    Session["buffer"] = FileBuffer;
+                    Response.Redirect("~/Viewer.aspx");
+                    // Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblPrueba.Text = ex.Message + "\n" + "No se encontro el archivo";
+            }
+
+        }
+
     }
 }
