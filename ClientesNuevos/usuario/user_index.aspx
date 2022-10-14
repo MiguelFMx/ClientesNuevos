@@ -48,6 +48,9 @@
                                     <asp:TableHeaderCell>Fecha de entrega</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Acciones</asp:TableHeaderCell>
                                 </asp:TableHeaderRow>
+
+                                <%-- Cambio  --%>
+
                                 <%-- =========================Acta constitutiva ================== --%>
                                 <asp:TableRow ID="row_AC">
                                     <asp:TableCell>Acta constitutiva</asp:TableCell>
@@ -63,7 +66,7 @@
                                         <asp:TextBox ID="txtAC" runat="server" Visible="true"></asp:TextBox>
                                         <div class="btn-group" role="group" aria-label="ac-group">
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva"><i class="bi bi-upload"></i></button>
-                                            <asp:LinkButton ID="AC_borrar" runat="server" CssClass="btn btn-danger" OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="AC_borrar" runat="server" CssClass="btn btn-danger" OnClick="AC_borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
 
                                             <asp:LinkButton ID="AC_ver" runat="server" CssClass="btn btn-secondary" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
                                         </div>

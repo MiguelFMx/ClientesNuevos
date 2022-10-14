@@ -35,7 +35,7 @@ namespace ClientesNuevos.usuario
                     try
                     {
                         Documentos();
-                        OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
+                       // OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
                         // prueba.Text = User.Identity.Name;
                     }
                     catch (Exception ex)
@@ -914,6 +914,11 @@ namespace ClientesNuevos.usuario
                 lblError.Text = "No se encontró el archivo";
             }
 
+        }
+
+        protected void AC_borrar_Click(object sender, EventArgs e)
+        {
+            Response.Write("No hace anda ");
         }
     }
 }
