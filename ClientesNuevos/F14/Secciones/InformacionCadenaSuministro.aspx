@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-
+    <style type="text/css"> .hiddencol { display: none; } </style>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 </asp:Content>
@@ -176,7 +176,7 @@
                             <br />
                             <div class="row">
                                 <div class="col" style="display: flex; justify-content: flex-end;">
-                                    <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-success btn-small"><i class="bi bi-plus-circle"></i> Agregar</asp:LinkButton>
+                                    <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-success btn-small" OnClick="btnAdd_Click">Guardar</asp:LinkButton>
                                 </div>
                             </div>
                             <div class="row">
@@ -186,24 +186,27 @@
                                 <div class="col">
                                     <div class="card">
                                         <div class="table-responsive">
-                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit">
+                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting">
                                                 <Columns>
-                                                    <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID"  ></asp:BoundField>
+                                                    <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" ></asp:BoundField>
                                                     <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                     </asp:BoundField>
                                                     <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificaci&#243;n" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>                                                        
                                                     </asp:BoundField>
-                                                                                                      
+
+                                                    <asp:BoundField DataField="ruta" HeaderText="url">
+                                                        <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+
+                                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                                    </asp:BoundField>
                                                     <asp:TemplateField HeaderText="Certificado">
                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                        <ItemTemplate>
                                                            <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
                                                        </ItemTemplate>
                                                     </asp:TemplateField>
-
-
                                                     <asp:TemplateField ShowHeader="False">
                                                         <EditItemTemplate>
                                                             <asp:LinkButton runat="server" Text="Actualizar" CommandName="Update" CausesValidation="True" ID="LinkButton1" CssClass="btn btn-success"><i class="bi bi-check-lg"></i></asp:LinkButton>&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-danger"><i class="bi bi-x-lg"></i></asp:LinkButton>

@@ -546,7 +546,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
 
     <script type="text/javascript">
-
+        window.bootstrap = require('bootstrap');
         $(document).ready(function () {
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));

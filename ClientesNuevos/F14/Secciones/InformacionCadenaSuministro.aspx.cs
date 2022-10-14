@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Web.Optimization;
 using System.Net;
 using ClientesNuevos.App_Code;
+using System.IO;
+using System.Xml.Linq;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -111,11 +113,9 @@ namespace ClientesNuevos.F14.Seccioness
         {
             int index = gvProgramas.SelectedIndex;
             gvProgramas.EditIndex = e.NewEditIndex;
-
+            
             BindData();
 
-           
-            
         }
 
         protected void gvProgramas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -127,8 +127,57 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnVer_Click1(object sender, EventArgs e)
         {
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            string id = "", ruta="";
+
+            id = gvProgramas.Rows[rowIndex].Cells[0].Text;
+            txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[1].Text;
             txtCodigo.Text = gvProgramas.Rows[rowIndex].Cells[2].Text;
-            txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[1].Text; 
+            ruta = gvProgramas.Rows[rowIndex].Cells[3].Text;
+
+            AbrirArchivo(ruta);
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            //string id_program = "";
+            string codigo = "";
+            string descripcion = "";            
+            string IDcompania = "";
+
+            Byte[] file = null;
+            codigo = txtCodigo.Text;
+            descripcion = txtDescripcion.Text;
+
+            if (fileCertificado.HasFiles)
+            {
+                if (Path.GetExtension(fileCertificado.FileName) != ".pdf")
+                {
+                    lblSucces.Text = "Extension de archivo invalida";
+                }
+                else
+                {
+                    BinaryReader reader = new BinaryReader(fileCertificado.PostedFile.InputStream);
+                    file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
+
+                    IDcompania = Request.Cookies.Get("id_comp").Value;
+                    string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                    string fname = Server.MapPath("~/Archivos/usuario/" + fecha + "_" + descripcion + "_" + fileCertificado.FileName);
+                    fileCertificado.SaveAs(fname);
+
+                    lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, fname.ToString()); ;
+
+                }
+            }
+            else
+            {
+                lblSucces.Text = "No hay documento " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, "null");
+            }
+
+        }
+
+        protected void gvProgramas_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            lblError.Text = "Row eliminada";
         }
     }
-}
+} 
