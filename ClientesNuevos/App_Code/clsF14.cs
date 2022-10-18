@@ -552,6 +552,50 @@ namespace ClientesNuevos.App_Code
             return resultado;
         }
 
+        //editar programa de seguridad, documento pdf
+        public static string Insertar_ProgramaSeguridad(string ID_compania, string Descripcion, string Codigo, string Ruta, string ID)
+        {
+            string resultado = "";
+
+            string sqlStr = "Master_ProgramaSeguridad";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@id", ID);
+
+                cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
+                cmd.Parameters.AddWithValue("@Descripcion", Descripcion);
+                cmd.Parameters.AddWithValue("@codigo_certificacion", Codigo);
+                cmd.Parameters.AddWithValue("@ruta", Ruta);
+                cmd.Parameters.AddWithValue("@accion", "update");
+
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+
+
+                cmd.ExecuteNonQuery();
+                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
+
+                resultado = res;
+            }
+            catch (SqlException e)
+            {
+                resultado = e.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return resultado;
+        }
+
+
 
 
         public static string Insertar_Documento(string ID_compania, string nombreDocumento, string Ruta, string Estatus)
@@ -563,7 +607,7 @@ namespace ClientesNuevos.App_Code
             DataTable dt = wsBaseDatos.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + ID_compania + "' AND Documento='" + nombreDocumento + "'");
 
 
-            fecha = DateTime.Now.ToString("MM-dd-yyyy");
+            fecha = DateTime.Now.ToString("dd/MM/yyyy");
             con.Open();
             try
             {

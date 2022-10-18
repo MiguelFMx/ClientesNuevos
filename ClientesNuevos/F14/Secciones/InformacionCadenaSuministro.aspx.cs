@@ -76,7 +76,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void AbrirArchivo(string flocation)
         {
-            string FilePath = @flocation;
+            string FilePath = Server.MapPath(flocation);
             WebClient wClient = new WebClient();
 
             try
@@ -111,11 +111,7 @@ namespace ClientesNuevos.F14.Seccioness
         }
         protected void gvProgramas_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            int index = gvProgramas.SelectedIndex;
-            gvProgramas.EditIndex = e.NewEditIndex;
-            
-            BindData();
-
+            /* Obtengo el texto de cada celda del gridview */
         }
 
         protected void gvProgramas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -161,10 +157,12 @@ namespace ClientesNuevos.F14.Seccioness
 
                     IDcompania = Request.Cookies.Get("id_comp").Value;
                     string fecha = DateTime.Now.ToString("dd-MM-yyyy");
-                    string fname = Server.MapPath("~/Archivos/usuario/" + fecha + "_" + descripcion + "_" + fileCertificado.FileName);
-                    fileCertificado.SaveAs(fname);
+                    string fname = "/Archivos/usuario/" + fecha + "_" + descripcion + "_" + fileCertificado.FileName;
+                    fileCertificado.SaveAs(Server.MapPath(fname));
 
                     lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, fname.ToString()); ;
+
+                    Response.Redirect(Request.RawUrl);
 
                 }
             }
@@ -177,7 +175,97 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void gvProgramas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            lblError.Text = "Row eliminada";
+            TableCell cell = gvProgramas.Rows[e.RowIndex].Cells[0];
+            TableCell url = gvProgramas.Rows[e.RowIndex].Cells[3];
+            string id = cell.Text;
+
+            try
+            {
+                lblError.Text = clsHerramientaBD.ExecuteSql("DELETE FROM Table_ProgramaSeguridad WHERE ID='" + id + "' AND ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+
+            }
+            catch (Exception ex)
+            {
+
+                lblError.Text=ex.Message;
+            }
+            finally
+            {
+                if(url.Text != "null")
+                {
+                    File.Delete(MapPath(url.Text));
+                }
+            }
+            Response.Redirect(Request.RawUrl);
+            //lblExito.Text = "Registro eliminido con exito";
+        }
+
+        protected void gvProgramas_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+        //boton en tabla
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+
+            string Id = gvProgramas.Rows[rowIndex].Cells[0].Text;
+            string Descripcion = gvProgramas.Rows[rowIndex].Cells[1].Text;
+            string codigo = gvProgramas.Rows[rowIndex].Cells[2].Text;
+            string Url = gvProgramas.Rows[rowIndex].Cells[3].Text;
+
+            txtCodigo.Text = codigo;
+            txtDescripcion.Text = Descripcion;
+            hfID.Value = Id;
+            hfRuta.Value = Url;
+
+            btnAdd.Visible = false;
+            btnEditar.Visible = true;
+            btnCancelar.Visible = true;
+            lblEditando.Visible = true;
+        }
+
+        //boton editar registro
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Visible = false;
+            btnCancelar.Visible = false;
+            btnAdd.Visible = true;
+            txtCodigo.Text = "";
+            txtDescripcion.Text = "";
+            lblEditando.Visible = false;
+
+            if (fileCertificado.HasFile)
+            {
+                //si hay archivo subido en FileUpload
+
+
+            }
+            else
+            {
+                //Si hay o no un archivo 
+                lblExito.Text = clsF14.Insertar_ProgramaSeguridad(Request.Cookies.Get("id_comp").Value, txtDescripcion.Text, txtCodigo.Text, hfRuta.Value, hfID.Value);
+            }
+
+        }
+        //cancelar registro
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnCancelar.Visible = false;
+            btnEditar.Visible = false;
+            lblEditando.Visible = false;
+            btnAdd.Visible = true;
+
+            
+            txtCodigo.Text = "";
+            txtDescripcion.Text = "";
+
+        }
+
+
+        protected void GuardarDocumento()
+        {
+
         }
     }
 } 

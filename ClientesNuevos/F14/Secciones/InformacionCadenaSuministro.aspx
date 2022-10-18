@@ -170,6 +170,9 @@
                                 <div class="col-md">
                                     <asp:Label ID="lblCertificado" runat="server" Text="Certificado:" CssClass="form-label"></asp:Label>
                                     <asp:FileUpload ID="fileCertificado" runat="server" CssClass="form-control" />
+
+                                    <asp:HiddenField ID="hfID" runat="server" />
+                                    <asp:HiddenField ID="hfRuta" runat="server" />
                                 </div>
 
                             </div>
@@ -177,6 +180,10 @@
                             <div class="row">
                                 <div class="col" style="display: flex; justify-content: flex-end;">
                                     <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-success btn-small" OnClick="btnAdd_Click">Guardar</asp:LinkButton>
+                                    <asp:Label ID="lblEditando" runat="server" Text="Editar registro:" Visible="false"></asp:Label>
+                                    <asp:LinkButton ID="btnEditar" runat="server" CssClass="btn btn-success" OnClick="btnEditar_Click" Visible="false"><i class="bi bi-check-lg"></i></asp:LinkButton> &nbsp;
+                                    <asp:LinkButton ID="btnCancelar" runat="server" CssClass="btn btn-danger" OnClick="btnCancelar_Click" Visible="false"><i class="bi bi-x-lg"></i></asp:LinkButton>
+                                    
                                 </div>
                             </div>
                             <div class="row">
@@ -186,7 +193,7 @@
                                 <div class="col">
                                     <div class="card">
                                         <div class="table-responsive">
-                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting">
+                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting" OnRowUpdating="gvProgramas_RowUpdating">
                                                 <Columns>
                                                     <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" ></asp:BoundField>
                                                     <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
@@ -207,17 +214,15 @@
                                                            <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
                                                        </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField ShowHeader="False">
-                                                        <EditItemTemplate>
-                                                            <asp:LinkButton runat="server" Text="Actualizar" CommandName="Update" CausesValidation="True" ID="LinkButton1" CssClass="btn btn-success"><i class="bi bi-check-lg"></i></asp:LinkButton>&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-danger"><i class="bi bi-x-lg"></i></asp:LinkButton>
-
-                                                        </EditItemTemplate>
+                                                    <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:LinkButton runat="server" Text="Editar" CommandName="Edit" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>&nbsp;<asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
-
+                                                            <asp:LinkButton ID="btnEdit" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>
                                                         </ItemTemplate>
-
-                                                        <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField ShowHeader="False" InsertVisible="False">
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
+                                                        </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>

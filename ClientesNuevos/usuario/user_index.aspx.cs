@@ -795,7 +795,7 @@ namespace ClientesNuevos.usuario
 
         protected void AbrirArchivo(string flocation)
         {
-            string FilePath = @flocation;
+            string FilePath = Server.MapPath(flocation);
             WebClient wClient = new WebClient();
 
             try

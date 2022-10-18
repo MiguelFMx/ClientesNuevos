@@ -25,9 +25,9 @@ namespace ClientesNuevos.F14
                 
                     HttpPostedFile file = files[0];
                 //ddMMyyyy
-                    string fecha = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString();
-                    fname = context.Server.MapPath("~/Archivos/usuario/" + fecha+"_"+Descripcion+"_"+file.FileName);
-                    file.SaveAs(fname);
+                string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                fname = context.Server.MapPath("Archivos/usuario/" + fecha+"_"+Descripcion+"_"+file.FileName);
+                file.SaveAs(fname);
 
 
                 string ruta = fname.ToString();

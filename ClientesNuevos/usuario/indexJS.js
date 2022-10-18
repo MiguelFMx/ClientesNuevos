@@ -83,7 +83,7 @@ function guardarDocumento(tipo) {
                 processData: false,
                 success: function (result) {
                     console.log(result);
-                    window.location.reload();
+                    /*window.location.reload();*/
                 },
                 error: function (err) {
                     console.log(err.statusText);
