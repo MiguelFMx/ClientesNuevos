@@ -20,14 +20,14 @@ namespace ClientesNuevos.F12
      [System.Web.Script.Services.ScriptService]
     public class wsPoliticaSeguridad : System.Web.Services.WebService
     {
-
+       
         [WebMethod]
         public static string Insertar_PoliticaSeguridad(string id_compania, string OEA, string Representante, string Firma)
         {
             string res;
             string sqlStr = "Master_PoliticaSeguridad";
             string Fecha = "";
-            Fecha = DateTime.Now.ToString("MM-dd-yyyy");
+            Fecha = DateTime.Now.ToString("dd/MM/yyyy");
 
             SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
 

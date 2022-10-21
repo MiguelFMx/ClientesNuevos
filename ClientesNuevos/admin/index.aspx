@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ClientesNuevos.admin.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ClientesNuevos.admin.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Index</title>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <!-- <h1>Wenas admin</h1> -->
     <div class="right_col" role="main" style="min-height: 939px;">
         <div>
@@ -14,30 +15,34 @@
             <div class="clearfix"></div>
 
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2>Listado de clientes</h2>
-
-                            <div class="clearfix"></div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 style="color: #73879C;">Listado de clientes</h5>
                         </div>
-                        <div class="x_content">
-                            
-                                <div class="table-responsive">
-                                    <table class="table" id="tClientes">
-                                        <thead class="cabezal">
-                                            <tr>
-                                                <th style="width: 40%;">Empresa</th>
-                                                <th style="width: 10%;">Fecha de registro</th>
-                                                <th style="width: 20%;">Progreso</th>
-                                                <th>Estatus</th>
-                                                <th>Accion</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>                            
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    cantidad de registros
+                                </div>
+
+                            </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="tClientes">
+                                    <thead class="cabezal">
+                                        <tr>
+                                            <th style="width: 40%;">Empresa</th>
+                                            <th style="width: 10%;">Fecha de registro</th>
+                                            <th style="width: 20%;">Progreso</th>
+                                            <th>Estatus</th>
+                                            <th>Accion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,8 +52,8 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
-    <script src="template/vendors/jquery/dist/jquery.js"></script>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="index_admin.js"></script>
 
 </asp:Content>

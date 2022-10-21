@@ -109,6 +109,7 @@
     <Content Include="admin\carpetilla\carpetilla.aspx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\index_admin.js" />
+    <Content Include="admin\template\asset\css\estilo.css" />
     <Content Include="admin\template\build\css\custom.css" />
     <Content Include="admin\template\build\css\custom.min.css" />
     <Content Include="admin\template\build\images\back_disabled.png" />
@@ -3534,9 +3535,20 @@
     <Content Include="admin\wsAdminIndex.asmx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Error.aspx" />
     <Content Include="F12\wsPoliticaSeguridad.asmx" />
     <Content Include="F14\JS\ComFilialJS.js" />
     <Content Include="cliente\F14\ClienteNuevo.aspx" />
@@ -3571,6 +3583,8 @@
     <Content Include="mobile.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css.map" />
@@ -3786,6 +3800,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="template\assets\css\login\style.css" />
+    <Content Include="template\assets\css\paginacion.css" />
     <Content Include="template\assets\css\style_f5.css" />
     <Content Include="template\assets\img\edit-pen-3.png" />
     <Content Include="template\assets\img\logo\Hungaros.png" />
@@ -4634,6 +4649,19 @@
     <Content Include="admin\template\vendors\validator\README.md" />
     <Content Include="admin\template\vendors\validator\validator.jquery.json" />
     <Content Include="hViewer.ashx" />
+    <Content Include="admin\Admint.Master" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
@@ -4764,6 +4792,13 @@
     <Compile Include="admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin\Admint.Master.cs">
+      <DependentUpon>Admint.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Admint.Master.designer.cs">
+      <DependentUpon>Admint.Master</DependentUpon>
+    </Compile>
     <Compile Include="admin\carpetilla\carpetilla.aspx.cs">
       <DependentUpon>carpetilla.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4793,6 +4828,13 @@
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="F14\wsBaseDatos.asmx.cs">
       <DependentUpon>wsBaseDatos.asmx</DependentUpon>
       <SubType>Component</SubType>

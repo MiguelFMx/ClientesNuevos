@@ -17,9 +17,7 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <label id="lblFecha">
-                                    <%: DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy") %>
-                                </label>
+                                <asp:Label ID="lblFecha" runat="server" Text=""></asp:Label>
 
                             </div>
                             <div class="col">
@@ -127,14 +125,14 @@
                             <br />
                                 <br />
                             </li>
-                            <li>
+                            <li style="break-before: page;">
                                 <strong>Procedimiento de Seguridad en Agricultura</strong>
                                 <br />
                                 Procedimientos de seguridad para proteger la integridad del cargamento para evitar la amenaza de plagas y pestes tales como tierra, estiércol, semillas, y material de animales o plantas los cuales pueden encubar pestes y plagas invasivas y destructivas a los EE.UU. 
                             <br />
                                 <br />
                             </li>
-                            <li style="break-before: page;">
+                            <li>
                                 <strong>Procedimiento de Ciberseguridad</strong>
                                 <br />
                                 Procedimientos de seguridad para identificar, analizar, evaluar, y comunicar riesgos a la seguridad cibernética y aceptar, evitar, transferir o mitigar a un nivel aceptable, considerando costos y beneficios. Procedimientos de seguridad para proteger la integridad de los sistemas de información contra accesos no autorizados o manipulaciones ilegítimas o ilícitas de la información.
@@ -282,17 +280,17 @@
                         <label for="gvProgramas">Nuestra Compañía actualmente participa en algún programa de Seguridad. En caso de que la respuesta sea positiva favor de indicar el programa de seguridad en el que participa: </label>
 
                         <div class="table-responsive">
-                        <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">
-                            <Columns>
-                                <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion"></asp:BoundField>
-                                <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificación" SortExpression="codigo_certificacion"></asp:BoundField>
-                            </Columns>
-                        </asp:GridView>
-                            </div>
+                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">
+                                <Columns>
+                                    <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion"></asp:BoundField>
+                                    <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificación" SortExpression="codigo_certificacion"></asp:BoundField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
                     </div>
                 </div>
                 <br />
-                <div class="row"  style="break-before: page;">
+                <div class="row" style="break-before: page;">
                     <div class="col-auto">
                         <span>¿Usted responde por todas las ubicaciones de la compañia?</span>
                     </div>
@@ -326,18 +324,16 @@
                             <div class="col-10">
                                 <div class="row">
                                     <div class="col">
-                                     <asp:CheckBox ID="chFirma" runat="server" />
-                                <asp:Label ID="lblFirma" runat="server" Text="La Empresa ha leído y ha comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de Hungaros Transportistas S.A. de C.V.
+                                        <asp:CheckBox ID="chFirma" runat="server" />
+                                        <asp:Label ID="lblFirma" runat="server" Text="La empresa ha leído y ha comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de Hungaros Transportistas S.A. de C.V.
                                         Además, se compromete a dar seguimiento a los estándares de seguridad indicados en la misma."></asp:Label>
-                                </div>
+                                    </div>
 
                                 </div>
                                 <div class="row">
                                     <asp:Label ID="lblError" runat="server" Text="*Por favor firme el documento" ForeColor="Red" Visible="false"></asp:Label>
                                 </div>
-                               
                             </div>
-                            
                             <div class="col-1"></div>
                         </div>
                     </div>
@@ -347,10 +343,11 @@
         <br />
         <section id="boton">
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-5"></div>
-                <div class="col">
-                    <button id="btnImprimir" class="btn btn-info" type="button" onclick="imprSelec()">Imprimir</button>
+                <div class="col d-flex justify-content-end">
+                    <button id="btnImprimir" class="btn btn-primary text-light" type="button" onclick="imprSelec()"><i class="bi bi-printer"></i></button>
+                    &nbsp;
+                    <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/usuario/user_index.aspx" CssClass="btn btn-secondary"><i class="bi bi-house-door"></i></asp:HyperLink>
+                    &nbsp;
                     <asp:LinkButton ID="btnNext" runat="server" CssClass="btn  btn-success" OnClick="btnNext_Click">Continuar <i class="bi bi-chevron-double-right"></i></asp:LinkButton>
                 </div>
             </div>

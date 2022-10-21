@@ -5,6 +5,7 @@
     <style type="text/css"> .hiddencol { display: none; } </style>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+    <link href="../../template/assets/css/paginacion.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -130,33 +131,6 @@
                                 </div>
                             </div>
                         </div>
-                        <br />
-                        <div class="row" id="divCertificado" style="display: none;">
-                            <div class="row">
-                                <div class="col">
-                                    <span id="error"></span>
-
-                                    <div class="card">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tProgramaDeSeguridad">
-                                                <thead class="cabezal">
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Descripción</th>
-                                                        <th>Código de certificación</th>
-                                                        <th>¿Puede proporcionar el certificado?</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                                <tfoot></tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <asp:Panel ID="pV2" runat="server">
                             <div class="row">
                                 <div class="col-md">
@@ -180,22 +154,25 @@
                             <div class="row">
                                 <div class="col" style="display: flex; justify-content: flex-end;">
                                     <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-success btn-small" OnClick="btnAdd_Click">Guardar</asp:LinkButton>
-                                    <asp:Label ID="lblEditando" runat="server" Text="Editar registro:" Visible="false"></asp:Label>
+                                    <asp:Label ID="lblEditando" runat="server" Text="Editar registro:" Visible="false" CssClass="mt-2 me-1"></asp:Label>
                                     <asp:LinkButton ID="btnEditar" runat="server" CssClass="btn btn-success" OnClick="btnEditar_Click" Visible="false"><i class="bi bi-check-lg"></i></asp:LinkButton> &nbsp;
                                     <asp:LinkButton ID="btnCancelar" runat="server" CssClass="btn btn-danger" OnClick="btnCancelar_Click" Visible="false"><i class="bi bi-x-lg"></i></asp:LinkButton>
                                     
                                 </div>
                             </div>
                             <div class="row">
-                                <asp:Label ID="lblSucces" runat="server" Text="..."></asp:Label>
+                                <asp:Label ID="lblSucces" runat="server" Text=""></asp:Label>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="card">
                                         <div class="table-responsive">
-                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting" OnRowUpdating="gvProgramas_RowUpdating">
+                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting" OnRowUpdating="gvProgramas_RowUpdating" AllowPaging="True" PageSize="4" AllowSorting="True" PagerSettings-Mode="NextPreviousFirstLast" OnPageIndexChanging="gvProgramas_PageIndexChanging" PagerStyle-CssClass="pagination-ys" OnSorting="gvProgramas_Sorting">
                                                 <Columns>
-                                                    <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" ></asp:BoundField>
+                                                    <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" >
+                                                    <HeaderStyle CssClass="hiddencol" />
+                                                    <ItemStyle CssClass="hiddencol" />
+                                                    </asp:BoundField>
                                                     <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                     </asp:BoundField>
@@ -214,17 +191,20 @@
                                                            <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
                                                        </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Editar" HeaderStyle-CssClass="cabezal">
+                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                         <ItemTemplate>
                                                             <asp:LinkButton ID="btnEdit" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField ShowHeader="False" InsertVisible="False">
+                                                    <asp:TemplateField HeaderText="Elimar" HeaderStyle-CssClass="cabezal" InsertVisible="False">
+                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                         <ItemTemplate>
                                                             <asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
+                                                <PagerSettings Mode="NumericFirstLast"  PageButtonCount="3" />
                                             </asp:GridView>
                                         </div>
                                     </div>
@@ -232,7 +212,7 @@
                             </div>
                         </asp:Panel>
 
-                        <asp:Label ID="lblError" runat="server" Text="..."></asp:Label>
+                        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
 
@@ -262,9 +242,6 @@
         $(document).ready(function () {
             getEstatus();
         });
-
-
-
 
     </script>
 

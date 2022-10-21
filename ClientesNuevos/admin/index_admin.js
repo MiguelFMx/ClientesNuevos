@@ -31,7 +31,7 @@ function GetData() {
                 "<tr>" +
                // "<td>" + result[i].RFC + "</td>" +
                /* "<td>" + tipo + "</td>" +*/
-                "<td><a>" + result[i].Nombre_comp + "</a><br/><small>" + result[i].Nombre_comercial + "</small></td>" +
+                "<td><a>" + result[i].Nombre_comp + "</a><br/><small  style='color:#73879C;'>" + result[i].Nombre_comercial + "</small></td>" +
                 "<td>" + result[i].Fecha_registro.substring(0, 10) + "</td>" +
                 "<td class='project_progress'>" + 
                 "<div class='progress progress_sm'>"+
@@ -41,7 +41,7 @@ function GetData() {
                 "</td>" +
                 "<td>"+estado+"</td>"+
                 //"<td><button name='view' class='btn btn-primary'>ver</button></td>" +
-                "<td><a href='carpetilla/carpetilla.aspx?id=" + result[i].RFC+"&type="+tipo+"' class='btn btn-secondary'>View</a></td>" +
+                "<td><a href='carpetilla/carpetilla.aspx?id=" + result[i].RFC+"&type="+tipo+"' class='btn btn-secondary btn-sm'>View</a></td>" +
 
                 "</tr>"
             );

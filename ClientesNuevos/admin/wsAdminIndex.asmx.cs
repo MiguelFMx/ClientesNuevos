@@ -82,16 +82,16 @@ namespace ClientesNuevos.admin
             if (tipo == "0")
             {
                 //moral
-                total = 13;
+                total = 14;
             }
             else if(tipo == "1")
             {
                 //total de documentos
-                total = 14;
+                total = 15;
             }
             else
             {
-                total = 9;
+                total = 10;
             }
 
             //aux = numero de registros

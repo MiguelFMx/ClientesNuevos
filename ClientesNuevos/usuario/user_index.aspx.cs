@@ -35,8 +35,8 @@ namespace ClientesNuevos.usuario
                     try
                     {
                         Documentos();
-                       // OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
-                        // prueba.Text = User.Identity.Name;
+                        OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
+                        
                     }
                     catch (Exception ex)
                     {
@@ -246,7 +246,11 @@ namespace ClientesNuevos.usuario
                             lblRFC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblRFC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                        RFC_ver.Enabled = true;
+                        RFC_ver.CssClass = RFC_ver.CssClass.Replace("disabled", "");
 
+                        RFC_borrar.Enabled = true;
+                        RFC_borrar.CssClass = RFC_borrar.CssClass.Replace("disabled", "");
                     }
                     //=============================================== CURP                    
                     if (Docs[i].Documento == "CURP")
@@ -282,6 +286,11 @@ namespace ClientesNuevos.usuario
                             lblCURP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblCURP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                        CURP_ver.Enabled = true;
+                        CURP_ver.CssClass = CURP_ver.CssClass.Replace("disabled", "");
+
+                        CURP_borrar.Enabled = true;
+                        CURP_borrar.CssClass = CURP_borrar.CssClass.Replace("disabled", "");
                     }
                     //============================== Carta de no antecedentes
                     if (Docs[i].Documento == "Carta de no antecedentes penales")
@@ -312,6 +321,12 @@ namespace ClientesNuevos.usuario
                             lblCNAP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblCNAP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        CNAP_borrar.Enabled = true;
+                        CNAP_borrar.CssClass = CNAP_borrar.CssClass.Replace("disabled", "");
+
+                        CNAP_ver.Enabled = true;
+                        CNAP_ver.CssClass = CNAP_borrar.CssClass.Replace("disabled", "");
                     }
                     //=========================== Comprobante de domicilio
                     if (Docs[i].Documento == "Comprobante de domicilio")
@@ -342,6 +357,12 @@ namespace ClientesNuevos.usuario
                             lblCompDom_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblCompDom_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        CompDom_borrar.Enabled = true;
+                        CompDom_borrar.CssClass = CompDom_borrar.CssClass.Replace("disabled", "");
+
+                        CompDom_ver.Enabled = true;
+                        CompDom_ver.CssClass = CompDom_ver.CssClass.Replace("disabled", "");
                     }
                     //===================== Identificacion de representante legal
                     if (Docs[i].Documento == "Identificacion de representante legal")
@@ -372,6 +393,11 @@ namespace ClientesNuevos.usuario
                             lblIRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblIRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        IRL_borrar.Enabled = true;
+                        IRL_borrar.CssClass = RFC_borrar.CssClass.Replace("disabled", "");
+                        IRL_ver.Enabled = true;
+                        IRL_ver.CssClass = IRL_ver.CssClass.Replace("disabled", "");
                     }
                     //==================== Poder de representante legal
                     if (Docs[i].Documento == "Poder de representante legal")
@@ -402,6 +428,12 @@ namespace ClientesNuevos.usuario
                             lblPRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblPRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        PRL_borrar.Enabled = true;
+                        PRL_borrar.CssClass = PRL_borrar.CssClass.Replace("disabled", "");
+
+                        PRL_ver.Enabled = true;
+                        PRL_ver.CssClass = PRL_ver.CssClass.Replace("disabled", "");
                     }
                     //=============================== Opinion positiva
                     if (Docs[i].Documento == "Opinion positiva")
@@ -432,6 +464,11 @@ namespace ClientesNuevos.usuario
                             lblOP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblOP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                        OP_borrar.Enabled = true;
+                        OP_borrar.CssClass = OP_borrar.CssClass.Replace("disabled", "");
+
+                        OP_ver.Enabled = true;
+                        OP_ver.CssClass = OP_ver.CssClass.Replace("disabled", "");
                     }
                     //============================== Certificacion CTPAT
                     if (Docs[i].Documento == "Certificación C-TPAT")
@@ -462,6 +499,12 @@ namespace ClientesNuevos.usuario
                             lblCTPAT_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblCTPAT_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        CTPAT_borrar.Enabled = true;
+                        CTPAT_borrar.CssClass = CTPAT_borrar.CssClass.Replace("disabled", "");
+
+                        CTPAT_ver.Enabled = true;
+                        CTPAT_ver.CssClass = CTPAT_ver.CssClass.Replace("disabled", "");
                     }
                     //=================================== Certificacion OEA
                     if (Docs[i].Documento == "Certificación OEA")
@@ -493,6 +536,12 @@ namespace ClientesNuevos.usuario
                             lblOEA_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        OEA_borrar.Enabled = true;
+                        OEA_borrar.CssClass = OEA_borrar.CssClass.Replace("disabled", "");
+
+                        OEA_ver.Enabled = true;
+                        OEA_ver.CssClass = OEA_ver.CssClass.Replace("disabled", "");
                     }
                     //=================================== W9
                     if (Docs[i].Documento == "W9")
@@ -524,6 +573,13 @@ namespace ClientesNuevos.usuario
                             lblW9_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblW9_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
+                        W9_borrar.Enabled = true;
+                        W9_borrar.CssClass = W9_borrar.CssClass.Replace("disabled", "");
+
+                        W9_ver.Enabled = true;
+                        W9_ver.CssClass = W9_ver.CssClass.Replace("disabled", "");
+
                     }
                     //=================================== Acta constitutiva
                     if (Docs[i].Documento == "Acta constitutiva")
@@ -555,6 +611,11 @@ namespace ClientesNuevos.usuario
                             lblAC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblAC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+                        AC_borrar.Enabled = true;
+                        AC_borrar.CssClass = AC_borrar.CssClass.Replace("disbled", "");
+
+                        AC_ver.Enabled = true;
+                        AC_ver.CssClass = AC_ver.CssClass.Replace("disabled", "");
                     }
                     //=================================== Certificacion F20
                     if (Docs[i].Documento == "F20" && Docs[i].ID_compania == id)
@@ -588,10 +649,10 @@ namespace ClientesNuevos.usuario
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -826,7 +887,7 @@ namespace ClientesNuevos.usuario
         {
             string accion = "";
             string compania_id = Request.Cookies.Get("id_comp").Value;                       
-            var file = @path;
+            var file = Server.MapPath(path);
             try
             {
                 if (System.IO.File.Exists(file))
@@ -835,6 +896,9 @@ namespace ClientesNuevos.usuario
                     accion = clsHerramientaBD.ExecuteSql("DELETE FROM Table_Documentos WHERE Documento='" + doc + "' AND ID_compania='" + compania_id + "'");
                     //ELiminar de la base de datos
                     System.IO.File.Delete(file);
+
+                    Response.Redirect(Request.RawUrl, true);
+
                 }
             }
             catch (Exception ex)
@@ -842,7 +906,6 @@ namespace ClientesNuevos.usuario
                 lblError.Text = ex.Message;
             }
             //Reload
-            Response.Redirect(Request.RawUrl);
         }
 
         protected void Borrar_Click(object sender, EventArgs e)

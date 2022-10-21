@@ -7,12 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using ClientesNuevos.F14;
+using System.Globalization;
 
 namespace ClientesNuevos.F12
 {
     public partial class PoliticaSeguridad : System.Web.UI.Page
     {
-        DataTable data, respuestas, ctpat;
+        DataTable data, respuestas, ctpat, politica;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,10 +22,14 @@ namespace ClientesNuevos.F12
                 respuestas = Respuestas(Request.Cookies.Get("id_comp").Value);
                 ctpat = CadenaSuministro();
 
+                politica = clsHerramientaBD.Existe("SELECT * FROM Table_PoliticaSeguridad WHERE ID_compania='"+ Request.Cookies.Get("id_comp").Value + "'");
+
                 lblNombre.Text = data.Rows[0]["Nombre_comp"].ToString();
                 lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
                 lblEmpresa1.Text = data.Rows[0]["Nombre_comp"].ToString();
+                lblFecha.Text = DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy");
 
+                //Es miembro o esta en proceso de ser miembro de CTPAT
                 if (respuestas.Rows[0]["p130"].ToString() == "SI")
                 {
                     si2.Checked = true;
@@ -37,6 +42,7 @@ namespace ClientesNuevos.F12
                     no1.Checked = true;
                 }
 
+                //Nuestra compania es elegible para ser miembro ctpat
                 if (respuestas.Rows[0]["p120"].ToString() == "SI")
                 {
                     si3.Checked = true;
@@ -47,6 +53,7 @@ namespace ClientesNuevos.F12
                     no3.Checked = true;
                     pPrgunta4.Visible = true;
                 }
+                //Esta usted respondiendo por todas las unidades de negocio de su compania
                 if (respuestas.Rows[0]["p160"].ToString() == "SI")
                 {
                     si7.Checked = true;
@@ -55,7 +62,7 @@ namespace ClientesNuevos.F12
                 {
                     no7.Checked = true;
                 }
-
+                //Nuestra compania comprende las normas minimas de seguridad de CTPAT
                 if (respuestas.Rows[0]["p140"].ToString() == "SI")
                 {
                     si4.Checked = true;
@@ -64,7 +71,7 @@ namespace ClientesNuevos.F12
                 {
                     no4.Checked = true;
                 }
-
+                //SI hay programas, obtengo la lista de los programas de seguridad 
                 if (ctpat.Rows[0]["Programas"].ToString() == "si")
                 {
                     si6.Checked = true;
@@ -76,6 +83,38 @@ namespace ClientesNuevos.F12
                     no6.Checked = true;
                 }
                 
+                if(politica.Rows.Count > 0)
+                {
+                    string fecha = "", newFormat="";
+                    //Obtengo fecha, y selecciono solo la fecha ya que viene con tiempo
+                    fecha = politica.Rows[0]["Fecha"].ToString().Substring(0, 10);
+
+                    //Nuevo formaate de fecha pasa de 21/10/2022 a '21 de octubre de 2022'
+                    newFormat = DateTime.ParseExact(fecha, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture).ToString("dd 'de' MMMM 'de' yyyy");
+                    
+                    lblFecha.Text = newFormat;
+                    txtNombre.Text = politica.Rows[0]["Representante"].ToString();
+                    if (politica.Rows[0]["Firma"].ToString() == "si")
+                    {
+                        chFirma.Checked = true;
+                    }
+
+                    if (politica.Rows[0]["OEA"].ToString() != "")
+                    {
+                        si5.Checked = true;
+                        lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA. Con Número:";
+                        txtPregunta5.Visible = true;
+                        txtPregunta5.Text = politica.Rows[0]["OEA"].ToString();
+                      
+                    }
+                    else
+                    {
+                        no5.Checked = true;
+                        lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA.";
+                        txtPregunta5.Visible = false;
+                    }
+
+                }
             }
         }
 
@@ -121,7 +160,12 @@ namespace ClientesNuevos.F12
                 if(strRes != "")
                 {
                     strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
-                    Response.Redirect("../usuario/user_index.aspx");
+                    
+                    lblError.Text = strRes;
+                    lblError.Visible = true;
+
+                    Response.Redirect("~/usuario/user_index.aspx");
+
                 }
             }
             else
@@ -131,6 +175,7 @@ namespace ClientesNuevos.F12
             
         }
 
+        //Obtiene respuestas de la tabla de respuestas de F5 parte 1
         private DataTable Respuestas(string id)
         {
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
@@ -140,6 +185,7 @@ namespace ClientesNuevos.F12
             return dt;
         }
 
+        //Obtiene nombre y codigo de los programas de cadena de suministro
         private DataTable CadenaSuministro()
         {
             wsBaseDatos wsBaseDatos = new wsBaseDatos();

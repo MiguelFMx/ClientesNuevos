@@ -630,14 +630,14 @@ function Obtener_Resdultados() {
                     data: [Math.round(lbl100 * 100), Math.round(lbl200 * 100), Math.round(lbl300 * 100), Math.round(lbl400 * 100), Math.round(lbl500 * 100)
                         , Math.round(lbl600 * 100), Math.round(lbl700 * 100), Math.round(lbl800*100),100],
                     backgroundColor: [
-                        'rgba(0, 122, 255,0.5)',
-                        'rgba(255, 247, 0, 0.5)',
-                        'rgba(0, 122, 255,0.5)',
-                        'rgba(255, 247, 0, 0.5)',
-                        'rgba(0, 122, 255,0.5)',
-                        'rgba(255, 247, 0, 0.5)',
-                        'rgba(0, 122, 255,0.5)',
-                        'rgba(255, 247, 0, 0.5)'
+                        'rgb(0, 122, 255)',
+                        'rgb(255, 247, 0)',
+                        'rgb(0, 122, 255)',
+                        'rgb(255, 247, 0)',
+                        'rgb(0, 122, 255)',
+                        'rgb(255, 247, 0)',
+                        'rgb(0, 122, 255)',
+                        'rgb(255, 247, 0)'
                     ]
                 }]
             },

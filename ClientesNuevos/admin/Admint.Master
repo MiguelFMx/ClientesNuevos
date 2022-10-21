@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admint.master.cs" Inherits="ClientesNuevos.admin.Admint" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+
+    <link href="../template/assets/img/favicon.png" rel="icon" />
+    <link href="../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Bootstrap css-->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="../template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="template/vendors/nprogress/nprogress.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+       
+    <!-- Custom Theme Style -->
+    <%--<link href="../template/assets/css/style.css" rel="stylesheet" />--%>
+
+    <link href="template/asset/css/estilo.css" rel="stylesheet" />
+
+    <link href="../template/assets/css/wizard.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="d-flex">
+            <div class="fondo-primary p-3" id="sidebar-container">
+                <div class="logo">
+                    <h4 class="text-light ">Hungaros</h4>
+                </div>
+                <div class="menu">
+                    <div class="menu-item">
+                        <asp:HyperLink ID="hl1" runat="server" CssClass="d-block text-light p-3" NavigateUrl="~/admin/index.aspx"><i class="bi bi-house m-3 lead"></i> Home</asp:HyperLink>
+                    </div>
+                    <div class="menu-item">
+                        <asp:HyperLink ID="hl2" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-person-fill m-3 lead"></i> Usuarios</asp:HyperLink>
+                    </div>
+                    <div class="menu-item">
+                        <asp:HyperLink ID="hl3" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-bar-chart-fill m-3 lead"></i> Estadisticas</asp:HyperLink>
+                    </div>
+                    <div class="menu-item">
+                        <asp:HyperLink ID="hl4" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-gear-fill m-3 lead"></i> Configuracion</asp:HyperLink>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100">
+                <nav class="navbar navbar-expand-lg bg-light border-bottom">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand"></a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
+                                        <asp:LoginName ID="LoginName1" runat="server" />
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="dropdown-item" />
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div id="contenido">
+                    <section class="py-3 bg-gray mx-5">
+                        <div class="container">
+
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div>
+        </div>
+    </form>
+
+    <!-- js -->
+    <!-- jquery -->
+    <script src="../../Scripts/jquery-3.6.0.slim.min.js"></script>
+
+    <script src="../../Scripts/JS/ajax.js"></script>
+
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/umd/popper.min.js"></script>
+
+     <!-- FastClick -->
+    <script src="../template/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../template/vendors/nprogress/nprogress.js"></script>
+
+    
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

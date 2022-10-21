@@ -9,6 +9,7 @@ using System.Net;
 using ClientesNuevos.App_Code;
 using System.IO;
 using System.Xml.Linq;
+using System.Data;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -48,8 +49,7 @@ namespace ClientesNuevos.F14.Seccioness
                     CambiarLinks();
                 }
 
-                gvProgramas.DataSource = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
-                gvProgramas.DataBind();
+                BindData();
 
             }
         }
@@ -106,8 +106,12 @@ namespace ClientesNuevos.F14.Seccioness
         }
         private void BindData()
         {
-            gvProgramas.DataSource = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+            DataTable dt = new DataTable();
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+            gvProgramas.DataSource = dt;
             gvProgramas.DataBind();
+            ViewState["dirState"] = dt;
+            ViewState["sortdr"] = "Asc";
         }
         protected void gvProgramas_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -169,6 +173,7 @@ namespace ClientesNuevos.F14.Seccioness
             else
             {
                 lblSucces.Text = "No hay documento " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, "null");
+                Response.Redirect(Request.RawUrl);
             }
 
         }
@@ -266,6 +271,35 @@ namespace ClientesNuevos.F14.Seccioness
         protected void GuardarDocumento()
         {
 
+        }
+
+        protected void gvProgramas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            BindData();
+            gvProgramas.PageIndex = e.NewPageIndex;
+            gvProgramas.DataBind();
+        }
+
+        protected void gvProgramas_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            DataTable dtslt = (DataTable)ViewState["dirState"];
+            if(dtslt.Rows.Count > 0)
+            {
+                if (Convert.ToString(ViewState["sortdr"]) == "Asc")
+                {
+                    dtslt.DefaultView.Sort = e.SortExpression + " Desc";
+                    ViewState["sortdr"] = "Desc";
+                }
+                else
+                {
+                    dtslt.DefaultView.Sort = e.SortExpression + " Asc";
+                    ViewState["sortdr"] = "Asc";
+                }
+
+                gvProgramas.DataSource = dtslt;
+                gvProgramas.DataBind();
+            }
+            
         }
     }
 } 

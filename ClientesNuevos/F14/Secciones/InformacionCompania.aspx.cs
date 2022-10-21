@@ -32,8 +32,6 @@ namespace ClientesNuevos.F14.Seccioness
         {            
             BloquearOpcion(ref ddTipoDePersona, "2");
 
-            
-
             if (!IsPostBack)
             {
 
@@ -53,6 +51,7 @@ namespace ClientesNuevos.F14.Seccioness
                     pAdminControl.Visible = true;
                     pUserControl.Visible = false;
 
+                    
                 }
                 else
                 {
@@ -612,5 +611,16 @@ namespace ClientesNuevos.F14.Seccioness
 
             lbl_btnNext.Text = "Next";
         }
+        /*
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
+            {
+                MasterPageFile = "../../admin/Admint.Master";
+            }
+            
+        }
+        */
+
     }
 }

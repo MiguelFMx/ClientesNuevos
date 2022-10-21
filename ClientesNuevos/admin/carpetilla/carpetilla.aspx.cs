@@ -842,7 +842,7 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 AbrirArchivo(txtOP.Text);
 
-                lblPrueba.Text = "Ver OP";
+                //lblPrueba.Text = "Ver OP";
             }
             else if (buttonId == "btnCheck_OP")
             {
@@ -972,7 +972,7 @@ namespace ClientesNuevos.admin.carpetilla
 
         protected void AbrirArchivo(string flocation)
         {
-            string FilePath = @flocation;
+            string FilePath = Server.MapPath(flocation);
             WebClient wClient = new WebClient();
 
             try
@@ -986,7 +986,9 @@ namespace ClientesNuevos.admin.carpetilla
                     //Response.BinaryWrite(FileBuffer);
                     Session["buffer"] = FileBuffer;
                     Response.Redirect("~/Viewer.aspx");
-                    // Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+                    //Response.Write("<script>window.open ('../Viewer.aspx','_blank');</script>");
+
+
                 }
             }
             catch (Exception ex)
@@ -996,6 +998,7 @@ namespace ClientesNuevos.admin.carpetilla
             }
 
         }
+       
 
     }
 }

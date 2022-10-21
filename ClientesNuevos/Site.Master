@@ -79,7 +79,8 @@
                                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" ForeColor="Black" />                  
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"  style="color:black;">Configuracion</a>
+                            <asp:HyperLink ID="hlConfig" runat="server" CssClass="dropdown-item" NavigateUrl="~/usuario/user_config.aspx" ForeColor="Black"> Configuracion</asp:HyperLink>
+                           
                         </div>
                     </li>
                     <li><a class="nav-link scrollto " href="../../../usuario/user_index.aspx">Home</a>
@@ -127,11 +128,11 @@
     </form>
 
     <!-- Footer-->
-    <footer id="footer" style="left: 0px; width: 100%; z-index: 999999;">
+    <footer id="footer" style="left: 0px; width: 100%; z-index: 99;">
 
-        <div class="container d-md-flex py-4">
+        <div class="container d-md-flex py-2">
 
-            <div class="me-md-auto text-center text-md-start">
+            <div class="me-md-auto text-center text-md-start" style="opacity:0.4;">
                 <div class="copyright">
                     &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
                 </div>
@@ -143,7 +144,7 @@
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>
-            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <div class="social-links text-center text-md-right pt-1 pt-md-0">
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>

@@ -35,22 +35,19 @@ namespace ClientesNuevos
             SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
             DataTable dt = new DataTable();
 
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand(sqlStr,conn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@user", user);
-            cmd.Parameters.AddWithValue("@password", pass);
-
-            
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
-
-            
             try
             {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sqlStr, conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@user", user);
+                cmd.Parameters.AddWithValue("@password", pass);
+
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (SqlException e)

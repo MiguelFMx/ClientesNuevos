@@ -35,19 +35,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <nav class="navbar ">
-            <div class="container-fluid">
-                <a class="navbar-brand"></a>
-                <div class="d-flex">
-                    <asp:Label ID="lblIdiomas" runat="server" Text="Idioma" AssociatedControlID="ddLang" CssClass="navbar-text"></asp:Label>
-                    <asp:DropDownList ID="ddLang" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddLang_SelectedIndexChanged">
-                        <asp:ListItem Text="Español" Value="es" Selected />
-                        <asp:ListItem Text="English" Value="en" />
-                    </asp:DropDownList>
-                </div>
-            </div>
-        </nav>
         <section>
             <div class="container">
                 <div class="row justify-content-center">
