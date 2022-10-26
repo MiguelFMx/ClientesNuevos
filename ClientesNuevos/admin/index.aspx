@@ -21,13 +21,7 @@
                             <h5 style="color: #73879C;">Listado de clientes</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    cantidad de registros
-                                </div>
-
-                            </div>
-                            </div>
+                            
                             <div class="table-responsive">
                                 <table class="table table-striped" id="tClientes">
                                     <thead class="cabezal">
@@ -43,6 +37,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +48,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
-    <script src="../Scripts/jquery-3.6.0.js"></script>
+    <%--<script src="../Scripts/jquery-3.6.0.js"></script>--%>
     <script src="index_admin.js"></script>
-
+    
 </asp:Content>

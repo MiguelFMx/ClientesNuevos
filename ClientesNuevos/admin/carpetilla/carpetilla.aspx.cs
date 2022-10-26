@@ -24,9 +24,21 @@ namespace ClientesNuevos.admin.carpetilla
                 {
                     Ocultar(Request.QueryString["type"].ToString());
                     data = Obtener_inf(Request.QueryString["id"].ToString());
-                    lblCompania.Text += " " + data.Rows[0]["Nombre_comp"].ToString();
+                    lblCompania.Text += " " + data.Rows[0]["Nombre_comercial"].ToString();
                     id_comp = Request.QueryString["id"].ToString();
                     id_user = data.Rows[0]["ID_user"].ToString();
+
+                    lblNombreComp.Text = data.Rows[0]["Nombre_comp"].ToString();
+                    lblFechaReg.Text = data.Rows[0]["Fecha_registro"].ToString().Substring(0, 10);
+                    lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
+
+                    if(data.Rows[0]["Estatus"].ToString() == "inactivo")
+                    {
+                        lblEstatus.Text = "inactivo";
+                        lblEstatus.CssClass = "etiqueta peligro";
+                    }
+                    
+
 
                     Obtener_Documentos(Request.QueryString["id"].ToString(),id_user);
 
@@ -519,6 +531,8 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF16_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblF16_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+
+                        txtF16.Text = fila["Ruta"].ToString();
                     }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)
@@ -966,8 +980,13 @@ namespace ClientesNuevos.admin.carpetilla
         {
             id_comp = Request.QueryString["id"].ToString();
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
-            lblPrueba.Text = wsBaseDatos.InsertarDocumento(id_comp, "F16", "", "100%");
-            
+            lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F16", "100%");
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnVer_F16_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(txtF16.Text);
         }
 
         protected void AbrirArchivo(string flocation)

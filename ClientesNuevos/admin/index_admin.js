@@ -1,8 +1,16 @@
 ﻿
 $(document).ready(function () {
 
+    NProgress.start();
+
     GetData();
 
+    var tab = $('#tClientes').DataTable();
+    tab.page.len(4).draw();
+
+});
+$(window).load(function () {
+    NProgress.done();
 });
 
 

@@ -109,7 +109,10 @@
     <Content Include="admin\carpetilla\carpetilla.aspx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\index_admin.js" />
+    <Content Include="admin\Reportes.aspx" />
     <Content Include="admin\template\asset\css\estilo.css" />
+    <Content Include="admin\template\asset\JS\carpetillaJS.js" />
+    <Content Include="admin\template\asset\JS\usuariosJS.js" />
     <Content Include="admin\template\build\css\custom.css" />
     <Content Include="admin\template\build\css\custom.min.css" />
     <Content Include="admin\template\build\images\back_disabled.png" />
@@ -3531,7 +3534,9 @@
     <Content Include="admin\template\vendors\validator\index.html" />
     <Content Include="admin\template\vendors\validator\multifield.js" />
     <Content Include="admin\template\vendors\validator\validator.js" />
-    <Content Include="admin\vistas\F14Admin.aspx" />
+    <Content Include="admin\usuarios\EditarUsuario.aspx" />
+    <Content Include="admin\usuarios\Lista_usuarios.aspx" />
+    <Content Include="admin\usuarios\registro.aspx" />
     <Content Include="admin\wsAdminIndex.asmx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -4813,12 +4818,33 @@
     <Compile Include="admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\vistas\F14Admin.aspx.cs">
-      <DependentUpon>F14Admin.aspx</DependentUpon>
+    <Compile Include="admin\Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\vistas\F14Admin.aspx.designer.cs">
-      <DependentUpon>F14Admin.aspx</DependentUpon>
+    <Compile Include="admin\Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\usuarios\EditarUsuario.aspx.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\usuarios\EditarUsuario.aspx.designer.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\usuarios\Lista_usuarios.aspx.cs">
+      <DependentUpon>Lista_usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\usuarios\Lista_usuarios.aspx.designer.cs">
+      <DependentUpon>Lista_usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\usuarios\registro.aspx.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\usuarios\registro.aspx.designer.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\wsAdminIndex.asmx.cs">
       <DependentUpon>wsAdminIndex.asmx</DependentUpon>

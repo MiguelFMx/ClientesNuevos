@@ -29,6 +29,7 @@
 
 
     <link href="template/assets/css/login/style.css" rel="stylesheet" />
+    <link href="admin/template/vendors/nprogress/nprogress.css" rel="stylesheet" />
 
 
 
@@ -100,6 +101,18 @@
     </form>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="template/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="admin/template/vendors/nprogress/nprogress.js"></script>
+
+    <script type="text/javascript">
+        
+        $(window).on("load", function () {
+            NProgress.done();
+
+        });
+        $(document).ready(function () {
+            NProgress.start();
+        });
+    </script>
 </body>
 </html>
 

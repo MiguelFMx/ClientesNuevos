@@ -326,7 +326,7 @@ namespace ClientesNuevos.usuario
                         CNAP_borrar.CssClass = CNAP_borrar.CssClass.Replace("disabled", "");
 
                         CNAP_ver.Enabled = true;
-                        CNAP_ver.CssClass = CNAP_borrar.CssClass.Replace("disabled", "");
+                        CNAP_ver.CssClass = CNAP_ver.CssClass.Replace("disabled", "");
                     }
                     //=========================== Comprobante de domicilio
                     if (Docs[i].Documento == "Comprobante de domicilio")

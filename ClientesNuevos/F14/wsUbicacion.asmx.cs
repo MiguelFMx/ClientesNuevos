@@ -89,10 +89,10 @@ namespace ClientesNuevos.F14
             {
                 da.Fill(dt);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
             lstPais = new List<ListaPais>();

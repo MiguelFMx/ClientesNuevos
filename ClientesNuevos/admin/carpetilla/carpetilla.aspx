@@ -4,15 +4,61 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-
+    <asp:Label ID="lblPrueba" runat="server" Text="..."></asp:Label>
+    <link href="../../template/assets/css/dropzone.css" rel="stylesheet" />
     <div class="row">
+        <div class="col-4">
+            <div class="card shadow-sm">
+                <div class="card-header cabezal">
+                    <h5>Informacion
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-auto">
+                            <asp:Label ID="label" runat="server" Text="Nombre completo:" CssClass="text-secondary"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex justify-content-end">
+                                <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row pt-2">
+                        <div class="col">
+                            <asp:Label ID="Label1" runat="server" Text="Fecha de registro:" CssClass="text-secondary"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblFechaReg" runat="server" Text="..."></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <asp:Label ID="Label2" runat="server" Text="Direccion:" CssClass="text-secondary"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblDireccion" runat="server" Text="..."></asp:Label>
+                    </div>
+
+                    <div class="row pt-4">
+                        <div class="col">
+                            <asp:Label ID="Label3" runat="server" Text="Progreso:" CssClass="text-secondary"></asp:Label>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
         <div class="col">
-        <asp:Label ID="lblPrueba" runat="server" Text="..."></asp:Label>
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header cabezal">
                     <h5>
-                        <asp:Label ID="lblCompania" runat="server" Text="Carpetilla de " ForeColor="Gray"></asp:Label>
+                        <asp:Label ID="lblCompania" runat="server" Text="Carpetilla de "></asp:Label>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -493,6 +539,15 @@
                                     <asp:Label ID="lblF16_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                 </asp:TableCell>
                                 <asp:TableCell>
+                                    <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
+
+                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
+
+                                    <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+
                                     <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm me-1" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
@@ -526,19 +581,47 @@
         </div>
     </div>
 
-
+    <!------------------------------------------------------------------- Modal --------------------------------------->
+    <div class="modal fade" id="UploadDoc" tabindex="-1" aria-labelledby="UploadDocLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lblUploadDocModal">Subir archivo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <div class="row">
+                        <div class="col">
+                            <label id="lblarchivo">Seleccione el archivo correspondiente</label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <div class="drop-zone" id="dropzone">
+                                <span class="drop-zone__prompt">Suelte el archivo o haga click aqui</span>
+                                <%--<input type="file" name="inputFile" value="" class="drop-zone__input"  id="inputFile" accept="application/pdf"/>--%>
+                                <asp:FileUpload ID="inputFile" runat="server" CssClass="drop-zone__input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label ID="lblErr" runat="server" Text="" ForeColor="red"></asp:Label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelarFile">Cancelar</button>
+                    <button type="button" class="btn btn-success" id="btnPrueba">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../template/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../template/assets/js/dropjs.js"></script>
 
-    <script type="text/javascript">
-        window.bootstrap = require('bootstrap');
-        $(document).ready(function () {
-            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-        });
-
-    </script>
-
+    <script src="../template/asset/JS/carpetillaJS.js"></script>
 </asp:Content>

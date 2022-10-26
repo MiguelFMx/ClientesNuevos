@@ -72,6 +72,49 @@ namespace ClientesNuevos.admin
 
             return lst;
         }
+
+
+        [WebMethod]
+        public string GetProgress(string id_comp, string tipo)
+        {
+            string porcentaje = "";
+            double prog;
+            int total = 0, aux = 0;
+            DataTable dt = new DataTable();
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' AND Estatus='100%'");
+            if (tipo == "moral")
+            {
+                //moral
+                total = 14;
+            }
+            else if (tipo == "fisica")
+            {
+                //total de documentos
+                total = 15;
+            }
+            else
+            {
+                total = 10;
+            }
+
+            //aux = numero de registros
+            aux = dt.Rows.Count;
+            if (aux != 0)
+            {
+                prog = ((aux * 100) / total);
+
+                porcentaje = Convert.ToString(Math.Round(prog));
+
+            }
+            else
+            {
+                porcentaje = "0";
+            }
+
+            return porcentaje;
+        }
+
+
         public string GetProgreso(string id_comp, string tipo)
         {
             string porcentaje = "";
@@ -110,6 +153,7 @@ namespace ClientesNuevos.admin
 
             return porcentaje;
         }
+
     }
 }
     

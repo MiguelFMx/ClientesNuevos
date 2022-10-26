@@ -12,7 +12,8 @@ namespace ClientesNuevos.App_Code
     public class clsHerramientaBD
     {
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
+        
+        public static string strConnAdmon = ConfigurationManager.ConnectionStrings["AdmonConnection"].ConnectionString;
         public static DataTable Existe(string sqlCommand)
         {
             DataTable dt = new DataTable();
@@ -24,10 +25,10 @@ namespace ClientesNuevos.App_Code
             {
                 da.Fill(dt);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
             return dt;
@@ -55,6 +56,43 @@ namespace ClientesNuevos.App_Code
             }
 
             return strError;
+        }
+
+        public static DataTable Existe(string sqlCommand, string ConStr)
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection con = new SqlConnection(ConStr);
+            SqlCommand cmd = new SqlCommand(sqlCommand, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return dt;
+        }
+
+
+        public bool VerificarConexion(string srtCon)
+        {
+            SqlConnection cnn;
+            cnn = new SqlConnection(srtCon);
+            try
+            {
+                cnn.Open();
+                cnn.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -27,6 +27,10 @@
 
     <link href="../template/assets/css/wizard.css" rel="stylesheet" />
 
+    <%--<link href="template/vendors/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" />--%>
+    <link href="../Scripts/DataTables/datatables.min.css" rel="stylesheet" />
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -46,7 +50,7 @@
                         <asp:HyperLink ID="hl2" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-person-fill m-3 lead"></i> Usuarios</asp:HyperLink>
                     </div>
                     <div class="menu-item">
-                        <asp:HyperLink ID="hl3" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-bar-chart-fill m-3 lead"></i> Estadisticas</asp:HyperLink>
+                        <asp:HyperLink ID="hl3" runat="server" CssClass="d-block text-light p-3" NavigateUrl="~/admin/Reportes.aspx"><i class="bi bi-bar-chart-fill m-3 lead" ></i> Reportes</asp:HyperLink>
                     </div>
                     <div class="menu-item">
                         <asp:HyperLink ID="hl4" runat="server" CssClass="d-block text-light p-3"><i class="bi bi-gear-fill m-3 lead"></i> Configuracion</asp:HyperLink>
@@ -100,17 +104,22 @@
 
     <!-- js -->
     <!-- jquery -->
-    <script src="../../Scripts/jquery-3.6.0.slim.min.js"></script>
-
+    <%--<script src="../../Scripts/jquery-3.6.0.slim.min.js"></script>--%>
+    <script src="template/vendors/jquery/dist/jquery.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
 
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
     <script src="../../Scripts/umd/popper.min.js"></script>
 
+<%--    <script src="template/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="template/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>--%>
+    <script src="../Scripts/DataTables/datatables.min.js"></script>
+
      <!-- FastClick -->
-    <script src="../template/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="template/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../template/vendors/nprogress/nprogress.js"></script>
+    <script src="template/vendors/nprogress/nprogress.js"></script>
 
     
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
