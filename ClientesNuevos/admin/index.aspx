@@ -28,7 +28,7 @@
                                         <tr>
                                             <th style="width: 40%;">Empresa</th>
                                             <th style="width: 10%;">Fecha de registro</th>
-                                            <th style="width: 20%;">Progreso</th>
+                                            <th style="width: 20%;">Cumplimiento</th>
                                             <th>Estatus</th>
                                             <th>Accion</th>
                                         </tr>

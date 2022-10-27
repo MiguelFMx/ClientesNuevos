@@ -39,13 +39,19 @@
                         <br />
                         <asp:Label ID="lblDireccion" runat="server" Text="..."></asp:Label>
                     </div>
+                    <div class="row pt-2">
+                        <asp:Label ID="label4" runat="server" Text="Ubicación:" CssClass="text-secondary"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblUbicacion" runat="server" Text="..."></asp:Label>
+                    </div>
 
                     <div class="row pt-4">
                         <div class="col">
-                            <asp:Label ID="Label3" runat="server" Text="Progreso:" CssClass="text-secondary"></asp:Label>
+                            <asp:Label ID="label5" runat="server" Text="Porcentaje de cumplimiento:" CssClass="text-secondary"></asp:Label>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div runat="server" class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
+                            <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
                             </div>
                     </div>
 
@@ -541,12 +547,13 @@
                                 <asp:TableCell>
                                     <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
 
-                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
                                     <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+
+                                    <button type="button" class="btn btn-warning btn-sm text-white" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
                                     <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm me-1" runat="server"
                                         data-bs-toggle="tooltip"
@@ -575,12 +582,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col d-flex mt-3">
-            <asp:LinkButton ID="btnRegresar" runat="server" CssClass="btn btn-secondary" OnClick="btnRegresar_Click"><i class="bi bi-chevron-left"></i>Regresar</asp:LinkButton>
-        </div>
-    </div>
-
+    <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position:fixed; bottom:3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
+    
     <!------------------------------------------------------------------- Modal --------------------------------------->
     <div class="modal fade" id="UploadDoc" tabindex="-1" aria-labelledby="UploadDocLabel" aria-hidden="true">
         <div class="modal-dialog">

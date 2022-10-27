@@ -39,8 +39,6 @@ $(document).ready(function () {
     $('#btnPrueba').click(function () {
         guardarDocumento(tipo);
     });
-
-    CargarProgress();
    
 });
 
@@ -90,19 +88,3 @@ function guardarDocumento(tipo) {
 
 }
 
-function CargarProgress() {
-    // GetProgreso(string id_comp, string tipo)
-    let searchParams = new URLSearchParams(window.location.search);
-    let id_cuenta;
-    let tipo;
-    if (searchParams.has('id')) {
-        id_cuenta = searchParams.get('id');
-        tipo = searchParams.get('type');
-        GetAjax("../wsAdminIndex.asmx/GetProgress", "'id_comp':'" + id_cuenta + "','tipo':'" + tipo + "'", false, function (progreso) {
-            $('#pbProgress').width(progreso + "%");
-        })        
-
-    } else {
-        console.log("Error: no se detecto ID");
-    }
-}

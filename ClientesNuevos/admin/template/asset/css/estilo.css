@@ -25,7 +25,7 @@ body {
     }
 
     #sidebar-container .menu {
-        width: 15rem;
+        width: 14rem;
     }
 
     #sidebar-container .menu-item {
@@ -36,6 +36,24 @@ body {
         #sidebar-container .menu-item :hover {
             background-color: #2e83cb;
         }
+    #sidebar-container .submenu {
+        color: white;
+        font-size: small;
+        background-color: #2e83cb;
+    }
+        #sidebar-container .submenu :hover {
+            background-color: white !important;
+            color: #2e83cb !important;
+            border-radius:0.375rem;
+        }
+.btn-menu {
+    background-color: #0169C2 !important;
+    color: white !important;
+    font-size: small;
+}
+    .btn-menu :hover {
+        background-color: #2e83cb !important;
+    }
 
 a {
     text-decoration: none;

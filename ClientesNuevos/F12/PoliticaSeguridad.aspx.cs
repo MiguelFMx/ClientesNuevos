@@ -18,13 +18,23 @@ namespace ClientesNuevos.F12
         {
             if (!IsPostBack)
             {
-                data = Obtener_informacion();
-                respuestas = Respuestas(Request.Cookies.Get("id_comp").Value);
-                ctpat = CadenaSuministro();
+                if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
+                {
+                    data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["id"]+"'");
+                }
+                else
+                {
+                    data = Obtener_informacion();
+                }
+                if (data.Rows.Count != 0)
+                {
+                    respuestas = Respuestas(Request.Cookies.Get("id_comp").Value);
+                    ctpat = CadenaSuministro();
 
-                politica = clsHerramientaBD.Existe("SELECT * FROM Table_PoliticaSeguridad WHERE ID_compania='"+ Request.Cookies.Get("id_comp").Value + "'");
+                    politica = clsHerramientaBD.Existe("SELECT * FROM Table_PoliticaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
 
-                lblNombre.Text = data.Rows[0]["Nombre_comp"].ToString();
+
+                    lblNombre.Text = data.Rows[0]["Nombre_comp"].ToString();
                 lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
                 lblEmpresa1.Text = data.Rows[0]["Nombre_comp"].ToString();
                 lblFecha.Text = DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy");
@@ -83,8 +93,7 @@ namespace ClientesNuevos.F12
                     no6.Checked = true;
                 }
                 
-                if(politica.Rows.Count > 0)
-                {
+                
                     string fecha = "", newFormat="";
                     //Obtengo fecha, y selecciono solo la fecha ya que viene con tiempo
                     fecha = politica.Rows[0]["Fecha"].ToString().Substring(0, 10);
@@ -115,6 +124,7 @@ namespace ClientesNuevos.F12
                     }
 
                 }
+                               
             }
         }
 

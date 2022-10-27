@@ -64,7 +64,7 @@ namespace ClientesNuevos.admin
                     Ciudad = row["Ciudad"].ToString(),
                     Fecha_registro = row["Fecha_registro"].ToString(),
                     Estatus = row["Estatus"].ToString(),
-                    Progreso = GetProgreso(row["ID_compania"].ToString(), row["Tipo_persona"].ToString())
+                    Progreso = GetProgreso(row["ID_compania"].ToString(), row["Tipo_persona"].ToString(), row["ID_user"].ToString())
                 };
                 lst.Add(objR);
             }
@@ -73,64 +73,22 @@ namespace ClientesNuevos.admin
             return lst;
         }
 
-
-        [WebMethod]
-        public string GetProgress(string id_comp, string tipo)
+        public string GetProgreso(string id_comp, string tipo, string id)
         {
             string porcentaje = "";
             double prog;
             int total = 0, aux = 0;
             DataTable dt = new DataTable();
-            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' AND Estatus='100%'");
-            if (tipo == "moral")
-            {
-                //moral
-                total = 14;
-            }
-            else if (tipo == "fisica")
-            {
-                //total de documentos
-                total = 15;
-            }
-            else
-            {
-                total = 10;
-            }
-
-            //aux = numero de registros
-            aux = dt.Rows.Count;
-            if (aux != 0)
-            {
-                prog = ((aux * 100) / total);
-
-                porcentaje = Convert.ToString(Math.Round(prog));
-
-            }
-            else
-            {
-                porcentaje = "0";
-            }
-
-            return porcentaje;
-        }
-
-
-        public string GetProgreso(string id_comp, string tipo)
-        {
-            string porcentaje = "";
-            double prog;
-            int total = 0, aux = 0;
-            DataTable dt = new DataTable();
-            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' AND Estatus='100%'");
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR  ID_compania='"+id+"' AND Estatus='100%'");
             if (tipo == "0")
             {
-                //moral
-                total = 14;
+                //fisico
+                total = 15;
             }
             else if(tipo == "1")
             {
-                //total de documentos
-                total = 15;
+                //moral
+                total = 14;
             }
             else
             {

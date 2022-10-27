@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../../scripts/js/ajax.js" />
 
 $(document).ready(function () {
-
+    let tabla = $('#tUsuarios').DataTable();
 });
 
 function cargarUsuarios() {

@@ -24,24 +24,37 @@ namespace ClientesNuevos.admin.carpetilla
                 {
                     Ocultar(Request.QueryString["type"].ToString());
                     data = Obtener_inf(Request.QueryString["id"].ToString());
+
+                    //Muestro el nombre comercial en el encabezado de card de carpetilla
                     lblCompania.Text += " " + data.Rows[0]["Nombre_comercial"].ToString();
+
                     id_comp = Request.QueryString["id"].ToString();
                     id_user = data.Rows[0]["ID_user"].ToString();
 
+                    //Nombre completo
                     lblNombreComp.Text = data.Rows[0]["Nombre_comp"].ToString();
+
+                    //Fecha de registro
                     lblFechaReg.Text = data.Rows[0]["Fecha_registro"].ToString().Substring(0, 10);
+
+                    //Direccion
                     lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
 
-                    if(data.Rows[0]["Estatus"].ToString() == "inactivo")
+                    //Ubicacion
+                    lblUbicacion.Text = data.Rows[0]["Ciudad"].ToString() + ", " + data.Rows[0]["Estado"].ToString() + ", " + data.Rows[0]["Pais"].ToString();
+                    if (data.Rows[0]["Estatus"].ToString() == "inactivo")
                     {
                         lblEstatus.Text = "inactivo";
                         lblEstatus.CssClass = "etiqueta peligro";
                     }
                     
-
-
+                    //Metodo que obtiene los documentos con los que cuenta el cliente
                     Obtener_Documentos(Request.QueryString["id"].ToString(),id_user);
 
+                    //Cargo el porcentaje de progreso
+                    BarraProgreso(id_user, id_comp);
+
+                    //Genero cookies, necesarias para obtener la info de los formularios
                     Response.Cookies.Add(new HttpCookie("id_comp", id_comp));
                     Response.Cookies.Add(new HttpCookie("tipo", Request.QueryString["type"].ToString()));
                 }
@@ -591,7 +604,7 @@ namespace ClientesNuevos.admin.carpetilla
         {
             DataTable data;
 
-            data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania='" + id + "'");
+            data = clsHerramientaBD.Existe("exec select_compania @id_comp='" + id + "', @accion='compania'");
 
             return data;
         }
@@ -935,6 +948,9 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F12")
             {
                 lblPrueba.Text = "Ver F12";
+                Response.Redirect("../../F12/politicaseguridad?id=" + id_comp + "&admin=si");
+
+
             }
             else if (buttonId == "btnCheck_F12")
             {
@@ -1018,6 +1034,37 @@ namespace ClientesNuevos.admin.carpetilla
 
         }
        
+        protected void BarraProgreso(string id_user, string id_comp)
+        {
+            DataTable data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR ID_compania='" + id_user + "'");
+            string tipo = Request.QueryString["type"];
+            string porcentaje = "";
+            int totalDocs;
+            double prog;
+            if(tipo == "moral")
+            {
+                totalDocs = 14;
+            }else if(tipo == "fisica")
+            {
+                totalDocs = 15;
+            }
+            else
+            {
+                totalDocs = 10;
+            }
+            if(data.Rows.Count != 0)
+            {
+                prog = ((data.Rows.Count * 100) / totalDocs);
+                porcentaje = Convert.ToString(Math.Round(prog))+"%";
+            }
+            else
+            {
+                porcentaje = "0%";
+            }
+
+            pbProgress.Style.Add("width", porcentaje);
+            lblPorcentaje.Text = porcentaje;
+        }
 
     }
 }
