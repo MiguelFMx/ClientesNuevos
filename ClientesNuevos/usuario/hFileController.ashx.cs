@@ -25,8 +25,9 @@ namespace ClientesNuevos.App_Code
                 HttpPostedFile file = files[0];
                 //ddMMyyyy
                 string fecha = DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString();
-                //string link = @"~/Archivos/"+IDcompania;
-                //System.IO.Directory.CreateDirectory(link);
+                string link = @"~/Archivos/"+IDcompania;
+                System.IO.Directory.CreateDirectory(link);
+
                 fname = "/Archivos/usuario/" + fecha + "_" + Descripcion + "_" + file.FileName;
                 file.SaveAs(context.Server.MapPath(fname));
 

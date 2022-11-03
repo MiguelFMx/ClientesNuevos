@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Web.Optimization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClientesNuevos.App_Code;
 
 namespace ClientesNuevos
 {
@@ -33,57 +34,107 @@ namespace ClientesNuevos
             List<wsLogin.Usuario> lstuser = new List<wsLogin.Usuario>();
             string usuario = txtUser.Text;
             string password = txtPass.Text;
-            string ID = "", Rol = "";
+            string ID = "", Rol = "", Empresa = "", subdom="";
             bool persistente = false;
             HttpCookie cUserID;
-            lstuser = wsLogin.getUsuario(usuario,password);
             FormsAuthenticationTicket AuthTicket;
             string encTicket;
 
-            if (RememberMe.Checked)
+            string connection = clsHerramientaBD.VerificarConexion(clsHerramientaBD.strConnction);
+            if ( connection == "true")
             {
-                persistente = true;
-            }
+                lstuser = wsLogin.getUsuario(usuario, password);
 
-           
-
-            if (lstuser.Count > 0)
-            {
-                ID = lstuser[0].ID;
-                Rol = lstuser[0].type;                
-
-                AuthTicket = new FormsAuthenticationTicket(1,usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol, FormsAuthentication.FormsCookiePath);
-                
-                encTicket = FormsAuthentication.Encrypt(AuthTicket);
-
-                HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-
-                cUserID = new HttpCookie("id", lstuser[0].ID);
-                HttpContext.Current.Response.Cookies.Add(cUserID);
-
-                switch (Rol)
+                if (RememberMe.Checked)
                 {
-                    case "1":                        
-                        Response.Redirect("admin/index.aspx");
-                        
-                        break;
-                    case "2":
-                        Response.Redirect("usuario/user_index.aspx");
-                        break;
-                    default:
-                        break;
+                    persistente = true;
                 }
 
+                if (lstuser.Count > 0)
+                {
+                    int aux = 0;
+
+                    for (int i = 0; i < lstuser.Count; i++)
+                    {
+                        if (lstuser[i].Subdominio == "1")
+                        {
+                            aux = i;
+                        }
+                    }
+
+                    ID = lstuser[aux].ID;
+                    Rol = lstuser[aux].ID_Rol;
+                    Empresa = lstuser[aux].ID_empresa;
+                    subdom = lstuser[aux].Subdominio;
+                    /* ID de Hungaros en la tabla */
+                    if (lstuser[0].status == "activo")
+                    {
+                        if (subdom == "1" )
+                        {
+                            AuthTicket = new FormsAuthenticationTicket(1, usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol, FormsAuthentication.FormsCookiePath);
+
+                            encTicket = FormsAuthentication.Encrypt(AuthTicket);
+
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+                            cUserID = new HttpCookie("id", lstuser[0].ID);
+                            HttpContext.Current.Response.Cookies.Add(cUserID);
+
+                            switch (Rol)
+                            {
+                                case "1": /* admin */
+                                    Response.Redirect("admin/index.aspx");
+                                    break;
+                                case "2": /* usuario */
+                                    Response.Redirect("admin/index.aspx");
+                                    break;
+                                case "3": /* cliente */
+                                    Response.Redirect("usuario/user_index.aspx");
+                                    break;
+                                case "4": /* proveedor */
+                                    Response.Redirect("usuario/user_index.aspx");
+                                    break;
+                                default:
+                                    lblPass.Text = "Usuario sin rol asignado";
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            //El usuario existe pero no tiene un rol asignado en el dominio
+                            lbltest.Text = "No esta registrado en este dominio";
+                        }
+                    }
+                    else
+                    {
+                        //Usuario desactivado
+                        lbltest.Text = "El usuario con el que intenta iniciar sesión esta desactivado";
+                    }
+                                     
+                }
+                else
+                {
+                    //Usuario o password incorrecto
+                    lbltest.Text = "Usuario o contraseña inconrrectas";
+                }
             }
             else
             {
-                lbltest.Text = "Las credenciales no coinciden";
-            }
+                //La conexion a la base de datos fallo
+                lbltest.Text = "Error en la conexion al servidor \n "+connection;
+            }            
         }
 
         private void ChecarUsuario()
         {
           
+        }
+
+        protected void btnPrueba_Click(object sender, EventArgs e)
+        {
+            string test = clsHerramientaBD.VerificarConexion(clsHerramientaBD.strConnAdmon);
+
+            lbltest.Text = test;
         }
     }
 }

@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col" style="text-align: justify;">
                         <p>
-                            Por medio de la presente, me permito informarle que Hungaros Transportistas S.A. de C.V.,
+                            Por medio de la presente, me permito informarle que la empresa.,
                         está en proceso de certificación del Programa de Seguridad Alianza Aduana-Comercio contra el Terrorismo (<strong>Customs-Trade Partnership Against Terrorism “C-TPAT”</strong>), auspiciado por el gobierno de Estados Unidos a través de su Servicio de Aduana y Protección Fronteriza (<strong>U.S. Customs and Border Protection “CBP"</strong>).
                         </p>
                         <p>
@@ -63,16 +63,16 @@
                             Las cargas de los exportadores participantes en el programa C-TPAT reciben beneficios de entrada, tales como la utilización de carriles exprés y reducción de inspecciones;  a diferencia de aquellas empresas que no pueden demostrar la seguridad de su cadena logística, tendrán retrasos y mayores inspecciones que se traducen en retrasos para el ingreso de su carga a Estados Unidos. 
                         </p>
                         <p>
-                            Uno de los objetivos principales de Hungaros Transportistas S.A. de C.V. es el de incrementar y mantener de manera efectiva sus procesos de seguridad de la cadena logística, y así, asegurar el envió a tiempo de toda la carga con destino a Estados Unidos. 
+                            Uno de los objetivos principales de la empresa. es el de incrementar y mantener de manera efectiva sus procesos de seguridad de la cadena logística, y así, asegurar el envió a tiempo de toda la carga con destino a Estados Unidos. 
                         </p>
                         <p>
-                            Para Hungaros Transportistas S.A. de C.V., Usted es un Socio de Negocio muy valioso, como cliente y/o proveedor de servicio, motivo por el cual su participación dando seguimiento a los requerimientos de seguridad C-TPAT y OEA es CRÍTICO para lograr alcanzar el objetivo de asegurar nuestra cadena logística, de esta manera contribuir con cooperación con CBP y SAT. 
+                            Para la empresa., Usted es un Socio de Negocio muy valioso, como cliente y/o proveedor de servicio, motivo por el cual su participación dando seguimiento a los requerimientos de seguridad C-TPAT y OEA es CRÍTICO para lograr alcanzar el objetivo de asegurar nuestra cadena logística, de esta manera contribuir con cooperación con CBP y SAT. 
                         </p>
                         <p style="break-before: page;">
-                            Tanto CBP, SAT como Hungaros Transportistas S.A. de C.V., esperamos que nuestros socios de negocio desarrollen e implementen las medidas de seguridad necesarias para que aseguren sus propias cadenas logísticas, con sus propios socios de negocio. Y hagan extensivos a todas sus unidades de negocio y a cada uno de sus socios de negocio sobre el programa de seguridad C-TPAT y OEA así como la participación que Hungaros Transportistas S.A. de C.V. tiene en el mismo. 
+                            Tanto CBP, SAT como la empresa., esperamos que nuestros socios de negocio desarrollen e implementen las medidas de seguridad necesarias para que aseguren sus propias cadenas logísticas, con sus propios socios de negocio. Y hagan extensivos a todas sus unidades de negocio y a cada uno de sus socios de negocio sobre el programa de seguridad C-TPAT y OEA así como la participación que la empresa. tiene en el mismo. 
                         </p>
                         <p>
-                            Como primer paso para asegurar sus respectivas cadenas logísticas, Hungaros Transportistas S.A. de C.V.  
+                            Como primer paso para asegurar sus respectivas cadenas logísticas, la empresa.  
                         Se permite recomendarle que considere los <strong>Puntos de Seguridad de la Cadena Logística C-TPAT</strong>:
                         </p>
 
@@ -149,7 +149,7 @@
                         </ol>
 
                         <p>
-                            Para mayor información relacionada con los Criterios de Seguridad C-TPAT, lo invitamos a visitar la página del Servicio de Aduana y Protección Fronteriza, así como también, la página de Servicio de Administración Tributaria que se menciona más adelante. Nuevamente, Hungaros Transportistas S.A. de C.V. lo invita a implementar las medidas de seguridad de acuerdo a la Norma que le corresponda. 
+                            Para mayor información relacionada con los Criterios de Seguridad C-TPAT, lo invitamos a visitar la página del Servicio de Aduana y Protección Fronteriza, así como también, la página de Servicio de Administración Tributaria que se menciona más adelante. Nuevamente, la empresa. lo invita a implementar las medidas de seguridad de acuerdo a la Norma que le corresponda. 
                         </p>
                         <p style="text-align: center;">
                             <br />
@@ -169,9 +169,8 @@
                         <p>
                             Atentamente.
                         <br />
-                            <strong>María de Lourdes Freig - Gerent administrativo </strong>
-                            <br />
-                            HUNGAROS TRASNPORTISTAS SA. de CV.
+                            <strong>Marcela Freig - Gerente administrativo </strong>
+                           
                         </p>
                     </div>
                 </div>
@@ -182,7 +181,7 @@
                 <div class="row">
                     <div class="col">
                         <p>
-                            La firma de este documento respalda la conformidad de que la Empresa ha leído y ha comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de Hungaros Transportistas S.A. de C.V. Además, de comprometerse a dar seguimiento a los estándares de seguridad indicados en la misma.
+                            La firma de este documento respalda la conformidad de que la Empresa ha leído y ha comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de la empresa. Además, de comprometerse a dar seguimiento a los estándares de seguridad indicados en la misma.
                         </p>
                         <p>
                             Nombre y dirección de la empresa:
@@ -325,8 +324,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <asp:CheckBox ID="chFirma" runat="server" />
-                                        <asp:Label ID="lblFirma" runat="server" Text="La empresa ha leído y ha comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de Hungaros Transportistas S.A. de C.V.
-                                        Además, se compromete a dar seguimiento a los estándares de seguridad indicados en la misma."></asp:Label>
+                                        <asp:Label ID="lblFirma" runat="server" Text="He leído y he comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de la empresa.
+                                        Además, se compromete a dar seguimiento a los estándares de seguridad indicados en la misma. "></asp:Label>
                                     </div>
 
                                 </div>
@@ -359,7 +358,7 @@
     <script type="text/javascript">
         function imprSelec() {
             $('#pg1, #pg2').printThis({
-                header: "<img src='../template/assets/img/logo/HungarosTexto.png'  width='250' height='100' style='display:block; margin:auto;'/><br>"
+                //header: "<img src='../template/assets/img/logo/HungarosTexto.png'  width='250' height='100' style='display:block; margin:auto;'/><br>"
 
             });
         }

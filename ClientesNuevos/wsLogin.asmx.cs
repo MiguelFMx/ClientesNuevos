@@ -23,16 +23,21 @@ namespace ClientesNuevos
         public class Usuario
         {
             public string ID { get; set; }
-            public string user { get; set; }
-            public string pass { get; set; }
-            public string type { get; set; }
+            public string Rfc { get; set; }
+            public string Pass { get; set; }
+            public string ID_Rol { get; set; }
+            public string status { get; set; }
+            public string ID_empresa { get; set; }
+            public string Subdominio { get; set; }
+
+
         }
 
         [WebMethod]
         public static List<Usuario> getUsuario(string user, string pass)
         {
-            string sqlStr = "LogINprocedure";
-            SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnction);
+            string sqlStr = "UserLogin";
+            SqlConnection conn = new SqlConnection(clsHerramientaBD.strConnAdmon);
             DataTable dt = new DataTable();
 
             try
@@ -43,16 +48,16 @@ namespace ClientesNuevos
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.AddWithValue("@user", user);
-                cmd.Parameters.AddWithValue("@password", pass);
+                cmd.Parameters.AddWithValue("@RFC", user);
+                cmd.Parameters.AddWithValue("@Pass", pass);
 
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
-            catch (SqlException e)
+            catch (SqlException ex)
             {
-                return null;
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
             finally
             {
@@ -62,13 +67,18 @@ namespace ClientesNuevos
             Usuario objUser;
             foreach (DataRow row in dt.Rows)
             {
-                objUser = new Usuario();
-                objUser.ID = row["ID"].ToString();
-                objUser.user = row["user_name"].ToString();
-                objUser.pass = row["password"].ToString();
-                objUser.type = row["type"].ToString();
-
-                lstUser.Add(objUser);
+                    objUser = new Usuario
+                    {
+                        ID = row["Id"].ToString(),
+                        Rfc = row["RFC"].ToString(),
+                        Pass = row["Password"].ToString(),
+                        ID_Rol = row["ID_rol"].ToString(),
+                        ID_empresa = row["ID_empresa"].ToString(),
+                        Subdominio = row["subdominio"].ToString(),
+                        status = row["status"].ToString()
+                    };
+                    lstUser.Add(objUser);                
+                
             }
             return lstUser;
         }

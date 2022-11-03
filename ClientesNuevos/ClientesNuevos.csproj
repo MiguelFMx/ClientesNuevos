@@ -3539,6 +3539,7 @@
     <Content Include="admin\usuarios\EditarUsuario.aspx" />
     <Content Include="admin\usuarios\Lista_usuarios.aspx" />
     <Content Include="admin\usuarios\registro.aspx" />
+    <Content Include="admin\usuarios\wsUsuarios.asmx" />
     <Content Include="admin\wsAdminIndex.asmx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -4855,11 +4856,16 @@
     <Compile Include="admin\usuarios\registro.aspx.designer.cs">
       <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\usuarios\wsUsuarios.asmx.cs">
+      <DependentUpon>wsUsuarios.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="admin\wsAdminIndex.asmx.cs">
       <DependentUpon>wsAdminIndex.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
+    <Compile Include="App_Code\clsConfiguracion.cs" />
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />

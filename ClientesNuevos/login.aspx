@@ -90,7 +90,9 @@
                                         <asp:LinkButton ID="btnPasswordOlvidado" runat="server">Olvidé la contraseña</asp:LinkButton>
                                     </div>
                                 </div>
-
+                                <div>
+                                    <asp:Button ID="btnPrueba" runat="server" Text="prueba" CssClass="btn btn-outline-secondary" OnClick="btnPrueba_Click"/>
+                                </div>
 
                             </div>
                         </div>

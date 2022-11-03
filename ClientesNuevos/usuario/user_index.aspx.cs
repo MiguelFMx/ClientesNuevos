@@ -69,6 +69,7 @@ namespace ClientesNuevos.usuario
 
                 if (extension == ".pdf")
                 {
+
                     inputFile.SaveAs(uploadFolder + "\\usuario\\" + compania_id + "_" + documento);
                     lblError.Text = "Archivo guardado con exito" + uploadFolder;
                 }

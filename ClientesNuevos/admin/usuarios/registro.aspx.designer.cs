@@ -15,6 +15,24 @@ namespace ClientesNuevos.admin.usuarios
     {
 
         /// <summary>
+        /// Control lblEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpresa;
+
+        /// <summary>
+        /// Control ddEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddEmpresa;
+
+        /// <summary>
         /// Control lblRFC.
         /// </summary>
         /// <remarks>
@@ -31,24 +49,6 @@ namespace ClientesNuevos.admin.usuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRFC;
-
-        /// <summary>
-        /// Control lblUser.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
-
-        /// <summary>
-        /// Control txtUser.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUser;
 
         /// <summary>
         /// Control lblPass.
@@ -69,22 +69,13 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.TextBox txtPass;
 
         /// <summary>
-        /// Control lblEmpresa.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpresa;
-
-        /// <summary>
-        /// Control ddEmpresa.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddEmpresa;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// Control btnAddUser.
@@ -94,6 +85,24 @@ namespace ClientesNuevos.admin.usuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddUser;
+
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Control Panel_roles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_roles;
 
         /// <summary>
         /// Control lblSubdominio.
@@ -132,21 +141,21 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.DropDownList ddRol;
 
         /// <summary>
-        /// Control btnAddRol.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddRol;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
 
         /// <summary>
-        /// Control gvRoles.
+        /// Control myTable.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRoles;
+        protected global::System.Web.UI.WebControls.Table myTable;
     }
 }

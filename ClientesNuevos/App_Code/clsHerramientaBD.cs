@@ -79,7 +79,7 @@ namespace ClientesNuevos.App_Code
         }
 
 
-        public bool VerificarConexion(string srtCon)
+        public static string VerificarConexion(string srtCon)
         {
             SqlConnection cnn;
             cnn = new SqlConnection(srtCon);
@@ -87,12 +87,37 @@ namespace ClientesNuevos.App_Code
             {
                 cnn.Open();
                 cnn.Close();
-                return true;
+                return "true";
             }
-            catch
+            catch(Exception ex)
             {
-                return false;
+                return ex.Message;
             }
         }
+
+        public static string ExecuteSql(string strSql, string ConStr)
+        {
+            string strError = "";
+
+            SqlConnection conn = new SqlConnection(ConStr);
+            SqlCommand cmd = new SqlCommand(strSql, conn);
+
+
+            conn.Open();
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+
+                strError = ex.Message;
+            }
+
+            return strError;
+        }
+
     }
 }
