@@ -71,11 +71,11 @@ namespace ClientesNuevos
                     {
                         if (subdom == "1" )
                         {
-                            AuthTicket = new FormsAuthenticationTicket(1, usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol, FormsAuthentication.FormsCookiePath);
+                            AuthTicket = new FormsAuthenticationTicket(1, usuario, DateTime.Now, DateTime.Now.AddDays(1), persistente, Rol+";"+ID, FormsAuthentication.FormsCookiePath);
 
                             encTicket = FormsAuthentication.Encrypt(AuthTicket);
 
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));                      
 
                             cUserID = new HttpCookie("id", lstuser[0].ID);
                             HttpContext.Current.Response.Cookies.Add(cUserID);

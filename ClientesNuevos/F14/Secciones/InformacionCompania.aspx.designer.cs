@@ -843,166 +843,175 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Button btnBanco;
 
         /// <summary>
-        /// Control lblTitulo_DatosContacto.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo_DatosContacto;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control pInfo_es.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pInfo_es;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control pInfo_en.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pInfo_en;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control lblNombreCont.
+        /// Control Label4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCont;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control lblpuestoCont.
+        /// Control txtNombreC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblpuestoCont;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreC;
 
         /// <summary>
-        /// Control lblCorreoCont.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreoCont;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// Control lblFactura.
+        /// Control txtPuestoC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFactura;
+        protected global::System.Web.UI.WebControls.TextBox txtPuestoC;
 
         /// <summary>
-        /// Control lblTelCont.
+        /// Control Label6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelCont;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control lblExtension.
+        /// Control txtCorreoC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExtension;
+        protected global::System.Web.UI.WebControls.TextBox txtCorreoC;
 
         /// <summary>
-        /// Control lblCelCont.
+        /// Control chFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCelCont;
+        protected global::System.Web.UI.WebControls.CheckBox chFactura;
 
         /// <summary>
-        /// Control btnContact.
+        /// Control Label8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContact;
+        protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control lbl_tCaption.
+        /// Control txtTelC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tCaption;
+        protected global::System.Web.UI.WebControls.TextBox txtTelC;
 
         /// <summary>
-        /// Control lbl_tNombre.
+        /// Control Label9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tNombre;
+        protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Control lbl_tPuesto.
+        /// Control txtExt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tPuesto;
+        protected global::System.Web.UI.WebControls.TextBox txtExt;
 
         /// <summary>
-        /// Control lbl_tCorreo.
+        /// Control Label10.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tCorreo;
+        protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// Control lbl_tTel.
+        /// Control txtCelC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tTel;
+        protected global::System.Web.UI.WebControls.TextBox txtCelC;
 
         /// <summary>
-        /// Control lbl_tCel.
+        /// Control lblRes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tCel;
+        protected global::System.Web.UI.WebControls.Label lblRes;
 
         /// <summary>
-        /// Control lbl_tFra.
+        /// Control btnRegistrarC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_tFra;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarC;
+
+        /// <summary>
+        /// Control gvContactos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvContactos;
 
         /// <summary>
         /// Control pUserControl.

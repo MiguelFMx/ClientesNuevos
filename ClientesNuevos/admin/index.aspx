@@ -42,13 +42,22 @@
                     </div>
                 </div>
 
+            <div class="row">
+                <div class="col d-flex justify-content-end">
+                    <asp:Label ID="lblNuevo" runat="server" Text="User id: "></asp:Label>
+                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?nuevo=reg">Nuevo registro</asp:HyperLink>
+                </div>
+            </div>
+
             </div>
         </div>
-    </div>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
-    <%--<script src="../Scripts/jquery-3.6.0.js"></script>--%>
+
+    <script src="../Scripts/jquery-3.6.0.js"></script>
+<script src="../Scripts/DataTables/datatables.min.js"></script>
+
     <script src="index_admin.js"></script>
     
 </asp:Content>

@@ -86,7 +86,9 @@
                                     </ul>
                                 </li>
                     
-                    <li><a class="nav-link scrollto " href="../../../usuario/user_index.aspx">Home</a>
+                    <li>
+                        <asp:HyperLink ID="hlHomeBar" runat="server" CssClass="nav-link scrollto" NavigateUrl="~/usuario/user_index.aspx">Home</asp:HyperLink>
+                       
                     </li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
                 </ul>

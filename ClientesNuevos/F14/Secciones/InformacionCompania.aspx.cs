@@ -9,8 +9,7 @@ using ClientesNuevos;
 using System.Data;
 using ClientesNuevos.App_Code;
 using System.IO;
-using System.Web.Services;
-
+using System.Web.Security;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -31,6 +30,12 @@ namespace ClientesNuevos.F14.Seccioness
         protected void Page_Load(object sender, EventArgs e)
         {            
             BloquearOpcion(ref ddTipoDePersona, "2");
+            FormsIdentity ident = User.Identity as FormsIdentity;
+            FormsAuthenticationTicket authTicket = ident.Ticket;
+
+            string userInfo = authTicket.UserData;
+            string[] info = userInfo.Split(';');
+            string id = info[1];
 
             if (!IsPostBack)
             {
@@ -39,13 +44,14 @@ namespace ClientesNuevos.F14.Seccioness
                 LlenarPaisCB(ddPaisFra);
                 llenarMetodoPago();
 
-                dt = new DataTable();
 
                 if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
                 {
                     if (Request.Cookies.Get("id_comp").Value != null)
                     {
                         dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
+                        DataBind_Contactos();
+
                         CambiarLinks();
                     }
                     pAdminControl.Visible = true;
@@ -53,13 +59,23 @@ namespace ClientesNuevos.F14.Seccioness
 
                     
                 }
+                else if (Request.QueryString["nuevo"]!= null)
+                {
+                    //No cargar
+                    if (User.IsInRole("1") || User.IsInRole("2"))
+                    {
+                        txtNombreCompania.Text = "Eale xd";
+                    }
+                }
                 else
                 {
                     dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
+                    DataBind_Contactos();
+
                 }
 
 
-                if(Request.Cookies.Get("lang") != null)
+                if (Request.Cookies.Get("lang") != null)
                 {
                     if (Request.Cookies.Get("lang").Value == "en")
                     {
@@ -536,6 +552,57 @@ namespace ClientesNuevos.F14.Seccioness
             }
 
             return resultado;
+        }
+
+        protected void DataBind_Contactos()
+        {
+            if( Request.Cookies.Get("id_comp") != null) { 
+            string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+
+            gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+            }
+            else
+            {
+                gvContactos.DataSource = null;  
+            }
+            gvContactos.DataBind();
+        }
+
+        protected void btnRegistrarC_Click(object sender, EventArgs e)
+        {
+            string Registro = "";
+            string ID_compania = "", Nombre = "", Puesto = "", Telefono = "", Extension = "", Celular = "", Tipo = "", Correo = "";
+            ID_compania = txtRfc.Text;
+            Nombre = txtNombreC.Text;
+            Puesto = txtPuestoC.Text;
+            Telefono = txtTelC.Text;
+            Extension = txtExt.Text;
+            Celular = txtCelC.Text;
+            Correo = txtCorreoC.Text;
+
+            if (chFactura.Checked)
+            {
+                Tipo = "Fra";
+            }
+            else
+            {
+                Tipo = "Comp";
+            }
+
+            Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo);
+
+            lblRes.Text = Registro;
+            txtRfc.Text = "";
+            txtNombreC.Text = "";
+            txtPuestoC.Text = "";
+            txtTelC.Text = "";
+            txtExt.Text = "";
+            txtCelC.Text = "";
+            txtCorreoC.Text = "";
+            chFactura.Checked = false;
+
+            DataBind_Contactos();
+
         }
 
         protected void Traducir()

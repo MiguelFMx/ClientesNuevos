@@ -62,7 +62,7 @@ namespace ClientesNuevos.admin.configuracion
 
         protected void LLenarDocs()
         {
-            DataTable data = clsHerramientaBD.Existe("SELECT * FROM Act_Docs", clsHerramientaBD.strConnAdmon);
+            DataTable data = clsHerramientaBD.Existe("SELECT * FROM Act_Docs");
             if(data.Rows.Count > 0)
             {
                 for (int i = 0; i < data.Rows.Count; i++)
