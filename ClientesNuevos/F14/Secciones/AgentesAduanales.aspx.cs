@@ -73,6 +73,30 @@ namespace ClientesNuevos.F14.Seccioness
 
                 if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
                 {
+                    string id_C = Request.QueryString["id"].ToString(); 
+                    dtAAM = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_C + "' AND tipo = 'AAMX'");
+                    dtAAU = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_C + "' AND tipo = 'AAUSA'");
+                    if (dtAAM.Rows.Count > 0)
+                    {
+                        try
+                        {
+                            LlenarCamposAAM(dtAAM);
+                            // Obtiene los datos de contacto Mexicano
+                            dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_C + "' AND tipo ='AAMX'");
+                            llenarContactoAAM(dtContactoAAM);
+
+                            //obtener los datos de contacto usa
+                            dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_C + "' AND tipo ='AAUSA'");
+                            llenarContactoAA(dtContactoAAU);
+
+                            LlenarCamposAA(dtAAU);
+                        }
+                        catch (Exception er)
+                        {
+
+                            lblResultado.Text = er.Message;
+                        }
+                    }
                     CambiarLinks();
                 }
             }

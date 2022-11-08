@@ -24,15 +24,21 @@ namespace ClientesNuevos.App_Code
 
                 HttpPostedFile file = files[0];
                 //ddMMyyyy
-                string fecha = DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString();
-                string link = @"~/Archivos/"+IDcompania;
-                System.IO.Directory.CreateDirectory(link);
+                string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                string link = "/Archivos/"+IDcompania;
 
-                fname = "/Archivos/usuario/" + fecha + "_" + Descripcion + "_" + file.FileName;
+                //Checho si existe la carpeta del usuario
+                if(!Directory.Exists(context.Server.MapPath(link)))
+                {
+                    DirectoryInfo di = System.IO.Directory.CreateDirectory(context.Server.MapPath(link));
+                }
+
+                fname = link+"/" + fecha + "_" + Descripcion + "_" + file.FileName;
                 file.SaveAs(context.Server.MapPath(fname));
 
+                //Guardo la ruta completa para ser alamacenada en la base de datos
                 string ruta = fname.ToString();
-                 //ruta = "Archivos/" + IDcompania + "/" + fecha + "_" + Descripcion + "_" + file.FileName;
+
                 strRsultado = clsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
                 
             }

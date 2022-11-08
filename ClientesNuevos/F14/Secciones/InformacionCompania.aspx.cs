@@ -10,6 +10,7 @@ using System.Data;
 using ClientesNuevos.App_Code;
 using System.IO;
 using System.Web.Security;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -589,7 +590,7 @@ namespace ClientesNuevos.F14.Seccioness
                 Tipo = "Comp";
             }
 
-            Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo);
+            Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo,"");
 
             lblRes.Text = Registro;
             txtRfc.Text = "";
@@ -603,6 +604,112 @@ namespace ClientesNuevos.F14.Seccioness
 
             DataBind_Contactos();
 
+        }
+
+        protected void btnEditarC_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            
+            string Id = gvContactos.Rows[rowIndex].Cells[0].Text;
+            string nombre = gvContactos.Rows[rowIndex].Cells[1].Text;
+            string puesto = gvContactos.Rows[rowIndex].Cells[2].Text;
+            string correo = gvContactos.Rows[rowIndex].Cells[3].Text;
+            string tel = gvContactos.Rows[rowIndex].Cells[4].Text;
+            string ext = gvContactos.Rows[rowIndex].Cells[10].Text;
+            string cel = gvContactos.Rows[rowIndex].Cells[6].Text;
+            string fra = gvContactos.Rows[rowIndex].Cells[8].Text;
+            string idComp = gvContactos.Rows[rowIndex].Cells[9].Text;
+                        
+            if(ext == "&amp;nbsp;")
+            {
+                ext = "";
+            }
+
+            hfIdC.Value = Id;
+            hfIDComp.Value = idComp;
+            txtNombreC.Text = nombre;
+            txtPuestoC.Text = puesto;
+            txtCorreoC.Text = correo;
+            txtTelC.Text = tel;
+            txtCelC.Text = cel;
+            txtExt.Text = ext;
+            if(fra == "Fra")
+            {
+                chFactura.Checked = true;
+            }
+            else
+            {
+                chFactura.Checked = false;
+
+            }
+
+            Panel_Contacto.Visible = true;
+            btnRegistrarC.Visible = false;
+        }
+
+        protected void btnDelC_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            string id = gvContactos.Rows[rowIndex].Cells[0].Text;
+
+            string res = clsHerramientaBD.ExecuteSql("DELETE FROM [Table_Contacto] WHERE ID = '"+id+"'");
+            if (res == "")
+            {
+                lblRes.Text = "Contacto eliminado";
+            }
+            else
+            {
+                lblRes.Text = res;
+            }
+
+            DataBind_Contactos();
+
+        }
+
+        protected void btnAproveC_Click(object sender, EventArgs e)
+        {
+
+            string tipo = "";
+            if (chFactura.Checked)
+            {
+                tipo = "Fra";
+            }
+            else
+            {
+                tipo = "Comp";
+            }
+            lblRes.Text = clsF14.Insertar_contacto(hfIDComp.Value, txtNombreC.Text, txtPuestoC.Text, txtTelC.Text, txtExt.Text, txtCelC.Text, tipo, txtCorreoC.Text, hfIdC.Value);
+
+
+            hfIdC.Value = "";
+            txtNombreC.Text = "";
+            txtPuestoC.Text = "";
+            txtCorreoC.Text = "";
+            txtTelC.Text = "";
+            txtExt.Text = "";
+            txtCelC.Text = "";
+            chFactura.Checked = false;
+
+
+            DataBind_Contactos();
+            Panel_Contacto.Visible = false;
+            btnRegistrarC.Visible = true;
+        }
+
+        protected void btnCancelC_Click(object sender, EventArgs e)
+        {
+            hfIdC.Value = "";
+            txtNombreC.Text = "";
+            txtPuestoC.Text = "";
+            txtCorreoC.Text = "";
+            txtTelC.Text = "";
+            txtCelC.Text = "";
+
+            txtExt.Text = "";
+            chFactura.Checked = false;
+
+            Panel_Contacto.Visible = false;
+            btnRegistrarC.Visible = true;
         }
 
         protected void Traducir()
@@ -655,7 +762,7 @@ namespace ClientesNuevos.F14.Seccioness
 
 
             //Contacto
-            lblTitulo_DatosContacto.Text = "Contac details";
+           /* lblTitulo_DatosContacto.Text = "Contac details";
             lblNombreCont.Text = "Name:";
             lblpuestoCont.Text = "Tittle:";
             lblCorreoCont.Text = "E-mail:";
@@ -676,7 +783,7 @@ namespace ClientesNuevos.F14.Seccioness
             btnContact.Text = "Add contact";
             lbl_tCaption.Text = "Registered contacts";
 
-            lbl_btnNext.Text = "Next";
+            lbl_btnNext.Text = "Next";*/
         }
         /*
         protected void Page_PreInit(object sender, EventArgs e)

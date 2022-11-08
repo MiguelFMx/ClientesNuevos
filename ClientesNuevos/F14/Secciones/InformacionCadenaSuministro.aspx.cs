@@ -10,6 +10,7 @@ using ClientesNuevos.App_Code;
 using System.IO;
 using System.Xml.Linq;
 using System.Data;
+using System.Web.UI.HtmlControls;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -46,10 +47,14 @@ namespace ClientesNuevos.F14.Seccioness
 
                 if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
                 {
+                    BindDataAdmin(Request.QueryString["id"]);
                     CambiarLinks();
                 }
+                else
+                {
+                    BindData();
+                }
 
-                BindData();
 
             }
         }
@@ -108,6 +113,16 @@ namespace ClientesNuevos.F14.Seccioness
         {
             DataTable dt = new DataTable();
             dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+            gvProgramas.DataSource = dt;
+            gvProgramas.DataBind();
+            ViewState["dirState"] = dt;
+            ViewState["sortdr"] = "Asc";
+        }
+
+        private void BindDataAdmin(string id)
+        {
+            DataTable dt = new DataTable();
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + id + "'");
             gvProgramas.DataSource = dt;
             gvProgramas.DataBind();
             ViewState["dirState"] = dt;
@@ -270,7 +285,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void GuardarDocumento()
         {
-
+            
         }
 
         protected void gvProgramas_PageIndexChanging(object sender, GridViewPageEventArgs e)

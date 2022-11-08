@@ -191,7 +191,7 @@ namespace ClientesNuevos.F14
         public string LlenarContacto(string Nombre, string Puesto, string Telefono, string Extension, string Celular, string Tipo, string Correo, string ID_compania)
         {
             string res="";
-           res = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo);
+           res = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo,"");
 
             return res;
         }

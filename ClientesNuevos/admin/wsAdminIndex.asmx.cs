@@ -112,6 +112,42 @@ namespace ClientesNuevos.admin
             return porcentaje;
         }
 
+
+        public class Usuarios
+        {
+            public string Id { get; set; } 
+            public string RFC { get; set; }
+            public string Detalles { get; set; }
+            public string Fecha { get; set; }
+            public string Status { get; set; }
+
+        }
+
+        [WebMethod]
+        public List<Usuarios> Obtener_UD()
+        {
+            DataTable dt = new DataTable();
+            List<Usuarios> lst = new List<Usuarios>();
+            Usuarios objR;
+            dt = clsHerramientaBD.Existe("exec Master_User @Accion='select'", clsHerramientaBD.strConnAdmon);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                objR = new Usuarios
+                {
+                    Id = row["Id"].ToString(),
+                    RFC = row["RFC"].ToString(),
+                    Detalles = row["Detalles"].ToString(),
+                    Fecha = row["Fecha_registro"].ToString().Substring(0,10),
+                    Status = row["status"].ToString()
+                };
+                lst.Add(objR);
+            }
+
+
+            return lst;
+        }
+
     }
 }
     

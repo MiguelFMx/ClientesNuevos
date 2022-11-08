@@ -113,6 +113,7 @@
     <Content Include="admin\Reportes.aspx" />
     <Content Include="admin\template\asset\css\estilo.css" />
     <Content Include="admin\template\asset\JS\carpetillaJS.js" />
+    <Content Include="admin\template\asset\JS\lstUsuarios.js" />
     <Content Include="admin\template\asset\JS\TemplateJS.js" />
     <Content Include="admin\template\asset\JS\usuariosJS.js" />
     <Content Include="admin\template\build\css\custom.css" />

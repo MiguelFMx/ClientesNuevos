@@ -13,6 +13,7 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
             {
+
                 CambiarLinks();
             }
         }
@@ -32,6 +33,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
+
             HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
         }
     }

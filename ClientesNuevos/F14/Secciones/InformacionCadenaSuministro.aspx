@@ -179,10 +179,8 @@
                                                     <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificaci&#243;n" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>                                                        
                                                     </asp:BoundField>
-
                                                     <asp:BoundField DataField="ruta" HeaderText="url">
                                                         <HeaderStyle CssClass="hiddencol"></HeaderStyle>
-
                                                         <ItemStyle CssClass="hiddencol"></ItemStyle>
                                                     </asp:BoundField>
                                                     <asp:TemplateField HeaderText="Certificado">
@@ -205,6 +203,11 @@
                                                     </asp:TemplateField>
                                                 </Columns>
                                                 <PagerSettings Mode="NumericFirstLast"  PageButtonCount="3" />
+                                                <EmptyDataTemplate>
+                                                    <div class="d-flex justify-content-center">
+                                                        No hya registros
+                                                    </div>
+                                                </EmptyDataTemplate>
                                             </asp:GridView>
                                         </div>
                                     </div>
@@ -237,13 +240,7 @@
         </div>
 
     </div>
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            getEstatus();
-        });
-
-    </script>
 
 
 

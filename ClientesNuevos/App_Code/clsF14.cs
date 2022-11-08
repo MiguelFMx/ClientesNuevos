@@ -364,15 +364,23 @@ namespace ClientesNuevos.App_Code
             return resultado;
         }
 
-        public static string Insertar_contacto(string ID_compania, string Nombre, string Puesto, string Telefono, string Extension, string Celular, string tipo, string Correo)
+        public static string Insertar_contacto(string ID_compania, string Nombre, string Puesto, string Telefono, string Extension, string Celular, string tipo, string Correo, string id)
         {
             string resultado;
             string sqlStr = "Master_TablaContacto";
             SqlConnection con = new SqlConnection(strConnction);
 
-            con.Open();
+            DataTable dt = new DataTable();
+
+            if(id != "")
+            {
+                dt = clsHerramientaBD.Existe("SELECT * FROM [Table_Contacto] WHERE ID='"+id+"'");
+            }
+
+
             try
             {
+                con.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -385,7 +393,18 @@ namespace ClientesNuevos.App_Code
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
                 cmd.Parameters.AddWithValue("@Celular", Celular);
                 cmd.Parameters.AddWithValue("@Correo", Correo);
-                cmd.Parameters.AddWithValue("@accion", "insert");
+
+                   if(dt.Rows.Count > 0)
+                {
+                    cmd.Parameters.AddWithValue("@accion", "update2");
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@accion", "insert");
+
+                }
 
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
 
@@ -406,6 +425,9 @@ namespace ClientesNuevos.App_Code
 
             return resultado;
         }
+        //update2
+
+
 
 
         public static string Insertar_contactoAA(string ID_compania, string Nombre, string Puesto, string Telefono, string Extension, string Celular, string tipo, string Correo)

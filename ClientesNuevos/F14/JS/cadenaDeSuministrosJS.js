@@ -5,7 +5,15 @@ $(document).ready(function () {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     let radio = '';
 
-    //ObtenerPrograma();
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('id');
+
+    if (acomp == null) {
+        getEstatus();
+    } else {
+        getEstatusAdmin(acomp);
+    }
+
 
     $('input[type=radio][name=radCertificado]').change(function () {
         if (this.value == 'si') {
@@ -436,4 +444,37 @@ function ObtenerPrograma() {
         }
 
     });
+}
+
+function getEstatusAdmin(compa) {
+
+    GetAjax("../wsBaseDatos.asmx/ObtenerEstatus", "'id':'" + compa + "'", false, function (lst) {
+        var fecha, strTrim;
+        if (lst.length > 0) {
+            //Mustro div
+            $('#divFecha').show();
+            //cambio el index de combox
+            $('#cbCTPATSatuts').val(lst[0].Status).change();
+            $('#MainContent_txtCTPATCuenta').val(lst[0].No_cuenta);
+
+            //Movimiento fecha====================================
+            //obtengo solo la fecha, ya que sale con hora
+            fecha = lst[0].Fecha_validacion.substring(1, 10);
+
+            //Separo la fecha, eliminando el /
+            strTrim = fecha.split('/');
+
+            //Si Mes es solo un numero, ej 9, se agrega un 0 ; Igual con el dia
+            if (strTrim[1].length == 1) {
+                strTrim[1] = "0" + strTrim[1];
+            }
+            //dia
+            if (strTrim[0].length == 1) {
+                strTrim[0] = "0" + strTrim[0];
+            }
+            //Pongo fecha en control:  yyyy-mm-dd
+            document.getElementById('MainContent_dtFechaVal').value = strTrim[2] + "-" + strTrim[1] + "-" + strTrim[0];
+        }
+    });
+
 }

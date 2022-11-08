@@ -39,6 +39,7 @@ $(document).ready(function () {
 
 function ObtenerRoles() {
     //Obtener_roles_user(string RFC)
+
     GetAjax("../usuarios/wsUsuarios.asmx/Obtener_roles_user",
         "'RFC':'" + RFC + "'",
         false, function (table) {
@@ -51,6 +52,7 @@ function ObtenerRoles() {
                         "<td>" + table.Rows[i]['RFC'].toString() + "</td>" +
                         "<td>" + table.Rows[i]['subdominio'].toString() + "</td>" +
                         "<td>" + table.Rows[i]['Rol'].toString() + "</td>" +
+
                         "<td><button name='remove' id='remove' class='btn btn-danger btn-sm rounded-5'><i class='bi bi-x'></i></button></td>" +
                         "</tr>"
                     );
@@ -60,21 +62,3 @@ function ObtenerRoles() {
         });
 }
 
-function cargarUsuarios() {
-    GetAjax("", "", false, function (lstUser) {
-
-        let tabla = $('#tUsuarios tbody');
-
-        if (lstUser.lenght > 0) {
-            tabla.empty();
-            for (var i = 0; i < lstUser.length; i++) {
-                tabla.append(
-                    "<tr>" +
-                    "<td></td>" +
-                    "</tr>"
-                );
-            }
-        }
-
-    });
-}

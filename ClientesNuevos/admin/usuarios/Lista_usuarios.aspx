@@ -12,14 +12,14 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tUsuarios" class="table">
+                        <table id="tUsuariosDet" class="table">
                             <thead>
                                 <tr>
+                                    <th hidden>Id</th>
                                     <th>RFC</th>
-                                    <th>Empresa</th>
+                                    <th >Detalles</th>
                                     <th>Fecha de registro</th>
-                                    <%-- Subdominio y Roles --%>
-                                    <th>Detalles</th>
+                                    <th>Status</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -31,10 +31,10 @@
             </div>
         </div>
     </div>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
-    <script src="../template/asset/JS/usuariosJS.js"></script>
+
+    <script src="../template/asset/JS/lstUsuarios.js"></script>
 </asp:Content>

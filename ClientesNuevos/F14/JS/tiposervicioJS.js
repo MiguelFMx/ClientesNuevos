@@ -5,10 +5,20 @@ var count = 1;
 
 $(document).ready(function () {
 
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('id');
 
-    ObtenerProducto();
+    if (acomp == null) {
+        ObtenerProducto();
+        ObtenerServicio();
 
-    ObtenerServicio();
+    } else {
+        ObtenerProductoAdmin();
+        ObtenerServicioAdmin();
+    }
+
+
+    
 
 //Almacenaje
     $('#chkAlmacenaje').change(function () {
@@ -463,6 +473,246 @@ function ObtenerProducto() {
         } else {
             dynamic_field(1);
            
+        }
+
+    });
+}
+
+
+function ObtenerProductoAdmin() {
+    let descrip;
+    let commnt;
+    let aux;
+
+    let urlParams = new URLSearchParams(window.location.search);
+    let compa = urlParams.get('id');
+
+    GetAjax("../wsBaseDatos.asmx/Obtener_Productos", "'ID_compania':'" + compa + "'", false, function (producto) {
+        if (producto.length > 0) {
+            for (var i = 0; i < producto.length; i++) {
+                descrip = producto[i].Descripcion;
+                commnt = producto[i].Comentarios;
+                aux = i + 1;
+                var html = '<tr>';
+                html += '<th><label>' + aux + '</label></th>';
+                html += '<td><div class="col"><input type="text" name="Descripcion" class="form-control descripcion" value="' + descrip + '"></div></td>';
+                html += '<td><div class="col"><input type="text" name="Comentarios" class="form-control comentarios" value="' + commnt + '"></div></td>';
+
+                if (aux > 1) {
+                    html += '<td><button type="button" class="btn btn-danger" name="remove" id="remove" style="border-radius:42px;"><i class="fas fa-minus-circle"></i></button></td></tr>';
+                    $('#tbodyProductos').append(html);
+                } else {
+                    html += '<td><button type="button"class="btn btn-success" name="add" id="add" style="border-radius:42px;"><i class="fas fa-plus-circle"></i></button></td></tr>';
+                    $('#tbodyProductos').html(html);
+                }
+                count = aux;
+            }
+        } else {
+            dynamic_field(1);
+
+        }
+
+    });
+}
+
+function ObtenerServicioAdmin() {
+    let sub_grupo;
+    let grupo;
+
+    let urlParams = new URLSearchParams(window.location.search);
+    let compa = urlParams.get('id');
+   
+
+    GetAjax("../wsBaseDatos.asmx/Obtener_Servicios", "'ID_compania':'" + compa + "'", false, function (servicio) {
+        let Almacenaje = 0, Almacenajemp = 0, Export = 0, Exportmp = 0, Import = 0, ImportMP = 0, RE = 0, transport = 0, transportMP = 0, Otro = 0;
+        if (servicio.length > 0) {
+            for (var i = 0; i < servicio.length; i++) {
+                grupo = servicio[i].GrupoPrincipal;
+                sub_grupo = servicio[i].SubGrupo;
+
+                switch (grupo) {
+
+                    case 'Almacenaje':
+                        Almacenaje = 1;
+                        $('#chkAlmacenaje').prop('checked', true);
+
+                        if (sub_grupo == 'Almacen de deposito') {
+                            $('#chkADAlmacenaje').prop('checked', true);
+                        }
+                        if (sub_grupo == 'In-bonds') {
+                            $('#chkIBAlmacenaje').prop('checked', true);
+                        }
+                        if (sub_grupo == 'Transbordo') {
+                            $('#chkTransbordoAlmacenaje').prop('checked', true);
+                        }
+                        if (sub_grupo == '1') {
+                            Almacenajemp = 1;
+                            $('#chkMPAlmacenaje').prop('checked', true);
+                            $('#chkMPQuimicosAlmacenaje').prop('checked', true);
+                        }
+                        if (sub_grupo == '2') {
+                            Almacenajemp = 1;
+                            $('#chkMPAlmacenaje').prop('checked', true);
+
+                            $('#chkMPCarbonAlmacenaje').prop('checked', true);
+                        }
+                        if (sub_grupo == '3') {
+                            Almacenajemp = 1;
+                            $('#chkMPAlmacenaje').prop('checked', true);
+
+                            $('#chkMPQuimicosAlmacenaje').prop('checked', true);
+                            $('#chkMPCarbonAlmacenaje').prop('checked', true);
+                        }
+                        break;
+                    case 'Exportacion':
+                        Export = 1;
+                        $('#chkExportacion').prop('checked', true);
+
+                        if (sub_grupo == 'Carga seca') {
+                            $('#chkExpoCS').prop('checked', true);
+                        }
+                        if (sub_grupo == 'Ferrocarril') {
+                            $('#chkFrrExpo').prop('checked', true);
+                        }
+                        if (sub_grupo == 'In-bonds') {
+                            $('#chkIBExpo').prop('checked', true);
+                        }
+                        if (sub_grupo == '1') {
+                            $('#chkMPExpo').prop('checked', true);
+                            $('#chkMPQuimicosExpo').prop('checked', true);
+                        }
+                        if (sub_grupo == '2') {
+                            $('#chkMPExpo').prop('checked', true);
+                            $('#chkMPCarbonExpo').prop('checked', true);
+                        }
+                        if (sub_grupo == '3') {
+                            $('#chkMPExpo').prop('checked', true);
+                            $('#chkMPQuimicosExpo').prop('checked', true);
+                            $('#chkMPCarbonExpo').prop('checked', true);
+                        }
+
+                        break;
+                    case 'Importacion':
+                        Import = 1;
+                        $('#chkImportacion').prop('checked', true);
+                        if (sub_grupo = 'Carga seca') {
+                            $('#chkImpoCS').prop('checked', true);
+                        }
+                        if (sub_grupo = 'Ferrocarril') {
+                            $('#chkFrrImpo').prop('checked', true);
+                        }
+                        if (sub_grupo = 'In-bonds') {
+                            $('#chkIBImpo').prop('checked', true);
+                        }
+                        if (sub_grupo = '1') {
+                            ImportMP = 1;
+                            $('#chkMPImpo').prop('checked', true);
+                            $('#chkMPQuimicosImpo').prop('checked', true);
+                        }
+                        if (sub_grupo = '2') {
+                            ImportMP = 1;
+
+                            $('#chkMPImpo').prop('checked', true);
+                            $('#chkMPCarbonImpo').prop('checked', true);
+                        }
+                        if (sub_grupo = '3') {
+                            ImportMP = 1;
+                            $('#chkMPImpo').prop('checked', true);
+                            $('#chkMPQuimicosImpo').prop('checked', true);
+                            $('#chkMPCarbonImpo').prop('checked', true);
+
+                        }
+                        break;
+                    case 'Renta de equipo':
+                        RE = 1;
+                        $('#chkRE').prop('checked', true);
+
+                        if (sub_grupo == '4') {
+                            $('#chkRntaCajas').prop('checked', true);
+                        }
+                        if (sub_grupo == '5') {
+                            $('#chkRentaSD').prop('checked', true);
+
+                        }
+                        if (sub_grupo == '6') {
+                            $('#chkRntaCajas').prop('checked', true);
+                            $('#chkRentaSD').prop('checked', true);
+
+                        }
+                        break;
+                    case 'Transportacion':
+                        transport = 1;
+                        $('#chkTransportacion').prop('checked', true);
+
+                        if (sub_grupo == 'Carga seca') {
+                            $('#chkTransportCS').prop('checked', true);
+                        }
+                        if (sub_grupo == 'In-bonds') {
+                            $('#chkIBTransport').prop('checked', true);
+                        }
+                        if (sub_grupo == '1') {
+                            ImportMP = 1;
+                            $('#chkMPTransport').prop('checked', true);
+                            $('#chkMPQuimicosTransport').prop('checked', true);
+                        }
+                        if (sub_grupo == '2') {
+                            ImportMP = 1;
+                            $('#chkMPTransport').prop('checked', true);
+                            $('#chkMPCarbonTransport').prop('checked', true);
+                        }
+                        if (sub_grupo == '3') {
+                            ImportMP = 1;
+                            $('#chkMPTransport').prop('checked', true);
+                            $('#chkMPQuimicosTransport').prop('checked', true);
+                            $('#chkMPCarbonTransport').prop('checked', true);
+                        }
+                        break;
+                    case 'Agencia aduanal mexicana':
+                        $('#chkLogistica').prop('checked', true);
+                        break;
+                    case 'Logistica':
+                        $('#chkLogistica').prop('checked', true);
+                        break;
+                    case 'otro':
+                        $('#chkOtro').prop('checked', true);
+                        $('#txtOtro').val(sub_grupo);
+                        Otro = 1;
+                        break;
+
+                }
+
+            }
+
+            if (Almacenaje == 1) {
+                $('#opcionesAlmacenaje').toggle();
+            }
+            if (Almacenajemp == 1) {
+                $('#MPAlmacenaje').show();
+            }
+            if (Export == 1) {
+                $('#opcionesExpo').show();
+            }
+            if (Exportmp == 1) {
+                $('#MPExpo').show();
+            }
+            if (Import == 1) {
+                $('#opcionesImpo').show();
+            }
+            if (ImportMP == 1) {
+                $('#MPImpo').show();
+            }
+            if (RE == 1) {
+                $('#opcionesRenta').show();
+            }
+            if (transport == 1) {
+                $('#opcionesTransport').show();
+            }
+            if (transportMP == 1) {
+                $('#MPTransport').show();
+            }
+            if (Otro == 1) {
+                $('#textoOtro').show();
+            }
         }
 
     });

@@ -7,7 +7,7 @@
     <asp:Label ID="lblPrueba" runat="server" Text="..."></asp:Label>
     <link href="../../template/assets/css/dropzone.css" rel="stylesheet" />
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-header cabezal">
                     <h5>Informacion
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-md-8">
 
             <div class="card">
                 <div class="card-header cabezal">
@@ -623,7 +623,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
-    <script src="../template/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../template/assets/js/dropjs.js"></script>
 
     <script src="../template/asset/JS/carpetillaJS.js"></script>

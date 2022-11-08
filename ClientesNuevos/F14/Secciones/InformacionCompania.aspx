@@ -13,8 +13,11 @@
     <script src="../../Scripts/JS/ajax.js"></script>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+
+    <style type="text/css"> .hiddencol { display: none; } </style>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
 
     <div class="container">
         <div class="row">
@@ -119,7 +122,6 @@
                         </div>
                         <br />
                         <div class="row">
-
                             <div class="col-md">
                                 <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
@@ -344,7 +346,7 @@
                 </div>
             </div>
             <hr />
-           
+
 
             <div class="row">
                 <div class="col-md-6">
@@ -370,6 +372,8 @@
 
                             <div class="row">
                                 <div class="col-sm">
+                                    <asp:HiddenField ID="hfIDComp" runat="server" />
+                                    <asp:HiddenField ID="hfIdC" runat="server" />
                                     <asp:Label ID="Label4" runat="server" Text="Nombre:"></asp:Label>
                                     <asp:TextBox ID="txtNombreC" runat="server" CssClass="form-control"></asp:TextBox>
 
@@ -421,6 +425,16 @@
                                 <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
                             </div>
                             <br />
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Panel ID="Panel_Contacto" runat="server" Visible="false">
+                                        <asp:Label ID="Label7" runat="server" Text="Actualizar contacto:"></asp:Label>
+                                        <asp:LinkButton ID="btnAproveC" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAproveC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnCancelC" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancelC_Click"><i class="bi bi-x-lg"></i></asp:LinkButton>
+
+                                    </asp:Panel>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -437,21 +451,42 @@
                         <div class="table-responsive">
                             <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="true" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal" Caption="Contactos registrados">
                                 <Columns>
-                                    <asp:BoundField HeaderText="ID" Visible="false" DataField="ID"></asp:BoundField>
+                                    <asp:BoundField HeaderText="ID" DataField="ID" >
+                                        <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                    </asp:BoundField> 
                                     <asp:BoundField HeaderText="Nombre" DataField="Nombre"></asp:BoundField>
                                     <asp:BoundField HeaderText="Puesto" DataField="Puesto"></asp:BoundField>
                                     <asp:BoundField HeaderText="Correo" DataField="Correo"></asp:BoundField>
                                     <asp:BoundField HeaderText="Telefono" DataField="Telefono"></asp:BoundField>
-                                    <asp:BoundField HeaderText="Ext." DataField="Extension"></asp:BoundField>
-                                    <asp:BoundField HeaderText="Celular" DataField="Celular"></asp:BoundField>
-                                    <asp:TemplateField HeaderText="Fra.">
+                                    <asp:TemplateField HeaderText="Ext.">
                                         <ItemTemplate>
-                                            <%# Eval("Tipo").Equals("Fra") ? "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='flexCheckCheckedDisabled' checked disabled></div>" : "" %>
+                                            <asp:Label ID="lblExtG" runat="server" Text='<%# Eval("Extension").Equals("&nbsp;") ? "" : Eval("Extension") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+
+                                    <asp:BoundField HeaderText="Celular" DataField="Celular"></asp:BoundField>
+                                    <asp:TemplateField HeaderText="Facturacion">
+                                        <ItemTemplate>
+                                            <%# Eval("Tipo").Equals("Fra") ? "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='flexCheckCheckedDisabled' checked disabled></div>" : "" %>
+                                            
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="Tipo" HeaderText="fra">
+                                        <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="ID_compania" HeaderText="idcomp">
+                                       <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="Extension" HeaderText="ext2">                                        
+                                        <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                    </asp:BoundField>
                                     <asp:TemplateField HeaderText="Acciones">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnEditarC" runat="server" CssClass="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDelC" runat="server" CssClass="btn btn-danger btn-sm"><i class="bi bi-trash"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnEditarC" runat="server" CssClass="btn btn-warning btn-sm text-white" OnClick="btnEditarC_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDelC" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDelC_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -462,6 +497,7 @@
                             </asp:GridView>
                         </div>
                     </div>
+
                 </div>
             </div>
         </fieldset>
