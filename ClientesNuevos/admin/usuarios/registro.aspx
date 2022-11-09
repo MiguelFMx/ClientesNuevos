@@ -35,6 +35,7 @@
                             <br />
                             <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4" OnClick="btnAddUser_Click" />
                             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                            <button id="test" type="button">picame</button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
                                 <asp:DropDownList ID="ddRol" runat="server" CssClass="form-select"></asp:DropDownList>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success" UseSubmitBehavior="false" OnClientClick="return false;" />
+                                <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success"  OnClientClick="return false;" />
                             </div>
                         </div>
                     </div>

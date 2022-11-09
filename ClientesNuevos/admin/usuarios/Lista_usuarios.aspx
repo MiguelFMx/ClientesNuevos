@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                     <h5>Usuarios registrados</h5>
                 </div>
                 <div class="card-body">
@@ -17,7 +17,7 @@
                                 <tr>
                                     <th hidden>Id</th>
                                     <th>RFC</th>
-                                    <th >Detalles</th>
+                                    <th >Roles</th>
                                     <th>Fecha de registro</th>
                                     <th>Status</th>
                                     <th>Acciones</th>
@@ -26,6 +26,11 @@
                             <tbody>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-end">
+                        <asp:HyperLink ID="hlRegistro" runat="server" CssClass="btn btn-secondary btn-sm" NavigateUrl="~/admin/usuarios/registro.aspx"><i class="bi bi-person-plus"></i> Crear usuario</asp:HyperLink>
                     </div>
                 </div>
             </div>

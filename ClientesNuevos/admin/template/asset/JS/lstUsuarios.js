@@ -1,29 +1,32 @@
 ﻿/// <reference path="../../../../scripts/js/ajax.js" />
 
 $(document).ready(function () {
-
     cargarUsuarios();
+
+    var tablaUser = $('#tUsuariosDet').DataTable();
 
 });
 
 function cargarUsuarios() {
     let tablas = $('#tUsuariosDet tbody');
     var RFC = '';
-    var RFCx = '';
     var detalles = '';
-
+    var estatus;
     GetAjax("../wsAdminIndex.asmx/Obtener_UD", "", false, function (lstUser) {
-
-        //alert(lstUser.length);
-
-        if (lstUser.length > 0) {
+          if (lstUser.length > 0) {
             tablas.empty();
             for (var i = 0; i < lstUser.length; i++) {
                 RFC = lstUser[i].RFC;
-                //detalles = "<label>" + lstUser[i].Detalles + "</label><br>";
+
+                if (lstUser[i].Status == 'activo') {
+                    estatus = "<label class='etiqueta'>" + lstUser[i].Status +"</label>"
+                } else {
+                    estatus = "<label class='etiqueta peligro'>" + lstUser[i].Status + "</label>"
+
+                }
 
                 if (i == lstUser.length - 1) {
-                    detalles += "<label>" + lstUser[i].Detalles + "</label><br>";
+                    detalles += "<span class='badge rounded-pill bg-secondary'>" + lstUser[i].Detalles + "</span>";
 
                     tablas.append(
                         "<tr>" +
@@ -31,13 +34,13 @@ function cargarUsuarios() {
                         "<td>" + lstUser[i].RFC + "</td>" +
                         "<td >" + detalles + "</td>" +
                         "<td>" + lstUser[i].Fecha + "</td>" +
-                        "<td>" + lstUser[i].Status + "</td>" +
-                        "<td><button class='btn btn-secondary btn-sm' id='btnDetalles'>Editar</button></td>" +
+                        "<td>" + estatus + "</td>" +
+                        "<td><a href='EditarUsuario.aspx?id=" + lstUser[i].Id + "' class='btn btn-secondary btn-sm'><i class='bi bi-pencil-square'></i></a></td>" +
                         "</tr>"
                     );
                 }
                 else if (RFC != lstUser[i + 1].RFC) {
-                    detalles += "<label>" + lstUser[i].Detalles + "</label><br>";
+                    detalles += "<span class='badge rounded-pill text-bg-primary'>" + lstUser[i].Detalles + "</span>";
 
                     tablas.append(
                         "<tr>" +
@@ -45,16 +48,16 @@ function cargarUsuarios() {
                         "<td>" + lstUser[i].RFC + "</td>" +
                         "<td >" + detalles + "</td>" +
                         "<td>" + lstUser[i].Fecha + "</td>" +
-                        "<td>" + lstUser[i].Status + "</td>" +
-                        "<td><button class='btn btn-secondary btn-sm' id='btnDetalles'>Editar</button></td>" +
+                        "<td>" + estatus + "</td>" +
+                        "<td><a href='EditarUsuario.aspx?id=" + lstUser[i].Id + "' class='btn btn-secondary btn-sm'><i class='bi bi-pencil-square'></i></a></td>"+
                         "</tr>"
                     );
-                    RFCx = lstUser[i].RFC;
 
                     detalles = "";
                 }                
                 else {
-                    detalles += "<label>" + lstUser[i].Detalles + "</label><br>";
+                    detalles += "<span class='badge bg-secondary'>" + lstUser[i].Detalles + "</span>";
+
                 }
             }
         }

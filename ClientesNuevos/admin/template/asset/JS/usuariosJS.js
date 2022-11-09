@@ -5,7 +5,6 @@ $(document).ready(function () {
 
 
     $('#MainContent_btnAgregar').click(function () {
-        let tabla = $('#MainContent_myTable tbody');
         let RFC = $('#MainContent_txtRFC').val();
         let subdom = $('#MainContent_ddSubdominio option:selected');
         let rol = $('#MainContent_ddRol option:selected');
@@ -19,11 +18,18 @@ $(document).ready(function () {
             "'ID_rol':'" + rol.val() + "'," +
             "'id':''",
             false, function (table) {
-                ObtenerRoles();
-            });
+
+                console.log(table + " registrado");
+        });
 
         
     });
+
+    $('#test').click(function () {
+        //let idRfc = $('#MainContent_txtRFC').val();
+        ObtenerRoles();
+    });
+
 
     $(document).on('click', '#remove', function () {        
        let id =  $(this).parent().closest("tr").find('td:first').text();
@@ -37,21 +43,22 @@ $(document).ready(function () {
 
 });
 
-function ObtenerRoles() {
+function ObtenerRoles(RFC) {
     //Obtener_roles_user(string RFC)
+    let tabla = $('#MainContent_myTable tbody');
 
     GetAjax("../usuarios/wsUsuarios.asmx/Obtener_roles_user",
-        "'RFC':'" + RFC + "'",
+        "'id':'XAXX010101088'",
         false, function (table) {
 
-            if (table.Rows.Count > 0) {
-                for (var i = 0; i < table.Rows.Count; i++) {
+            if (table.length > 0) {
+                for (var i = 0; i < table.length; i++) {
                     tabla.append(
                         "<tr>" +
-                        "<td hidden>" + table.Rows[i]['Id'].toString() + "</td>" +
-                        "<td>" + table.Rows[i]['RFC'].toString() + "</td>" +
-                        "<td>" + table.Rows[i]['subdominio'].toString() + "</td>" +
-                        "<td>" + table.Rows[i]['Rol'].toString() + "</td>" +
+                        "<td hidden>" + table[i].Id + "</td>" +
+                        "<td>" + table[i].RFC + "</td>" +
+                        "<td>" + table[i].Subdominio + "</td>" +
+                        "<td>" + table[i].Rol + "</td>" +
 
                         "<td><button name='remove' id='remove' class='btn btn-danger btn-sm rounded-5'><i class='bi bi-x'></i></button></td>" +
                         "</tr>"

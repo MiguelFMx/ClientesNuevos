@@ -77,13 +77,37 @@ namespace ClientesNuevos.admin.usuarios
         }
 
 
-        [WebMethod]
-        public DataTable Obtener_roles_user(string RFC)
+        public class Roles
         {
-            DataTable dt = new DataTable();          
-            
+            public string Id { get; set; }
+            public string Dominio { get; set; }
+            public string Subdominio { get; set; }
+            public string Rol { get; set; }
+            public string RFC { get; set; }
 
-            return dt;
+        }
+
+        [WebMethod]
+        public List<Roles> Obtener_roles_user(string id)
+        {
+            List<Roles> lst = new List<Roles>();
+            Roles objR;
+            DataTable dt = new DataTable();
+            dt = clsHerramientaBD.Existe("exec Master_UserRols @accion='getroles', @RFC='"+id+"'", clsHerramientaBD.strConnAdmon);
+
+            foreach (DataRow Row in dt.Rows)
+            {
+                objR = new Roles
+                {
+                    Dominio = Row["Dominio"].ToString(),
+                    Id = Row["Id"].ToString(),
+                    RFC = Row["RFC"].ToString(),
+                    Subdominio = Row["Subdominio"].ToString(),
+                    Rol = Row["Rol"].ToString()
+                };
+                lst.Add(objR);
+            }
+            return lst;
         }
 
         [WebMethod]

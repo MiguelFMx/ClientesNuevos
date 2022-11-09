@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Home | Admin</title>
 
 
     <link href="../template/assets/img/favicon.png" rel="icon" />
@@ -24,7 +24,6 @@
 
     <link href="template/asset/css/estilo.css" rel="stylesheet" />
 
-    <link href="../template/assets/css/wizard.css" rel="stylesheet" />
 
     <link href="../Scripts/DataTables/datatables.min.css" rel="stylesheet" />
 
@@ -121,20 +120,14 @@
 
     <!-- js -->
     <!-- jquery -->
-    <%--<script src="../../Scripts/jquery-3.6.0.slim.min.js"></script>--%>
-    <script src="template/vendors/jquery/dist/jquery.js"></script>
+    <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
 
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
 
     <script src="../../Scripts/umd/popper.min.js"></script>
 
-    <%--    <script src="template/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="template/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>--%>
-    <script src="../Scripts/DataTables/datatables.min.js"></script>
-
-    <!-- FastClick -->
-    <script src="template/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../Scripts/DataTables/datatables.min.js"></script>   
     <!-- NProgress -->
     <script src="template/vendors/nprogress/nprogress.js"></script>
 
