@@ -474,6 +474,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtCelContAAm;
 
         /// <summary>
+        /// Control pUser.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pUser;
+
+        /// <summary>
         /// Control btnAnterior.
         /// </summary>
         /// <remarks>
@@ -499,6 +508,51 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSiguiente;
+
+        /// <summary>
+        /// Control pAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pAdmin;
+
+        /// <summary>
+        /// Control btnAdminBack.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAdminBack;
+
+        /// <summary>
+        /// Control btnAdminH.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAdminH;
+
+        /// <summary>
+        /// Control btnAdminSave.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAdminSave;
+
+        /// <summary>
+        /// Control btnAdminNext.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAdminNext;
 
         /// <summary>
         /// Control btnTest.

@@ -32,6 +32,11 @@ namespace ClientesNuevos.F14.Seccioness
 
             if (!IsPostBack)
             {
+                if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+                {
+
+                }
+                /*
                 if (Request.QueryString["res"] != null)
                 {
                     string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
@@ -55,7 +60,7 @@ namespace ClientesNuevos.F14.Seccioness
                     BindData();
                 }
 
-
+                */
             }
         }
         private void CambiarLinks()

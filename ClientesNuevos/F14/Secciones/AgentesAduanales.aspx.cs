@@ -27,7 +27,20 @@ namespace ClientesNuevos.F14.Seccioness
         {
             
             if (!IsPostBack){
-
+                LlenarEstado(ddEstadoAA, 142);
+                LlenarEstado(ddEstadoAAm, 231);
+                //Roles de admin y usuario
+                if (User.IsInRole("1")|| User.IsInRole("2"))
+                {
+                    pUser.Visible = false;
+                    pAdmin.Visible = true;
+                    if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
+                    {
+                        btnAdminNext.Text = "Skip";
+                        btnAdminSave.Text = "Registrar";
+                    }
+                } 
+                /* 
                 if (Request.QueryString["res"] != null)
                 {
                     string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
@@ -36,8 +49,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                 }
 
-                LlenarEstado(ddEstadoAA,142);
-                LlenarEstado(ddEstadoAAm, 231);
+               
 
                 id = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
                 if (id.Rows.Count > 0)
@@ -99,6 +111,8 @@ namespace ClientesNuevos.F14.Seccioness
                     }
                     CambiarLinks();
                 }
+
+                */
             }
         }
 
@@ -337,7 +351,6 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
-
         protected string Registrar_AgenteAduanal()
         {
             string resultado="";
@@ -349,6 +362,119 @@ namespace ClientesNuevos.F14.Seccioness
 
 
             return resultado;
+        }
+
+
+        //=====================================Sobrecarga
+        private string Insertar_agente_aduanal_mx(string IDc)
+        {
+            string ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo, res = "";
+            ID_compania = IDc;
+            Nombre = txtNombreCompaniaAA.Text;
+            Nombre_comercial = txtNombreCompaniaAA.Text;
+            no_patente = txtNoPatAA.Text;
+            rfc = txtRFCTaxAA.Text;
+            direccion = txtDirecAA.Text;
+            cp = txtCPAA.Text;
+            estado = ddEstadoAA.SelectedValue;
+            ciudad = ddCiudadAA.SelectedValue;
+            tipo = "AAMX";
+            res = "////" + clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
+
+            return res;
+        }
+
+        private string Insertar_agente_aduanal_usa(string IDc)
+        {
+            string ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo, res = "";
+            ID_compania = IDc;
+            Nombre = txtNombreCompaniaAAm.Text;
+            Nombre_comercial = txtNombreCompaniaAAm.Text;
+            no_patente = txtNoPatAAm.Text;
+            rfc = txtRFCTaxAAm.Text;
+            direccion = txtDirecAAm.Text;
+            cp = txtCPAAm.Text;
+            estado = ddEstadoAAm.SelectedValue;
+            ciudad = ddCiudadAAm.SelectedValue;
+            tipo = "AAUSA";
+            res = "/////" + clsF14.Insertar_AgenteAduanal(ID_compania, Nombre, Nombre_comercial, no_patente, rfc, direccion, cp, estado, ciudad, tipo);
+
+            return res;
+        }
+
+        private string Insertar_contacto_mx(string IDc)
+        {
+            string ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo, res = "";
+            ID_compania = IDc;
+            Nombre = txtNombrContAA.Text;
+            Puesto = txtpuestoContAA.Text;
+            Telefono = txtTelContAA.Text;
+            Extension = txtExtxContAA.Text;
+            Celular = txtCelContAA.Text;
+            tipo = "AAMX";
+            Correo = txtCorreoContAA.Text;
+
+            res = "////" + clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
+
+            return res;
+        }
+        private string Insertar_contacto_usa(string IDc)
+        {
+            string ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo, res = "";
+            ID_compania = IDc;
+            Nombre = txtNombrContAAm.Text;
+            Puesto = txtpuestoContAAm.Text;
+            Telefono = txtTelContAAm.Text;
+            Extension = txtExtContAAm.Text;
+            Celular = txtCelContAAm.Text;
+            Correo = txtCorreoContAAm.Text;
+            tipo = "AAUSA";
+
+            res = "////" + clsF14.Insertar_contactoAA(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, tipo, Correo);
+
+            return res;
+        }
+        protected string Registrar_AgenteAduanal(string IDc)
+        {
+            string resultado = "";
+
+            resultado = Insertar_agente_aduanal_mx(IDc);
+            resultado += Insertar_contacto_mx(IDc);
+            resultado += Insertar_agente_aduanal_usa(IDc);
+            resultado += Insertar_contacto_usa(IDc);
+
+
+            return resultado;
+        }
+
+
+        protected void btnAdminBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdminH_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin/index.aspx");
+        }
+
+        protected void btnAdminSave_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
+            {
+                Registrar_AgenteAduanal(Request.QueryString["rfc"]);
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
+
+
+        }
+
+        protected void btnAdminNext_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
         }
     }
 }

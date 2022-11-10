@@ -156,13 +156,7 @@ namespace ClientesNuevos.F14.Seccioness
             step4.NavigateUrl= "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
             step5.NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc="+ Request.QueryString["rfc"];
         }
-        private void CambiarLinks(string rfc)
-        {
-            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + rfc;
-            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?accion=new&rfc=" + rfc;
-            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?accion=new&rfc=" + rfc;
-            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?accion=new&rfc=" + rfc;
-        }
+        
 
         protected void llenarCampos(DataTable table , DataTable dtBanco)
         {
@@ -602,15 +596,31 @@ namespace ClientesNuevos.F14.Seccioness
 
             try
             {
-                compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
-                if (chkDireccionIgual.Checked)
+                if (Request.QueryString["accion"] != null)
                 {
-                  resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                    compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, "0");
+                    if (chkDireccionIgual.Checked)
+                    {
+                        resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                    }
+                    else
+                    {
+                        resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                    }
                 }
                 else
                 {
-                   resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                    compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
+                    if (chkDireccionIgual.Checked)
+                    {
+                        resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                    }
+                    else
+                    {
+                        resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                    }
                 }
+                
                 
                 HttpCookie cookie = new HttpCookie("id_comp")
                 {

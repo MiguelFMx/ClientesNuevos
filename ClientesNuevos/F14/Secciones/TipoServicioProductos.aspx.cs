@@ -11,11 +11,17 @@ namespace ClientesNuevos.F14.Seccioness
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
+            if (User.IsInRole("1") || User.IsInRole("2"))
             {
-
-                CambiarLinks();
+                pUser.Visible = false;
+                pAdmin.Visible = true;
+                if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+                {
+                    btnAdminNext.Text = "Skip";
+                    btnAdminSave.Text = "Registrar";
+                }
             }
+            
         }
 
         private void CambiarLinks()
@@ -35,6 +41,32 @@ namespace ClientesNuevos.F14.Seccioness
         {
 
             HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
+        }
+
+        protected void btnAdminBack_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
+        }
+
+        protected void btnAdminH_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin/index.aspx");
+        }
+
+        protected void btnAdminSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdminNext_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
         }
     }
 }

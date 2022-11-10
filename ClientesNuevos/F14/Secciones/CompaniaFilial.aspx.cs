@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Antlr.Runtime;
+using ClientesNuevos.admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,9 +23,15 @@ namespace ClientesNuevos.F14.Seccioness
                 LlenarPaisCB(ddPaisComFilial);
 
 
-                if (Request.QueryString["id"]!=null && Request.QueryString["admin"] != null)
+                if (User.IsInRole("1") || User.IsInRole("2"))
                 {
-                    CambiarLinks();
+                    pUsrControl.Visible = false;
+                    pAdminControl.Visible = true;
+                    if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+                    {
+                        btnAdminNext.Text = "Skip";
+                        btnAdminSave.Text = "Registrar";
+                    }
                 }
             }
         }
@@ -95,6 +103,35 @@ namespace ClientesNuevos.F14.Seccioness
         {
 
             HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
+        }
+
+        protected void btnAdminBack_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?accion="+ Request.QueryString["accion"] + "&rfc="+ Request.QueryString["rfc"]);
+            }
+        }
+
+        protected void btnAdminH_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/admin/index.aspx");
+            }
+        }
+
+        protected void btnAdminSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdminNext_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?accion=" + Request.QueryString["accion"] + "&rfc=" + Request.QueryString["rfc"]);
+            }
         }
     }
 }
