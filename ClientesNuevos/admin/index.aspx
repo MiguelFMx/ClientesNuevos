@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col d-flex justify-content-end">
                     <asp:Label ID="lblNuevo" runat="server" Text="User id: "></asp:Label>
-                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?nuevo=reg">Nuevo registro</asp:HyperLink>
+                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new">Nuevo registro</asp:HyperLink>
                 </div>
             </div>
 

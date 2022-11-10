@@ -23,11 +23,13 @@
         <div class="row">
 
             <div class="col">
+                    <asp:Panel runat="server" ID="pRegistro" Visible="false" >
+
                 <div class="col-auto">
                     <asp:Label ID="lblRegistro" runat="server" Text="Tipo de registro" CssClass="form-label"></asp:Label>
                 </div>
                 <div class="col-3">
-                    <select id="cbTipoDeRegistro" class="form-select" hidden>
+                        <select id="cbTipoDeRegistro" class="form-select" hidden>
                         <option value="" selected disabled>...</option>
                         <option value="cliente">Cliente</option>
                         <option value="proveedor">Proveedor</option>
@@ -38,6 +40,9 @@
                         <asp:ListItem Text="proveedor" Value="proveedor" ID="cbProv" />
                     </asp:DropDownList>
                 </div>
+
+                    </asp:Panel>
+                    
             </div>
         </div>
         <br />
@@ -449,7 +454,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="table-responsive">
-                            <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="true" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal" Caption="Contactos registrados">
+                            <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="True" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal" Caption="Contactos registrados" EmptyDataText="No hay registros">
                                 <Columns>
                                     <asp:BoundField HeaderText="ID" DataField="ID" >
                                         <HeaderStyle CssClass="hiddencol"></HeaderStyle>
@@ -491,9 +496,6 @@
                                     </asp:TemplateField>
                                 </Columns>
 
-                                <EmptyDataTemplate>
-                                    <div class="d-flex justify-content-center">No hay registros</div>
-                                </EmptyDataTemplate>
                             </asp:GridView>
                         </div>
                     </div>
@@ -528,7 +530,7 @@
                 </asp:Panel>
                 <%-- ========================= Botonones de administrador: solo visibles si eres admin =========== --%>
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
-                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminBack_Click"
+                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>&nbsp;&nbsp;

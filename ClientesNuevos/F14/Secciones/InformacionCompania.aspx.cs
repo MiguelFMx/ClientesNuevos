@@ -45,7 +45,56 @@ namespace ClientesNuevos.F14.Seccioness
                 LlenarPaisCB(ddPaisFra);
                 llenarMetodoPago();
 
+                //Reviso roles
+                //Administrador y usuario
+                if(User.IsInRole("1") || User.IsInRole("2"))
+                {
+                    pAdminControl.Visible = true;
+                    pUserControl.Visible = false;
 
+                    //Si es ver info solo sera el querystring rfc
+                    if (Request.QueryString["rfc"]!= null)
+                    {
+                        //Obtengo la info de la compañia
+                        dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
+                        
+                        //Si hay informacion obtengo el ID de la compañia para hacer la consulta en la tabla de banco
+                        if (dt.Rows.Count > 0)
+                        {
+                            dtBanco = new DataTable();
+                            dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
+                            llenarCampos(dt,dtBanco);
+                        }
+
+                        DataBind_Contactos();
+                        CambiarLinks();
+                    }
+                    else if (Request.QueryString["accion"] != null)
+                    {
+                        //accion: nuevo registro
+                        if(Request.QueryString["accion"] == "new")
+                        {
+                            pRegistro.Visible = true;
+                            DeshabilitarLinks();
+                            btnAdinSave.Text = "Registrar";
+                            btnAdminNext.Visible = false;
+                            btnAdminH.Visible = false;
+                            btnAdminBack.Text = "Cancelar";
+                            DataBind_Contactos();
+                        }
+                        
+                    }
+                }
+                else if(User.IsInRole("3")) //Rol=Cliente
+                {
+
+                }else if (User.IsInRole("4")) //Rol=Proveedor
+                {
+
+                }
+
+                /*
+                //Quitar querystring, verificar que el rol sea 1 o 2; Dejar el id y cambiar : QueryString["id"]
                 if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
                 {
                     if (Request.Cookies.Get("id_comp").Value != null)
@@ -55,23 +104,35 @@ namespace ClientesNuevos.F14.Seccioness
 
                         CambiarLinks();
                     }
-                    pAdminControl.Visible = true;
-                    pUserControl.Visible = false;
+                   
 
                     
                 }
-                else if (Request.QueryString["nuevo"]!= null)
+                //Agregar QueryString[Accion] = nuevo; ver
+                else if (Request.QueryString["nuevo"]!= null) 
                 {
                     //No cargar
                     if (User.IsInRole("1") || User.IsInRole("2"))
                     {
                         txtNombreCompania.Text = "Eale xd";
+                        lblRegistro.Visible = true;
+                        cbTipoRegistro.Visible = true;
+
+                        pAdminControl.Visible=true;
+                        pUserControl.Visible = false;
                     }
                 }
                 else
                 {
                     dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
                     DataBind_Contactos();
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        dtBanco = new DataTable();
+                        dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
+                        llenarCampos(dt);
+                    }
 
                 }
 
@@ -82,14 +143,7 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         Traducir();
                     }
-                }
-
-                    if (dt.Rows.Count > 0)
-                {                    
-                    dtBanco = new DataTable();
-                    dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
-                    llenarCampos(dt);
-                }
+                }    */              
 
                 
             }
@@ -97,13 +151,20 @@ namespace ClientesNuevos.F14.Seccioness
 
         private void CambiarLinks()
         {
-            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?admin=si&id="+ Request.QueryString["id"];
-            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?admin=si&id="+ Request.QueryString["id"];
-            step4.NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id="+ Request.QueryString["id"];
-            step5.NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx?admin=si&id="+ Request.QueryString["id"];
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?rfc="+ Request.QueryString["rfc"];
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"];
+            step4.NavigateUrl= "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
+            step5.NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc="+ Request.QueryString["rfc"];
+        }
+        private void CambiarLinks(string rfc)
+        {
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + rfc;
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?accion=new&rfc=" + rfc;
+            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?accion=new&rfc=" + rfc;
+            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?accion=new&rfc=" + rfc;
         }
 
-        protected void llenarCampos(DataTable table)
+        protected void llenarCampos(DataTable table , DataTable dtBanco)
         {
 
             //======================================Informacion de compañia=================================================
@@ -429,30 +490,34 @@ namespace ClientesNuevos.F14.Seccioness
 
         }
 
+        protected void TipoRegistro(string rol)
+        {
+            switch (rol)
+            {
+                case "cliente":
+                    step2.Visible = true;
+                    step3.Visible = true;
+                    step4.Visible = true;
+                    lblDesc5.Text = "Paso 5";
+                    lblstep5.Text = "5";
+                    Response.Cookies.Add(new HttpCookie("ctipo", "cliente"));
+                    break;
+                case "proveedor":
+                    step2.Visible = false;
+                    step3.Visible = false;
+                    step4.Visible = false;
+                    lblDesc5.Text = "Paso 2";
+                    lblstep5.Text = "2";
+
+                    Response.Cookies.Add(new HttpCookie("ctipo", "proveedor"));
+                    break;
+            }
+        }
+
         protected void cbTipoRegistro_SelectedIndexChanged(object sender, EventArgs e)
         {
             string index = cbTipoRegistro.SelectedValue;
-            if(index == "cliente")
-            {
-                step2.Visible = true;
-                step3.Visible = true;
-                step4.Visible = true;
-                lblDesc5.Text = "Paso 5";
-                lblstep5.Text = "5";
-                Response.Cookies.Add(new HttpCookie("ctipo", "cliente"));
-
-            }
-            else
-            {
-                step2.Visible = false;
-                step3.Visible = false;
-                step4.Visible = false;
-                lblDesc5.Text = "Paso 2";
-                lblstep5.Text = "2";
-
-                Response.Cookies.Add(new HttpCookie("ctipo", "proveedor"));
-
-            }
+            TipoRegistro(index); 
         }
 
         protected void btnAdminH_Click(object sender, EventArgs e)
@@ -462,12 +527,43 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdinSave_Click(object sender, EventArgs e)
         {
-            Traducir();
+            //RegistrarNuevo usuario
+            if (Request.QueryString["accion"] != null)
+            {
+                try
+                {
+                    RegistrarInfo();
+                    DeshabilitarLinks();
+                    Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
+
+        private void DeshabilitarLinks()
+        {
+            step2.Enabled=false;
+            step3.Enabled = false;
+            step4.Enabled = false;
+            step5.Enabled = false;
         }
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id="+ Request.QueryString["id"].ToString()+"&type="+Request.Cookies["tipo"].Value);
+            if (Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("../../admin/index.aspx");
+
+            }
+            else
+            {
+                Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"].ToString() + "&type=" + Request.Cookies["tipo"].Value);
+
+            }
 
         }
 
@@ -561,6 +657,11 @@ namespace ClientesNuevos.F14.Seccioness
             string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
 
             gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+            }
+            else if (Request.QueryString["rfc"] != null)
+            {
+                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.QueryString["rfc"] + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
             }
             else
             {
