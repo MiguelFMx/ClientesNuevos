@@ -1,7 +1,13 @@
-﻿using System;
+﻿using ClientesNuevos.App_Code;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,9 +15,10 @@ namespace ClientesNuevos.usuario
 {
     public partial class user_config : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void ddIdioma_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,6 +50,92 @@ namespace ClientesNuevos.usuario
 
             //    }
             //Response.Cookies.Add(new HttpCookie("lang", ddIdioma.SelectedItem.Value));
+        }
+
+        protected void CambiarPass_CancelButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CambiarPass_ChangingPassword(object sender, LoginCancelEventArgs e)
+        {
+            if(CambiarPass.CurrentPassword != CambiarPass.NewPassword)
+            {
+                int affectedRow = 0;
+                string SqlStr = "UPDATE [Usuarios] SET [Password] = @NewPass WHERE [RFC] = @RFC AND [Password] = @CurrentPass";
+
+                SqlConnection con = new SqlConnection(clsHerramientaBD.strConnAdmon);
+                SqlCommand cmd = new SqlCommand(SqlStr, con);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@RFC", this.Page.User.Identity.Name);
+                cmd.Parameters.AddWithValue("@CurrentPass", CambiarPass.CurrentPassword);
+                cmd.Parameters.AddWithValue("@NewPass", CambiarPass.NewPassword);
+                try
+                {
+                    con.Open();
+                    affectedRow = cmd.ExecuteNonQuery();
+                    con.Close();
+
+
+                    if (affectedRow > 0)
+                    {
+                        lblPass.ForeColor = Color.Green;
+                        lblPass.Text = "La contraseña ha sido actualizada";
+
+
+                        EnviarCorreo(CambiarPass.NewPassword);
+                    }
+                    else
+                    {
+                        lblPass.ForeColor = Color.Red;
+                        lblPass.Text = "La contraseña actuales incorrecta";
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    lblPass.Text = "Ocurrio un error: " + ex.Message;
+                }
+               
+            }
+            else
+            {
+                lblPass.Text = "La nueva contraseña no puede ser igual a la actual";
+            }
+            e.Cancel = true;
+        }
+
+        protected void CancelPushButton_Click(object sender, EventArgs e)
+        {
+            CambiarPass.Attributes.Clear();
+        }
+
+        protected void EnviarCorreo(string pass)
+        {
+            string to = "freyde.miguel@gmail.com"; //To address    
+            string from = "postmaster@hungaros.com"; //From address    
+            MailMessage message = new MailMessage(from, to);
+
+            string mailbody = "Su contraseña ha sido cambiada con existo, su nueva contreseña es: "+pass;
+            message.Subject = "Cambio de contraseña";
+            message.Body = mailbody;
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = true;
+            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 995); //Gmail smtp    
+            System.Net.NetworkCredential basicCredential1 = new
+            System.Net.NetworkCredential("postmaster@hungaros.com", "Mail.hungar05!");
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.Credentials = basicCredential1;
+            try
+            {
+                client.Send(message);
+            }
+
+            catch (Exception ex)
+            {
+                lblPass.Text = ex.Message;
+
+            }
         }
     }
 }
