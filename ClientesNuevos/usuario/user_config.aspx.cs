@@ -124,7 +124,7 @@ namespace ClientesNuevos.usuario
             message.Body = mb;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 1025); //Gmail smtp    
+            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 465); //Gmail smtp    
             System.Net.NetworkCredential basicCredential1 = new
             System.Net.NetworkCredential("postmaster@hungaros.com", "Corre0.Factura5!");
             client.EnableSsl = true;

@@ -206,8 +206,16 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col d-flex justify-content-end">
-                        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
-
+                        <asp:Panel ID="pEdit" runat="server" Visible="false">
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                    <asp:LinkButton ID="btnAccept" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAccept_Click">palomita</asp:LinkButton>
+                                    <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancel_Click">tachita</asp:LinkButton>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success"  OnClick="btnAddCF_Click"/>
                         <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial">Registrar compañia</button>
                     </div>
                 </div>
@@ -283,7 +291,7 @@
 
                     -->
 
-
+                    <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
                 </div>
 
             </div>

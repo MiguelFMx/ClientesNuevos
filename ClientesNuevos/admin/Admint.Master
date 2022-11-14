@@ -92,7 +92,9 @@
                                         <li>
                                             <hr class="dropdown-divider" />
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <asp:HyperLink ID="hlConfig" CssClass="dropdown-item" runat="server" NavigateUrl="~/usuario/user_config.aspx">Configuracion</asp:HyperLink>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static ClientesNuevos.F14.wsBaseDatos;
 
 namespace ClientesNuevos.F14.Seccioness
 {    
@@ -125,8 +126,15 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
+            if(User.IsInRole("1")|| User.IsInRole("2"))
+            {
+                Response.Redirect("~/admin/index.aspx");
+            }
+            else
+            {
+                HttpContext.Current.Response.Redirect("~/usuario/user_index.aspx");
 
-            HttpContext.Current.Response.Redirect("../../usuario/user_index.aspx");
+            }
         }
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
@@ -195,6 +203,75 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnDel_Click(object sender, EventArgs e)
         {
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            string ID = gvComFil.Rows[rowIndex].Cells[0].Text;
+            string comp = gvComFil.Rows[rowIndex].Cells[1].Text;
+
+            string str = "";
+            str = clsHerramientaBD.ExecuteSql("DELETE FROM Table_CompaniaFilial WHERE ID='"+ID+ "' AND ID_compania='"+comp+"'");
+            if(str != "")
+            {
+                lblRes.Text = str;
+            }
+
+            ComFil_DataBind(comp);
+        }
+
+        protected void btnAddCF_Click(object sender, EventArgs e)
+        {
+            wsBaseDatos baseDatos = new wsBaseDatos();
+
+            if(User.IsInRole("1") || User.IsInRole("2"))
+            {
+                string IdComp = Request.QueryString["rfc"];
+                string Nombre = txtNombrComFilial.Text;
+                string NombreCom = txtNombrComFilial.Text;
+                string RFC = txtRfcComFilial.Text;
+                string Direccion = txtDirecFiscalComFilial.Text;
+                string Pais = ddPaisComFilial.SelectedItem.Value;
+                string Estado = ddEstadoComFilial.SelectedItem.Value;
+                string Ciudad = ddCiudadComFilial.SelectedItem.Value;
+                string CP = txtCPComFIlial.Text;
+                //Contacto
+                string NombreC = txtNombrContFilial.Text;
+                string PuestoC = txtPuestoContFilial.Text;
+                string CorreoC = txtCorreoContFilial.Text;
+                string TelC = txtTelContFilial.Text;
+                string Ext = txtExtContFilial.Text;
+                string CelC = txtCelContFilial.Text;
+
+                string str = baseDatos.insertar_CompaniaFilial(IdComp,Nombre,NombreCom,RFC,Direccion,Pais,Estado,Ciudad,CP,NombreC,PuestoC,CorreoC,TelC,Ext,CelC);
+
+                lblRes.Text = str;
+
+                Limpiar();
+                ComFil_DataBind(IdComp);
+            }
+            
+        }
+
+        private void Limpiar()
+        {
+            txtNombrComFilial.Text="";
+            txtNombrComFilial.Text="";
+            txtRfcComFilial.Text="";
+            txtDirecFiscalComFilial.Text="";
+            txtCPComFIlial.Text="";
+            //Contacto
+            txtNombrContFilial.Text="";
+            txtPuestoContFilial.Text="";
+            txtCorreoContFilial.Text="";
+            txtTelContFilial.Text="";
+            txtExtContFilial.Text="";
+            txtCelContFilial.Text="";
+        }
+
+        protected void btnAccept_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
 
         }
     }
