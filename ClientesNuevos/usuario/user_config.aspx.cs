@@ -120,9 +120,9 @@ namespace ClientesNuevos.usuario
             message.Body = mailbody;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 995); //Gmail smtp    
+            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 1025); //Gmail smtp    
             System.Net.NetworkCredential basicCredential1 = new
-            System.Net.NetworkCredential("postmaster@hungaros.com", "Mail.hungar05!");
+            System.Net.NetworkCredential("postmaster@hungaros.com", "Corre0.Factura5!");
             client.EnableSsl = true;
             client.UseDefaultCredentials = false;
             client.Credentials = basicCredential1;
@@ -136,6 +136,11 @@ namespace ClientesNuevos.usuario
                 lblPass.Text = ex.Message;
 
             }
+        }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+            EnviarCorreo("test");
         }
     }
 }

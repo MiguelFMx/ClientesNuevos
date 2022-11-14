@@ -8,6 +8,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using ClientesNuevos.App_Code;
 using ClientesNuevos.F14;
+using System.Web.WebSockets;
 
 namespace ClientesNuevos.F14
 {
@@ -179,10 +180,10 @@ namespace ClientesNuevos.F14
             {
                 da.Fill(dt);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+               string m = ex.Message;
+                Context.Response.Write(m);  
             }
             return dt;
         }
@@ -294,7 +295,7 @@ namespace ClientesNuevos.F14
         [WebMethod]
         public string GetID()
         {
-            DataTable dt = new DataTable();
+             DataTable dt = new DataTable();
             string id_com = "";
             if (HttpContext.Current.Request.Cookies.Get("id_comp").Value != "")
             {
@@ -333,7 +334,6 @@ namespace ClientesNuevos.F14
             public string Extension { get; set; }
             public string Celular { get; set; }
         }
-
 
         [WebMethod]
         public List<ComFil> Get_companiaFilial(string id_comp)

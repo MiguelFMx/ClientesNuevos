@@ -26,28 +26,47 @@ namespace ClientesNuevos.usuario
         {
             if (!IsPostBack)
             {
-                getCompania();
-                if (dt.Rows.Count > 0)
+                if(User.IsInRole("3") || User.IsInRole("4"))
                 {
-                    lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
-                    cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
-                    Response.Cookies.Add(cook);
-                    try
+                    //3=Cliente, 4=proveedor
+                    //
+                    getCompania();
+                    if(dt.Rows.Count > 0)
                     {
-                        Documentos();
-                        OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
-                        
-                    }
-                    catch (Exception ex)
-                    {
-                        lblError.Text = ex.Message;
-                    }
-                }
-                else
-                {
-                    Response.Redirect("../F20/CriteriosMinimos.aspx");
-                }
+                        try
+                        {
+                            //Creacion de cookie para poder onsultarlo; 
+                            cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
+                            Response.Cookies.Add(cook);
 
+                            //Muestro el nombre comercial de la compania
+                            lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
+
+                            //Oculto campos
+                            OcultarCampos(dt.Rows[0]["Tipo_persona"].ToString());
+
+                            //Cargo documentos.
+                            Documentos();
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            lblError.Text = "Ocurrio un error " + ex.Message;
+                        }
+
+
+                    }
+                    else
+                    {
+                        //Si el no se encontro registro es redireccionado para los cirterios minimos
+                        Response.Redirect("../F20/CriteriosMinimos.aspx");
+
+                    }
+                }else if(User.IsInRole("1") || User.IsInRole("2"))
+                {
+                    lblCompania.Text = "Modo admin";
+                }
             }
         }
 
@@ -84,7 +103,7 @@ namespace ClientesNuevos.usuario
             dt = new DataTable();
 
 
-            string id_user = Request.Cookies.Get("id").Value;
+            string id_user = GetID();
             dt = wsBaseDatos.getCompania(id_user);
 
 
@@ -984,5 +1003,19 @@ namespace ClientesNuevos.usuario
         {
             Response.Write("No hace anda ");
         }
+
+
+        protected string GetID()
+        {
+            FormsIdentity ident = User.Identity as FormsIdentity;
+            FormsAuthenticationTicket authTicket = ident.Ticket;
+
+            string userInfo = authTicket.UserData;
+            string[] info = userInfo.Split(';');
+            string id = info[1];
+
+            return id;
+        }
+
     }
 }

@@ -54,6 +54,7 @@
                             <asp:Button runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" ID="CancelPushButton" CssClass="btn btn-secondary btn-sm" OnClick="CancelPushButton_Click" ></asp:Button>
 
                         </div>
+                        <asp:Button ID="btnTest" OnClick="btnTest_Click" runat="server" Text="Button" />
 
                     </ChangePasswordTemplate>
 
@@ -67,6 +68,7 @@
 
                 </asp:ChangePassword>
                 <asp:Label ID="lblPass" runat="server" Text=""></asp:Label>
+
             </div>
         </div>
     </div>

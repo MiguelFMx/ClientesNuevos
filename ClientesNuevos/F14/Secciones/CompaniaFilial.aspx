@@ -79,6 +79,8 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-sm">
+                            <asp:HiddenField ID="hfID" runat="server" />
+
                             <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
                             <!--<input type="text" name="name" value="" id="txtNombreCompaniaFilial" class="form-control " />-->
                             <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
@@ -203,8 +205,9 @@
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-10"></div>
-                    <div class="col">
+                    <div class="col d-flex justify-content-end">
+                        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+
                         <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial">Registrar compañia</button>
                     </div>
                 </div>
@@ -215,6 +218,39 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <div class="table-responsive">
+                        <asp:GridView ID="gvComFil" runat="server" AutoGenerateColumns="false" AllowPaging="true" CssClass="table table-hover"
+                            HeaderStyle-CssClass="cabezal" EmptyDataText="No data" ShowHeaderWhenEmpty="True">
+                            <Columns>
+                                <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"></asp:BoundField>
+                                <asp:BoundField DataField="ID_compania" HeaderText="ID_compania">
+                                    <HeaderStyle  CssClass="hiddencol"/>
+                                    <ItemStyle CssClass="hiddencol" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
+                                <asp:BoundField DataField="Nombre_comercial" HeaderText="Nombre comercial"></asp:BoundField>
+                                <asp:BoundField DataField="RFC" HeaderText="RFC"></asp:BoundField>
+                                <asp:BoundField DataField="Direccion" HeaderText="Direccion"></asp:BoundField>
+                                <asp:BoundField DataField="Pais" HeaderText="Pais"></asp:BoundField>
+                                <asp:BoundField DataField="Estado" HeaderText="Estado"></asp:BoundField>
+                                <asp:BoundField DataField="Ciudad" HeaderText="Ciudad"></asp:BoundField>
+                                <asp:BoundField DataField="CP" HeaderText="CP"></asp:BoundField>
+                                <asp:BoundField DataField="Nombre_contacto" HeaderText="Contacto"></asp:BoundField>
+                                <asp:BoundField DataField="Puesto_contacto" HeaderText="Puesto"></asp:BoundField>
+                                <asp:BoundField DataField="Correo" HeaderText="Correo"></asp:BoundField>
+                                <asp:BoundField DataField="Telefono" HeaderText="Telefono"></asp:BoundField>
+                                <asp:BoundField DataField="Extension" HeaderText="Extension"></asp:BoundField>
+                                <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
+                                <asp:TemplateField HeaderText="Acciones">
+                                    <ItemTemplate>
+                                       <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click"><i class="bi bi-trash-fill"></i></asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+
+                        </asp:GridView>
+                    </div>
+                    <!--
                     <div class="table-responsive">
                         <table class="table table-hover" id="tComFil">
 
@@ -244,6 +280,10 @@
 
                         </table>
                     </div>
+
+                    -->
+
+
                 </div>
 
             </div>
@@ -286,7 +326,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            llenarTabla();
+            //llenarTabla();
             /* fillComboPais($('#cbPaisComFilial'));*/
 
 

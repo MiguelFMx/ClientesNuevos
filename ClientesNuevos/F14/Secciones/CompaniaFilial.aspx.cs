@@ -1,7 +1,9 @@
 ﻿using Antlr.Runtime;
 using ClientesNuevos.admin;
+using ClientesNuevos.App_Code;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,30 +19,52 @@ namespace ClientesNuevos.F14.Seccioness
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack){
+                //LLenar combos
                 ddCiudadComFilial.Items.Add(new ListItem("...", "0", true));
                 ddEstadoComFilial.Items.Add(new ListItem("...", "0", true));
 
                 LlenarPaisCB(ddPaisComFilial);
 
 
+                //ComFil_DataBind("BNM840515VB1");
+
                 if (User.IsInRole("1") || User.IsInRole("2"))
                 {
                     pUsrControl.Visible = false;
                     pAdminControl.Visible = true;
+                    btnAdminSave.Visible = false;   
+
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
                         btnAdminNext.Text = "Skip";
-                        btnAdminSave.Text = "Registrar";
                     }
+                    else if(Request.QueryString["rfc"] != null)
+                    {
+                        ComFil_DataBind(Request.QueryString["rfc"]);
+                        CambiarLinks();
+                        btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
+                    }
+                }
+                else if (User.IsInRole("3")) //cliente
+                {
+                    //Obtenemos datos
+                    if(Request.Cookies.Get("id_comp") != null)
+                    {                       
+                        ComFil_DataBind(Request.Cookies.Get("id_comp").Value);
+                    }
+                }
+                else if (User.IsInRole("4")) //proveedor
+                {
+                    Response.Redirect("~/f14/InformacionCadenaSuministro.aspx");
                 }
             }
         }
         private void CambiarLinks()
         {
-            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?admin=si&id=" + Request.QueryString["id"];
-            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?admin=si&id=" + Request.QueryString["id"];
-            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id=" + Request.QueryString["id"];
-            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?admin=si&id=" + Request.QueryString["id"];
+            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"];
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"];
+            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
+            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"];
         }
 
         protected void LlenarPaisCB(DropDownList dropDown)
@@ -131,7 +155,47 @@ namespace ClientesNuevos.F14.Seccioness
             if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
             {
                 Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?accion=" + Request.QueryString["accion"] + "&rfc=" + Request.QueryString["rfc"]);
+            }else if(Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"]);
             }
+        }
+
+        protected void ComFil_DataBind(string id_comp)
+        {
+            string strSql = "exec select_ComFilial @id_compania= '" + id_comp + "'";
+            DataTable dt = clsHerramientaBD.Existe(strSql);
+
+            gvComFil.DataSource = dt;
+            gvComFil.DataBind();
+        }
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+            hfID.Value = gvComFil.Rows[rowIndex].Cells[0].Text;
+            string comp = gvComFil.Rows[rowIndex].Cells[1].Text;
+            txtNombreCompaniaFilial.Text = gvComFil.Rows[rowIndex].Cells[2].Text;
+            txtNombrComFilial.Text = gvComFil.Rows[rowIndex].Cells[3].Text;
+            txtRfcComFilial.Text = gvComFil.Rows[rowIndex].Cells[4].Text;
+            txtDirecFiscalComFilial.Text = gvComFil.Rows[rowIndex].Cells[5].Text;
+            txtCPComFIlial.Text = gvComFil.Rows[rowIndex].Cells[9].Text;
+            txtNombrContFilial.Text = gvComFil.Rows[rowIndex].Cells[10].Text;
+            txtPuestoContFilial.Text = gvComFil.Rows[rowIndex].Cells[11].Text;
+            txtCorreoContFilial.Text = gvComFil.Rows[rowIndex].Cells[12].Text;
+            txtTelContFilial.Text = gvComFil.Rows[rowIndex].Cells[13].Text;
+            txtCelContFilial.Text= gvComFil.Rows[rowIndex].Cells[15].Text;
+
+            if(gvComFil.Rows[rowIndex].Cells[14].Text != "&nbsp;")
+            {
+                txtExtContFilial.Text = gvComFil.Rows[rowIndex].Cells[14].Text;
+
+            }
+        }
+
+        protected void btnDel_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+
         }
     }
 }

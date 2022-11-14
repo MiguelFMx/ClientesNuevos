@@ -29,16 +29,57 @@ namespace ClientesNuevos.F14.Seccioness
             if (!IsPostBack){
                 LlenarEstado(ddEstadoAA, 142);
                 LlenarEstado(ddEstadoAAm, 231);
+
                 //Roles de admin y usuario
                 if (User.IsInRole("1")|| User.IsInRole("2"))
                 {
                     pUser.Visible = false;
                     pAdmin.Visible = true;
+
+                    //Nuevo registro
                     if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
-                    {
+                    {        
                         btnAdminNext.Text = "Skip";
                         btnAdminSave.Text = "Registrar";
                     }
+                    else if(Request.QueryString["rfc"] != null)
+                    {
+                        //Si solo esta el rfc, significa que es consulta.
+                        btnAdminNext.Text = "siguiente";
+                        btnAdminSave.Text = "Actualizar";
+
+                        //Get RFC
+                        string id_C = Request.QueryString["rfc"].ToString();
+                        llenarCampos(id_C);
+
+                        CambiarLinks();
+
+                    }
+                }
+                // Solo el cliente tiene acceso
+                else if (User.IsInRole("3"))
+                {
+                    try
+                    {
+                        id = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
+                        if (id.Rows.Count > 0)
+                        {
+                            id_comp = id.Rows[0]["ID_compania"].ToString();
+
+                            llenarCampos(id_comp);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        lblResultado.Text = "Error: " + ex.Message;
+                    }
+
+                }
+                else if (User.IsInRole("4"))
+                {
+                    Response.Redirect("~/f14/InformacionCadenaSuministro.aspx");
                 } 
                 /* 
                 if (Request.QueryString["res"] != null)
@@ -51,77 +92,62 @@ namespace ClientesNuevos.F14.Seccioness
 
                
 
-                id = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
-                if (id.Rows.Count > 0)
-                {
-                    id_comp = id.Rows[0]["ID_compania"].ToString();
-
-                    dtAAM = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_comp + "' AND tipo = 'AAMX'");
-                    dtAAU = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_comp + "' AND tipo = 'AAUSA'");
-                }
                 
-
-                if (dtAAM.Rows.Count > 0)
-                {
-                    try
-                    {
-                        LlenarCamposAAM(dtAAM);
-                        // Obtiene los datos de contacto Mexicano
-                        dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_comp + "' AND tipo ='AAMX'");
-                        llenarContactoAAM(dtContactoAAM);
-
-                        //obtener los datos de contacto usa
-                        dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_comp + "' AND tipo ='AAUSA'");
-                        llenarContactoAA(dtContactoAAU);
-
-                        LlenarCamposAA(dtAAU);
-                    }
-                    catch (Exception er)
-                    {
-
-                        lblResultado.Text = er.Message;
-                    }
-                }
-
-                if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
-                {
-                    string id_C = Request.QueryString["id"].ToString(); 
-                    dtAAM = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_C + "' AND tipo = 'AAMX'");
-                    dtAAU = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + id_C + "' AND tipo = 'AAUSA'");
-                    if (dtAAM.Rows.Count > 0)
-                    {
-                        try
-                        {
-                            LlenarCamposAAM(dtAAM);
-                            // Obtiene los datos de contacto Mexicano
-                            dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_C + "' AND tipo ='AAMX'");
-                            llenarContactoAAM(dtContactoAAM);
-
-                            //obtener los datos de contacto usa
-                            dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id_C + "' AND tipo ='AAUSA'");
-                            llenarContactoAA(dtContactoAAU);
-
-                            LlenarCamposAA(dtAAU);
-                        }
-                        catch (Exception er)
-                        {
-
-                            lblResultado.Text = er.Message;
-                        }
-                    }
-                    CambiarLinks();
-                }
+                
 
                 */
             }
         }
 
+        private void llenarCampos(string IDCompania)
+        {
+            dtAAM = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + IDCompania + "' AND tipo = 'AAMX'");
+            dtAAU = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + IDCompania + "' AND tipo = 'AAUSA'");
+
+            if (dtAAM.Rows.Count > 0)
+            {
+                try
+                {
+                    LlenarCamposAAM(dtAAM);
+                    // Obtiene los datos de contacto Mexicano
+                    dtContactoAAM = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + IDCompania + "' AND tipo ='AAMX'");
+                    llenarContactoAAM(dtContactoAAM);
+                }
+                catch (Exception er)
+                {
+
+                    lblResultado.Text = er.Message;
+                }
+            }
+            else
+            {
+                lblResultado.Text = "No hay datos para el agente aduanal mexicano";
+
+            }
+            //================================Agente aduanal americano
+            if (dtAAU.Rows.Count > 0)
+            {
+                //obtener los datos de contacto usa
+                LlenarCamposAA(dtAAU);
+                dtContactoAAU = wsBaseDatos.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + IDCompania + "' AND tipo ='AAUSA'");
+                llenarContactoAA(dtContactoAAU);
+            }
+            else
+            {
+                lblResultado.Text += " No hay datos para el agente aduanal americano";
+
+            }
+
+
+        }
+
+
         private void CambiarLinks()
         {
-            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?admin=si&id=" + Request.QueryString["id"];
-            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?admin=si&id=" + Request.QueryString["id"];
-            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id=" + Request.QueryString["id"];
-            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?admin=si&id=" + Request.QueryString["id"];
+            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"];
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"];
+            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
+            step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"];
         }
 
         private void LlenarCamposAA(DataTable dtAAU)
@@ -450,7 +476,14 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
+            else if (Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"]);
+            }
         }
 
         protected void btnAdminH_Click(object sender, EventArgs e)
@@ -460,13 +493,16 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdminSave_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
-            {
+            //Registros
                 Registrar_AgenteAduanal(Request.QueryString["rfc"]);
+            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
                 Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
             }
-
-
+            else if(Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"]);
+            }
         }
 
         protected void btnAdminNext_Click(object sender, EventArgs e)
@@ -475,6 +511,11 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
             }
+            else if (Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"]);
+            }
+
         }
     }
 }
