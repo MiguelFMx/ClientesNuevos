@@ -115,15 +115,19 @@ namespace ClientesNuevos.usuario
             string from = "postmaster@hungaros.com"; //From address    
             MailMessage message = new MailMessage(from, to);
 
-            string mailbody = "Su contraseña ha sido cambiada con existo, su nueva contreseña es: "+pass;
+           
+            string mb = "<div>Aviso de cambio de contraseña</div><br><br>" +
+                        "<div>Su contraseña ha sido actualizada <br><br> Su nueva contreseña es:" + pass+"</div>"+
+                        "<br><br><div>Este correo ha sido generado automaticamente</div>";
+
             message.Subject = "Cambio de contraseña";
-            message.Body = mailbody;
+            message.Body = mb;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 995); //Gmail smtp    
+            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 587); //Gmail smtp    
             System.Net.NetworkCredential basicCredential1 = new
             System.Net.NetworkCredential("postmaster@hungaros.com", "Mail.hungar05!");
-            client.EnableSsl = true;
+            client.EnableSsl = true;           
             client.UseDefaultCredentials = false;
             client.Credentials = basicCredential1;
             try

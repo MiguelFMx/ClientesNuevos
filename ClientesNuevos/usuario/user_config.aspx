@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <asp:Button runat="server" CommandName="ChangePassword" Text="Cambiar contrase&#241;a" ValidationGroup="CambiarPass" ID="ChangePasswordPushButton" CssClass="btn btn-primary btn-sm"></asp:Button>
-                            <asp:Button runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" ID="CancelPushButton" CssClass="btn btn-secondary btn-sm" OnClick="CancelPushButton_Click" ></asp:Button>
+                            <asp:Button runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" ID="CancelPushButton" CssClass="btn btn-secondary btn-sm" OnClick="CancelPushButton_Click"></asp:Button>
 
                         </div>
 
@@ -66,7 +66,7 @@
 
 
                 </asp:ChangePassword>
-                <asp:Label ID="lblPass" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblPass" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
     </div>
