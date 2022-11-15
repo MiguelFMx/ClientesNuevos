@@ -226,6 +226,7 @@
             <div class="col">
             </div>
             <div class="col" style="display: flex; justify-content: flex-end;">
+                <asp:Panel ID="pUser" runat="server">
                 <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
                 &nbsp;&nbsp;
                 <button type="button" class="btn btn-secondary" id="btnHome"
@@ -236,6 +237,26 @@
                 </button>
                 &nbsp;&nbsp;
                 <button id="btnContinuar" type="button" class="btn btn-success">Continuar <i class="bi bi-chevron-double-right"></i></button>
+             </asp:Panel>
+
+                <asp:Panel ID="pAdmin" runat="server" Visible="false">
+                <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+
+                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+
+                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Atras"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
+            </asp:Panel>
+            
             </div>
         </div>
 

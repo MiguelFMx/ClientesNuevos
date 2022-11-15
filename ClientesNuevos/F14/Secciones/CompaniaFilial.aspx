@@ -9,54 +9,54 @@
 
     <div class="container">
 
-         <div class="row">
-                <div id="wizard" class="form_wizard wizard_horizontal">
-                    <ul class="wizard_steps">
-                        <li>
-                            <asp:HyperLink ID="step1" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx" CssClass="done">
-                                <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step2" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
-                                <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step3" runat="server" NavigateUrl="#" CssClass="selected">
-                                <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
-                                <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
+        <div class="row">
+            <div id="wizard" class="form_wizard wizard_horizontal">
+                <ul class="wizard_steps">
+                    <li>
+                        <asp:HyperLink ID="step1" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx" CssClass="done">
+                            <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step2" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
+                            <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step3" runat="server" NavigateUrl="#" CssClass="selected">
+                            <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
+                            <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                                <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
-                                <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                                <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
-                            </asp:HyperLink>
-                        </li>
-                    </ul>
-                </div>
-
+                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
+                            <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                        </asp:HyperLink>
+                    </li>
+                </ul>
             </div>
+
+        </div>
 
         <br />
         <div class="card border-primary">
@@ -84,12 +84,16 @@
                             <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
                             <!--<input type="text" name="name" value="" id="txtNombreCompaniaFilial" class="form-control " />-->
                             <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombreCompaniaFilial"></asp:RequiredFieldValidator>
+
                             <span id="NombreCompaniaFilial" style="color: red;"></span>
                         </div>
                         <div class="col-sm">
                             <label for="txtNombrComFilial" class="form-label">Nombre comercial:</label>
                             <%--<input type="text" name="name" value="" id="txtNombrComFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtNombrComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrComFilial"></asp:RequiredFieldValidator>
+
                             <span id="NombrComFilial" style="color: red;"></span>
 
                         </div>
@@ -99,6 +103,8 @@
                             <label for="txtDirecFiscalComFilial" class="form-label">Dirección fiscal:</label>
                             <%--<input type="text" name="name" value="" id="txtDirecFiscalComFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtDirecFiscalComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtDirecFiscalComFilial"></asp:RequiredFieldValidator>
+
                             <span id="DirecFiscalComFilial" style="color: red;"></span>
 
                         </div>
@@ -108,6 +114,8 @@
                             <label for="txtRfcComFilial" class="form-label">RFC:</label>
                             <%--<input type="text" name="name" value="" id="txtRfcComFilial" class="form-control " />--%>
                             <asp:TextBox ID="txtRfcComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtRfcComFilial"></asp:RequiredFieldValidator>
+
                             <span id="RfcComFilial" style="color: red;"></span>
 
                         </div>
@@ -140,6 +148,8 @@
                             <label for="txtCPComFIlial" class="form-label">CP:</label>
                             <%--<input type="text" name="name" value="" id="txtCPComFIlial" class="form-control" />--%>
                             <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCPComFIlial"></asp:RequiredFieldValidator>
+
                             <span id="CPComFIlial" style="color: red;"></span>
 
                         </div>
@@ -150,7 +160,14 @@
             <div class="card-header cabezal">
                 <div class="row">
                     <div class="col">
-                        <h5>Contacto</h5>
+                        <h5>Contacto
+                        <span style="font-size: 15px;">
+                            <i class="bi bi-question-circle"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Datos del contacto principal de la compañia filial."></i>
+                        </span>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -161,6 +178,7 @@
                             <label for="txtNombrContFilial" class="form-label">Nombre:</label>
                             <%--<input type="text" name="name" value="" id="txtNombrContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtNombrContFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="validador1" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrContFilial"></asp:RequiredFieldValidator>
                             <span id="NombrContFilial" style="color: red;"></span>
 
                         </div>
@@ -169,6 +187,9 @@
                             <label for="txtPuestoContFilial" class="form-label">Puesto:</label>
                             <%--<input type="text" name="name" value="" id="txtPuestoContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtPuestoContFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtPuestoContFilial"></asp:RequiredFieldValidator>
+
                             <span id="PuestoContFilial" style="color: red;"></span>
 
                         </div>
@@ -176,6 +197,8 @@
                             <label for="txtCorreoContFilial" class="form-label">Correo:</label>
                             <%--<input type="email" name="name" value="" id="txtCorreoContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtCorreoContFilial" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCorreoContFilial"></asp:RequiredFieldValidator>
+
                             <span id="CorreoContFilial" style="color: red;"></span>
 
                         </div>
@@ -185,6 +208,8 @@
                             <label for="txtTelContFilial" class="form-label">Telefono:</label>
                             <%--<input type="tel" name="name" value="" id="txtTelContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtTelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtTelContFilial"></asp:RequiredFieldValidator>
+
                             <span id="TelContFilial" style="color: red;"></span>
 
                         </div>
@@ -197,26 +222,33 @@
                             <label for="txtCelContFilial" class="form-label">Celular:</label>
                             <%--<input type="tel" name="name" value="" id="txtCelContFilial" class="form-control" />--%>
                             <asp:TextBox ID="txtCelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCelContFilial"></asp:RequiredFieldValidator>
+
                             <span id="CelContFilial" style="color: red;"></span>
 
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="card-footer">
                 <div class="row">
+                    <div class="col">
+                        <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
+
+                    </div>
                     <div class="col d-flex justify-content-end">
                         <asp:Panel ID="pEdit" runat="server" Visible="false">
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                    <asp:LinkButton ID="btnAccept" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAccept_Click">palomita</asp:LinkButton>
-                                    <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancel_Click">tachita</asp:LinkButton>
+                                    <asp:Label ID="Label1" runat="server" Text="Actualizar registro:"></asp:Label>
+                                    <asp:LinkButton ID="btnAccept" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAccept_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancel_Click"><i class="bi bi-x-lg"></i></asp:LinkButton>
                                 </div>
                             </div>
                         </asp:Panel>
-                        <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success"  OnClick="btnAddCF_Click"/>
-                        <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial">Registrar compañia</button>
+                        <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success" OnClick="btnAddCF_Click" />
+                        <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial" hidden>Registrar compañia</button>
                     </div>
                 </div>
             </div>
@@ -232,7 +264,7 @@
                             <Columns>
                                 <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"></asp:BoundField>
                                 <asp:BoundField DataField="ID_compania" HeaderText="ID_compania">
-                                    <HeaderStyle  CssClass="hiddencol"/>
+                                    <HeaderStyle CssClass="hiddencol" />
                                     <ItemStyle CssClass="hiddencol" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
@@ -251,7 +283,7 @@
                                 <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
                                 <asp:TemplateField HeaderText="Acciones">
                                     <ItemTemplate>
-                                       <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click"><i class="bi bi-trash-fill"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click"><i class="bi bi-trash-fill"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -291,7 +323,6 @@
 
                     -->
 
-                    <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
                 </div>
 
             </div>
@@ -311,21 +342,22 @@
                 </asp:Panel>
 
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
-                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
+                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary me-2" CausesValidation="False" OnClick="btnAdminBack_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+
+                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary me-2" OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>&nbsp;&nbsp;
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminH_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                    title="Salir" CausesValidation="False"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
                 <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Siguiente" CausesValidation="False"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>
                 </asp:Panel>
             </div>
         </div>
@@ -343,5 +375,8 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../JS/ComFilialJS.js"></script>
 </asp:Content>

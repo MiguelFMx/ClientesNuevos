@@ -58,50 +58,50 @@
 <body>
     <form runat="server">
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top header-inner-pages">
-        <div class="container d-flex align-items-center justify-content-between">
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-inner-pages">
+            <div class="container d-flex align-items-center justify-content-between">
 
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <asp:HyperLink ID="hlHome" runat="server" CssClass="logo" NavigateUrl="~/usuario/user_index.aspx">
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/template/assets/img/logo/Hungaros.png" AlternateText="Hungaro's" CssClass="img-fluid"/>
-            </asp:HyperLink>
-            <nav id="navbar" class="navbar">
-                <ul>
-                     <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
-                                        <asp:LoginName ID="LoginName2" runat="server" />
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="dropdown-item"  LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" ForeColor="Black" />
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider" />
-                                        </li>
-                                        <li>
-                            <asp:HyperLink ID="hlConfig" runat="server" CssClass="dropdown-item" NavigateUrl="~/usuario/user_config.aspx" ForeColor="Black"> Configuracion</asp:HyperLink>
-
-                                        </li>
-                                    </ul>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <asp:HyperLink ID="hlHome" runat="server" CssClass="logo" NavigateUrl="~/usuario/user_index.aspx">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/template/assets/img/logo/Hungaros.png" AlternateText="Hungaro's" CssClass="img-fluid" />
+                </asp:HyperLink>
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
+                                <asp:LoginName ID="LoginName2" runat="server" />
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="dropdown-item" LogoutPageUrl="~/login.aspx" LogoutAction="RedirectToLoginPage" ForeColor="Black" />
                                 </li>
-                    
-                    <li>
-                        <asp:HyperLink ID="hlHomeBar" runat="server" CssClass="nav-link scrollto" NavigateUrl="~/usuario/user_index.aspx">Home</asp:HyperLink>
-                       
-                    </li>
-                    <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar -->
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hlConfig" runat="server" CssClass="dropdown-item" NavigateUrl="~/usuario/user_config.aspx" ForeColor="Black">Configuracion</asp:HyperLink>
 
-        </div>
-    </header>
-    <!-- End Header -->
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <asp:HyperLink ID="hlHomeBar" runat="server" CssClass="nav-link scrollto" NavigateUrl="~/usuario/user_index.aspx">Home</asp:HyperLink>
+
+                        </li>
+                        <li><a class="nav-link scrollto" href="#">Contact</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+
+            </div>
+        </header>
+        <!-- End Header -->
 
         <asp:ScriptManager runat="server">
-            <Scripts>
+            <scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
@@ -117,7 +117,7 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
-            </Scripts>
+            </scripts>
 
         </asp:ScriptManager>
 
@@ -137,7 +137,7 @@
 
         <div class="container d-md-flex py-2">
 
-            <div class="me-md-auto text-center text-md-start" style="opacity:0.4;">
+            <div class="me-md-auto text-center text-md-start" style="opacity: 0.4;">
                 <div class="copyright">
                     &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
                 </div>

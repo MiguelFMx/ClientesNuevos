@@ -6,12 +6,14 @@ $(document).ready(function () {
     let radio = '';
 
     let urlParams = new URLSearchParams(window.location.search);
-    let acomp = urlParams.get('id');
+    let acomp = urlParams.get('rfc');
 
-    if (acomp == null) {
-        getEstatus();
-    } else {
+    if (acomp != null) {
         getEstatusAdmin(acomp);
+
+    } else {
+        getEstatus();
+
     }
 
 

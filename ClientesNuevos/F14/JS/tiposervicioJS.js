@@ -6,13 +6,14 @@ var count = 1;
 $(document).ready(function () {
 
     let urlParams = new URLSearchParams(window.location.search);
-    let acomp = urlParams.get('id');
+    let acomp = urlParams.get('rfc');
+    let accion = urlParams.get('accion');
 
     if (acomp == null) {
         ObtenerProducto();
         ObtenerServicio();
 
-    } else {
+    } else{
         ObtenerProductoAdmin();
         ObtenerServicioAdmin();
     }
@@ -485,7 +486,7 @@ function ObtenerProductoAdmin() {
     let aux;
 
     let urlParams = new URLSearchParams(window.location.search);
-    let compa = urlParams.get('id');
+    let compa = urlParams.get('rfc');
 
     GetAjax("../wsBaseDatos.asmx/Obtener_Productos", "'ID_compania':'" + compa + "'", false, function (producto) {
         if (producto.length > 0) {
@@ -520,7 +521,7 @@ function ObtenerServicioAdmin() {
     let grupo;
 
     let urlParams = new URLSearchParams(window.location.search);
-    let compa = urlParams.get('id');
+    let compa = urlParams.get('rfc');
    
 
     GetAjax("../wsBaseDatos.asmx/Obtener_Servicios", "'ID_compania':'" + compa + "'", false, function (servicio) {

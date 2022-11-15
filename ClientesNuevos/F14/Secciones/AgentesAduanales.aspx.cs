@@ -45,7 +45,7 @@ namespace ClientesNuevos.F14.Seccioness
                     else if(Request.QueryString["rfc"] != null)
                     {
                         //Si solo esta el rfc, significa que es consulta.
-                        btnAdminNext.Text = "siguiente";
+                        btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
                         btnAdminSave.Text = "Actualizar";
 
                         //Get RFC

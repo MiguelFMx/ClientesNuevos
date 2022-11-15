@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static ClientesNuevos.F14.wsBaseDatos;
+using static ClientesNuevos.F5.wsAutoevaluacion;
 
 namespace ClientesNuevos.F14.Seccioness
 {    
@@ -143,14 +144,18 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?accion="+ Request.QueryString["accion"] + "&rfc="+ Request.QueryString["rfc"]);
             }
+            else if (Request.QueryString["rfc"]!=null)
+            {
+                Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"]);
+
+            }
         }
 
         protected void btnAdminH_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
-            {
+            
                 Response.Redirect("~/admin/index.aspx");
-            }
+           
         }
 
         protected void btnAdminSave_Click(object sender, EventArgs e)
@@ -179,6 +184,10 @@ namespace ClientesNuevos.F14.Seccioness
         }
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+
+            btnAddCF.Visible = false;
+            pEdit.Visible = true;
+
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
             hfID.Value = gvComFil.Rows[rowIndex].Cells[0].Text;
             string comp = gvComFil.Rows[rowIndex].Cells[1].Text;
@@ -218,8 +227,6 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAddCF_Click(object sender, EventArgs e)
         {
-            wsBaseDatos baseDatos = new wsBaseDatos();
-
             if(User.IsInRole("1") || User.IsInRole("2"))
             {
                 string IdComp = Request.QueryString["rfc"];
@@ -239,7 +246,7 @@ namespace ClientesNuevos.F14.Seccioness
                 string Ext = txtExtContFilial.Text;
                 string CelC = txtCelContFilial.Text;
 
-                string str = baseDatos.insertar_CompaniaFilial(IdComp,Nombre,NombreCom,RFC,Direccion,Pais,Estado,Ciudad,CP,NombreC,PuestoC,CorreoC,TelC,Ext,CelC);
+                string str = clsF14.Insertar_CompaniaFilial(IdComp,Nombre,NombreCom,RFC,Direccion,Pais,Estado,Ciudad,CP,NombreC,PuestoC,CorreoC,TelC,Ext,CelC,"");
 
                 lblRes.Text = str;
 
@@ -267,12 +274,39 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
+            if (User.IsInRole("1") || User.IsInRole("2"))
+            {
+                string IdComp = Request.QueryString["rfc"];
+                string Nombre = txtNombrComFilial.Text;
+                string NombreCom = txtNombrComFilial.Text;
+                string RFC = txtRfcComFilial.Text;
+                string Direccion = txtDirecFiscalComFilial.Text;
+                string Pais = ddPaisComFilial.SelectedItem.Value;
+                string Estado = ddEstadoComFilial.SelectedItem.Value;
+                string Ciudad = ddCiudadComFilial.SelectedItem.Value;
+                string CP = txtCPComFIlial.Text;
+                //Contacto
+                string NombreC = txtNombrContFilial.Text;
+                string PuestoC = txtPuestoContFilial.Text;
+                string CorreoC = txtCorreoContFilial.Text;
+                string TelC = txtTelContFilial.Text;
+                string Ext = txtExtContFilial.Text;
+                string CelC = txtCelContFilial.Text;
+                string ID = hfID.Value;
 
+                string str = clsF14.Insertar_CompaniaFilial(IdComp, Nombre, NombreCom, RFC, Direccion, Pais, Estado, Ciudad, CP, NombreC, PuestoC, CorreoC, TelC, Ext, CelC, ID);
+
+                lblRes.Text = str;
+                pEdit.Visible = false;
+                Limpiar();
+                ComFil_DataBind(IdComp);
+            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
+            pEdit.Visible = false;
         }
     }
 }

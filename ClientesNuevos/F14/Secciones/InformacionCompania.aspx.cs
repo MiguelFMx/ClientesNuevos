@@ -85,27 +85,31 @@ namespace ClientesNuevos.F14.Seccioness
                         
                     }
                 }
-                else if(User.IsInRole("3")) //Rol=Cliente
+                else if(User.IsInRole("3") || User.IsInRole("4")) //Rol=Cliente
                 {
+                    if (User.IsInRole("4"))
+                    {
+                        step2.Visible = false;
+                        step3.Visible = false;
+                        step4.Visible = false;
+                        lblDesc5.Text = "Paso 2";
+                        lblstep5.Text = "2";
+                    }
 
-                }else if (User.IsInRole("4")) //Rol=Proveedor
-                {
+                    dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
+                    DataBind_Contactos();
 
+                    if (dt.Rows.Count > 0)
+                    {
+                        dtBanco = new DataTable();
+                        dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
+                        llenarCampos(dt, dtBanco);
+
+                    }
                 }
 
                 /*
-                //Quitar querystring, verificar que el rol sea 1 o 2; Dejar el id y cambiar : QueryString["id"]
-                if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
-                {
-                    if (Request.Cookies.Get("id_comp").Value != null)
-                    {
-                        dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
-                        DataBind_Contactos();
-
-                        CambiarLinks();
-                    }
-                   
-
+                
                     
                 }
                 //Agregar QueryString[Accion] = nuevo; ver
@@ -124,15 +128,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else
                 {
-                    dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
-                    DataBind_Contactos();
-
-                    if (dt.Rows.Count > 0)
-                    {
-                        dtBanco = new DataTable();
-                        dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
-                        llenarCampos(dt);
-                    }
+                    
 
                 }
 
@@ -162,71 +158,80 @@ namespace ClientesNuevos.F14.Seccioness
         {
 
             //======================================Informacion de compañia=================================================
-            txtRfc.Enabled = false;
-            txtRfc.Text = table.Rows[0]["ID_compania"].ToString();
-
-            txtNombreCompania.Text = table.Rows[0]["Nombre_comp"].ToString();
-
-            ddTipoDePersona.Items.FindByValue(table.Rows[0]["Tipo_persona"].ToString()).Selected = true;
-            LlenarCFDI(Convert.ToInt32(table.Rows[0]["Tipo_persona"]));
-
-            if (ddTipoDePersona.SelectedValue == "0")
+            if(table.Rows.Count > 0)
             {
-                txtCURP.Enabled = false;
+                txtRfc.Enabled = false;
+                txtRfc.Text = table.Rows[0]["ID_compania"].ToString();
+
+                txtNombreCompania.Text = table.Rows[0]["Nombre_comp"].ToString();
+
+                ddTipoDePersona.Items.FindByValue(table.Rows[0]["Tipo_persona"].ToString()).Selected = true;
+                LlenarCFDI(Convert.ToInt32(table.Rows[0]["Tipo_persona"]));
+
+                if (ddTipoDePersona.SelectedValue == "0")
+                {
+                    txtCURP.Enabled = false;
+                }
+
+                txtNombrCom.Text = table.Rows[0]["Nombre_comercial"].ToString();
+
+                txtCURP.Text = table.Rows[0]["CURP"].ToString();
+
+                txtAnosNegocio.Text = table.Rows[0]["tiempo_negocio"].ToString();
+
+                txtDirecFiscal.Text = table.Rows[0]["Direccion"].ToString();
+
+                txtCP.Text = table.Rows[0]["codigo_postal"].ToString();
+
+                ddPais.Items.FindByValue(table.Rows[0]["Pais"].ToString()).Selected = true;
+
+                LlenarEstado(ddEstado, Convert.ToInt32(table.Rows[0]["Pais"]));
+                ddEstado.Items.FindByValue(table.Rows[0]["Estado"].ToString()).Selected = true;
+
+                LlenarCiudad(ddCiudad, Convert.ToInt32(table.Rows[0]["Estado"]));
+                ddCiudad.Items.FindByValue(table.Rows[0]["Ciudad"].ToString()).Selected = true;
+
             }
 
-            txtNombrCom.Text = table.Rows[0]["Nombre_comercial"].ToString();
-
-            txtCURP.Text = table.Rows[0]["CURP"].ToString();
-
-            txtAnosNegocio.Text = table.Rows[0]["tiempo_negocio"].ToString();
-
-            txtDirecFiscal.Text = table.Rows[0]["Direccion"].ToString();
-
-            txtCP.Text = table.Rows[0]["codigo_postal"].ToString();
-
-            ddPais.Items.FindByValue(table.Rows[0]["Pais"].ToString()).Selected = true;
-
-            LlenarEstado(ddEstado, Convert.ToInt32(table.Rows[0]["Pais"]));
-            ddEstado.Items.FindByValue(table.Rows[0]["Estado"].ToString()).Selected = true;
-
-            LlenarCiudad(ddCiudad, Convert.ToInt32(table.Rows[0]["Estado"]));
-            ddCiudad.Items.FindByValue(table.Rows[0]["Ciudad"].ToString()).Selected = true;
-
             //========================================Campos de info_bancaria=================================================
-            ddUsoCFDI.Items.FindByValue(dtBanco.Rows[0]["Uso_CFDI"].ToString()).Selected = true;
+            if (dtBanco.Rows.Count > 0)
+            {
+                ddUsoCFDI.Items.FindByValue(dtBanco.Rows[0]["Uso_CFDI"].ToString()).Selected = true;
 
-            ddMoneda.Items.FindByValue(dtBanco.Rows[0]["Moneda"].ToString()).Selected = true;
+                ddMoneda.Items.FindByValue(dtBanco.Rows[0]["Moneda"].ToString()).Selected = true;
 
-            ddFormaPago.Items.FindByValue(dtBanco.Rows[0]["Forma_pago"].ToString()).Selected = true;
+                ddFormaPago.Items.FindByValue(dtBanco.Rows[0]["Forma_pago"].ToString()).Selected = true;
 
-            ddMetodoPago.Items.FindByValue(dtBanco.Rows[0]["Metodo_pago"].ToString()).Selected = true;
+                ddMetodoPago.Items.FindByValue(dtBanco.Rows[0]["Metodo_pago"].ToString()).Selected = true;
 
-            txtBanco.Text = dtBanco.Rows[0]["Nombre_banco"].ToString();
+                txtBanco.Text = dtBanco.Rows[0]["Nombre_banco"].ToString();
 
-            txtBancoRFC.Text = dtBanco.Rows[0]["rfc_banco"].ToString();
+                txtBancoRFC.Text = dtBanco.Rows[0]["rfc_banco"].ToString();
 
-            txtNoCuenta.Text = dtBanco.Rows[0]["no_cuenta"].ToString();
+                txtNoCuenta.Text = dtBanco.Rows[0]["no_cuenta"].ToString();
 
-            txtClaveBancaria.Text = dtBanco.Rows[0]["clabe_bancaria"].ToString();
+                txtClaveBancaria.Text = dtBanco.Rows[0]["clabe_bancaria"].ToString();
 
-            
+
+            }
+
         }
         protected void btnNext_Click(object sender, EventArgs e){
 
             string resultado = RegistrarInfo();           //lblresultado.Text = resultado;
-            
 
-            if (Request.Cookies.Get("ctipo").Value == "proveedor")
+            if (User.IsInRole("3"))
             {
-                Response.Redirect("InformacionCadenaSuministro.aspx?res=" + resultado);
+                Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?res=" + resultado);
 
             }
             else
             {
-                Response.Redirect("AgentesAduanales.aspx?res=" + resultado);
+                Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?res=" + resultado);
 
             }
+
+
         }
 
         protected void LlenarPaisCB(DropDownList dropDown){
@@ -675,7 +680,8 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                gvContactos.DataSource = null;  
+                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='0' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
             }
             gvContactos.DataBind();
         }
@@ -821,6 +827,14 @@ namespace ClientesNuevos.F14.Seccioness
 
             Panel_Contacto.Visible = false;
             btnRegistrarC.Visible = true;
+        }
+
+        protected void btnAdminNext_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"]);
+            }
         }
 
         protected void Traducir()

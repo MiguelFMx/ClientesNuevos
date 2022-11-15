@@ -897,7 +897,7 @@ namespace ClientesNuevos.admin.carpetilla
                 lblPrueba.Text = "Ver F5";
                 
 
-                Response.Redirect("../../F5/autoevaluacion/Resultados.aspx?id=" + id_comp+"&admin=si");
+                Response.Redirect("~/F5/autoevaluacion/Resultados.aspx?rfc=" + id_comp);
                 //Response.Cookies.Add(new HttpCookie("id_comp", id_comp));
             }
             else if (buttonId == "btnCheck_F5")
@@ -923,7 +923,7 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F14")
             {
                 lblPrueba.Text = "Ver F14";
-                Response.Redirect("../../F14/secciones/informacioncompania.aspx?id=" + id_comp+"&admin=si");
+                Response.Redirect("~/F14/secciones/informacioncompania.aspx?rfc=" + id_comp);
             }
             else if (buttonId == "btnCheck_F14")
             {
@@ -948,7 +948,7 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F12")
             {
                 lblPrueba.Text = "Ver F12";
-                Response.Redirect("../../F12/politicaseguridad?id=" + id_comp + "&admin=si");
+                Response.Redirect("../../F12/politicaseguridad?rfc=" + id_comp);
 
 
             }
@@ -976,7 +976,7 @@ namespace ClientesNuevos.admin.carpetilla
             if (buttonId == "btnVer_F43")
             {
                 lblPrueba.Text = "Ver F43";
-                Response.Redirect("../../F43/MapeoFlujo.aspx?id=" + id_comp + "&admin=si");
+                Response.Redirect("../../F43/MapeoFlujo.aspx?rfc=" + id_comp);
 
             }
             else if (buttonId == "btnCheck_F43")

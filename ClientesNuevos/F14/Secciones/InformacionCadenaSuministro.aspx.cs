@@ -11,6 +11,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Data;
 using System.Web.UI.HtmlControls;
+using Microsoft.Ajax.Utilities;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -20,22 +21,39 @@ namespace ClientesNuevos.F14.Seccioness
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            /*Quitar esta parte
-             if (Request.Cookies.Get("ctipo").Value == "proveedor")
-             {
-                 step2.Visible = false;
-                 step3.Visible = false;
-                 step4.Visible = false;
-                 lblDesc5.Text = "Paso 2";
-                 lblstep5.Text = "2";
-             }*/
-
             if (!IsPostBack)
             {
-                if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+                //Admin / user
+                if(User.IsInRole("1") || User.IsInRole("2"))
                 {
+                    pUser.Visible=false;
+                    pAdmin.Visible = true;
+                    if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+                    {
+                       
+                    }
+                    else if(Request.QueryString["rfc"] != null)
+                    {
+                        BindDataAdmin(Request.QueryString["rfc"]);
+                        CambiarLinks();
+                    }
+                }else if(User.IsInRole("3") || User.IsInRole("4"))
+                {
+                    pUser.Visible = true;
+                    pAdmin.Visible = false;
 
+                    if (User.IsInRole("4"))
+                    {
+                        //Proveedor, oculto pasos no necesarios
+                        step2.Visible = false;
+                        step3.Visible = false;
+                        step4.Visible = false;
+                        lblDesc5.Text = "Paso 2";
+                        lblstep5.Text = "2";
+
+                    }
                 }
+                
                 /*
                 if (Request.QueryString["res"] != null)
                 {
@@ -50,25 +68,17 @@ namespace ClientesNuevos.F14.Seccioness
                     pAlert.Visible = false;
                 }
 
-                if (Request.QueryString["id"] != null && Request.QueryString["admin"] != null)
-                {
-                    BindDataAdmin(Request.QueryString["id"]);
-                    CambiarLinks();
-                }
-                else
-                {
-                    BindData();
-                }
+                
 
                 */
             }
         }
         private void CambiarLinks()
         {
-            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?admin=si&id=" + Request.QueryString["id"];
-            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?admin=si&id=" + Request.QueryString["id"];
-            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?admin=si&id=" + Request.QueryString["id"];
-            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?admin=si&id=" + Request.QueryString["id"];
+            step1.NavigateUrl = "~/F14/Secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"];
+            step2.NavigateUrl = "~/F14/Secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"];
+            step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"];
+            step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
         }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
@@ -117,11 +127,19 @@ namespace ClientesNuevos.F14.Seccioness
         private void BindData()
         {
             DataTable dt = new DataTable();
-            dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
-            gvProgramas.DataSource = dt;
-            gvProgramas.DataBind();
-            ViewState["dirState"] = dt;
-            ViewState["sortdr"] = "Asc";
+            if (User.IsInRole("1") || User.IsInRole("2"))
+            {
+                BindDataAdmin(Request.QueryString["rfc"]);
+
+            }
+            else
+            {
+                dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+                gvProgramas.DataSource = dt;
+                gvProgramas.DataBind();
+                ViewState["dirState"] = dt;
+                ViewState["sortdr"] = "Asc";
+            }
         }
 
         private void BindDataAdmin(string id)
@@ -320,6 +338,34 @@ namespace ClientesNuevos.F14.Seccioness
                 gvProgramas.DataBind();
             }
             
+        }
+
+        protected void btnAdminBack_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"]);
+            }
+            else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+
+            }
+        }
+
+        protected void btnAdminH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdminNext_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdminSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 } 

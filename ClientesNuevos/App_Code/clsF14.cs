@@ -486,15 +486,21 @@ namespace ClientesNuevos.App_Code
         }
 
         public static string Insertar_CompaniaFilial(string ID_compania, string Nombre, string Nombre_comercial, string RFC, string Direccion, string Pais, string Estado,
-                string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular)
+                string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular, string id)
         {
             string resultado = "";
 
             SqlConnection con = new SqlConnection(strConnction);
-            con.Open();
+            DataTable dt = new DataTable();
 
+            if (id != "")
+            {
+                dt = clsHerramientaBD.Existe("SELECT * FROM Table_CompaniaFilial WHERE ID = '"+id+"'");
+            }
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand("Mastar_ComFilial", con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -514,7 +520,16 @@ namespace ClientesNuevos.App_Code
                 cmd.Parameters.AddWithValue("@Telefono", Telefono);
                 cmd.Parameters.AddWithValue("@Extension", Extension);
                 cmd.Parameters.AddWithValue("@Celular", Celular);
-                cmd.Parameters.AddWithValue("@accion", "insert");
+                if (dt.Rows.Count > 0)
+                {
+                    cmd.Parameters.AddWithValue("@accion", "update");
+                    cmd.Parameters.AddWithValue("@ID", id);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@accion", "insert");
+
+                }
 
                 cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
 

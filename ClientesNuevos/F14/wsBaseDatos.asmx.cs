@@ -282,11 +282,11 @@ namespace ClientesNuevos.F14
         //=====================================================Compañia filial ============================================================
         [WebMethod]
         public string insertar_CompaniaFilial(string ID_compania, string Nombre, string Nombre_comercial, string RFC, string Direccion, string Pais, string Estado,
-            string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular)
+            string Ciudad, string CP, string Nombre_contacto, string Puesto_contacto, string correo, string Telefono, string Extension, string Celular, string id)
         {
             string resultado = "";
 
-           resultado = clsF14.Insertar_CompaniaFilial(ID_compania, Nombre, Nombre_comercial, RFC, Direccion, Pais, Estado, Ciudad, CP, Nombre_contacto, Puesto_contacto, correo, Telefono, Extension, Celular);
+           resultado = clsF14.Insertar_CompaniaFilial(ID_compania, Nombre, Nombre_comercial, RFC, Direccion, Pais, Estado, Ciudad, CP, Nombre_contacto, Puesto_contacto, correo, Telefono, Extension, Celular, id);
 
             return resultado;
         }
@@ -304,7 +304,6 @@ namespace ClientesNuevos.F14
             else
             {
              dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
-
             }
 
             if (dt.Rows.Count > 0)
