@@ -26,6 +26,7 @@ namespace ClientesNuevos.F12
                 {
                     data = Obtener_informacion();
                 }
+
                 if (data.Rows.Count != 0)
                 {
                     respuestas = Respuestas(Request.Cookies.Get("id_comp").Value);
@@ -35,9 +36,9 @@ namespace ClientesNuevos.F12
 
 
                     lblNombre.Text = data.Rows[0]["Nombre_comp"].ToString();
-                lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
-                lblEmpresa1.Text = data.Rows[0]["Nombre_comp"].ToString();
-                lblFecha.Text = DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy");
+                    lblDireccion.Text = data.Rows[0]["Direccion"].ToString();
+                    lblEmpresa1.Text = data.Rows[0]["Nombre_comp"].ToString();
+                    lblFecha.Text = DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy");
 
                 //Es miembro o esta en proceso de ser miembro de CTPAT
                 if (respuestas.Rows[0]["p130"].ToString() == "SI")
@@ -96,32 +97,36 @@ namespace ClientesNuevos.F12
                 
                     string fecha = "", newFormat="";
                     //Obtengo fecha, y selecciono solo la fecha ya que viene con tiempo
-                    fecha = politica.Rows[0]["Fecha"].ToString().Substring(0, 10);
+                    if (politica.Rows.Count > 0)
+                    {
+                        fecha = politica.Rows[0]["Fecha"].ToString().Substring(0, 10);
 
-                    //Nuevo formaate de fecha pasa de 21/10/2022 a '21 de octubre de 2022'
-                    newFormat = DateTime.ParseExact(fecha, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture).ToString("dd 'de' MMMM 'de' yyyy");
+                        //Nuevo formaate de fecha pasa de 21/10/2022 a '21 de octubre de 2022'
+                        newFormat = DateTime.ParseExact(fecha, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture).ToString("dd 'de' MMMM 'de' yyyy");
+
+                        lblFecha.Text = newFormat;
+                        txtNombre.Text = politica.Rows[0]["Representante"].ToString();
+                        if (politica.Rows[0]["Firma"].ToString() == "si")
+                        {
+                            chFirma.Checked = true;
+                        }
+
+                        if (politica.Rows[0]["OEA"].ToString() != "")
+                        {
+                            si5.Checked = true;
+                            lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA. Con Número:";
+                            txtPregunta5.Visible = true;
+                            txtPregunta5.Text = politica.Rows[0]["OEA"].ToString();
+
+                        }
+                        else
+                        {
+                            no5.Checked = true;
+                            lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA.";
+                            txtPregunta5.Visible = false;
+                        }
+                    }
                     
-                    lblFecha.Text = newFormat;
-                    txtNombre.Text = politica.Rows[0]["Representante"].ToString();
-                    if (politica.Rows[0]["Firma"].ToString() == "si")
-                    {
-                        chFirma.Checked = true;
-                    }
-
-                    if (politica.Rows[0]["OEA"].ToString() != "")
-                    {
-                        si5.Checked = true;
-                        lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA. Con Número:";
-                        txtPregunta5.Visible = true;
-                        txtPregunta5.Text = politica.Rows[0]["OEA"].ToString();
-                      
-                    }
-                    else
-                    {
-                        no5.Checked = true;
-                        lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA.";
-                        txtPregunta5.Visible = false;
-                    }
 
                 }
                                

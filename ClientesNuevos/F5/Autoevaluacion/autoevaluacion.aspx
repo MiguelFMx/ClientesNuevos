@@ -32,7 +32,7 @@
         <div class="row" >
             <span class="text-secondary">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
             <div class="col">
-                <div class="card" style="width:100%;">
+                <div class="card mb-3" style="width:100%;">
                     <div class="table-responsive">
                         <table class="table table-hover" id="tPreguntas">
                             <caption>1 de 8</caption>

@@ -355,7 +355,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdminH_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/admin/index.aspx");
         }
 
         protected void btnAdminNext_Click(object sender, EventArgs e)

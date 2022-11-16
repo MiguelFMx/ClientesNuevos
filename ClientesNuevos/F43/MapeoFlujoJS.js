@@ -11,7 +11,7 @@ $(document).ready(function () {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     //Tabla de informacion 
     ObtenerMapeoInfo();
-    //dynamic_field(count);
+    
 
     $('#btnContinuar').click(function () {
         var id;
@@ -33,6 +33,7 @@ $(document).ready(function () {
                 } else {
                     window.location.href = '../usuario/user_index.aspx';
                 }
+                console.log(res);
             });
         }
     });
@@ -205,6 +206,7 @@ function Insertar_Registros() {
         Mapeo = id + '_F43'
         GetAjax("MapeoBD.asmx/Registrar_Mapeo", "'ID_compania':'" + id + "','ID_mapeo':'" + Mapeo + "','auditor':'" + auditor.val() + "'", false, function (mapeo) {
             resultado += mapeo;
+            console.log(resultado)
         });
         GetAjax("MapeoBD.asmx/BuscaryBorrar_Mapeo","'ID_Mapeo':'"+ Mapeo +"'", false, function (res) {
             console.log(res);
@@ -224,6 +226,7 @@ function Insertar_Registros() {
                 false,
                 function (res) {
                     result = res;
+                    console.log(result);
                 });
         }
         //if (result != '') {
@@ -261,6 +264,8 @@ function ObtenerMapeoInfo() {
             $('#txtAuditor').val(infoMapeo[0].Auditor);
 
             MostrarMapeo(infoMapeo[0].ID_Mapeo);
+        } else {
+            dynamic_field(count);
         }
     });
 }

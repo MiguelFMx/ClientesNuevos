@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Configuration;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Text;
 using System.Web;
 using System.Web.Security;
@@ -112,7 +115,7 @@ namespace ClientesNuevos.usuario
         protected void EnviarCorreo(string pass)
         {
             string to = "freyde.miguel@gmail.com"; //To address    
-            string from = "postmaster@hungaros.com"; //From address    
+            string from = "migue9835@hotmail.com"; //From address    
             MailMessage message = new MailMessage(from, to);
 
            
@@ -124,10 +127,11 @@ namespace ClientesNuevos.usuario
             message.Body = mb;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("mailc76.carrierzone.com", 465); //Gmail smtp    
+            SmtpClient client = new SmtpClient("smtp.office365.com", 587); //Gmail smtp    
             System.Net.NetworkCredential basicCredential1 = new
-            System.Net.NetworkCredential("postmaster@hungaros.com", "Corre0.Factura5!");
+            System.Net.NetworkCredential("migue9835@hotmail.com", "xAngelito98x");
             client.EnableSsl = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
             client.UseDefaultCredentials = false;
             client.Credentials = basicCredential1;
             try

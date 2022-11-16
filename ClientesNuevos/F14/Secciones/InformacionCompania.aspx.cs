@@ -61,6 +61,10 @@ namespace ClientesNuevos.F14.Seccioness
                         //Si hay informacion obtengo el ID de la compañia para hacer la consulta en la tabla de banco
                         if (dt.Rows.Count > 0)
                         {
+                            string tipo = dt.Rows[0]["ID_user"].ToString();
+
+
+
                             dtBanco = new DataTable();
                             dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
                             llenarCampos(dt,dtBanco);
@@ -669,9 +673,10 @@ namespace ClientesNuevos.F14.Seccioness
         protected void DataBind_Contactos()
         {
             if( Request.Cookies.Get("id_comp") != null) { 
-            string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+            
+                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
 
-            gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
             }
             else if (Request.QueryString["rfc"] != null)
             {

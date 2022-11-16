@@ -24,7 +24,7 @@ namespace ClientesNuevos.App_Code
 
                 HttpPostedFile file = files[0];
                 //ddMMyyyy
-                string fecha = DateTime.Now.ToString("dd-MM-yyyy-HH:mm:ss");
+                string fecha = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
                 string link = "/Archivos/"+IDcompania;
 
                 //Checho si existe la carpeta del usuario
@@ -34,8 +34,9 @@ namespace ClientesNuevos.App_Code
                 }
 
                 //Ejemplo: 14-11-2022-10:19:30_F16
-                fname = link+"/" + fecha + "_" + Descripcion;
-                file.SaveAs(context.Server.MapPath(fname));
+                fname = link+"/" + fecha + "_" + Descripcion+file.FileName.Substring(file.FileName.Length-4,4);
+                string location = context.Server.MapPath(fname);
+                file.SaveAs(location);
 
                 //Guardo la ruta completa para ser alamacenada en la base de datos
                 string ruta = fname.ToString();

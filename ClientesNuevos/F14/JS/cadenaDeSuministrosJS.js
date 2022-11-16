@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         if (radio == 'si') {
 
-            insertar_certificacion();
+           // insertar_certificacion();
             insertar_estatus();
             GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'revision'", false, function (res) {
                 let alert = confirm('¿Desea continuar?');
@@ -66,7 +66,7 @@ $(document).ready(function () {
         } else if (radio == 'no') {
 
             insertar_estatus();
-                 documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
+                 //documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
             GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'revision'", false, function (res) {
                 let alert = confirm('¿Desea continuar?');
                 if (alert) {

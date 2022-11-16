@@ -79,7 +79,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else if (User.IsInRole("4"))
                 {
-                    Response.Redirect("~/f14/InformacionCadenaSuministro.aspx");
+                    Response.Redirect("~/F14/secciones/InformacionCadenaSuministro.aspx");
                 } 
                 /* 
                 if (Request.QueryString["res"] != null)

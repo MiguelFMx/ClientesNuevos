@@ -185,7 +185,7 @@ namespace ClientesNuevos.F43
         {
             string res = "", fecha="";
             int x = 0;
-            fecha = DateTime.Now.ToString("MM-dd-yyyy");
+            fecha = DateTime.Now.ToString("dd/MM/yyyy");
 
             SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
 

@@ -681,27 +681,27 @@ namespace ClientesNuevos.usuario
             string estatus_f14 = Obtener_estatus_f14();
             if (estatus_f14 == "20%")
             {
-                Response.Redirect("../F14/secciones/agentesaduanales.aspx");
+                Response.Redirect("~/F14/secciones/agentesaduanales.aspx");
 
             }
             else if (estatus_f14 == "40%")
             {
-                Response.Redirect("../F14/companiafilial.aspx");
+                Response.Redirect("~/F14/secciones/companiafilial.aspx");
 
             }
             else if (estatus_f14 == "60%")
             {
-                Response.Redirect("../F14/secciones/tiposervicioproductos.aspx");
+                Response.Redirect("~/F14/secciones/tiposervicioproductos.aspx");
 
             }
             else if (estatus_f14 == "80%")
             {
-                Response.Redirect("../F14/secciones/informacioncadenasuministro.aspx");
+                Response.Redirect("~/F14/secciones/informacioncadenasuministro.aspx");
 
             }
             else
             {
-                Response.Redirect("../F14/secciones/informacioncompania.aspx");
+                Response.Redirect("~/F14/secciones/informacioncompania.aspx");
             }
         }
 

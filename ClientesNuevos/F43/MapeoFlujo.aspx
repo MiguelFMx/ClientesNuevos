@@ -129,5 +129,9 @@
     </script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ScriptsContent" ID="content3" runat="server">
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/JS/jquery-ui.min.js"></script>
+    <script src="../Scripts/umd/popper.min.js"></script>
     <script src="MapeoFlujoJS.js"></script>
 </asp:Content>
