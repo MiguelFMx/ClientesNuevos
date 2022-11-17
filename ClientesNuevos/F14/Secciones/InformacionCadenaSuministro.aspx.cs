@@ -12,6 +12,8 @@ using System.Xml.Linq;
 using System.Data;
 using System.Web.UI.HtmlControls;
 using Microsoft.Ajax.Utilities;
+using System.Runtime.Remoting.Contexts;
+using static System.Net.WebRequestMethods;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -30,7 +32,7 @@ namespace ClientesNuevos.F14.Seccioness
                     pAdmin.Visible = true;
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
-                       
+                        BindDataAdmin(Request.QueryString["rfc"]);
                     }
                     else if(Request.QueryString["rfc"] != null)
                     {
@@ -41,6 +43,9 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     pUser.Visible = true;
                     pAdmin.Visible = false;
+
+                    BindData();
+                    LLenarInfo();
 
                     if (User.IsInRole("4"))
                     {
@@ -82,7 +87,7 @@ namespace ClientesNuevos.F14.Seccioness
         }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
-            if(Request.Cookies.Get("ctipo").Value == "proveedor")
+            if(User.IsInRole("4"))
             {
                 HttpContext.Current.Response.Redirect("informacionCompania.aspx");
 
@@ -134,11 +139,15 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
+                if (Request.Cookies.Get("id_comp") != null)
+                {
                 dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
                 gvProgramas.DataSource = dt;
                 gvProgramas.DataBind();
                 ViewState["dirState"] = dt;
                 ViewState["sortdr"] = "Asc";
+                }
+
             }
         }
 
@@ -196,13 +205,28 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     BinaryReader reader = new BinaryReader(fileCertificado.PostedFile.InputStream);
                     file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
+                    string fname = "";
 
                     IDcompania = Request.Cookies.Get("id_comp").Value;
                     string fecha = DateTime.Now.ToString("dd-MM-yyyy");
-                    string fname = "/Archivos/usuario/" + fecha + "_" + descripcion + "_" + fileCertificado.FileName;
-                    fileCertificado.SaveAs(Server.MapPath(fname));
 
-                    lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, fname.ToString()); ;
+                    string link = "/Archivos/" + IDcompania+ "/certificados";
+
+                    //Checho si existe la carpeta del usuario
+                    if (!Directory.Exists(Server.MapPath(link)))
+                    {
+                        DirectoryInfo di = System.IO.Directory.CreateDirectory(Server.MapPath(link));
+
+                    }
+                    //Ejemplo: 14-11-2022-10:19:30_F16
+                    fname = link + "/" + fecha +"_" + descripcion + fileCertificado.FileName.Substring(fileCertificado.FileName.Length-4,4);
+                    string location = Server.MapPath(fname);
+                    fileCertificado.SaveAs(location);
+
+                    //Guardo la ruta completa para ser alamacenada en la base de datos
+                    string ruta = fname.ToString();
+
+                    lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, ruta); ;
 
                     Response.Redirect(Request.RawUrl);
 
@@ -236,7 +260,7 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if(url.Text != "null")
                 {
-                    File.Delete(MapPath(url.Text));
+                   System.IO.File.Delete(MapPath(url.Text));
                 }
             }
             Response.Redirect(Request.RawUrl);
@@ -271,17 +295,52 @@ namespace ClientesNuevos.F14.Seccioness
         //boton editar registro
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            btnEditar.Visible = false;
-            btnCancelar.Visible = false;
-            btnAdd.Visible = true;
-            txtCodigo.Text = "";
-            txtDescripcion.Text = "";
-            lblEditando.Visible = false;
+            
 
+            string codigo = "";
+            string descripcion = "";
+            string IDcompania = "";
+
+            Byte[] file = null;
+            codigo = txtCodigo.Text;
+            descripcion = txtDescripcion.Text;
             if (fileCertificado.HasFile)
             {
                 //si hay archivo subido en FileUpload
+                if (Path.GetExtension(fileCertificado.FileName) != ".pdf")
+                {
+                    lblSucces.Text = "Extension de archivo invalida";
+                }
+                else
+                {
+                    BinaryReader reader = new BinaryReader(fileCertificado.PostedFile.InputStream);
+                    file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
+                    string fname = "";
 
+                    IDcompania = Request.Cookies.Get("id_comp").Value;
+                    string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+
+                    string link = "/Archivos/" + IDcompania + "/certificados";
+
+                    //Checho si existe la carpeta del usuario
+                    if (!Directory.Exists(Server.MapPath(link)))
+                    {
+                        DirectoryInfo di = System.IO.Directory.CreateDirectory(Server.MapPath(link));
+
+                    }
+                    //Ejemplo: 14-11-2022-10:19:30_F16
+                    fname = link + "/" + fecha + "_" + descripcion + fileCertificado.FileName.Substring(fileCertificado.FileName.Length - 4, 4);
+                    string location = Server.MapPath(fname);
+                    fileCertificado.SaveAs(location);
+
+                    //Guardo la ruta completa para ser alamacenada en la base de datos
+                    string ruta = fname.ToString();
+
+                    lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, ruta, hfID.Value);
+
+                    //Response.Redirect(Request.RawUrl);
+
+                }
 
             }
             else
@@ -290,6 +349,14 @@ namespace ClientesNuevos.F14.Seccioness
                 lblExito.Text = clsF14.Insertar_ProgramaSeguridad(Request.Cookies.Get("id_comp").Value, txtDescripcion.Text, txtCodigo.Text, hfRuta.Value, hfID.Value);
             }
 
+            btnEditar.Visible = false;
+            btnCancelar.Visible = false;
+            btnAdd.Visible = true;
+            txtCodigo.Text = "";
+            txtDescripcion.Text = "";
+            lblEditando.Visible = false;
+
+            BindData();
         }
         //cancelar registro
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -355,17 +422,141 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdminH_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("~/admin/index.aspx");
         }
 
         protected void btnAdminNext_Click(object sender, EventArgs e)
         {
+            if (Request.QueryString["rfc"] != null)
+            {
+                Response.Redirect("~/F43/MapeoFlujo.aspx?rfc=" + Request.QueryString["rfc"]);
+
+            }
+            else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
+            {
+                Response.Redirect("~/F43/MapeoFlujo.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+            }
+        }
+
+        protected void LLenarInfo()
+        {
+            //Obtengo la pregunta xd
+            if (Request.Cookies.Get("id_comp") != null)
+            {
+                DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_ctpat WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
+                if(dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["Programas"].ToString() == "si")
+                    {
+                        radCertificadoSi.Checked = true;
+                    }
+                    else
+                    {
+                        radCertificadoNo.Checked = true;
+
+                    }
+                }   
+
+            }
+
+        }
+         protected void btnAdminSave_Click(object sender, EventArgs e)
+        {
 
         }
 
-        protected void btnAdminSave_Click(object sender, EventArgs e)
+        protected void btnOpcionSi_Click(object sender, EventArgs e)
         {
 
+            Response.Redirect("~/F43/MapeoFlujo.aspx?res=Exito");
+        }
+
+        protected void btnOpcionNo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/usuario/user_index.aspx?res=f14");
+        }
+
+        protected void btnModal_Click(object sender, EventArgs e)
+        {
+            string ctpat = ddstatus.SelectedValue;
+            string fecha = dtFechaVal.Text;
+            string cuenta = txtCTPATCuenta.Text;
+            string opcion = "";
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+
+            if (radCertificadoSi.Checked)
+            {
+                opcion = "si";
+            }
+            else if(radCertificadoNo.Checked){
+                opcion = "no";
+            }
+
+            if(ctpat != "0")
+            {
+                    if( Convert.ToInt32(fecha.Substring(0,4)) < 2000)
+                    {
+                        lblfechaVal.Visible = true;
+                    }
+                    else if (cuenta == "")
+                    {
+                        lblcuentaVal.Visible = true;
+
+                    }else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
+                    {
+                        lblfechaVal.Visible = true;
+                        lblcuentaVal.Visible = true;
+
+                    }
+                    else
+                    {
+                        if (Request.Cookies.Get("id_comp") != null)
+                        {
+                            //validar campos
+
+                            lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+                            
+                            lblError.Text+= clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
+                        
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
+
+                        }
+                        else
+                        {
+                            lblError.Text = "Error en el registro";
+                        }
+                    }
+            }
+            else
+            {
+                if (Request.Cookies.Get("id_comp") != null)
+                {
+                    //validar campos
+
+                    lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, "", opcion);
+                    lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
+
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
+
+                }
+                else
+                {
+                    lblError.Text = "Error en el registro";
+                }
+            }
+            /*
+             var cuenta = $('#MainContent_txtCTPATCuenta').val();
+    var fecha = document.getElementById("MainContent_dtFechaVal").value;
+    var opcion = $('#cbCTPATSatuts option:selected').val();
+    var programa = $('input[type=radio][name=radCertificado]').val();
+
+              GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "','programa':'" + programa + "'", function (res) {
+                console.log('Exito ' + res);
+            });
+             */
+            //lblError.Text = fecha;
         }
     }
 } 

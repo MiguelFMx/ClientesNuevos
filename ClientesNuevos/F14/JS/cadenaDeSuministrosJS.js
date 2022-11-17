@@ -42,6 +42,7 @@ $(document).ready(function () {
 
     $('#btnContinuar').click(function () {
         var id;
+        let rad;
         GetAjax("../wsBaseDatos.asmx/GetID",
             "",
             false,
@@ -49,7 +50,8 @@ $(document).ready(function () {
                 id = res;
             });        
 
-        if (radio == 'si') {
+
+        if ($('#MainContent_radCertificadoSi').checked == true) {
 
            // insertar_certificacion();
             insertar_estatus();
@@ -63,7 +65,7 @@ $(document).ready(function () {
 
             });
 
-        } else if (radio == 'no') {
+        } else if ($('#MainContent_radCertificadoNo').checked == true) {
 
             insertar_estatus();
                  //documento += ClsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
@@ -76,7 +78,9 @@ $(document).ready(function () {
                 }
 
             });
-        } else if (radio == '') {
+        } else {
+            console.log($('input[type=radio][name=ctl00$MainContent$radCertificado]').value);
+
             $('#errorRadio').html(
                 '<div class="alert alert-warning" role="alert">' +
                 '<div class="row">' +
@@ -296,7 +300,7 @@ function getEstatus() {
             //Mustro div
             $('#divFecha').show();
             //cambio el index de combox
-            $('#cbCTPATSatuts').val(lst[0].Status).change();
+            $('#MainContent_ddstatus').val(lst[0].Status).change();
             $('#MainContent_txtCTPATCuenta').val(lst[0].No_cuenta);
 
             //Movimiento fecha====================================
@@ -456,7 +460,7 @@ function getEstatusAdmin(compa) {
             //Mustro div
             $('#divFecha').show();
             //cambio el index de combox
-            $('#cbCTPATSatuts').val(lst[0].Status).change();
+            $('#MainContent_ddstatus').val(lst[0].Status).change();
             $('#MainContent_txtCTPATCuenta').val(lst[0].No_cuenta);
 
             //Movimiento fecha====================================
