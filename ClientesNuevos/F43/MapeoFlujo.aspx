@@ -95,14 +95,14 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody style="border-color:#d9c790;">
+                            <tbody style="border-color: #d9c790;">
                             </tbody>
-                            <tfoot style="border-color:#d9c790;">
+                            <tfoot style="border-color: #d9c790;">
                                 <tr>
                                     <td colspan="6"></td>
                                     <td colspan="2">
                                         <span>Auditor:</span>
-                                        <input type="text" name="txtAuditor" value="" id="txtAuditor" class="form-control" />                                        
+                                        <input type="text" name="txtAuditor" value="" id="txtAuditor" class="form-control" />
                                     </td>
                                 </tr>
                             </tfoot>
@@ -114,19 +114,30 @@
         <br />
         <hr />
         <div class="row">
-            <div class="col" style="display:flex; justify-content:flex-end;">
-                <button class="btn btn-secondary" id="btnHome" data-bs-toggle="tooltip"
+            <div class="col" style="display: flex; justify-content: flex-end;">
+                <asp:Panel ID="pUser" runat="server">
+                    <button class="btn btn-secondary" id="btnHome" data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Guardar y salir" type="button" ><i class="bi bi-house-door"></i></button>
-                &nbsp;&nbsp;
+                        title="Guardar y salir" type="button">
+                        <i class="bi bi-house-door"></i>
+                    </button>
+                    &nbsp;&nbsp;
                 <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
+                </asp:Panel>
+                <asp:Panel ID="pAdmin" runat="server" Visible="false">
+                    <asp:LinkButton ID="btnHomeAdmin" runat="server">Home</asp:LinkButton>
+                    <asp:LinkButton ID="btnBackAdmin" runat="server">Atras</asp:LinkButton>
+                    <asp:LinkButton ID="btnActAdmin" runat="server">Actualizar</asp:LinkButton>
+
+
+                </asp:Panel>
             </div>
         </div>
     </div>
     <script type="text/javascript">
 
-        
-    </script>
+
+</script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ScriptsContent" ID="content3" runat="server">
     <script src="../Scripts/bootstrap.bundle.min.js"></script>

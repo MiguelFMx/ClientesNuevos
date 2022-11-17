@@ -16,8 +16,17 @@ namespace ClientesNuevos.F43
         {
             if (!IsPostBack)
             {
-                lblFecha.Text += DateTime.Now.ToString("dd/MM/yyyy");
-                lblCliente.Text += Obtener_Nombre();
+
+
+                if(User.IsInRole("1") || User.IsInRole("2"))
+                {
+
+                }else if (User.IsInRole("3") || User.IsInRole("4"))
+                {
+                    lblFecha.Text += DateTime.Now.ToString("dd/MM/yyyy");
+                    lblCliente.Text += Obtener_Nombre();
+                }
+               
             }
         }
 
