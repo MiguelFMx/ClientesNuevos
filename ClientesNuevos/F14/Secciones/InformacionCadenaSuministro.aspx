@@ -242,12 +242,17 @@
 
                 <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
                 &nbsp;&nbsp;
-                <button type="button" class="btn btn-secondary" id="btnHome"
+                <button type="button" class="btn btn-secondary" id="btnHome" hidden
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir">
                     <i class="bi bi-house-door"></i>
                 </button>
+                    <asp:LinkButton ID="btnCasa" runat="server" OnClick="btnCasa_Click"
+                        data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Guardar y salir" CssClass="btn btn-secondary">
+                        <i class="bi bi-house-door"></i></asp:LinkButton>
                 &nbsp;&nbsp;
                 <button id="btnContinuar" type="button" class="btn btn-success" hidden>Continuar <i class="bi bi-chevron-double-right"></i></button>
                     <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">Continuar<i class="bi bi-chevron-double-right"></i></asp:LinkButton>

@@ -577,9 +577,6 @@
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
     <script src="Calculos.js"></script>
-    <script type="text/javascript">
-
-</script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -595,5 +592,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/umd/popper.min.js"></script>
+
     <script src="../../Scripts/chart.min.js"></script>
 </asp:Content>

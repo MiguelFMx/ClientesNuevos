@@ -546,17 +546,79 @@ namespace ClientesNuevos.F14.Seccioness
                     lblError.Text = "Error en el registro";
                 }
             }
-            /*
-             var cuenta = $('#MainContent_txtCTPATCuenta').val();
-    var fecha = document.getElementById("MainContent_dtFechaVal").value;
-    var opcion = $('#cbCTPATSatuts option:selected').val();
-    var programa = $('input[type=radio][name=radCertificado]').val();
+           
+        }
 
-              GetAjax("../wsBaseDatos.asmx/insertar_estatus", "'id_compania':'" + id_cuenta + "','status':'" + opcion + "','fecha':'" + fecha + "','no_cuenta':'" + cuenta + "','programa':'" + programa + "'", function (res) {
-                console.log('Exito ' + res);
-            });
-             */
-            //lblError.Text = fecha;
+        protected void btnCasa_Click(object sender, EventArgs e)
+        {
+            string ctpat = ddstatus.SelectedValue;
+            string fecha = dtFechaVal.Text;
+            string cuenta = txtCTPATCuenta.Text;
+            string opcion = "";
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+
+            if (radCertificadoSi.Checked)
+            {
+                opcion = "si";
+            }
+            else if (radCertificadoNo.Checked)
+            {
+                opcion = "no";
+            }
+
+            if (ctpat != "0")
+            {
+                if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000)
+                {
+                    lblfechaVal.Visible = true;
+                }
+                else if (cuenta == "")
+                {
+                    lblcuentaVal.Visible = true;
+
+                }
+                else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
+                {
+                    lblfechaVal.Visible = true;
+                    lblcuentaVal.Visible = true;
+
+                }
+                else
+                {
+                    if (Request.Cookies.Get("id_comp") != null)
+                    {
+                        //validar campos
+
+                        lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+
+                        lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
+
+                        Response.Redirect("~/usuario/user_index.aspx?res=f14");
+
+                    }
+                    else
+                    {
+                        lblError.Text = "Error en el registro";
+                    }
+                }
+            }
+            else
+            {
+                if (Request.Cookies.Get("id_comp") != null)
+                {
+                    //validar campos
+
+                    lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, "", opcion);
+                    lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
+                    Response.Redirect("~/usuario/user_index.aspx?res=f14");
+
+
+                }
+                else
+                {
+                    lblError.Text = "Error en el registro";
+                }
+            }
         }
     }
 } 

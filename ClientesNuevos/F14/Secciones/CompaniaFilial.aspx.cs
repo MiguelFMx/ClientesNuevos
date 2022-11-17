@@ -39,6 +39,8 @@ namespace ClientesNuevos.F14.Seccioness
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
                         btnAdminNext.Text = "Skip";
+                        ComFil_DataBind(Request.QueryString["rfc"]);
+
                     }
                     else if(Request.QueryString["rfc"] != null)
                     {

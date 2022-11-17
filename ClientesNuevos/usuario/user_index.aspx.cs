@@ -186,11 +186,17 @@ namespace ClientesNuevos.usuario
                         {
                             lblF5_estatus.Text = "completado";
                             lblF5_estatus.CssClass = "etiqueta";
+                            btnEvaluacion.Text = "Ver resultados";
+
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
                             lblF5_estatus.Text = "en revision";
                             lblF5_estatus.CssClass = "etiqueta revision";
+                            btnEvaluacion.Text = "Ver resultados";
+                            
+
+
                         }
                         else if (Docs[i].Estatus == "act")
                         {
@@ -201,6 +207,9 @@ namespace ClientesNuevos.usuario
                         {
                             lblF5_estatus.Text = "actualizado";
                             lblF5_estatus.CssClass = "etiqueta updated";
+                            btnEvaluacion.Text = "Ver resultados";
+
+
                         }
                         else
                         {
@@ -776,7 +785,7 @@ namespace ClientesNuevos.usuario
             {
                 Response.Redirect("../F5/Autoevaluacion/autoevaluacion.aspx");
             }
-            else if (estatus == "100%")
+            else if (estatus == "100%" || estatus == "revision" || estatus == "updated")
             {
                 Response.Redirect("../F5/Autoevaluacion/Resultados.aspx");
             }

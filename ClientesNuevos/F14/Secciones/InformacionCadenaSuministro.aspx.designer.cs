@@ -456,6 +456,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.LinkButton btnAnterior;
 
         /// <summary>
+        /// Control btnCasa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCasa;
+
+        /// <summary>
         /// Control btnModal.
         /// </summary>
         /// <remarks>
