@@ -138,6 +138,30 @@ $(document).ready(function () {
 
         ev.preventDefault();
     });
+
+    $("#MainContent_ddstatus").change(function () {
+        var status = $('#MainContent_ddstatus option:selected').val();
+
+        switch (status) {
+            case '0':
+                $('#divFecha').hide('fast');
+                $('#MainContent_txtCTPATCuenta').val("");
+                $('#MainContent_dtFechaVal').val("");
+                break;
+            case '1':
+                $('#divFecha').show('fast');
+
+                break;
+            case '2':
+                $('#divFecha').show('fast');
+                break;
+        }
+
+    });
+
+    $('#MainContent_btnAdminSave').click(function () {
+        insertar_estatus();
+    });
     
 });
 
@@ -160,6 +184,8 @@ $("#cbCTPATSatuts").change(function () {
     }
 
 });
+
+
 
 
 function dynamic_field(number) {
@@ -327,12 +353,21 @@ function getEstatus() {
 
 function insertar_estatus() {
     var id_cuenta = '';
-    GetAjax("../wsBaseDatos.asmx/GetID",
-        "",
-        false,
-        function (res) {
-            id_cuenta = res;
-        });
+
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('rfc');
+
+    if (acomp == null) {
+        GetAjax("../wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id_cuenta = res;
+            });
+    } else {
+        id_cuenta = acomp;
+    }
+    
 
     var cuenta = $('#MainContent_txtCTPATCuenta').val();
     var fecha = document.getElementById("MainContent_dtFechaVal").value;

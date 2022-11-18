@@ -161,7 +161,7 @@ namespace ClientesNuevos.F14.Seccioness
 
             ddEstadoAAm.Items.FindByValue(dtAAU.Rows[0]["Estado"].ToString()).Selected = true;
             LlenarCiudad(ddCiudadAAm, Convert.ToInt32(dtAAU.Rows[0]["Estado"]));
-            ddCiudadAAm.Items.FindByValue(dtAAU.Rows[0]["Ciudad"].ToString()).Selected = true;
+           // ddCiudadAAm.Items.FindByValue(dtAAU.Rows[0]["Ciudad"].ToString()).Selected = true;
 
         }
 
@@ -482,7 +482,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else if (Request.QueryString["rfc"] != null)
             {
-                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"]);
+                Response.Redirect("~/f14/secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"]);
             }
         }
 

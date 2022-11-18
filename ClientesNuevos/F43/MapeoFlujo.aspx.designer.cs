@@ -15,6 +15,15 @@ namespace ClientesNuevos.F43
     {
 
         /// <summary>
+        /// Control hfRol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfRol;
+
+        /// <summary>
         /// Control lblCliente.
         /// </summary>
         /// <remarks>
@@ -51,15 +60,6 @@ namespace ClientesNuevos.F43
         protected global::System.Web.UI.WebControls.Panel pAdmin;
 
         /// <summary>
-        /// Control btnHomeAdmin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnHomeAdmin;
-
-        /// <summary>
         /// Control btnBackAdmin.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace ClientesNuevos.F43
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnBackAdmin;
+
+        /// <summary>
+        /// Control btnHomeAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnHomeAdmin;
 
         /// <summary>
         /// Control btnActAdmin.

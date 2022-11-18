@@ -17,6 +17,7 @@
             </div>
         </div>
         <div class="row">
+            <asp:HiddenField ID="hfRol" runat="server" />
             <div class="col">
                 <div class="card border-warning">
                     <div class="table-responsive-xxl">
@@ -124,10 +125,11 @@
                     &nbsp;&nbsp;
                 <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
                 </asp:Panel>
+
                 <asp:Panel ID="pAdmin" runat="server" Visible="false">
-                    <asp:LinkButton ID="btnHomeAdmin" runat="server">Home</asp:LinkButton>
-                    <asp:LinkButton ID="btnBackAdmin" runat="server">Atras</asp:LinkButton>
-                    <asp:LinkButton ID="btnActAdmin" runat="server">Actualizar</asp:LinkButton>
+                    <asp:LinkButton ID="btnBackAdmin" runat="server" CssClass="btn btn-secondary" OnClick="btnBackAdmin_Click"><i class="bi bi-arrow-left"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnHomeAdmin" runat="server" CssClass="btn btn-primary" OnClick="btnHomeAdmin_Click"><i class="bi bi-house-door"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnActAdmin" runat="server" CssClass="btn btn-success">Actualizar</asp:LinkButton>
 
 
                 </asp:Panel>

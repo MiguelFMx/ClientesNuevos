@@ -20,11 +20,13 @@
                             <br />
                             <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
                         </div>
-                        <div class="col">
+                        <div  class="col">
                             <div class="d-flex justify-content-end">
-                                <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                                    <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row pt-2">
@@ -48,12 +50,36 @@
                     <div class="row pt-4">
                         <div class="col">
                             <asp:Label ID="label5" runat="server" Text="Porcentaje de cumplimiento:" CssClass="text-secondary"></asp:Label>
-                        <div class="progress">
-                            <div runat="server" class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                            <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
+                            <div class="progress">
+                                <div runat="server" class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
+                            <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
+                        </div>
                     </div>
+                    <asp:Panel ID="pUser" runat="server">
+
+                        <div class="row">
+
+                            <div class="col">
+                                <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
+
+                                <label class="switch"
+                                    data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="Activar o desactivar">
+                                    <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged"/>
+                                    <span class="slider round"></span>
+                                </label>
+
+                            </div>
+                            <div class="col">
+                                <div class="d-flex justify-content-end">
+                                    <asp:Label ID="lblEstatusA" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                                </div>
+                            </div>
+                            <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
+                        </div>
+                    </asp:Panel>
 
 
                 </div>
@@ -582,8 +608,8 @@
             </div>
         </div>
     </div>
-    <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position:fixed; bottom:3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
-    
+    <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position: fixed; bottom: 3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
+
     <!------------------------------------------------------------------- Modal --------------------------------------->
     <div class="modal fade" id="UploadDoc" tabindex="-1" aria-labelledby="UploadDocLabel" aria-hidden="true">
         <div class="modal-dialog">

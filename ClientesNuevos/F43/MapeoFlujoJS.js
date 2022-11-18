@@ -9,9 +9,35 @@ var count = 1;
 $(document).ready(function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-    //Tabla de informacion 
-    ObtenerMapeoInfo();
-    
+
+    //Obtener checar sii esta el rfc en el link
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('rfc');
+    let accion = urlParams.get('accion');
+
+    if (acomp == null) {
+        ObtenerMapeoInfo();
+
+    } else {
+        ObtenerMapeoInfoAdmin(acomp)
+    }
+
+    //Tabla de informacion
+
+    $('#MainContent_btnActAdmin').click(function () {
+        let urlParams = new URLSearchParams(window.location.search);
+        let acomp = urlParams.get('rfc');
+
+        $('#error').html('');
+        Insertar_Registros();
+        
+        if ($('#error').html() == '') {
+            GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + acomp + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
+                Alert(res);
+                console.log(res);
+            });
+        }
+    });
 
     $('#btnContinuar').click(function () {
         var id;
@@ -125,12 +151,23 @@ function Insertar_Registros() {
     var id;
     var resultado = '', result = '';
 
-    GetAjax("../F14/wsBaseDatos.asmx/GetID",
-        "",
-        false,
-        function (res) {
-            id = res;
-        });
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('rfc');
+    let accion = urlParams.get('accion');
+
+    if (acomp == null) {
+        GetAjax("../F14/wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id = res;
+            });
+    } else {
+        id = acomp;
+    }
+    
+
+
 
     $('[name="in_numero"]').each(function () {
         numero.push($(this).text());
@@ -269,6 +306,22 @@ function ObtenerMapeoInfo() {
         }
     });
 }
+
+
+function ObtenerMapeoInfoAdmin(rfc) {
+   
+    GetAjax("MapeoBD.asmx/ObtenerInfoMapeo", "'ID_Mapeo':'" + rfc + "'", false, function (infoMapeo) {
+        if (infoMapeo.length > 0) {
+            $('#MainContent_lblFecha').html('Fecha: ' + infoMapeo[0].Fecha);
+            $('#txtAuditor').val(infoMapeo[0].Auditor);
+
+            MostrarMapeo(infoMapeo[0].ID_Mapeo);
+        } else {
+            dynamic_field(count);
+        }
+    });
+}
+
 
 function MostrarMapeo(comp) {
     let opciones='';

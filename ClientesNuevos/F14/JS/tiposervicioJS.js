@@ -159,7 +159,35 @@ $(document).ready(function () {
         $(this).parent().closest("tr").remove();
     });
     //boton------------------------------------------------------------------------------------------------------------------------------
+    $('#btnAdminGuardar').click(function () {
+        var servicio, producto;
 
+        let urlParams = new URLSearchParams(window.location.search);
+        let acomp = urlParams.get('rfc');
+
+        producto = GuardarProducto();
+        servicio = GuardarServicio();
+
+        if (producto == '' && servicio == '') {
+
+            GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + acomp + "','Doc':'F14', 'Ruta':'null','Estatus':'80%'", false, function (res) {
+                console.log(res);
+            });
+
+            window.location.href = 'InformacionCadenaSuministro.aspx?rfc='+acomp;
+        } else {
+            if (servicio != '') {
+                //alert('Llene los campos necesarios');
+                $('#errorServicio').html('<div class="alert alert-warning" role="alert">' +
+                    '<div class="row">' +
+                    '<div class="col"><h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Error</h5></div>' +
+                    '<div class="col" style="display:flex; justify-content:flex-end;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>' +
+                    '</div>' +
+                    '<div class="row">' + servicio + '</div>' +
+                    '</div>');
+            }
+        }
+    });
    
     $('#btnContinuar').click(function () {
         var servicio, producto;
@@ -219,12 +247,19 @@ function GuardarProducto() {
     let strerror = '';
 
     var id_cuenta = '';
-    GetAjax("../wsBaseDatos.asmx/GetID",
-        "",
-        false,
-        function (res) {
-            id_cuenta = res;
-        });
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('rfc');
+    if (acomp == null) {
+        GetAjax("../wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                id_cuenta = res;
+            });
+    } else {
+        id_cuenta = acomp;
+    }
+    
     GetAjax("../wsBaseDatos.asmx/EncontrarEliminar", "'ID_Compania':'" + id_cuenta + "','tabla':'Table_mercancia'", false, function (str) {
         console.log(str);
     });
@@ -279,13 +314,21 @@ function GuardarProducto() {
 
 function GuardarServicio() {
     var cookie = "";
-    var result='';
-    GetAjax("../wsBaseDatos.asmx/GetID",
-        "",
-        false,
-        function (res) {
-            cookie = res;
-        });
+    var result = '';
+
+    let urlParams = new URLSearchParams(window.location.search);
+    let acomp = urlParams.get('rfc');
+    if (acomp == null) {
+        GetAjax("../wsBaseDatos.asmx/GetID",
+            "",
+            false,
+            function (res) {
+                cookie = res;
+            });
+    } else {
+        cookie = acomp;
+    }
+
 
     GetAjax("../wsBaseDatos.asmx/EncontrarEliminar", "'ID_Compania':'" + cookie + "','tabla':'Table_Servicios'", false, function (str) {
         console.log(str);

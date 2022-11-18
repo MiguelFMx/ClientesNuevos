@@ -63,10 +63,7 @@ namespace ClientesNuevos.F14.Seccioness
             Response.Redirect("~/admin/index.aspx");
         }
 
-        protected void btnAdminSave_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected void btnAdminNext_Click(object sender, EventArgs e)
         {

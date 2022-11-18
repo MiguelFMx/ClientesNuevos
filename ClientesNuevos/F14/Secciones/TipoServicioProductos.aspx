@@ -479,8 +479,8 @@
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-
-                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                <input id="btnAdminGuardar" type="button" value="btn" />
+                <asp:LinkButton ID="btnAdminSave" runat="server" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
 
                 <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                     data-bs-toggle="tooltip"

@@ -20,11 +20,23 @@ namespace ClientesNuevos.admin.carpetilla
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["id"] != null && Request.QueryString["type"]!=null)
+                if (User.IsInRole("1"))
+                {
+                    pUser.Visible = true;
+                    lblEstatus.Visible = false;
+                }
+                else
+                {
+                    pUser.Visible = false;
+                    lblEstatus.Visible = true;
+                }
+
+                if (Request.QueryString["id"] != null && Request.QueryString["type"] != null)
                 {
                     Ocultar(Request.QueryString["type"].ToString());
                     data = Obtener_inf(Request.QueryString["id"].ToString());
-
+                    if (data.Rows.Count > 0)
+                    {
                     //Muestro el nombre comercial en el encabezado de card de carpetilla
                     lblCompania.Text += " " + data.Rows[0]["Nombre_comercial"].ToString();
 
@@ -44,12 +56,22 @@ namespace ClientesNuevos.admin.carpetilla
                     lblUbicacion.Text = data.Rows[0]["Ciudad"].ToString() + ", " + data.Rows[0]["Estado"].ToString() + ", " + data.Rows[0]["Pais"].ToString();
                     if (data.Rows[0]["Estatus"].ToString() == "inactivo")
                     {
-                        lblEstatus.Text = "inactivo";
-                        lblEstatus.CssClass = "etiqueta peligro";
+                        lblEstatusA.Text = "inactivo";
+                        lblEstatusA.CssClass = "etiqueta peligro";
+
+                            lblEstatus.Text = "inactivo";
+                            lblEstatus.CssClass = "etiqueta peligro";
+
+                            chkEstatus.Checked = false;
                     }
-                    
+                    else
+                    {
+                        chkEstatus.Checked = true;
+
+                    }
+
                     //Metodo que obtiene los documentos con los que cuenta el cliente
-                    Obtener_Documentos(Request.QueryString["id"].ToString(),id_user);
+                    Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
 
                     //Cargo el porcentaje de progreso
                     BarraProgreso(id_user, id_comp);
@@ -57,6 +79,7 @@ namespace ClientesNuevos.admin.carpetilla
                     //Genero cookies, necesarias para obtener la info de los formularios
                     Response.Cookies.Add(new HttpCookie("id_comp", id_comp));
                     Response.Cookies.Add(new HttpCookie("tipo", Request.QueryString["type"].ToString()));
+                    }
                 }
             }
         }
@@ -1033,7 +1056,42 @@ namespace ClientesNuevos.admin.carpetilla
             }
 
         }
-       
+
+        protected void chkEstatus_CheckedChanged(object sender, EventArgs e)
+        {
+            string cambio;
+           
+            if(lblEstatusA.Text == "inactivo")
+            {
+                cambio = clsHerramientaBD.ExecuteSql("UPDATE Table_compania SET Estatus='activo' WHERE ID_compania='" + Request.QueryString["id"] + "'");
+                if(cambio == "")
+                {
+                    lblCambio.Text = "Status actualizado";
+                    lblEstatusA.Text = "activo";
+                    lblEstatusA.CssClass = "etiqueta";
+                }
+                else
+                {
+                    lblCambio.Text = cambio;
+                }
+            }
+            else if(lblEstatusA.Text == "activo")
+            {
+                cambio = clsHerramientaBD.ExecuteSql("UPDATE Table_compania SET Estatus='inactivo' WHERE ID_compania='" + Request.QueryString["id"] + "'");
+                if (cambio == "")
+                {
+                    lblCambio.Text = "Status actualizado";
+                    lblEstatusA.Text = "inactivo";
+                    lblEstatusA.CssClass = "etiqueta peligro";
+
+                }
+                else
+                {
+                    lblCambio.Text = cambio;
+                }
+            }
+        }
+
         protected void BarraProgreso(string id_user, string id_comp)
         {
             DataTable data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR ID_compania='" + id_user + "'");

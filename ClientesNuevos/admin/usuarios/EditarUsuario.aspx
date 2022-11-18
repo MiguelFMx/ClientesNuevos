@@ -20,7 +20,7 @@
 
                         <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
                         <label class="switch">
-                            <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
+                            <asp:CheckBox ID="chkEstatus" runat="server" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
                             <span class="slider round"></span>
                         </label>
                         <asp:Label ID="lblEstado" runat="server" Text="---" CssClass="form-label mt-1 ms-2"></asp:Label>
