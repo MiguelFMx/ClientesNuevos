@@ -17,6 +17,13 @@ $(document).ready(function () {
     }
 
 
+    $('#btnAAAA').click(function () {
+
+        let opcion = $('input:radio[name=MainContent_radCertificado]:checked').val();
+
+        alert(opcion);
+    });
+
     $('input[type=radio][name=radCertificado]').change(function () {
         if (this.value == 'si') {
             radio = 'si';
@@ -159,7 +166,7 @@ $(document).ready(function () {
 
     });
 
-    $('#MainContent_btnAdminSave').click(function () {
+    $('#MainContent_btnAdmin').click(function () {
         insertar_estatus();
     });
     
@@ -371,8 +378,8 @@ function insertar_estatus() {
 
     var cuenta = $('#MainContent_txtCTPATCuenta').val();
     var fecha = document.getElementById("MainContent_dtFechaVal").value;
-    var opcion = $('#cbCTPATSatuts option:selected').val();
-    var programa = $('input[type=radio][name=radCertificado]').val();
+    var opcion = $('#MainContent_ddstatus option:selected').val();
+    var programa = $('input[type=radio][name=ctl00_MainContent_radCertificado]').val();
 
     if (opcion != 0) {
         if (cuenta == '' || fecha == '') {
@@ -390,7 +397,11 @@ function insertar_estatus() {
         $('#MainContent_txtCTPATCuenta').val('');
         $('#MainContent_dtFechaVal').val('');
     }
-    getEstatus();
+    //if (acomp == null) {
+    //    getEstatus();
+    //} else {
+    //    getEstatusAdmin(acomp);
+    //}
 }
 
 function ObtenerPrograma() {

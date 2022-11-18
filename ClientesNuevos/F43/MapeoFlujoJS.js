@@ -23,6 +23,9 @@ $(document).ready(function () {
     }
 
     //Tabla de informacion
+    
+
+
 
     $('#MainContent_btnActAdmin').click(function () {
         let urlParams = new URLSearchParams(window.location.search);

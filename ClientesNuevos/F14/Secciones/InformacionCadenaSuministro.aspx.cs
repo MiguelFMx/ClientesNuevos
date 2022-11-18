@@ -38,8 +38,11 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         BindDataAdmin(Request.QueryString["rfc"]);
                         CambiarLinks();
+                        LLenarInfo();
+
                     }
-                }else if(User.IsInRole("3") || User.IsInRole("4"))
+                }
+                else if(User.IsInRole("3") || User.IsInRole("4"))
                 {
                     pUser.Visible = true;
                     pAdmin.Visible = false;
@@ -58,24 +61,6 @@ namespace ClientesNuevos.F14.Seccioness
 
                     }
                 }
-                
-                /*
-                if (Request.QueryString["res"] != null)
-                {
-                    string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
-                    if (resultado == "Exito")
-                    {
-                        pAlert.Visible = true;
-                    }
-                }
-                else
-                {
-                    pAlert.Visible = false;
-                }
-
-                
-
-                */
             }
         }
         private void CambiarLinks()
@@ -456,8 +441,24 @@ namespace ClientesNuevos.F14.Seccioness
                         radCertificadoNo.Checked = true;
 
                     }
-                }   
+                }
 
+            }
+            else if (Request.QueryString["rfc"] != null)
+            {
+                DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_ctpat WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["Programas"].ToString() == "si")
+                    {
+                        radCertificadoSi.Checked = true;
+                    }
+                    else
+                    {
+                        radCertificadoNo.Checked = true;
+
+                    }
+                }
             }
 
         }
@@ -612,6 +613,80 @@ namespace ClientesNuevos.F14.Seccioness
                     lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
                     Response.Redirect("~/usuario/user_index.aspx?res=f14");
 
+
+                }
+                else
+                {
+                    lblError.Text = "Error en el registro";
+                }
+            }
+        }
+
+        protected void btnAdminSave_Click1(object sender, EventArgs e)
+        {
+            string ctpat = ddstatus.SelectedValue;
+            string fecha = dtFechaVal.Text;
+            string cuenta = txtCTPATCuenta.Text;
+            string opcion = "";
+            string rfc = Request.QueryString["rfc"];
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+
+            if (radCertificadoSi.Checked)
+            {
+                opcion = "si";
+            }
+            else if (radCertificadoNo.Checked)
+            {
+                opcion = "no";
+            }
+
+            if (ctpat != "0")
+            {
+                if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000)
+                {
+                    lblfechaVal.Visible = true;
+                }
+                else if (cuenta == "")
+                {
+                    lblcuentaVal.Visible = true;
+
+                }
+                else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
+                {
+                    lblfechaVal.Visible = true;
+                    lblcuentaVal.Visible = true;
+
+                }
+                else
+                {
+                    if (rfc != null)
+                    {
+                        //validar campos
+
+                        lblError.Text = wsBaseDatos.insertar_estatus(rfc, ctpat, fecha, cuenta, opcion);
+
+                        lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
+
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
+
+                    }
+                    else
+                    {
+                        lblError.Text = "Error en el registro";
+                    }
+                }
+            }
+            else
+            {
+                if (rfc != null)
+                {
+                    //validar campos
+
+                    lblError.Text = wsBaseDatos.insertar_estatus(rfc, ctpat, fecha, "", opcion);
+                    lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
+
+
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
 
                 }
                 else

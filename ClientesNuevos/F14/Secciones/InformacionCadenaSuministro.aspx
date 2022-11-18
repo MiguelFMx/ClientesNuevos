@@ -101,8 +101,8 @@
 
                                 <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select">
                                     <asp:ListItem Value="0">Ninguno</asp:ListItem>
-                                    <asp:ListItem Value="2">Certificado no validado</asp:ListItem>
-                                    <asp:ListItem Value="3">Certificado validado</asp:ListItem>
+                                    <asp:ListItem Value="1">Certificado no validado</asp:ListItem>
+                                    <asp:ListItem Value="2">Certificado validado</asp:ListItem>
                                 </asp:DropDownList>
 
 
@@ -127,6 +127,7 @@
                         <hr />
                         <div class="row">
                             <div class="col">
+                                <asp:HiddenField ID="hfOpcion" runat="server" />
                                 <label>
                                     ¿Esta Certificado en C-TPAT o equivalente/WCO acreditado en programa de seguridad de comercio exterior?
                                 </label>
@@ -270,14 +271,13 @@
                     data-bs-placement="top"
                     title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
 
-                <asp:LinkButton ID="btnAdminSave" runat="server" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click1" CssClass="btn btn-success">Editar</asp:LinkButton>
 
                 <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Atras"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
             </asp:Panel>
-            
             </div>
         </div>
         
