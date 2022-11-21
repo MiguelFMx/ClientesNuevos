@@ -15,15 +15,6 @@ namespace ClientesNuevos.admin
     {
 
         /// <summary>
-        /// Control lblNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNuevo;
-
-        /// <summary>
         /// Control hlNuevoRegistro.
         /// </summary>
         /// <remarks>
@@ -31,5 +22,14 @@ namespace ClientesNuevos.admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlNuevoRegistro;
+
+        /// <summary>
+        /// Control lblNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNuevo;
     }
 }

@@ -161,6 +161,11 @@ namespace ClientesNuevos.F14
             {
                 strSQL = "SELECT * FROM table_UsoCFDI";
             }
+            else
+            {
+                strSQL = "SELECT * FROM table_UsoCFDI";
+
+            }
 
             SqlConnection con = new SqlConnection(strConnction);
             SqlCommand cmd = new SqlCommand(strSQL,con);

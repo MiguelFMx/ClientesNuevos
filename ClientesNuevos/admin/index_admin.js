@@ -6,7 +6,7 @@ $(document).ready(function () {
     GetData();
 
     var tab = $('#tClientes').DataTable();
-    tab.page.len(4).draw();
+   
 
 });
 $(window).load(function () {
@@ -37,7 +37,7 @@ function GetData() {
             }
             table.append(
                 "<tr>" +
-               // "<td>" + result[i].RFC + "</td>" +
+                "<td>" + result[i].RFC + "</td>" +
                /* "<td>" + tipo + "</td>" +*/
                 "<td><a>" + result[i].Nombre_comp + "</a><br/><small  style='color:#73879C;'>" + result[i].Nombre_comercial + "</small></td>" +
                 "<td>" + result[i].Fecha_registro.substring(0, 10) + "</td>" +

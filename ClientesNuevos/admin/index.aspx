@@ -18,15 +18,25 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h5 style="color: #73879C;">Listado de clientes</h5>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <h5 style="color: #73879C;">Listado de clientes</h5>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-secondary btn-sm"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
+
+                                </div>
+                            </div>
+
                         </div>
                         <div class="card-body">
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-striped" id="tClientes">
                                     <thead class="cabezal">
                                         <tr>
-                                            <th style="width: 40%;">Empresa</th>
+                                            <th style="width: 10%;">RFC</th>
+                                            <th style="width: 30%;">Empresa</th>
                                             <th style="width: 10%;">Fecha de registro</th>
                                             <th style="width: 20%;">Cumplimiento</th>
                                             <th>Estatus</th>
@@ -37,27 +47,26 @@
                                     </tbody>
                                 </table>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
             <div class="row">
                 <div class="col d-flex justify-content-end">
                     <asp:Label ID="lblNuevo" runat="server" Text="User id: "></asp:Label>
-                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new">Nuevo registro</asp:HyperLink>
                 </div>
             </div>
 
-            </div>
         </div>
+    </div>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
 
     <script src="../Scripts/jquery-3.6.0.js"></script>
-<script src="../Scripts/DataTables/datatables.min.js"></script>
+    <script src="../Scripts/DataTables/datatables.min.js"></script>
 
     <script src="index_admin.js"></script>
-    
+
 </asp:Content>

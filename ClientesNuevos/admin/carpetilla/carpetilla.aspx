@@ -97,7 +97,7 @@
                     <div class="table-responsive">
                         <asp:Table ID="tDocumentos" runat="server" CssClass="table table-striped  table-hover">
                             <asp:TableHeaderRow CssClass="cabezal" HorizontalAlign="Center" TableSection="TableHeader">
-                                <asp:TableHeaderCell>Documento</asp:TableHeaderCell>
+                                <asp:TableHeaderCell Width="30%">Documento</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Estatus</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Fecha</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Opciones</asp:TableHeaderCell>
@@ -128,10 +128,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnAC_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_AC" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_AC" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnAC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal"  title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva" style="margin-left:1px;"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--============================================================= RFC========================================--%>
@@ -158,10 +161,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnRFC_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_RFC" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_RFC" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnRFC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal"  title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload" style="margin-left:1px;"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- ============================================================= CURP======================================== -->--%>
@@ -190,10 +196,12 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnClick"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnClick"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- ============================================================= Carta de no antecedentes======================================== -->--%>
@@ -222,10 +230,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnCNAP_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCNAP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Comprobante de domicilio======================================== -->--%>
@@ -254,10 +265,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnCompDom_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCompDom_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Identificacion de representante legal======================================== -->--%>
@@ -284,10 +298,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnIRL_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnIRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================poder de representante legal======================================== -->--%>
@@ -316,10 +333,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnPRL_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnPRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Certificacion ctpat======================================== -->--%>
@@ -348,10 +368,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnCTPAT_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCTPAT_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Certificacion OEA======================================== -->--%>
@@ -378,10 +401,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnOEA_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnOEA_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Opinion positiva======================================== -->--%>
@@ -408,10 +434,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnOP_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnOP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================W9======================================== -->--%>
@@ -438,10 +467,13 @@
                                         data-bs-placement="top"
                                         title="Solicitar actualizacion" OnClick="btnF43_Click"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                    <asp:LinkButton ID="btnCheck_W9" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_W9" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnF43_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- ===========================================================Evaluacion de seguridad F5 ======================================== -->--%>
@@ -573,18 +605,19 @@
                                 <asp:TableCell>
                                     <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
 
-
-                                    <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                    <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
 
                                     <button type="button" class="btn btn-warning btn-sm text-white" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
-                                    <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                    <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm" runat="server"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCheck_F16_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+
+
                                 </asp:TableCell>
                             </asp:TableRow>
                             <%--<!-- =============================================================Criterios minimos de seguridad C-TPAT (F-20)======================================== -->--%>
@@ -641,6 +674,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelarFile">Cancelar</button>
                     <button type="button" class="btn btn-success" id="btnPrueba">Guardar</button>
+
                 </div>
             </div>
         </div>

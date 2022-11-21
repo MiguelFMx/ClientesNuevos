@@ -276,7 +276,7 @@
                 <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                    title="Siguiente"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
             </asp:Panel>
             </div>
         </div>

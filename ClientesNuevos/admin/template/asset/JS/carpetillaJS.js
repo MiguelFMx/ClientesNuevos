@@ -58,12 +58,16 @@ function guardarDocumento(tipo) {
     if (searchParams.has('id')) {
         id_cuenta = searchParams.get('id');
 
+        if (tipo == 'Evaluacion In-situ') {
+            tipo = 'F16';
+        }
+
         document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 
             if (inputElement.files.length) {
                 data.append(inputElement.files[0].name, inputElement.files[0])
                 $.ajax({
-                    url: "../../usuario/hFileController.ashx?idcomp=" + id_cuenta + "&desc=F16",
+                    url: "../../usuario/hFileController.ashx?idcomp=" + id_cuenta + "&desc="+tipo,
                     type: "POST",
                     data: data,
                     contentType: false,
@@ -86,5 +90,15 @@ function guardarDocumento(tipo) {
         console.log("Error: no se detecto ID");
     }
 
+}
+
+
+function ObtenerRoles() {
+    let rfc;
+    let searchParams = new URLSearchParams(window.location.search)
+    if (searchParams.has('id')) {
+        rfc = searchParams.get('id');
+
+    }
 }
 

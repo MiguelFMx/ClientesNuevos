@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col" style="text-align: justify;">
                         <p>
-                            Por medio de la presente, me permito informarle que la empresa.,
+                            Por medio de la presente, me permito informarle que nuestra empresa,
                         está en proceso de certificación del Programa de Seguridad Alianza Aduana-Comercio contra el Terrorismo (<strong>Customs-Trade Partnership Against Terrorism “C-TPAT”</strong>), auspiciado por el gobierno de Estados Unidos a través de su Servicio de Aduana y Protección Fronteriza (<strong>U.S. Customs and Border Protection “CBP"</strong>).
                         </p>
                         <p>
@@ -66,10 +66,10 @@
                             Uno de los objetivos principales de la empresa. es el de incrementar y mantener de manera efectiva sus procesos de seguridad de la cadena logística, y así, asegurar el envió a tiempo de toda la carga con destino a Estados Unidos. 
                         </p>
                         <p>
-                            Para la empresa., Usted es un Socio de Negocio muy valioso, como cliente y/o proveedor de servicio, motivo por el cual su participación dando seguimiento a los requerimientos de seguridad C-TPAT y OEA es CRÍTICO para lograr alcanzar el objetivo de asegurar nuestra cadena logística, de esta manera contribuir con cooperación con CBP y SAT. 
+                            Para nuestra empresa, usted es un Socio de Negocio muy valioso, como cliente y/o proveedor de servicio, motivo por el cual su participación dando seguimiento a los requerimientos de seguridad C-TPAT y OEA es CRÍTICO para lograr alcanzar el objetivo de asegurar nuestra cadena logística, de esta manera contribuir con cooperación con CBP y SAT.La empresa trabaja con empresas filiales certificadas por lo tanto, el servicio de transporte se puede proveer por cualquiera de estas.
                         </p>
                         <p style="break-before: page;">
-                            Tanto CBP, SAT como la empresa., esperamos que nuestros socios de negocio desarrollen e implementen las medidas de seguridad necesarias para que aseguren sus propias cadenas logísticas, con sus propios socios de negocio. Y hagan extensivos a todas sus unidades de negocio y a cada uno de sus socios de negocio sobre el programa de seguridad C-TPAT y OEA así como la participación que la empresa. tiene en el mismo. 
+                            Tanto CBP, SAT como la empresa, esperamos que nuestros socios de negocio desarrollen e implementen las medidas de seguridad necesarias para que aseguren sus propias cadenas logísticas, con sus propios socios de negocio. Y hagan extensivos a todas sus unidades de negocio y a cada uno de sus socios de negocio sobre el programa de seguridad C-TPAT y OEA así como la participación que la empresa tiene en el mismo. 
                         </p>
                         <p>
                             Como primer paso para asegurar sus respectivas cadenas logísticas, la empresa.  
@@ -142,14 +142,14 @@
                             <li>
                                 <strong>Visión de Seguridad y Responsabilidad</strong>
                                 <br />
-                                La empresa debe asegurar la continuidad y seguimiento de los procesos de seguridad mediante una participación y promoción de la importancia de la cultura de seguridad sea una parte integra del funcionamiento de la empresa; esta responsabilidad recae en la alta gerencia de la empresa. 
+                                La empresa debe asegurar la continuidad y seguimiento de los procesos de seguridad mediante una participación y promoción de la importancia de la cultura de seguridad sea una parte integra del funcionamiento de la misma; esta responsabilidad recae en la alta gerencia de la empresa. 
                             <br />
                                 <br />
                             </li>
                         </ol>
 
                         <p>
-                            Para mayor información relacionada con los Criterios de Seguridad C-TPAT, lo invitamos a visitar la página del Servicio de Aduana y Protección Fronteriza, así como también, la página de Servicio de Administración Tributaria que se menciona más adelante. Nuevamente, la empresa. lo invita a implementar las medidas de seguridad de acuerdo a la Norma que le corresponda. 
+                            Para mayor información relacionada con los Criterios de Seguridad C-TPAT, lo invitamos a visitar la página del Servicio de Aduana y Protección Fronteriza, así como también, la página de Servicio de Administración Tributaria que se menciona más adelante. Nuevamente, se le invita a implementar las medidas de seguridad de acuerdo a la Norma que le corresponda. 
                         </p>
                         <p style="text-align: center;">
                             <br />
@@ -164,7 +164,7 @@
                             Distinguido Socio de Negocio, agradecería su confirmación de que ha leído y comprendido el contenido del presente aviso informativo, solicitándole la respuesta al formato de “Carta compromiso de Seguridad C-TPAT y OEA para Socios de Negocio” la cual se anexa a la presente, le solicitamos de la manera más cordial nos envié el formato firmado vía correo electrónico.
                         </p>
                         <p>
-                            De antemano, le agradezco sus finas atenciones para el presente, y en caso de alguna pregunta sobre el particular, por favor no dude en contactarme.
+                            De antemano, le agradezco sus finas atenciones para el presente, y en caso de alguna pregunta sobre el particular, por favor no dude en contactarnos.
                         </p>
                         <p>
                             Atentamente.
@@ -186,9 +186,9 @@
                         <p>
                             Nombre y dirección de la empresa:
                     <br />
-                            <asp:Label ID="lblNombre" runat="server" Text="Label" Font-Underline="True"></asp:Label>
+                            <asp:Label ID="lblNombre" runat="server" Text="Nombre" Font-Underline="True"></asp:Label>
                             <br />
-                            <asp:Label ID="lblDireccion" runat="server" Text="Label" Font-Underline="True"></asp:Label>
+                            <asp:Label ID="lblDireccion" runat="server" Text="Dirección" Font-Underline="True"></asp:Label>
                             <br />
                         </p>
                     </div>
@@ -324,8 +324,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <asp:CheckBox ID="chFirma" runat="server" />
-                                        <asp:Label ID="lblFirma" runat="server" Text="He leído y he comprendido la carta de notificación de aplicación a los programas C-TPAT y OEA por parte de la empresa.
-                                        Además, se compromete a dar seguimiento a los estándares de seguridad indicados en la misma. "></asp:Label>
+                                        <asp:Label ID="lblFirma" runat="server" Text="He leído y he comprendido la presente.
+                                        Acepto y me comprometo a dar seguimiento a los estándares de seguridad indicados en la misma. "></asp:Label>
                                     </div>
 
                                 </div>

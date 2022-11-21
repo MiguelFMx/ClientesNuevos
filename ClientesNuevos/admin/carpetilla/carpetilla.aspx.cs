@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -1092,6 +1093,7 @@ namespace ClientesNuevos.admin.carpetilla
             }
         }
 
+       
         protected void BarraProgreso(string id_user, string id_comp)
         {
             DataTable data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR ID_compania='" + id_user + "'");

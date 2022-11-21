@@ -18,6 +18,15 @@ namespace ClientesNuevos.F12
         {
             if (!IsPostBack)
             {
+                if(User.IsInRole("1")|| User.IsInRole("2"))
+                {
+                    if (Request.QueryString["rfc"]!= null)
+                    {
+                        data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
+
+                    }
+                }
+
                 if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
                 {
                     data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["id"]+"'");
@@ -27,7 +36,7 @@ namespace ClientesNuevos.F12
                     data = Obtener_informacion();
                 }
 
-                if (data.Rows.Count != 0)
+                if (data.Rows.Count != 0 && Request.Cookies.Get("id_comp")!=null)
                 {
                     respuestas = Respuestas(Request.Cookies.Get("id_comp").Value);
                     ctpat = CadenaSuministro();

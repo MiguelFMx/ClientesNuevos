@@ -148,6 +148,14 @@ namespace ClientesNuevos.admin
             return lst;
         }
 
+
+        //public class
+        //[WebMethod]
+        //public List<RolUsuario> Obtener_Rol()
+        //{
+
+        //}
+
     }
 }
     
