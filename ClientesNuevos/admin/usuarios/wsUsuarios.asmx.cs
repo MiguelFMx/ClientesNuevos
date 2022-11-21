@@ -1,4 +1,5 @@
-﻿using ClientesNuevos.App_Code;
+﻿using Antlr.Runtime.Tree;
+using ClientesNuevos.App_Code;
 using ClientesNuevos.F5.Autoevaluacion;
 using System;
 using System.Collections.Generic;
@@ -108,6 +109,29 @@ namespace ClientesNuevos.admin.usuarios
                 lst.Add(objR);
             }
             return lst;
+        }
+
+        [WebMethod]
+        public List<Roles> ObtenerRoles_Especifico(string id)
+        {
+            List<Roles> roles = new List<Roles>();
+            Roles objR;
+            DataTable dt = new DataTable();
+            dt = clsHerramientaBD.Existe("exec Master_UserRols @accion='GetRolEspecifico', @RFC='" + id + "'", clsHerramientaBD.strConnAdmon);
+
+            foreach (DataRow Row in dt.Rows)
+            {
+                objR = new Roles
+                {
+                    Dominio = Row["Nombre"].ToString(),
+                    Id = Row["Id"].ToString(),
+                    RFC = Row["RFC"].ToString(),
+                    Subdominio = Row["Subdominio"].ToString(),
+                    Rol = Row["Rol"].ToString()
+                };
+                roles.Add(objR);
+            }
+            return roles;
         }
 
         [WebMethod]

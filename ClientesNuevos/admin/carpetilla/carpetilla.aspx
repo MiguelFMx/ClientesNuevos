@@ -10,8 +10,7 @@
         <div class="col-md-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-header cabezal">
-                    <h5>Informacion
-                    </h5>
+                    <h5>Informacion</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -20,9 +19,9 @@
                             <br />
                             <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
                         </div>
-                        <div  class="col">
+                        <div class="col">
                             <div class="d-flex justify-content-end">
-                                    <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                                <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
 
                             </div>
                         </div>
@@ -56,6 +55,11 @@
                             <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
                         </div>
                     </div>
+                    <button type="button" id="pruebe">aber</button>
+                    <div class="row">
+                        <div id="Rol">
+                        </div>
+                    </div>
                     <asp:Panel ID="pUser" runat="server">
 
                         <div class="row">
@@ -65,9 +69,9 @@
 
                                 <label class="switch"
                                     data-bs-toggle="tooltip"
-                                        data-bs-placement="top"
-                                        title="Activar o desactivar">
-                                    <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged"/>
+                                    data-bs-placement="top"
+                                    title="Activar o desactivar">
+                                    <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
                                     <span class="slider round"></span>
                                 </label>
 
@@ -133,7 +137,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnAC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal"  title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva" style="margin-left:1px;"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva" style="margin-left: 1px;"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -166,7 +170,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnRFC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal"  title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload" style="margin-left:1px;"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload" style="margin-left: 1px;"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -200,7 +204,7 @@
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnClick"><i class="bi bi-check-lg"></i></asp:LinkButton>
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -235,7 +239,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCNAP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -270,7 +274,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCompDom_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -303,7 +307,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnIRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -338,7 +342,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnPRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -373,7 +377,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnCTPAT_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -406,7 +410,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnOEA_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -439,7 +443,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnOP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>
@@ -472,7 +476,7 @@
                                         data-bs-placement="top"
                                         title="Aprovar" OnClick="btnF43_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                       <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left:1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
 
                                 </asp:TableCell>
                             </asp:TableRow>

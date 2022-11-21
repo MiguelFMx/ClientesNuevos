@@ -39,7 +39,11 @@ $(document).ready(function () {
     $('#btnPrueba').click(function () {
         guardarDocumento(tipo);
     });
-   
+
+
+    $('#pruebe').click(function () {
+        ObtenerRoles();
+    });
 });
 
 function limpiar() {
@@ -98,7 +102,16 @@ function ObtenerRoles() {
     let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('id')) {
         rfc = searchParams.get('id');
+        //ObtenerRoles_Especifico
+        GetAjax("../usuarios/wsUsuarios.asmx/ObtenerRoles_Especifico", "'id':'" + rfc + "'", false, function (lista) {
+            if (lista.length > 0) {
+                $('#Rol').empty();
 
+                for (var i = 0; i < lista.length; i++) {
+                    console.log(lista[i].Rol);
+                }
+            }
+        });
     }
 }
 

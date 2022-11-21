@@ -149,12 +149,7 @@ namespace ClientesNuevos.admin
         }
 
 
-        //public class
-        //[WebMethod]
-        //public List<RolUsuario> Obtener_Rol()
-        //{
 
-        //}
 
     }
 }
