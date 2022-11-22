@@ -24,6 +24,15 @@ namespace ClientesNuevos.admin
         protected global::System.Web.UI.WebControls.Label lblActivos;
 
         /// <summary>
+        /// Control hlClientesA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlClientesA;
+
+        /// <summary>
         /// Control lblInactivos.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ClientesNuevos.admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInactivos;
+
+        /// <summary>
+        /// Control hlClientesI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlClientesI;
 
         /// <summary>
         /// Control lblOP.
@@ -42,13 +60,13 @@ namespace ClientesNuevos.admin
         protected global::System.Web.UI.WebControls.Label lblOP;
 
         /// <summary>
-        /// Control btnDetSin.
+        /// Control hlActOP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDetSin;
+        protected global::System.Web.UI.WebControls.HyperLink hlActOP;
 
         /// <summary>
         /// Control lblSinOP.
@@ -60,12 +78,12 @@ namespace ClientesNuevos.admin
         protected global::System.Web.UI.WebControls.Label lblSinOP;
 
         /// <summary>
-        /// Control btnDet.
+        /// Control hlSinOP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDet;
+        protected global::System.Web.UI.WebControls.HyperLink hlSinOP;
     }
 }

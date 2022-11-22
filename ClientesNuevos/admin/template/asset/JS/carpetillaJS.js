@@ -112,6 +112,7 @@ function ObtenerRoles() {
                     empresa = lista[i].Dominio;
                     dominio = lista[i].Subdominio;
                     console.log(empresa + '.' + dominio + ':' + rol);
+                   
                     $('#Rol').append(
                         "<label>Clasificacion:</label>" +
                         "<br>" +
@@ -122,15 +123,17 @@ function ObtenerRoles() {
                 $('#Rol').append('<label>Este cliente/proveedor no cuenta con un rol asignado</label>');
             }
         });
+        //======================================================== Tipo de regimen
         var regimen = $('#MainContent_hfRegimen').val();
         var etiqueta;
         switch (regimen) {
-            case '0': //moral
-                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona moral</a></span></h6>";
+                   // <asp:HyperLink ID="hlClientesA" NavigateUrl="~/admin/consulta/consulta.aspx?type=3" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+            case '0': //fisica 
+        etiqueta = "<h6><span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=0' class='text-white'>persona fisica</a></span></h6>";
 
                 break;
-            case '1'://fisico
-                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona fisica</a></span></h6>";
+            case '1'://moral
+                etiqueta = "<h6><span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=1' class='text-white'>persona moral</a></span></h6>";
                 break;
             case '2'://extranjero
                 etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona extranjera</a></span></h6>";

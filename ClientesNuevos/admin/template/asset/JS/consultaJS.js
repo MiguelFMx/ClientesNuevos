@@ -12,13 +12,13 @@
             case "0":
                 //Moral
                 cargarTabla_regimen('0');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona moral");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona fisico");
 
                 break;
             case "1":
                 //fisico
                 cargarTabla_regimen('1');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona fisico");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona moral");
 
                 break;
             case "2":
@@ -37,6 +37,14 @@
                 //inactivos
                 cargarTabla_Estatus('inactivo');
                 $('#MainContent_lblTipo').html("Clientes/Proveedores inactivos");
+                break;
+            case '5':
+                SinOpinionPositiva('actualizar');
+                $('#MainContent_lblTipo').html("Clientes/Proveedores que no han actualizado *Opinion Positiva*");
+                break;
+            case '6':
+                SinOpinionPositiva('sinop');
+                $('#MainContent_lblTipo').html("Clientes/Proveedores que no han entregado *Opinion Positiva*");
                 break;
             default:
                 break;
@@ -100,16 +108,83 @@ function cargarTabla_Estatus(status) {
     });  
 }
 
-//Obtener_tipoRegimen(string regimen)
-/*
- SELECT C.ID_compania, C.Nombre_comercial, C.Estatus, D.Documento, D.Estatus, D.Fecha_creacion 
-FROM
-Table_compania AS C
-INNER JOIN 
-Table_Documentos AS D
-ON 
-C.RFC = D.ID_compania
-WHERE D.Documento = 'Opinion positiva'*/
+function SinOpinionPositiva(op) {
+    var tHead = $('#tConsulta thead');
+    var tBody = $('#tConsulta tbody');
+    let tipo;
+    let status;
+    tHead.append(
+        "<tr>" +
+        "<th>RFC</th>" +
+        "<th>Nombre</th>" +
+        "<th>Documento</th>" +
+        "<th>Status documento</th>" +
+        "<th>Ultima actualizacion</th>" +
+        "<th>Acciones</th>" +
+        "</tr>"
+    );
+
+    GetAjax("wsConsultas.asmx/Obtener_OP", "", false, function (lista) {
+        tBody.empty();
+        console.log(lista);
+        if (lista.length > 0) {
+            for (var i = 0; i < lista.length; i++) {                
+
+                //Estatus del documento
+                var estadodoc = lista[i].Status_doc;
+                switch (estadodoc) {
+                    case '100%':
+                        status = '<span class="etiqueta">Entregado</span>';
+                        break;
+                    case 'revision':
+                        status = '<span class="etiqueta revision">revision</span>';
+                        break;
+                    case 'act':
+                        status = '<span class="etiqueta actualizar">Actualizar</span>';
+                        break;
+                    case 'updated':
+                        status = '<span class="etiqueta updated">Actulizado</span>';
+                        break;
+                    default:
+                        //Sin OP
+                        status = '<span class="etiqueta pendiente">Pendiente</span>';
+                        break;
+                }
+                if (op == 'actualizar') {
+                    if (estadodoc != 'pendiente') {
+                        tBody.append(
+                            "<tr>" +
+                            "<td>" + lista[i].ID_compania + "</td>" +
+                            "<td><a>" + lista[i].Nombre_comp + "</a><br/><small  style='color:#73879C;'>" + lista[i].Nombre_comercial + "</small></td>" +
+                            "<td>" + lista[i].Documento + "</td>" +
+                            "<td>" + status + "</td>" +
+                            "<td>" + lista[i].Fecha_creacion + "</td>" +
+                            "<td><a href='../carpetilla/carpetilla.aspx?id=" + lista[i].ID_compania + "&type=" + tipo + "' class='btn btn-secondary btn-sm'>View</a></td>" +
+                            "</tr>"
+                        );
+                    }
+                } else {
+                    if (estadodoc == 'pendiente') {
+                        tBody.append(
+                            "<tr>" +
+                            "<td>" + lista[i].ID_compania + "</td>" +
+                            "<td><a>" + lista[i].Nombre_comp + "</a><br/><small  style='color:#73879C;'>" + lista[i].Nombre_comercial + "</small></td>" +
+                            "<td>" + lista[i].Documento + "</td>" +
+                            "<td>" + status + "</td>" +
+                            "<td>" + lista[i].Fecha_creacion + "</td>" +
+                            "<td><a href='../carpetilla/carpetilla.aspx?id=" + lista[i].ID_compania + "&type=" + tipo + "' class='btn btn-secondary btn-sm'>View</a></td>" +
+                            "</tr>"
+                        );
+                    }
+                }
+            }
+        } else {
+            tBody.append("<tr><td colspan='5'>No hay datos<td></tr>");
+        }
+
+    });
+}
+
 function cargarTabla_regimen(regimen) {
     var tHead = $('#tConsulta thead');
     var tBody = $('#tConsulta tbody');

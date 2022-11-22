@@ -28,6 +28,7 @@
             font-size: 33px;
             color: white;
         }
+
         .icon-shape2 {
             width: 38px;
             height: 38px;
@@ -44,6 +45,7 @@
         .bg-gradient-danger {
             background-image: linear-gradient(310deg,#ff0000,#fb4b4b);
         }
+
         .bg-gradient-warning {
             background-image: linear-gradient(310deg,#afc110,#fbf74b);
         }
@@ -54,14 +56,14 @@
 
     <div class="row">
         <!--Clientes activos -->
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card rounded-4 shadow h-100">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
                             <div class="number">
                                 <p class="text-sm-right mb-0 text-uppercase font-weight-bold">
-                                    Clientes activos
+                                    Clientes/Proveedores activos
                                 </p>
                                 <br />
                                 <h5 class="font-weight-bolder">
@@ -76,18 +78,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <asp:HyperLink ID="hlClientesA" NavigateUrl="~/admin/consulta/consulta.aspx?type=3" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                </div>
             </div>
         </div>
         <!--Clientes inactivos -->
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card rounded-4 shadow">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
                             <div class="number">
                                 <p class="text-sm-right mb-0 text-uppercase font-weight-bold">
-                                    Clientes inactivos
+                                    Clientes/proveedores inactivos
                                 </p>
+                                <br />
                                 <h5 class="font-weight-bolder">
                                     <asp:Label ID="lblInactivos" runat="server" Text="0"></asp:Label>
                                 </h5>
@@ -99,6 +105,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <asp:HyperLink ID="hlClientesI" NavigateUrl="~/admin/consulta/consulta.aspx?type=4" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
                 </div>
             </div>
         </div>
@@ -132,7 +141,8 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
-                                    <asp:Button ID="btnDetSin" runat="server" Text="Detalles" CssClass="btn btn-secondary btn-sm" />
+                                    <asp:HyperLink ID="hlActOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=5" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                                    <%--<asp:Button ID="btnDetSin" runat="server" Text="Detalles" CssClass="btn btn-secondary btn-sm" />--%>
                                 </div>
                             </div>
                         </div>
@@ -155,13 +165,14 @@
                                         </div>
                                         <div class="col-4 d-flex justify-content-end">
                                             <div class="icon icon-shape2 bg-gradient-danger text-center rounded-circle ">
-                                               <i class="bi bi-file-earmark-excel"></i>
+                                                <i class="bi bi-file-earmark-excel"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
-                                    <asp:Button ID="btnDet" runat="server" Text="Detalles" CssClass="btn btn-secondary btn-sm" />
+                                    <asp:HyperLink ID="hlSinOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=6" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+
                                 </div>
                             </div>
                         </div>
