@@ -55,11 +55,7 @@
                             <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
                         </div>
                     </div>
-                    <button type="button" id="pruebe">aber</button>
-                    <div class="row">
-                        <div id="Rol">
-                        </div>
-                    </div>
+                    
                     <asp:Panel ID="pUser" runat="server">
 
                         <div class="row">
@@ -84,8 +80,14 @@
                             <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
                         </div>
                     </asp:Panel>
-
-
+                    <br />
+                    <div class="row">
+                        <div id="Rol">
+                        </div>
+                        <div id="Regimen">
+                            <asp:HiddenField ID="hfRegimen" runat="server" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

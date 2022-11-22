@@ -40,10 +40,7 @@ $(document).ready(function () {
         guardarDocumento(tipo);
     });
 
-
-    $('#pruebe').click(function () {
         ObtenerRoles();
-    });
 });
 
 function limpiar() {
@@ -99,6 +96,9 @@ function guardarDocumento(tipo) {
 
 function ObtenerRoles() {
     let rfc;
+    let rol;
+    let dominio;
+    let empresa;
     let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('id')) {
         rfc = searchParams.get('id');
@@ -108,10 +108,37 @@ function ObtenerRoles() {
                 $('#Rol').empty();
 
                 for (var i = 0; i < lista.length; i++) {
-                    console.log(lista[i].Rol);
+                    rol = lista[i].Rol;
+                    empresa = lista[i].Dominio;
+                    dominio = lista[i].Subdominio;
+                    console.log(empresa + '.' + dominio + ':' + rol);
+                    $('#Rol').append(
+                        "<label>Clasificacion:</label>" +
+                        "<br>" +
+                        "<h5><span class='badge text-bg-info text-white'>" + empresa + "." + dominio + ": <a href='#' class='text-white'>" + rol +"</a></span></h5>"
+                    );
                 }
+            } else {
+                $('#Rol').append('<label>Este cliente/proveedor no cuenta con un rol asignado</label>');
             }
         });
+        var regimen = $('#MainContent_hfRegimen').val();
+        var etiqueta;
+        switch (regimen) {
+            case '0': //moral
+                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona moral</a></span></h6>";
+
+                break;
+            case '1'://fisico
+                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona fisica</a></span></h6>";
+                break;
+            case '2'://extranjero
+                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona extranjera</a></span></h6>";
+                break;
+        }
+        $('#Regimen').append(
+            etiqueta
+        );
     }
 }
 

@@ -108,11 +108,14 @@
   <ItemGroup>
     <Content Include="admin\carpetilla\carpetilla.aspx" />
     <Content Include="admin\configuracion\configuracion.aspx" />
+    <Content Include="admin\consulta\wsConsultas.asmx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\index_admin.js" />
     <Content Include="admin\Reportes.aspx" />
+    <Content Include="admin\consulta\consulta.aspx" />
     <Content Include="admin\template\asset\css\estilo.css" />
     <Content Include="admin\template\asset\JS\carpetillaJS.js" />
+    <Content Include="admin\template\asset\JS\consultaJS.js" />
     <Content Include="admin\template\asset\JS\lstUsuarios.js" />
     <Content Include="admin\template\asset\JS\TemplateJS.js" />
     <Content Include="admin\template\asset\JS\usuariosJS.js" />
@@ -1858,6 +1861,10 @@
     <Compile Include="admin\configuracion\configuracion.aspx.designer.cs">
       <DependentUpon>configuracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\consulta\wsConsultas.asmx.cs">
+      <DependentUpon>wsConsultas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1871,6 +1878,13 @@
     </Compile>
     <Compile Include="admin\Reportes.aspx.designer.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\consulta\consulta.aspx.cs">
+      <DependentUpon>consulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\consulta\consulta.aspx.designer.cs">
+      <DependentUpon>consulta.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\usuarios\EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>

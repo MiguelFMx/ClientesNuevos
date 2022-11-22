@@ -38,12 +38,13 @@ namespace ClientesNuevos.admin.carpetilla
                     data = Obtener_inf(Request.QueryString["id"].ToString());
                     if (data.Rows.Count > 0)
                     {
-                    //Muestro el nombre comercial en el encabezado de card de carpetilla
-                    lblCompania.Text += " " + data.Rows[0]["Nombre_comercial"].ToString();
+                        //Muestro el nombre comercial en el encabezado de card de carpetilla
+                        lblCompania.Text += " " + data.Rows[0]["Nombre_comercial"].ToString();
 
-                    id_comp = Request.QueryString["id"].ToString();
-                    id_user = data.Rows[0]["ID_user"].ToString();
+                        id_comp = Request.QueryString["id"].ToString();
+                        id_user = data.Rows[0]["ID_user"].ToString();
 
+                        hfRegimen.Value = data.Rows[0]["Tipo_persona"].ToString();
                     //Nombre completo
                     lblNombreComp.Text = data.Rows[0]["Nombre_comp"].ToString();
 
