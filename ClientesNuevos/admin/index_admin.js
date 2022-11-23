@@ -22,9 +22,9 @@ function GetData() {
         let estado = "";
         table.empty();
         for (var i = 0; i < result.length; i++) {
-            if (result[i].Tipo_persona == '1') {
+            if (result[i].Tipo_persona == '0') {
                 tipo = "moral";
-            } else if (result[i].Tipo_persona == '0') {
+            } else if (result[i].Tipo_persona == '1') {
                 tipo = "fisica";
             } else {
                 tipo = "extranjero";

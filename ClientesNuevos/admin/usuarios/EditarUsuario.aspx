@@ -93,6 +93,12 @@
             </div>
         </div>
     </div>
+     <div class="row">
+        <div class="col">
+        <a href="../usuarios/Lista_usuarios.aspx" class="btn btn-secondary mb-3 d-flex" style="position: fixed; bottom: 3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
+            <asp:HyperLink ID="hlLista" runat="server" CssClass="btn btn-sm btn-secondary" NavigateUrl="~/admin/usuarios/Lista_usuarios.aspx">Regresar</asp:HyperLink>
+        </div>
+    </div>
 
 
 </asp:Content>

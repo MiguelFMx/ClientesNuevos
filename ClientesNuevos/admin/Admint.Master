@@ -136,6 +136,9 @@
     <script src="template/asset/JS/TemplateJS.js"></script>
 
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+
+
+
     </asp:ContentPlaceHolder>
 </body>
 </html>

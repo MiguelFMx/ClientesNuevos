@@ -528,6 +528,7 @@
                     </asp:LinkButton>
 
                 </asp:Panel>
+                <asp:Label ID="lblAct" runat="server" Text=""></asp:Label>
                 <%-- ========================= Botonones de administrador: solo visibles si eres admin =========== --%>
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
                     <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"

@@ -536,14 +536,15 @@ namespace ClientesNuevos.F14.Seccioness
                 try
                 {
                     RegistrarInfo();
-                    DeshabilitarLinks();
                     Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
                 }
                 catch (Exception ex)
                 {
-
-                    throw ex;
                 }
+            }else if (Request.QueryString["rfc"] != null)
+            {
+                RegistrarInfo();
+
             }
         }
 
@@ -557,14 +558,26 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["accion"] != null)
+            try
+            {
+                if (Request.QueryString["accion"] != null)
+                {
+                    Response.Redirect("../../admin/index.aspx");
+
+
+                }
+                else
+                {
+                    if (Request.QueryString["rfc"] != null)
+                    {
+                        Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"].ToString() + "&type=" + Request.Cookies["tipo"].Value, false);
+
+                    }
+                }
+            }
+            catch (Exception)
             {
                 Response.Redirect("../../admin/index.aspx");
-
-            }
-            else
-            {
-                Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"].ToString() + "&type=" + Request.Cookies["tipo"].Value);
 
             }
 
