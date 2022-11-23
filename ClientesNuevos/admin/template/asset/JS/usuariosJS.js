@@ -18,27 +18,31 @@ $(document).ready(function () {
             "'ID_rol':'" + rol.val() + "'," +
             "'id':''",
             false, function (table) {
-
                 console.log(table + " registrado");
+
+                $('#lblResultado').text(table);
+
+                ObtenerRoles(RFC);
         });
 
         
     });
 
     $('#test').click(function () {
-        //let idRfc = $('#MainContent_txtRFC').val();
-        ObtenerRoles();
+        let idRfc = $('#MainContent_txtRFC').val();
+        ObtenerRoles(idRfc);
     });
 
 
     $(document).on('click', '#remove', function () {        
        let id =  $(this).parent().closest("tr").find('td:first').text();
-        alert(id);
+        let rfc = $(this).parent().closest("tr").find('.rfc').text();
+        //alert(id+","+rfc);
         //Borrar_Rol find('td:first')
-        //GetAjax("../usuarios/wsUsuarios.asmx/Borrar_Rol", "", false, function () {
-        //    $(this).parent().closest("tr").remove();
-
-        //});
+        GetAjax("../usuarios/wsUsuarios.asmx/Borrar_Rol", "'id':'" + id + "'", false, function (result) {
+            ObtenerRoles(rfc);
+            console.log(result);
+        });
     });
 
 });
@@ -48,19 +52,19 @@ function ObtenerRoles(RFC) {
     let tabla = $('#MainContent_myTable tbody');
 
     GetAjax("../usuarios/wsUsuarios.asmx/Obtener_roles_user",
-        "'id':'XAXX010101088'",
+        "'id':'"+RFC+"'",
         false, function (table) {
-
+            tabla.empty();
             if (table.length > 0) {
                 for (var i = 0; i < table.length; i++) {
                     tabla.append(
                         "<tr>" +
                         "<td hidden>" + table[i].Id + "</td>" +
-                        "<td>" + table[i].RFC + "</td>" +
+                        "<td class='rfc'>" + table[i].RFC + "</td>" +
                         "<td>" + table[i].Subdominio + "</td>" +
                         "<td>" + table[i].Rol + "</td>" +
 
-                        "<td><button name='remove' id='remove' class='btn btn-danger btn-sm rounded-5'><i class='bi bi-x'></i></button></td>" +
+                        "<td><button name='remove' id='remove' type='button' class='btn btn-danger btn-sm rounded-5'><i class='bi bi-x'></i></button></td>" +
                         "</tr>"
                     );
                 }

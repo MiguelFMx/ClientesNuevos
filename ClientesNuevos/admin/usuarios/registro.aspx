@@ -21,19 +21,22 @@
                         <%-- RFC --%>
                         <div class="pb-4">
                             <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control" autocomplete="username"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  ControlToValidate="txtRFC" runat="server" ErrorMessage="*Llene este campo" ValidationGroup="registro"></asp:RequiredFieldValidator>
                         </div>
                         <%-- Pass --%>
                         <div class="pb-4">
                             <asp:Label ID="lblPass" runat="server" Text="Contraseña:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password" autocomplete="current-password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2"  ControlToValidate="txtPass" runat="server" ErrorMessage="*Llene este campo" ValidationGroup="registro"></asp:RequiredFieldValidator>
+
                         </div>
                         
                         <%-- Boton --%>
                         <div class="text-center">
                             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                             <br />
-                            <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4" OnClick="btnAddUser_Click" />
+                            <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4" OnClick="btnAddUser_Click" ValidationGroup="registro" />
                             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
                             <button id="test" type="button">picame</button>
                         </div>
@@ -59,9 +62,10 @@
                                 <asp:DropDownList ID="ddRol" runat="server" CssClass="form-select"></asp:DropDownList>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success"  OnClientClick="return false;" />
+                                <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success" CausesValidation="false" OnClientClick="return false;" />
                             </div>
                         </div>
+                        <label id="lblResultado"></label>
                     </div>
                     <div class="px-4">
                         <div class="table-responsive">

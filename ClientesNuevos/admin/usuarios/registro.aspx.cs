@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
 using System.Web;
@@ -75,17 +76,31 @@ namespace ClientesNuevos.admin.usuarios
         {
             string connection = clsHerramientaBD.VerificarConexion(clsHerramientaBD.strConnAdmon);
             string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+            DataTable dt;
             string registro = "";
             if (connection == "true")
             {
-                registro = clsHerramientaBD.ExecuteSql("INSERT INTO Usuarios ([RFC], [Password], [Fecha_registro], [status]) VALUES ('" + RFC + "','" + pass + "','" + fecha + "','activo')", clsHerramientaBD.strConnAdmon);
-                if (registro == "")
+                dt = clsHerramientaBD.Existe("SELECT * FROM [Usuarios] WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+                if(dt.Rows.Count > 0)
                 {
-                    lblError.Text = "Usuario registrado";
+                    registro = "Ya existe un usuario registrado con ese RFC";
                 }
                 else
                 {
-                    lblError.Text = registro;
+                    registro = clsHerramientaBD.ExecuteSql("INSERT INTO Usuarios ([RFC], [Password], [Fecha_registro], [status]) VALUES ('" + RFC + "','" + pass + "','" + fecha + "','activo')", clsHerramientaBD.strConnAdmon);
+                }
+                if (registro == "")
+                {
+                    lblError.Text = "Usuario registrado";
+                    lblError.ForeColor = Color.DarkGreen;
+                    Panel_roles.Enabled = true;
+                    txtRFC.Enabled = false;
+                    ddEmpresa.Enabled = false;
+                }
+                else
+                {
+                    lblError.Text = "Error: "+registro;
+                    lblError.ForeColor = Color.Red;
                 }
             }
             else
@@ -101,9 +116,7 @@ namespace ClientesNuevos.admin.usuarios
             {
                 RegistrarUsuario(txtRFC.Text, txtPass.Text);
 
-                Panel_roles.Enabled = true;
-                txtRFC.Enabled = false;
-                ddEmpresa.Enabled = false;
+               
             }
             catch (Exception)
             {

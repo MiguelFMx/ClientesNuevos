@@ -11,19 +11,26 @@
                     <div class="col">
                         <asp:HiddenField ID="hfID" runat="server" />
                         <asp:Label ID="lblRFC" runat="server" Text="RFC/W9:" CssClass="form-label"></asp:Label>
-                        <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control"></asp:TextBox>                        
+                        <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control"></asp:TextBox>
 
                         <br />
                         <asp:Label ID="lblFecha" runat="server" Text="Registrado el "></asp:Label>
                     </div>
                     <div class="col d-flex justify-content-end mt-4">
-
                         <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
                         <label class="switch">
                             <asp:CheckBox ID="chkEstatus" runat="server" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
                             <span class="slider round"></span>
                         </label>
                         <asp:Label ID="lblEstado" runat="server" Text="---" CssClass="form-label mt-1 ms-2"></asp:Label>
+
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class=" d-flex justify-content-end">
+                    <asp:Label ID="lblNewStatus" Text="text" runat="server" />
                     </div>
                 </div>
             </div>
@@ -47,8 +54,12 @@
                             <asp:DropDownList ID="ddRol" runat="server" CssClass="form-select"></asp:DropDownList>
                         </div>
                         <div class="form-group">
-                            <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary btn-sm"><i class="bi bi-plus-circle"></i> Registrar rol</asp:LinkButton>
+                            <asp:Label ID="lblRolNew" runat="server" Text=""></asp:Label>
                         </div>
+                        <div class="form-group">
+                            <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary btn-sm" OnClick="btnAdd_Click"><i class="bi bi-plus-circle"></i> Registrar rol</asp:LinkButton>
+                        </div>
+
                     </div>
                     <div class="col">
                         <div class="card">
@@ -68,13 +79,15 @@
                                         <asp:BoundField DataField="Subdominio" HeaderText="Subdominio"></asp:BoundField>
                                         <asp:TemplateField HeaderText="Accion">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" CssClass="btn btn-danger btn-sm" runat="server"><i class="bi bi-trash"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning btn-sm text-white" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" CssClass="btn btn-danger btn-sm" runat="server" OnClick="btnDel_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
                         </div>
+                        <asp:Label ID="lblRolEdit" runat="server" Text=""></asp:Label>
+
                     </div>
                 </div>
             </div>

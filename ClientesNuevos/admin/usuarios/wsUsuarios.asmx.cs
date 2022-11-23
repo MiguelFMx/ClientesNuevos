@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.WebSockets;
 
 namespace ClientesNuevos.admin.usuarios
 {
@@ -32,6 +33,10 @@ namespace ClientesNuevos.admin.usuarios
 
             SqlConnection con = new SqlConnection(sqlCon);
             DataTable dt = new DataTable();
+            DataTable detalles = new DataTable();
+
+            detalles = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE RFC='"+rfc+"' AND subdominio ='"+subdom+"' AND ID_Empresa='"+ID_empresa+"'",clsHerramientaBD.strConnAdmon);
+
             if(id != "")
             {
                 dt = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE Id='" + id + "'", sqlCon);
@@ -57,6 +62,10 @@ namespace ClientesNuevos.admin.usuarios
                 }
                 else
                 {
+                    if (detalles.Rows.Count > 0)
+                    {
+                        return "Un usuario no puede contar con mas de un rol en el mismo subdominio";
+                    }
                     cmd.Parameters.AddWithValue("@accion", "insert");
 
                 }
@@ -138,7 +147,7 @@ namespace ClientesNuevos.admin.usuarios
         public string Borrar_Rol(string id)
         {
             string res = "";
-            res = clsHerramientaBD.ExecuteSql("DELETE FROM user_detalles WHERE Id = '" + id + "'");            
+            res = clsHerramientaBD.ExecuteSql("DELETE FROM user_detalles WHERE Id = '" + id + "'", clsHerramientaBD.strConnAdmon);            
 
             return res;
         }

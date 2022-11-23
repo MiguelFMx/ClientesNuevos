@@ -41,6 +41,13 @@ namespace ClientesNuevos.admin.consulta
             public string Estatus { get; set; }
         }
 
+        public class Roles : Registros
+        {
+            public string Rol { get; set; }
+            public string Dominio { get; set; }
+
+        }
+
         [WebMethod]
         public List<Registros> Obtener_registros(string status)
         {
@@ -63,10 +70,7 @@ namespace ClientesNuevos.admin.consulta
                     registros.Add(objR);    
                 }
             }
-
-
             return registros;
-
         }
 
 
@@ -156,5 +160,95 @@ namespace ClientesNuevos.admin.consulta
 
             return lstOP;
         }
+
+
+
+        [WebMethod]
+        public List<Roles> Obtener_Clientes()
+        {
+            Roles objRol;
+            List<Roles> lstRol = new List<Roles>();
+            DataTable dtComp = new DataTable();
+            DataTable dtRoles = new DataTable();
+            int cliente = 0;
+            int proveedor = 0;
+            int sinRol = 0;
+
+            string subdominio, dominio, rol;
+            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
+            if (dtComp.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtComp.Rows.Count; i++)
+                {
+                    string id = dtComp.Rows[i]["RFC"].ToString();
+                    dtRoles = clsHerramientaBD.Existe("exec Master_UserRols @RFC='"+id+"',@accion='GetRolEspecifico'",clsHerramientaBD.strConnAdmon);
+                    if (dtRoles.Rows.Count > 0)
+                    {
+                        if(dtRoles.Rows.Count == 1)
+                        {
+                            subdominio = dtRoles.Rows[0]["subdominio"].ToString();
+                            dominio = dtRoles.Rows[0]["Nombre"].ToString();
+                            rol = dtRoles.Rows[0]["Rol"].ToString();
+                            if (rol == "proveedor" )
+                            {
+                                proveedor++;
+                                objRol = new Roles
+                                {
+                                    ID_compania = id,
+                                    Nombre_comp = dtComp.Rows[i]["RFC"].ToString(),
+                                    Nombre_comercial = dtComp.Rows[i]["RFC"].ToString(),
+                                    Rol = rol,
+                                    Dominio = dominio
+                                };
+                            }
+                            else if(rol== "cliente")
+                            {
+                                cliente++;
+
+                            }
+
+                        } 
+
+                        //if (fecha != mes)
+                        //{
+                        //    //CLiente
+                        //    objOP = new OpinionPositiva
+                        //    {
+                        //        ID_compania = id,
+                        //        Nombre_comp = dtComp.Rows[i]["Nombre_comp"].ToString(),
+                        //        Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
+                        //        Documento = dtDoc.Rows[0]["Documento"].ToString(),
+                        //        Fecha_creacion = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 10),
+                        //        Status_doc = dtDoc.Rows[0]["Estatus"].ToString()
+                        //    };
+                        //    lstRol.Add(objRol);
+                        //    //proveedor
+                        //}else if ()
+                        //{
+
+                        //}
+                    }
+                    else
+                    {
+                        //Sin rol asignado,es decir sin registro
+                        //sinRol++;
+                        //objRol = new OpinionPositiva
+                        //{
+                        //    ID_compania = id,
+                        //    Nombre_comp = dtComp.Rows[i]["Nombre_comp"].ToString(),
+                        //    Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
+                        //    Documento = "Opinion positiva",
+                        //    Fecha_creacion = "--/--/----",
+                        //    Status_doc = "pendiente"
+                        //};
+                        //lstOP.Add(objRol);
+
+                    }
+
+                }
+            }
+            return lstRol;
+        }
+
     }
 }

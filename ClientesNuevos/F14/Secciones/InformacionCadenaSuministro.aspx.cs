@@ -415,7 +415,7 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["rfc"] != null)
             {
-                Response.Redirect("~/F43/MapeoFlujo.aspx?rfc=" + Request.QueryString["rfc"]);
+                Response.Redirect("~/admin/MapeoFlujo.aspx?rfc=" + Request.QueryString["rfc"]);
 
             }
             else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)

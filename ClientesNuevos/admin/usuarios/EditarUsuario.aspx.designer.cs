@@ -78,6 +78,15 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.Label lblEstado;
 
         /// <summary>
+        /// Control lblNewStatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewStatus;
+
+        /// <summary>
         /// Control hfIDRol.
         /// </summary>
         /// <remarks>
@@ -141,6 +150,15 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.DropDownList ddRol;
 
         /// <summary>
+        /// Control lblRolNew.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRolNew;
+
+        /// <summary>
         /// Control btnAdd.
         /// </summary>
         /// <remarks>
@@ -157,5 +175,14 @@ namespace ClientesNuevos.admin.usuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvRoles;
+
+        /// <summary>
+        /// Control lblRolEdit.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRolEdit;
     }
 }

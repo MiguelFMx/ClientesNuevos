@@ -12,13 +12,13 @@
             case "0":
                 //Moral
                 cargarTabla_regimen('0');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona fisico");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona fisica");
 
                 break;
             case "1":
                 //fisico
                 cargarTabla_regimen('1');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores de regimen fiscal de persona moral");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona moral");
 
                 break;
             case "2":

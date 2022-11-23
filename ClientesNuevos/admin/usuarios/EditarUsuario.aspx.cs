@@ -56,7 +56,7 @@ namespace ClientesNuevos.admin.usuarios
         private void BindDataU()
         {
             //getroles
-            DataTable dt = clsHerramientaBD.Existe("exec [Master_UserRols] @RFC='" + infoUser.Rows[0]["RFC"].ToString() + "',@accion='getroles'", clsHerramientaBD.strConnAdmon);
+            DataTable dt = clsHerramientaBD.Existe("exec [Master_UserRols] @RFC='" + txtRFC.Text + "',@accion='getroles'", clsHerramientaBD.strConnAdmon);
             gvRoles.DataSource =dt;
             gvRoles.DataBind();
         }
@@ -66,12 +66,39 @@ namespace ClientesNuevos.admin.usuarios
             if (chkEstatus.Checked){
                 lblEstado.Text = "Activo";
                 lblEstado.ForeColor = Color.FromArgb(65, 184, 39);
+
+                if(txtRFC.Text != "")
+                {
+                    string res = clsHerramientaBD.ExecuteSql("UPDATE Usuarios SET status='activo' WHERE Id='"+hfID.Value+"'",clsHerramientaBD.strConnAdmon);
+
+                    if (res == "")
+                    {
+                        lblNewStatus.Text = "Se ha activado este usuario";
+                    }
+                    else
+                    {
+                        lblNewStatus.Text = res;
+                    }
+                }
+
             }
             else
             {
                 lblEstado.Text = "Inactivo";
                 lblEstado.ForeColor = Color.FromArgb(176, 11, 11);
+                if (txtRFC.Text != "")
+                {
+                    string res = clsHerramientaBD.ExecuteSql("UPDATE Usuarios SET status='inactivo' WHERE Id='"+hfID.Value+"'", clsHerramientaBD.strConnAdmon);
 
+                    if (res == "")
+                    {
+                        lblNewStatus.Text = "Se ha desactivado este usuario";
+                    }
+                    else
+                    {
+                        lblNewStatus.Text = res;
+                    }
+                }
             }
         }
 
@@ -123,6 +150,51 @@ namespace ClientesNuevos.admin.usuarios
                     ddSubdom.Items.Add(new ListItem(row["subdominio"].ToString(), row["Id"].ToString()));
                 }
             }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnDel_Click(object sender, EventArgs e)
+        {
+            int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
+
+            string Id = gvRoles.Rows[rowIndex].Cells[0].Text;
+            string resultado = "";
+
+
+            resultado = clsHerramientaBD.ExecuteSql("DELETE FROM user_detalles WHERE Id='"+Id+"'", clsHerramientaBD.strConnAdmon);
+            if(resultado == "")
+            {
+                lblRolEdit.Text = "Rol eliminado";
+            }
+            else
+            {
+                lblRolEdit.Text = resultado;
+            }
+
+            BindDataU();
+            //txtRol.Text = "";
+            //hfRol.Value = "";
+            //BindData_roles();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            string res, rfc, dominio, subdominio, rol;
+            rfc = txtRFC.Text;
+            dominio = ddDominio.SelectedValue;
+            subdominio = ddSubdom.SelectedValue;
+            rol = ddRol.SelectedValue;
+
+            wsUsuarios wsUsuarios = new wsUsuarios();
+            res = wsUsuarios.Registrar_rol(rfc, subdominio, rol, dominio, "");
+
+            lblRolNew.Text = res;
+
+            BindDataU();
         }
     }
 }
