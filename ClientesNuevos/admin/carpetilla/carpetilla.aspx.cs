@@ -572,6 +572,38 @@ namespace ClientesNuevos.admin.carpetilla
 
                         txtF16.Text = fila["Ruta"].ToString();
                     }
+
+                    //====================Acta constitutiva====================
+                    if (fila["Documento"].ToString() == "Acta constitutiva")
+                    {
+                        if (fila["Estatus"].ToString() == "100%")
+                        {
+                            lblAC_estatus.Text = "completado";
+                            lblAC_estatus.CssClass = "etiqueta";
+                        }
+                        else if (fila["Estatus"].ToString() == "revision")
+                        {
+                            lblAC_estatus.Text = "revision";
+                            lblAC_estatus.CssClass = "etiqueta revision";
+                        }
+                        else if (fila["Estatus"].ToString() == "act")
+                        {
+                            lblAC_estatus.Text = "actualizar";
+                            lblAC_estatus.CssClass = "etiqueta actualizar";
+                        }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblAC_estatus.Text = "actualizado";
+                            lblAC_estatus.CssClass = "etiqueta updated";
+                        }
+                        else
+                        {
+                            lblAC_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
+                        }
+                        lblAC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+
+                        txtAC.Text = fila["Ruta"].ToString();
+                    }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)
                     {
