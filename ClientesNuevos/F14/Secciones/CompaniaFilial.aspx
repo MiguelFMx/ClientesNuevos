@@ -283,7 +283,7 @@
                                 <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
                                 <asp:TemplateField HeaderText="Acciones">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click"><i class="bi bi-trash-fill"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click" CausesValidation="false"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click" CausesValidation="false"><i class="bi bi-trash-fill"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

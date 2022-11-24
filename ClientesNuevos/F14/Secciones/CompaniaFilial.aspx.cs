@@ -261,7 +261,7 @@ namespace ClientesNuevos.F14.Seccioness
         private void Limpiar()
         {
             txtNombrComFilial.Text="";
-            txtNombrComFilial.Text="";
+            txtNombreCompaniaFilial.Text="";
             txtRfcComFilial.Text="";
             txtDirecFiscalComFilial.Text="";
             txtCPComFIlial.Text="";

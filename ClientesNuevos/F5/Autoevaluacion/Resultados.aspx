@@ -576,6 +576,7 @@
     </div>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
+    <script src="../../Scripts/printThis.js"></script>
     <script src="Calculos.js"></script>
 
     <script type="text/javascript">
@@ -595,6 +596,7 @@
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
+    <script src="../../Scripts/printThis.js"></script>
 
     <script src="../../Scripts/chart.min.js"></script>
 </asp:Content>

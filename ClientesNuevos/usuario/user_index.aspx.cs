@@ -799,15 +799,15 @@ namespace ClientesNuevos.usuario
         private void OcultarCampos(string tipo)
         {
             switch (tipo)
-            {
-                case "0": //moral
-                    row_W9.Visible = false;
-                    row_AC.Visible = false;
-                    break;
-                case "1": //fisico
+            {                
+                case "0": //Moral
                     row_CNAP.Visible = false;
                     row_W9.Visible = false;
                     row_CURP.Visible = false;
+                    break;
+                case "1": //fisico
+                    row_W9.Visible = false;
+                    row_AC.Visible = false;
                     break;
                 case "2": //extranjero
                     row_CNAP.Visible = false;

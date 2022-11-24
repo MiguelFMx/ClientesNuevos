@@ -12,13 +12,13 @@
             case "0":
                 //Moral
                 cargarTabla_regimen('0');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona fisica");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona moral");
 
                 break;
             case "1":
                 //fisico
                 cargarTabla_regimen('1');
-                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona moral");
+                $('#MainContent_lblTipo').html("Clientes/Proveedores con regimen fiscal de persona fisica");
 
                 break;
             case "2":
@@ -207,9 +207,9 @@ function cargarTabla_regimen(regimen) {
         if (estado.length > 0) {
             for (var i = 0; i < estado.length; i++) {
                 tipo = estado[i].Tipo_persona;
-                if (tipo == '1') {
+                if (tipo == '0') {
                     tipo = "moral";
-                } else if (tipo == '0') {
+                } else if (tipo == '1') {
                     tipo = "fisica";
                 } else {
                     tipo = "extranjero";
