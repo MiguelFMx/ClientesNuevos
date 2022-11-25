@@ -127,7 +127,7 @@
                                     <asp:LinkButton ID="btnVer_AC" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnAC_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnAC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_AC" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -160,7 +160,7 @@
                                     <asp:LinkButton ID="btnVer_RFC" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnRFC_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnRFC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_RFC" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -195,7 +195,7 @@
                                     <asp:LinkButton ID="btnVer_CURP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnClick"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnClick"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_CURP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -229,7 +229,7 @@
                                     <asp:LinkButton ID="btnVer_CNAP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_CNAP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -264,7 +264,7 @@
                                     <asp:LinkButton ID="btnVer_CompDom" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_CompDom" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -297,7 +297,7 @@
                                     <asp:LinkButton ID="btnVer_IRL" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnIRL_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnIRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_IRL" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -332,7 +332,7 @@
                                     <asp:LinkButton ID="btnVer_PRL" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnPRL_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnPRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_PRL" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@
                                     <asp:LinkButton ID="btnVer_CTPAT" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_CTPAT" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -400,7 +400,7 @@
                                     <asp:LinkButton ID="btnVer_OEA" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnOEA_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnOEA_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_OEA" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -433,7 +433,7 @@
                                     <asp:LinkButton ID="btnVer_OP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnOP_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnOP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_OP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -466,7 +466,7 @@
                                     <asp:LinkButton ID="btnVer_W9" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnF43_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnF43_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_W9" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -498,7 +498,7 @@
                                     <asp:LinkButton ID="btnVer_F5" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnF5_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnF5_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_F5" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -528,7 +528,7 @@
                                     <asp:LinkButton ID="btnVer_F14" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnF14_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnF14_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_F14" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -556,7 +556,7 @@
                                     <asp:LinkButton ID="btnVer_F12" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnF12_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnF12_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_F12" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -584,7 +584,7 @@
                                     <asp:LinkButton ID="btnVer_F43" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnF43_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnF43_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <asp:LinkButton ID="btnActualizar_F43" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
                                         data-bs-toggle="tooltip"
@@ -614,7 +614,7 @@
                                     <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-folder2-open"></i></asp:LinkButton>
+                                        title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                     <button type="button" class="btn btn-warning btn-sm text-white" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
