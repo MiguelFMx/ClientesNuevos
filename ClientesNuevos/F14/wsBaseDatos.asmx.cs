@@ -778,6 +778,21 @@ namespace ClientesNuevos.F14
             return resultado;
         }
 
+
+        [WebMethod]
+        public string ExisteComp(string rfc)
+        {
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE RFC='" + rfc + "'");
+            if(dt.Rows.Count > 0)
+            {
+                return "si";
+            }
+            else
+            {
+                return "no";
+            }
+        }
+
         private void InitializeComponent()
         {
 

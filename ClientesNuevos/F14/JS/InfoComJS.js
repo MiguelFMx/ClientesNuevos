@@ -243,6 +243,19 @@ $(document).ready(function () {
 
     });
 
+    $('#MainContent_txtRfc').keyup(function () {
+        var texto = $('#MainContent_txtRfc').val();
+
+        GetAjax("../wsBaseDatos.asmx/ExisteComp", "'rfc':'"+ texto + "'", false, function (res) {
+            if (res == "si") {
+                $('#sExtiste').html('Ya existe un registro con este RFC');
+            } else {
+                $('#sExtiste').empty();
+
+            }
+        });
+
+    });
    
 });
 

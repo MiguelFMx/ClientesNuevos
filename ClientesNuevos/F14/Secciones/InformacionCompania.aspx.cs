@@ -64,9 +64,6 @@ namespace ClientesNuevos.F14.Seccioness
                         if (dt.Rows.Count > 0)
                         {
                             string tipo = dt.Rows[0]["ID_user"].ToString();
-
-
-
                             dtBanco = new DataTable();
                             dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
                             llenarCampos(dt,dtBanco);
@@ -97,6 +94,12 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else if(User.IsInRole("3") || User.IsInRole("4")) //Rol=Cliente
                 {
+                    if (Request.QueryString["accion"] != null)
+                    {
+                        Response.Redirect("~/F14/secciones/InformacionCompania.aspx");
+
+                    }
+
                     if (User.IsInRole("4"))
                     {
                         step2.Visible = false;
@@ -325,11 +328,6 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
-        protected void ddCiudad_SelectedIndexChanged(object sender, EventArgs e)
-            {
-
-            }
-
         protected void ddEstado_SelectedIndexChanged(object sender, EventArgs e)
             {
                 ddCiudad.Items.Clear();
@@ -548,16 +546,24 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 try
                 {
-                    RegistrarInfo();
-                    Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
+                   string res = RegistrarInfo();
+                    if(res == "existe")
+                    {
+                        lblRegf14.Text = "Ya existe un regsitro con el RFC especificado";
+                    }
+                    else
+                    {
+                        Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
+
+                    }
                 }
                 catch (Exception ex)
                 {
+                    lblRegf14.Text = ex.Message;
                 }
             }else if (Request.QueryString["rfc"] != null)
             {
                 RegistrarInfo();
-
             }
         }
 
@@ -576,22 +582,18 @@ namespace ClientesNuevos.F14.Seccioness
                 if (Request.QueryString["accion"] != null)
                 {
                     Response.Redirect("../../admin/index.aspx");
-
-
                 }
                 else
                 {
                     if (Request.QueryString["rfc"] != null)
                     {
                         Response.Redirect("../../admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"].ToString() + "&type=" + Request.Cookies["tipo"].Value, false);
-
                     }
                 }
             }
             catch (Exception)
             {
                 Response.Redirect("../../admin/index.aspx");
-
             }
 
         }
@@ -633,14 +635,23 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if (Request.QueryString["accion"] != null)
                 {
-                    compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, "0");
-                    if (chkDireccionIgual.Checked)
-                    {
-                        resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                    DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE RFC='" + txtRfc.Text + "'");
+
+                    if (dt.Rows.Count >0)
+                    {//Ya existe un regsitro con el RFC especificado
+                        return "existe";
                     }
                     else
                     {
-                        resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                        compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, "0");
+                        if (chkDireccionIgual.Checked)
+                        {
+                            resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+                        }
+                        else
+                        {
+                            resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
+                        }
                     }
                 }
                 else

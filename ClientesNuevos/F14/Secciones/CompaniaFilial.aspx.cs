@@ -38,7 +38,8 @@ namespace ClientesNuevos.F14.Seccioness
 
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
-                        btnAdminNext.Text = "Skip";
+                        btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
+
                         ComFil_DataBind(Request.QueryString["rfc"]);
 
                     }
@@ -59,7 +60,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else if (User.IsInRole("4")) //proveedor
                 {
-                    Response.Redirect("~/f14/InformacionCadenaSuministro.aspx");
+                    Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx");
                 }
             }
         }
@@ -207,8 +208,26 @@ namespace ClientesNuevos.F14.Seccioness
             if(gvComFil.Rows[rowIndex].Cells[14].Text != "&nbsp;")
             {
                 txtExtContFilial.Text = gvComFil.Rows[rowIndex].Cells[14].Text;
-
             }
+
+            string id = ddPaisComFilial.SelectedItem.Text;
+            ddPaisComFilial.Items.FindByText(id).Selected = false;
+            ddPaisComFilial.Items.FindByText(gvComFil.Rows[rowIndex].Cells[6].Text).Selected = true;
+
+            //LLenar estado
+            int index = Convert.ToInt32(ddPaisComFilial.SelectedValue);
+            llenarCB(ddEstadoComFilial, "estado", index);
+            string id2 = ddEstadoComFilial.SelectedItem.Text;
+            ddEstadoComFilial.Items.FindByText(id2).Selected = false;
+            ddEstadoComFilial.Items.FindByText(gvComFil.Rows[rowIndex].Cells[7].Text).Selected = true;
+
+            //Llenar ciudad
+            int index2 = Convert.ToInt32(ddEstadoComFilial.SelectedValue);
+            llenarCB(ddCiudadComFilial, "ciudad", index2);
+            string id3 = ddCiudadComFilial.SelectedItem.Text;
+            ddCiudadComFilial.Items.FindByText(id3).Selected = false;
+            ddCiudadComFilial.Items.FindByText(gvComFil.Rows[rowIndex].Cells[8].Text).Selected = true;
+
         }
 
         protected void btnDel_Click(object sender, EventArgs e)

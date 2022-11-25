@@ -75,12 +75,10 @@ namespace ClientesNuevos.F14.Seccioness
             if(User.IsInRole("4"))
             {
                 HttpContext.Current.Response.Redirect("informacionCompania.aspx");
-
             }
             else
             {
                 HttpContext.Current.Response.Redirect("tiposervicioproductos.aspx");
-
             }
         }
 

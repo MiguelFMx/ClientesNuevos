@@ -143,6 +143,7 @@
                                     ControlToValidate="txtRfc"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
+                                <span id="sExtiste" style="color:red;"></span>
                             </div>
                             <div class="col-md">
                                 <asp:Label ID="lblCURP" runat="server" Text="CURP" CssClass="form-label"></asp:Label>
@@ -197,10 +198,10 @@
                             <div class="col-sm">
                                 <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:" CssClass="form-label"></asp:Label>
 
-                                <asp:DropDownList ID="ddCiudad" runat="server" AutoPostBack="True" CssClass="form-select" OnSelectedIndexChanged="ddCiudad_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList ID="ddCiudad" runat="server" CssClass="form-select"></asp:DropDownList>
 
                                 <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" Visible="false" />
-                                <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="false"></asp:Label>
+                                <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="true"></asp:Label>
                             </div>
                         </div>
                         <br />
@@ -509,6 +510,7 @@
         <br />
         <hr />
         <div class="row">
+            <asp:Label ID="lblRegf14" runat="server" Text=""></asp:Label>
             <div class="col">
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#EB1414" />
             </div>

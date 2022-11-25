@@ -24,9 +24,10 @@ namespace ClientesNuevos.App_Code
             string sqlStr = "Master_TablaCompania";
             SqlConnection con = new SqlConnection(strConnction);
 
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -112,10 +113,9 @@ namespace ClientesNuevos.App_Code
 
                 resultado = " " + res;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                resultado = ex.Message;
             }
 
 
@@ -129,9 +129,10 @@ namespace ClientesNuevos.App_Code
             string sqlStr = "Master_TablaInfoBancaria";
             SqlConnection con = new SqlConnection(strConnction);
 
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -184,9 +185,10 @@ namespace ClientesNuevos.App_Code
             string sqlStr = "Master_TablaInfoBancaria";
             SqlConnection con = new SqlConnection(strConnction);
 
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -225,9 +227,10 @@ namespace ClientesNuevos.App_Code
         {
             string resultado;
             SqlConnection con = new SqlConnection(strConnction);
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand("Master_TablaDireccionFra", con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -245,10 +248,9 @@ namespace ClientesNuevos.App_Code
                 cmd.ExecuteNonQuery();
                 resultado = Convert.ToString(cmd.Parameters["@Msg"].Value);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                resultado = ex.Message;
             }
 
             return resultado;
@@ -262,9 +264,10 @@ namespace ClientesNuevos.App_Code
             SqlConnection con = new SqlConnection(strConnction);
 
             DataTable table = wsBaseDatos.Existe("SELECT * FROM Table_DireccionFra WHERE ID_compania ='" + ID_compania + "'");
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -315,9 +318,10 @@ namespace ClientesNuevos.App_Code
 
             DataTable data = wsBaseDatos.Existe("SELECT * FROM Table_AgenteAduanal WHERE ID_compania = '" + ID_compania + "' AND tipo ='" + tipo + "'");
 
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -438,9 +442,10 @@ namespace ClientesNuevos.App_Code
             ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
             DataTable data = wsBaseDatos.Existe(" SELECT * FROM Table_Contacto WHERE ID_compania ='" + ID_compania + "'AND tipo ='" + tipo + "'");
 
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand(sqlStr, con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -643,11 +648,11 @@ namespace ClientesNuevos.App_Code
 
             DataTable dt = wsBaseDatos.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + ID_compania + "' AND Documento='" + nombreDocumento + "'");
 
-
             fecha = DateTime.Now.ToString("dd/MM/yyyy");
-            con.Open();
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand("Master_Documentos", con)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -693,9 +698,6 @@ namespace ClientesNuevos.App_Code
             {
                 con.Close();
             }
-
-
-
             return resultado;
         }
     }

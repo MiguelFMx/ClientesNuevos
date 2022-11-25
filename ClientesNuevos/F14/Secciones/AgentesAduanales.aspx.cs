@@ -81,21 +81,6 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     Response.Redirect("~/F14/secciones/InformacionCadenaSuministro.aspx");
                 } 
-                /* 
-                if (Request.QueryString["res"] != null)
-                {
-                    string resultado = HttpContext.Current.Request.QueryString["res"].ToString();
-                    AlertResultado.Visible = true;
-                    lblAlert.Text = resultado;
-
-                }
-
-               
-
-                
-                
-
-                */
             }
         }
 
@@ -121,7 +106,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                lblResultado.Text = "No hay datos para el agente aduanal mexicano";
+                lblResultado.Text = "No hay datos para el agente aduanal mexicano \n";
 
             }
             //================================Agente aduanal americano
