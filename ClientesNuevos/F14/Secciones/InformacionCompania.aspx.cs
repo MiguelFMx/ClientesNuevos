@@ -29,17 +29,19 @@ namespace ClientesNuevos.F14.Seccioness
         string id_user = HttpContext.Current.Request.Cookies.Get("id").Value;
 
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            BloquearOpcion(ref ddTipoDePersona, "2");
-            FormsIdentity ident = User.Identity as FormsIdentity;
-            FormsAuthenticationTicket authTicket = ident.Ticket;
-
-            string userInfo = authTicket.UserData;
-            string[] info = userInfo.Split(';');
-            string id = info[1];
+        {          
+                BloquearOpcion(ref ddTipoDePersona, "2");
 
             if (!IsPostBack)
             {
+                FormsIdentity ident = User.Identity as FormsIdentity;
+                FormsAuthenticationTicket authTicket = ident.Ticket;
+
+                string userInfo = authTicket.UserData;
+                string[] info = userInfo.Split(';');
+                string id = info[1];
+
+
 
                 LlenarPaisCB(ddPais);
                 LlenarPaisCB(ddPaisFra);
@@ -86,7 +88,11 @@ namespace ClientesNuevos.F14.Seccioness
                             btnAdminBack.Text = "Cancelar";
                             DataBind_Contactos();
                         }
-                        
+
+                    }
+                    else
+                    {
+                        Response.Redirect("~/F14/secciones/InformacionCompania.aspx?accion=new");
                     }
                 }
                 else if(User.IsInRole("3") || User.IsInRole("4")) //Rol=Cliente
@@ -298,8 +304,12 @@ namespace ClientesNuevos.F14.Seccioness
                 lblRFC.Text = "TaxID";
                 pDatosBancarios.Enabled = false;
                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                txtCURP.Enabled = false;
 
-
+               RequiredFieldValidator7.Enabled = false;
+                RequiredFieldValidator8.Enabled = false;
+                RequiredFieldValidator9.Enabled = false;
+                RequiredFieldValidator10.Enabled = false;   
             }
             else
             {
@@ -308,7 +318,10 @@ namespace ClientesNuevos.F14.Seccioness
 
                 ddTipoDePersona.Enabled = true;
                 lblRFC.Text = "RFC";
-
+                RequiredFieldValidator7.Enabled = true;
+                RequiredFieldValidator8.Enabled = true;
+                RequiredFieldValidator9.Enabled = true;
+                RequiredFieldValidator10.Enabled = true;
             }
         }
 

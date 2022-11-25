@@ -107,9 +107,9 @@
                         <div class="row">
                             <div class="col-sm">
                                 <asp:Label ID="lblNombreCompania" runat="server" Text="Nombre de la compañia:" CssClass="form-label"></asp:Label>
-                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control" AutoPostBack="True"></asp:TextBox>
+                                <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique el nombre completo de la compañia"
                                     ControlToValidate="txtNombreCompania"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -118,7 +118,7 @@
                                 <asp:Label ID="lblNombreComercial" runat="server" Text="Nombre comercial:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique el nombre comercial de la compañia"
                                     ControlToValidate="txtNombrCom"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -139,7 +139,7 @@
                                 <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique el RFC o W9"
                                     ControlToValidate="txtRfc"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -153,7 +153,7 @@
                                 <asp:Label ID="lblAnosNegocio" runat="server" Text="Años de negocio:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtAnosNegocio" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique los años de servico que tiene el negocio"
                                     ControlToValidate="txtAnosNegocio"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -166,7 +166,7 @@
                                 <asp:Label ID="lblDirecFiscal" runat="server" Text="Dirección fiscal:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtDirecFiscal" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique una direccion"
                                     ControlToValidate="txtDirecFiscal"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -175,7 +175,7 @@
                                 <asp:Label ID="lblCP" runat="server" Text="CP:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCP" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                                    ErrorMessage="*campo obligatorio"
+                                    ErrorMessage="*Especifique el codigo postal"
                                     ControlToValidate="txtCP"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -307,8 +307,8 @@
                                     <div class="col">
                                         <asp:Label ID="lblBanco" runat="server" Text="Nombre del banco:"></asp:Label>
                                         <asp:TextBox ID="txtBanco" runat="server" CssClass="form-control"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
-                                            ErrorMessage="*campo obligatorio"
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                            ErrorMessage="*Especifique el nombre del banco"
                                             ControlToValidate="txtBanco"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -317,7 +317,7 @@
                                         <asp:Label ID="lblRFCBanco" runat="server" Text="RFC del banco:"></asp:Label>
                                         <asp:TextBox ID="txtBancoRFC" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                            ErrorMessage="*campo obligatorio"
+                                            ErrorMessage="*Especifique el RFC del banco"
                                             ControlToValidate="txtBancoRFC"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -328,7 +328,7 @@
                                         <asp:Label ID="lblNoCuenta" runat="server" Text="Numero de cuenta:" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtNoCuenta" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
-                                            ErrorMessage="*campo obligatorio"
+                                            ErrorMessage="*Ingrese un numero de cuenta bancaria"
                                             ControlToValidate="txtNoCuenta"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -337,9 +337,10 @@
                                         <asp:Label ID="lblClaveBancaria" runat="server" Text="Clabe bancaria:"></asp:Label>
                                         <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                                            ErrorMessage="*campo obligatorio"
+                                            ErrorMessage="*Ingrese la CLABE bancaria"
                                             ControlToValidate="txtClaveBancaria"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
+                                            
                                         </asp:RequiredFieldValidator>
                                         <asp:Button Text="pruebaBanco" runat="server" ID="btnBanco" OnClick="btnBanco_Click" Visible="false" />
                                     </div>
@@ -507,6 +508,11 @@
 
         <br />
         <hr />
+        <div class="row">
+            <div class="col">
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#EB1414" />
+            </div>
+        </div>
         <div class="row">
             <br />
             <div class="col" style="display: flex; justify-content: flex-end;">

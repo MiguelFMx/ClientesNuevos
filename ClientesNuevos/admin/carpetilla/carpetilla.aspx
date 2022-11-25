@@ -14,18 +14,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-auto">
+                        <div class="col">
                             <asp:Label ID="label" runat="server" Text="Nombre completo:" CssClass="text-secondary"></asp:Label>
                             <br />
                             <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
                         </div>
-                        <div class="col">
-                            <div class="d-flex justify-content-end">
-                                <asp:Label ID="lblEstatus" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
-
-                            </div>
-                        </div>
-
                     </div>
 
                     <div class="row pt-2">
@@ -55,37 +48,39 @@
                             <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
                         </div>
                     </div>
-                    
-                    <asp:Panel ID="pUser" runat="server">
 
-                        <div class="row">
 
-                            <div class="col">
-                                <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
+                    <div class="row">
 
-                                <label class="switch"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Activar o desactivar">
-                                    <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
-                                    <span class="slider round"></span>
-                                </label>
+                        <div class="col">
+                            <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
 
-                            </div>
-                            <div class="col">
-                                <div class="d-flex justify-content-end">
-                                    <asp:Label ID="lblEstatusA" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
-                                </div>
-                            </div>
-                            <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
+                            <label class="switch"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title="Activar o desactivar">
+                                <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
+                                <span class="slider round"></span>
+                            </label>
+
                         </div>
-                    </asp:Panel>
+                        <div class="col">
+                            <div class="d-flex justify-content-end">
+                                <asp:Label ID="lblEstatusA" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                            </div>
+                        </div>
+                        <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
+                    </div>
                     <br />
                     <div class="row">
-                        <div id="Rol">
-                        </div>
-                        <div id="Regimen">
-                            <asp:HiddenField ID="hfRegimen" runat="server" />
+                        <div class="col">
+                            <div id="Rol">
+                            </div>
+                            <br />
+                            <div id="Regimen">
+                                <asp:HiddenField ID="hfRegimen" runat="server" />
+                            </div>
+
                         </div>
                     </div>
                 </div>

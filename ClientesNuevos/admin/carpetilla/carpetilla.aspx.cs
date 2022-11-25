@@ -21,17 +21,7 @@ namespace ClientesNuevos.admin.carpetilla
         {
             if (!IsPostBack)
             {
-                if (User.IsInRole("1"))
-                {
-                    pUser.Visible = true;
-                    lblEstatus.Visible = false;
-                }
-                else
-                {
-                    pUser.Visible = false;
-                    lblEstatus.Visible = true;
-                }
-
+                
                 if (Request.QueryString["id"] != null && Request.QueryString["type"] != null)
                 {
                     Ocultar(Request.QueryString["type"].ToString());
@@ -61,17 +51,12 @@ namespace ClientesNuevos.admin.carpetilla
                         lblEstatusA.Text = "inactivo";
                         lblEstatusA.CssClass = "etiqueta peligro";
 
-                            lblEstatus.Text = "inactivo";
-                            lblEstatus.CssClass = "etiqueta peligro";
-
                             chkEstatus.Checked = false;
                     }
                     else
                     {
                         chkEstatus.Checked = true;
-
                     }
-
                     //Metodo que obtiene los documentos con los que cuenta el cliente
                     Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
 
