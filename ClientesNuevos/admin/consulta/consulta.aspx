@@ -10,13 +10,12 @@
         <div class="col">
             <div class="card">
                 <div class="card-header cabezal">
-                    <h4>
-                        <asp:Label ID="lblConsulta" runat="server" Text="Consulta"></asp:Label></h4>
+                    <asp:Label ID="lblConsulta" runat="server" Text="Consulta"></asp:Label>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h4><asp:Label Text="..." ID="lblTipo" runat="server" /></h4>
+                            <asp:Label Text="..." ID="lblTipo" runat="server" />
                     <hr />
                         </div>
                     </div>

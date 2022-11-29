@@ -60,8 +60,29 @@ $(document).ready(function () {
         guardarDocumento(tipo);
     });
 
+    $('#btnEnviar').click(function () {
+        var Correo=[];
+        
+
+        $('.form-check').each(function () {
+            let checked = $(this).find($('[name=check]'));
+            let mail = $(this).find($('[name=correo]'));
+            let contact = $(this).find($('[name=contacto]'));
+            if (checked.is(":checked")) {
+                Correo.push(mail.text() + ";" + contact.text());
+            } 
+        });
+
+        console.log(Correo);
+        
+
+    });
+
+
     ObtenerRoles();
     ObtenerContactos();
+    ListaContactos();
+    let Directorio = $('#tContactos').DataTable();
 });
 
 function limpiar() {
@@ -177,8 +198,25 @@ function ObtenerContactos() {
     GetAjax("../usuarios/wsUsuarios.asmx/ObtenerContactos", "'RFC':'"+id+"'", false, function (lstContacto) {
         if (lstContacto.length > 0) {
             tContactos.empty();
-
+                   
             for (var i = 0; i < lstContacto.length; i++) {
+                let Tipo = lstContacto[i].Tipo;
+                //Comp Fra AAMX AAUSA
+                switch (Tipo) {
+                    case 'Comp':
+                        Tipo = 'Compañia';
+                        break;
+                    case 'Fra':
+                        Tipo = 'Facturacion';
+                        break;
+                    case 'AAMX':
+                        Tipo = 'Agente aduanal mexicano';
+                        break;
+                    case 'AAUSA':
+                        Tipo = 'Agente aduanal americano';
+                        break;
+                }     
+
                 tContactos.append(
                     "<tr>" +
                     //Contacto
@@ -194,11 +232,57 @@ function ObtenerContactos() {
                     //Celular
                     "<td>" + lstContacto[i].Celular+"</td>" +
                     //Tipo de contacto
-                    "<td>" + lstContacto[i].Tipo+"</td>" +
+                    "<td>" + Tipo+"</td>" +
                     "</tr>"
                 );
             }
         }
     });
+}
+
+
+function ListaContactos() {
+    //contactos
+    let Directorio = $('#contactos');
+    let searchParams = new URLSearchParams(window.location.search);
+    let id = searchParams.get('id');
+
+    GetAjax("../usuarios/wsUsuarios.asmx/ObtenerContactos", "'RFC':'" + id + "'", false, function (lstContacto) {
+        if (lstContacto.length > 0) {
+            Directorio.html("");
+
+            for (var i = 0; i < lstContacto.length; i++) {
+                let Tipo = lstContacto[i].Tipo;
+                //Comp Fra AAMX AAUSA
+                switch (Tipo) {
+                    case 'Comp':
+                        Tipo = 'Compañia';
+                        break;
+                    case 'Fra':
+                        Tipo = 'Facturacion';
+                        break;
+                    
+                }
+                if (Tipo == 'Compañia' || Tipo == 'Facturacion') { 
+                    Directorio.append(
+                        "<div class='row'>"+
+                            "<div class='col'>" +
+                                "<div class='form-check'>" +
+                                    "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault' name='check'>" +
+                                    "<label class='form-check-label' for='flexCheckDefault'>" +
+                                    "<span><label name='contacto'>" + lstContacto[i].Contacto + "</label> (" + lstContacto[i].Puesto + ")<br>" +
+                                    "<small><label name='correo'>" + lstContacto[i].Correo + "</label></small><br>" +
+                                    "<small>" + Tipo + "</small>" +
+                                    "</span>" +
+                                    "</label>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>"
+                    );
+                }
+            }
+        }
+    });
+
 }
 

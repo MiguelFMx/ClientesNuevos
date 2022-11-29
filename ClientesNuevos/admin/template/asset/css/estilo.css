@@ -105,11 +105,11 @@ a {
     }
 }
 
-.cabezal {
+/*.cabezal {
     background-color: #0169C2;
     color: white;
     font-weight: bold;
-}
+}*/
 
 /*  Estilo de poryecto */
 .project_progress .progress {
@@ -274,4 +274,16 @@ input:checked + .slider:before {
 
 .hiddencol {
     display: none;
-} 
+}
+
+.cabezal {
+    color: white;
+    background: rgb(5,0,87);
+    background: linear-gradient(0deg, rgba(5,0,87,1) 6%, rgba(9,17,121,1) 19%, rgba(9,68,255,1) 100%);
+}
+
+.cabezal-danger {
+    color:#ffa94c;
+    background: rgb(254,179,16);
+    background: linear-gradient(0deg, rgba(254,179,16,1) 16%, rgba(254,251,16,1) 52%, rgba(233,254,16,1) 100%);
+}

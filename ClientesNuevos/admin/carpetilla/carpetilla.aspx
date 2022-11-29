@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="carpetilla.aspx.cs" Inherits="ClientesNuevos.admin.carpetilla.carpetilla1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Carpetilla</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -88,37 +89,7 @@
                     </div>
                 </div>
             </div>
-<div class="row pt-2">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header cabezal">
-                            <h5>Directorio</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover" id="tContactos">
-                                    <thead>
-                                        <tr>
-                                            <th>Contacto</th>
-                                            <th>Puesto</th>
-                                            <th>Correo</th>
-                                            <th>Telefono</th>
-                                            <th>Extension</th>
-                                            <th>Celular</th>
-                                            <th>Tipo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="6" style="text-align: center">No hay contactos registrados.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="col-md-8">
             <div class="row">
@@ -171,7 +142,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnAC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva" style="margin-left: 1px;"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva" style="margin-left: 1px;"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -206,7 +177,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnRFC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload" style="margin-left: 1px;"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="RFC"><i class="bi bi-upload" style="margin-left: 1px;"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -242,7 +213,7 @@
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnClick"><i class="bi bi-check-lg"></i></asp:LinkButton>
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="CURP"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -279,7 +250,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnCNAP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Carta de no antecedentes penales"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -316,7 +287,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnCompDom_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Comprobante de domicilio"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -351,7 +322,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnIRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Identificacion de representante legal"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -388,7 +359,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnPRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Poder de representante legal"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -425,7 +396,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnCTPAT_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación C-TPAT"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -460,7 +431,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnOEA_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Certificación OEA"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -495,7 +466,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnOP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="Opinion positiva"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -530,7 +501,7 @@
                                                 data-bs-placement="top"
                                                 title="Aprovar" OnClick="btnW9_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
 
-                                            <button type="button" class="btn btn-info btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm text-white" data-bs-toggle="modal" style="margin-left: 1px;" title="Subir archivo" data-bs-target="#UploadDoc" data-bs-type="W9"><i class="bi bi-upload"></i></button>
 
                                         </asp:TableCell>
                                     </asp:TableRow>
@@ -706,8 +677,38 @@
                     </div>
                 </div>
             </div>
-            
 
+            <div class="row pt-2">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header cabezal">
+                            <h5>Directorio</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="tContactos">
+                                    <thead>
+                                        <tr>
+                                            <th>Contacto</th>
+                                            <th>Puesto</th>
+                                            <th>Correo</th>
+                                            <th>Telefono</th>
+                                            <th>Extension</th>
+                                            <th>Celular</th>
+                                            <th>Tipo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="6" style="text-align: center">No hay contactos registrados.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position: fixed; bottom: 3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
@@ -752,44 +753,52 @@
     <div class="modal fade" id="CorreoAct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header cabezal" >
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="px-2">
-                        <div class="dm-3 pt-2">
-                            <asp:Label ID="lblDe" runat="server" Text="De:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtFromMail" runat="server" CssClass="form-control" Text="" ReadOnly="true"></asp:TextBox>
-                            <asp:CheckBox ID="chMail" runat="server" Text="cambiar correo" CssClass="text-secondary" />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card h-100 shadow">
+                                <h6 class="card-header shadow-sm">Directorio
+                                </h6>
+                                <div class="card-body">
+                                    <div id="contactos"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="dm-3 pt-2">
-                            <asp:Label ID="lblPara" runat="server" Text="Para:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtToMail" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="dm-3 pt-4">
-                            <asp:Label ID="lblAsunto" runat="server" Text="Asunto:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtAsunto" runat="server" Text="Solicitud de actualización de datos" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="dm-3 py-3">
-                            <asp:Label ID="lblMensaje" runat="server" Text="Mensaje:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtMensaje" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="8"></asp:TextBox>
+                        <div class="col-sm-8">
+                            <div class="card h-100 shadow">
+                                <h6 class="card-header shadow-sm">Correo</h6>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <asp:Label ID="lblAsunto" runat="server" Text="Asunto:" CssClass="form-label"></asp:Label>
+                                        <asp:TextBox ID="txtAsunto" runat="server" Text="Solicitud de actualización de datos" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label ID="lblMensaje" runat="server" Text="Mensaje:" CssClass="form-label"></asp:Label>
+                                        <asp:TextBox ID="txtMensaje" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
                     <asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" />
+                    <button id="btnEnviar" type="button">ENVIAR</button>
                 </div>
             </div>
         </div>
     </div>
-
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../../template/assets/js/dropjs.js"></script>
-
     <script src="../template/asset/JS/carpetillaJS.js"></script>
 </asp:Content>
