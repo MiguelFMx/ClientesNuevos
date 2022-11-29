@@ -33,6 +33,15 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.DropDownList ddEmpresa;
 
         /// <summary>
+        /// Control lblErrEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrEmpresa;
+
+        /// <summary>
         /// Control lblRFC.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace ClientesNuevos.admin.usuarios
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
+        /// Control hlExiste.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlExiste;
+
+        /// <summary>
         /// Control btnAddUser.
         /// </summary>
         /// <remarks>
@@ -103,15 +121,6 @@ namespace ClientesNuevos.admin.usuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddUser;
-
-        /// <summary>
-        /// Control Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// Control Panel_roles.

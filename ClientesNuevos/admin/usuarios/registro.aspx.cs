@@ -1,4 +1,5 @@
 ﻿using ClientesNuevos.App_Code;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,29 +79,49 @@ namespace ClientesNuevos.admin.usuarios
             string fecha = DateTime.Now.ToString("dd/MM/yyyy");
             DataTable dt;
             string registro = "";
+
+            lblErrEmpresa.Text = "";
+            lblError.Text = "";
             if (connection == "true")
             {
-                dt = clsHerramientaBD.Existe("SELECT * FROM [Usuarios] WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
-                if(dt.Rows.Count > 0)
+                if (ddEmpresa.SelectedIndex == 0)
                 {
-                    registro = "Ya existe un usuario registrado con ese RFC";
+                    lblErrEmpresa.Text = "Seleccione una empresa";
+
                 }
                 else
                 {
-                    registro = clsHerramientaBD.ExecuteSql("INSERT INTO Usuarios ([RFC], [Password], [Fecha_registro], [status]) VALUES ('" + RFC + "','" + pass + "','" + fecha + "','activo')", clsHerramientaBD.strConnAdmon);
-                }
-                if (registro == "")
-                {
-                    lblError.Text = "Usuario registrado";
-                    lblError.ForeColor = Color.DarkGreen;
-                    Panel_roles.Enabled = true;
-                    txtRFC.Enabled = false;
-                    ddEmpresa.Enabled = false;
-                }
-                else
-                {
-                    lblError.Text = "Error: "+registro;
-                    lblError.ForeColor = Color.Red;
+
+                    dt = clsHerramientaBD.Existe("SELECT * FROM [Usuarios] WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+                    if (dt.Rows.Count > 0)
+                    {
+                        hlExiste.Visible = true;
+                        hlExiste.Text = "Ya existe un usuario registrado con ese RFC";
+                        hlExiste.NavigateUrl = "EditarUsuario.aspx?id=" + dt.Rows[0]["Id"].ToString();
+                        registro = "Ya existe";
+
+                    }
+                    else
+                    {
+                        registro = clsHerramientaBD.ExecuteSql("INSERT INTO Usuarios ([RFC], [Password], [Fecha_registro], [status]) VALUES ('" + RFC + "','" + pass + "','" + fecha + "','activo')", clsHerramientaBD.strConnAdmon);
+                    }
+                    if (registro == "")
+                    {
+                        lblError.Text = "Usuario registrado";
+                        lblError.ForeColor = Color.DarkGreen;
+                        Panel_roles.Enabled = true;
+                        txtRFC.Enabled = false;
+                        ddEmpresa.Enabled = false;
+                    }
+                    else
+                    {
+                        if (!hlExiste.Visible)
+                        {
+                            lblError.Text = "Error: " + registro;
+                            lblError.ForeColor = Color.Red;
+
+                        }
+                    }
                 }
             }
             else
@@ -147,9 +168,6 @@ namespace ClientesNuevos.admin.usuarios
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

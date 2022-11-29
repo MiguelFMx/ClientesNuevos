@@ -20,7 +20,7 @@
 
     <!-- Bootstrap -->
     <%--<link href="template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />--%>
-    <link href="template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
 
 
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <asp:Button ID="btnPrueba" runat="server" Text="prueba" CssClass="btn btn-outline-secondary" OnClick="btnPrueba_Click"/>
+                                    <asp:Button ID="btnPrueba" runat="server" Text="prueba" CssClass="btn btn-outline-secondary" OnClick="btnPrueba_Click" Visible="false"/>
                                 </div>
 
                             </div>

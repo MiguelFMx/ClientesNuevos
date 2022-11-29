@@ -151,6 +151,47 @@ namespace ClientesNuevos.admin.usuarios
 
             return res;
         }
+        /*
+          //Contacto
+                    //Puesto
+                    //Correo
+                    //Telefono
+                    //Extension
+                    //Celular
+                    //Tipo de contacto*/
+        public class Directorio
+        {
+            public string Contacto { get; set; }
+            public string Puesto { get; set; }
+            public string Correo { get; set; }
+            public string Telefono { get; set; }
+            public string Extension { get; set; }
+            public string Celular { get; set; }
+            public string Tipo { get; set; }
+        }
 
+        [WebMethod]
+        public List<Directorio> ObtenerContactos(string RFC)
+        {
+            List<Directorio> lista = new List<Directorio>();
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '"+RFC+"'");
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Directorio objR = new Directorio
+                {
+                    Contacto = dr["Nombre"].ToString(),
+                    Puesto = dr["Puesto"].ToString(),
+                    Correo = dr["Correo"].ToString(),
+                    Telefono = dr["Telefono"].ToString(),
+                    Extension = dr["Extension"].ToString(),
+                    Celular = dr["Celular"].ToString(),
+                    Tipo = dr["Tipo"].ToString()
+                };
+                lista.Add(objR);
+            }
+
+            return lista;
+        }
     }
 }

@@ -1026,12 +1026,11 @@ namespace ClientesNuevos.admin.carpetilla
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "100%");
                 Response.Redirect(Request.RawUrl);
             }
-            else if (buttonId == "btnActualizar_F43")
-            {
-
-                lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "act");
-                Response.Redirect(Request.RawUrl);
-            }
+            //else if (buttonId == "btnActualizar_F43")
+            //{
+            //    //lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "act");
+            //    //Response.Redirect(Request.RawUrl);
+            //}
         }
 
         protected void btnCheck_F16_Click(object sender, EventArgs e)

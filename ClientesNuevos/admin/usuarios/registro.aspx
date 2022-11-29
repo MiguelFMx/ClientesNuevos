@@ -8,46 +8,46 @@
     <section>
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="text-secondary">Informacion</h5>
+                <div class="card shadow-sm">
+                    <div class="card-header cabezal">
+                        <h5>Informacion</h5>
                     </div>
                     <div class="card-body px-4 text-secondary">
                         <%-- Empresa --%>
-                        <div class="pb-4">
+                        <div class="pb-3">
                             <asp:Label ID="lblEmpresa" runat="server" Text="Empresa" CssClass="form-label"></asp:Label>
                             <asp:DropDownList ID="ddEmpresa" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddEmpresa_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                            <asp:Label Text="" ForeColor="red" runat="server" ID="lblErrEmpresa" />
                         </div>
                         <%-- RFC --%>
-                        <div class="pb-4">
+                        <div class="pb-2">
                             <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
                             <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control" autocomplete="username"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  ControlToValidate="txtRFC" runat="server" ErrorMessage="*Llene este campo" ValidationGroup="registro"></asp:RequiredFieldValidator>
                         </div>
                         <%-- Pass --%>
-                        <div class="pb-4">
+                        <div >
                             <asp:Label ID="lblPass" runat="server" Text="Contraseña:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password" autocomplete="current-password"></asp:TextBox>
+                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" Text="Hung4r0s_Registr0*" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2"  ControlToValidate="txtPass" runat="server" ErrorMessage="*Llene este campo" ValidationGroup="registro"></asp:RequiredFieldValidator>
-
+                            <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+                        
                         </div>
                         
                         <%-- Boton --%>
                         <div class="text-center">
-                            <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
-                            <br />
+                            <asp:HyperLink ID="hlExiste" runat="server" Visible="false" ForeColor="Red"></asp:HyperLink>
                             <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4" OnClick="btnAddUser_Click" ValidationGroup="registro" />
-                            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-                            <button id="test" type="button">picame</button>
+                            <button id="test" type="button" hidden>picame</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
                 <asp:Panel ID="Panel_roles" runat="server" Enabled="true">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="text-secondary">Detalles</h5>
+                <div class="card shadow-sm">
+                    <div class="card-header cabezal">
+                        <h5>Asignacion de roles</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -77,7 +77,9 @@
                                     <asp:TableCell>Rol</asp:TableCell>
                                     <asp:TableCell></asp:TableCell>
                                 </asp:TableRow>
-                                <asp:TableRow TableSection="TableBody"></asp:TableRow>
+                                <asp:TableRow TableSection="TableBody">
+                                    <asp:TableCell ColumnSpan="4">No se han asignado roles</asp:TableCell>
+                                </asp:TableRow>
                             </asp:Table>
                         </div>
                     </div>

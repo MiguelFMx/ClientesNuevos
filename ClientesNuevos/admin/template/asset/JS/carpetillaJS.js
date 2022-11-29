@@ -32,6 +32,26 @@ $(document).ready(function () {
         });
     }
 
+    //data-bs-type
+    var documento = ""
+    const CorreoAct = document.getElementById('CorreoAct');
+    if (CorreoAct) {
+        CorreoAct.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+
+            const recipient = button.getAttribute('data-bs-type');
+
+            const modalTitle = CorreoAct.querySelector('.modal-title');
+            documento = ` ${recipient}`;
+            modalTitle.textContent = `Solicitud de actualización de `+ documento.toLowerCase();
+
+
+            const txtCorreo = CorreoAct.querySelector('#MainContent_txtMensaje');
+            txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${ recipient }`;
+            
+        });
+    }
+
     $('#btnCancelarFile').click(function () {
         limpiar();
     });
@@ -40,7 +60,8 @@ $(document).ready(function () {
         guardarDocumento(tipo);
     });
 
-        ObtenerRoles();
+    ObtenerRoles();
+    ObtenerContactos();
 });
 
 function limpiar() {
@@ -116,7 +137,7 @@ function ObtenerRoles() {
                     $('#Rol').append(
                         "<label>Clasificacion:</label>" +
                         "<br>" +
-                        "<h5><span class='badge text-bg-info text-white'>" + empresa + "." + dominio + ": <a href='#' class='text-white'>" + rol +"</a></span></h5>"
+                        "<span class='badge text-bg-success text-white'>" + empresa + "." + dominio + ": <a href='#' class='text-white'>" + rol +"</a></span>"
                     );
                 }
             } else {
@@ -129,19 +150,55 @@ function ObtenerRoles() {
         switch (regimen) {
                    // <asp:HyperLink ID="hlClientesA" NavigateUrl="~/admin/consulta/consulta.aspx?type=3" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
             case '1': //fisica 
-        etiqueta = "<h6><span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=1' class='text-white'>persona fisica</a></span></h6>";
+        etiqueta = "<span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=1' class='text-white'>persona fisica</a></span>";
 
                 break;
             case '0'://moral
-                etiqueta = "<h6><span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=0' class='text-white'>persona moral</a></span></h6>";
+                etiqueta = "<span class='badge text-bg-primary'><a href='../consulta/consulta.aspx?type=0' class='text-white'>persona moral</a></span>";
                 break;
             case '2'://extranjero
-                etiqueta = "<h6><span class='badge text-bg-primary'><a href='#' class='text-white'>persona extranjera</a></span></h6>";
+                etiqueta = "<span class='badge text-bg-primary'><a href='#' class='text-white'>persona extranjera</a></span>";
                 break;
         }
         $('#Regimen').append(
             etiqueta
         );
     }
+}
+
+
+function ObtenerContactos() {
+    //tContactos
+    let tContactos = $('#tContactos tbody');
+
+    let searchParams = new URLSearchParams(window.location.search);
+    let id = searchParams.get('id');
+
+    GetAjax("../usuarios/wsUsuarios.asmx/ObtenerContactos", "'RFC':'"+id+"'", false, function (lstContacto) {
+        if (lstContacto.length > 0) {
+            tContactos.empty();
+
+            for (var i = 0; i < lstContacto.length; i++) {
+                tContactos.append(
+                    "<tr>" +
+                    //Contacto
+                    "<td>" + lstContacto[i].Contacto + "</td>" +
+                    //Puesto
+                    "<td>" + lstContacto[i].Puesto+"</td>" +
+                    //Correo
+                    "<td>" + lstContacto[i].Correo+"</td>" +
+                    //Telefono
+                    "<td>" + lstContacto[i].Telefono+"</td>" +
+                    //Extension
+                    "<td>" + lstContacto[i].Extension+"</td>" +
+                    //Celular
+                    "<td>" + lstContacto[i].Celular+"</td>" +
+                    //Tipo de contacto
+                    "<td>" + lstContacto[i].Tipo+"</td>" +
+                    "</tr>"
+                );
+            }
+        }
+    });
 }
 
