@@ -30,6 +30,7 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     pUser.Visible=false;
                     pAdmin.Visible = true;
+                    btnAdminSave.Visible = true;    
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
                         BindDataAdmin(Request.QueryString["rfc"]);

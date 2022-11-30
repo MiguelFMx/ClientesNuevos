@@ -18,8 +18,8 @@ namespace ClientesNuevos.F14.Seccioness
                 pAdmin.Visible = true;
                 if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                 {
-                    btnAdminNext.Text = "Skip";
-                    btnAdminSave.Text = "Registrar";
+                    btnAdminGuardar.Value = "registrar";
+                    btnAdminSaltar.Visible= true;   
                 }else if (Request.QueryString["rfc"] != null)
                 {
                     CambiarLinks();
@@ -75,6 +75,12 @@ namespace ClientesNuevos.F14.Seccioness
                 Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"]);
 
             }
+        }
+
+        protected void btnAdminSaltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+
         }
     }
 }

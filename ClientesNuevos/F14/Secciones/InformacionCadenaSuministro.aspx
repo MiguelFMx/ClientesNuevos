@@ -142,6 +142,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <asp:LinkButton ID="btnAdminSave" runat="server" Visible="false" OnClick="btnAdminSave_Click1"
+                                    CssClass="btn btn-success">registar</asp:LinkButton>
+
+
+                            </div>
+                        </div>
+                        <hr />
                         <asp:Panel ID="pV2" runat="server">
                             <div class="row">
                                 <div class="col-md">
@@ -242,20 +251,22 @@
                 <asp:Panel ID="pUser" runat="server">
 
                 <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
-                &nbsp;&nbsp;
+               
                 <button type="button" class="btn btn-secondary" id="btnHome" hidden
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir">
                     <i class="bi bi-house-door"></i>
                 </button>
+
                     <asp:LinkButton ID="btnCasa" runat="server" OnClick="btnCasa_Click"
                         data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" CssClass="btn btn-secondary">
                         <i class="bi bi-house-door"></i></asp:LinkButton>
-                &nbsp;&nbsp;
+
                 <button id="btnContinuar" type="button" class="btn btn-success" hidden>Continuar <i class="bi bi-chevron-double-right"></i></button>
+                    
                     <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">Continuar<i class="bi bi-chevron-double-right"></i></asp:LinkButton>
                     <button id="btnModalJS"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" hidden>Continuar<i class="bi bi-chevron-double-right"></i></button>
 
@@ -265,18 +276,15 @@
                 <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+
                 <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click1" CssClass="btn btn-success">Editar</asp:LinkButton>
-
-                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Siguiente"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-success"
+                    OnClick="btnAdminNext_Click">finalizar <i class="bi bi-check-circle"></i></asp:LinkButton>
             </asp:Panel>
             </div>
         </div>
@@ -303,10 +311,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 
 

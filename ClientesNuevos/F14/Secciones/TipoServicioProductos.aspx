@@ -474,18 +474,20 @@
                     <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>&nbsp;&nbsp;
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminH_Click"
+                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-                <input id="btnAdminGuardar" type="button" value="Editar" class="btn btn-success"/>
-                <asp:LinkButton ID="btnAdminSave" runat="server" CssClass="btn btn-success" Visible="false">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+
+                <input id="btnAdminGuardar" runat="server" type="button" value="Editar" class="btn btn-success"/>
+
+                <asp:LinkButton ID="btnAdminSaltar" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminSaltar_Click" Visible="false">saltar</asp:LinkButton>
 
                 <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>&nbsp;&nbsp;
+                    title="siguiente"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>
                 </asp:Panel>
             
             </div>

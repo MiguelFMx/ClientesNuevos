@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-3">
                         <select id="cbTipoDeRegistro" class="form-select" hidden>
-                        <option value="" selected disabled>...</option>
+                        <option value="" disabled>...</option>
                         <option value="cliente">Cliente</option>
                         <option value="proveedor">Proveedor</option>
                     </select>
@@ -130,6 +130,7 @@
                             <div class="col-md">
                                 <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
+                                    <asp:ListItem Text="..." Value="" />
                                     <asp:ListItem Text="Extranjero" Value="2" />
                                     <asp:ListItem Text="Moral" Value="0" />
                                     <asp:ListItem Text="Fisica" Value="1" />

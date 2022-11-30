@@ -39,7 +39,7 @@ namespace ClientesNuevos.F14.Seccioness
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
                         btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
-
+                        btnAdminSaltar.Visible=true;
                         ComFil_DataBind(Request.QueryString["rfc"]);
 
                     }
@@ -328,6 +328,11 @@ namespace ClientesNuevos.F14.Seccioness
         {
             Limpiar();
             pEdit.Visible = false;
+        }
+
+        protected void btnAdminSaltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?accion=" + Request.QueryString["accion"] + "&rfc=" + Request.QueryString["rfc"]);
         }
     }
 }

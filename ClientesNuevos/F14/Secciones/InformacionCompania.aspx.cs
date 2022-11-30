@@ -30,7 +30,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void Page_Load(object sender, EventArgs e)
         {          
-                BloquearOpcion(ref ddTipoDePersona, "2");
+                //BloquearOpcion(ref ddTipoDePersona, "2");
 
             if (!IsPostBack)
             {
@@ -57,6 +57,7 @@ namespace ClientesNuevos.F14.Seccioness
                     //Si es ver info solo sera el querystring rfc
                     if (Request.QueryString["rfc"]!= null)
                     {
+                        
                         //Obtengo la info de la compañia
                         dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
                         
@@ -196,6 +197,10 @@ namespace ClientesNuevos.F14.Seccioness
 
                 txtCP.Text = table.Rows[0]["codigo_postal"].ToString();
 
+
+                //Obtener pais
+                string  Pais = ddPais.SelectedValue;
+                ddPais.Items.FindByValue(Pais).Selected = false;
                 ddPais.Items.FindByValue(table.Rows[0]["Pais"].ToString()).Selected = true;
 
                 LlenarEstado(ddEstado, Convert.ToInt32(table.Rows[0]["Pais"]));
@@ -709,23 +714,24 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void DataBind_Contactos()
         {
-            if( Request.Cookies.Get("id_comp") != null) { 
+            string strSQL = "";
+            if ( Request.Cookies.Get("id_comp") != null) { 
             
-                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
-
-                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+                strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
             }
             else if (Request.QueryString["rfc"] != null)
             {
-                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.QueryString["rfc"] + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
-                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.QueryString["rfc"] + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+            }else if (txtRfc.Text != "")
+            {
+                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='"+txtRfc.Text+"' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
             }
             else
             {
-                string strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='0' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
-                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='0' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
             }
-            gvContactos.DataBind();
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+                gvContactos.DataBind();
         }
 
         protected void btnRegistrarC_Click(object sender, EventArgs e)
@@ -752,7 +758,6 @@ namespace ClientesNuevos.F14.Seccioness
             Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo,"");
 
             lblRes.Text = Registro;
-            txtRfc.Text = "";
             txtNombreC.Text = "";
             txtPuestoC.Text = "";
             txtTelC.Text = "";

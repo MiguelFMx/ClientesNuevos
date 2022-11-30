@@ -38,15 +38,17 @@ namespace ClientesNuevos.F14.Seccioness
 
                     //Nuevo registro
                     if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
-                    {        
-                        btnAdminNext.Text = "Skip";
-                        btnAdminSave.Text = "Registrar";
+                    {
+                        btnAdminSaltar.Visible = true;
+                        //btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
+                        btnAdminSave.Text = "registrar";
+
                     }
                     else if(Request.QueryString["rfc"] != null)
                     {
                         //Si solo esta el rfc, significa que es consulta.
                         btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
-                        btnAdminSave.Text = "Actualizar";
+                        btnAdminSave.Text = "actualizar";
 
                         //Get RFC
                         string id_C = Request.QueryString["rfc"].ToString();
@@ -106,7 +108,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                lblResultado.Text = "No hay datos para el agente aduanal mexicano \n";
+                //lblResultado.Text = "No hay datos para el agente aduanal mexicano \n";
 
             }
             //================================Agente aduanal americano
@@ -119,7 +121,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                lblResultado.Text += " No hay datos para el agente aduanal americano";
+                //lblResultado.Text += " No hay datos para el agente aduanal americano";
 
             }
 
@@ -501,6 +503,11 @@ namespace ClientesNuevos.F14.Seccioness
                 Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"]);
             }
 
+        }
+
+        protected void btnAdminSaltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
         }
     }
 }

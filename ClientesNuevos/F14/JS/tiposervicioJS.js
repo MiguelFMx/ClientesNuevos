@@ -1,6 +1,7 @@
 ﻿/// <reference path="../../scripts/js/ajax.js" />
 /// <reference path="../../scripts/jquery-3.6.0.min.js" />
 
+
 var count = 1;
 
 $(document).ready(function () {
@@ -159,7 +160,7 @@ $(document).ready(function () {
         $(this).parent().closest("tr").remove();
     });
     //boton------------------------------------------------------------------------------------------------------------------------------
-    $('#btnAdminGuardar').click(function () {
+    $('#MainContent_btnAdminGuardar').click(function () {
         var servicio, producto;
 
         let urlParams = new URLSearchParams(window.location.search);

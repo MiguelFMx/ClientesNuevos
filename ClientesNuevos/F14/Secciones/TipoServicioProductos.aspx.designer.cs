@@ -249,13 +249,22 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.LinkButton btnAdminH;
 
         /// <summary>
-        /// Control btnAdminSave.
+        /// Control btnAdminGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAdminSave;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAdminGuardar;
+
+        /// <summary>
+        /// Control btnAdminSaltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAdminSaltar;
 
         /// <summary>
         /// Control btnAdminNext.

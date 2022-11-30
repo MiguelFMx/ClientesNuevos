@@ -780,7 +780,6 @@
                                         <asp:Label ID="lblMensaje" runat="server" Text="Mensaje:" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtMensaje" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10"></asp:TextBox>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -789,8 +788,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                    <asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" />
-                    <button id="btnEnviar" type="button">ENVIAR</button>
+                    <asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>
+                    <button id="btnEnviar" type="button" class="btn btn-primary">enviar</button>
                 </div>
             </div>
         </div>

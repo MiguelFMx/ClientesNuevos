@@ -290,39 +290,6 @@
 
                         </asp:GridView>
                     </div>
-                    <!--
-                    <div class="table-responsive">
-                        <table class="table table-hover" id="tComFil">
-
-                            <thead class="cabezal">
-                                <tr>
-                                    <th hidden></th>
-                                    <th>Nombre compañia</th>
-                                    <th>Nombr comercial</th>
-                                    <th>Direccion</th>
-                                    <th>RFC</th>
-                                    <th>Pais</th>
-                                    <th>Estado</th>
-                                    <th>Ciudad</th>
-                                    <th>CP</th>
-                                    <th>Contacto</th>
-                                    <th>Puesto</th>
-                                    <th>Correo</th>
-                                    <th>Telefono</th>
-                                    <th>Ext</th>
-                                    <th>Celular</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                            <tfoot></tfoot>
-
-                        </table>
-                    </div>
-
-                    -->
-
                 </div>
 
             </div>
@@ -342,17 +309,18 @@
                 </asp:Panel>
 
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
-                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary me-2" CausesValidation="False" OnClick="btnAdminBack_Click"
+                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary " CausesValidation="False" OnClick="btnAdminBack_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary me-2" OnClick="btnAdminH_Click"
+                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary " OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Salir" CausesValidation="False"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
                 <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminSaltar" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminSaltar_Click" Visible="false" CausesValidation="false">saltar</asp:LinkButton>
 
                     <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                         data-bs-toggle="tooltip"
