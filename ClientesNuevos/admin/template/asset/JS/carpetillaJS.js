@@ -1,5 +1,4 @@
-﻿/// <reference path="../../vendors/jquery/dist/jquery.js" />
-/// <reference path="../../../../scripts/js/ajax.js" />
+﻿/// <reference path="../../../../scripts/js/ajax.js" />
 
 
 
@@ -44,7 +43,6 @@ $(document).ready(function () {
             const modalTitle = CorreoAct.querySelector('.modal-title');
             documento = ` ${recipient}`;
             modalTitle.textContent = `Solicitud de actualización de `+ documento.toLowerCase();
-
 
             const txtCorreo = CorreoAct.querySelector('#MainContent_txtMensaje');
             txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${ recipient }`;
@@ -159,6 +157,8 @@ function ObtenerRoles() {
                         "<span class='badge text-bg-success text-white'>" + empresa + "." + dominio + ": <a href='#' class='text-white'>" + rol +"</a></span>"
                     );
                 }
+                document.cookie = "rol="+rol;
+
             } else {
                 $('#Rol').append('<label>Este cliente/proveedor no cuenta con un rol asignado</label>');
             }

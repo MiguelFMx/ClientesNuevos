@@ -30,7 +30,21 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     pUser.Visible=false;
                     pAdmin.Visible = true;
-                    btnAdminSave.Visible = true;    
+                    btnAdminSave.Visible = true;
+                    btnAdminNext.Text = "salir";
+
+                    if (Request.Cookies.Get("ctipo") != null)
+                    {
+                        if (Request.Cookies.Get("ctipo").Value == "proveedor")
+                        {
+                            step2.Visible = false;
+                            step3.Visible = false;
+                            step4.Visible = false;
+                            lblDesc5.Text = "Paso 2";
+                            lblstep5.Text = "2";
+                        }
+                    }
+
                     if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                     {
                         BindDataAdmin(Request.QueryString["rfc"]);
@@ -395,6 +409,19 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["rfc"] != null)
             {
+                if (Request.Cookies.Get("ctipo") != null)
+                {
+                    if (Request.Cookies.Get("ctipo").Value == "proveedor")
+                    {
+                        Response.Redirect("~/f14/secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"]);
+
+                    }
+                    else
+                    {
+                        Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"]);
+
+                    }
+                }
                 Response.Redirect("~/f14/secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"]);
             }
             else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
@@ -414,7 +441,11 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["rfc"] != null)
             {
-                Response.Redirect("~/F43/MapeoFlujo.aspx?rfc=" + Request.QueryString["rfc"]);
+                if (Request.Cookies.Get("tipo") != null)
+                {
+                    Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"]+"&type="+ Request.Cookies.Get("tipo").Value);
+
+                }
 
             }
             else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)

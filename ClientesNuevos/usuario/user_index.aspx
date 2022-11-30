@@ -13,7 +13,6 @@
                         <div class="row">
                             <div class="col" style="display: flex; justify-content: center;">
                                 <asp:Label ID="lblAlert" runat="server" Text=""></asp:Label>
-
                             </div>
                             <div class="col-2" style="display: flex; justify-content: flex-end;">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

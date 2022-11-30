@@ -24,6 +24,8 @@ namespace ClientesNuevos.admin.carpetilla
                 
                 if (Request.QueryString["id"] != null && Request.QueryString["type"] != null)
                 {
+                    
+
                     Ocultar(Request.QueryString["type"].ToString());
                     data = Obtener_inf(Request.QueryString["id"].ToString());
                     if (data.Rows.Count > 0)
@@ -776,7 +778,7 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 AbrirArchivo(txtAC.Text);
 
-                lblPrueba.Text = "Ver AC";
+                //lblPrueba.Text = "Ver AC";
             }
             else if (buttonId == "btnCheck_AC")
             {

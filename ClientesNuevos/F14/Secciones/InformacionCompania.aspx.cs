@@ -11,6 +11,7 @@ using ClientesNuevos.App_Code;
 using System.IO;
 using System.Web.Security;
 using static System.Net.Mime.MediaTypeNames;
+using ClientesNuevos.F5.Autoevaluacion;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -54,10 +55,20 @@ namespace ClientesNuevos.F14.Seccioness
                     pAdminControl.Visible = true;
                     pUserControl.Visible = false;
 
+
                     //Si es ver info solo sera el querystring rfc
                     if (Request.QueryString["rfc"]!= null)
                     {
-                        
+                        DataTable tabla = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE RFC='" + Request.QueryString["rfc"] + "' AND ID_Empresa='1' AND subdominio='1'", clsHerramientaBD.strConnAdmon);
+                        if(tabla.Rows.Count > 0)
+                        {
+                            if (tabla.Rows[0]["ID_rol"].ToString() == "4")
+                            {
+                                TipoRegistro("proveedor");
+
+                            }
+                        }
+
                         //Obtengo la info de la compañia
                         dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
                         
@@ -240,13 +251,14 @@ namespace ClientesNuevos.F14.Seccioness
 
             if (User.IsInRole("3"))
             {
+                
                 Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?res=" + resultado);
+
 
             }
             else
             {
                 Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?res=" + resultado);
-
             }
 
 
@@ -880,6 +892,19 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["rfc"] != null)
             {
+                if (Request.Cookies.Get("ctipo") != null)
+                {
+                    if (Request.Cookies.Get("ctipo").Value == "proveedor")
+                    {
+                        Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"]);
+
+                    }
+                    else
+                    {
+                        Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"]);
+
+                    }
+                }
                 Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"]);
             }
         }
