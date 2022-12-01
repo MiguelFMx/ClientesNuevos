@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using ClientesNuevos.App_Code;
+using MailKit.Net.Smtp;
+using MimeKit;
+using MimeKit.Text;
 
 namespace ClientesNuevos.admin
 {
@@ -150,8 +153,30 @@ namespace ClientesNuevos.admin
         }
 
         [WebMethod]
-        public string EnviarCorreo(string correo, string remitente)
+        public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)
         {
+            //Metodo para enviar correo por medio de MailKit
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Hungaros",""));
+            message.To.Add(new MailboxAddress(remitente,correo));
+
+            message.Subject = subject;
+            message.Body = new TextPart(TextFormat.Plain)
+            {
+                Text = cuerpo
+            };
+            SmtpClient client = new SmtpClient();
+            try
+            {
+                client.Connect("smtp.office365.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate("migue9835@hotmail.com", "xAng3lito98x");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
 
             return "";
         }

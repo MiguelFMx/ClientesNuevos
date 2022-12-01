@@ -26,7 +26,18 @@ namespace ClientesNuevos
                 Response.AppendCookie(c);
             }
 
-            
+            //pass=success
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["pass"] != null)
+                {
+                    if(Request.QueryString["pass"] == "success")
+                    {
+                        //Mostrar mensaje
+                        Password.Visible = true;
+                    }
+                }
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

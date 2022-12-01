@@ -12,9 +12,9 @@
     <link href="admin/template/assets/img/favicon.png" rel="icon" />
     <link href="admin/template/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
-
+         -->
     <!-- Vendor CSS Files -->
     <link href="template/assets/css/style.css" rel="stylesheet" />
 
@@ -38,14 +38,22 @@
     <form id="form1" runat="server">
         <section>
             <div class="container">
-                <div class="row justify-content-center">
+                <asp:Panel ID="Password" Visible="false" runat="server" CssClass="d-flex justify-content-center" >
+                    <div class="alert alert-success alert-dismissible fade show shadow position-fixed" role="alert" style="z-index:100; top:0%">
+                        <strong><i class="bi bi-check-circle-fill"></i> Cambio de contraseña!</strong> Inicia sesión nuevamente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </asp:Panel>
+
+
+                <%--<div class="row justify-content-center">
                     <div class="col-md-6 text-center mb-5">
                         <h3 class="heading-section">
                             <asp:Label Text="Bienvenido a Hungaro's Transportistas" runat="server" ID="lblHeading" />
-                            </h3>
+                        </h3>
                     </div>
-                </div>
-                <div class="row justify-content-center">
+                </div>--%>
+                <div class="row justify-content-center mt-5">
                     <div class="col-md-12 col-lg-10">
                         <div class="wrap d-md-flex">
                             <div class="img" style="background-image: url(template/assets/img/logo/Tractor.jpg);">
@@ -91,7 +99,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <asp:Button ID="btnPrueba" runat="server" Text="prueba" CssClass="btn btn-outline-secondary" OnClick="btnPrueba_Click" Visible="false"/>
+                                    <asp:Button ID="btnPrueba" runat="server" Text="prueba" CssClass="btn btn-outline-secondary" OnClick="btnPrueba_Click" Visible="false" />
                                 </div>
 
                             </div>
@@ -102,17 +110,16 @@
         </section>
     </form>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
-    <script src="template/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="admin/template/vendors/nprogress/nprogress.js"></script>
 
     <script type="text/javascript">
-        
-        $(window).on("load", function () {
-            NProgress.done();
 
-        });
-        $(document).ready(function () {
             NProgress.start();
+
+        $(document).ready(function () {
+            NProgress.done();
+            NProgress.remove();
         });
     </script>
 </body>

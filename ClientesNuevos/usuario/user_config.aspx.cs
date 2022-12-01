@@ -86,7 +86,8 @@ namespace ClientesNuevos.usuario
                         lblPass.Text = "La contraseña ha sido actualizada";
 
 
-                        EnviarCorreo(CambiarPass.NewPassword);
+                        // EnviarCorreo(CambiarPass.NewPassword);
+                        Response.Redirect("~/login.aspx?pass=success");
                     }
                     else
                     {

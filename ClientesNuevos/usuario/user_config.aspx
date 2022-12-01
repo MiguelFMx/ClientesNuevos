@@ -19,7 +19,7 @@
         <div class="row w-25 mt-4">
             <div class="col">
                 <asp:HiddenField ID="hfID" runat="server" />
-                <asp:ChangePassword ID="CambiarPass" runat="server" SuccessPageUrl="~/usuario/user_config.aspx"
+                <asp:ChangePassword ID="CambiarPass" runat="server" SuccessPageUrl="~/login.aspx?pass=success"
                     PasswordHintText="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial."
                     NewPasswordRegularExpression="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{7,16}$"
                     NewPasswordRegularExpressionErrorMessage="Error: Su contraseña debe de tener entre 7 y 16 caracteres, y contener al menos una mayúscula, al menos un caracter especial y un dígito." OnChangingPassword="CambiarPass_ChangingPassword">
@@ -27,7 +27,7 @@
                     <ChangePasswordTemplate>
                         <span>Cambiar contraseña</span><br />
                         <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="CurrentPassword" ID="CurrentPasswordLabel" CssClass="form-label">Contraseña:</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="CurrentPassword" ID="CurrentPasswordLabel" CssClass="form-label">Contraseña actual:</asp:Label>
                             <asp:TextBox runat="server" TextMode="Password" ID="CurrentPassword" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="CurrentPassword" ErrorMessage="La contrase&#241;a es obligatoria." ValidationGroup="CambiarPass" ToolTip="La contrase&#241;a es obligatoria." ID="CurrentPasswordRequired">*</asp:RequiredFieldValidator>
 
