@@ -57,7 +57,6 @@
                     <div class="col-md-12 col-lg-10">
                         <div class="wrap d-md-flex">
                             <div class="img" style="background-image: url(template/assets/img/logo/Tractor.jpg);">
-                                <%--<img src="template/assets/img/logo/Tractor.jpg" width="100%" height="100%"/>--%>
                             </div>
                             <div class="login-wrap p-4 p-md-5">
                                 <div class="d-flex">
