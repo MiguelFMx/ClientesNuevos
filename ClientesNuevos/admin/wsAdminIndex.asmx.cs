@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -146,6 +147,13 @@ namespace ClientesNuevos.admin
 
 
             return lst;
+        }
+
+        [WebMethod]
+        public string EnviarCorreo(string correo, string remitente)
+        {
+
+            return "";
         }
 
     }
