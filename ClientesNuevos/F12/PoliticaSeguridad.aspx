@@ -170,7 +170,7 @@
                             Atentamente.
                         <br />
                             <strong>Marcela Freig - Gerente administrativo </strong>
-                           
+
                         </p>
                     </div>
                 </div>
@@ -253,18 +253,25 @@
 
                 <br />
 
-                <div class="row">
-                    <div class="col-auto">
-                        <asp:RadioButton ID="si5" runat="server" Text="Si" GroupName="radioPregunta5" OnCheckedChanged="si5_CheckedChanged" AutoPostBack="true" />
-                    </div>
-                    <div class="col-auto">
-                        <asp:RadioButton ID="no5" runat="server" Text="No" GroupName="radioPregunta5" AutoPostBack="true" OnCheckedChanged="si5_CheckedChanged" />
-                    </div>
-                    <div class="col">
-                        <asp:Label ID="lblpregunta5" runat="server" Text="Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA."></asp:Label>
-                        <asp:TextBox ID="txtPregunta5" runat="server" CssClass="form-control-sm form-control" Style="width: 40%;" Visible="false"></asp:TextBox>
-                    </div>
-                </div>
+
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="row">
+
+                            <div class="col-auto">
+                                <asp:RadioButton ID="si5" runat="server" Text="Si" GroupName="radioPregunta5" OnCheckedChanged="si5_CheckedChanged" AutoPostBack="true" />
+                            </div>
+                            <div class="col-auto">
+                                <asp:RadioButton ID="no5" runat="server" Text="No" GroupName="radioPregunta5" AutoPostBack="true" OnCheckedChanged="si5_CheckedChanged" />
+                            </div>
+                            <div class="col">
+                                <asp:Label ID="lblpregunta5" runat="server" Text="Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA."></asp:Label>
+                                <asp:TextBox ID="txtPregunta5" runat="server" CssClass="form-control-sm form-control" Style="width: 40%;" Visible="false"></asp:TextBox>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
                 <br />
 
                 <div class="row">

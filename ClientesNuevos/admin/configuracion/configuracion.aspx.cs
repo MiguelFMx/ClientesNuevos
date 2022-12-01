@@ -432,5 +432,90 @@ namespace ClientesNuevos.admin.configuracion
             txtEmpresa.Text = "";
             BindData_Empresa();
         }
+
+        protected void ddLapso_compdom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lapso = ddLapso_compdom.SelectedValue;
+
+            ddTiempo_compdom.Items.Clear();
+            if (lapso == "mensual")
+            {
+                llenarDropdown("mensual", ddTiempo_compdom);
+                lbltiempo_compdom.Text = "mes(es)";
+            }
+            else
+            {
+                llenarDropdown("anual", ddTiempo_compdom);
+                lbltiempo_compdom.Text = "año(s)";
+            }
+        }
+
+        protected void ddLapso_ctpat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lapso = ddLapso_ctpat.SelectedValue;
+
+            ddTiempo_ctpat.Items.Clear();
+            if (lapso == "mensual")
+            {
+                llenarDropdown("mensual", ddTiempo_ctpat);
+                lblTiempo_ctpat.Text = "mes(es)";
+            }
+            else
+            {
+                llenarDropdown("anual", ddTiempo_ctpat);
+                lblTiempo_ctpat.Text = "año(s)";
+            }
+        }
+
+        protected void ddLapso_oea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lapso = ddLapso_oea.SelectedValue;
+
+            ddTiempo_oea.Items.Clear();
+            if (lapso == "mensual")
+            {
+                llenarDropdown("mensual", ddTiempo_oea);
+                lblTiempo_oea.Text = "mes(es)";
+            }
+            else
+            {
+                llenarDropdown("anual", ddTiempo_oea);
+                lblTiempo_oea.Text = "año(s)";
+            }
+        }
+
+        protected void ddLapso_op_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lapso = ddLapso_op.SelectedValue;
+
+            ddTiempo_op.Items.Clear();
+            if (lapso == "mensual")
+            {
+                llenarDropdown("mensual", ddTiempo_op);
+                lblTiempo_oea.Text = "mes(es)";
+            }
+            else
+            {
+                llenarDropdown("anual", ddTiempo_op);
+                lblTiempo_op.Text = "año(s)";
+            }
+        }
+
+        protected void ddLapso_IS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lapso = ddLapso_IS.SelectedValue;
+
+            ddTiempo_is.Items.Clear();
+            if (lapso == "mensual")
+            {
+                llenarDropdown("mensual", ddTiempo_is);
+                lblTiempo_is.Text = "mes(es)";
+            }
+            else
+            {
+                llenarDropdown("anual", ddTiempo_is);
+                lblTiempo_is.Text = "año(s)";
+            }
+        }
     }
 }

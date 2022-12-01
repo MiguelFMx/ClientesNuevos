@@ -52,15 +52,14 @@
                                 </div>
                             </div>
 
-
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
                             <div class="row">
-
                                 <div class="col">
                                     <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
 
                                     <label class="switch"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="top"
+                                       
                                         title="Activar o desactivar">
                                         <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
                                         <span class="slider round"></span>
@@ -74,6 +73,8 @@
                                 </div>
                                 <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
                             </div>
+                                    </ContentTemplate>
+                            </asp:UpdatePanel>
                             <br />
                             <div class="row">
                                 <div class="col">
@@ -94,12 +95,14 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="col">
+
                     <div class="card">
                         <div class="card-header cabezal">
                             <h5>
                                 <asp:Label ID="lblCompania" runat="server" Text="Carpetilla de "></asp:Label>
                             </h5>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <asp:Table ID="tDocumentos" runat="server" CssClass="table table-striped  table-hover">
@@ -674,10 +677,12 @@
 
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
+                    </div>
+                    
+                </div>
+
+            </div>
             <div class="row pt-2">
                 <div class="col">
                     <div class="card">
@@ -799,5 +804,7 @@
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../../template/assets/js/dropjs.js"></script>
+    <script src="../template/vendors/nprogress/nprogress.js"></script>
     <script src="../template/asset/JS/carpetillaJS.js"></script>
+
 </asp:Content>

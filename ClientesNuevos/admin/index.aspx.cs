@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Net.Sockets;
+using System.Net;
 
 namespace ClientesNuevos.admin
 {
@@ -13,17 +14,17 @@ namespace ClientesNuevos.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FormsIdentity ident = User.Identity as FormsIdentity;
-            FormsAuthenticationTicket authTicket = ident.Ticket;
+            //if(Request.Cookies.Get("ctipo") != null)
+            //{
+            //    var galleta = new HttpCookie(Request.Cookies.Get("ctipo").Name);
+            //    galleta.Expires = DateTime.Now.AddDays(-1);
+            //    galleta.Value = string.Empty;
+            //    Response.Cookies.Add(galleta);
 
-            string userInfo = authTicket.UserData;
-            string[] info = userInfo.Split(';');
-            string id = info[1];
+            //}
 
-            if (Request.IsAuthenticated)
-            {                
-                lblNuevo.Text += "  " + authTicket.UserData + "  "+id;
-            }
+
+
         }
 
        

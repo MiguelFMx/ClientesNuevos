@@ -1,21 +1,21 @@
 ﻿
+NProgress.start();
+
 $(document).ready(function () {
 
-    NProgress.start();
 
     GetData();
 
     var tab = $('#tClientes').DataTable();
-   
 
-});
-$(window).load(function () {
     NProgress.done();
+    NProgress.remove();
 });
 
 
 
 function GetData() {
+
     GetAjax("wsAdminIndex.asmx/Obtener_registros", "", false, function (result) {
         let table = $('#tClientes tbody');
         let tipo = "";
@@ -55,6 +55,8 @@ function GetData() {
             );
         }
     });
+
+    
 }
 
 function dtTabla() {

@@ -590,6 +590,7 @@ namespace ClientesNuevos.admin.carpetilla
                         lblAC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
 
                         txtAC.Text = fila["Ruta"].ToString();
+                        
                     }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)

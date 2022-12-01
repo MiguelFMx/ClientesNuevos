@@ -641,8 +641,9 @@ namespace ClientesNuevos.usuario
                             lblAC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
                         }
                         lblAC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
+
                         AC_borrar.Enabled = true;
-                        AC_borrar.CssClass = AC_borrar.CssClass.Replace("disbled", "");
+                        AC_borrar.CssClass = AC_borrar.CssClass.Replace("disabled", "");
 
                         AC_ver.Enabled = true;
                         AC_ver.CssClass = AC_ver.CssClass.Replace("disabled", "");

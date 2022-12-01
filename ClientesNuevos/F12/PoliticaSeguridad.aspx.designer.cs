@@ -141,6 +141,15 @@ namespace ClientesNuevos.F12
         protected global::System.Web.UI.WebControls.RadioButton no4;
 
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// Control si5.
         /// </summary>
         /// <remarks>

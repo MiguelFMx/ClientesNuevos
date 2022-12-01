@@ -20,6 +20,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
 
     <div class="container">
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+            
         <div class="row">
 
             <div class="col">
@@ -94,7 +97,8 @@
                 </ul>
             </div>
         </div>
-
+                </ContentTemplate>
+        </asp:UpdatePanel>
         <br />
         <!------------------------------------------------- Informacion de compañia------------------------------->
         <fieldset>
@@ -128,14 +132,24 @@
                         <br />
                         <div class="row">
                             <div class="col-md">
-                                <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
                                     <asp:ListItem Text="..." Value="" />
                                     <asp:ListItem Text="Extranjero" Value="2" />
                                     <asp:ListItem Text="Moral" Value="0" />
                                     <asp:ListItem Text="Fisica" Value="1" />
                                 </asp:DropDownList>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="ddTipoDePersona" EventName="selectedindexchanged" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                                
+
                             </div>
+
                             <div class="col-md">
                                 <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
@@ -184,9 +198,11 @@
                             </div>
                         </div>
                         <br />
+                            <asp:UpdatePanel ID="UP_Ubicacion"  runat="server">
+                                <ContentTemplate>
                         <div class="row">
                             <div class="col-sm">
-                                <asp:Label ID="lblPais" runat="server" Text="Pais:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblPais" runat="server" Text="Pais:" CssClass="form-label"></asp:Label>                                
                                 <asp:DropDownList ID="ddPais" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPais_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                             </div>
@@ -205,15 +221,21 @@
                                 <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="true"></asp:Label>
                             </div>
                         </div>
+                         </ContentTemplate>
+                            </asp:UpdatePanel>
                         <br />
                     </div>
                 </div>
-            </div>
+                 </div>
+            
             <hr />
 
             <div class="row">
                 <!--------------------------------------------Datos de facturacion--------------------------------------------------------->
                 <div class="col-md">
+                
+                <asp:UpdatePanel ID="UPDatosFra" runat="server">
+                    <ContentTemplate>                    
                     <div class="card border-primary">
                         <div class="card-header cabezal">
                             <div class="col">
@@ -258,14 +280,17 @@
                                 <div class="row">
                                     <br />
                                 </div>
-
                             </div>
-
                         </asp:Panel>
                     </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
                 </div>
+
                 <!-- ===============================================Datos bancarios=================================================== -->
                 <div class="col-md">
+                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                    <ContentTemplate>
                     <div class="card border-primary">
                         <h6 class="card-header cabezal">
                             <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="Datos bancarios"></asp:Label>
@@ -284,9 +309,12 @@
 
                                     </div>
                                     <div class="col-md-4">
+                                       
+                                        
                                         <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago:" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddFormaPago" runat="server" CssClass="form-select">
                                         </asp:DropDownList>
+                                        
                                     </div>
                                     <div class="col-md-3">
                                         <asp:Label ID="lblMoneda" runat="server" Text="Moneda"></asp:Label>
@@ -299,10 +327,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
+                                        
                                         <asp:Label ID="lblUsoCFDI" runat="server" Text="Uso de CFDI:" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddUsoCFDI" runat="server" CssClass="form-select">
                                             <asp:ListItem Text="Seleccione el regimen al que pertenece" Value="" />
                                         </asp:DropDownList>
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -351,12 +381,15 @@
                         </asp:Panel>
 
                     </div>
+                </ContentTemplate>                                            
+                                            </asp:UpdatePanel>
                 </div>
             </div>
             <hr />
 
-
-            <div class="row">
+            <asp:UpdatePanel ID="UPContacto" runat="server">
+                <ContentTemplate>
+ <div class="row">
                 <div class="col-md-6">
                     <div id="contactoCompania1" class="card border-primary">
                         <h6 class="card-header cabezal">
@@ -505,6 +538,10 @@
 
                 </div>
             </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+           
+
         </fieldset>
 
 

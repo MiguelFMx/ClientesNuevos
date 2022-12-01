@@ -36,6 +36,8 @@
                     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                 </div>
             </div>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
             <div class="row" style="margin-bottom: 1em;">
                 <div class="col">
                     <div class="card border-primary">
@@ -65,7 +67,7 @@
                                         <asp:TextBox ID="txtAC" runat="server" Visible="false"></asp:TextBox>
                                         <div class="btn-group" role="group" aria-label="ac-group">
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Acta constitutiva"><i class="bi bi-upload"></i></button>
-                                            <asp:LinkButton ID="AC_borrar" runat="server" CssClass="btn btn-danger disabled" Enabled="false"  OnClick="AC_borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="AC_borrar" runat="server" CssClass="btn btn-danger disabled" Enabled="false"  OnClick="Borrar_Click"><i class="bi bi-trash"></i></asp:LinkButton>
 
                                             <asp:LinkButton ID="AC_ver" runat="server" CssClass="btn btn-secondary disabled" Enabled="false" OnClick="Ver_Click"><i class="bi bi-eye"></i></asp:LinkButton>
                                         </div>
@@ -288,7 +290,8 @@
                     </div>
                 </div>
             </div>
-
+                    </ContentTemplate>
+            </asp:UpdatePanel>
             <!--Formularios-->
             <div class="row">
                 <div class="col">

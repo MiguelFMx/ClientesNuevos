@@ -59,11 +59,13 @@
         </div>
 
         <br />
-        <div class="card border-primary">
-            <div class="card-header cabezal">
-                <div class="row">
-                    <div class="col-auto">
-                        <h4>Información de compañia filial
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="card border-primary">
+                    <div class="card-header cabezal">
+                        <div class="row">
+                            <div class="col-auto">
+                                <h4>Información de compañia filial
                     <span style="font-size: 15px;">
                         <i class="bi bi-question-circle"
                             data-bs-toggle="tooltip"
@@ -71,229 +73,212 @@
                             title="Compañia filial es considerada cualquier empresa subcontratada para realizar cualquier servicio de transporte,
                             almacenaje o resguardo de unidades de transporte internacional. Si no cuenta con una compañia filial de clic en continuar"></i>
                     </span>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="row">
-                        <div class="col-sm">
-                            <asp:HiddenField ID="hfID" runat="server" />
-
-                            <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
-                            <!--<input type="text" name="name" value="" id="txtNombreCompaniaFilial" class="form-control " />-->
-                            <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombreCompaniaFilial"></asp:RequiredFieldValidator>
-
-                            <span id="NombreCompaniaFilial" style="color: red;"></span>
-                        </div>
-                        <div class="col-sm">
-                            <label for="txtNombrComFilial" class="form-label">Nombre comercial:</label>
-                            <%--<input type="text" name="name" value="" id="txtNombrComFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtNombrComFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrComFilial"></asp:RequiredFieldValidator>
-
-                            <span id="NombrComFilial" style="color: red;"></span>
-
+                                </h4>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <label for="txtDirecFiscalComFilial" class="form-label">Dirección fiscal:</label>
-                            <%--<input type="text" name="name" value="" id="txtDirecFiscalComFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtDirecFiscalComFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtDirecFiscalComFilial"></asp:RequiredFieldValidator>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <asp:HiddenField ID="hfID" runat="server" />
 
-                            <span id="DirecFiscalComFilial" style="color: red;"></span>
+                                    <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
+                                    <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombreCompaniaFilial"></asp:RequiredFieldValidator>
 
-                        </div>
+                                    <span id="NombreCompaniaFilial" style="color: red;"></span>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtNombrComFilial" class="form-label">Nombre comercial:</label>
+                                    <asp:TextBox ID="txtNombrComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrComFilial"></asp:RequiredFieldValidator>
 
-                        <div class="col-md-3">
+                                    <span id="NombrComFilial" style="color: red;"></span>
 
-                            <label for="txtRfcComFilial" class="form-label">RFC:</label>
-                            <%--<input type="text" name="name" value="" id="txtRfcComFilial" class="form-control " />--%>
-                            <asp:TextBox ID="txtRfcComFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtRfcComFilial"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <label for="txtDirecFiscalComFilial" class="form-label">Dirección fiscal:</label>
+                                    <asp:TextBox ID="txtDirecFiscalComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtDirecFiscalComFilial"></asp:RequiredFieldValidator>
 
-                            <span id="RfcComFilial" style="color: red;"></span>
+                                    <span id="DirecFiscalComFilial" style="color: red;"></span>
 
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <label for="txtRfcComFilial" class="form-label">RFC:</label>
+                                    <asp:TextBox ID="txtRfcComFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtRfcComFilial"></asp:RequiredFieldValidator>
+
+                                    <span id="RfcComFilial" style="color: red;"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="cbPaisComFilial" class="form-label">Pais:</label>
+                                    <asp:DropDownList ID="ddPaisComFilial" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPaisComFilial_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cboEstadoComFilial" class="form-label">Estado:</label>
+
+                                    <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged"></asp:DropDownList>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cbCiudadComFilial" class="form-label">Ciudad:</label>
+
+                                    <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtCPComFIlial" class="form-label">CP:</label>
+                                    <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCPComFIlial"></asp:RequiredFieldValidator>
+                                    <span id="CPComFIlial" style="color: red;"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label for="cbPaisComFilial" class="form-label">Pais:</label>
-                            <%--<select id="cbPaisComFilial" class="form-select">
-                                <option value="...">...</option>
-                            </select>--%>
-                            <asp:DropDownList ID="ddPaisComFilial" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPaisComFilial_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-
-                        </div>
-                        <div class="col-md-3">
-                            <label for="cboEstadoComFilial" class="form-label">Estado:</label>
-                            <%--<select id="cboEstadoComFilial" class="form-select">
-                                <option value="value">...</option>
-                            </select>--%>
-                            <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged"></asp:DropDownList>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="cbCiudadComFilial" class="form-label">Ciudad:</label>
-                            <%--<select id="cbCiudadComFilial" class="form-select">
-                                <option value="value">...</option>
-                            </select>--%>
-                            <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="txtCPComFIlial" class="form-label">CP:</label>
-                            <%--<input type="text" name="name" value="" id="txtCPComFIlial" class="form-control" />--%>
-                            <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCPComFIlial"></asp:RequiredFieldValidator>
-
-                            <span id="CPComFIlial" style="color: red;"></span>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card-header cabezal">
-                <div class="row">
-                    <div class="col">
-                        <h5>Contacto
+                    <div class="card-header cabezal">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Contacto
                         <span style="font-size: 15px;">
                             <i class="bi bi-question-circle"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="bottom"
                                 title="Datos del contacto principal de la compañia filial."></i>
                         </span>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="txtNombrContFilial" class="form-label">Nombre:</label>
-                            <%--<input type="text" name="name" value="" id="txtNombrContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtNombrContFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="validador1" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrContFilial"></asp:RequiredFieldValidator>
-                            <span id="NombrContFilial" style="color: red;"></span>
-
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="txtPuestoContFilial" class="form-label">Puesto:</label>
-                            <%--<input type="text" name="name" value="" id="txtPuestoContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtPuestoContFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtPuestoContFilial"></asp:RequiredFieldValidator>
-
-                            <span id="PuestoContFilial" style="color: red;"></span>
-
-                        </div>
-                        <div class="col-md-3">
-                            <label for="txtCorreoContFilial" class="form-label">Correo:</label>
-                            <%--<input type="email" name="name" value="" id="txtCorreoContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtCorreoContFilial" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCorreoContFilial"></asp:RequiredFieldValidator>
-
-                            <span id="CorreoContFilial" style="color: red;"></span>
-
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="txtTelContFilial" class="form-label">Telefono:</label>
-                            <%--<input type="tel" name="name" value="" id="txtTelContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtTelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtTelContFilial"></asp:RequiredFieldValidator>
-
-                            <span id="TelContFilial" style="color: red;"></span>
-
-                        </div>
-                        <div class="col-md-2">
-                            <label for="txtExtContFilial" class="form-label">Extension:</label>
-                            <%--<input type="text" name="name" value="" id="txtExtContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtExtContFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="txtCelContFilial" class="form-label">Celular:</label>
-                            <%--<input type="tel" name="name" value="" id="txtCelContFilial" class="form-control" />--%>
-                            <asp:TextBox ID="txtCelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCelContFilial"></asp:RequiredFieldValidator>
-
-                            <span id="CelContFilial" style="color: red;"></span>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col">
-                        <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
-
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <asp:Panel ID="pEdit" runat="server" Visible="false">
+                    <div class="card-body">
+                        <div class="row">
                             <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="Label1" runat="server" Text="Actualizar registro:"></asp:Label>
-                                    <asp:LinkButton ID="btnAccept" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAccept_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
-                                    <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancel_Click"><i class="bi bi-x-lg"></i></asp:LinkButton>
+                                <div class="col-md-6">
+                                    <label for="txtNombrContFilial" class="form-label">Nombre:</label>
+                                    <asp:TextBox ID="txtNombrContFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="validador1" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrContFilial"></asp:RequiredFieldValidator>
+                                    <span id="NombrContFilial" style="color: red;"></span>
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="txtPuestoContFilial" class="form-label">Puesto:</label>
+                                    <asp:TextBox ID="txtPuestoContFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                        ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtPuestoContFilial"></asp:RequiredFieldValidator>
+
+                                    <span id="PuestoContFilial" style="color: red;"></span>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtCorreoContFilial" class="form-label">Correo:</label>
+                                    <asp:TextBox ID="txtCorreoContFilial" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCorreoContFilial"></asp:RequiredFieldValidator>
+
+                                    <span id="CorreoContFilial" style="color: red;"></span>
+
                                 </div>
                             </div>
-                        </asp:Panel>
-                        <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success" OnClick="btnAddCF_Click" />
-                        <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial" hidden>Registrar compañia</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="txtTelContFilial" class="form-label">Telefono:</label>
+                                    <asp:TextBox ID="txtTelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtTelContFilial"></asp:RequiredFieldValidator>
+
+                                    <span id="TelContFilial" style="color: red;"></span>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtExtContFilial" class="form-label">Extension:</label>
+                                    <asp:TextBox ID="txtExtContFilial" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="txtCelContFilial" class="form-label">Celular:</label>
+                                    <asp:TextBox ID="txtCelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCelContFilial"></asp:RequiredFieldValidator>
+
+                                    <span id="CelContFilial" style="color: red;"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col">
+                                <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
+
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <asp:Panel ID="pEdit" runat="server" Visible="false">
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Label ID="Label1" runat="server" Text="Actualizar registro:"></asp:Label>
+                                            <asp:LinkButton ID="btnAccept" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAccept_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancel_Click"><i class="bi bi-x-lg"></i></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+                                <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success" OnClick="btnAddCF_Click" />
+                                <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial" hidden>Registrar compañia</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <br />
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="table-responsive">
-                        <asp:GridView ID="gvComFil" runat="server" AutoGenerateColumns="false" AllowPaging="true" CssClass="table table-hover"
-                            HeaderStyle-CssClass="cabezal" EmptyDataText="No data" ShowHeaderWhenEmpty="True">
-                            <Columns>
-                                <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"></asp:BoundField>
-                                <asp:BoundField DataField="ID_compania" HeaderText="ID_compania">
-                                    <HeaderStyle CssClass="hiddencol" />
-                                    <ItemStyle CssClass="hiddencol" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
-                                <asp:BoundField DataField="Nombre_comercial" HeaderText="Nombre comercial"></asp:BoundField>
-                                <asp:BoundField DataField="RFC" HeaderText="RFC"></asp:BoundField>
-                                <asp:BoundField DataField="Direccion" HeaderText="Direccion"></asp:BoundField>
-                                <asp:BoundField DataField="Pais" HeaderText="Pais"></asp:BoundField>
-                                <asp:BoundField DataField="Estado" HeaderText="Estado"></asp:BoundField>
-                                <asp:BoundField DataField="Ciudad" HeaderText="Ciudad"></asp:BoundField>
-                                <asp:BoundField DataField="CP" HeaderText="CP"></asp:BoundField>
-                                <asp:BoundField DataField="Nombre_contacto" HeaderText="Contacto"></asp:BoundField>
-                                <asp:BoundField DataField="Puesto_contacto" HeaderText="Puesto"></asp:BoundField>
-                                <asp:BoundField DataField="Correo" HeaderText="Correo"></asp:BoundField>
-                                <asp:BoundField DataField="Telefono" HeaderText="Telefono"></asp:BoundField>
-                                <asp:BoundField DataField="Extension" HeaderText="Extension"></asp:BoundField>
-                                <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
-                                <asp:TemplateField HeaderText="Acciones">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click" CausesValidation="false"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click" CausesValidation="false"><i class="bi bi-trash-fill"></i></asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="table-responsive">
+                                <asp:GridView ID="gvComFil" runat="server" AutoGenerateColumns="false" AllowPaging="true" CssClass="table table-hover"
+                                    HeaderStyle-CssClass="cabezal" EmptyDataText="No data" ShowHeaderWhenEmpty="True">
+                                    <Columns>
+                                        <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"></asp:BoundField>
+                                        <asp:BoundField DataField="ID_compania" HeaderText="ID_compania">
+                                            <HeaderStyle CssClass="hiddencol" />
+                                            <ItemStyle CssClass="hiddencol" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre_comercial" HeaderText="Nombre comercial"></asp:BoundField>
+                                        <asp:BoundField DataField="RFC" HeaderText="RFC"></asp:BoundField>
+                                        <asp:BoundField DataField="Direccion" HeaderText="Direccion"></asp:BoundField>
+                                        <asp:BoundField DataField="Pais" HeaderText="Pais"></asp:BoundField>
+                                        <asp:BoundField DataField="Estado" HeaderText="Estado"></asp:BoundField>
+                                        <asp:BoundField DataField="Ciudad" HeaderText="Ciudad"></asp:BoundField>
+                                        <asp:BoundField DataField="CP" HeaderText="CP"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre_contacto" HeaderText="Contacto"></asp:BoundField>
+                                        <asp:BoundField DataField="Puesto_contacto" HeaderText="Puesto"></asp:BoundField>
+                                        <asp:BoundField DataField="Correo" HeaderText="Correo"></asp:BoundField>
+                                        <asp:BoundField DataField="Telefono" HeaderText="Telefono"></asp:BoundField>
+                                        <asp:BoundField DataField="Extension" HeaderText="Extension"></asp:BoundField>
+                                        <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
+                                        <asp:TemplateField HeaderText="Acciones">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click" CausesValidation="false"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click" CausesValidation="false"><i class="bi bi-trash-fill"></i></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
 
-                        </asp:GridView>
+                                </asp:GridView>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-            </div>
-        </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <hr />
         <div class="row">
             <div class="col" style="display: flex; justify-content: flex-end;">
@@ -314,12 +299,12 @@
                         data-bs-placement="top"
                         title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary " OnClick="btnAdminH_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Salir" CausesValidation="False"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary " OnClick="btnAdminH_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Salir" CausesValidation="False"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click" CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
                     <asp:LinkButton ID="btnAdminSaltar" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminSaltar_Click" Visible="false" CausesValidation="false">saltar</asp:LinkButton>
 
                     <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"

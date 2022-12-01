@@ -4,6 +4,10 @@
     <title>Configuracion</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+   
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+        
     <div class="row">
         <div class="col">
             <div class="card">
@@ -39,7 +43,7 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <asp:Label ID="Label2" runat="server" Text="Tipo de actualizacion"></asp:Label>
-                                        <asp:DropDownList ID="ddLapso_compdom" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_SelectedIndexChanged" CssClass="form-select-sm">
+                                        <asp:DropDownList ID="ddLapso_compdom" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_compdom_SelectedIndexChanged" CssClass="form-select-sm">
                                             <asp:ListItem Text="Anual" Value="anual"></asp:ListItem>
                                             <asp:ListItem Text="Mensual" Value="mensual"></asp:ListItem>
                                         </asp:DropDownList>
@@ -65,7 +69,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <asp:Label ID="Label4" runat="server" Text="Tipo de actualizacion"></asp:Label>
-                                    <asp:DropDownList ID="ddLapso_ctpat" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_SelectedIndexChanged" CssClass="form-select-sm">
+                                    <asp:DropDownList ID="ddLapso_ctpat" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_ctpat_SelectedIndexChanged" CssClass="form-select-sm">
                                         <asp:ListItem Text="Anual" Value="anual"></asp:ListItem>
                                         <asp:ListItem Text="Mensual" Value="mensual"></asp:ListItem>
                                     </asp:DropDownList>
@@ -86,7 +90,7 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <asp:Label ID="Label8" runat="server" Text="Tipo de actualizacion"></asp:Label>
-                                        <asp:DropDownList ID="ddLapso_oea" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_SelectedIndexChanged" CssClass="form-select-sm">
+                                        <asp:DropDownList ID="ddLapso_oea" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_oea_SelectedIndexChanged" CssClass="form-select-sm">
                                             <asp:ListItem Text="Anual" Value="anual"></asp:ListItem>
                                             <asp:ListItem Text="Mensual" Value="mensual"></asp:ListItem>
                                         </asp:DropDownList>
@@ -112,7 +116,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <asp:Label ID="Label12" runat="server" Text="Tipo de actualizacion"></asp:Label>
-                                    <asp:DropDownList ID="ddLapso_op" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_SelectedIndexChanged" CssClass="form-select-sm">
+                                    <asp:DropDownList ID="ddLapso_op" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_op_SelectedIndexChanged" CssClass="form-select-sm">
                                         <asp:ListItem Text="Anual" Value="anual"></asp:ListItem>
                                         <asp:ListItem Text="Mensual" Value="mensual"></asp:ListItem>
                                     </asp:DropDownList>
@@ -133,7 +137,7 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <asp:Label ID="Label10" runat="server" Text="Tipo de actualizacion"></asp:Label>
-                                        <asp:DropDownList ID="ddLapso_IS" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_SelectedIndexChanged" CssClass="form-select-sm">
+                                        <asp:DropDownList ID="ddLapso_IS" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddLapso_IS_SelectedIndexChanged" CssClass="form-select-sm">
                                             <asp:ListItem Text="Anual" Value="anual"></asp:ListItem>
                                             <asp:ListItem Text="Mensual" Value="mensual"></asp:ListItem>
                                         </asp:DropDownList>
@@ -312,6 +316,9 @@
             <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
         </div>
     </div>
+</ContentTemplate>
+    </asp:UpdatePanel>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
 </asp:Content>

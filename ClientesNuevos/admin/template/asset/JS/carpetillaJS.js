@@ -1,6 +1,7 @@
 ﻿/// <reference path="../../../../scripts/js/ajax.js" />
 
 
+NProgress.start();
 
 $(document).ready(function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -79,6 +80,9 @@ $(document).ready(function () {
     ObtenerContactos();
     ListaContactos();
     let Directorio = $('#tContactos').DataTable();
+
+    NProgress.done();
+    NProgress.remove();
 });
 
 function limpiar() {

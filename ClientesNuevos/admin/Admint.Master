@@ -33,7 +33,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="d-flex">
             <div class="fondo-primary p-3" id="sidebar-container">
                 <div class="logo">

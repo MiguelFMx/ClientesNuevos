@@ -127,20 +127,30 @@
                                     </div>
                                 </div>
                                 <div class="row">
+
+
+
                                     <div class="col-md">
-                                        <label for="txtEstadoAA" class="form-label">Estado:</label>
-                                        <%--<select id="cbEstadoAA" class="form-select">
-                                                <option value="value">...</option>
-                                            </select>--%>
-                                        <asp:DropDownList ID="ddEstadoAA" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddEstadoAA_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                            <ContentTemplate>
+                                                <label for="txtEstadoAA" class="form-label">Estado:</label>
+                                                <asp:DropDownList ID="ddEstadoAA" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddEstadoAA_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:AsyncPostBackTrigger ControlID="ddEstadoAA" EventName="selectedindexchanged" />
+                                            </Triggers>
+                                        </asp:UpdatePanel>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtCiudadAA" class="form-label">Ciudad:</label>
-                                        <%--<select id="cbCiudadAA" class="form-select">
-                                                <option value="value">...</option>
-                                            </select>--%>
-                                        <asp:DropDownList ID="ddCiudadAA" runat="server" CssClass="form-select"></asp:DropDownList>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
+                                                <label for="txtCiudadAA" class="form-label">Ciudad:</label>
+
+                                                <asp:DropDownList ID="ddCiudadAA" runat="server" CssClass="form-select"></asp:DropDownList>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                     </div>
+
                                     <div class="col-md">
                                         <label for="txtCPAA" id="lblCPAA" class="form-label">Codgio Postal:</label>
                                         <%--<input type="text" name="txtCPAA" value="" id="txtCPAA" class="form-control" />--%>
@@ -243,18 +253,26 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md">
-                                        <label for="cbEstadoAAm" class="form-label">Estado:</label>
-                                        <%--<select id="cbEstadoAAm" class="form-select">
-                                            <option value="value">...</option>
-                                        </select>--%>
-                                        <asp:DropDownList ID="ddEstadoAAm" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoAAm_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                            <ContentTemplate>
+                                                <label for="cbEstadoAAm" class="form-label">Estado:</label>
+                                                <asp:DropDownList ID="ddEstadoAAm" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoAAm_SelectedIndexChanged"></asp:DropDownList>
+
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:AsyncPostBackTrigger ControlID="ddEstadoAAm" EventName="selectedindexchanged" />
+                                            </Triggers>
+                                        </asp:UpdatePanel>
+
                                     </div>
                                     <div class="col-md">
-                                        <label for="cbCiudadAAm" class="form-label">Ciudad:</label>
-                                        <%--<select id="cbCiudadAAm" class="form-select">
-                                            <option value="value">...</option>
-                                        </select>--%>
-                                        <asp:DropDownList ID="ddCiudadAAm" runat="server" CssClass="form-select"></asp:DropDownList>
+                                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                            <ContentTemplate>
+                                                <label for="cbCiudadAAm" class="form-label">Ciudad:</label>
+
+                                                <asp:DropDownList ID="ddCiudadAAm" runat="server" CssClass="form-select"></asp:DropDownList>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                     </div>
                                     <div class="col-md">
                                         <label for="txtCPAAm" id="lblCPAAm" class="form-label">Zip code:</label>
@@ -318,40 +336,40 @@
         <div class="row">
             <div class="col" style="display: flex; justify-content: flex-end;">
 
-            <asp:Panel ID="pUser" runat="server">
-                <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
+                <asp:Panel ID="pUser" runat="server">
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
 
                 <asp:LinkButton ID="btnSiguiente" runat="server" CssClass="btn btn-primary" OnClick="btnSiguiente_Click">Siguiente<i class="bi bi-chevron-right"></i></asp:LinkButton>
-                <!-- <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button> -->
-                <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Continuar</button>--%>
-            </asp:Panel>
+                    <!-- <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button> -->
+                    <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Continuar</button>--%>
+                </asp:Panel>
 
-            <asp:Panel ID="pAdmin" runat="server" Visible="false">
-                <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+                <asp:Panel ID="pAdmin" runat="server" Visible="false">
+                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click"
-                    CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminSave" runat="server" OnClick="btnAdminSave_Click"
+                        CssClass="btn btn-success">Editar<i class="bi bi-chevron-right"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminSaltar" runat="server" OnClick="btnAdminSaltar_Click"
-                    CssClass="btn btn-secondary" Visible="false" CausesValidation="false">saltar</asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminSaltar" runat="server" OnClick="btnAdminSaltar_Click"
+                        CssClass="btn btn-secondary" Visible="false" CausesValidation="false">saltar</asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="siguiente"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>
-            </asp:Panel>
+                    <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="siguiente"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>
+                </asp:Panel>
             </div>
         </div>
 
