@@ -504,7 +504,11 @@ function getEstatusAdmin(compa) {
         var fecha, strTrim;
         if (lst.length > 0) {
             //Mustro div
-            $('#divFecha').show();
+
+            if (lst[0].Status != '0') {
+                $('#MainContent_divFecha').show();
+
+            }
             //cambio el index de combox
             $('#MainContent_ddstatus').val(lst[0].Status).change();
             $('#MainContent_txtCTPATCuenta').val(lst[0].No_cuenta);

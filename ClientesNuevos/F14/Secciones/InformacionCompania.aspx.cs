@@ -580,7 +580,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
             }else if (Request.QueryString["rfc"] != null)
             {
-                RegistrarInfo();
+               lblSinContacto.Text= RegistrarInfo();
             }
         }
 
@@ -648,8 +648,11 @@ namespace ClientesNuevos.F14.Seccioness
             Forma_pago = ddFormaPago.SelectedValue;
             Moneda = ddMoneda.SelectedValue;
 
-            try
+            if (gvContactos.Rows.Count > 0)
             {
+                try
+            {
+
                 if (Request.QueryString["accion"] != null)
                 {
                     DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE RFC='" + txtRfc.Text + "'");
@@ -711,14 +714,19 @@ namespace ClientesNuevos.F14.Seccioness
                     error += ex.Message;
                 }
             }
+            
 
-            if(error != "")
-            {
-                resultado = error;
+                if (error != "")
+                {
+                    resultado = error;
+                }
+                else
+                {
+                    resultado = "Informacion de empresa registrada con exito";
+                }
             }
-            else
-            {
-                resultado = "Informacion de empresa registrada con exito";
+            else {
+                resultado = "Registre un contacto";
             }
 
             return resultado;

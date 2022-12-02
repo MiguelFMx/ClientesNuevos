@@ -14,25 +14,28 @@ using System.Web.UI.HtmlControls;
 using Microsoft.Ajax.Utilities;
 using System.Runtime.Remoting.Contexts;
 using static System.Net.WebRequestMethods;
+using System.Runtime.InteropServices;
+using Antlr.Runtime;
 
 namespace ClientesNuevos.F14.Seccioness
 {
     public partial class InformacionCadenaSuministro : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
+                btnModal.Visible = false;
                 //Admin / user
-                if(User.IsInRole("1") || User.IsInRole("2"))
+                if (User.IsInRole("1") || User.IsInRole("2"))
                 {
-                    pUser.Visible=false;
+                    pUser.Visible = false;
                     pAdmin.Visible = true;
                     btnAdminSave.Visible = true;
-                    btnAdminNext.Text = "salir";
-
+                    btnAdminNext.Text = "finalizar";
+                    btnRgistrar.Visible = false;
                     if (Request.Cookies.Get("ctipo") != null)
                     {
                         if (Request.Cookies.Get("ctipo").Value == "proveedor")
@@ -49,7 +52,7 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         BindDataAdmin(Request.QueryString["rfc"]);
                     }
-                    else if(Request.QueryString["rfc"] != null)
+                    else if (Request.QueryString["rfc"] != null)
                     {
                         BindDataAdmin(Request.QueryString["rfc"]);
                         CambiarLinks();
@@ -57,7 +60,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                     }
                 }
-                else if(User.IsInRole("3") || User.IsInRole("4"))
+                else if (User.IsInRole("3") || User.IsInRole("4"))
                 {
                     pUser.Visible = true;
                     pAdmin.Visible = false;
@@ -87,7 +90,7 @@ namespace ClientesNuevos.F14.Seccioness
         }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
-            if(User.IsInRole("4"))
+            if (User.IsInRole("4"))
             {
                 HttpContext.Current.Response.Redirect("informacionCompania.aspx");
             }
@@ -139,11 +142,11 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if (Request.Cookies.Get("id_comp") != null)
                 {
-                dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
-                gvProgramas.DataSource = dt;
-                gvProgramas.DataBind();
-                ViewState["dirState"] = dt;
-                ViewState["sortdr"] = "Asc";
+                    dt = clsHerramientaBD.Existe("SELECT * FROM Table_ProgramaSeguridad WHERE ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+                    gvProgramas.DataSource = dt;
+                    gvProgramas.DataBind();
+                    ViewState["dirState"] = dt;
+                    ViewState["sortdr"] = "Asc";
                 }
 
             }
@@ -172,7 +175,7 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnVer_Click1(object sender, EventArgs e)
         {
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
-            string id = "", ruta="";
+            string id = "", ruta = "";
 
             id = gvProgramas.Rows[rowIndex].Cells[0].Text;
             txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[1].Text;
@@ -186,7 +189,7 @@ namespace ClientesNuevos.F14.Seccioness
         {
             //string id_program = "";
             string codigo = "";
-            string descripcion = "";            
+            string descripcion = "";
             string IDcompania = "";
 
             Byte[] file = null;
@@ -201,14 +204,21 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else
                 {
+                    string nombre = "";
                     BinaryReader reader = new BinaryReader(fileCertificado.PostedFile.InputStream);
                     file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
                     string fname = "";
 
                     IDcompania = Request.Cookies.Get("id_comp").Value;
-                    string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                    string fecha = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
 
-                    string link = "/Archivos/" + IDcompania+ "/certificados";
+                    DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE RFC='" + IDcompania + "'");
+                    if (dt.Rows.Count > 0)
+                    {
+                        nombre = dt.Rows[0]["Nombre_comercial"].ToString().Trim();
+                    }
+
+                    string link = "/Archivos/" + nombre + "/certificados";
 
                     //Checho si existe la carpeta del usuario
                     if (!Directory.Exists(Server.MapPath(link)))
@@ -217,24 +227,26 @@ namespace ClientesNuevos.F14.Seccioness
 
                     }
                     //Ejemplo: 14-11-2022-10:19:30_F16
-                    fname = link + "/" + fecha +"_" + descripcion + fileCertificado.FileName.Substring(fileCertificado.FileName.Length-4,4);
+                    fname = link + "/" + fecha + "_" + descripcion + fileCertificado.FileName.Substring(fileCertificado.FileName.Length - 4, 4);
                     string location = Server.MapPath(fname);
                     fileCertificado.SaveAs(location);
 
                     //Guardo la ruta completa para ser alamacenada en la base de datos
                     string ruta = fname.ToString();
 
-                    lblSucces.Text = "Se guardo el archivo " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, ruta); ;
-
-                    Response.Redirect(Request.RawUrl);
+                    lblSucces.Text = clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, ruta); ;
 
                 }
             }
             else
             {
-                lblSucces.Text = "No hay documento " + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, "null");
-                Response.Redirect(Request.RawUrl);
+                IDcompania = Request.Cookies.Get("id_comp").Value;
+                lblSucces.Text = "No hay documento:" + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, "null");
+
             }
+
+            BindData();
+
 
         }
 
@@ -252,17 +264,17 @@ namespace ClientesNuevos.F14.Seccioness
             catch (Exception ex)
             {
 
-                lblError.Text=ex.Message;
+                lblError.Text = ex.Message;
             }
             finally
             {
-                if(url.Text != "null")
+                if (url.Text != "null")
                 {
-                   System.IO.File.Delete(MapPath(url.Text));
+                    System.IO.File.Delete(MapPath(url.Text));
                 }
             }
-            Response.Redirect(Request.RawUrl);
-            //lblExito.Text = "Registro eliminido con exito";
+            BindData();
+            lblExito.Text = "Registro eliminido con exito";
         }
 
         protected void gvProgramas_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -293,7 +305,7 @@ namespace ClientesNuevos.F14.Seccioness
         //boton editar registro
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            
+
 
             string codigo = "";
             string descripcion = "";
@@ -364,17 +376,12 @@ namespace ClientesNuevos.F14.Seccioness
             lblEditando.Visible = false;
             btnAdd.Visible = true;
 
-            
+
             txtCodigo.Text = "";
             txtDescripcion.Text = "";
 
         }
 
-
-        protected void GuardarDocumento()
-        {
-            
-        }
 
         protected void gvProgramas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -386,7 +393,7 @@ namespace ClientesNuevos.F14.Seccioness
         protected void gvProgramas_Sorting(object sender, GridViewSortEventArgs e)
         {
             DataTable dtslt = (DataTable)ViewState["dirState"];
-            if(dtslt.Rows.Count > 0)
+            if (dtslt.Rows.Count > 0)
             {
                 if (Convert.ToString(ViewState["sortdr"]) == "Asc")
                 {
@@ -402,7 +409,7 @@ namespace ClientesNuevos.F14.Seccioness
                 gvProgramas.DataSource = dtslt;
                 gvProgramas.DataBind();
             }
-            
+
         }
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
@@ -443,7 +450,7 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if (Request.Cookies.Get("tipo") != null)
                 {
-                    Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"]+"&type="+ Request.Cookies.Get("tipo").Value);
+                    Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"] + "&type=" + Request.Cookies.Get("tipo").Value);
 
                 }
 
@@ -460,11 +467,13 @@ namespace ClientesNuevos.F14.Seccioness
             if (Request.Cookies.Get("id_comp") != null)
             {
                 DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_ctpat WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
-                if(dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
+                    btnRgistrar.Text = "actualizar";
                     if (dt.Rows[0]["Programas"].ToString() == "si")
                     {
                         radCertificadoSi.Checked = true;
+                        pV2.Visible= true;  
                     }
                     else
                     {
@@ -482,6 +491,8 @@ namespace ClientesNuevos.F14.Seccioness
                     if (dt.Rows[0]["Programas"].ToString() == "si")
                     {
                         radCertificadoSi.Checked = true;
+                        pV2.Visible = true;
+
                     }
                     else
                     {
@@ -490,10 +501,6 @@ namespace ClientesNuevos.F14.Seccioness
                     }
                 }
             }
-
-        }
-         protected void btnAdminSave_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -510,74 +517,17 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnModal_Click(object sender, EventArgs e)
         {
-            string ctpat = ddstatus.SelectedValue;
-            string fecha = dtFechaVal.Text;
-            string cuenta = txtCTPATCuenta.Text;
-            string opcion = "";
-            wsBaseDatos wsBaseDatos = new wsBaseDatos();
-
-            if (radCertificadoSi.Checked)
+            
+            if (gvProgramas.Rows.Count != 0)
             {
-                opcion = "si";
-            }
-            else if(radCertificadoNo.Checked){
-                opcion = "no";
-            }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
 
-            if(ctpat != "0")
-            {
-                    if( Convert.ToInt32(fecha.Substring(0,4)) < 2000)
-                    {
-                        lblfechaVal.Visible = true;
-                    }
-                    else if (cuenta == "")
-                    {
-                        lblcuentaVal.Visible = true;
-
-                    }else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
-                    {
-                        lblfechaVal.Visible = true;
-                        lblcuentaVal.Visible = true;
-
-                    }
-                    else
-                    {
-                        if (Request.Cookies.Get("id_comp") != null)
-                        {
-                            //validar campos
-
-                            lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
-                            
-                            lblError.Text+= clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
-                        
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
-
-                        }
-                        else
-                        {
-                            lblError.Text = "Error en el registro";
-                        }
-                    }
             }
             else
             {
-                if (Request.Cookies.Get("id_comp") != null)
-                {
-                    //validar campos
-
-                    lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, "", opcion);
-                    lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
-
-
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
-
-                }
-                else
-                {
-                    lblError.Text = "Error en el registro";
-                }
+                lblError.Text = "Por favor ingrese un certificado.";
             }
-           
+
         }
 
         protected void btnCasa_Click(object sender, EventArgs e)
@@ -698,7 +648,7 @@ namespace ClientesNuevos.F14.Seccioness
                         lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
 
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
-
+                        lblError.Text = "Infromacion actualizada";
                     }
                     else
                     {
@@ -711,19 +661,118 @@ namespace ClientesNuevos.F14.Seccioness
                 if (rfc != null)
                 {
                     //validar campos
-
                     lblError.Text = wsBaseDatos.insertar_estatus(rfc, ctpat, fecha, "", opcion);
                     lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
-
-
+                    lblError.Text = "Informacion actualizada";
                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
-
                 }
                 else
                 {
                     lblError.Text = "Error en el registro";
                 }
             }
+
+            if(opcion == "si")
+            {
+                pV2.Visible = true;
+            }
+            else
+            {
+                pV2.Visible = false;
+            }
+
+        }
+
+        protected void ddstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = ddstatus.SelectedValue;
+            switch (opcion)
+            {
+                case "0":
+                    divFecha.Visible = false;
+                    txtCTPATCuenta.Text = string.Empty;
+                    dtFechaVal.Text = string.Empty;
+                    break;
+                case "1":
+                    divFecha.Visible = true;
+                    break;
+                case "2":
+                    divFecha.Visible = true;
+
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        protected void btnRgistrar_Click(object sender, EventArgs e)
+        {
+            string ctpat = ddstatus.SelectedValue;
+            string fecha = dtFechaVal.Text;
+            string cuenta = txtCTPATCuenta.Text;
+            string opcion = "";
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
+
+            if (radCertificadoSi.Checked)
+            {
+                opcion = "si";
+            }
+            else if (radCertificadoNo.Checked)
+            {
+                opcion = "no";
+            }
+
+            if (ctpat != "0")
+            {
+                if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000)
+                {
+                    lblfechaVal.Visible = true;
+                }
+                else if (cuenta == "")
+                {
+                    lblcuentaVal.Visible = true;
+
+                }
+                else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
+                {
+                    lblfechaVal.Visible = true;
+                    lblcuentaVal.Visible = true;
+
+                }
+            }
+            else
+            {
+                if (Request.Cookies.Get("id_comp") != null) {
+                    //validar campos
+
+                    lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+
+                    lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "null", "revision");
+                }
+                else
+                {
+                    lblError.Text = "Error en el registro";
+                }
+            }
+
+
+            if (radCertificadoSi.Checked)
+            {
+                pV2.Visible = true;
+                btnModal.Visible = true;
+
+            }
+            else if (radCertificadoNo.Checked)
+            {
+                pV2.Visible = false;
+                btnModal.Visible = false;
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
+
+            }
         }
     }
-} 
+}
+
+ 

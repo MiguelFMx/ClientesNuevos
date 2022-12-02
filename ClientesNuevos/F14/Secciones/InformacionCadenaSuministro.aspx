@@ -2,9 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <style type="text/css"> .hiddencol { display: none; } </style>
+    <style type="text/css">
+        .hiddencol {
+            display: none;
+        }
+    </style>
 
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
+
     <link href="../../template/assets/css/paginacion.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -90,40 +95,35 @@
                         <span>Información de cadena de suministro</span>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <label for="ddCTPATstatus">C-TPAT status:</label>
-                                <select name="cbCTPATSatuts" id="cbCTPATSatuts" class="form-select" style="font-size: 14px;" hidden>
-                                    <option value="0">Ninguno</option>
-                                    <option value="1">Certificado no validado</option>
-                                    <option value="2">Certificado validado</option>
-                                </select>
 
-                                <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select">
-                                    <asp:ListItem Value="0">Ninguno</asp:ListItem>
-                                    <asp:ListItem Value="1">Certificado no validado</asp:ListItem>
-                                    <asp:ListItem Value="2">Certificado validado</asp:ListItem>
-                                </asp:DropDownList>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="ddstatus" class="form-label">C-TPAT status:</label>
 
-
-                            </div>
-
-                        </div>
-                        <div class="row" id="divFecha" style="display: none;">
-                            <div class="col-4">
-                                <label for="txtCTPATCuenta">Numero de cuenta:</label>
-                                <%--<input type="text" name="txtCTPATSVI" value="" id="txtCTPATSVI" class="form-control" />--%>
-                                <asp:TextBox ID="txtCTPATCuenta" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:Label ID="lblcuentaVal" Visible="false" runat="server" CssClass="text-danger" Text="*Llene este campo"></asp:Label>
-                            </div>
-                            <div class="col-4">
-                                <label for="dtFechaVal">Fecha de validacion:</label>
-                                <%--<input type="date" name="" value="" id="dtFechaVal" class="form-control" />--%>
-                                <asp:TextBox ID="dtFechaVal" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
-                                <asp:Label ID="lblfechaVal" Visible="false" runat="server" CssClass="text-danger" Text="*El año no puede ser menor del 2000"></asp:Label>
-
-                            </div>
-                        </div>
+                                        <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddstatus_SelectedIndexChanged">
+                                            <asp:ListItem Value="0">Ninguno</asp:ListItem>
+                                            <asp:ListItem Value="1">Certificado no validado</asp:ListItem>
+                                            <asp:ListItem Value="2">Certificado validado</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row" id="divFecha" runat="server">
+                                    <div class="col-4">
+                                        <label for="txtCTPATCuenta">Numero de cuenta:</label>
+                                        <%--<input type="text" name="txtCTPATSVI" value="" id="txtCTPATSVI" class="form-control" />--%>
+                                        <asp:TextBox ID="txtCTPATCuenta" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:Label ID="lblcuentaVal" Visible="false" runat="server" CssClass="text-danger" Text="*Llene este campo"></asp:Label>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="dtFechaVal">Fecha de validacion:</label>
+                                        <asp:TextBox ID="dtFechaVal" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                                        <asp:Label ID="lblfechaVal" Visible="false" runat="server" CssClass="text-danger" Text="*El año no puede ser menor del 2000"></asp:Label>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                         <hr />
                         <div class="row">
                             <div class="col">
@@ -133,7 +133,7 @@
                                 </label>
                                 <br />
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="radCertificado" value="si" id="radCertificadoSi" class="form-check-input" runat="server"  />
+                                    <input type="radio" name="radCertificado" value="si" id="radCertificadoSi" class="form-check-input" runat="server" />
                                     <label for="radCertificadoSi">Si</label>
                                 </div>
                                 <div class="form-check form-check-inline">
@@ -144,24 +144,35 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-end">
+                                <asp:LinkButton ID="btnRgistrar" runat="server" CssClass="btn btn-success" OnClick="btnRgistrar_Click">guardar</asp:LinkButton>
                                 <asp:LinkButton ID="btnAdminSave" runat="server" Visible="false" OnClick="btnAdminSave_Click1"
-                                    CssClass="btn btn-success">registar</asp:LinkButton>
-
-
+                                    CssClass="btn btn-success">registrar</asp:LinkButton>
                             </div>
                         </div>
                         <hr />
-                        <asp:Panel ID="pV2" runat="server">
+
+                        <asp:Panel ID="pV2" runat="server" Visible="false">
+
                             <div class="row">
+
                                 <div class="col-md">
-                                    <asp:Label ID="lblDescripcion" runat="server" Text="Nombre del programa de seguridad:" CssClass="form-label"></asp:Label>
-                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Llene este campo" ControlToValidate="txtDescripcion" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                        <ContentTemplate>
+                                            <asp:Label ID="lblDescripcion" runat="server" Text="Nombre del programa de seguridad:" CssClass="form-label"></asp:Label>
+                                            <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Llene este campo" ControlToValidate="txtDescripcion" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+
                                 </div>
                                 <div class="col-md">
-                                    <asp:Label ID="lblCodigo" runat="server" Text="Codigo:" CssClass="form-label"></asp:Label>
-                                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*LLene este campo" ControlToValidate="txtCodigo" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                        <ContentTemplate>
+                                            <asp:Label ID="lblCodigo" runat="server" Text="Codigo:" CssClass="form-label"></asp:Label>
+                                            <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*LLene este campo" ControlToValidate="txtCodigo" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
 
                                 </div>
                                 <div class="col-md">
@@ -173,71 +184,83 @@
                                 </div>
 
                             </div>
-                            <div class="row">
-                                <div class="col" style="display: flex; justify-content: flex-end;">
-                                    <asp:LinkButton ID="btnAdd" CausesValidation="true" ValidationGroup="documento" runat="server" CssClass="btn btn-success btn-small" OnClick="btnAdd_Click">Registrar programa de seguridad</asp:LinkButton>
-                                    <asp:Label ID="lblEditando" runat="server" Text="Editar registro:" Visible="false" CssClass="mt-2 me-1"></asp:Label>
-                                    <asp:LinkButton ID="btnEditar" runat="server" CssClass="btn btn-success" OnClick="btnEditar_Click" Visible="false"><i class="bi bi-check-lg"></i></asp:LinkButton> &nbsp;
+                            
+                                    <div class="row">
+
+                                        <div class="col" style="display: flex; justify-content: flex-end;">
+                                            <asp:LinkButton ID="btnAdd" CausesValidation="true" ValidationGroup="documento" runat="server" CssClass="btn btn-success btn-small" OnClick="btnAdd_Click">Registrar programa de seguridad</asp:LinkButton>
+                                            <asp:Label ID="lblEditando" runat="server" Text="Editar registro:" Visible="false" CssClass="mt-2 me-1"></asp:Label>
+                                            <asp:LinkButton ID="btnEditar" runat="server" CssClass="btn btn-success" OnClick="btnEditar_Click" Visible="false"><i class="bi bi-check-lg"></i></asp:LinkButton>
+                                            &nbsp;
                                     <asp:LinkButton ID="btnCancelar" runat="server" CssClass="btn btn-danger" OnClick="btnCancelar_Click" Visible="false"><i class="bi bi-x-lg"></i></asp:LinkButton>
-                                    
-                                </div>
-                            </div>
-                            <div class="row">
-                                <asp:Label ID="lblSucces" runat="server" Text=""></asp:Label>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="table-responsive">
-                                            <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="gvProgramas_RowEditing" OnRowCancelingEdit="gvProgramas_RowCancelingEdit" OnRowDeleting="gvProgramas_RowDeleting" OnRowUpdating="gvProgramas_RowUpdating" AllowPaging="True" PageSize="4" AllowSorting="True" PagerSettings-Mode="NextPreviousFirstLast" OnPageIndexChanging="gvProgramas_PageIndexChanging" PagerStyle-CssClass="pagination-ys" OnSorting="gvProgramas_Sorting" ShowHeaderWhenEmpty="true">
-                                                <Columns>
-                                                    <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" >
-                                                    <HeaderStyle CssClass="hiddencol" />
-                                                    <ItemStyle CssClass="hiddencol" />
-                                                    </asp:BoundField>
-                                                    <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
-                                                        <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
-                                                    </asp:BoundField>
-                                                    <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificaci&#243;n" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
-                                                        <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>                                                        
-                                                    </asp:BoundField>
-                                                    <asp:BoundField DataField="ruta" HeaderText="url">
-                                                        <HeaderStyle CssClass="hiddencol"></HeaderStyle>
-                                                        <ItemStyle CssClass="hiddencol"></ItemStyle>
-                                                    </asp:BoundField>
-                                                    <asp:TemplateField HeaderText="Certificado">
-                                                        <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
-                                                       <ItemTemplate>
-                                                           <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
-                                                       </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Editar" HeaderStyle-CssClass="cabezal">
-                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton ID="btnEdit" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Elimar" HeaderStyle-CssClass="cabezal" InsertVisible="False">
-                                                         <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                </Columns>
-                                                <PagerSettings Mode="NumericFirstLast"  PageButtonCount="3" />
-                                                <EmptyDataTemplate>
-                                                    <div class="d-flex justify-content-center">
-                                                        No hay registros
-                                                    </div>
-                                                </EmptyDataTemplate>
-                                            </asp:GridView>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <div class="row">
+                                        <asp:Label ID="lblSucces" runat="server" Text=""></asp:Label>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="table-responsive">
+                                                    <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
+                                                        OnRowEditing="gvProgramas_RowEditing"
+                                                        OnRowCancelingEdit="gvProgramas_RowCancelingEdit"
+                                                        OnRowDeleting="gvProgramas_RowDeleting" OnRowUpdating="gvProgramas_RowUpdating"
+                                                        AllowPaging="True" PageSize="4" AllowSorting="True" PagerSettings-Mode="NextPreviousFirstLast" OnPageIndexChanging="gvProgramas_PageIndexChanging" PagerStyle-CssClass="pagination-ys" OnSorting="gvProgramas_Sorting" ShowHeaderWhenEmpty="true">
+                                                        <Columns>
+                                                            <asp:BoundField DataField="ID" HeaderText="id" SortExpression="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol">
+                                                                <HeaderStyle CssClass="hiddencol" />
+                                                                <ItemStyle CssClass="hiddencol" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
+                                                                <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificaci&#243;n" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
+                                                                <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="ruta" HeaderText="url">
+                                                                <HeaderStyle CssClass="hiddencol"></HeaderStyle>
+                                                                <ItemStyle CssClass="hiddencol"></ItemStyle>
+                                                            </asp:BoundField>
+                                                            <asp:TemplateField HeaderText="Certificado">
+                                                                <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Editar" HeaderStyle-CssClass="cabezal">
+                                                                <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="btnEdit" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Elimar" HeaderStyle-CssClass="cabezal" InsertVisible="False">
+                                                                <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                        <PagerSettings Mode="NumericFirstLast" PageButtonCount="3" />
+                                                        <EmptyDataTemplate>
+                                                            <div class="d-flex justify-content-center">
+                                                                No hay registros
+                                                            </div>
+                                                        </EmptyDataTemplate>
+                                                    </asp:GridView>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </asp:Panel>
 
-                        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
 
@@ -250,62 +273,64 @@
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUser" runat="server">
 
-                <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
-               
-                <button type="button" class="btn btn-secondary" id="btnHome" hidden
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Guardar y salir">
-                    <i class="bi bi-house-door"></i>
-                </button>
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
+
+                    <button type="button" class="btn btn-secondary" id="btnHome" hidden
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Guardar y salir">
+                        <i class="bi bi-house-door"></i>
+                    </button>
 
                     <asp:LinkButton ID="btnCasa" runat="server" OnClick="btnCasa_Click"
                         data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Guardar y salir" CssClass="btn btn-secondary">
+                        data-bs-placement="top"
+                        title="Guardar y salir" CssClass="btn btn-secondary">
                         <i class="bi bi-house-door"></i></asp:LinkButton>
 
-                <button id="btnContinuar" type="button" class="btn btn-success" hidden>Continuar <i class="bi bi-chevron-double-right"></i></button>
-                    
-                    <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">Continuar<i class="bi bi-chevron-double-right"></i></asp:LinkButton>
-                    <button id="btnModalJS"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" hidden>Continuar<i class="bi bi-chevron-double-right"></i></button>
+                    <button id="btnContinuar" type="button" class="btn btn-success" hidden>Continuar <i class="bi bi-chevron-double-right"></i></button>
 
-             </asp:Panel>
+                    <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">Finalizar<i class="bi bi-chevron-double-right"></i></asp:LinkButton>
+                    <button id="btnModalJS" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" hidden>Continuar<i class="bi bi-chevron-double-right"></i></button>
+
+                </asp:Panel>
 
                 <asp:Panel ID="pAdmin" runat="server" Visible="false">
-                <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+                    <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-success"
-                    OnClick="btnAdminNext_Click">finalizar <i class="bi bi-check-circle"></i></asp:LinkButton>
-            </asp:Panel>
+                    <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-success"
+                        OnClick="btnAdminNext_Click">finalizar <i class="bi bi-check-circle"></i></asp:LinkButton>
+                </asp:Panel>
             </div>
         </div>
-        
+
         <!-- Modal -->
-        <div  class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                     <div class="modal-header">
-                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Listo!</h1>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Listo!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                     </div>
+                    </div>
                     <div class="modal-body">
-                        Acaba de finalizar el llenado de adminisio de cliente nuevo. <br />
-                        ¿Desea continuar con el registro? <br />
-                       <small> Si selecciona "no" volvera a la pantalla de inicio.</small>
+                        Acaba de finalizar el llenado de adminision de cliente nuevo.
+                        <br />
+                        ¿Desea continuar con el registro?
+                        <br />
+                        <small>Si selecciona "no" volvera a la pantalla de inicio.</small>
                     </div>
                     <div class="modal-footer">
-                        <asp:LinkButton ID="btnOpcionSi" runat="server" CssClass="btn btn-success" OnClick="btnOpcionSi_Click" >Si</asp:LinkButton>
-                        <asp:LinkButton ID="btnOpcionNo" runat="server" CssClass="btn btn-secondary" OnClick="btnOpcionNo_Click" >No</asp:LinkButton>
+                        <asp:LinkButton ID="btnOpcionSi" runat="server" CssClass="btn btn-success" OnClick="btnOpcionSi_Click">Si</asp:LinkButton>
+                        <asp:LinkButton ID="btnOpcionNo" runat="server" CssClass="btn btn-secondary" OnClick="btnOpcionNo_Click">No</asp:LinkButton>
 
                     </div>
                 </div>

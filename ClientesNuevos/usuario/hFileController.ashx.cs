@@ -33,7 +33,7 @@ namespace ClientesNuevos.App_Code
 
                 HttpPostedFile file = files[0];
                 //ddMMyyyy
-                string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                string fecha = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
                 string link = "\\Archivos\\"+nombre;
 
                 //Checho si existe la carpeta del usuario

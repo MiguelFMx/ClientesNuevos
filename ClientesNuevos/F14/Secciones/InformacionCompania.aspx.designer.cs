@@ -1149,6 +1149,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
 
         /// <summary>
+        /// Control lblSinContacto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinContacto;
+
+        /// <summary>
         /// Control pUserControl.
         /// </summary>
         /// <remarks>

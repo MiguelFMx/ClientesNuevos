@@ -218,7 +218,7 @@
                                 <asp:DropDownList ID="ddCiudad" runat="server" CssClass="form-select"></asp:DropDownList>
 
                                 <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" Visible="false" />
-                                <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="true"></asp:Label>
+                                <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="false"></asp:Label>
                             </div>
                         </div>
                          </ContentTemplate>
@@ -550,7 +550,8 @@
         <div class="row">
             <asp:Label ID="lblRegf14" runat="server" Text=""></asp:Label>
             <div class="col">
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#EB1414" />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#EB1414" /> <br />
+                <asp:Label Text="" runat="server" ID="lblSinContacto" ForeColor="#EB1414"   />
             </div>
         </div>
         <div class="row">
