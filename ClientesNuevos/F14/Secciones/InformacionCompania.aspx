@@ -126,7 +126,6 @@
                                     ControlToValidate="txtNombrCom"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
-
                             </div>
                         </div>
                         <br />
@@ -161,9 +160,14 @@
                                 <span id="sExtiste" style="color:red;"></span>
                             </div>
                             <div class="col-md">
+                                <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                    <ContentTemplate>
+
+                                    
                                 <asp:Label ID="lblCURP" runat="server" Text="CURP" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control"></asp:TextBox>
-
+                                        </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                             <div class="col-md">
                                 <asp:Label ID="lblAnosNegocio" runat="server" Text="Años de negocio:" CssClass="form-label"></asp:Label>

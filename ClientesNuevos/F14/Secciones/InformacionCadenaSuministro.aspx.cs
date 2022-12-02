@@ -209,7 +209,18 @@ namespace ClientesNuevos.F14.Seccioness
                     file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
                     string fname = "";
 
-                    IDcompania = Request.Cookies.Get("id_comp").Value;
+                    if(Request.Cookies.Get("id_comp")!= null)
+                    {
+                        IDcompania = Request.Cookies.Get("id_comp").Value;
+
+                    }
+                    else
+                    {
+                        if (Request.QueryString["rfc"] != null)
+                        {
+                            IDcompania = Request.QueryString["rfc"];
+                        }
+                    }
                     string fecha = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
 
                     DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE RFC='" + IDcompania + "'");
@@ -451,13 +462,16 @@ namespace ClientesNuevos.F14.Seccioness
                 if (Request.Cookies.Get("tipo") != null)
                 {
                     Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"] + "&type=" + Request.Cookies.Get("tipo").Value);
-
                 }
 
             }
             else if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
             {
-                Response.Redirect("~/F43/MapeoFlujo.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+                if (Request.Cookies.Get("tipo") != null)
+                {
+                    Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"] + "&type=" + Request.Cookies.Get("tipo").Value);
+                }
+                //Response.Redirect("~/F43/MapeoFlujo.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
             }
         }
 

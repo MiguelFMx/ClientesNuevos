@@ -174,8 +174,13 @@ $(document).ready(function () {
             GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + acomp + "','Doc':'F14', 'Ruta':'null','Estatus':'80%'", false, function (res) {
                 console.log(res);
             });
+            if (urlParams.has('accion')) {
+                window.location.href = 'InformacionCadenaSuministro.aspx?rfc=' + acomp+"accion=new";
 
-            window.location.href = 'InformacionCadenaSuministro.aspx?rfc='+acomp;
+            } else {
+                window.location.href = 'InformacionCadenaSuministro.aspx?rfc=' + acomp;
+
+            }
         } else {
             if (servicio != '') {
                 //alert('Llene los campos necesarios');

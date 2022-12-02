@@ -394,20 +394,25 @@ namespace ClientesNuevos.F14.Seccioness
 
                 if (regimen == 2)
                 {
-                    Context.Response.Write("<script language=javascript>alert('Opción invalida');</script>");
-                }
-                else
+                   // Context.Response.Write("<script language=javascript>alert('Opción invalida');</script>");
+                    Response.Cookies.Add(new HttpCookie("tipo", "extranjero"));
+
+            }
+            else
                 {
                     if (regimen == 0)
                     {
                         txtCURP.Enabled = false;
-                    }
-                    else
+                        Response.Cookies.Add(new HttpCookie("tipo", "moral"));
+
+                }
+                else
                     {
                         txtCURP.Enabled = true;
+                    Response.Cookies.Add(new HttpCookie("tipo", "fisica"));
 
-                    }
-                    LlenarCFDI(regimen);
+                }
+                LlenarCFDI(regimen);
                 }
             }
 
@@ -570,7 +575,9 @@ namespace ClientesNuevos.F14.Seccioness
                     }
                     else
                     {
-                        Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
+                        lblSinContacto.Text = RegistrarInfo();
+
+                        //Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
 
                     }
                 }
@@ -672,7 +679,18 @@ namespace ClientesNuevos.F14.Seccioness
                         {
                             resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
                         }
-                    }
+
+                        if(cbTipoRegistro.SelectedValue == "cliente")
+                            {
+                                Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
+
+                            }
+                            else
+                            {
+                                Response.Redirect("~/F14/Secciones/InformacionCadenaSuministro.aspx?accion=new&rfc=" + txtRfc.Text);
+
+                            }
+                        }
                 }
                 else
                 {
