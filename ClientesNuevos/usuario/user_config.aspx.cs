@@ -6,13 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Configuration;
-using System.Net.Mail;
-using System.Net.Mime;
 using System.Text;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MailKit.Net.Smtp;
+using MimeKit;
+using MimeKit.Text;
+using System.Web.Services.Description;
 
 namespace ClientesNuevos.usuario
 {
@@ -115,35 +117,36 @@ namespace ClientesNuevos.usuario
 
         protected void EnviarCorreo(string pass)
         {
-            string to = "freyde.miguel@gmail.com"; //To address    
-            string from = "migue9835@hotmail.com"; //From address    
-            MailMessage message = new MailMessage(from, to);
+            MimeMessage correo = new MimeMessage();
+            correo.From.Add(new MailboxAddress("Hungaros", "postmaster@hungaros.com"));
+            correo.To.Add(new MailboxAddress("Miguel", "freyde.miguel@gmail.com"));
 
-           
+
             string mb = "<div>Aviso de cambio de contraseña</div><br><br>" +
-                        "<div>Su contraseña ha sido actualizada <br><br> Su nueva contreseña es:" + pass+"</div>"+
+                        "<div>Su contraseña ha sido actualizada con exito, por favor inicie sesion nuevamente. <br></div>" +
                         "<br><br><div>Este correo ha sido generado automaticamente</div>";
 
-            message.Subject = "Cambio de contraseña";
-            message.Body = mb;
-            message.BodyEncoding = Encoding.UTF8;
-            message.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("smtp.office365.com", 587); //Gmail smtp    
-            System.Net.NetworkCredential basicCredential1 = new
-            System.Net.NetworkCredential("migue9835@hotmail.com", "xAngelito98x");
-            client.EnableSsl = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
-            client.UseDefaultCredentials = false;
-            client.Credentials = basicCredential1;
+            correo.Subject = "Cambio de contraseña";
+
+            BodyBuilder bodyBuilder = new BodyBuilder
+            {
+                HtmlBody = String.Format(@mb)
+            };
+
+
+            correo.Body = bodyBuilder.ToMessageBody();
+
+            SmtpClient client = new SmtpClient();
             try
             {
-                client.Send(message);
+                client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
+                client.Send(correo);
+                client.Disconnect(true);
             }
-
             catch (Exception ex)
-            {
+            {            
                 lblPass.Text = ex.Message;
-
             }
         }
 
