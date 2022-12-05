@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/consulta/Directorio.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/Directorio.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
                 </div>
             </div>
         </div>

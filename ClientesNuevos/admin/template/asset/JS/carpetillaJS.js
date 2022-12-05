@@ -61,7 +61,6 @@ $(document).ready(function () {
 
     $('#btnEnviar').click(function () {
         var Correo=[];
-        
 
         $('.form-check').each(function () {
             let checked = $(this).find($('[name=check]'));

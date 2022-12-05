@@ -8,12 +8,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header cabezal">
                     <h4>Directorio</h4>
                 </div>
+                
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table id="tDirectorio" class="table table-hover">
                         <thead>
                             <tr>
@@ -31,10 +33,10 @@
                         </thead>
                         <tbody></tbody>
                     </table>
+                        </div>
                 </div>
             </div>
         </div>
-       
     </div>
      <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -46,8 +48,11 @@
       </div>
       <div class="modal-body">
           <div class="mb-3">
-            <label for="txtCorreo" class="col-form-label">Para:</label>
-            <input type="text" class="form-control" id="txtCorreo">
+            <label for="txtCorreo" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="txtRemitente">
+            <label for="txtAsunto" class="col-form-label">Para:</label>
+
+            <input type="text" class="form-control" id="txtCorreo" >
           </div>
            <div class="mb-3">
             <label for="txtAsunto" class="col-form-label">Asunto:</label>
@@ -55,12 +60,12 @@
           </div>
           <div class="mb-3">
             <label for="txtCuerpo" class="col-form-label">Mensaje:</label>
-            <textarea class="form-control" id="txtCuerpo"></textarea>
+            <textarea class="form-control" id="txtCuerpo" ></textarea>
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-        <button type="button" class="btn btn-primary">enviar correo</button>
+        <button type="button" class="btn btn-primary" id="btnSend">enviar correo</button>
       </div>
     </div>
   </div>

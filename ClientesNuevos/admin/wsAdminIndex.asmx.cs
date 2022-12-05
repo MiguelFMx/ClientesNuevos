@@ -157,7 +157,7 @@ namespace ClientesNuevos.admin
         {
             //Metodo para enviar correo por medio de MailKit
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Hungaros",""));
+            message.From.Add(new MailboxAddress("Hungaros", "postmaster@hungaros.com"));
             message.To.Add(new MailboxAddress(remitente,correo));
 
             message.Subject = subject;
@@ -168,8 +168,8 @@ namespace ClientesNuevos.admin
             SmtpClient client = new SmtpClient();
             try
             {
-                client.Connect("smtp.office365.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("migue9835@hotmail.com", "xAng3lito98x");
+                client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
                 client.Send(message);
                 client.Disconnect(true);
             }
@@ -178,7 +178,7 @@ namespace ClientesNuevos.admin
                 return ex.Message;
             }
 
-            return "";
+            return "Correo enviado";
         }
 
     }

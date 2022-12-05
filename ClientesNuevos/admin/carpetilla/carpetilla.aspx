@@ -794,7 +794,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
                     <asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>
-                    <button id="btnEnviar" type="button" class="btn btn-primary">enviar</button>
                 </div>
             </div>
         </div>

@@ -20,13 +20,25 @@ $(document).ready(function () {
         // and then do the updating in a callback.
         //
         // Update the modal's content.
-        const modalCorreo = exampleModal.querySelector('#txtCorreo')
-        const modalBodyInput = exampleModal.querySelector('.modal-body input')
+        const modalCorreo = exampleModal.querySelector('#txtCorreo');
+        const modalRemitente = exampleModal.querySelector('#txtRemitente');
+        const datos = `${recipient}`;
+        const correo = datos.split(";");
 
-        modalCorreo.textContent = `${recipient}`
-        modalBodyInput.value = recipient
+        modalCorreo.value = correo[0];
+        modalRemitente.value = correo[1];
     });
 
+    //string correo, string remitente, string subject, string cuerpo
+    $('#btnSend').click(function () {
+        var correo = $('#txtCorreo').val();
+        var remitente = $('#txtRemitente').val();
+        var subject = $('#txtAsunto').val();
+        var cuerpo = $('#txtCuerpo').val();
+        GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + correo + "','remitente':'" + remitente + "','subject':'" + subject + "','cuerpo':'"+cuerpo+"'", false, function (correo) {
+            alert(correo);
+        });
+    });
 });
 
 function ObtenerContacto() {
@@ -61,7 +73,7 @@ function ObtenerContacto() {
                     "<td>" + lstTabla[i].Extension + "</td>" +
                     "<td>" + lstTabla[i].Celular + "</td>" +
                     "<td>" + tipo +"</td>" +
-                    "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + lstTabla[i].Correo+"'><i class='bi bi-envelope'></i></button></td>" +
+                    "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre+"'><i class='bi bi-envelope'></i></button></td>" +
                     "</tr>"
                 );
                 console.log[i];
