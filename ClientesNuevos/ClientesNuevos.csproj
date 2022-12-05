@@ -144,6 +144,7 @@
     <Content Include="admin\template\asset\css\estilo.css" />
     <Content Include="admin\template\asset\JS\carpetillaJS.js" />
     <Content Include="admin\template\asset\JS\consultaJS.js" />
+    <Content Include="admin\template\asset\JS\DorectorioJS.js" />
     <Content Include="admin\template\asset\JS\lstUsuarios.js" />
     <Content Include="admin\template\asset\JS\TemplateJS.js" />
     <Content Include="admin\template\asset\JS\usuariosJS.js" />

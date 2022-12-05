@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     var tablaUser = $('#tUsuariosDet').DataTable();
 
+    
 });
 
 function cargarUsuarios() {

@@ -111,7 +111,30 @@
                 </div>
             </div>
         </div>
-
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <div class="card rounded-4 shadow">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="number">
+                                <p class="text-sm-right mb-0 text-uppercase font-weight-bold">
+                                    Directorio
+                                </p>
+                               
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon icon-shape bg-gradient-danger text-center rounded-circle">
+                                <i class="bi bi-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/consulta/Directorio.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row mt-3">
         <div class="col">

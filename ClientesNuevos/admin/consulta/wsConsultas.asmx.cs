@@ -41,11 +41,62 @@ namespace ClientesNuevos.admin.consulta
             public string Estatus { get; set; }
         }
 
+
+        public class Contacto:Registros
+        {
+            public string Nombre { get; set; }
+            public string Puesto { get; set; }
+            public string Correo { get; set; }
+            public string Telefono { get; set; }
+            public string Extension { get; set; }
+            public string Celular { get; set; }
+            public string Tipo { get; set; }
+        }
+
         public class Roles : Registros
         {
             public string Rol { get; set; }
             public string Dominio { get; set; }
 
+        }
+        [WebMethod]
+        public List<Contacto> GetContactos()
+        {
+            var list = new List<Contacto>();
+            Contacto objContacto;
+            try
+            {
+                DataTable tContacto = clsHerramientaBD.Existe("exec Master_TablaContacto @accion='Lista'");
+                if(tContacto.Rows.Count > 0)
+                {
+                    foreach (DataRow row in tContacto.Rows)
+                    {
+                        objContacto = new Contacto
+                        {
+                            ID_compania = row["ID_compania"].ToString(),
+                            Nombre_comercial = row["Nombre_comercial"].ToString(),
+                            Nombre = row["Nombre"].ToString(),
+                            Puesto = row["Puesto"].ToString(),
+                            Correo = row["Correo"].ToString(),
+                            Telefono = row["Telefono"].ToString(),
+                            Extension = row["Extension"].ToString(),
+                            Celular = row["Celular"].ToString(),
+                            Tipo = row["Tipo"].ToString(),
+                             Estatus="",
+                             Fecha_registro="",
+                             Nombre_comp ="",
+                             Tipo_persona = ""
+                        };
+                        list.Add(objContacto);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            return list;    
         }
 
         [WebMethod]
@@ -249,6 +300,8 @@ namespace ClientesNuevos.admin.consulta
             }
             return lstRol;
         }
+
+
 
     }
 }
