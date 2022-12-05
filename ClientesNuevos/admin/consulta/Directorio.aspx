@@ -24,7 +24,7 @@
                                             <th>Socio comercial</th>
                                             <th>Nombre</th>
                                             <th>Puesto</th>
-                                            <th>Correo</th>
+                                            <th width="15%">Correo</th>
                                             <th>Telefono</th>
                                             <th>Ext</th>
                                             <th>Celular</th>
@@ -41,39 +41,102 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header cabezal">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo correo</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="txtCorreo" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="txtRemitente">
-                            <label for="txtAsunto" class="col-form-label">Para:</label>
+    <div class="row pt-2">
+        <div class="col">
 
-                            <input type="text" class="form-control" id="txtCorreo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtAsunto" class="col-form-label">Asunto:</label>
-                            <input type="text" class="form-control" id="txtAsunto">
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtCuerpo" class="col-form-label">Mensaje:</label>
-                            <textarea class="form-control" id="txtCuerpo"></textarea>
-                        </div>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#MailModal">
+                <i class="bi bi-envelope"></i>enviar correo
+            </button>
+
+            <%--<asp:LinkButton ID="bntNuevoCorreo" runat="server" CausesValidation="false" CssClass="btn btn-secondary btn-sm"><i class="bi bi-envelope"></i> enviar correo</asp:LinkButton>--%>
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header cabezal">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo correo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="txtCorreo" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="txtRemitente">
+                        <label for="txtAsunto" class="col-form-label">Para:</label>
+
+                        <input type="text" class="form-control" id="txtCorreo">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                        <button type="button" class="btn btn-primary" id="btnSend">enviar correo</button>
+                    <div class="mb-3">
+                        <label for="txtAsunto" class="col-form-label">Asunto:</label>
+                        <input type="text" class="form-control" id="txtAsunto">
                     </div>
+                    <div class="mb-3">
+                        <label for="txtCuerpo" class="col-form-label">Mensaje:</label>
+                        <textarea class="form-control" id="txtCuerpo"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnSend">enviar correo</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal correo -->
+    <div class="modal fade" id="MailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="MailModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <br />
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="Directorio" style="max-height: 300px; overflow-y: auto;"></div>
+                                    <div class="row"  style="max-height: 300px; overflow-y: auto;">
+                                        <table id="tDir" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Informacion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col">
+                                    <label id="lblAsuntoAll" for="txtAsuntoAll" class="form-label">Asunto:</label>
+                                    <input type="text" name="txtAsuntoAll" class="form-control" value="" id="txtAsuntoAll" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label id="lblBody" for="txtBody" class="form-label">Mensaje:</label>
+                                    <textarea id="txtBody" class="form-control" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnSendAll">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">

@@ -4,7 +4,12 @@ NProgress.start();
 
 $(document).ready(function () {
     ObtenerContacto();
+
+    CargarDirectorio();
+
     var table = $('#tDirectorio').DataTable();
+
+    var tdir = $('#tDir').DataTable();
 
     NProgress.done();
     NProgress.remove();
@@ -38,6 +43,32 @@ $(document).ready(function () {
         GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + correo + "','remitente':'" + remitente + "','subject':'" + subject + "','cuerpo':'"+cuerpo+"'", false, function (correo) {
             alert(correo);
         });
+    });
+
+    $('#btnSendAll').click(function () {
+        var Correo = [];
+
+        $('.form-check').each(function () {
+            let checked = $(this).find($('[name=check]'));
+            let mail = $(this).find($('[name=correo]'));
+            let contact = $(this).find($('[name=contacto]'));
+            if (checked.is(":checked")) {
+                Correo.push(mail.text() + ";" + contact.text());
+            }
+        });
+        for (var i = 0; i < Correo.length; i++) {
+
+            var asunto = $('#txtAsuntoAll').val();
+            var cuerpo = $('#txtBody').val();
+
+            var datos = Correo[i].split(";");
+            var mail = datos[0];
+            var remitente = datos[1];
+            GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
+                console.log(mail + "-" + correo);
+            });
+
+        }
     });
 });
 
@@ -77,6 +108,67 @@ function ObtenerContacto() {
                     "</tr>"
                 );
                 console.log[i];
+            }
+        }
+    });
+}
+
+
+function CargarDirectorio() {
+    var directorio = $('#Directorio')
+    GetAjax("wsConsultas.asmx/GetContactos", "", false, function (lstTabla) {
+        if (lstTabla.length > 0) {
+            directorio.html("");
+            $('#tDir tbody').empty();
+            for (var i = 0; i < lstTabla.length; i++) {
+                var tipo;
+                switch (lstTabla[i].Tipo) {
+                    case 'Fra':
+                        tipo = 'Facturacion';
+                        break;
+                    case 'Comp':
+                        tipo = 'Compañia';
+                        break;
+                    case 'AAMX':
+                        tipo = 'Agente aduanal mexicano';
+                        break;
+                    case 'AAUSA':
+                        tipo = 'Agente aduanal americano';
+                        break;
+                }
+                $('#tDir tbody').append(
+                    "<tr>" +
+                    "<td>" +
+                    "<div class='row'>" +
+                    "<div class='col'>" +
+                    "<div class='form-check'>" +
+                    "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault' name='check'>" +
+                    "<label class='form-check-label' for='flexCheckDefault'>" +
+                    "<span><label name='contacto'>" + lstTabla[i].Nombre + "</label> (" + lstTabla[i].Puesto + ")<br>" +
+                    "<small><label name='correo'>" + lstTabla[i].Correo + "</label></small><br>" +
+                    "<small>" + tipo + "</small>" +
+                    "</span>" +
+                    "</label>" +
+                    "</div>" +
+                    "</div>" +
+                    "</td>" +
+                    "</tr>"
+                )
+                //directorio.append(
+                //    "<div class='row'>" +
+                //    "<div class='col'>" +
+                //    "<div class='form-check'>" +
+                //    "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault' name='check'>" +
+                //    "<label class='form-check-label' for='flexCheckDefault'>" +
+                //    "<span><label name='contacto'>" + lstTabla[i].Nombre + "</label> (" + lstTabla[i].Puesto + ")<br>" +
+                //    "<small><label name='correo'>" + lstTabla[i].Correo + "</label></small><br>" +
+                //    "<small>" + tipo + "</small>" +
+                //    "</span>" +
+                //    "</label>" +
+                //    "</div>" +
+                //    "</div>" +
+                //    "</div> <hr>"
+                //);
             }
         }
     });

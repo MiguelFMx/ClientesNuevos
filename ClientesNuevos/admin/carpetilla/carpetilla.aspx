@@ -764,7 +764,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <div class="card h-100 shadow">
                                 <h6 class="card-header shadow-sm">Directorio
                                 </h6>
@@ -773,7 +773,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-7">
                             <div class="card h-100 shadow">
                                 <h6 class="card-header shadow-sm">Correo</h6>
                                 <div class="card-body">
@@ -793,7 +793,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                    <asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>
+                    <button type="button" id="btnEnviar" class="btn btn-primary" data-bs-dismiss="modal">envair</button>
+                    
+                    <%--<asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>--%>
                 </div>
             </div>
         </div>

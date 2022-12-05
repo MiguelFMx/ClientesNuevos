@@ -157,7 +157,7 @@ namespace ClientesNuevos.admin
         {
             //Metodo para enviar correo por medio de MailKit
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Hungaros", "postmaster@hungaros.com"));
+            message.From.Add(new MailboxAddress("No Re:Hungaros.", "postmaster@hungaros.com"));
             message.To.Add(new MailboxAddress(remitente,correo));
 
             message.Subject = subject;
