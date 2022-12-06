@@ -26,15 +26,12 @@ namespace ClientesNuevos.F12
 
                     }
                 }
-
-                if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
-                {
-                    data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["id"]+"'");
-                }
                 else
                 {
                     data = Obtener_informacion();
+
                 }
+                
 
                 if (data.Rows.Count != 0 && Request.Cookies.Get("id_comp")!=null)
                 {
@@ -71,7 +68,8 @@ namespace ClientesNuevos.F12
                 else
                 {
                     no3.Checked = true;
-                    pPrgunta4.Visible = true;
+                        txtnumeroCuenta.Text = "Nuestra Compañía ES ya un miembro de C-TPAT";
+                    pPrgunta4.Visible = false;
                 }
                 //Esta usted respondiendo por todas las unidades de negocio de su compania
                 if (respuestas.Rows[0]["p160"].ToString() == "SI")
@@ -120,7 +118,7 @@ namespace ClientesNuevos.F12
                             chFirma.Checked = true;
                         }
 
-                        if (politica.Rows[0]["OEA"].ToString() != "")
+                        if (politica.Rows[0]["OEA"].ToString() != "no")
                         {
                             si5.Checked = true;
                             lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA. Con Número:";

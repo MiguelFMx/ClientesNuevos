@@ -112,6 +112,18 @@ namespace ClientesNuevos.admin.usuarios
                         Panel_roles.Enabled = true;
                         txtRFC.Enabled = false;
                         ddEmpresa.Enabled = false;
+
+                        DataTable dtC = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '"+ RFC + "'");
+                        if(dtC.Rows.Count != 0)
+                        {
+                            dtC = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE RFC='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+
+                            if (dtC.Rows.Count != 0)
+                            {
+                                string accion = clsHerramientaBD.ExecuteSql("UPDATE Table_compania SET ID_user = '" + dtC.Rows[0]["Id"].ToString() + "' WHERE RFC = '" + RFC + "'");
+
+                            }
+                        }
                     }
                     else
                     {
