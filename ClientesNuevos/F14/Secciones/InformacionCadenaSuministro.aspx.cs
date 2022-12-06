@@ -461,6 +461,8 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if (Request.Cookies.Get("tipo") != null)
                 {
+                    wsBaseDatos wsBaseDatos = new wsBaseDatos();
+                    wsBaseDatos.Actualizar_Estado(Request.QueryString["rfc"], "F14", "100%");
                     Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"] + "&type=" + Request.Cookies.Get("tipo").Value);
                 }
 
