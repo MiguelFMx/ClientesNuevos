@@ -1116,7 +1116,7 @@ namespace ClientesNuevos.admin.carpetilla
        
         protected void BarraProgreso(string id_user, string id_comp)
         {
-            DataTable data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR ID_compania='" + id_user + "'");
+            DataTable data = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE (ID_compania='" + id_comp + "' OR ID_compania='" + id_user + "') AND Estatus='100%'");
             string tipo = Request.QueryString["type"];
             string porcentaje = "";
             int totalDocs;

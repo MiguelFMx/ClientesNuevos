@@ -46,7 +46,7 @@ $(document).ready(function () {
             modalTitle.textContent = `Solicitud de actualización de `+ documento.toLowerCase();
 
             const txtCorreo = CorreoAct.querySelector('#MainContent_txtMensaje');
-            txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${recipient} \r\n\r\n Ingrese a clientes.hungaros.com `;
+            txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${recipient} \r\n\r\n Ingrese a clientes.hungaros.com y haga la actualizacion correspondiente`;
             lblTipo.textContent = documento;
         });
     }
@@ -84,7 +84,23 @@ $(document).ready(function () {
 
             let urlParams = new URLSearchParams(window.location.search);
             let acomp = urlParams.get('id');
-            
+
+            /* Cambio de variable documento, solo con formularios*/
+            switch (documento) {
+                case '(F-5) Evaluacion de seguridad':
+                    documento='F5'
+                    break;
+                case '(F-14) Admision de cliente':
+                    documento='F14'
+                    break;
+                case '(F-12) Política de seguridad C-TPAT':
+                    documento = 'F12';
+                    break;
+                case '(F-43) Mapeo de flujo de carga':
+                    documento = 'F43';
+                    break;
+               
+            }
 
             GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
                 

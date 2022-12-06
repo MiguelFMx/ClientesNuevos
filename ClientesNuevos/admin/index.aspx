@@ -52,11 +52,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col d-flex justify-content-end">
-                    <asp:Label ID="lblNuevo" runat="server" Text="User id: "></asp:Label>
-                </div>
-            </div>
+
 
         </div>
     </div>

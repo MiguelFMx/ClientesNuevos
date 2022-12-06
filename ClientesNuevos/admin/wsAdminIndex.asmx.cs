@@ -83,13 +83,13 @@ namespace ClientesNuevos.admin
             double prog;
             int total = 0, aux = 0;
             DataTable dt = new DataTable();
-            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE ID_compania='" + id_comp + "' OR  ID_compania='"+id+"' AND Estatus='100%'");
-            if (tipo == "0")
+            dt = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE (ID_compania='" + id_comp + "' OR  ID_compania='"+id+"') AND Estatus='100%'");
+            if (tipo == "1")
             {
                 //fisico
                 total = 15;
             }
-            else if(tipo == "1")
+            else if(tipo == "0")
             {
                 //moral
                 total = 14;
