@@ -40,16 +40,19 @@ $(document).ready(function () {
             const button = event.relatedTarget;
 
             const recipient = button.getAttribute('data-bs-type');
-
+            const lblTipo = CorreoAct.querySelector('#MainContent_lblDoc');
             const modalTitle = CorreoAct.querySelector('.modal-title');
             documento = ` ${recipient}`;
             modalTitle.textContent = `Solicitud de actualización de `+ documento.toLowerCase();
 
             const txtCorreo = CorreoAct.querySelector('#MainContent_txtMensaje');
-            txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${recipient} \r\n\r\n Ingrese a [link]`;
-            
+            txtCorreo.textContent = `El motivo de la presente es para solicitar su apoyo en la recolección de datos de nuestros socios comerciales. Esta información es para completar nuestros archivos de socios de negocio.\r\n\r\nLe solicitamos atentamente su apoyo en actualización de la siguiente documentación: ${recipient} \r\n\r\n Ingrese a clientes.hungaros.com `;
+            lblTipo.textContent = documento;
         });
     }
+    $('#btnReiniciar').click(function () {
+        location.reload();
+    });
 
     $('#btnCancelarFile').click(function () {
         limpiar();
@@ -74,14 +77,29 @@ $(document).ready(function () {
 
             var asunto = $('#MainContent_txtAsunto').val();
             var cuerpo = $('#MainContent_txtMensaje').val();
-
+            var documento = $('#MainContent_lblDoc').text().trim();
             var datos = Correo[i].split(";");
             var mail = datos[0];
             var remitente = datos[1];
-            GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
-                console.log(mail + "-" + correo);
-            });              
 
+            let urlParams = new URLSearchParams(window.location.search);
+            let acomp = urlParams.get('id');
+            
+
+            GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
+                
+                GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'"+acomp+"','Documento':'"+ documento+"','Estatus':'act'", false, function (cambio) {
+                    //ModalAlert
+                    const mail = document.getElementById('ModalAlert');
+                    if (cambio == 'Estado actualizado con exito.') {
+                        cambio = 'Correo enviado';
+                    }
+                    mail.querySelector('#lblAlertModal').textContent = cambio;
+
+                    $('#ModalAlert').modal('show');
+                });
+            });              
+            //console.log(documento);
         }
     });
 

@@ -45,7 +45,7 @@
         <div class="col">
 
             <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#MailModal">
-                <i class="bi bi-envelope"></i>enviar correo
+                nuevo correo
             </button>
 
             <%--<asp:LinkButton ID="bntNuevoCorreo" runat="server" CausesValidation="false" CssClass="btn btn-secondary btn-sm"><i class="bi bi-envelope"></i> enviar correo</asp:LinkButton>--%>
@@ -53,7 +53,10 @@
     </div>
     <!-- Modal -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header cabezal">
@@ -86,11 +89,11 @@
     </div>
 
     <!-- Modal correo -->
-    <div class="modal fade" id="MailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal" id="MailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="MailModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="MailModalLabel">Enviar multiples correos</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -99,8 +102,8 @@
                             <br />
                             <div class="card">
                                 <div class="card-body">
-                                    <div id="Directorio" style="max-height: 300px; overflow-y: auto;"></div>
-                                    <div class="row"  style="max-height: 300px; overflow-y: auto;">
+                                    <div id="Directorio" style="max-height: 500px; overflow-y: auto;"></div>
+                                    <div class="row"  style="max-height: 500px; overflow-y: auto;">
                                         <table id="tDir" class="table table-hover">
                                             <thead>
                                                 <tr>

@@ -93,6 +93,7 @@ function ObtenerContacto() {
                         tipo = 'Agente aduanal americano';
                         break;
                 }
+                if (lstTabla[i].Correo != '') { 
                 tbl.append(
                     "<tr>" +
                     "<td>" + lstTabla[i].ID_compania + "</td>" +
@@ -106,7 +107,8 @@ function ObtenerContacto() {
                     "<td>" + tipo +"</td>" +
                     "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre+"'><i class='bi bi-envelope'></i></button></td>" +
                     "</tr>"
-                );
+                    );
+                }
                 console.log[i];
             }
         }
@@ -136,7 +138,8 @@ function CargarDirectorio() {
                         tipo = 'Agente aduanal americano';
                         break;
                 }
-                $('#tDir tbody').append(
+                if (lstTabla[i].Correo !='') {
+     $('#tDir tbody').append(
                     "<tr>" +
                     "<td>" +
                     "<div class='row'>" +
@@ -146,7 +149,7 @@ function CargarDirectorio() {
                     "<label class='form-check-label' for='flexCheckDefault'>" +
                     "<span><label name='contacto'>" + lstTabla[i].Nombre + "</label> (" + lstTabla[i].Puesto + ")<br>" +
                     "<small><label name='correo'>" + lstTabla[i].Correo + "</label></small><br>" +
-                    "<small>" + tipo + "</small>" +
+                    "<small>" + tipo + "</small><br><small>" + lstTabla[i].Nombre_comercial + "</small>" +
                     "</span>" +
                     "</label>" +
                     "</div>" +
@@ -154,6 +157,7 @@ function CargarDirectorio() {
                     "</td>" +
                     "</tr>"
                 )
+                }
                 //directorio.append(
                 //    "<div class='row'>" +
                 //    "<div class='col'>" +

@@ -245,7 +245,7 @@
                                                 data-bs-toggle="modal"
                                                 data-bs-placement="top"
                                                 data-bs-target="#CorreoAct"
-                                                data-bs-type="Carta de no antcedentes penales"
+                                                data-bs-type="Carta de no antecedentes penales"
                                                 title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
                                             <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm" runat="server"
@@ -683,37 +683,6 @@
                 </div>
 
             </div>
-            <div class="row pt-2">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header cabezal">
-                            <h5>Directorio</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover" id="tContactos">
-                                    <thead>
-                                        <tr>
-                                            <th>Contacto</th>
-                                            <th>Puesto</th>
-                                            <th>Correo</th>
-                                            <th>Telefono</th>
-                                            <th>Extension</th>
-                                            <th>Celular</th>
-                                            <th>Tipo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="6" style="text-align: center">No hay contactos registrados.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position: fixed; bottom: 3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
@@ -778,6 +747,7 @@
                                 <h6 class="card-header shadow-sm">Correo</h6>
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <asp:Label ID="lblDoc" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lblAsunto" runat="server" Text="Asunto:" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtAsunto" runat="server" Text="Solicitud de actualización de datos" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -793,13 +763,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                    <button type="button" id="btnEnviar" class="btn btn-primary" data-bs-dismiss="modal">envair</button>
+                    <button type="button" id="btnEnviar" class="btn btn-primary">enviar</button>
                     
                     <%--<asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>--%>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal mensaje -->
+    <div class="modal fade" id="ModalAlert" tabindex="-1" aria-labelledby="ModalAlertLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ModalAlertLabel">Aviso</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <label id="lblAlertModal"></label>
+      </div>
+      <div class="modal-footer">
+        <%--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--%>
+        <button type="button" class="btn btn-primary" id="btnReiniciar">aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
