@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClientesNuevos.F14;
 using System.Data;
+using static ClientesNuevos.F14.wsBaseDatos;
 
 namespace ClientesNuevos.cliente.F5
 {
@@ -35,11 +36,123 @@ namespace ClientesNuevos.cliente.F5
                     }
                 }
                 string idF5 = GetID() + "F5C";
-
+                DataTable dtF5 = clsHerramientaBD.Existe("SELECT * FROM Table_CuestionarioCTPAT WHERE ID_Cuestionario='"+idF5+"'");
+                if(dtF5.Rows.Count > 0)
+                {
+                    CargarRespuestas(dtF5);
+                }
             }
         }
 
-       
+        private void CargarRespuestas(DataTable dtF5)
+        {
+            switch(dtF5.Rows[0]["p120"].ToString())
+            {
+                case "SI":
+                    radio120.SelectedValue = "SI";
+                    break;
+                case "NO":
+                    radio120.SelectedValue = "NO";
+                    break;
+                case "N/A":
+                    radio120.SelectedValue = "N/A";
+                    break;
+            }
+            if (dtF5.Rows[0]["p130"].ToString()=="SI")
+            {
+                radio130.SelectedValue = "SI";
+                PanelSi.Visible = true;
+                PanelNo.Visible = false;
+
+                txt1311.Text = dtF5.Rows[0]["p1311"].ToString();
+
+                string id0 = cb1312.SelectedItem.Text;
+                cb1312.Items.FindByText(id0).Selected = false;
+                cb1312.Items.FindByValue(dtF5.Rows[0]["p1312"].ToString()).Selected = true;
+
+                string id1 = cb1313.SelectedItem.Text;
+                cb1313.Items.FindByText(id1).Selected = false;
+                cb1313.Items.FindByValue(dtF5.Rows[0]["p1313"].ToString()).Selected = true;
+            }
+            else
+            {
+                if(dtF5.Rows[0]["p130"].ToString() == "NO")
+                {
+                    radio130.SelectedValue = "NO";
+                }
+                else
+                {
+                    radio130.SelectedValue = "N/A";
+                }
+                PanelNo.Visible = true;
+                PanelSi.Visible = false;
+
+                switch (dtF5.Rows[0]["p1321"].ToString())
+                {
+                    case "SI":
+                        radio1321.SelectedValue = "SI";
+                        break;
+                    case "NO":
+                        radio1321.SelectedValue = "NO";
+                        break;
+                    case "N/A":
+                        radio1321.SelectedValue = "N/A";
+                        break;
+                }
+                switch (dtF5.Rows[0]["p1322"].ToString())
+                {
+                    case "SI":
+                        radio1322.SelectedValue = "SI";
+                        break;
+                    case "NO":
+                        radio1322.SelectedValue = "NO";
+                        break;
+                    case "N/A":
+                        radio1322.SelectedValue = "N/A";
+                        break;
+                }
+            }
+            switch (dtF5.Rows[0]["p140"].ToString())
+            {
+                case "SI":
+                    radio140.SelectedValue = "SI";
+                    break;
+                case "NO":
+                    radio140.SelectedValue = "NO";
+                    break;
+                case "N/A":
+                    radio140.SelectedValue = "N/A";
+                    break;
+            }
+
+            switch (dtF5.Rows[0]["p150"].ToString())
+            {
+                case "SI":
+                    radio150.SelectedValue = "SI";
+                    break;
+                case "NO":
+                    radio150.SelectedValue = "NO";
+                    break;
+                case "N/A":
+                    radio150.SelectedValue = "N/A";
+                    break;
+            }
+
+            switch (dtF5.Rows[0]["p160"].ToString())
+            {
+                case "SI":
+                    radio160.SelectedValue = "SI";
+                    break;
+                case "NO":
+                    radio160.SelectedValue = "NO";
+                    break;
+                case "N/A":
+                    radio160.SelectedValue = "N/A";
+                    break;
+            }
+
+        }
+
         protected void radioMiembro_SelectedIndexChanged(object sender, EventArgs e)
         {
             string radio = radio130.SelectedValue;
