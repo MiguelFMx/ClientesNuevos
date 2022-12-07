@@ -283,7 +283,7 @@
         <div class="row">
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUsrControl" runat="server">
-                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click" CausesValidation="false"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
                 <button id="btnHomie" class="btn btn-secondary" type="button"><i class="bi bi-house-door"></i></button>
                     <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                         data-bs-toggle="tooltip"

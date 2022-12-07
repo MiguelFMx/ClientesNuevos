@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClientesNuevos.F14;
+using System.Data;
 
 namespace ClientesNuevos.cliente.F5
 {
@@ -33,6 +34,8 @@ namespace ClientesNuevos.cliente.F5
 
                     }
                 }
+                string idF5 = GetID() + "F5C";
+
             }
         }
 

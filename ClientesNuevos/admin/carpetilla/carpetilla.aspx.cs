@@ -143,7 +143,7 @@ namespace ClientesNuevos.admin.carpetilla
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================F4
-                    if (fila["Documento"].ToString() == "F4")
+                    if (fila["Documento"].ToString() == "F14")
                     {
                         if (fila["Estatus"].ToString() == "100%")
                         {

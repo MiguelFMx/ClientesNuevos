@@ -19,8 +19,9 @@ var bloque1 = [],
 var respuestas = [];
 
 $(document).ready(function () {
-    
 
+       
+    
     cargarTablaStepS(current);
 
     $('#btnSiguiente').click(function () {
@@ -179,7 +180,9 @@ $(document).ready(function () {
                     }
                     break;
             }
-            
+
+        } else if (current == 1) {
+            window.location.replace('../EvaluacionSeguridad.aspx');
         }
     });
 
