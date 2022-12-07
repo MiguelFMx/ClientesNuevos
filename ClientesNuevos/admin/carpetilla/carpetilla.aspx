@@ -797,6 +797,7 @@
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../../template/assets/js/dropjs.js"></script>
     <script src="../template/vendors/nprogress/nprogress.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
     <script src="../template/asset/JS/carpetillaJS.js"></script>
 
 </asp:Content>

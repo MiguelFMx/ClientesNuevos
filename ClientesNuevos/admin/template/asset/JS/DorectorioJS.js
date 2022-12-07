@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../../scripts/js/ajax.js" />
+/// <reference path="../../../../scripts/sweetalert2.all.min.js" />
 
 NProgress.start();
 
@@ -40,35 +41,96 @@ $(document).ready(function () {
         var remitente = $('#txtRemitente').val();
         var subject = $('#txtAsunto').val();
         var cuerpo = $('#txtCuerpo').val();
-        GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + correo + "','remitente':'" + remitente + "','subject':'" + subject + "','cuerpo':'"+cuerpo+"'", false, function (correo) {
-            alert(correo);
+
+        swal.fire({
+            showConfirmButton: false,
+            title: 'Enviando correo',
+            allowOutsideClick: false,
+            showSpinner: true,
+            willOpen: () => {
+                Swal.showLoading()
+                $.ajax({
+                    type: "POST",
+                    url: "../wsAdminIndex.asmx/EnviarCorreo",
+                    data: {
+                        'correo': correo,
+                        'remitente': remitente,
+                        'subject': subject,
+                        'cuerpo': cuerpo
+                    },
+                    cache: false,
+                    success: function (response) {
+                        swal.fire({
+                            title: 'Exito!',
+                            text: 'Correo enviado a ' + correo,
+                            icon: 'success'
+                        }
+                        )
+                    },
+                    failure: function (response) {
+                        swal.fire(
+                            "Error interno",
+                            "", // had a missing comma
+                            "error"
+                        )
+                    }
+                });
+            }
         });
     });
 
     $('#btnSendAll').click(function () {
-        var Correo = [];
+        
+        var mail = new Array();
+        var remitente = new Array();
+
+        var asunto = $('#txtAsuntoAll').val();
+        var cuerpo = $('#txtBody').val();
 
         $('.form-check').each(function () {
             let checked = $(this).find($('[name=check]'));
-            let mail = $(this).find($('[name=correo]'));
-            let contact = $(this).find($('[name=contacto]'));
+            let mailTemp = $(this).find($('[name=correo]'));
+            let contactTemp = $(this).find($('[name=contacto]'));
             if (checked.is(":checked")) {
-                Correo.push(mail.text() + ";" + contact.text());
+                //Correo.push(mail.text() + ";" + contact.text());
+                mail.push(mailTemp.text());
+                remitente.push(contactTemp.text());
             }
         });
-        for (var i = 0; i < Correo.length; i++) {
 
-            var asunto = $('#txtAsuntoAll').val();
-            var cuerpo = $('#txtBody').val();
-
-            var datos = Correo[i].split(";");
-            var mail = datos[0];
-            var remitente = datos[1];
-            GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
-                console.log(mail + "-" + correo);
-            });
-
-        }
+        swal.fire({
+            showConfirmButton: false,
+            title: 'Enviando correo',
+            allowOutsideClick: false,
+            showSpinner: true,
+            willOpen: () => {
+                Swal.showLoading()
+                $.ajax({
+                    type: "POST",
+                    url: "../wsAdminIndex.asmx/EnviarMultiplesCorreos",
+                    data:
+                        JSON.stringify({ correo: mail, remitente: remitente, subject: asunto, cuerpo: cuerpo }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        swal.fire({
+                            title: 'Exito!',
+                            text: result.d,
+                            icon: 'success'
+                        })
+                        console.log(result.d)
+                    },
+                    failure: function () {
+                        swal.fire(
+                            "Error interno",
+                            "D:", // had a missing comma
+                            "error"
+                        )
+                        alert('Hay un error')
+                    }
+                });
+            }
+        });
     });
 });
 

@@ -26,6 +26,7 @@
 
 
     <link href="../Scripts/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="../Content/sweetalert2.min.css" rel="stylesheet" />
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">

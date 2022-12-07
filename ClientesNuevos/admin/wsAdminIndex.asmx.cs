@@ -178,7 +178,21 @@ namespace ClientesNuevos.admin
                 return ex.Message;
             }
 
-            return "Correo enviado";
+            return "Correo enviado a "+correo;
+        }
+
+        [WebMethod]
+        public List<string> EnviarMultiplesCorreos(List<string> correo, List<string>remitente, string subject, string cuerpo)
+        {
+            string result = "";
+            List<string> list = new List<string>();
+            for (int i = 0; i < correo.Count; i++)
+            {
+                result = EnviarCorreo(correo[i], remitente[i], subject, cuerpo);
+                list.Add(result);
+            }
+
+            return list;
         }
 
     }

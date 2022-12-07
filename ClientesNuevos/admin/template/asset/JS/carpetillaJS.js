@@ -62,8 +62,101 @@ $(document).ready(function () {
         guardarDocumento(tipo);
     });
 
+    //EnviarMultiplesCorreos
     $('#btnEnviar').click(function () {
-        var Correo=[];
+        var mail = new Array();
+        var remitente = new Array();
+
+        var asunto = $('#MainContent_txtAsunto').val();
+        var cuerpo = $('#MainContent_txtMensaje').val();
+        var documento = $('#MainContent_lblDoc').text().trim();
+        let urlParams = new URLSearchParams(window.location.search);
+        let acomp = urlParams.get('id');
+
+        $('.form-check').each(function () {
+            let checked = $(this).find($('[name=check]'));
+            let mailTemp = $(this).find($('[name=correo]'));
+            let contactTemp = $(this).find($('[name=contacto]'));
+            if (checked.is(":checked")) {
+                //Correo.push(mail.text() + ";" + contact.text());
+                mail.push(mailTemp.text());
+                remitente.push(contactTemp.text());
+            }
+        });
+
+        swal.fire({
+            showConfirmButton: false,
+            title: 'Enviando correo',
+            allowOutsideClick: false,
+            showSpinner: true,
+            willOpen: () => {
+                Swal.showLoading()
+        $.ajax({
+            type: "POST",
+            url: "../wsAdminIndex.asmx/EnviarMultiplesCorreos",
+            data:
+                JSON.stringify({ correo: mail, remitente: remitente, subject:asunto, cuerpo:cuerpo }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                swal.fire({
+                    title: 'Exito!',
+                    text: result.d,
+                    icon: 'success'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        switch (documento) {
+                            case '(F-5) Evaluacion de seguridad':
+                                documento = 'F5'
+                                break;
+                            case '(F-14) Admision de cliente':
+                                documento = 'F14'
+                                break;
+                            case '(F-12) Política de seguridad C-TPAT':
+                                documento = 'F12';
+                                break;
+                            case '(F-43) Mapeo de flujo de carga':
+                                documento = 'F43';
+                                break;
+                        }
+
+                        GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
+                            //ModalAlert
+                            console.log(cambio);
+                            location.reload();
+                        });
+                    }
+                })
+                console.log(result.d)
+            },
+            failure: function () {
+                swal.fire(
+                    "Error interno",
+                    "D:", // had a missing comma
+                    "error"
+                )
+            
+                alert('Hay un error')
+            }
+        });
+
+            }
+        });
+
+    });
+
+
+    /*
+    $('#btnEnviar').click(function () {
+
+
+        var Correo = [];
+        var asunto = $('#MainContent_txtAsunto').val();
+        var cuerpo = $('#MainContent_txtMensaje').val();
+        var documento = $('#MainContent_lblDoc').text().trim();
+        let urlParams = new URLSearchParams(window.location.search);
+        let acomp = urlParams.get('id');
+
 
         $('.form-check').each(function () {
             let checked = $(this).find($('[name=check]'));
@@ -71,55 +164,59 @@ $(document).ready(function () {
             let contact = $(this).find($('[name=contacto]'));
             if (checked.is(":checked")) {
                 Correo.push(mail.text() + ";" + contact.text());
-            } 
+            }
         });
-        for (var i = 0; i < Correo.length; i++) {
+                
+                for (var i = 0; i < Correo.length; i++) {
+                    
+                    var datos = Correo[i].split(";");
+                    var mail = datos[0];
+                    var remitente = datos[1];                    
 
-            var asunto = $('#MainContent_txtAsunto').val();
-            var cuerpo = $('#MainContent_txtMensaje').val();
-            var documento = $('#MainContent_lblDoc').text().trim();
-            var datos = Correo[i].split(";");
-            var mail = datos[0];
-            var remitente = datos[1];
+                    // Cambio de variable documento, solo con formularios
+                    switch (documento) {
+                        case '(F-5) Evaluacion de seguridad':
+                            documento = 'F5'
+                            break;
+                        case '(F-14) Admision de cliente':
+                            documento = 'F14'
+                            break;
+                        case '(F-12) Política de seguridad C-TPAT':
+                            documento = 'F12';
+                            break;
+                        case '(F-43) Mapeo de flujo de carga':
+                            documento = 'F43';
+                            break;
+                    }
 
-            let urlParams = new URLSearchParams(window.location.search);
-            let acomp = urlParams.get('id');
+                    GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
+                    
+                    
+                    });
 
-            /* Cambio de variable documento, solo con formularios*/
-            switch (documento) {
-                case '(F-5) Evaluacion de seguridad':
-                    documento='F5'
-                    break;
-                case '(F-14) Admision de cliente':
-                    documento='F14'
-                    break;
-                case '(F-12) Política de seguridad C-TPAT':
-                    documento = 'F12';
-                    break;
-                case '(F-43) Mapeo de flujo de carga':
-                    documento = 'F43';
-                    break;
-               
+                }
             }
 
-            GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
-                
-                GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'"+acomp+"','Documento':'"+ documento+"','Estatus':'act'", false, function (cambio) {
-                    //ModalAlert
-                    const mail = document.getElementById('ModalAlert');
-                    if (cambio == 'Estado actualizado con exito.') {
-                        cambio = 'Correo enviado';
-                    }
-                    mail.querySelector('#lblAlertModal').textContent = cambio;
+        }).then((result) => {
+            console.log(result);
+           Swal.fire('Saved!', '', 'success')
+           
+        });
 
-                    $('#ModalAlert').modal('show');
-                });
-            });              
-            //console.log(documento);
-        }
+        GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
+            //ModalAlert
+            const mail = document.getElementById('ModalAlert');
+            if (cambio == 'Estado actualizado con exito.') {
+                cambio = 'Correo enviado';
+            }
+            mail.querySelector('#lblAlertModal').textContent = cambio;
+
+            $('#ModalAlert').modal('show');
+        });
     });
+*/
 
-
+    //didOpen
     ObtenerRoles();
     ObtenerContactos();
     ListaContactos();
