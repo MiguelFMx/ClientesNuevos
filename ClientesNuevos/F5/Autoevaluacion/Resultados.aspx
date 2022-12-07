@@ -26,7 +26,7 @@
                             <h4 class="accordion-header" id="headingRespuestas">
                                 <button class="accordion-button" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseRespuestas"
-                                    aria-expanded="true"  aria-controls="collapseRespuestas">
+                                     >
                                     Respuestas
                                 </button>
                             </h4>
