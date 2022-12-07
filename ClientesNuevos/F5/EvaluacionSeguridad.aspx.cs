@@ -124,7 +124,6 @@ namespace ClientesNuevos.cliente.F5
                     radio140.SelectedValue = "N/A";
                     break;
             }
-
             switch (dtF5.Rows[0]["p150"].ToString())
             {
                 case "SI":
@@ -137,7 +136,6 @@ namespace ClientesNuevos.cliente.F5
                     radio150.SelectedValue = "N/A";
                     break;
             }
-
             switch (dtF5.Rows[0]["p160"].ToString())
             {
                 case "SI":
@@ -150,7 +148,6 @@ namespace ClientesNuevos.cliente.F5
                     radio160.SelectedValue = "N/A";
                     break;
             }
-
         }
 
         protected void radioMiembro_SelectedIndexChanged(object sender, EventArgs e)
