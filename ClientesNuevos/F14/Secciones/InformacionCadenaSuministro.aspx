@@ -349,6 +349,7 @@
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
     <script src="../JS/cadenaDeSuministrosJS.js"></script>
 
 </asp:Content>

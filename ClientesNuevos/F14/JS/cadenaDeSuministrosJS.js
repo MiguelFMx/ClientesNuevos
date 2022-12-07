@@ -498,6 +498,14 @@ function ObtenerPrograma() {
     });
 }
 
+function AlertSucces() {
+    Swal.fire(
+        'Existo',
+        'Termino el llenado de este formulario',
+        'success'
+    )
+}
+
 function getEstatusAdmin(compa) {
 
     GetAjax("../wsBaseDatos.asmx/ObtenerEstatus", "'id':'" + compa + "'", false, function (lst) {
@@ -534,3 +542,4 @@ function getEstatusAdmin(compa) {
     });
 
 }
+

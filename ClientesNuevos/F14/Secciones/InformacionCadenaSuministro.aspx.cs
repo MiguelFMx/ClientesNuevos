@@ -463,6 +463,10 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     wsBaseDatos wsBaseDatos = new wsBaseDatos();
                     wsBaseDatos.Actualizar_Estado(Request.QueryString["rfc"], "F14", "100%");
+
+                    //AlertSucces
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "AlertSucces();", true);
+
                     Response.Redirect("~/admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"] + "&type=" + Request.Cookies.Get("tipo").Value);
                 }
 
