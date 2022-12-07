@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="autoevaluacion.aspx.cs" Inherits="ClientesNuevos.F5.Autoevaluacion.autoevaluacion" %>
+﻿<%@ Page Title="Autoevaluacion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="autoevaluacion.aspx.cs" Inherits="ClientesNuevos.F5.Autoevaluacion.autoevaluacion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Autoevaluación</title>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
     <script src="../Evaluacion.js"></script>
 
-    <script src="../../Scripts/bootstrap/js/bootstrap.min.js"></script>
 
 
 </asp:Content>

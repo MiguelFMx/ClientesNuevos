@@ -96,21 +96,46 @@ $(document).ready(function () {
                     cargarTablaRespuesta(current, bloque8);
                 }
 
-                let alert = confirm('Esta seguro que desea continuar?');
-                if (alert) {
-                    llenarRespuesta(bloque1);
-                    llenarRespuesta(bloque2);
-                    llenarRespuesta(bloque3);
-                    llenarRespuesta(bloque4);
-                    llenarRespuesta(bloque5);
-                    llenarRespuesta(bloque6);
-                    llenarRespuesta(bloque7);
-                    llenarRespuesta(bloque8);
-                   
-                    GuardarRespuestas(respuestas);
+                //let alert = confirm('Esta seguro que desea continuar?');
+                //if (alert) {
+                //    llenarRespuesta(bloque1);
+                //    llenarRespuesta(bloque2);
+                //    llenarRespuesta(bloque3);
+                //    llenarRespuesta(bloque4);
+                //    llenarRespuesta(bloque5);
+                //    llenarRespuesta(bloque6);
+                //    llenarRespuesta(bloque7);
+                //    llenarRespuesta(bloque8);
 
-                    Actualizarstado();
-                }
+                //    GuardarRespuestas(respuestas);
+
+                //    Actualizarstado();
+                //}
+
+                Swal.fire({
+                    title: 'Esta seguro que sea continuar?',
+                    text: "Ver los resultados",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        llenarRespuesta(bloque1);
+                        llenarRespuesta(bloque2);
+                        llenarRespuesta(bloque3);
+                        llenarRespuesta(bloque4);
+                        llenarRespuesta(bloque5);
+                        llenarRespuesta(bloque6);
+                        llenarRespuesta(bloque7);
+                        llenarRespuesta(bloque8);
+
+                        GuardarRespuestas(respuestas);
+
+                        Actualizarstado();
+                    }
+                })
             }
         } else {
             error = [];
