@@ -120,15 +120,20 @@
                                 <p class="text-sm-right mb-0 text-uppercase font-weight-bold">
                                     Directorio
                                 </p>
+                                <br />
+                                <h5 class="font-weight-bolder">
+                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                </h5>
                                
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="icon icon-shape bg-gradient-danger text-center rounded-circle">
+                            <div class="icon icon-shape bg-gradient-warning text-center rounded-circle">
                                 <i class="bi bi-book"></i>
                             </div>
                         </div>
                     </div>
+                    <br />
                 </div>
                 <div class="card-footer">
                     <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/Directorio.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
@@ -182,7 +187,6 @@
                                             <br />
                                             <h5 class="font-weight-bolder">
                                                 <asp:Label ID="lblSinOP" runat="server" Text="0"></asp:Label>
-
 
                                             </h5>
                                         </div>
