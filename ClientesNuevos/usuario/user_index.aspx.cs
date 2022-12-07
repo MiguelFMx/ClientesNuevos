@@ -113,6 +113,7 @@ namespace ClientesNuevos.usuario
         protected void Documentos()
         {
             string id = Request.Cookies.Get("id").Value;
+            bool f5 = false, f14 = false;
             try
             {
                 List<clsUserIndex.ControlDocumento> Docs = clsUserIndex.Obtener_Documentos(HttpContext.Current.Request.Cookies.Get("id_comp").Value, id);
@@ -122,10 +123,12 @@ namespace ClientesNuevos.usuario
                     //=================================== F14
                     if (Docs[i].Documento == "F14")
                     {
+                        f14= true;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblF14_estatus.Text = "completado";
                             lblF14_estatus.CssClass = "etiqueta";
+
 
                         }
                         else if (Docs[i].Estatus == "revision")
@@ -183,6 +186,7 @@ namespace ClientesNuevos.usuario
                     //================================================= F5
                     if (Docs[i].Documento == "F5")
                     {
+                        f5 = true;
                         if (Docs[i].Estatus == "100%")
                         {
                             lblF5_estatus.Text = "completado";
@@ -678,6 +682,11 @@ namespace ClientesNuevos.usuario
                         }
                         lblF20_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
+                }
+
+                if(f5==true && f14 == true)
+                {
+                    btnCartaCompromiso.Enabled = true;
                 }
             }
             catch (Exception ex)

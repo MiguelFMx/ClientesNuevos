@@ -358,7 +358,7 @@
                                             <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" />
+                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" Enabled ="false" />
 
                                         </td>
                                     </tr>
