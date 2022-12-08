@@ -141,33 +141,35 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF5_estatus.CssClass = "etiqueta pendiente";
                         }
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_F5.Enabled= true;    
                     }
                     //==================================================F4
-                    if (fila["Documento"].ToString() == "F14")
-                    {
-                        if (fila["Estatus"].ToString() == "100%")
-                        {
-                            lblF14_estatus.Text = "completado";
-                            lblF14_estatus.CssClass = "etiqueta";
-                        }
-                        else if (fila["Estatus"].ToString() == "revision")
-                        {
-                            lblF14_estatus.Text = "revision";
-                            lblF14_estatus.CssClass = "etiqueta revision";
+                    //if (fila["Documento"].ToString() == "F14")
+                    //{
+                    //    if (fila["Estatus"].ToString() == "100%")
+                    //    {
+                    //        lblF14_estatus.Text = "completado";
+                    //        lblF14_estatus.CssClass = "etiqueta";
+                    //    }
+                    //    else if (fila["Estatus"].ToString() == "revision")
+                    //    {
+                    //        lblF14_estatus.Text = "revision";
+                    //        lblF14_estatus.CssClass = "etiqueta revision";
 
-                        }
-                        else if (fila["Estatus"].ToString() == "updated")
-                        {
-                            lblF14_estatus.Text = "actualizado";
-                            lblF14_estatus.CssClass = "etiqueta updated";
-                        }
-                        else if (fila["Estatus"].ToString() == "updated")
-                        {
-                            lblF14_estatus.Text = "actualizado";
-                            lblF14_estatus.CssClass = "etiqueta updated";
-                        }
-                        lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
-                    }
+                    //    }
+                    //    else if (fila["Estatus"].ToString() == "updated")
+                    //    {
+                    //        lblF14_estatus.Text = "actualizado";
+                    //        lblF14_estatus.CssClass = "etiqueta updated";
+                    //    }
+                    //    else if (fila["Estatus"].ToString() == "updated")
+                    //    {
+                    //        lblF14_estatus.Text = "actualizado";
+                    //        lblF14_estatus.CssClass = "etiqueta updated";
+                    //    }
+                    //    btnVer_F14.Enabled= true;   
+                    //    lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                    //}
                     //==================================================F43
                     if (fila["Documento"].ToString() == "F43")
                     {
@@ -196,6 +198,7 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF43_estatus.Text = "actualizado";
                             lblF43_estatus.CssClass = "etiqueta updated";
                         }
+                        btnVer_F43.Enabled = true;
                         lblF43_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================F12
@@ -226,6 +229,7 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF12_estatus.Text = "actualizado";
                             lblF12_estatus.CssClass = "etiqueta updated";
                         }
+                        btnVer_F12.Enabled = true;
                         lblF12_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================F14
@@ -256,6 +260,8 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.Text = "actualizado";
                             lblF14_estatus.CssClass = "etiqueta updated";
                         }
+                            btnVer_F14.Enabled= true;   
+
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================RFC
@@ -286,6 +292,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblRFC_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_RFC.Enabled = true;
                         lblRFC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //=================================================CURP                
@@ -316,6 +323,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblCURP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_CURP.Enabled = true;
                         lblCURP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //=================================================CNAP
@@ -346,6 +354,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblCNAP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_CNAP.Enabled = true;
                         lblCNAP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==============================================CompDom
@@ -376,6 +385,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblCompDom_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_CompDom.Enabled = true;
                         lblCompDom_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //===================================================IRL
@@ -406,6 +416,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblIRL_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_IRL.Enabled = true;
                         lblIRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //====================================Poder de representante legal
@@ -436,6 +447,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblPRL_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_PRL.Enabled = true;
                         lblPRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //==================================================OP
@@ -466,6 +478,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblOP_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_OP.Enabled = true;
                         lblOP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //===================================================CTPAT
@@ -496,6 +509,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblCTPAT_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_CTPAT.Enabled = true;
                         lblCTPAT_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //===================================================OEA
@@ -526,6 +540,7 @@ namespace ClientesNuevos.admin.carpetilla
                         {
                             lblOEA_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
+                        btnVer_OEA.Enabled = true;
                         lblOEA_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                     }
                     //===================================================F16
@@ -556,8 +571,9 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF16_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblF16_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
-
+                        
                         txtF16.Text = fila["Ruta"].ToString();
+                        btnVer_F16.Enabled = true;
                     }
 
                     //====================Acta constitutiva====================
@@ -590,7 +606,7 @@ namespace ClientesNuevos.admin.carpetilla
                         lblAC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
 
                         txtAC.Text = fila["Ruta"].ToString();
-                        
+                        btnVer_AC.Enabled = true;
                     }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)
@@ -615,6 +631,7 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF20_estatus.Text = "Pendiente:" + fila["Estatus"].ToString();
                         }
                         lblF20_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+
                     }
                 }
             }

@@ -50,6 +50,8 @@ $(document).ready(function() {
     $('#btnPrueba').click(function () {
         guardarDocumento(tipo);
     });
+
+    /*bienvenido();*/
 });
 
 
@@ -60,6 +62,24 @@ function limpiar() {
     $("#dropzone").append("<span class='drop-zone__prompt'>Suelte el archivo o haga click aqui</span>");
 }
 
+function bienvenido() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'Bienvenido!'
+    })
+}
 
 function guardarDocumento(tipo) {
     var data = new FormData();

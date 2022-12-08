@@ -21,11 +21,17 @@ namespace ClientesNuevos.F20
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
             string res;
 
-            res = wsBaseDatos.InsertarDocumento(id,"F20","","100%");
-
-            if(res != "")
+            if (chFirma.Checked)
             {
-                Response.Redirect("~/usuario/user_index.aspx");
+                res = wsBaseDatos.InsertarDocumento(id, "F20", "", "100%");
+                if (res != "")
+                {
+                    Response.Redirect("~/usuario/user_index.aspx");
+                }
+            }
+            else
+            {
+                lblFirma.Visible = true;
             }
         }
     }

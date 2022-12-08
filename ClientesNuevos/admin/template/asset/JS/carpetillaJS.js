@@ -145,82 +145,8 @@ $(document).ready(function () {
 
     });
 
-
-    /*
-    $('#btnEnviar').click(function () {
-
-
-        var Correo = [];
-        var asunto = $('#MainContent_txtAsunto').val();
-        var cuerpo = $('#MainContent_txtMensaje').val();
-        var documento = $('#MainContent_lblDoc').text().trim();
-        let urlParams = new URLSearchParams(window.location.search);
-        let acomp = urlParams.get('id');
-
-
-        $('.form-check').each(function () {
-            let checked = $(this).find($('[name=check]'));
-            let mail = $(this).find($('[name=correo]'));
-            let contact = $(this).find($('[name=contacto]'));
-            if (checked.is(":checked")) {
-                Correo.push(mail.text() + ";" + contact.text());
-            }
-        });
-                
-                for (var i = 0; i < Correo.length; i++) {
-                    
-                    var datos = Correo[i].split(";");
-                    var mail = datos[0];
-                    var remitente = datos[1];                    
-
-                    // Cambio de variable documento, solo con formularios
-                    switch (documento) {
-                        case '(F-5) Evaluacion de seguridad':
-                            documento = 'F5'
-                            break;
-                        case '(F-14) Admision de cliente':
-                            documento = 'F14'
-                            break;
-                        case '(F-12) Política de seguridad C-TPAT':
-                            documento = 'F12';
-                            break;
-                        case '(F-43) Mapeo de flujo de carga':
-                            documento = 'F43';
-                            break;
-                    }
-
-                    GetAjax("../wsAdminIndex.asmx/EnviarCorreo", "'correo':'" + mail + "','remitente':'" + remitente + "','subject':'" + asunto + "','cuerpo':'" + cuerpo + "'", false, function (correo) {
-                    
-                    
-                    });
-
-                }
-            }
-
-        }).then((result) => {
-            console.log(result);
-           Swal.fire('Saved!', '', 'success')
-           
-        });
-
-        GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
-            //ModalAlert
-            const mail = document.getElementById('ModalAlert');
-            if (cambio == 'Estado actualizado con exito.') {
-                cambio = 'Correo enviado';
-            }
-            mail.querySelector('#lblAlertModal').textContent = cambio;
-
-            $('#ModalAlert').modal('show');
-        });
-    });
-*/
-
-    //didOpen
     ObtenerRoles();
-    ObtenerContactos();
     ListaContactos();
-    let Directorio = $('#tContactos').DataTable();
 
     NProgress.done();
     NProgress.remove();
@@ -250,22 +176,48 @@ function guardarDocumento(tipo) {
 
             if (inputElement.files.length) {
                 data.append(inputElement.files[0].name, inputElement.files[0])
-                $.ajax({
-                    url: "../../usuario/hFileController.ashx?idcomp=" + id_cuenta + "&desc="+tipo,
-                    type: "POST",
-                    data: data,
-                    contentType: false,
-                    processData: false,
-                    success: function (result) {
-                        console.log(result);
-                        window.location.reload();
-                    },
-                    error: function (err) {
-                        console.log(err.statusText);
+
+
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Subiendo archivo',
+                    allowOutsideClick: false,
+                    showSpinner: true,
+                    willOpen: () => {
+
+                        $.ajax({
+                            url: "../../usuario/hFileController.ashx?idcomp=" + id_cuenta + "&desc=" + tipo,
+                            type: "POST",
+                            data: data,
+                            contentType: false,
+                            processData: false,
+                            success: function (result) {
+                                swal.fire({
+                                    title: 'Exito!',
+                                    text: 'Documento almacenado con exito',
+                                    icon: 'success'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.reload();
+                                    }
+                                })
+                            },
+                            error: function (err) {
+                                console.log(err.statusText);
+                            }
+                        });
+
                     }
                 });
+
+               
             } else {
                 console.log('Seleccione un documento');
+                Swal.fire(
+                    'Sin documento',
+                    'No ha seleccionado un documento',
+                    'warning'
+                )
                 $('#MainContent_lblErr').html('*Seleccione un documento');
             }
 

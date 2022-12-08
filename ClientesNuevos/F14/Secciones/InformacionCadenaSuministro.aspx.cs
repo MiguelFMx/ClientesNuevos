@@ -489,6 +489,12 @@ namespace ClientesNuevos.F14.Seccioness
                 DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_ctpat WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "'");
                 if (dt.Rows.Count > 0)
                 {
+                    //Llenar campos
+                    if (dt.Rows[0]["Estatus"].ToString() == "0")
+                    {
+                        divFecha.Visible = false;
+                    }
+
                     btnRgistrar.Text = "actualizar";
                     if (dt.Rows[0]["Programas"].ToString() == "si")
                     {

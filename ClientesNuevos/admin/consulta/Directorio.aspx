@@ -4,6 +4,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container">
+    
     <div class="row">
         <div class="col"></div>
     </div>
@@ -51,16 +53,18 @@
             <%--<asp:LinkButton ID="bntNuevoCorreo" runat="server" CausesValidation="false" CssClass="btn btn-secondary btn-sm"><i class="bi bi-envelope"></i> enviar correo</asp:LinkButton>--%>
         </div>
     </div>
+
+</div>
     <!-- Modal -->
 
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+    <div class="modal fade" id="CorreoIndividual" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header cabezal">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo correo</h1>
+                    <h1 class="modal-title fs-5" id="CorreoIndividuallLabel">Nuevo correo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -89,7 +93,7 @@
     </div>
 
     <!-- Modal correo -->
-    <div class="modal" id="MailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal" id="MailModal" tabindex="-1" aria-labelledby="MailModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -97,6 +101,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                       
                     <div class="row">
                         <div class="col-5">
                             <br />
@@ -132,6 +137,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

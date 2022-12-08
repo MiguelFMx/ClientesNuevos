@@ -16,8 +16,8 @@ $(document).ready(function () {
     NProgress.remove();
 
 
-    const exampleModal = document.getElementById('exampleModal')
-    exampleModal.addEventListener('show.bs.modal', event => {
+    const CorreoIndividual = document.getElementById('CorreoIndividual')
+    CorreoIndividual.addEventListener('show.bs.modal', event => {
         // Button that triggered the modal
         const button = event.relatedTarget
         // Extract info from data-bs-* attributes
@@ -26,8 +26,8 @@ $(document).ready(function () {
         // and then do the updating in a callback.
         //
         // Update the modal's content.
-        const modalCorreo = exampleModal.querySelector('#txtCorreo');
-        const modalRemitente = exampleModal.querySelector('#txtRemitente');
+        const modalCorreo = CorreoIndividual.querySelector('#txtCorreo');
+        const modalRemitente = CorreoIndividual.querySelector('#txtRemitente');
         const datos = `${recipient}`;
         const correo = datos.split(";");
 
@@ -64,8 +64,7 @@ $(document).ready(function () {
                             title: 'Exito!',
                             text: 'Correo enviado a ' + correo,
                             icon: 'success'
-                        }
-                        )
+                        })
                     },
                     failure: function (response) {
                         swal.fire(
@@ -167,7 +166,7 @@ function ObtenerContacto() {
                     "<td>" + lstTabla[i].Extension + "</td>" +
                     "<td>" + lstTabla[i].Celular + "</td>" +
                     "<td>" + tipo +"</td>" +
-                    "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre+"'><i class='bi bi-envelope'></i></button></td>" +
+                    "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#CorreoIndividual' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre+"'><i class='bi bi-envelope'></i></button></td>" +
                     "</tr>"
                     );
                 }

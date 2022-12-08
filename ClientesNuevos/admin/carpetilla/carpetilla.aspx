@@ -128,7 +128,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtAC" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_AC" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_AC" runat="server" Enabled="false" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnAC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -163,7 +163,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtRFC" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_RFC" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_RFC" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnRFC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -200,7 +200,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtCURP" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_CURP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_CURP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnClick"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -236,7 +236,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtCNAP" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_CNAP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_CNAP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -273,7 +273,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtCompDom" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_CompDom" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_CompDom" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -308,7 +308,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtIRL" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_IRL" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_IRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnIRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -345,7 +345,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtPRL" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_PRL" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_PRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnPRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -382,7 +382,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtCTPAT" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_CTPAT" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_CTPAT" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -417,7 +417,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtOEA" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_OEA" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_OEA" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnOEA_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -452,7 +452,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtOP" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_OP" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_OP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnOP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -487,7 +487,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtW9" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_W9" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_W9" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnW9_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -521,7 +521,7 @@
                                                 </asp:TableCell>
                                                 <asp:TableCell>
 
-                                                    <asp:LinkButton ID="btnVer_F5" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_F5" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnF5_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -553,7 +553,7 @@
                                                     <asp:Label ID="lblF14_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                                 </asp:TableCell>
                                                 <asp:TableCell>
-                                                    <asp:LinkButton ID="btnVer_F14" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_F14" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnF14_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -583,7 +583,7 @@
                                                     <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                                 </asp:TableCell>
                                                 <asp:TableCell>
-                                                    <asp:LinkButton ID="btnVer_F12" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_F12" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnF12_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -613,7 +613,7 @@
                                                     <asp:Label ID="lblF43_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                                 </asp:TableCell>
                                                 <asp:TableCell>
-                                                    <asp:LinkButton ID="btnVer_F43" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_F43" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnF43_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -644,7 +644,7 @@
                                                 <asp:TableCell>
                                                     <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
 
-                                                    <asp:LinkButton ID="btnVer_F16" runat="server" CssClass="btn btn-secondary btn-sm"
+                                                    <asp:LinkButton ID="btnVer_F16" Enabled="false"  runat="server" CssClass="btn btn-secondary btn-sm"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-eye"></i></asp:LinkButton>

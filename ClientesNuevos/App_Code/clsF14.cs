@@ -638,8 +638,6 @@ namespace ClientesNuevos.App_Code
         }
 
 
-
-
         public static string Insertar_Documento(string ID_compania, string nombreDocumento, string Ruta, string Estatus)
         {
             string resultado = "", fecha = "";
@@ -666,7 +664,16 @@ namespace ClientesNuevos.App_Code
                 {
                     if (dt.Rows[0]["Estatus"].ToString() == "100%")
                     {
-                        cmd.Parameters.AddWithValue("@Estatus", "updated");
+                        if(nombreDocumento == "F20")
+                        {
+                            cmd.Parameters.AddWithValue("@Estatus", "100%");
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Estatus", "updated");
+
+                        }
 
                     }
                     else

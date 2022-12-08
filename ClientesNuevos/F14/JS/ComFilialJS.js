@@ -20,7 +20,7 @@ $(document).ready(function(){
             });
 
         GetAjax("../wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F14', 'Ruta':'null','Estatus':'60%'", false, function (res) {
-            alert(res);
+            console.log(res);
         });
         //window.location.href = 'TipoServicioProductos.aspx';
         $('td').each(function () {

@@ -214,7 +214,8 @@
                         <asp:RadioButton ID="no2" Text="No" GroupName="radioPregunta2" runat="server" />
                     </div>
                     <div class="col-auto">
-                        <label for="txtnumeroCuenta">Nuestra Compañía ES ya un miembro de C-TPAT. Nuestro número de cuenta es: </label>
+                        <asp:Label ID="lblNumeroCuenta" AssociatedControlID="txtnumeroCuenta" runat="server" Text="Nuestra Compañía ES ya un miembro de C-TPAT. Nuestro número de cuenta es:"></asp:Label>
+                        
                     </div>
                 </div>
                 <div class="row">
@@ -283,7 +284,7 @@
 
                     </div>
                     <div class="col">
-                        <label for="gvProgramas">Nuestra Compañía actualmente participa en algún programa de Seguridad. En caso de que la respuesta sea positiva favor de indicar el programa de seguridad en el que participa: </label>
+                        <label for="gvProgramas">Nuestra Compañía actualmente participa en algún programa de Seguridad.</label>
 
                         <div class="table-responsive">
                             <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">

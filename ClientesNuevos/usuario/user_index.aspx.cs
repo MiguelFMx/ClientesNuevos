@@ -29,6 +29,7 @@ namespace ClientesNuevos.usuario
             {
                 if(User.IsInRole("3") || User.IsInRole("4"))
                 {
+
                     //3=Cliente, 4=proveedor
                     //
                     getCompania();
@@ -70,7 +71,11 @@ namespace ClientesNuevos.usuario
                         Response.Redirect("../F20/CriteriosMinimos.aspx");
 
                     }
-                }else if(User.IsInRole("1") || User.IsInRole("2"))
+
+
+                  
+                }
+                else if(User.IsInRole("1") || User.IsInRole("2"))
                 {
                     lblCompania.Text = "Modo admin";
                 }

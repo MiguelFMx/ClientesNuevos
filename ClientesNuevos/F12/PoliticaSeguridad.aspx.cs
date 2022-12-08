@@ -70,7 +70,8 @@ namespace ClientesNuevos.F12
                         else
                         {
                             no3.Checked = true;
-                            txtnumeroCuenta.Text = "Nuestra Compañía ES ya un miembro de C-TPAT";
+                            lblNumeroCuenta.Text = "Nuestra Compañía ES ya un miembro de C-TPAT";
+                            txtnumeroCuenta.Visible = false;    
                             pPrgunta4.Visible = false;
                         }
                         //Esta usted respondiendo por todas las unidades de negocio de su compania
