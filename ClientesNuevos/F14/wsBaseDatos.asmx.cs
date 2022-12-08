@@ -300,6 +300,8 @@ namespace ClientesNuevos.F14
             if (HttpContext.Current.Request.Cookies.Get("id_comp").Value != "")
             {
                 id_com = HttpContext.Current.Request.Cookies.Get("id_comp").Value;
+                //dt = Existe("SELECT * FROM Table_compania WHERE ID_user ='" + HttpContext.Current.Request.Cookies.Get("id").Value + "'");
+
             }
             else
             {

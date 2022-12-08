@@ -788,6 +788,11 @@ namespace ClientesNuevos.F14.Seccioness
                 pV2.Visible = false;
                 btnModal.Visible = false;
 
+                lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+
+                lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "", "revision");
+
+
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
 
             }

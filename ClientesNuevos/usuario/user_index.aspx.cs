@@ -61,6 +61,12 @@ namespace ClientesNuevos.usuario
                     else
                     {
                         //Si el no se encontro registro es redireccionado para los cirterios minimos
+                        DataTable dtInfo = clsHerramientaBD.Existe("SELECT * FROM [Table_Documentos] WHERE Documento='F20' AND ID_compania='" + Request.Cookies.Get("id").Value + "'");
+
+                        if(dtInfo.Rows.Count > 0)
+                        {
+                            Response.Redirect("~/f14/secciones/InformacionCompania.aspx");
+                        }
                         Response.Redirect("../F20/CriteriosMinimos.aspx");
 
                     }

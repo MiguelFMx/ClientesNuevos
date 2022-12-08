@@ -17,23 +17,20 @@
             <div class="row">
                 <div class="col">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header cabezal">
                             <div class="row mt-2">
                                 <div class="col">
-                                    <h5 style="color: #73879C;">Listado de clientes</h5>
+                                    <h5 >Listado de clientes</h5>
                                 </div>
                                 <div class="col d-flex justify-content-end">
                                     <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-secondary btn-sm"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
-
                                 </div>
                             </div>
-
                         </div>
                         <div class="card-body">
-
                             <div class="table-responsive">
                                 <table class="table table-striped" id="tClientes">
-                                    <thead class="cabezal">
+                                    <thead>
                                         <tr>
                                             <th style="width: 10%;">RFC</th>
                                             <th style="width: 30%;">Empresa</th>
