@@ -150,7 +150,12 @@
                             </div>
 
                             <div class="col-md">
+                                <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                    <ContentTemplate>
                                 <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
+
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                                 <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                     ErrorMessage="*Especifique el RFC o W9"
@@ -589,9 +594,9 @@
                 <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>            
 
-                <asp:LinkButton ID="btnAdinSave" runat="server" OnClick="btnAdinSave_Click" CssClass="btn btn-success">Editar</asp:LinkButton>
+                <asp:LinkButton ID="btnAdinSave" runat="server" OnClick="btnAdinSave_Click" CssClass="btn btn-success"  >Editar</asp:LinkButton>
 
                     <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                         data-bs-toggle="tooltip"
@@ -670,4 +675,6 @@
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
+
 </asp:Content>

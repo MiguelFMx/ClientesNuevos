@@ -321,7 +321,7 @@ namespace ClientesNuevos.F14.Seccioness
                ddTipoDePersona.Enabled = false;
                 ddTipoDePersona.Items.FindByValue(id).Selected = false;
                 ddTipoDePersona.Items.FindByValue("2").Selected = true;
-                lblRFC.Text = "TaxID";
+                lblRFC.Text = "W9:"; 
                 pDatosBancarios.Enabled = false;
                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
                 txtCURP.Enabled = false;
@@ -396,6 +396,7 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                    // Context.Response.Write("<script language=javascript>alert('Opción invalida');</script>");
                     Response.Cookies.Add(new HttpCookie("tipo", "extranjero"));
+               
 
             }
             else
@@ -575,8 +576,15 @@ namespace ClientesNuevos.F14.Seccioness
                     }
                     else
                     {
-                        lblSinContacto.Text = RegistrarInfo();
+                        string registro;
+                        registro = RegistrarInfo();
+                        lblSinContacto.Text = registro;
+                        //Response.Write('<script>alert(''+mensaje+'');</script>');
 
+                        if(registro != "Registre un contacto")
+                        {
+                            Response.Write("<script>Mensaje();</script>");
+                        }
                         //Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
 
                     }
@@ -588,6 +596,15 @@ namespace ClientesNuevos.F14.Seccioness
             }else if (Request.QueryString["rfc"] != null)
             {
                lblSinContacto.Text= RegistrarInfo();
+                string registro;
+                registro = RegistrarInfo();
+                lblSinContacto.Text = registro;
+                //Response.Write('<script>alert(''+mensaje+'');</script>');
+
+                if (registro != "Registre un contacto")
+                {
+                    Response.Write("<script>Mensaje();</script>");
+                }
             }
         }
 
@@ -959,7 +976,7 @@ namespace ClientesNuevos.F14.Seccioness
             lblNombreComercial.Text = "Doing business as:";
             lblNombreCompania.Text = "Name of the company:";
             lblTipoPersona.Text = "Person type (SAT):";
-            lblRFC.Text = "RFC or TaxID number:";
+            lblRFC.Text = "RFC or W9 number:";
             lblAnosNegocio.Text = "Years in business:";
             lblCURP.Text = "CURP (Mexico):";
             lblDirecFiscal.Text = "Fiscal address:";

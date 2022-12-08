@@ -20,6 +20,7 @@ namespace ClientesNuevos.F12
             {
                 if(User.IsInRole("1")|| User.IsInRole("2"))
                 {
+                    btnCarpetilla.Visible = true;
                     if (Request.QueryString["rfc"]!= null)
                     {
                         data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
@@ -164,6 +165,15 @@ namespace ClientesNuevos.F12
             {
                 lblpregunta5.Text = "Somos participantes en el programa de seguridad de la cadena de suministro de nuestro País. Nuevo Esquema de Empresas Certificadas OEA.";
                 txtPregunta5.Visible = false;
+            }
+        }
+
+        protected void btnCarpetilla_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rfc"] != null)
+            {
+                if(Request.Cookies["tipo"] != null)
+                    Response.Redirect("../admin/carpetilla/carpetilla.aspx?id=" + Request.QueryString["rfc"].ToString() + "&type=" + Request.Cookies["tipo"].Value, false);
             }
         }
 

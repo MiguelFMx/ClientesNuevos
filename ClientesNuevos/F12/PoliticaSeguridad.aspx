@@ -351,6 +351,7 @@
         <section id="boton">
             <div class="row">
                 <div class="col d-flex justify-content-end">
+                    <asp:LinkButton ID="btnCarpetilla" Visible="false" OnClick="btnCarpetilla_Click" CssClass="btn btn-secondary me-1" runat="server"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
                     <button id="btnImprimir" class="btn btn-primary text-light" type="button" onclick="imprSelec()"><i class="bi bi-printer"></i></button>
                     &nbsp;
                     <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/usuario/user_index.aspx" CssClass="btn btn-secondary"><i class="bi bi-house-door"></i></asp:HyperLink>

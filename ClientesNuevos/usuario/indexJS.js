@@ -95,6 +95,15 @@ function guardarDocumento(tipo) {
        
         if (inputElement.files.length) {
             data.append(inputElement.files[0].name, inputElement.files[0])
+
+            swal.fire({
+                showConfirmButton: false,
+                title: 'Subiendo archivo',
+                allowOutsideClick: false,
+                showSpinner: true,
+                willOpen: () => {
+                    Swal.showLoading();
+
             $.ajax({
                 url: "hFileController.ashx?idcomp=" + id_cuenta + "&desc=" + tipo,
                 type: "POST",
@@ -102,13 +111,23 @@ function guardarDocumento(tipo) {
                 contentType: false,
                 processData: false,
                 success: function (result) {
-                    console.log(result);
-                    window.location.reload();
+                    swal.fire({
+                        title: 'Exito!',
+                        text: 'Documento almacenado con exito',
+                        icon: 'success'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    })
                 },
                 error: function (err) {
                     console.log(err.statusText);
                 }
             });
+                }
+            });
+
         } else {
             console.log('Seleccione un documento');
             $('#MainContent_lblErr').html('*Seleccione un documento');

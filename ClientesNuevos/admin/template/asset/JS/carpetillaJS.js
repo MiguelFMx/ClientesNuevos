@@ -184,7 +184,7 @@ function guardarDocumento(tipo) {
                     allowOutsideClick: false,
                     showSpinner: true,
                     willOpen: () => {
-
+                        Swal.showLoading();
                         $.ajax({
                             url: "../../usuario/hFileController.ashx?idcomp=" + id_cuenta + "&desc=" + tipo,
                             type: "POST",

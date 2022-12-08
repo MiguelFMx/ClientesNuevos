@@ -120,7 +120,7 @@ $(document).ready(function () {
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Si'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         llenarRespuesta(bloque1);

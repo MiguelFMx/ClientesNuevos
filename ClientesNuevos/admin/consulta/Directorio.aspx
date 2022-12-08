@@ -4,63 +4,58 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
     
-    <div class="row">
-        <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header cabezal">
-                    <h5>Directorio</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table id="tDirectorio" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>RFC</th>
-                                            <th>Socio comercial</th>
-                                            <th>Nombre</th>
-                                            <th>Puesto</th>
-                                            <th width="15%">Correo</th>
-                                            <th>Telefono</th>
-                                            <th>Ext</th>
-                                            <th>Celular</th>
-                                            <th>Tipo</th>
-                                            <th>Accion</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+        <div class="row">
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header cabezal">
+                        <h5>Directorio</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                                <div class="table-responsive">
+                                    <table id="tDirectorio" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>RFC</th>
+                                                <th>Socio comercial</th>
+                                                <th>Nombre</th>
+                                                <th>Puesto</th>
+                                                <th>Correo</th>
+                                                <th>Telefono</th>
+                                                <th>Ext</th>
+                                                <th>Celular</th>
+                                                <th>Tipo</th>
+                                                <th>Accion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                        
+                        
+                    </div>
+                    <div class="card-footer">
+                        <div class="row pt-2">
+                            <div class="col">
+
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#MailModal">
+                                    nuevo correo
+                                </button>
+
+                                <%--<asp:LinkButton ID="bntNuevoCorreo" runat="server" CausesValidation="false" CssClass="btn btn-secondary btn-sm"><i class="bi bi-envelope"></i> enviar correo</asp:LinkButton>--%>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row pt-2">
-        <div class="col">
-
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#MailModal">
-                nuevo correo
-            </button>
-
-            <%--<asp:LinkButton ID="bntNuevoCorreo" runat="server" CausesValidation="false" CssClass="btn btn-secondary btn-sm"><i class="bi bi-envelope"></i> enviar correo</asp:LinkButton>--%>
-        </div>
-    </div>
-
-</div>
     <!-- Modal -->
-
-
-
     <div class="modal fade" id="CorreoIndividual" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
-        data-bs-backdrop="static" data-bs-keyboard="false" >
+        data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header cabezal">
@@ -101,14 +96,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                       
+
                     <div class="row">
                         <div class="col-5">
                             <br />
                             <div class="card">
                                 <div class="card-body">
                                     <div id="Directorio" style="max-height: 500px; overflow-y: auto;"></div>
-                                    <div class="row"  style="max-height: 500px; overflow-y: auto;">
+                                    <div class="row" style="max-height: 500px; overflow-y: auto;">
                                         <table id="tDir" class="table table-hover">
                                             <thead>
                                                 <tr>

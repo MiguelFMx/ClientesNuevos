@@ -2,7 +2,7 @@
 
 /// <reference path="../scripts/js/ajax.js" />
 
-
+NProgress.start();
 
 var count = 1;
 
@@ -36,7 +36,12 @@ $(document).ready(function () {
         
         if ($('#error').html() == '') {
             GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + acomp + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
-                Alert(res);
+                Swal.fire({
+                    text: 'F43 registrado',
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6'
+                })
                 console.log(res);
             });
         }
@@ -56,13 +61,26 @@ $(document).ready(function () {
 
         if ($('#error').html() == '') {
             GetAjax("../F14/wsBaseDatos.asmx/InsertarDocumento", "'ID_compania':'" + id + "','Doc':'F43', 'Ruta':'null','Estatus':'revision'", false, function (res) {
-                let pregunta = confirm('Informacion registrada con exito ¿desea continuar con el registro?');
-                if (pregunta) {
-                    window.location.href = '../F5/evaluacionseguridad.aspx';
-                } else {
-                    window.location.href = '../usuario/user_index.aspx';
-                }
                 console.log(res);
+
+                Swal.fire({
+                    title: 'Registro de F43 realizado',
+                    text: 'Desea continuar con el registro?',
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si',
+                    cancelButtonText:'Ir al inicio'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../F5/evaluacionseguridad.aspx';
+                    } else {
+                        window.location.href = '../usuario/user_index.aspx';
+
+                    }
+                })
+               
             });
         }
     });
@@ -108,6 +126,10 @@ $(document).ready(function () {
             })
         }
     });
+
+
+    NProgress.done();
+    NProgress.remove();
 });
 
 function dynamic_field(number) {

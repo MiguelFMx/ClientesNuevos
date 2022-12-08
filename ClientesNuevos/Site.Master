@@ -43,6 +43,7 @@
     <link href="template/assets/css/dropzone.css" rel="stylesheet" />
     <link href="template/assets/css/wizard.css" rel="stylesheet" />
 
+    <link href="admin/template/vendors/nprogress/nprogress.css" rel="stylesheet" />
     <!-- =======================================================
   * Template Name: Tempo - v4.7.0
   * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/

@@ -143,33 +143,6 @@ namespace ClientesNuevos.admin.carpetilla
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                         btnVer_F5.Enabled= true;    
                     }
-                    //==================================================F4
-                    //if (fila["Documento"].ToString() == "F14")
-                    //{
-                    //    if (fila["Estatus"].ToString() == "100%")
-                    //    {
-                    //        lblF14_estatus.Text = "completado";
-                    //        lblF14_estatus.CssClass = "etiqueta";
-                    //    }
-                    //    else if (fila["Estatus"].ToString() == "revision")
-                    //    {
-                    //        lblF14_estatus.Text = "revision";
-                    //        lblF14_estatus.CssClass = "etiqueta revision";
-
-                    //    }
-                    //    else if (fila["Estatus"].ToString() == "updated")
-                    //    {
-                    //        lblF14_estatus.Text = "actualizado";
-                    //        lblF14_estatus.CssClass = "etiqueta updated";
-                    //    }
-                    //    else if (fila["Estatus"].ToString() == "updated")
-                    //    {
-                    //        lblF14_estatus.Text = "actualizado";
-                    //        lblF14_estatus.CssClass = "etiqueta updated";
-                    //    }
-                    //    btnVer_F14.Enabled= true;   
-                    //    lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
-                    //}
                     //==================================================F43
                     if (fila["Documento"].ToString() == "F43")
                     {

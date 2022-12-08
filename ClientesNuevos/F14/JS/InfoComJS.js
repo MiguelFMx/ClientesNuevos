@@ -414,3 +414,12 @@ function CargarContactos() {
         });
     return false;
 }
+
+
+function Mensaje() {
+    Swal.fire(
+        'Registro',
+        'Informacion de la compañia registrada',
+        'success'
+    )
+}

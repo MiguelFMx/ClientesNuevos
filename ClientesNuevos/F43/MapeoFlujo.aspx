@@ -129,7 +129,7 @@
                 <asp:Panel ID="pAdmin" runat="server" Visible="false">
                     <asp:LinkButton ID="btnBackAdmin" runat="server" CssClass="btn btn-secondary" OnClick="btnBackAdmin_Click"><i class="bi bi-arrow-left"></i></asp:LinkButton>
                     <asp:LinkButton ID="btnHomeAdmin" runat="server" CssClass="btn btn-primary" OnClick="btnHomeAdmin_Click"><i class="bi bi-house-door"></i></asp:LinkButton>
-                    <asp:LinkButton ID="btnActAdmin" runat="server" CssClass="btn btn-success">Actualizar</asp:LinkButton>
+                    <asp:LinkButton ID="btnActAdmin" runat="server" CssClass="btn btn-success" OnClientClick="return false;">Actualizar</asp:LinkButton>
 
 
                 </asp:Panel>
@@ -146,5 +146,7 @@
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/JS/jquery-ui.min.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
+    <script src="../Scripts/sweetalert2.all.min.js"></script>
+    <script src="../admin/template/vendors/nprogress/nprogress.js"></script>
     <script src="MapeoFlujoJS.js"></script>
 </asp:Content>
