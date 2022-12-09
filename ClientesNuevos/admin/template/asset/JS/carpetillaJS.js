@@ -206,11 +206,8 @@ function guardarDocumento(tipo) {
                                 console.log(err.statusText);
                             }
                         });
-
                     }
-                });
-
-               
+                });               
             } else {
                 console.log('Seleccione un documento');
                 Swal.fire(

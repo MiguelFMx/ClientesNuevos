@@ -420,6 +420,7 @@
                         </h6>
                         <div class="card-body">
 
+
                             <div class="row">
                                 <div class="col-sm">
                                     <asp:HiddenField ID="hfIDComp" runat="server" />
@@ -443,6 +444,7 @@
 
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check">
@@ -474,6 +476,7 @@
                                 </div>
                                 <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
                             </div>
+
                             <br />
                             <div class="row">
                                 <div class="col">

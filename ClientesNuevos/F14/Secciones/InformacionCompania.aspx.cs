@@ -95,7 +95,8 @@ namespace ClientesNuevos.F14.Seccioness
                             btnAdminNext.Visible = false;
                             btnAdminH.Visible = false;
                             btnAdminBack.Text = "Cancelar";
-                            DataBind_Contactos();
+                            gvContactos.DataSource = null;
+                            gvContactos.DataBind();
                         }
 
                     }
@@ -783,7 +784,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='0' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='x' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
             }
                 gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
                 gvContactos.DataBind();
@@ -809,19 +810,25 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 Tipo = "Comp";
             }
+            if (Nombre !="" || Puesto!="" || Telefono!="" || Extension !="" || Celular!="" || Correo != "")
+            {
+                Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo, "");
 
-            Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo,"");
+                lblRes.Text = Registro;
+                txtNombreC.Text = "";
+                txtPuestoC.Text = "";
+                txtTelC.Text = "";
+                txtExt.Text = "";
+                txtCelC.Text = "";
+                txtCorreoC.Text = "";
+                chFactura.Checked = false;
 
-            lblRes.Text = Registro;
-            txtNombreC.Text = "";
-            txtPuestoC.Text = "";
-            txtTelC.Text = "";
-            txtExt.Text = "";
-            txtCelC.Text = "";
-            txtCorreoC.Text = "";
-            chFactura.Checked = false;
-
-            DataBind_Contactos();
+                DataBind_Contactos();
+            }
+            else
+            {
+                lblRes.Text = "*LLene los campos ncesarios";
+            }
 
         }
 

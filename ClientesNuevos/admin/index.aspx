@@ -23,7 +23,7 @@
                                     <h5 >Listado de clientes</h5>
                                 </div>
                                 <div class="col my-1 me-3 d-flex justify-content-end">
-                                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-primary btn-sm"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
+                                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-secondary btn-sm"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
                                 </div>
                             </div>
                         </div>

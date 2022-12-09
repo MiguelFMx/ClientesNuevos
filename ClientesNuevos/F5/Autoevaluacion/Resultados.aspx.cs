@@ -27,7 +27,7 @@ namespace ClientesNuevos.F5.Autoevaluacion
 
                         if (dt.Rows.Count != 0)
                         {
-                            lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 9);
+                            lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 10);
                         }
                         lblEmpresa.Text = data.Rows[0]["Nombre_comp"].ToString();
 
@@ -40,7 +40,7 @@ namespace ClientesNuevos.F5.Autoevaluacion
                     data = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_user='" + Request.Cookies.Get("id").Value + "'");
                     if (dt.Rows.Count != 0)
                     {
-                        lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 9);
+                        lblFecha.Text = dt.Rows[0]["Fecha"].ToString().Substring(0, 10);
                     }
                     else
                     {

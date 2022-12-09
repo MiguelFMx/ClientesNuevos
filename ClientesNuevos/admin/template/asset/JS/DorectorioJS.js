@@ -41,41 +41,49 @@ $(document).ready(function () {
         var remitente = $('#txtRemitente').val();
         var subject = $('#txtAsunto').val();
         var cuerpo = $('#txtCuerpo').val();
-
-        swal.fire({
-            showConfirmButton: false,
-            title: 'Enviando correo',
-            allowOutsideClick: false,
-            showSpinner: true,
-            willOpen: () => {
-                Swal.showLoading()
-                $.ajax({
-                    type: "POST",
-                    url: "../wsAdminIndex.asmx/EnviarCorreo",
-                    data: {
-                        'correo': correo,
-                        'remitente': remitente,
-                        'subject': subject,
-                        'cuerpo': cuerpo
-                    },
-                    cache: false,
-                    success: function (response) {
-                        swal.fire({
-                            title: 'Exito!',
-                            text: 'Correo enviado a ' + correo,
-                            icon: 'success'
-                        })
-                    },
-                    failure: function (response) {
-                        swal.fire(
-                            "Error interno",
-                            "", // had a missing comma
-                            "error"
-                        )
-                    }
-                });
-            }
-        });
+        if (subject != '' && cuerpo != '') {
+            swal.fire({
+                showConfirmButton: false,
+                title: 'Enviando correo',
+                allowOutsideClick: false,
+                showSpinner: true,
+                willOpen: () => {
+                    Swal.showLoading()
+                    $.ajax({
+                        type: "POST",
+                        url: "../wsAdminIndex.asmx/EnviarCorreo",
+                        data: {
+                            'correo': correo,
+                            'remitente': remitente,
+                            'subject': subject,
+                            'cuerpo': cuerpo
+                        },
+                        cache: false,
+                        success: function (response) {
+                            swal.fire({
+                                title: 'Exito!',
+                                text: 'Correo enviado a ' + correo,
+                                icon: 'success'
+                            })
+                        },
+                        failure: function (response) {
+                            swal.fire(
+                                "Error interno",
+                                "", // had a missing comma
+                                "error"
+                            )
+                        }
+                    });
+                }
+            });
+        } else {
+            swal.fire(
+                "Error ",
+                "Falta de datos", // had a missing comma
+                "error"
+            )
+        }
+     
     });
 
     $('#btnSendAll').click(function () {
@@ -97,39 +105,59 @@ $(document).ready(function () {
             }
         });
 
-        swal.fire({
-            showConfirmButton: false,
-            title: 'Enviando correo',
-            allowOutsideClick: false,
-            showSpinner: true,
-            willOpen: () => {
-                Swal.showLoading()
-                $.ajax({
-                    type: "POST",
-                    url: "../wsAdminIndex.asmx/EnviarMultiplesCorreos",
-                    data:
-                        JSON.stringify({ correo: mail, remitente: remitente, subject: asunto, cuerpo: cuerpo }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        swal.fire({
-                            title: 'Exito!',
-                            text: result.d,
-                            icon: 'success'
-                        })
-                        console.log(result.d)
-                    },
-                    failure: function () {
-                        swal.fire(
-                            "Error interno",
-                            "D:", // had a missing comma
-                            "error"
-                        )
-                        alert('Hay un error')
-                    }
-                });
+        if (asunto != '' && cuerpo != '' && mail.length > 0) {
+                swal.fire({
+                showConfirmButton: false,
+                title: 'Enviando correo',
+                allowOutsideClick: false,
+                showSpinner: true,
+                willOpen: () => {
+                    Swal.showLoading()
+                    $.ajax({
+                        type: "POST",
+                        url: "../wsAdminIndex.asmx/EnviarMultiplesCorreos",
+                        data:
+                            JSON.stringify({ correo: mail, remitente: remitente, subject: asunto, cuerpo: cuerpo }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            swal.fire({
+                                title: 'Exito!',
+                                text: result.d,
+                                icon: 'success'
+                            })
+                            console.log(result.d)
+                        },
+                        failure: function () {
+                            swal.fire(
+                                "Error interno",
+                                "D:", // had a missing comma
+                                "error"
+                            )
+                            alert('Hay un error')
+                        }
+                    });
+                }
+            });
+                
+           
+        } else {
+            if (mail.length == 0) {
+                swal.fire(
+                    "Error",
+                    "Falta de datos:Seleccione al menos un correo", // had a missing comma
+                    "error"
+                )
             }
-        });
+            if (asunto == '' || cuerpo == '') {                
+                    swal.fire(
+                        "Error",
+                        "Falta de datos para el correo", // had a missing comma
+                        "error"
+                    )
+                }
+            }
+           
     });
 });
 

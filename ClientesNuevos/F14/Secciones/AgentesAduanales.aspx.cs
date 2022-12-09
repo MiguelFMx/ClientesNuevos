@@ -465,7 +465,7 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
             {
-                Response.Redirect("~/f14/secciones/CompaniaFilial.aspx?accion=new&rfc=" + Request.QueryString["rfc"]);
+                Response.Redirect("~/f14/secciones/InformacionCompania.aspx?rfc=" + Request.QueryString["rfc"]);
             }
             else if (Request.QueryString["rfc"] != null)
             {
