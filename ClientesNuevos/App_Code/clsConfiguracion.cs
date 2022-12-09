@@ -283,5 +283,70 @@ namespace ClientesNuevos.App_Code
 
             return resultado;
         }
+
+
+        //====================== Actualizar op ==============================
+        public static void ActualizarOP()
+        {
+
+            DataTable dtComp = new DataTable();
+            DataTable dtDoc = new DataTable();
+            DataTable dtActDoc = new DataTable();            
+            int cantidad = 0;
+            string lapso = "";
+            string solicitar;
+            dtActDoc = clsHerramientaBD.Existe("SELECT * FROM Act_Docs WHERE Documento='OP'");
+            if (dtActDoc.Rows.Count > 0)
+            {
+                cantidad = Convert.ToInt32(dtActDoc.Rows[0]["cantidad"].ToString());
+                lapso = dtActDoc.Rows[0]["lapso"].ToString();
+
+            }
+
+            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
+            if (dtComp.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtComp.Rows.Count; i++)
+                {
+                    string id = dtComp.Rows[i]["ID_compania"].ToString();
+                    dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
+                    if (dtDoc.Rows.Count > 0)
+                    {
+                        string mesA = DateTime.Now.ToString("MM");
+                        string anioA = DateTime.Now.ToString("yyyy");
+                        //08/12/2022
+                        int mesDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2));
+                        int anioDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(6, 4));
+                        int diaDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 2));
+
+                        DateTime FechaRegistrada = new DateTime(anioDoc, mesDoc, diaDoc);
+                        DateTime fechaActualizacion = DateTime.Now.Date;
+                        switch (lapso)
+                        {
+                            case "mensual": //year, month, day
+                                            //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
+                                FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
+                                if (FechaRegistrada.Month == fechaActualizacion.Month)
+                                {
+                                    solicitar = clsHerramientaBD.ExecuteSql("UPDATE Table_Documentos SET Estatus='act' WHERE Documento='Opinion positiva' AND ID_compania='"+id+"'");
+                                }
+                                break;
+                            case "anual":
+                                FechaRegistrada = FechaRegistrada.AddYears(cantidad);
+                                if (FechaRegistrada.Year == fechaActualizacion.Year)
+                                {
+                                    solicitar = clsHerramientaBD.ExecuteSql("UPDATE Table_Documentos SET Estatus='act' WHERE Documento='Opinion postiva' AND ID_compania='"+id+"'");
+
+                                }
+                                break;
+                        }
+                    }
+                   
+                }
+            }
+
+        }
+        
+
     }
 }

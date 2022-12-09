@@ -59,7 +59,6 @@
 
     <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../Scripts/DataTables/datatables.min.js"></script>
-
     <script src="index_admin.js"></script>
 
 </asp:Content>

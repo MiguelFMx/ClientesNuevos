@@ -123,8 +123,20 @@ namespace ClientesNuevos.admin
         {
             DataTable dtComp = new DataTable();
             DataTable dtDoc = new DataTable();
+            DataTable dtActDoc = new DataTable();
             int sinOP = 0;
             int OPdes = 0;
+            int cantidad = 0;
+            string lapso = "";
+
+            dtActDoc = clsHerramientaBD.Existe("SELECT * FROM Act_Docs WHERE Documento='OP'");
+            if(dtActDoc.Rows.Count > 0)
+            {
+                cantidad = Convert.ToInt32(dtActDoc.Rows[0]["cantidad"].ToString());
+                lapso = dtActDoc.Rows[0]["lapso"].ToString();
+
+            }
+
             dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
             if (dtComp.Rows.Count > 0)
             {
@@ -134,12 +146,32 @@ namespace ClientesNuevos.admin
                     dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='"+id+"'");
                     if(dtDoc.Rows.Count > 0)
                     {
-                        string mes = DateTime.Now.ToString("MM");
-                        string fecha = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2);
+                        string mesA = DateTime.Now.ToString("MM");
+                        string anioA = DateTime.Now.ToString("yyyy");
+                        //08/12/2022
+                        int mesDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2));
+                        int anioDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(6, 4));
+                        int diaDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 2));
 
-                        if(fecha != mes)
+                        DateTime FechaRegistrada = new DateTime(anioDoc, mesDoc, diaDoc);
+                        DateTime fechaActualizacion = DateTime.Now.Date;
+                        switch (lapso)
                         {
-                            OPdes++;
+                            case "mensual": //year, month, day
+                                //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
+                                FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
+                                if(FechaRegistrada.Month == fechaActualizacion.Month)
+                                {
+                                    OPdes++;
+                                }
+                                break;
+                            case "anual":
+                                FechaRegistrada = FechaRegistrada.AddYears(cantidad);
+                                if (FechaRegistrada.Year == fechaActualizacion.Year)
+                                {
+                                    OPdes++;
+                                }
+                                break;
                         }
                     }
                     else

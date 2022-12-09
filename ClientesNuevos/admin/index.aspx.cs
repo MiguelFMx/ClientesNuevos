@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Net.Sockets;
 using System.Net;
+using ClientesNuevos.App_Code;
 
 namespace ClientesNuevos.admin
 {
@@ -14,14 +15,12 @@ namespace ClientesNuevos.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Request.Cookies.Get("ctipo") != null)
-            //{
-            //    var galleta = new HttpCookie(Request.Cookies.Get("ctipo").Name);
-            //    galleta.Expires = DateTime.Now.AddDays(-1);
-            //    galleta.Value = string.Empty;
-            //    Response.Cookies.Add(galleta);
-
-            //}
+            if(!IsPostBack){
+                if(DateTime.Now.ToString("dd") == "01")
+                {
+                    clsConfiguracion.ActualizarOP();
+                }
+            }
 
 
 

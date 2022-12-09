@@ -132,7 +132,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../template/vendors/nprogress/nprogress.js"></script>
