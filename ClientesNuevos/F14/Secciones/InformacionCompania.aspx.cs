@@ -812,22 +812,31 @@ namespace ClientesNuevos.F14.Seccioness
             }
             if (Nombre !="" || Puesto!="" || Telefono!="" || Extension !="" || Celular!="" || Correo != "")
             {
-                Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo, "");
+                if((Telefono != "" && Celular=="") || (Telefono == "" && Celular != ""))
+                {
+                    Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo, "");
 
-                lblRes.Text = Registro;
-                txtNombreC.Text = "";
-                txtPuestoC.Text = "";
-                txtTelC.Text = "";
-                txtExt.Text = "";
-                txtCelC.Text = "";
-                txtCorreoC.Text = "";
-                chFactura.Checked = false;
+                    lblRes.Text = Registro;
+                    txtNombreC.Text = "";
+                    txtPuestoC.Text = "";
+                    txtTelC.Text = "";
+                    txtExt.Text = "";
+                    txtCelC.Text = "";
+                    txtCorreoC.Text = "";
+                    chFactura.Checked = false;
 
-                DataBind_Contactos();
+                    DataBind_Contactos();
+                }
+                else
+                {
+                    lblRes.Text = "*Debe contar un numero de telefo o de celular";
+
+                }
+
             }
             else
             {
-                lblRes.Text = "*LLene los campos ncesarios";
+                lblRes.Text = "*LLene los campos necesarios";
             }
 
         }
