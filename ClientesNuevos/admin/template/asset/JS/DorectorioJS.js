@@ -4,17 +4,12 @@
 NProgress.start();
 
 $(document).ready(function () {
-    ObtenerContacto();
 
-    CargarDirectorio();
+    
 
-    var table = $('#tDirectorio').DataTable();
+   
 
-    var tdir = $('#tDir').DataTable();
-
-    NProgress.done();
-    NProgress.remove();
-
+    
 
     const CorreoIndividual = document.getElementById('CorreoIndividual')
     CorreoIndividual.addEventListener('show.bs.modal', event => {
@@ -159,6 +154,18 @@ $(document).ready(function () {
             }
            
     });
+
+    ObtenerContacto();
+
+    CargarDirectorio();
+
+    var table = $('#tDirectorio').DataTable();
+    var tdir = $('#tDir').DataTable();
+
+
+    NProgress.done();
+    NProgress.remove();
+
 });
 
 function ObtenerContacto() {
@@ -185,10 +192,9 @@ function ObtenerContacto() {
                 if (lstTabla[i].Correo != '') { 
                 tbl.append(
                     "<tr>" +
-                    "<td>" + lstTabla[i].ID_compania + "</td>" +
-                    "<td>" + lstTabla[i].Nombre_comercial + "</td>" +
-                    "<td>" + lstTabla[i].Nombre + "</td>" +
-                    "<td>" + lstTabla[i].Puesto + "</td>" +
+                    "<td>" + lstTabla[i].Nombre_comercial+"<br><small>"+ lstTabla[i].ID_compania + "</small></td>" +
+                    //"<td>" + lstTabla[i].Nombre_comercial + "</td>" +
+                    "<td>" + lstTabla[i].Nombre + "<br><small>" + lstTabla[i].Puesto + "</small></td>" +
                     "<td>" + lstTabla[i].Correo + "</td>" +
                     "<td>" + lstTabla[i].Telefono + "</td>" +
                     "<td>" + lstTabla[i].Extension + "</td>" +
@@ -198,7 +204,6 @@ function ObtenerContacto() {
                     "</tr>"
                     );
                 }
-                console.log[i];
             }
         }
     });

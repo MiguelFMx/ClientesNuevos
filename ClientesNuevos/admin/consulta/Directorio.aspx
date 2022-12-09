@@ -16,10 +16,8 @@
                         <table id="tDirectorio" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>RFC</th>
-                                    <th>Socio comercial</th>
-                                    <th>Nombre</th>
-                                    <th>Puesto</th>
+                                    <th>Socio de negocios</th>
+                                    <th>Nombre y puesto</th>
                                     <th>Correo</th>
                                     <th>Telefono</th>
                                     <th>Ext</th>
@@ -39,8 +37,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
+</div>
     <!-- Modal -->
     <div class="modal fade" id="CorreoIndividual" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
@@ -109,7 +106,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label id="lblAsuntoAll" for="txtAsuntoAll" class="form-label">Asunto:</label>
-                                    <input type="text" name="txtAsuntoAll" class="form-control" value="" id="txtAsuntoAll" required/>
+                                    <input type="text" name="txtAsuntoAll" class="form-control" value="" id="txtAsuntoAll" required />
                                 </div>
                             </div>
                             <div class="row">
@@ -131,6 +128,7 @@
         </div>
     </div>
 
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
