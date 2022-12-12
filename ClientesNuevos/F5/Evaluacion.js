@@ -114,7 +114,7 @@ $(document).ready(function () {
                 //}
 
                 Swal.fire({
-                    title: 'Esta seguro que sea continuar?',
+                    title: 'Esta seguro que desea continuar?',
                     text: "Ver los resultados",
                     icon: 'question',
                     showCancelButton: true,

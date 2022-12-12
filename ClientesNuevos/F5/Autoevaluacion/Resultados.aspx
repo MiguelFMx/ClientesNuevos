@@ -21,40 +21,143 @@
             <br />
             <div class="row">
                 <div class="col">
-                     <div class="accordion accordion-flush d-block text-light" id="accordionFlushExample">
-                            <div class="accordion-item" style="background-color: #0169C2;">
-                                <h3 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" style="background-color:#0169C2; color:white;" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                       <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas
-                                    </button>
-                                </h3>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" 
-                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                       <div class="card">
-                                        <div class="table-responsive">
-                                            <table id="tRespuesta" class="table table-bordered">
-                                                <thead class="cabezal">
-                                                    <tr>
-                                                        <th>Pregunta</th>
-                                                        <th>Opcion</th>
-                                                        <th>Observaciones</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                                <tfoot></tfoot>
-
-                                            </table>
-
-                                        </div>
+                    <div class="accordion accordion-flush d-block text-light" id="flushCuestionario">
+                        <div class="accordion-item" style="background-color: #0169C2;">
+                            <h3 class="accordion-header" id="flush-cuestionario">
+                                <button class="accordion-button collapsed" style="background-color: #0169C2; color: white;" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-Cuestionario" aria-expanded="false" aria-controls="flush-Cuestionario">
+                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas
+                                </button>
+                            </h3>
+                            <div id="flush-Cuestionario" class="accordion-collapse collapse"
+                                aria-labelledby="flush-cuestionario" data-bs-parent="#flushCuestionario">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <asp:Table ID="tCuestionario" runat="server" CssClass="table table-hover">
+                                            <asp:TableHeaderRow CssClass="cabezal">
+                                                <asp:TableHeaderCell>#</asp:TableHeaderCell>
+                                                <asp:TableHeaderCell>Pregunta</asp:TableHeaderCell>
+                                                <asp:TableHeaderCell>Respuesta</asp:TableHeaderCell>
+                                            </asp:TableHeaderRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.0.0.</asp:TableCell>
+                                                <asp:TableCell>Nuestra Compañía YA ESTA CERTIFICADA C-TPAT y nuestro número SVI es:</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl100c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.2.0.</asp:TableCell>
+                                                <asp:TableCell>Nuestra Compañía ES Elegible para ser miembro C-TPAT</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl120c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.0.</asp:TableCell>
+                                                <asp:TableCell>Es miembro o está en proceso de ser Miembro C-TPAT</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl130c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow ID="preguntaDinamicaSi" CssClass="cabezal">
+                                                <asp:TableCell>1.3.1.</asp:TableCell>
+                                                <asp:TableCell ColumnSpan="2">Si la respuesta a la pregunta 1.3.0. es SI:</asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.1.1.</asp:TableCell>
+                                                <asp:TableCell>Número de Cuenta C-TPAT</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl1311c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.1.2.</asp:TableCell>
+                                                <asp:TableCell>Status de Cuenta</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl1312" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.1.3.</asp:TableCell>
+                                                <asp:TableCell>Status de Revisión de su Perfil de Seguridad:</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl1313c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow ID="preguntaDinamicaNo" CssClass="cabezal">
+                                                <asp:TableCell>1.3.2.</asp:TableCell>
+                                                <asp:TableCell ColumnSpan="2">Si la respuesta a la pregunta 1.3.0. es NO o N/A:</asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.2.1.</asp:TableCell>
+                                                <asp:TableCell>No esta interesada en aplicar por el momento</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl1321c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.3.2.2.</asp:TableCell>
+                                                <asp:TableCell>Esta interesada y desea recibir más información</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl1322c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.4.0.</asp:TableCell>
+                                                <asp:TableCell>Nuestra Compañía comprende las Normas Mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl140c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                            <asp:TableRow>
+                                                <asp:TableCell>1.5.0.</asp:TableCell>
+                                                <asp:TableCell>Nuestra compañía NO ES ELEGIBLE PARA SER MIEMBRO C_TPAT pero está de acuerdo en cumplir con los lineamientos de seguridad C-TPAT</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl150c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                             <asp:TableRow>
+                                                <asp:TableCell>1.6.0.</asp:TableCell>
+                                                <asp:TableCell>¿Esta usted respondiendo por todas las Unidades de Negocio de su Compañía?</asp:TableCell>
+                                                <asp:TableCell>
+                                                    <asp:Label ID="lbl160c" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                            </asp:TableRow>
+                                        </asp:Table>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
-           <%-- <div class="row">
+            <br />
+            <div class="row">
+                <div class="col">
+                    <div class="accordion accordion-flush d-block text-light" id="accordionFlushExample">
+                        <div class="accordion-item" style="background-color: #0169C2;">
+                            <h3 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" style="background-color: #0169C2; color: white;" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas
+                                </button>
+                            </h3>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table id="tRespuesta" class="table table-bordered">
+                                            <thead class="cabezal">
+                                                <tr>
+                                                    <th>Pregunta</th>
+                                                    <th>Opcion</th>
+                                                    <th>Observaciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot></tfoot>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-- <div class="row">
                 <div class="col">
                     <div class="accordion" id="acRespuestas">
                         <div class="accordion-item">
@@ -116,63 +219,63 @@
 
             <div class="row">
                 <div class="col-md-6">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="tabla1">
-                                <thead>
-                                    <tr class="cabezal">
-                                        <th></th>
-                                        <th></th>
-                                        <th>Promedio</th>
-                                        <th>N.R.</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="table-primary">
-                                        <td>1.0.0.</td>
-                                        <td>Requerimientos  de los socios comerciales</td>
-                                        <td>
-                                            <asp:Label ID="lbl100" runat="server" Text="..."></asp:Label>
-                                        </td>
-                                        <td id="tNR1" style="font-weight: bold;">
-                                            <asp:Label ID="NR1" runat="server" Text=".."></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-primary">1.1.0.</td>
-                                        <td>Procedimientos de seguridad</td>
-                                        <td>
-                                            <asp:Label ID="lbl110" runat="server" Text="..."></asp:Label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-primary">1.2.0.</td>
-                                        <td>Punto de origen</td>
-                                        <td>
-                                            <asp:Label ID="lbl120" runat="server" Text="..."></asp:Label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-primary">1.3.0.</td>
-                                        <td>Participación / Certificación en programas de seguridad de la cadena de abastecimiento de administraciones aduanales extranjeras</td>
-                                        <td>
-                                            <asp:Label ID="lbl130" runat="server" Text="..."></asp:Label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-primary">1.4.0.</td>
-                                        <td>Procedimientos de Seguridad</td>
-                                        <td>
-                                            <asp:Label ID="lbl140" runat="server" Text="..."></asp:Label></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot></tfoot>
-                            </table>
-                        </div>
-                   
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="tabla1">
+                            <thead>
+                                <tr class="cabezal">
+                                    <th></th>
+                                    <th></th>
+                                    <th>Promedio</th>
+                                    <th>N.R.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td>1.0.0.</td>
+                                    <td>Requerimientos  de los socios comerciales</td>
+                                    <td>
+                                        <asp:Label ID="lbl100" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td id="tNR1" style="font-weight: bold;">
+                                        <asp:Label ID="NR1" runat="server" Text=".."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.1.0.</td>
+                                    <td>Procedimientos de seguridad</td>
+                                    <td>
+                                        <asp:Label ID="lbl110" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.2.0.</td>
+                                    <td>Punto de origen</td>
+                                    <td>
+                                        <asp:Label ID="lbl120" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.3.0.</td>
+                                    <td>Participación / Certificación en programas de seguridad de la cadena de abastecimiento de administraciones aduanales extranjeras</td>
+                                    <td>
+                                        <asp:Label ID="lbl130" runat="server" Text="..."></asp:Label>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-primary">1.4.0.</td>
+                                    <td>Procedimientos de Seguridad</td>
+                                    <td>
+                                        <asp:Label ID="lbl140" runat="server" Text="..."></asp:Label></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <div class="table-responsive">
@@ -228,7 +331,7 @@
                             </tbody>
                             <tfoot></tfoot>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
@@ -292,7 +395,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="table-responsive"> 
+                    <div class="table-responsive">
                         <table class="table table-bordered" id="tabla4">
                             <thead>
                                 <tr class="cabezal">
@@ -339,7 +442,7 @@
                             </tbody>
                             <tfoot></tfoot>
                         </table>
-                       
+
                     </div>
                 </div>
             </div>
@@ -347,7 +450,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="table-responsive">
-                       <table class="table table-bordered" id="tabla5">
+                        <table class="table table-bordered" id="tabla5">
                             <thead>
                                 <tr class="cabezal">
                                     <th></th>
@@ -486,7 +589,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="table-responsive">
-                       <table class="table table-bordered" id="tabla7">
+                        <table class="table table-bordered" id="tabla7">
                             <thead>
                                 <tr class="cabezal">
                                     <th></th>
@@ -574,16 +677,14 @@
         </div>
         <asp:Panel ID="pUser" runat="server">
             <div class="acciones">
-                <asp:LinkButton ID="btnAtras" runat="server" CssClass="btn btn-secondary" PostBackUrl="~/F5/Autoevaluacion/autoevaluacion.aspx" 
-                    
+                <asp:LinkButton ID="btnAtras" runat="server" CssClass="btn btn-secondary" PostBackUrl="~/F5/Autoevaluacion/autoevaluacion.aspx"
                     title="Rehacer evaluacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
                 <button class="btn btn-primary" onclick="DescargarDoc();" type="button"
-                    
                     title="Imprimir">
                     <i class="bi bi-printer-fill"></i>
                 </button>
-                <asp:LinkButton ID="btnFinalizar" runat="server" CssClass="btn btn-success" PostBackUrl="~/usuario/user_index.aspx" 
+                <asp:LinkButton ID="btnFinalizar" runat="server" CssClass="btn btn-success" PostBackUrl="~/usuario/user_index.aspx"
                     title="Ir al inicio"><i class="bi bi-house-door-fill"></i></asp:LinkButton>
             </div>
         </asp:Panel>
@@ -592,10 +693,10 @@
 
     </div>
 
-    
+
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ScriptsContent" runat="server">
-    
+
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/printThis.js"></script>
     <script src="../../Scripts/JS/ajax.js"></script>

@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class=" d-flex justify-content-end">
-                    <asp:Label ID="lblNewStatus" Text="text" runat="server" />
+                    <asp:Label ID="lblNewStatus" Text="" runat="server" />
                     </div>
                 </div>
             </div>
