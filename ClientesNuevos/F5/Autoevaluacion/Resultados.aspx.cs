@@ -53,6 +53,22 @@ namespace ClientesNuevos.F5.Autoevaluacion
         }
 
        
+        protected void ObtenerCuestionario()
+        {
+            DataTable dtCuestionario = new DataTable();
+            if (Request.QueryString["rfc"] != null)
+            {
+                dtCuestionario = clsHerramientaBD.Existe("SELECT * FROM Table_CuestionarioCTPAT WHERE ID_Cuestionario = '" + Request.QueryString["rfc"] + "FC5'");
+            }
+            else if (Request.Cookies.Get("id_comp") != null)
+            {
+                dtCuestionario = clsHerramientaBD.Existe("SELECT * FROM Table_CuestionarioCTPAT WHERE ID_Cuestionario = '" +Request.Cookies.Get("id_comp").Value+ "FC5'");
+            }
 
+            if(dtCuestionario.Rows.Count > 0)
+            {
+                
+            }
+        }
     }
 }

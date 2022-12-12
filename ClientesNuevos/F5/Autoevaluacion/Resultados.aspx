@@ -57,7 +57,7 @@
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl130c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow ID="preguntaDinamicaSi" CssClass="cabezal">
+                                            <asp:TableRow ID="preguntaDinamicaSi" CssClass="cabezal" Visible ="false">
                                                 <asp:TableCell>1.3.1.</asp:TableCell>
                                                 <asp:TableCell ColumnSpan="2">Si la respuesta a la pregunta 1.3.0. es SI:</asp:TableCell>
                                             </asp:TableRow>
