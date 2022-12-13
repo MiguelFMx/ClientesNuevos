@@ -78,6 +78,15 @@ namespace ClientesNuevos.F5.Autoevaluacion
         protected global::System.Web.UI.WebControls.TableRow preguntaDinamicaSi;
 
         /// <summary>
+        /// Control tr1311c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tr1311c;
+
+        /// <summary>
         /// Control lbl1311c.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,31 @@ namespace ClientesNuevos.F5.Autoevaluacion
         protected global::System.Web.UI.WebControls.Label lbl1311c;
 
         /// <summary>
-        /// Control lbl1312.
+        /// Control tr1312c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl1312;
+        protected global::System.Web.UI.WebControls.TableRow tr1312c;
+
+        /// <summary>
+        /// Control lbl1312c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl1312c;
+
+        /// <summary>
+        /// Control tr1313c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tr1313c;
 
         /// <summary>
         /// Control lbl1313c.
@@ -114,6 +141,15 @@ namespace ClientesNuevos.F5.Autoevaluacion
         protected global::System.Web.UI.WebControls.TableRow preguntaDinamicaNo;
 
         /// <summary>
+        /// Control tr1321c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tr1321c;
+
+        /// <summary>
         /// Control lbl1321c.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,15 @@ namespace ClientesNuevos.F5.Autoevaluacion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl1321c;
+
+        /// <summary>
+        /// Control tr1322c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tr1322c;
 
         /// <summary>
         /// Control lbl1322c.

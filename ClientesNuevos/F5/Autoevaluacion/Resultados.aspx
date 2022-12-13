@@ -26,10 +26,10 @@
                             <h3 class="accordion-header" id="flush-cuestionario">
                                 <button class="accordion-button collapsed" style="background-color: #0169C2; color: white;" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-Cuestionario" aria-expanded="false" aria-controls="flush-Cuestionario">
-                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas
+                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas del cuestionario de C-TPAT
                                 </button>
                             </h3>
-                            <div id="flush-Cuestionario" class="accordion-collapse collapse"
+                            <div id="flush-Cuestionario" class="accordion-collapse collapse show"
                                 aria-labelledby="flush-cuestionario" data-bs-parent="#flushCuestionario">
                                 <div class="card">
                                     <div class="table-responsive">
@@ -57,44 +57,47 @@
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl130c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow ID="preguntaDinamicaSi" CssClass="cabezal" Visible ="false">
+                                            <asp:TableRow ID="preguntaDinamicaSi" Visible="false" CssClass="cabezal">
                                                 <asp:TableCell>1.3.1.</asp:TableCell>
                                                 <asp:TableCell ColumnSpan="2">Si la respuesta a la pregunta 1.3.0. es SI:</asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow>
+                                            <asp:TableRow ID="tr1311c" Visible="false">
                                                 <asp:TableCell>1.3.1.1.</asp:TableCell>
                                                 <asp:TableCell>Número de Cuenta C-TPAT</asp:TableCell>
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl1311c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow>
+                                            <asp:TableRow ID="tr1312c" Visible="false">
                                                 <asp:TableCell>1.3.1.2.</asp:TableCell>
                                                 <asp:TableCell>Status de Cuenta</asp:TableCell>
                                                 <asp:TableCell>
-                                                    <asp:Label ID="lbl1312" runat="server" Text=".."></asp:Label></asp:TableCell>
+                                                    <asp:Label ID="lbl1312c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow>
+                                            <asp:TableRow ID="tr1313c" Visible="false">
                                                 <asp:TableCell>1.3.1.3.</asp:TableCell>
                                                 <asp:TableCell>Status de Revisión de su Perfil de Seguridad:</asp:TableCell>
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl1313c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow ID="preguntaDinamicaNo" CssClass="cabezal">
+
+
+                                            <asp:TableRow ID="preguntaDinamicaNo" CssClass="cabezal" Visible="false">
                                                 <asp:TableCell>1.3.2.</asp:TableCell>
                                                 <asp:TableCell ColumnSpan="2">Si la respuesta a la pregunta 1.3.0. es NO o N/A:</asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow>
+                                            <asp:TableRow ID="tr1321c" Visible="false">
                                                 <asp:TableCell>1.3.2.1.</asp:TableCell>
                                                 <asp:TableCell>No esta interesada en aplicar por el momento</asp:TableCell>
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl1321c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-                                            <asp:TableRow>
+                                            <asp:TableRow ID="tr1322c" Visible="false">
                                                 <asp:TableCell>1.3.2.2.</asp:TableCell>
                                                 <asp:TableCell>Esta interesada y desea recibir más información</asp:TableCell>
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl1322c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
+
                                             <asp:TableRow>
                                                 <asp:TableCell>1.4.0.</asp:TableCell>
                                                 <asp:TableCell>Nuestra Compañía comprende las Normas Mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</asp:TableCell>
@@ -129,7 +132,7 @@
                             <h3 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" style="background-color: #0169C2; color: white;" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas
+                                    <i class="bi bi-ui-checks  ms-2 me-4 lead"></i>Respuestas de autoevaluacion
                                 </button>
                             </h3>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
