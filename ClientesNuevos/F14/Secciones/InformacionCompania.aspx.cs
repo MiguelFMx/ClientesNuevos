@@ -573,7 +573,7 @@ namespace ClientesNuevos.F14.Seccioness
                    string res = RegistrarInfo();
                     if(res == "existe")
                     {
-                        lblRegf14.Text = "Ya existe un regsitro con el RFC especificado";
+                        lblRegf14.Text = "Ya existe un registro con el RFC especificado";
                     }
                     else
                     {
@@ -646,7 +646,7 @@ namespace ClientesNuevos.F14.Seccioness
             string Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda,
                 ID_compania, nombre_comp, nombre_comercial, rfc, CURP, direccion, cp, pais, estado, ciudad, fecha_registro, id_user;
 
-            string resultado = "", compania="", resDir = "", banco="", error="", documento="";
+            string resultado = "", compania="", resDir = "", banco="", error="", documento="", temporal="";
 
             int tipo_persona, tiempo_negocio;
 
@@ -689,7 +689,8 @@ namespace ClientesNuevos.F14.Seccioness
                     else
                     {
                         compania = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, "0");
-                        if (chkDireccionIgual.Checked)
+                            temporal = clsHerramientaBD.ExecuteSql("INSERT INTO Table_Temporal(RFC,Tipo, registro) values ('"+ ID_compania + "','"+cbTipoRegistro.SelectedValue+"','"+DateTime.Now.ToString("dd-MM-yyyy")+"')");
+                            if (chkDireccionIgual.Checked)
                         {
                             resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
                         }
