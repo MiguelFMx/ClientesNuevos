@@ -27,8 +27,8 @@ namespace ClientesNuevos.usuario
             //Metodo para enviar correo por medio de MailKit
             MimeMessage message = new MimeMessage();
             message.From.Add(new MailboxAddress("Contacto", "postmaster@hungaros.com"));
-            //message.To.Add(new MailboxAddress("Certificaciones", "certificaciones@hungaros.com"));
-            message.To.Add(new MailboxAddress("Certificaciones", "freyde.miguel@gmail.com"));
+            message.To.Add(new MailboxAddress("Certificaciones", "certificaciones@hungaros.com"));
+            //message.To.Add(new MailboxAddress("Certificaciones", "freyde.miguel@gmail.com"));
 
             message.Subject = "Contacto";
             message.Body = new TextPart(TextFormat.Html)
