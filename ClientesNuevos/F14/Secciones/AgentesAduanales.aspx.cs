@@ -40,6 +40,7 @@ namespace ClientesNuevos.F14.Seccioness
                     if (Request.QueryString["rfc"]!=null && Request.QueryString["accion"] != null)
                     {
                         btnAdminSaltar.Visible = true;
+                        DeshabilitarLinks();
                         //btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
                         btnAdminSave.Text = "registrar";
 
@@ -459,7 +460,13 @@ namespace ClientesNuevos.F14.Seccioness
 
             return resultado;
         }
-
+        private void DeshabilitarLinks()
+        {
+            step2.Enabled = false;
+            step3.Enabled = false;
+            step4.Enabled = false;
+            step5.Enabled = false;
+        }
 
         protected void btnAdminBack_Click(object sender, EventArgs e)
         {

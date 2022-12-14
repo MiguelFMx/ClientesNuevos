@@ -91,7 +91,9 @@
                             <asp:HyperLink ID="hlHomeBar" runat="server" CssClass="nav-link scrollto" NavigateUrl="~/usuario/user_index.aspx">Home</asp:HyperLink>
 
                         </li>
-                        <li><a class="nav-link scrollto" href="#">Contact</a></li>
+                        <li>
+                            <asp:HyperLink ID="hlContact" CssClass="nav-link scrollto" runat="server" NavigateUrl="~/usuario/contacto.aspx">Contact</asp:HyperLink>
+                            </li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>

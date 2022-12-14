@@ -1294,7 +1294,6 @@
     <Content Include="F5\Autoevaluacion\Calculos.js" />
     <Content Include="F5\Autoevaluacion\Resultados.aspx" />
     <Content Include="F5\EvaluacionSeguridad.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
     <Content Include="F5\wsAutoevaluacion.asmx" />
@@ -1529,6 +1528,8 @@
     <Content Include="template\assets\img\logo\HungarosTexto.png" />
     <Content Include="template\assets\img\logo\Tractor.jpg" />
     <Content Include="template\assets\img\trash.png" />
+    <Content Include="template\assets\js\contactoJS.js" />
+    <Content Include="usuario\contacto.aspx" />
     <Content Include="usuario\user_config.aspx" />
     <Content Include="Viewer.aspx" />
     <Content Include="wsLogin.asmx" />
@@ -1982,6 +1983,13 @@
     <Compile Include="mobile.aspx.designer.cs">
       <DependentUpon>mobile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="usuario\contacto.aspx.cs">
+      <DependentUpon>contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuario\contacto.aspx.designer.cs">
+      <DependentUpon>contacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="usuario\hFileController.ashx.cs">
       <DependentUpon>hFileController.ashx</DependentUpon>
     </Compile>
@@ -2085,13 +2093,6 @@
     </Compile>
     <Compile Include="F5\EvaluacionSeguridad.aspx.designer.cs">
       <DependentUpon>EvaluacionSeguridad.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="F5\wsAutoevaluacion.asmx.cs">
       <DependentUpon>wsAutoevaluacion.asmx</DependentUpon>

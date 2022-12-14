@@ -19,7 +19,8 @@ namespace ClientesNuevos.F14.Seccioness
                 if (Request.QueryString["rfc"] != null && Request.QueryString["accion"] != null)
                 {
                     btnAdminGuardar.Value = "registrar";
-                    btnAdminSaltar.Visible= true;   
+                    btnAdminSaltar.Visible= true;
+                    DeshabilitarLinks();
                 }else if (Request.QueryString["rfc"] != null)
                 {
                     CambiarLinks();
@@ -35,7 +36,13 @@ namespace ClientesNuevos.F14.Seccioness
             step3.NavigateUrl = "~/F14/Secciones/CompaniaFilial.aspx?rfc=" + Request.QueryString["rfc"];
             step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"];
         }
-
+        private void DeshabilitarLinks()
+        {
+            step2.Enabled = false;
+            step3.Enabled = false;
+            step4.Enabled = false;
+            step5.Enabled = false;
+        }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
             HttpContext.Current.Response.Redirect("CompaniaFilial.aspx");

@@ -41,6 +41,7 @@ namespace ClientesNuevos.F14.Seccioness
                         btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
                         btnAdminSaltar.Visible=true;
                         ComFil_DataBind(Request.QueryString["rfc"]);
+                        DeshabilitarLinks();
 
                     }
                     else if(Request.QueryString["rfc"] != null)
@@ -71,7 +72,13 @@ namespace ClientesNuevos.F14.Seccioness
             step4.NavigateUrl = "~/F14/Secciones/TipoServicioProductos.aspx?rfc=" + Request.QueryString["rfc"];
             step5.NavigateUrl = "~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc=" + Request.QueryString["rfc"];
         }
-
+        private void DeshabilitarLinks()
+        {
+            step2.Enabled = false;
+            step3.Enabled = false;
+            step4.Enabled = false;
+            step5.Enabled = false;
+        }
         protected void LlenarPaisCB(DropDownList dropDown)
         {
             lstPais = new List<wsUbicacion.ListaPais>();
