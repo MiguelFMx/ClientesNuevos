@@ -775,6 +775,8 @@ namespace ClientesNuevos.F14.Seccioness
             if ( Request.Cookies.Get("id_comp") != null) { 
             
                 strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania = '" + Request.Cookies.Get("id_comp").Value + "' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+
             }
             else if (Request.QueryString["rfc"] != null)
             {
@@ -782,13 +784,17 @@ namespace ClientesNuevos.F14.Seccioness
             }else if (txtRfc.Text != "")
             {
                  strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='"+txtRfc.Text+"' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+
             }
             else
             {
                  strSQL = "SELECT * FROM Table_Contacto WHERE ID_compania ='x' AND (Tipo = 'Comp' OR Tipo = 'Fra')";
+            gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
+
             }
-                gvContactos.DataSource = clsHerramientaBD.Existe(strSQL);
-                gvContactos.DataBind();
+
+            gvContactos.DataBind();
         }
 
         protected void btnRegistrarC_Click(object sender, EventArgs e)
@@ -813,7 +819,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
             if (Nombre !="" || Puesto!="" || Telefono!="" || Extension !="" || Celular!="" || Correo != "")
             {
-                if((Telefono != "" && Celular=="") || (Telefono == "" && Celular != ""))
+                if((Telefono != "" && Celular=="") || (Telefono == "" && Celular != "" ) || (Telefono!="" && Celular!=""))
                 {
                     Registro = clsF14.Insertar_contacto(ID_compania, Nombre, Puesto, Telefono, Extension, Celular, Tipo, Correo, "");
 
