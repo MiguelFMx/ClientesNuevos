@@ -655,12 +655,12 @@ namespace ClientesNuevos.F14.Seccioness
                         lblfechaVal.Visible = true;
                     } 
                 }
-                else if (cuenta == "")
+                 if (cuenta == "")
                 {
                     lblcuentaVal.Visible = true;
 
                 }
-                else if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
+                 if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000 && cuenta == "")
                 {
                     lblfechaVal.Visible = true;
                     lblcuentaVal.Visible = true;
