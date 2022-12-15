@@ -1176,15 +1176,6 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Label lblErr;
 
         /// <summary>
-        /// Control lblDoc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDoc;
-
-        /// <summary>
         /// Control lblAsunto.
         /// </summary>
         /// <remarks>
@@ -1192,6 +1183,15 @@ namespace ClientesNuevos.admin.carpetilla
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAsunto;
+
+        /// <summary>
+        /// Control lblDoc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDoc;
 
         /// <summary>
         /// Control txtAsunto.

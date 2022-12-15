@@ -132,7 +132,7 @@ namespace ClientesNuevos
             else
             {
                 //La conexion a la base de datos fallo
-                lbltest.Text = "Error en la conexion al servidor \n "+connection;
+                lbltest.Text = "No se pudo establecer una conexion con el servidor";
             }            
         }
 

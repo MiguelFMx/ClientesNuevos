@@ -749,8 +749,9 @@
                                 <h6 class="card-header shadow-sm">Correo</h6>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <asp:Label ID="lblDoc" runat="server" Text="" Visible="false"></asp:Label>
+                                        
                                         <asp:Label ID="lblAsunto" runat="server" Text="Asunto:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblDoc" runat="server" Text="" ForeColor="White"></asp:Label>
                                         <asp:TextBox ID="txtAsunto" runat="server" Text="Solicitud de actualización de datos" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
