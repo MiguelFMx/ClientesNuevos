@@ -9,11 +9,20 @@
     inputElement.addEventListener("change", e => {
         if (inputElement.files.length) {
             if (inputElement.files[0].type == "application/pdf") {
-                updateThumbnail(dropZoneElement, inputElement.files[0]);
-                $('#MainContent_lblErr').html("");
+
+                if (inputElement.files[0].size <= 5000000) {
+                    updateThumbnail(dropZoneElement, inputElement.files[0]);
+                    $('#MainContent_lblErr').html("");
+                } else {
+                    $('#MainContent_lblErr').html("El tamaño maximo del archivo permitido es de 5MB");
+                    inputElement.value = null;
+
+                }
+               
 
             } else {
                 $('#MainContent_lblErr').html("Solo se admiten documentos en formato pdf");
+                inputElement.value = null;
             }
         }
     });

@@ -135,29 +135,6 @@ namespace ClientesNuevos.F14.Seccioness
                 }
 
                 /*
-                
-                    
-                }
-                //Agregar QueryString[Accion] = nuevo; ver
-                else if (Request.QueryString["nuevo"]!= null) 
-                {
-                    //No cargar
-                    if (User.IsInRole("1") || User.IsInRole("2"))
-                    {
-                        txtNombreCompania.Text = "Eale xd";
-                        lblRegistro.Visible = true;
-                        cbTipoRegistro.Visible = true;
-
-                        pAdminControl.Visible=true;
-                        pUserControl.Visible = false;
-                    }
-                }
-                else
-                {
-                    
-
-                }
-
 
                 if (Request.Cookies.Get("lang") != null)
                 {
@@ -799,6 +776,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnRegistrarC_Click(object sender, EventArgs e)
         {
+            lblRes.Text = "";
             string Registro = "";
             string ID_compania = "", Nombre = "", Puesto = "", Telefono = "", Extension = "", Celular = "", Tipo = "", Correo = "";
             ID_compania = txtRfc.Text;
@@ -850,6 +828,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnEditarC_Click(object sender, EventArgs e)
         {
+            lblRes.Text = "";
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
             
             string Id = gvContactos.Rows[rowIndex].Cells[0].Text;
@@ -862,9 +841,17 @@ namespace ClientesNuevos.F14.Seccioness
             string fra = gvContactos.Rows[rowIndex].Cells[8].Text;
             string idComp = gvContactos.Rows[rowIndex].Cells[9].Text;
                         
-            if(ext == "&amp;nbsp;")
+            if(ext == "&amp;nbsp;" || ext== "&nbsp;")
             {
                 ext = "";
+            }
+            if(cel == "&amp;nbsp;" || cel== "&nbsp;")
+            {
+                cel = "";
+            }
+            if (tel == "&amp;nbsp;" || tel == "&nbsp;")
+            {
+                tel = "";
             }
 
             hfIdC.Value = Id;
@@ -910,7 +897,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAproveC_Click(object sender, EventArgs e)
         {
-
+            lblRes.Text = "";
             string tipo = "";
             if (chFactura.Checked)
             {
@@ -920,6 +907,7 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 tipo = "Comp";
             }
+
             lblRes.Text = clsF14.Insertar_contacto(hfIDComp.Value, txtNombreC.Text, txtPuestoC.Text, txtTelC.Text, txtExt.Text, txtCelC.Text, tipo, txtCorreoC.Text, hfIdC.Value);
 
 
@@ -940,6 +928,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnCancelC_Click(object sender, EventArgs e)
         {
+            lblRes.Text = "";
             hfIdC.Value = "";
             txtNombreC.Text = "";
             txtPuestoC.Text = "";

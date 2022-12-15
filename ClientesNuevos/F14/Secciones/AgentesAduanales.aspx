@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblResultado" runat="server" Text="" Visible="false"></asp:Label>
 
                 <div class="row">
                     <div id="wizard" class="form_wizard wizard_horizontal">

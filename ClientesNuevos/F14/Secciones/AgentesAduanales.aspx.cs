@@ -149,7 +149,11 @@ namespace ClientesNuevos.F14.Seccioness
 
             ddEstadoAAm.Items.FindByValue(dtAAU.Rows[0]["Estado"].ToString()).Selected = true;
             LlenarCiudad(ddCiudadAAm, Convert.ToInt32(dtAAU.Rows[0]["Estado"]));
-           // ddCiudadAAm.Items.FindByValue(dtAAU.Rows[0]["Ciudad"].ToString()).Selected = true;
+            if (dtAAU.Rows[0]["Ciudad"].ToString() != "0")
+            {
+                ddCiudadAAm.Items.FindByValue(dtAAU.Rows[0]["Ciudad"].ToString()).Selected = true;
+
+            }
 
         }
 
@@ -331,7 +335,9 @@ namespace ClientesNuevos.F14.Seccioness
 
             ddEstadoAA.Items.FindByValue(dt.Rows[0]["Estado"].ToString()).Selected = true;
             LlenarCiudad(ddCiudadAA, Convert.ToInt32(dt.Rows[0]["Estado"]));
-            ddCiudadAA.Items.FindByValue(dt.Rows[0]["Ciudad"].ToString()).Selected = true;
+            if(dt.Rows[0]["Ciudad"].ToString() != "0") { 
+             ddCiudadAA.Items.FindByValue(dt.Rows[0]["Ciudad"].ToString()).Selected = true;
+            }
         }
 
         protected void btnHome_Click(object sender, EventArgs e)

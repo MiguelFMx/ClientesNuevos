@@ -648,9 +648,12 @@ namespace ClientesNuevos.F14.Seccioness
 
             if (ctpat != "0")
             {
-                if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000)
+                if (fecha!=null)
                 {
-                    lblfechaVal.Visible = true;
+                    if (Convert.ToInt32(fecha.Substring(0, 4)) < 2000)
+                    {
+                        lblfechaVal.Visible = true;
+                    } 
                 }
                 else if (cuenta == "")
                 {
@@ -665,7 +668,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else
                 {
-                    if (rfc != null)
+                    if (rfc != string.Empty)
                     {
                         //validar campos
 
@@ -674,7 +677,7 @@ namespace ClientesNuevos.F14.Seccioness
                         lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
 
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
-                        lblError.Text = "Infromacion actualizada";
+                        lblError.Text = "Informacion actualizada";
                     }
                     else
                     {
