@@ -396,8 +396,13 @@
             </div>
             <hr />
 
-           
+             <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+         <ContentTemplate>
  <div class="row">
+
+   
+
+         
                 <div class="col-md-6">
                     <div id="contactoCompania1" class="card border-primary">
                         <h6 class="card-header cabezal">
@@ -502,8 +507,6 @@
                     <div class="card">
                         <div class="table-responsive">
                             
-
-                               
                             <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="True" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal" Caption="Contactos registrados" EmptyDataText="No hay registros">
                                 <Columns>
                                     <asp:BoundField HeaderText="ID" DataField="ID" >
@@ -547,13 +550,18 @@
                                 </Columns>
                             </asp:GridView>
 
-
                         </div>
                     </div>
 
                 </div>
+
+
             </div>
-             
+             </ContentTemplate>
+         <Triggers>
+
+         </Triggers>
+     </asp:UpdatePanel>
 
         </fieldset>
 

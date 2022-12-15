@@ -109,7 +109,7 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="row" id="divFecha" runat="server">
+                                <div class="row" id="divFecha" runat="server" visible="false">
                                     <div class="col-4">
                                         <label for="txtCTPATCuenta">Numero de cuenta:</label>
                                         <%--<input type="text" name="txtCTPATSVI" value="" id="txtCTPATSVI" class="form-control" />--%>
