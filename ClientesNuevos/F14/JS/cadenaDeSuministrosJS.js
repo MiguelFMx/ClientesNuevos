@@ -536,8 +536,12 @@ function getEstatusAdmin(compa) {
             if (strTrim[0].length == 1) {
                 strTrim[0] = "0" + strTrim[0];
             }
+            var dtfecha = strTrim[2] + '-' + strTrim[1] + '-' + strTrim[0];
+
+            console.log(dtfecha);
             //Pongo fecha en control:  yyyy-mm-dd
-            document.getElementById('MainContent_dtFechaVal').value = strTrim[2] + "-" + strTrim[1] + "-" + strTrim[0];
+            $('#MainContent_dtFechaVal').val(dtfecha)
+            //document.getElementById("MainContent_dtFechaVal").value = dtfecha;
         }
     });
 
