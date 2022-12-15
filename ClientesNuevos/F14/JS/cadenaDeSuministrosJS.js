@@ -540,7 +540,10 @@ function getEstatusAdmin(compa) {
 
             console.log(dtfecha);
             //Pongo fecha en control:  yyyy-mm-dd
-            $('#MainContent_dtFechaVal').val(dtfecha)
+            if (strTrim[2] !='1990') {
+                $('#MainContent_dtFechaVal').val(dtfecha);
+            }
+           
             //document.getElementById("MainContent_dtFechaVal").value = dtfecha;
         }
     });
