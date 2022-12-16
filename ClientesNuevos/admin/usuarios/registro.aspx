@@ -44,9 +44,10 @@
 
                         <%-- Boton --%>
                         <div class="text-center">
-                            <asp:HyperLink ID="hlExiste" runat="server" Visible="false" ForeColor="Red"></asp:HyperLink>
-                            <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4" OnClick="btnAddUser_Click" ValidationGroup="registro" />
-                            <button id="test" type="button" hidden>picame</button>
+                            <asp:HyperLink ID="hlExiste" runat="server" Visible="false" ForeColor="Red"></asp:HyperLink><br />
+                            <asp:Button ID="btnAddUser" runat="server" Text="Registrar" CssClass="btn btn-success px-4 mt-2" OnClick="btnAddUser_Click" ValidationGroup="registro" />
+                            <asp:Button ID="btnNuevo" runat="server" Text="Nuevo registro" CssClass="btn btn-success px-4 mt-2" OnClick="btnNuevo_Click" Visible="false" />
+
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                                     <asp:DropDownList ID="ddRol" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success" CausesValidation="false" OnClientClick="return false;" />
+                                    <asp:Button ID="btnAgregar" runat="server" Text="Add" CssClass="btn btn-success btn-sm" CausesValidation="false" OnClientClick="return false;" />
                                 </div>
                             </div>
                             <label id="lblResultado"></label>

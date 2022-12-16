@@ -124,6 +124,10 @@ namespace ClientesNuevos.admin.usuarios
 
                             }
                         }
+
+                        btnAddUser.Visible = false;
+                        btnNuevo.Visible = true;
+                        hlExiste.Visible = false;
                     }
                     else
                     {
@@ -180,6 +184,18 @@ namespace ClientesNuevos.admin.usuarios
             }
         }
 
-       
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            txtRFC.Enabled = true;
+            txtRFC.Text = "";
+            lblError.Text = "";
+            myTable.Rows.Clear();
+            btnAddUser.Visible = true;
+            btnNuevo.Visible = false;
+            hlExiste.Visible = false;
+            ddEmpresa.Enabled = true;
+
+
+        }
     }
 }
