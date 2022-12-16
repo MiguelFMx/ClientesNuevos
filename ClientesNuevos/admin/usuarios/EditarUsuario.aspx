@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="EditarUsuario.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.EditarUsuario" %>
+﻿<%@ Page Title="Editar" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="EditarUsuario.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.EditarUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Editar</title>

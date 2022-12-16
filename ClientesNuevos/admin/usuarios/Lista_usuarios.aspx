@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
+﻿<%@ Page Title="Lista" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

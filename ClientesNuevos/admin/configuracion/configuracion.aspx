@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="configuracion.aspx.cs" Inherits="ClientesNuevos.admin.configuracion.configuracion" %>
+﻿<%@ Page Title="Configuracion" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="configuracion.aspx.cs" Inherits="ClientesNuevos.admin.configuracion.configuracion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Configuracion</title>

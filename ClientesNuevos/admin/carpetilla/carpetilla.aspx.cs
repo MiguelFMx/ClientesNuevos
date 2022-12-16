@@ -223,10 +223,10 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF14_estatus.Text = "pendiente: " + fila["Estatus"].ToString();
                             lblF14_estatus.CssClass = "etiqueta pendiente";
                         }
-                        else if (fila["Estatus"].ToString() == "updated")
+                        else if (fila["Estatus"].ToString() == "revision")
                         {
-                            lblF14_estatus.Text = "actualizado";
-                            lblF14_estatus.CssClass = "etiqueta updated";
+                            lblF14_estatus.Text = "revision";
+                            lblF14_estatus.CssClass = "etiqueta revision";
                         }
                         else if (fila["Estatus"].ToString() == "updated")
                         {
