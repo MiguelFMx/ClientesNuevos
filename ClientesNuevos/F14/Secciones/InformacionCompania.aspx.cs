@@ -426,16 +426,16 @@ namespace ClientesNuevos.F14.Seccioness
         {  
             string ID_compania, nombre_comp, nombre_comercial, rfc, CURP, direccion, cp, pais, estado, ciudad, fecha_registro, id_user, resultado="", resDir="";
             int tipo_persona, tiempo_negocio;
-            ID_compania = txtRfc.Text;
+            ID_compania = txtRfc.Text.ToUpper();
             nombre_comp = txtNombreCompania.Text;
             nombre_comercial = txtNombrCom.Text;
-            rfc = txtRfc.Text;
-            CURP = txtCURP.Text;
+            rfc = txtRfc.Text.ToUpper();
+            CURP = txtCURP.Text.ToUpper();
             direccion = txtDirecFiscal.Text;
             cp = txtCP.Text;
             tipo_persona = Convert.ToInt32(ddTipoDePersona.SelectedValue);
             tiempo_negocio = Convert.ToInt32(txtAnosNegocio.Text);
-            fecha_registro = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
+            fecha_registro = DateTime.Now.ToString("yyyy-MM-dd");
             pais = ddPais.SelectedValue;
             ciudad = ddCiudad.SelectedValue;
             estado = ddEstado.SelectedValue;

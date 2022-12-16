@@ -175,7 +175,7 @@ $(document).ready(function () {
                 console.log(res);
             });
             if (urlParams.has('accion')) {
-                window.location.href = 'InformacionCadenaSuministro.aspx?rfc=' + acomp+"accion=new";
+                window.location.href = 'InformacionCadenaSuministro.aspx?rfc=' + acomp+"&accion=new";
 
             } else {
                 window.location.href = 'InformacionCadenaSuministro.aspx?rfc=' + acomp;

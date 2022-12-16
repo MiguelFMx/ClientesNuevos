@@ -13,11 +13,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-        <!-- Como llenar xd
-            automatico
-            capturar la informacion del usuario
-            
-            -->
+        
         <!-- barra de progreso -->
         <div class="row">
             <div class="col">
@@ -30,7 +26,7 @@
         <!-- Tabla -->
 
         <div class="row" >
-            <span class="text-secondary">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
+            <span class="text-secondary font-weight-bolder">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
             <div class="col">
                 <div class="card mb-3" style="width:100%;">
                     <div class="table-responsive">
