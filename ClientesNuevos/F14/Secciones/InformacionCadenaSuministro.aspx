@@ -215,6 +215,10 @@
                                                                 <HeaderStyle CssClass="hiddencol" />
                                                                 <ItemStyle CssClass="hiddencol" />
                                                             </asp:BoundField>
+                                                            <asp:BoundField DataField="ID_compania" HeaderText="ID_compania" SortExpression="ID_compania" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol">
+                                                                <HeaderStyle CssClass="hiddencol" />
+                                                                <ItemStyle CssClass="hiddencol" />
+                                                            </asp:BoundField>
                                                             <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                             </asp:BoundField>

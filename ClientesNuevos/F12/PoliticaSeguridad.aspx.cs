@@ -20,6 +20,7 @@ namespace ClientesNuevos.F12
             {
                 if(User.IsInRole("1")|| User.IsInRole("2"))
                 {
+                    hlHome.NavigateUrl = "~/admin/index.aspx";
                     btnCarpetilla.Visible = true;
                     if (Request.QueryString["rfc"]!= null)
                     {
@@ -60,6 +61,8 @@ namespace ClientesNuevos.F12
                         {
                             no2.Checked = true;
                             no1.Checked = true;
+                            txtnumeroCuenta.Visible = false;
+                            lblNumeroCuenta.Text = "Nuestra Compañía ES ya un miembro de C-TPAT.";
                         }
 
                         //Nuestra compania es elegible para ser miembro ctpat
@@ -192,16 +195,28 @@ namespace ClientesNuevos.F12
 
             if (chFirma.Checked)
             {
-                strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.Cookies.Get("id_comp").Value, OEA, repre, "si");
-                if(strRes != "")
+                if (Request.Cookies.Get("id_comp") != null)
                 {
-                    strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
-                    
-                    lblError.Text = strRes;
-                    lblError.Visible = true;
+                    strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.Cookies.Get("id_comp").Value, OEA, repre, "si");
+                    if (strRes != "")
+                    {
+                        strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
 
-                    Response.Redirect("~/usuario/user_index.aspx");
+                        lblError.Text = strRes;
+                        lblError.Visible = true;
 
+                        Response.Redirect("~/usuario/user_index.aspx");
+
+                    }
+                }
+                else
+                {
+                    if (User.IsInRole("1") || User.IsInRole("2"))
+                    {
+                       
+                        
+
+                    }
                 }
             }
             else

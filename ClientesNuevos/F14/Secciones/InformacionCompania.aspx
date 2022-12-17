@@ -376,7 +376,7 @@
                                     </div>
                                     <div class="col">
                                         <asp:Label ID="lblClaveBancaria" runat="server" Text="Clabe bancaria:"></asp:Label>
-                                        <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
+                                        <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="20"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
                                             ErrorMessage="*Ingrese la CLABE bancaria"
                                             ControlToValidate="txtClaveBancaria"

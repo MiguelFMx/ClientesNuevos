@@ -36,7 +36,7 @@
                                         <asp:Label ID="lblFecha" runat="server" Text="Fecha: " Font-Bold="True"></asp:Label>
                                     </td>
                                 </tr>
-                                <tr class="table-warning" style="font-size: 13px;">
+                                <tr class="table-warning" >
                                     <th>#</th>
                                     <th>Proveedor
                                     <span>
@@ -64,7 +64,7 @@
                                             title="Movimiento de carga: Aclarar si en esta parte del proceso se hace algún movimiento de carga"></i>
                                     </span>
                                     </th>
-                                    <th>Detalles
+                                    <th width="20%">Detalles
                                         <br />
                                         de proveedor
                                     <span>
@@ -74,7 +74,7 @@
                                             title="Detalles del proveedor: Anotar información relevante del proveedor. Por ejemplo: dirección, nombre de contacto, años trabajando con ellos, etc."></i>
                                     </span>
                                     </th>
-                                    <th>Dias en que el cargamento esta en reposo
+                                    <th width="5%">Dias en que el cargamento esta en reposo
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"

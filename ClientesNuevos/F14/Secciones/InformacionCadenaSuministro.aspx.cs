@@ -178,9 +178,9 @@ namespace ClientesNuevos.F14.Seccioness
             string id = "", ruta = "";
 
             id = gvProgramas.Rows[rowIndex].Cells[0].Text;
-            txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[1].Text;
-            txtCodigo.Text = gvProgramas.Rows[rowIndex].Cells[2].Text;
-            ruta = gvProgramas.Rows[rowIndex].Cells[3].Text;
+            txtDescripcion.Text = gvProgramas.Rows[rowIndex].Cells[2].Text;
+            txtCodigo.Text = gvProgramas.Rows[rowIndex].Cells[3].Text;
+            ruta = gvProgramas.Rows[rowIndex].Cells[4].Text;
 
             AbrirArchivo(ruta);
         }
@@ -251,7 +251,15 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
             {
-                IDcompania = Request.Cookies.Get("id_comp").Value;
+                if(Request.Cookies.Get("id_comp") != null)
+                {
+                    IDcompania = Request.Cookies.Get("id_comp").Value;
+                }
+                else
+                {
+                IDcompania = Request.QueryString["rfc"];
+                }
+
                 lblSucces.Text = "No hay documento:" + clsF14.Insertar_ProgramaSeguridad(IDcompania, descripcion, codigo, "null");
 
             }
@@ -265,11 +273,12 @@ namespace ClientesNuevos.F14.Seccioness
         {
             TableCell cell = gvProgramas.Rows[e.RowIndex].Cells[0];
             TableCell url = gvProgramas.Rows[e.RowIndex].Cells[3];
+            TableCell compania = gvProgramas.Rows[e.RowIndex].Cells[1];
             string id = cell.Text;
 
             try
             {
-                lblError.Text = clsHerramientaBD.ExecuteSql("DELETE FROM Table_ProgramaSeguridad WHERE ID='" + id + "' AND ID_compania='" + Request.Cookies.Get("id_comp").Value + "'");
+                lblError.Text = clsHerramientaBD.ExecuteSql("DELETE FROM Table_ProgramaSeguridad WHERE ID='" + id + "' AND ID_compania='" + compania.Text + "'");
 
             }
             catch (Exception ex)
@@ -285,7 +294,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
             }
             BindData();
-            lblExito.Text = "Registro eliminido con exito";
+            lblExito.Text = "Registro eliminado con exito";
         }
 
         protected void gvProgramas_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -298,9 +307,9 @@ namespace ClientesNuevos.F14.Seccioness
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
 
             string Id = gvProgramas.Rows[rowIndex].Cells[0].Text;
-            string Descripcion = gvProgramas.Rows[rowIndex].Cells[1].Text;
-            string codigo = gvProgramas.Rows[rowIndex].Cells[2].Text;
-            string Url = gvProgramas.Rows[rowIndex].Cells[3].Text;
+            string Descripcion = gvProgramas.Rows[rowIndex].Cells[2].Text;
+            string codigo = gvProgramas.Rows[rowIndex].Cells[3].Text;
+            string Url = gvProgramas.Rows[rowIndex].Cells[4].Text;
 
             txtCodigo.Text = codigo;
             txtDescripcion.Text = Descripcion;
