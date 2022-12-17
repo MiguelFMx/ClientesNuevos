@@ -133,7 +133,7 @@ $(document).ready(function () {
                         llenarRespuesta(bloque8);
 
                         GuardarRespuestas(respuestas);
-
+                        Llenar_TablaF5();
                         Actualizarstado();
                     }
                 })
@@ -867,7 +867,27 @@ function llenarRespuesta(array) {
     }
 }
 
-
+function Llenar_TablaF5() {
+    var id;
+    var idC;
+    var idE;
+    GetAjax("../../F14/wsBaseDatos.asmx/GetID",
+        "",
+        false,
+        function (res) {
+            id = res; 
+        });
+    idC = id + "F5C";
+    idE = id + "F5E";
+    //string ID_compania, string ID_cuestionario, string ID_autoevaluacion
+    GetAjax("../wsAutoevaluacion.asmx/Registrar_F5",
+        "'ID_compania':'" + id + "'," +
+        "'ID_cuestionario':'" + idC + "'," +
+        "'ID_auntoevaluacion':'"+idE+"'",
+        "false", function (res) {
+            console.log(res);
+        });
+}
 
 function GuardarRespuestas(arr) {
 
