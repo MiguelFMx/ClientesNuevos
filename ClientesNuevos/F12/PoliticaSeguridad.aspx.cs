@@ -20,6 +20,7 @@ namespace ClientesNuevos.F12
             {
                 if(User.IsInRole("1")|| User.IsInRole("2"))
                 {
+                    btnNext.Text = "Editar";
                     hlHome.NavigateUrl = "~/admin/index.aspx";
                     btnCarpetilla.Visible = true;
                     if (Request.QueryString["rfc"]!= null)
@@ -195,27 +196,43 @@ namespace ClientesNuevos.F12
 
             if (chFirma.Checked)
             {
-                if (Request.Cookies.Get("id_comp") != null)
+                if (User.IsInRole("3") || User.IsInRole("4"))
                 {
-                    strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.Cookies.Get("id_comp").Value, OEA, repre, "si");
-                    if (strRes != "")
+                    if (Request.Cookies.Get("id_comp") != null)
                     {
-                        strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
+                        strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.Cookies.Get("id_comp").Value, OEA, repre, "si");
+                        if (strRes != "")
+                        {
+                            strRes += wsBaseDatos.InsertarDocumento(Request.Cookies.Get("id_comp").Value, "F12", "", "revision");
 
-                        lblError.Text = strRes;
-                        lblError.Visible = true;
+                            lblError.Text = strRes;
+                            lblError.Visible = true;
 
-                        Response.Redirect("~/usuario/user_index.aspx");
+                            Response.Redirect("~/usuario/user_index.aspx");
 
-                    }
+                        }
+                    } 
                 }
                 else
                 {
                     if (User.IsInRole("1") || User.IsInRole("2"))
                     {
                        
-                        
+                    strRes = wsPoliticaSeguridad.Insertar_PoliticaSeguridad(Request.QueryString["rfc"], OEA, repre, "si");
 
+                        if (strRes != "")
+                        {
+                            strRes += wsBaseDatos.InsertarDocumento(Request.QueryString["rfc"], "F12", "", "100%");
+
+                            lblError.Text = strRes;
+                            lblError.Visible = true;
+
+                            if (Request.Cookies.Get("id_comp") != null && Request.Cookies.Get("tipo") != null)
+                            {
+                                Response.Redirect("~/admin/carpetilla/carpetilla?id="+ Request.Cookies.Get("id_comp").Value+ "&type=" + Request.Cookies.Get("tipo").Value);
+                            }
+
+                        }
                     }
                 }
             }

@@ -31,7 +31,7 @@
     <link href="template/assets/css/login/style.css" rel="stylesheet" />
     <link href="admin/template/vendors/nprogress/nprogress.css" rel="stylesheet" />
 
-
+    <link href="Content/sweetalert2.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -94,7 +94,7 @@
 
                                     </div>
                                     <div class="w-50 text-md-right">
-                                        <asp:LinkButton ID="btnPasswordOlvidado" runat="server">Olvidé la contraseña</asp:LinkButton>
+                                        <asp:LinkButton ID="btnPasswordOlvidado" runat="server" OnClientClick="return false;">Olvidé la contraseña</asp:LinkButton>
                                     </div>
                                 </div>
                                 <div>
@@ -111,16 +111,9 @@
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="admin/template/vendors/nprogress/nprogress.js"></script>
-
-    <script type="text/javascript">
-
-            NProgress.start();
-
-        $(document).ready(function () {
-            NProgress.done();
-            NProgress.remove();
-        });
-    </script>
+    <script src="Scripts/sweetalert2.all.min.js"></script>
+    <script src="template/assets/js/loginJS.js"></script>
+    
 </body>
 </html>
 

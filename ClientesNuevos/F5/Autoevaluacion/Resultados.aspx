@@ -160,28 +160,7 @@
                     </div>
                 </div>
             </div>
-            <%-- <div class="row">
-                <div class="col">
-                    <div class="accordion" id="acRespuestas">
-                        <div class="accordion-item">
-                            <h4 class="accordion-header" id="headingRespuestas">
-                                <button class="accordion-button" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseRespuestas"
-                                     >
-                                    Respuestas
-                                </button>
-                            </h4>
-                            <div id="collapseRespuestas" class="accordion-collapse collapse show"
-                                aria-labelledby="headingRespuestas" data-bs-parent="#acRespuestas">
-                                <div class="accordion-body">
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>--%>
             <br />
             <div style="break-before: page;"></div>
             <h3 class="text-secondary">Resultados de autoevaluación</h3>

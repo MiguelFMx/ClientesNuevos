@@ -1529,6 +1529,7 @@
     <Content Include="template\assets\img\logo\Tractor.jpg" />
     <Content Include="template\assets\img\trash.png" />
     <Content Include="template\assets\js\contactoJS.js" />
+    <Content Include="template\assets\js\loginJS.js" />
     <Content Include="usuario\contacto.aspx" />
     <Content Include="usuario\user_config.aspx" />
     <Content Include="Viewer.aspx" />

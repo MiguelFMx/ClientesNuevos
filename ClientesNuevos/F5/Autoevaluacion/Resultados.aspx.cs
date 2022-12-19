@@ -20,7 +20,8 @@ namespace ClientesNuevos.F5.Autoevaluacion
                 if(User.IsInRole("1") || User.IsInRole("2"))
                 {
                     btnFinalizar.PostBackUrl = "~/admin/index.aspx";
-
+                    btnAtras.Text = "<i class=\"bi bi-arrow-left\"></i>";
+                    btnAtras.Attributes["title"] = "Regresar";
                     if (Request.QueryString["rfc"]!= null)
                     {
                         dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania='" + Request.QueryString["rfc"].ToString() + "'");
@@ -33,6 +34,10 @@ namespace ClientesNuevos.F5.Autoevaluacion
                         lblEmpresa.Text = data.Rows[0]["Nombre_comp"].ToString();
 
                         
+                        if(Request.Cookies.Get("id_comp") != null && Request.Cookies.Get("tipo") != null)
+                        {
+                            btnAtras.PostBackUrl = "~/admin/carpetilla/carpetilla?id=" + Request.Cookies.Get("id_comp").Value + "&type=" + Request.Cookies.Get("tipo").Value;
+                        }
                     }
                 }
                 else if (User.IsInRole("3") || User.IsInRole("4"))

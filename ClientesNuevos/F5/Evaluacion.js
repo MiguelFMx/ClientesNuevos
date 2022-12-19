@@ -257,7 +257,7 @@ $(document).ready(function () {
         //si el arreglo tiene objetos
         if (error.length > 0) {
 
-            let aux = 'Falto llenar las preguntas:\n';
+            let aux = 'Falto responder las preguntas:\n';
 
             //Recorro arreglo error
         for (var i = 0; i < error.length; i++) {
@@ -267,7 +267,12 @@ $(document).ready(function () {
             vaciarTemp(current);
 
             //Muestro listado de preguntas faltantes
-            alert(aux);
+            //alert(aux);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: aux,
+            })
         }
 
     });
@@ -291,8 +296,16 @@ $(document).ready(function () {
         console.log(bloque8);
     });
 
+});
 
-    
+$(document).on('click', '.renglon', function () {
+    var idR = $(this).closest('tr').prop('id');
+    console.log('renglon ' + idR);
+
+    document.getElementById(idR).style.outline = '#015DAC solid 1px';
+    document.getElementById(idR).style.borderColor = '#015DAC';
+    document.getElementById(idR).style.backgroundColor = 'white';
+
 });
 
 
@@ -337,7 +350,7 @@ function cargarTablaStepS(currentStep) {
             objBodyPreguntas.append(Titulos(objPrgunta.numero));
 
             objBodyPreguntas.append(
-                "<tr id='" + objPrgunta.numero +"'>" +
+                "<tr id='" + objPrgunta.numero +"' class='renglon'>" +
                 //Numero de prgunta
                 "<td style='background-color:#015DAC; color:white;' class='numero'><span>" + objPrgunta.numero + "</span></td>" +
                 //Descripcion de pregunta
@@ -693,7 +706,7 @@ function cargarTablaRespuesta(currentStep, arreglo) {
                     break;
             }
             objBodyPreguntas.append(
-                "<tr id='" + objPrgunta.numero+"'>" +
+                "<tr id='" + objPrgunta.numero +"' class='renglon'>" +
                 //Numero de prgunta
                 "<td style='background-color:#015DAC; color:white;' class='numero'><span>" + objPrgunta.numero + "</span></td>" +
                 //Descripcion de pregunta
@@ -780,23 +793,29 @@ function guardarRespuestas() {
     //si el arreglo tiene objetos
     if (error.length > 0) {
 
-        let aux = 'Falto llenar las preguntas:\n';
+        let aux = 'Falto responder las preguntas:\n';
 
         //Recorro arreglo error
         for (var i = 0; i < error.length; i++) {
-            aux += error[i] + '\n';
+            aux += error[i]+',\n';
 
         /*Mostrar las respuestas faltantes */
 
-            document.getElementById((error[i])).style.outline = 'red solid 1px';
+            document.getElementById((error[i])).style.outline = 'red solid 3px';
             document.getElementById((error[i])).style.borderColor = 'red';
-            document.getElementById((error[i])).style.boxShadow = '0 0 30px red';
+            document.getElementById((error[i])).style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+            //document.getElementById((error[i])).style.boxShadow = '0 0 30px red';
+            
         }
         //vacio el arreglo temporal para que no se llene de nuevo
         vaciarTemp(current);
 
         //Muestro listado de preguntas faltantes
-        alert(aux);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: aux
+        });
     }
 }
 

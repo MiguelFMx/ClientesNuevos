@@ -147,5 +147,7 @@ namespace ClientesNuevos
 
             lbltest.Text = test;
         }
+
+       
     }
 }
