@@ -87,8 +87,6 @@ namespace ClientesNuevos.usuario
                         lblPass.ForeColor = Color.Green;
                         lblPass.Text = "La contraseña ha sido actualizada";
 
-
-                        // EnviarCorreo(CambiarPass.NewPassword);
                         Response.Redirect("~/login.aspx?pass=success");
                     }
                     else
