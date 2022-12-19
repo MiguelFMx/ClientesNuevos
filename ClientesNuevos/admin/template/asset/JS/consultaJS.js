@@ -77,9 +77,9 @@ function cargarTabla_Estatus(status) {
         if (estado.length > 0) {
             for (var i = 0; i < estado.length; i++) {
                 tipo = estado[i].Tipo_persona;
-                if (tipo == '1') {
+                if (tipo == '0') {
                     tipo = "moral";
-                } else if (tipo == '0') {
+                } else if (tipo == '1') {
                     tipo = "fisica";
                 } else {
                     tipo = "extranjero";

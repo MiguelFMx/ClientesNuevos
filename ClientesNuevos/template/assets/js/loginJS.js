@@ -17,7 +17,7 @@ $('#btnPasswordOlvidado').click(function () {
         showCancelButton: true,
         confirmButtonText: 'Buscar',
         showLoaderOnConfirm: true,
-        preConfirm: (correo) => {
+        preConfirm: (correo) => {          
             $.ajax({
                 url: "wsLogin.asmx/GetMail",
                 type: "POST",
@@ -51,13 +51,12 @@ $('#btnPasswordOlvidado').click(function () {
                 Error: function (err) {
                     console.log(err);
                 }
-            })
+            })          
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
             if (existe == "1") {
-
                 $.ajax({
                     url: "../../wsLogin.asmx/EnviarCorreo",
                     type: "POST",

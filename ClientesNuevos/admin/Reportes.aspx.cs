@@ -61,11 +61,11 @@ namespace ClientesNuevos.admin
 
                 if (row["Tipo_persona"].ToString() == "1")
                 {
-                    tipo = "moral";
+                    tipo = "fisica";
                 }
                 else if (row["Tipo_persona"].ToString() == "0")
                 {
-                    tipo = "fisica";
+                    tipo = "moral";
                 }
                 else
                 {
