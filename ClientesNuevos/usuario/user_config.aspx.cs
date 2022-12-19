@@ -94,7 +94,7 @@ namespace ClientesNuevos.usuario
                     else
                     {
                         lblPass.ForeColor = Color.Red;
-                        lblPass.Text = "La contraseña actuales incorrecta";
+                        lblPass.Text = "La contraseña actual es incorrecta";
                     }
                 }
                 catch (SqlException ex)
