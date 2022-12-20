@@ -87,7 +87,16 @@ namespace ClientesNuevos.F14.Seccioness
 
                             if (dtBanco.Rows.Count > 0)
                             {
-                                llenarCampos(dt, dtBanco);
+
+                                if (dtBanco.Rows[0]["Nombre_banco"].ToString() != "")
+                                {
+                                    llenarCampos(dt, dtBanco);
+                                }
+                                else
+                                {
+                                    llenarCampos(dt, new DataTable());
+
+                                }
 
                             }
                             else
