@@ -37,7 +37,7 @@
                         <%-- Pass --%>
                         <div>
                             <asp:Label ID="lblPass" runat="server" Text="Contraseña:" CssClass="form-label"></asp:Label>
-                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" Text="Hung4r0s*"></asp:TextBox>
+                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" Text="Hungar0s*"></asp:TextBox>
                             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
 
                         </div>

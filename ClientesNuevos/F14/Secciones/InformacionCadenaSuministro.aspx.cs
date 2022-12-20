@@ -35,6 +35,7 @@ namespace ClientesNuevos.F14.Seccioness
                     pAdmin.Visible = true;
                     btnAdminSave.Visible = true;
                     btnAdminNext.Text = "finalizar";
+                    btnAdminNext.Visible = false;
                     btnRgistrar.Visible = false;
                     if (Request.Cookies.Get("ctipo") != null)
                     {
@@ -326,7 +327,6 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnEditar_Click(object sender, EventArgs e)
         {
 
-
             string codigo = "";
             string descripcion = "";
             string IDcompania = "";
@@ -347,7 +347,16 @@ namespace ClientesNuevos.F14.Seccioness
                     file = reader.ReadBytes(fileCertificado.PostedFile.ContentLength);
                     string fname = "";
 
-                    IDcompania = Request.Cookies.Get("id_comp").Value;
+                    if (Request.Cookies.Get("id_comp") != null)
+                    {
+                        IDcompania = Request.Cookies.Get("id_comp").Value;
+
+                    }
+                    else if (Request.QueryString["rfc"] != null)
+                    {
+                        IDcompania = Request.QueryString["rfc"];
+
+                    }
                     string fecha = DateTime.Now.ToString("dd-MM-yyyy");
 
                     string link = "/Archivos/" + IDcompania + "/certificados";
@@ -376,7 +385,16 @@ namespace ClientesNuevos.F14.Seccioness
             else
             {
                 //Si hay o no un archivo 
-                lblExito.Text = clsF14.Insertar_ProgramaSeguridad(Request.Cookies.Get("id_comp").Value, txtDescripcion.Text, txtCodigo.Text, hfRuta.Value, hfID.Value);
+                if (Request.QueryString["rfc"]!= null)
+                {
+                    lblExito.Text = clsF14.Insertar_ProgramaSeguridad(Request.QueryString["rfc"], txtDescripcion.Text, txtCodigo.Text, hfRuta.Value, hfID.Value);
+
+                }
+                else if(Request.Cookies.Get("id_comp") != null)
+                {
+                    lblExito.Text = clsF14.Insertar_ProgramaSeguridad(Request.Cookies.Get("id_comp").Value, txtDescripcion.Text, txtCodigo.Text, hfRuta.Value, hfID.Value);
+
+                }
             }
 
             btnEditar.Visible = false;
@@ -703,6 +721,8 @@ namespace ClientesNuevos.F14.Seccioness
                         lblError.Text = "Error en el registro";
                     }
                 }
+
+                 btnAdminNext.Visible = true;  
             }
             else
             {
@@ -712,6 +732,8 @@ namespace ClientesNuevos.F14.Seccioness
                     lblError.Text = wsBaseDatos.insertar_estatus(rfc, ctpat, fecha, "", opcion);
                     lblError.Text += clsF14.Insertar_Documento(rfc, "F14", "null", "revision");
                     lblError.Text = "Informacion actualizada";
+                    btnAdminNext.Visible = true;
+
                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
                 }
                 else
