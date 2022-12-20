@@ -156,7 +156,7 @@
 
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
-                                <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtRfc" style="text-transform:uppercase" runat="server" CssClass="form-control" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                     ErrorMessage="*Especifique el RFC o W9"
                                     ControlToValidate="txtRfc"
@@ -169,7 +169,7 @@
                                     <ContentTemplate>
 
                                     
-                                <asp:Label ID="lblCURP" runat="server" Text="CURP" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblCURP" runat="server" style="text-transform:uppercase" Text="CURP" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control"></asp:TextBox>
                                         </ContentTemplate>
                                 </asp:UpdatePanel>

@@ -55,10 +55,13 @@ namespace ClientesNuevos.F14.Seccioness
                     pAdminControl.Visible = true;
                     pUserControl.Visible = false;
 
+                   
 
                     //Si es ver info solo sera el querystring rfc
                     if (Request.QueryString["rfc"]!= null)
                     {
+                        
+
                         DataTable tabla = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE RFC='" + Request.QueryString["rfc"] + "' AND ID_Empresa='1' AND subdominio='1'", clsHerramientaBD.strConnAdmon);
                         if(tabla.Rows.Count > 0)
                         {
@@ -67,6 +70,9 @@ namespace ClientesNuevos.F14.Seccioness
                                 TipoRegistro("proveedor");
 
                             }
+
+                            
+                            
                         }
 
                         //Obtengo la info de la compañia
@@ -78,7 +84,16 @@ namespace ClientesNuevos.F14.Seccioness
                             string tipo = dt.Rows[0]["ID_user"].ToString();
                             dtBanco = new DataTable();
                             dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
-                            llenarCampos(dt,dtBanco);
+
+                            if (dtBanco.Rows.Count > 0)
+                            {
+                                llenarCampos(dt, dtBanco);
+
+                            }
+                            else
+                            {
+                                llenarCampos(dt, new DataTable());
+                            }
                         }
 
                         DataBind_Contactos();
@@ -89,6 +104,13 @@ namespace ClientesNuevos.F14.Seccioness
                         //accion: nuevo registro
                         if(Request.QueryString["accion"] == "new")
                         {
+                            if (Request.Cookies.Get("id_comp") != null)
+                            {
+                                HttpCookie myCookie = new HttpCookie("id_comp");
+                                myCookie.Expires = DateTime.Now.AddDays(-1d);
+                                Response.Cookies.Add(myCookie);
+                            }
+
                             pRegistro.Visible = true;
                             DeshabilitarLinks();
                             btnAdinSave.Text = "Registrar";
@@ -129,7 +151,16 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         dtBanco = new DataTable();
                         dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
-                        llenarCampos(dt, dtBanco);
+                        
+                        if(dtBanco.Rows.Count > 0)
+                        {
+                            llenarCampos(dt, dtBanco);
+
+                        }
+                        else
+                        {
+                            llenarCampos(dt, new DataTable());
+                        }
 
                     }
                 }
@@ -203,6 +234,9 @@ namespace ClientesNuevos.F14.Seccioness
             //========================================Campos de info_bancaria=================================================
             if (dtBanco.Rows.Count > 0)
             {
+                if (dtBanco.Rows[0]["Nombre_banco"].ToString() != "")
+                {
+               
                 ddUsoCFDI.Items.FindByValue(dtBanco.Rows[0]["Uso_CFDI"].ToString()).Selected = true;
 
                 ddMoneda.Items.FindByValue(dtBanco.Rows[0]["Moneda"].ToString()).Selected = true;
@@ -219,7 +253,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                 txtClaveBancaria.Text = dtBanco.Rows[0]["clabe_bancaria"].ToString();
 
-
+                }
             }
 
         }
@@ -451,6 +485,7 @@ namespace ClientesNuevos.F14.Seccioness
                 resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
             }
             lblresultado.Text = resultado + "  " + resDir;
+
             HttpCookie cookie = new HttpCookie("id_comp")
             {
                 Value = ID_compania,
@@ -627,11 +662,11 @@ namespace ClientesNuevos.F14.Seccioness
 
             int tipo_persona, tiempo_negocio;
 
-            ID_compania = txtRfc.Text;
+            ID_compania = txtRfc.Text.ToUpper();
             nombre_comp = txtNombreCompania.Text;
             nombre_comercial = txtNombrCom.Text;
-            rfc = txtRfc.Text;
-            CURP = txtCURP.Text;
+            rfc = txtRfc.Text.ToUpper();
+            CURP = txtCURP.Text.ToUpper();
             direccion = txtDirecFiscal.Text;
             cp = txtCP.Text;
             tipo_persona = Convert.ToInt32(ddTipoDePersona.SelectedValue);
@@ -700,14 +735,21 @@ namespace ClientesNuevos.F14.Seccioness
                         resDir = clsF14.Insertar_dir_fra(ID_compania, direccion, cp, pais, estado, ciudad);
                     }
                 }
-                
-                
-                HttpCookie cookie = new HttpCookie("id_comp")
-                {
-                    Value = ID_compania,
-                    Expires = DateTime.Now.AddMinutes(60d)
-                };
-                Response.Cookies.Add(cookie);
+
+
+                    if (Request.Cookies.Get("id_comp") == null)
+                    {
+                        HttpCookie cookie = new HttpCookie("id_comp")
+                        {
+                            Value = ID_compania,
+                            Expires = DateTime.Now.AddMinutes(60d)
+                        };
+                        Response.Cookies.Add(cookie);
+                    }
+                    else
+                    {
+                        Request.Cookies.Get("id_comp").Value = ID_compania;
+                    }
             }
             catch (Exception ex)
             {

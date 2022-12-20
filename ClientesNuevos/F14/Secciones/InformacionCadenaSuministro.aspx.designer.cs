@@ -303,6 +303,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radCertificadoNo;
 
         /// <summary>
+        /// Control lblOpciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpciones;
+
+        /// <summary>
         /// Control btnRgistrar.
         /// </summary>
         /// <remarks>

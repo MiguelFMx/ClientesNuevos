@@ -129,7 +129,7 @@
                             <div class="col">
                                 <asp:HiddenField ID="hfOpcion" runat="server" />
                                 <label>
-                                    ¿Esta Certificado en C-TPAT o equivalente/WCO acreditado en programa de seguridad de comercio exterior?
+                                    ¿Cuenta con certificación en otros programas de seguridad equivalente a C-TPAT/WCO?
                                 </label>
                                 <br />
                                 <div class="form-check form-check-inline">
@@ -140,6 +140,7 @@
                                     <input type="radio" name="radCertificado" value="no" id="radCertificadoNo" class="form-check-input" runat="server" />
                                     <label for="radCertificadoNo">No</label>
                                 </div>
+                                <asp:Label Text="*Seleccione una opcion" ID="lblOpciones" ForeColor="Red" Visible="false" runat="server" />
                             </div>
                         </div>
                         <div class="row">
