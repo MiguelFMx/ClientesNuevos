@@ -613,7 +613,7 @@
                                                     <asp:Label ID="lblF43_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                                 </asp:TableCell>
                                                 <asp:TableCell>
-                                                    <asp:LinkButton ID="btnVer_F43" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                    <asp:LinkButton ID="btnVer_F43"  runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="Ver" OnClick="btnF43_Click"><i class="bi bi-eye"></i></asp:LinkButton>

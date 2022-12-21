@@ -151,12 +151,6 @@ namespace ClientesNuevos.admin.usuarios
                 }
             }
         }
-
-        protected void btnEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnDel_Click(object sender, EventArgs e)
         {
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;

@@ -79,7 +79,7 @@
                                         <asp:BoundField DataField="Subdominio" HeaderText="Subdominio"></asp:BoundField>
                                         <asp:TemplateField HeaderText="Accion">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning btn-sm text-white" OnClick="btnEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" CssClass="btn btn-danger btn-sm" runat="server" OnClick="btnDel_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnDel" CssClass="btn btn-danger btn-sm" runat="server" OnClick="btnDel_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
