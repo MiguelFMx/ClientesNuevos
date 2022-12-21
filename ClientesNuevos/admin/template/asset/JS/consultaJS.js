@@ -130,6 +130,18 @@ function SinOpinionPositiva(op) {
         if (lista.length > 0) {
             for (var i = 0; i < lista.length; i++) {                
 
+                var tipo = lista[i].Tipo_persona;
+                switch (tipo) {
+                    case '0':
+                        tipo='moral'
+                        break;
+                    case '1':
+                        tipo='fisica'
+                        break;
+                    case '2':
+                        tipo='extranjero'
+                        break;
+                }
                 //Estatus del documento
                 var estadodoc = lista[i].Status_doc;
                 switch (estadodoc) {

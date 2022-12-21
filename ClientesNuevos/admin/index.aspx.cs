@@ -38,6 +38,14 @@ namespace ClientesNuevos.admin
                     };
                     Response.Cookies.Add(cookie);
                 }
+                if (Request.Cookies.Get("ctipo") != null)
+                {
+                    HttpCookie cookie = new HttpCookie("ctipo")
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    };
+                    Response.Cookies.Add(cookie);
+                }
             }
 
 

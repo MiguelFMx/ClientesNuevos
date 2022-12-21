@@ -735,7 +735,7 @@ namespace ClientesNuevos.F14.Seccioness
                     lblError.Text = "Informacion actualizada";
                     btnAdminNext.Visible = true;
 
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Trigger", "$('#btnModalJS').trigger('click');", true);
                 }
                 else
                 {

@@ -69,9 +69,7 @@ namespace ClientesNuevos.F14.Seccioness
                             {
                                 TipoRegistro("proveedor");
 
-                            }
-
-                            
+                            }                           
                             
                         }
 
@@ -82,8 +80,26 @@ namespace ClientesNuevos.F14.Seccioness
                         if (dt.Rows.Count > 0)
                         {
                             string tipo = dt.Rows[0]["ID_user"].ToString();
+                            if (dt.Rows[0]["Tipo_persona"].ToString() == "2")
+                            {
+                                
+                                lblRFC.Text = "W9:";
+                                pDatosBancarios.Enabled = false;
+                                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                                txtCURP.Enabled = false;
+
+                                RequiredFieldValidator7.Enabled = false;
+                                RequiredFieldValidator8.Enabled = false;
+                                RequiredFieldValidator9.Enabled = false;
+                                RequiredFieldValidator10.Enabled = false;
+                            }
+
+
+
                             dtBanco = new DataTable();
                             dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
+
+
 
                             if (dtBanco.Rows.Count > 0)
                             {
@@ -158,6 +174,19 @@ namespace ClientesNuevos.F14.Seccioness
 
                     if (dt.Rows.Count > 0)
                     {
+                        if (dt.Rows[0]["Tipo_persona"].ToString() == "2")
+                        {
+
+                            lblRFC.Text = "W9:";
+                            pDatosBancarios.Enabled = false;
+                            pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                            txtCURP.Enabled = false;
+
+                            RequiredFieldValidator7.Enabled = false;
+                            RequiredFieldValidator8.Enabled = false;
+                            RequiredFieldValidator9.Enabled = false;
+                            RequiredFieldValidator10.Enabled = false;
+                        }
                         dtBanco = new DataTable();
                         dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
                         

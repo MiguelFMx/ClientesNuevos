@@ -186,7 +186,7 @@ namespace ClientesNuevos.admin.consulta
                                     Documento = dtDoc.Rows[0]["Documento"].ToString(),
                                     Fecha_creacion = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 10),
                                     Status_doc = dtDoc.Rows[0]["Estatus"].ToString(),
-
+                                    Tipo_persona = dtComp.Rows[0]["Tipo_persona"].ToString()
                                 };
                                 lstOP.Add(objOP);
 
@@ -202,7 +202,9 @@ namespace ClientesNuevos.admin.consulta
                                 Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
                                 Documento = "Opinion positiva",
                                 Fecha_creacion = "--/--/----",
-                                Status_doc = "pendiente"
+                                Status_doc = "pendiente",
+                               Tipo_persona = dtComp.Rows[i]["Tipo_persona"].ToString()
+
                             };
                             lstOP.Add(objOP);
 
