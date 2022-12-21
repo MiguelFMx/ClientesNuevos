@@ -172,20 +172,29 @@
                                             <asp:Label ID="lblCodigo" runat="server" Text="Codigo:" CssClass="form-label"></asp:Label>
                                             <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*LLene este campo" ControlToValidate="txtCodigo" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                        
+                                    <asp:HiddenField ID="hfID" runat="server" />
+                                    <asp:HiddenField ID="hfRuta" runat="server" />
+
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
 
                                 </div>
                                 <div class="col-md">
+                                    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                        <ContentTemplate>
                                     <asp:Label ID="lblCertificado" runat="server" Text="Certificado:" CssClass="form-label"></asp:Label>
-                                    <asp:FileUpload ID="fileCertificado" runat="server" CssClass="form-control" />
-
-                                    <asp:HiddenField ID="hfID" runat="server" />
-                                    <asp:HiddenField ID="hfRuta" runat="server" />
+                                    <asp:FileUpload ID="fileCertificado" runat="server" CssClass="form-control" accept="application/pdf"/>
+                                             </ContentTemplate>
+                                        <Triggers>
+                                            <asp:PostBackTrigger  ControlID="btnAdd"/>
+                                        </Triggers>
+                                    </asp:UpdatePanel>
                                 </div>
 
                             </div>
-                            
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
                                     <div class="row">
 
                                         <div class="col" style="display: flex; justify-content: flex-end;">
@@ -197,8 +206,7 @@
                                         </div>
                                     </div>
 
-                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                <ContentTemplate>
+                            
                                     <div class="row">
                                         <asp:Label ID="lblSucces" runat="server" Text=""></asp:Label>
                                     </div>
@@ -263,6 +271,9 @@
                                     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
 
                                 </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger  ControlID="btnEditar" />                                    
+                                </Triggers>
                             </asp:UpdatePanel>
                         </asp:Panel>
 

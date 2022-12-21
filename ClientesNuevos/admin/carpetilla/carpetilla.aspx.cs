@@ -143,6 +143,43 @@ namespace ClientesNuevos.admin.carpetilla
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                         btnVer_F5.Enabled= true;    
                     }
+
+                    //==================================================W9
+                    if (fila["Documento"].ToString() == "W9")
+                    {
+                        if (fila["Estatus"].ToString() == "100%")
+                        {
+                            lblW9_estatus.Text = "completado";
+                            lblW9_estatus.CssClass = "etiqueta";
+                        }
+                        else if (fila["Estatus"].ToString() == "revision")
+                        {
+                            lblW9_estatus.Text = "revision";
+                            lblW9_estatus.CssClass = "etiqueta revision";
+
+                        }
+                        else if (fila["Estatus"].ToString() == "act")
+                        {
+                            lblW9_estatus.Text = "actualizar";
+                            lblW9_estatus.CssClass = "etiqueta actualizar";
+
+                        }
+                        else if (fila["Estatus"].ToString() == "updated")
+                        {
+                            lblW9_estatus.Text = "actualizado";
+                            lblW9_estatus.CssClass = "etiqueta updated";
+                        }
+                        else
+                        {
+                            lblW9_estatus.Text = "pendiente: " + fila["Estatus"].ToString();
+                            lblW9_estatus.CssClass = "etiqueta pendiente";
+                        }
+                        lblW9_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+
+                        txtW9.Text = fila["Ruta"].ToString();
+
+                        btnVer_W9.Enabled = true;
+                    }
                     //==================================================F43
                     if (fila["Documento"].ToString() == "F43")
                     {

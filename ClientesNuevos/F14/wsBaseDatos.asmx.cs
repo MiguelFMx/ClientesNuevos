@@ -313,6 +313,7 @@ namespace ClientesNuevos.F14
                 id_com = dt.Rows[0]["RFC"].ToString();
             }
 
+            
             return id_com;
         }
 

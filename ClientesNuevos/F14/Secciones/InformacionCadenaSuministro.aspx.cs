@@ -334,6 +334,7 @@ namespace ClientesNuevos.F14.Seccioness
             Byte[] file = null;
             codigo = txtCodigo.Text;
             descripcion = txtDescripcion.Text;
+            IDcompania = hfID.Value;
             if (fileCertificado.HasFile)
             {
                 //si hay archivo subido en FileUpload
@@ -852,8 +853,15 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         if (radCertificadoSi.Checked)
                         {
+
+                            lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+
+                            lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "", "revision");
+
                             pV2.Visible = true;
                             btnModal.Visible = true;
+
+                            
 
                         }
                         else if (radCertificadoNo.Checked)
@@ -889,6 +897,10 @@ namespace ClientesNuevos.F14.Seccioness
 
                     if (radCertificadoSi.Checked)
                     {
+                        lblError.Text = wsBaseDatos.insertar_estatus(Request.Cookies.Get("id_comp").Value, ctpat, fecha, cuenta, opcion);
+
+                        lblError.Text += clsF14.Insertar_Documento(Request.Cookies.Get("id_comp").Value, "F14", "", "revision");
+
                         pV2.Visible = true;
                         btnModal.Visible = true;
 

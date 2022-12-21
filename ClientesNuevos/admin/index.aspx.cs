@@ -20,6 +20,24 @@ namespace ClientesNuevos.admin
                 {
                     clsConfiguracion.ActualizarOP();
                 }
+
+
+                if (Request.Cookies.Get("id_comp")!= null)
+                {
+                    HttpCookie cookie = new HttpCookie("id_comp")
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    };
+                    Response.Cookies.Add(cookie);
+                }
+                if (Request.Cookies.Get("tipo") != null)
+                {
+                    HttpCookie cookie = new HttpCookie("tipo")
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    };
+                    Response.Cookies.Add(cookie);
+                }
             }
 
 

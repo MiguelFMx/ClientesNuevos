@@ -143,40 +143,43 @@ namespace ClientesNuevos.admin
                 for (int i = 0; i < dtComp.Rows.Count; i++)
                 {
                     string id = dtComp.Rows[i]["ID_compania"].ToString();
-                    dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='"+id+"'");
-                    if(dtDoc.Rows.Count > 0)
+                    if (dtComp.Rows[i]["Tipo_persona"].ToString() != "2")
                     {
-                        string mesA = DateTime.Now.ToString("MM");
-                        string anioA = DateTime.Now.ToString("yyyy");
-                        //08/12/2022
-                        int mesDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2));
-                        int anioDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(6, 4));
-                        int diaDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 2));
-
-                        DateTime FechaRegistrada = new DateTime(anioDoc, mesDoc, diaDoc);
-                        DateTime fechaActualizacion = DateTime.Now.Date;
-                        switch (lapso)
+                        dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
+                        if (dtDoc.Rows.Count > 0)
                         {
-                            case "mensual": //year, month, day
-                                //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
-                                FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
-                                if(FechaRegistrada.Month == fechaActualizacion.Month)
-                                {
-                                    OPdes++;
-                                }
-                                break;
-                            case "anual":
-                                FechaRegistrada = FechaRegistrada.AddYears(cantidad);
-                                if (FechaRegistrada.Year == fechaActualizacion.Year)
-                                {
-                                    OPdes++;
-                                }
-                                break;
+                            string mesA = DateTime.Now.ToString("MM");
+                            string anioA = DateTime.Now.ToString("yyyy");
+                            //08/12/2022
+                            int mesDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2));
+                            int anioDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(6, 4));
+                            int diaDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 2));
+
+                            DateTime FechaRegistrada = new DateTime(anioDoc, mesDoc, diaDoc);
+                            DateTime fechaActualizacion = DateTime.Now.Date;
+                            switch (lapso)
+                            {
+                                case "mensual": //year, month, day
+                                                //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
+                                    FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
+                                    if (FechaRegistrada.Month == fechaActualizacion.Month)
+                                    {
+                                        OPdes++;
+                                    }
+                                    break;
+                                case "anual":
+                                    FechaRegistrada = FechaRegistrada.AddYears(cantidad);
+                                    if (FechaRegistrada.Year == fechaActualizacion.Year)
+                                    {
+                                        OPdes++;
+                                    }
+                                    break;
+                            }
                         }
-                    }
-                    else
-                    {
-                        sinOP++;
+                        else
+                        {
+                            sinOP++;
+                        } 
                     }
                 }
             }

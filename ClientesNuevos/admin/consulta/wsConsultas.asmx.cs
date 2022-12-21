@@ -165,43 +165,48 @@ namespace ClientesNuevos.admin.consulta
             {
                 for (int i = 0; i < dtComp.Rows.Count; i++)
                 {
-                    string id = dtComp.Rows[i]["ID_compania"].ToString();
-                    dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
-                    if (dtDoc.Rows.Count > 0)
-                    {
-                        string mes = DateTime.Now.ToString("MM");
-                        string fecha = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2);
 
-                        if (fecha != mes)
+                    if (dtComp.Rows[i]["Tipo_persona"].ToString() != "2")
+                    {
+                        string id = dtComp.Rows[i]["ID_compania"].ToString();
+                        dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
+                        if (dtDoc.Rows.Count > 0)
                         {
-                            OPdes++;
+                            string mes = DateTime.Now.ToString("MM");
+                            string fecha = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2);
+
+                            if (fecha != mes)
+                            {
+                                OPdes++;
+                                objOP = new OpinionPositiva
+                                {
+                                    ID_compania = id,
+                                    Nombre_comp = dtComp.Rows[i]["Nombre_comp"].ToString(),
+                                    Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
+                                    Documento = dtDoc.Rows[0]["Documento"].ToString(),
+                                    Fecha_creacion = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 10),
+                                    Status_doc = dtDoc.Rows[0]["Estatus"].ToString(),
+
+                                };
+                                lstOP.Add(objOP);
+
+                            }
+                        }
+                        else
+                        {
+                            sinOP++;
                             objOP = new OpinionPositiva
                             {
                                 ID_compania = id,
                                 Nombre_comp = dtComp.Rows[i]["Nombre_comp"].ToString(),
                                 Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
-                                Documento = dtDoc.Rows[0]["Documento"].ToString(),
-                                Fecha_creacion = dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0,10),
-                                Status_doc = dtDoc.Rows[0]["Estatus"].ToString()
+                                Documento = "Opinion positiva",
+                                Fecha_creacion = "--/--/----",
+                                Status_doc = "pendiente"
                             };
                             lstOP.Add(objOP);
 
-                        }
-                    }
-                    else
-                    {
-                        sinOP++;
-                        objOP = new OpinionPositiva
-                        {
-                            ID_compania = id,
-                            Nombre_comp = dtComp.Rows[i]["Nombre_comp"].ToString(),
-                            Nombre_comercial = dtComp.Rows[i]["Nombre_comercial"].ToString(),
-                            Documento = "Opinion positiva",
-                            Fecha_creacion = "--/--/----",
-                            Status_doc = "pendiente"
-                        };
-                        lstOP.Add(objOP);
-
+                        } 
                     }
 
                 }
