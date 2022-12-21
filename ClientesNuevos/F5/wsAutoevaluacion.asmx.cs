@@ -223,7 +223,8 @@ namespace ClientesNuevos.F5
         public string Registrar_F5(string ID_compania, string ID_cuestionario, string ID_autoevaluacion)
         {
             string resultado = "";
-            string Fecha = DateTime.Now.ToString("MM-dd-yyyy");
+            string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+
 
             DataTable dt;
             dt = clsHerramientaBD.Existe("SELECT * FROM Table_F5 WHERE ID_compania = '"+ID_compania+"'");
@@ -238,7 +239,7 @@ namespace ClientesNuevos.F5
                 cmd.Parameters.AddWithValue("@ID_compania", ID_compania);
                 cmd.Parameters.AddWithValue("@ID_Cuestionario", ID_cuestionario);
                 cmd.Parameters.AddWithValue("@ID_Evaluacion", ID_autoevaluacion);
-                cmd.Parameters.AddWithValue("@Fecha", Fecha);
+                cmd.Parameters.AddWithValue("@Fecha", fecha);
                 if(dt.Rows.Count > 0)
                 {
                     cmd.Parameters.AddWithValue("@accion", "update");

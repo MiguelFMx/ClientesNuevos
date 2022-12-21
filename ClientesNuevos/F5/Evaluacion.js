@@ -300,7 +300,7 @@ $(document).ready(function () {
 
 $(document).on('click', '.renglon', function () {
     var idR = $(this).closest('tr').prop('id');
-    console.log('renglon ' + idR);
+    //console.log('renglon ' + idR);
 
     document.getElementById(idR).style.outline = '#015DAC solid 1px';
     document.getElementById(idR).style.borderColor = '#015DAC';
@@ -902,7 +902,7 @@ function Llenar_TablaF5() {
     GetAjax("../wsAutoevaluacion.asmx/Registrar_F5",
         "'ID_compania':'" + id + "'," +
         "'ID_cuestionario':'" + idC + "'," +
-        "'ID_auntoevaluacion':'"+idE+"'",
+        "'ID_autoevaluacion':'"+idE+"'",
         "false", function (res) {
             console.log(res);
         });
