@@ -107,9 +107,7 @@ $(document).ready(function () {
                 //    llenarRespuesta(bloque6);
                 //    llenarRespuesta(bloque7);
                 //    llenarRespuesta(bloque8);
-
                 //    GuardarRespuestas(respuestas);
-
                 //    Actualizarstado();
                 //}
 
