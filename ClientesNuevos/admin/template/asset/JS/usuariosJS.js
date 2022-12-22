@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../../../scripts/js/ajax.js" />
 
+NProgress.start();
 $(document).ready(function () {
     
 
@@ -61,6 +62,9 @@ $(document).ready(function () {
         });
     });
 
+
+    NProgress.done();
+    NProgress.remove();
 });
 
 function ObtenerRoles(RFC) {
