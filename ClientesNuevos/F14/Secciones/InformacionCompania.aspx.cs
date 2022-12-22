@@ -23,7 +23,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         List<wsUbicacion.ListaPais> lstPais;
         ListItem item;
-        DataTable dt, dtBanco;
+        DataTable dt, dtBanco, dtFra;
         //Detecta si la seccion de info bancaria esta activa
         bool boolbanco = true;
 
@@ -75,7 +75,6 @@ namespace ClientesNuevos.F14.Seccioness
 
                         //Obtengo la info de la compañia
                         dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_compania = '" + Request.QueryString["rfc"] + "'");
-                        
                         //Si hay informacion obtengo el ID de la compañia para hacer la consulta en la tabla de banco
                         if (dt.Rows.Count > 0)
                         {
@@ -95,11 +94,17 @@ namespace ClientesNuevos.F14.Seccioness
                             }
 
 
+                            dtFra = clsHerramientaBD.Existe("SELECT * FROM Table_DireccionFra WHERE ID_compania ='" + Request.QueryString["rfc"] + "'");
+
+                            if (dt.Rows[0]["Direccion"].ToString() != dtFra.Rows[0]["Direccion_fra"].ToString())
+                            {
+                                LlenarFra(dtFra);
+                            }
 
                             dtBanco = new DataTable();
                             dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
 
-
+                            
 
                             if (dtBanco.Rows.Count > 0)
                             {
@@ -225,6 +230,31 @@ namespace ClientesNuevos.F14.Seccioness
             step5.NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx?rfc="+ Request.QueryString["rfc"];
         }
         
+        protected void LlenarFra(DataTable dt)
+        {
+            if(dt.Rows.Count > 0)
+            {
+                txtDirecFacturacion.Text = dt.Rows[0]["Direccion_fra"].ToString();
+                txtCPFra.Text = dt.Rows[0]["CP_fra"].ToString();
+
+                //Obtener pais
+                string Pais = ddPaisFra.SelectedValue;
+                ddPaisFra.Items.FindByValue(Pais).Selected = false;
+                ddPaisFra.Items.FindByValue(dt.Rows[0]["Pais_fra"].ToString()).Selected = true;
+
+                LlenarEstado(ddEstadoFra, Convert.ToInt32(dt.Rows[0]["Pais_fra"]));
+                ddEstadoFra.Items.FindByValue(dt.Rows[0]["Estado_fra"].ToString()).Selected = true;
+
+                LlenarCiudad(ddCiudadFra, Convert.ToInt32(dt.Rows[0]["Estado_fra"]));               
+
+                ddCiudadFra.Items.FindByValue(dt.Rows[0]["Ciudad_fra"].ToString()).Selected = true;
+
+                chFactura.Checked = true;
+                pFra.Enabled = true;
+                pFra.BackColor = System.Drawing.Color.White;
+
+            }
+        }
 
         protected void llenarCampos(DataTable table , DataTable dtBanco)
         {
@@ -344,7 +374,22 @@ namespace ClientesNuevos.F14.Seccioness
         protected void LlenarCiudad(DropDownList dropDownList, int id)
         {
             lstPais = new List<wsUbicacion.ListaPais>();
-            var estado = Convert.ToInt32(ddEstado.SelectedItem.Value);
+
+            lstPais = wsUbicacion.llenarCbCiudades(id);
+
+
+            for (int i = 0; i < lstPais.Count; i++)
+            {
+                item = new ListItem(lstPais[i].fullname, lstPais[i].id);
+                dropDownList.Items.Add(item);
+            }
+
+            dropDownList.DataBind();
+        }
+        protected void LlenarCiudadFra(DropDownList dropDownList, int id)
+        {
+            lstPais = new List<wsUbicacion.ListaPais>();
+            var estado = Convert.ToInt32(ddEstadoFra.SelectedItem.Value);
 
             lstPais = wsUbicacion.llenarCbCiudades(estado);
 
@@ -357,7 +402,6 @@ namespace ClientesNuevos.F14.Seccioness
 
             dropDownList.DataBind();
         }
-
         protected void ddPais_SelectedIndexChanged(object sender, EventArgs e)
             {
                 ddEstado.Items.Clear();
