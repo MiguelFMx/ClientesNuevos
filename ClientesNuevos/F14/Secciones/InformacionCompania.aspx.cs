@@ -371,7 +371,8 @@ namespace ClientesNuevos.F14.Seccioness
                ddTipoDePersona.Enabled = false;
                 ddTipoDePersona.Items.FindByValue(id).Selected = false;
                 ddTipoDePersona.Items.FindByValue("2").Selected = true;
-                lblRFC.Text = "W9:"; 
+                lblRFC.Text = "W9:";
+                lblCP.Text = "Zip code:";
                 pDatosBancarios.Enabled = false;
                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
                 txtCURP.Enabled = false;
@@ -387,6 +388,7 @@ namespace ClientesNuevos.F14.Seccioness
                 pDatosBancarios.BackColor = System.Drawing.Color.White;
 
                 ddTipoDePersona.Enabled = true;
+                lblCP.Text = "CP:";
                 lblRFC.Text = "RFC";
                 RequiredFieldValidator7.Enabled = true;
                 RequiredFieldValidator8.Enabled = true;

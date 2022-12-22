@@ -110,7 +110,7 @@
 
                                 <div class="col-md-3">
 
-                                    <label for="txtRfcComFilial" class="form-label">RFC:</label>
+                                    <asp:Label Text="RFC:" ID="lblRFC" runat="server" />
                                     <asp:TextBox ID="txtRfcComFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtRfcComFilial"></asp:RequiredFieldValidator>
 
@@ -135,7 +135,7 @@
                                     <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="txtCPComFIlial" class="form-label">CP:</label>
+                                    <label for="txtCPComFIlial" class="form-label" runat="server" id="lblCP">CP:</label>
                                     <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCPComFIlial"></asp:RequiredFieldValidator>
                                     <span id="CPComFIlial" style="color: red;"></span>

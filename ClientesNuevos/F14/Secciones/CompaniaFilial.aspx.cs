@@ -121,6 +121,16 @@ namespace ClientesNuevos.F14.Seccioness
         protected void ddPaisComFilial_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = Convert.ToInt32(ddPaisComFilial.SelectedValue);
+            if(ddPaisComFilial.SelectedItem.Value == "231")
+            {
+                lblRFC.Text = "W9:";
+                lblCP.InnerText = "Zip code:";
+            }
+            else
+            {
+                lblRFC.Text = "RFC:";
+                lblCP.InnerText = "CP:";
+            }
             llenarCB(ddEstadoComFilial, "estado", index);
         }
 
