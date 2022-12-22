@@ -265,9 +265,11 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAddCF_Click(object sender, EventArgs e)
         {
-            if(User.IsInRole("1") || User.IsInRole("2"))
+            string IdComp ="";
+
+            if (User.IsInRole("1") || User.IsInRole("2"))
             {
-                string IdComp = Request.QueryString["rfc"];
+                 IdComp = Request.QueryString["rfc"];
                 string Nombre = txtNombrComFilial.Text;
                 string NombreCom = txtNombrComFilial.Text;
                 string RFC = txtRfcComFilial.Text;
@@ -291,6 +293,37 @@ namespace ClientesNuevos.F14.Seccioness
                 Limpiar();
                 ComFil_DataBind(IdComp);
             }
+            else
+            {
+                if (Request.Cookies.Get("id_comp") != null)
+                {
+                    IdComp = Request.Cookies.Get("id_comp").Value;
+
+
+                    string Nombre = txtNombrComFilial.Text;
+                    string NombreCom = txtNombrComFilial.Text;
+                    string RFC = txtRfcComFilial.Text;
+                    string Direccion = txtDirecFiscalComFilial.Text;
+                    string Pais = ddPaisComFilial.SelectedItem.Value;
+                    string Estado = ddEstadoComFilial.SelectedItem.Value;
+                    string Ciudad = ddCiudadComFilial.SelectedItem.Value;
+                    string CP = txtCPComFIlial.Text;
+                    //Contacto
+                    string NombreC = txtNombrContFilial.Text;
+                    string PuestoC = txtPuestoContFilial.Text;
+                    string CorreoC = txtCorreoContFilial.Text;
+                    string TelC = txtTelContFilial.Text;
+                    string Ext = txtExtContFilial.Text;
+                    string CelC = txtCelContFilial.Text;
+
+                    string str = clsF14.Insertar_CompaniaFilial(IdComp, Nombre, NombreCom, RFC, Direccion, Pais, Estado, Ciudad, CP, NombreC, PuestoC, CorreoC, TelC, Ext, CelC, "");
+
+                    lblRes.Text = str;
+
+                    Limpiar();
+                    ComFil_DataBind(IdComp);
+                }
+            }
             
         }
 
@@ -312,9 +345,10 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
+            string IdComp = "";
             if (User.IsInRole("1") || User.IsInRole("2"))
             {
-                string IdComp = Request.QueryString["rfc"];
+                IdComp = Request.QueryString["rfc"];
                 string Nombre = txtNombrComFilial.Text;
                 string NombreCom = txtNombrComFilial.Text;
                 string RFC = txtRfcComFilial.Text;
@@ -340,6 +374,39 @@ namespace ClientesNuevos.F14.Seccioness
                 Limpiar();
                 ComFil_DataBind(IdComp);
             }
+            else
+            {
+                if (Request.Cookies.Get("id_comp") != null)
+                {
+                    IdComp = Request.Cookies.Get("id_comp").Value;
+                    string Nombre = txtNombrComFilial.Text;
+                    string NombreCom = txtNombrComFilial.Text;
+                    string RFC = txtRfcComFilial.Text;
+                    string Direccion = txtDirecFiscalComFilial.Text;
+                    string Pais = ddPaisComFilial.SelectedItem.Value;
+                    string Estado = ddEstadoComFilial.SelectedItem.Value;
+                    string Ciudad = ddCiudadComFilial.SelectedItem.Value;
+                    string CP = txtCPComFIlial.Text;
+                    //Contacto
+                    string NombreC = txtNombrContFilial.Text;
+                    string PuestoC = txtPuestoContFilial.Text;
+                    string CorreoC = txtCorreoContFilial.Text;
+                    string TelC = txtTelContFilial.Text;
+                    string Ext = txtExtContFilial.Text;
+                    string CelC = txtCelContFilial.Text;
+                    string ID = hfID.Value;
+
+                    string str = clsF14.Insertar_CompaniaFilial(IdComp, Nombre, NombreCom, RFC, Direccion, Pais, Estado, Ciudad, CP, NombreC, PuestoC, CorreoC, TelC, Ext, CelC, ID);
+
+                    lblRes.Text = str;
+                    pEdit.Visible = false;
+                    btnAddCF.Visible = true;
+                    Limpiar();
+                    ComFil_DataBind(IdComp);
+                }
+            }
+                
+            
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

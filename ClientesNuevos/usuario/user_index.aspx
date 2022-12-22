@@ -8,6 +8,7 @@
 
         <div class="row">
             <div class="col">
+            <div class="col">
                 <asp:Panel ID="AlertResultado" runat="server" Visible="False">
                     <div class="alert alert-success" role="alert">
                         <div class="row">
@@ -61,7 +62,6 @@
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblAC_fecha" runat="server" Text="--/--/----"></asp:Label>
-
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtAC" runat="server" Visible="false"></asp:TextBox>
@@ -422,6 +422,7 @@
                 </div>
             </div>
         </div>
+</div>
     </div>
 
     

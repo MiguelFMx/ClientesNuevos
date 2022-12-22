@@ -3,7 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 
-    <%-- <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>--%>
+
+    <style type="text/css">
+        .hiddencol {
+            display: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -245,7 +250,11 @@
                                 <asp:GridView ID="gvComFil" runat="server" AutoGenerateColumns="false" AllowPaging="true" CssClass="table table-hover"
                                     HeaderStyle-CssClass="cabezal" EmptyDataText="No data" ShowHeaderWhenEmpty="True">
                                     <Columns>
-                                        <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"></asp:BoundField>
+                                        <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol">
+                                            
+                                            <HeaderStyle CssClass="hiddencol" />
+                                            <ItemStyle CssClass="hiddencol" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="ID_compania" HeaderText="ID_compania">
                                             <HeaderStyle CssClass="hiddencol" />
                                             <ItemStyle CssClass="hiddencol" />
