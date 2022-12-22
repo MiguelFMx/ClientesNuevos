@@ -142,7 +142,19 @@ namespace ClientesNuevos.admin.usuarios
             }
             return roles;
         }
-
+        [WebMethod]
+        public string ExisteRFC(string rfc)
+        {
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE RFC='" + rfc + "'", clsHerramientaBD.strConnAdmon);
+            if (dt.Rows.Count > 0)
+            {
+                return "si";
+            }
+            else
+            {
+                return "no";
+            }
+        }
         [WebMethod]
         public string Borrar_Rol(string id)
         {

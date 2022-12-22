@@ -326,6 +326,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                 lblRes.Text = str;
                 pEdit.Visible = false;
+                btnAddCF.Visible = true;
                 Limpiar();
                 ComFil_DataBind(IdComp);
             }

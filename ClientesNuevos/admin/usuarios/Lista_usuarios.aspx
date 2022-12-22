@@ -34,6 +34,30 @@
                     </div>
                 </div>
             </div>
+            <br />
+            <div class="card">
+                <div class="card-header cabezal">
+                    <h5>Usuarios sin rol asignado</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="tSinCredencial" class="table">
+                            <thead>
+                                <tr>
+                                    <th hidden>Id</th>
+                                    <th>RFC</th>
+                                    <th>Fecha de registro</th>
+                                    <th>Status</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

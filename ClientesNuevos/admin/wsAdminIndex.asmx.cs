@@ -151,6 +151,48 @@ namespace ClientesNuevos.admin
 
             return lst;
         }
+        [WebMethod]
+        public List<Usuarios> ObtnerSinRol()
+        {
+            DataTable dt = new DataTable();
+            DataTable dtRoles = new DataTable();
+            Usuarios objU;
+            List<Usuarios> lst = new List<Usuarios>();
+
+            dt = clsHerramientaBD.Existe("SELECT * FROM Usuarios", clsHerramientaBD.strConnAdmon);
+            dtRoles = clsHerramientaBD.Existe("exec Master_User @Accion='select'", clsHerramientaBD.strConnAdmon);
+
+            if(dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    bool rol = false;
+                    string user = dt.Rows[i]["RFC"].ToString();
+                    for (int j = 0; j < dtRoles.Rows.Count; j++)
+                    {
+                        if (dtRoles.Rows[j]["RFC"].ToString() == user)
+                        {
+                            rol = true;
+                            break;
+                        }
+                        
+                    }
+                    if (!rol)
+                    {
+                        objU = new Usuarios
+                        {
+                            Id = dt.Rows[i]["Id"].ToString(),
+                            RFC = dt.Rows[i]["RFC"].ToString(),
+                            Fecha = dt.Rows[i]["Fecha_registro"].ToString().Substring(0, 10),
+                            Status = dt.Rows[i]["status"].ToString()
+                        };
+                        lst.Add(objU);
+                    }
+                }
+            }
+            return lst;
+
+        }
 
         [WebMethod]
         public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)

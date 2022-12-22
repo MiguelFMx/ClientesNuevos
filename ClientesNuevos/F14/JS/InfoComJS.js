@@ -248,7 +248,7 @@ $(document).ready(function () {
 
         GetAjax("../wsBaseDatos.asmx/ExisteComp", "'rfc':'"+ texto + "'", false, function (res) {
             if (res == "si") {
-                $('#sExtiste').html('Ya existe un registro con este RFC');
+                $('#sExtiste').html('Ya existe un registro con este RFC/W9');
             } else {
                 $('#sExtiste').empty();
 

@@ -5,8 +5,43 @@ $(document).ready(function () {
 
     var tablaUser = $('#tUsuariosDet').DataTable();
 
+    cargarSinRol();
+    var tablaSin = $('#tSinCredencial').DataTable();
+
     
 });
+
+function cargarSinRol() {
+    let tabla = $('#tSinCredencial tbody');
+    var RFC = '';
+    var Fecha = '';
+    var status = '';
+    var accioones = '';
+    GetAjax("../wsAdminIndex.asmx/ObtnerSinRol", "", false, function (lstRol) {
+        if (lstRol.length > 0) {
+            tabla.empty();
+            for (var i = 0; i < lstRol.length; i++) {
+                if (lstRol[i].Status == 'activo') {
+                    estatus = "<label class='etiqueta'>" + lstRol[i].Status + "</label>"
+                } else {
+                    estatus = "<label class='etiqueta peligro'>" + lstRol[i].Status + "</label>"
+
+                }
+                tabla.append(
+                    "<tr>" +
+                    "<td hidden>" + lstRol[i].Id + "</td>" +
+                    "<td>" + lstRol[i].RFC + "</td>" +
+                    "<td>" + lstRol[i].Fecha + "</td>" +
+                    "<td>" + estatus + "</td>" +
+                    "<td><a href='EditarUsuario.aspx?id=" + lstRol[i].Id + "' class='btn btn-secondary btn-sm'><i class='bi bi-pencil-square'></i></a></td>" +
+                    "</tr>"
+                );
+            }
+        }
+    });
+    
+}
+
 
 function cargarUsuarios() {
     let tablas = $('#tUsuariosDet tbody');

@@ -28,6 +28,22 @@ $(document).ready(function () {
         
     });
 
+
+
+    $('#MainContent_txtRFC').keyup(function () {
+        var texto = $('#MainContent_txtRFC').val();
+
+        GetAjax("../usuarios/wsUsuarios.asmx/ExisteRFC", "'rfc':'" + texto + "'", false, function (res) {
+            if (res == "si") {
+                $('#sExtiste').html('Ya existe un registro con este RFC/W9');
+            } else {
+                $('#sExtiste').empty();
+
+            }
+        });
+
+    });
+
     $('#test').click(function () {
         let idRfc = $('#MainContent_txtRFC').val();
         ObtenerRoles(idRfc);
