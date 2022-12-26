@@ -1960,6 +1960,11 @@
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
+    <Compile Include="App_LocalResources\AgentesAduanales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgentesAduanales.resx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2193,6 +2198,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_LocalResources\AgentesAduanales.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AgentesAduanales.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_LocalResources\AgentesAduanales.en.resx" />
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>
     </EmbeddedResource>

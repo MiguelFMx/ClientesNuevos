@@ -86,7 +86,9 @@
         <br />
         <!---------------------------------------- fieldset Agente aduanal; ---------------------------------------------------------------------------------->
         <fieldset>
-            <legend style="font-size: 25px;" id="lblTitulo">Agente aduanal mexicano </legend>
+            <legend style="font-size: 25px;" id="lblTitulo"> 
+                <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania%>"></asp:Literal>
+            </legend>
 
             <div class="container">
                 <div class="row">
