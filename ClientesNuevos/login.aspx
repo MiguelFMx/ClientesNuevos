@@ -67,16 +67,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <asp:Label ID="lbluser" runat="server" Text="Usuario" CssClass="label"></asp:Label>
-                                    <asp:TextBox ID="txtUser" runat="server" CssClass="form-control" placeholder="Usuario"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtUser" ErrorMessage="El nombre de usuario es obligatorio." ValidationGroup="Login1" ToolTip="El nombre de usuario es obligatorio." ID="UserNameRequired">*</asp:RequiredFieldValidator>
+                                    <asp:Label ID="lbluser" runat="server" Text="User" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtUser" runat="server" CssClass="form-control" placeholder="user"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtUser" ErrorMessage="*Este campo es requerido" ForeColor="Red" ValidationGroup="Login1" ToolTip="El nombre de usuario es obligatorio." ID="UserNameRequired"></asp:RequiredFieldValidator>
 
 
                                 </div>
                                 <div class="form-group mb-3">
-                                    <asp:Label ID="lblPass" runat="server" Text="Contraseña" CssClass="label"></asp:Label>
-                                    <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPass" ErrorMessage="La contrase&#241;a es obligatoria." ValidationGroup="Login1" ToolTip="La contrase&#241;a es obligatoria." ID="PasswordRequired">*</asp:RequiredFieldValidator>
+                                    <asp:Label ID="lblPass" runat="server" Text="Password" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control" placeholder="password"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPass" ErrorMessage="*Este campo es requerido" ForeColor="Red" ValidationGroup="Login1" ToolTip="La contrase&#241;a es obligatoria." ID="PasswordRequired"></asp:RequiredFieldValidator>
 
 
                                     <asp:Label ID="lbltest" runat="server" Text="" ForeColor="#ff0000"></asp:Label>

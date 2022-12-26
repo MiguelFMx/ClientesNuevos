@@ -17,7 +17,7 @@
                                 <tr>
                                     <th hidden>Id</th>
                                     <th>RFC</th>
-                                    <th >Roles</th>
+                                    <th>Roles</th>
                                     <th>Fecha de registro</th>
                                     <th>Status</th>
                                     <th>Acciones</th>
@@ -35,33 +35,38 @@
                 </div>
             </div>
             <br />
-            <div class="card">
-                <div class="card-header cabezal">
-                    <h5>Usuarios sin rol asignado</h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tSinCredencial" class="table">
-                            <thead>
-                                <tr>
-                                    <th hidden>Id</th>
-                                    <th>RFC</th>
-                                    <th>Fecha de registro</th>
-                                    <th>Status</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header cabezal">
+                            <h5>Usuarios sin roles asignados</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="tSinCredencial" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th hidden>Id</th>
+                                            <th>RFC</th>
+                                            <th>Fecha de registro</th>
+                                            <th>Status</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div>              
             </div>
+
 
         </div>
     </div>
 
-   
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
