@@ -1,11 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgentesAduanales.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.AgentesAduanales" %>
+﻿<%@ Page Title="Agentes aduanales" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgentesAduanales.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.AgentesAduanales" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <title>Agentes aduanales</title>
-
-
-
     <script src="https://kit.fontawesome.com/e0bca678de.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -39,42 +34,42 @@
                             <li>
                                 <asp:HyperLink ID="step1" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx">
                                     <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                                    <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                                    <asp:Label ID="lblDesc1" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso1 %>"></asp:Label>
                                     <br />
-                                    <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                                    <asp:Label ID="lblsub1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc1 %>" Font-Size="Smaller"></asp:Label>
                                 </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink ID="step2" runat="server" NavigateUrl="#" CssClass="selected">
                                     <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                                    <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                                    <asp:Label ID="lblDesc2" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso2 %>"></asp:Label>
                                     <br />
-                                    <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                                    <asp:Label ID="lblsub2" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc2 %>" Font-Size="Smaller"></asp:Label>
                                 </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
                                     <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                                    <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                                    <asp:Label ID="lblDesc3" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso3 %>"></asp:Label>
                                     <br />
-                                    <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                                    <asp:Label ID="lblsub3" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc3 %>" Font-Size="Smaller"></asp:Label>
                                 </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
                                     <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                                    <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                                    <asp:Label ID="lblDesc4" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso4 %>"></asp:Label>
                                     <br />
-                                    <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                                    <asp:Label ID="lblsub4" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc4 %>" Font-Size="Smaller"></asp:Label>
                                 </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
                                     <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                                    <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                                    <asp:Label ID="lblDesc5" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso5 %>"></asp:Label>
                                     <br />
-                                    <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                                    <asp:Label ID="lblsub5" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc5 %>" Font-Size="Smaller"></asp:Label>
                                 </asp:HyperLink>
                             </li>
                         </ul>
@@ -87,55 +82,47 @@
         <!---------------------------------------- fieldset Agente aduanal; ---------------------------------------------------------------------------------->
         <fieldset>
             <legend style="font-size: 25px;" id="lblTitulo"> 
-                <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania%>"></asp:Literal>
+                <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales,lblAgenteMexicano%>"></asp:Literal>
             </legend>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md">
                         <div class="card h-100">
-                            <h5 class="card-header cabezal">Información</h5>
+                            <h5 class="card-header cabezal">
+                                <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:AgentesAduanales,lblInfo%>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <label for="txtNombreCompaniaAA" class="form-label">Nombre de la compañia:</label>
-                                        <%--<input type="text" name="txtNombreCompaniaAA" value="" id="txtNombreCompaniaAA" class="form-control" />--%>
+                                        <asp:Label ID="lblCompaniaAA" CssClass="form-label" AssociatedControlID="txtNombreCompaniaAA" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania%>"></asp:Label>
                                         <asp:TextBox ID="txtNombreCompaniaAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-sm">
-                                        <label for="txtNoPatAA" class="form-label">Numero de patente:</label>
-                                        <%--<input type="text" name="txtNoPatAA" value="" id="txtNoPatAA" class="form-control" />--%>
+                                        <asp:Label ID="lblNoPatAA" AssociatedControlID="txtNoPatAA" runat="server" Text="<%$Resources:AgentesAduanales,lblNoPatente%>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtNoPatAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm">
-                                        <label for="txtNombrComAA" class="form-label">Nombre comercial:</label>
-                                        <%--<input type="text" name="txtNombrComAA" value="" id="txtNombrComAA" class="form-control" />--%>
+                                        <asp:Label ID="lblNombreComAA" AssociatedControlID="txtNombrComAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreComercial%>"></asp:Label>
                                         <asp:TextBox ID="txtNombrComAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-sm">
-                                        <label for="txtRFCTaxAA" id="lblRFCTaxAAA" class="form-label">RFC:</label>
-                                        <br />
-                                        <%--<input type="text" name="txtRFCTaxAA" value="" id="txtRFCTaxAA" class="form-control" />--%>
-                                        <asp:TextBox ID="txtRFCTaxAA" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <div class="col-sm">                                   
+                                        <asp:Label ID="lblRFCTaxAA" runat="server" Text="RFC" CssClass="form-label"></asp:Label>                            
+                                        <asp:TextBox ID="txtRFCTaxAA" runat="server" CssClass="form-control mt-2"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="txtDirecAA" class="form-label">Dirección:</label>
-                                        <%--<textarea name="txtDirecAA" id="txtDirecAA" class="form-control"></textarea>--%>
+                                        <asp:Label Text="<%$Resources:AgentesAduanales,lblDireccion%>" ID="DirecAA" CssClass="form-label" AssociatedControlID="txtDirecAA" runat="server" />
                                         <asp:TextBox ID="txtDirecAA" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
-
-
-
                                     <div class="col-md">
                                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                             <ContentTemplate>
-                                                <label for="txtEstadoAA" class="form-label">Estado:</label>
+                                                <asp:Label ID="lblEstadoAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblEstado%>"></asp:Label>
                                                 <asp:DropDownList ID="ddEstadoAA" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddEstadoAA_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                             </ContentTemplate>
                                             <Triggers>
@@ -146,16 +133,14 @@
                                     <div class="col-md">
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
-                                                <label for="txtCiudadAA" class="form-label">Ciudad:</label>
-
+                                                <asp:Label ID="lblCiudadAA" runat="server" CssClass="form-label" Text="<%$Resources:AgentesAduanales,lblCiudad%>"></asp:Label>
                                                 <asp:DropDownList ID="ddCiudadAA" runat="server" CssClass="form-select"></asp:DropDownList>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </div>
 
                                     <div class="col-md">
-                                        <label for="txtCPAA" id="lblCPAA" class="form-label">Codgio Postal:</label>
-                                        <%--<input type="text" name="txtCPAA" value="" id="txtCPAA" class="form-control" />--%>
+                                        <asp:Label ID="lblCPAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCP%>"></asp:Label>
                                         <asp:TextBox ID="txtCPAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
@@ -168,38 +153,32 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <label for="txtNombrContAA" class="form-label">Nombre:</label>
-                                        <%--<input type="text" name="txtNombrContAA" value="" id="txtNombrContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblNombreContAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
                                         <asp:TextBox ID="txtNombrContAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-sm">
-                                        <label for="txtpuestoContAA" class="form-label">Puesto:</label>
-                                        <%--<input type="text" name="txtpuestoContAA" value="" id="txtpuestoContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblpuestoContAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC%>"></asp:Label>
                                         <asp:TextBox ID="txtpuestoContAA" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="txtCorreoContAA" class="form-label">Correo:</label>
-                                        <%--<input type="email" name="txtCorreoContAA" value="" id="txtCorreoContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblCorreoContAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo%>"></asp:Label>
                                         <asp:TextBox ID="txtCorreoContAA" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md">
-                                        <label for="txtTelContAA" class="form-label">Telefono:</label>
-                                        <%--<input type="tel" name="txtTelContAA" value="" id="txtTelContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblTelContAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblTelefono%>"></asp:Label>
                                         <asp:TextBox ID="txtTelContAA" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtExtxContAA" class="form-label">Extension:</label>
-                                        <%--<input type="text" name="txtExtxContAA" value="" id="txtExtxContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblExtxContAA" runat="server" Text="Extension" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtExtxContAA" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtCelContAA" class="form-label">Celular:</label>
-                                        <%--<input type="tel" name="name" value="" id="txtCelContAA" class="form-control" />--%>
+                                        <asp:Label ID="lblCelContAA" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCelular %>"></asp:Label>
                                         <asp:TextBox ID="txtCelContAA" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
                                 </div>
@@ -213,43 +192,40 @@
 
         <!----------------------------------------------------------Agente aduanal americano--------------------------------------------------------------->
         <fieldset>
-            <legend style="font-size: 25px;" id="">Agente aduanal americano </legend>
+            <legend style="font-size: 25px;" id="">
+                <asp:Literal ID="Literal3" runat="server" Text="<%$Resources:AgentesAduanales,lblAgenteUSA %>"></asp:Literal>
+            </legend>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md">
                         <div class="card h-100">
-                            <h5 class="card-header cabezal">Información</h5>
+                            <h5 class="card-header cabezal">
+                                <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:AgentesAduanales,lblInfo%>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <label for="txtNombreCompaniaAAm" class="form-label">Nombre de la compañia:</label>
-                                        <%--<input type="text" name="txtNombreCompaniaAA" value="" id="txtNombreCompaniaAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblCompaniaAAm" AssociatedControlID="txtNombreCompaniaAAm" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania%>"></asp:Label>
                                         <asp:TextBox ID="txtNombreCompaniaAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-sm">
-                                        <label for="txtNoPatAAm" class="form-label">Numero de patente:</label>
-                                        <%--<input type="text" name="txtNoPatAA" value="" id="txtNoPatAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblNoPAtAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNoPatente %>"></asp:Label>
                                         <asp:TextBox ID="txtNoPatAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md">
-                                        <label for="txtNombrComAAm" class="form-label">Nombre comercial:</label>
-                                        <%--<input type="text" name="txtNombrComAA" value="" id="txtNombrComAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblNombreComAAm" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreComercial %>"></asp:Label>
                                         <asp:TextBox ID="txtNombrComAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtTaxAAm" id="lblRFCTaxAAAm" class="form-label">Tax ID:</label>
-                                        <br />
-                                        <%--<input type="text" name="txtRFCTaxAA" value="" id="txtRFCTaxAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblTaxAAm" CssClass="form-label" runat="server" Text="Tax ID"></asp:Label>
                                         <asp:TextBox ID="txtRFCTaxAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="txtDirecAAm" class="form-label">Dirección:</label>
-                                        <%--<textarea name="txtDirecAA" id="txtDirecAAm" class="form-control"></textarea>--%>
+                                        <asp:Label ID="lblDirecAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales, lblDireccion %>"></asp:Label>
                                         <asp:TextBox ID="txtDirecAAm" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                                     </div>
                                 </div>
@@ -257,7 +233,7 @@
                                     <div class="col-md">
                                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                             <ContentTemplate>
-                                                <label for="cbEstadoAAm" class="form-label">Estado:</label>
+                                                <asp:Label ID="lblEstadoAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblEstado %>"></asp:Label>
                                                 <asp:DropDownList ID="ddEstadoAAm" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoAAm_SelectedIndexChanged"></asp:DropDownList>
 
                                             </ContentTemplate>
@@ -270,15 +246,13 @@
                                     <div class="col-md">
                                         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                             <ContentTemplate>
-                                                <label for="cbCiudadAAm" class="form-label">Ciudad:</label>
-
+                                                <asp:Label ID="lblCiudadAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCiudad %>"></asp:Label>
                                                 <asp:DropDownList ID="ddCiudadAAm" runat="server" CssClass="form-select"></asp:DropDownList>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </div>
                                     <div class="col-md">
                                         <label for="txtCPAAm" id="lblCPAAm" class="form-label">Zip code:</label>
-                                        <%--<input type="text" name="txZCPAA" value="" id="txtCPAAm" class="form-control" />--%>
                                         <asp:TextBox ID="txtCPAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
@@ -287,42 +261,38 @@
                     </div>
                     <div class="col-md">
                         <div class="card  h-100">
-                            <h5 class="cabezal card-header ">Contacto</h5>
+                            <h5 class="cabezal card-header">
+                                <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:AgentesAduanales, lblContacto %>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <label for="txtNombrContAAm" class="form-label">Nombre:</label>
-                                        <%--<input type="text" name="txtNombrContAA" value="" id="txtNombrContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblNombreContAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
                                         <asp:TextBox ID="txtNombrContAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-sm">
-                                        <label for="txtpuestoContAAm" class="form-label">Puesto:</label>
-                                        <%--<input type="text" name="txtpuestoContAAm" value="" id="txtpuestoContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblpuestoContAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC %>"></asp:Label>
                                         <asp:TextBox ID="txtpuestoContAAm" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <label for="txtCorreoContAAm" class="form-label">Correo:</label>
-                                        <%--<input type="email" name="txtCorreoContAAm" value="" id="txtCorreoContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblCorreoAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>"></asp:Label>
                                         <asp:TextBox ID="txtCorreoContAAm" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md">
-                                        <label for="txtTelContAAm" class="form-label">Telefono:</label>
-                                        <%--<input type="tel" name="txtTelContAAm" value="" id="txtTelContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblTelefonoContAAm" runat="server" Text="<%$Resources:AgentesAduanales,lblTelefono %>"></asp:Label>
                                         <asp:TextBox ID="txtTelContAAm" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtExtContAAm" class="form-label">Extension:</label>
-                                        <%--<input type="text" name="txtExtContAAm" value="" id="txtExtxContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblExtContAAm" runat="server" CssClass="form-label" Text="Extension"></asp:Label>
                                         <asp:TextBox ID="txtExtContAAm" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
                                     <div class="col-md">
-                                        <label for="txtCelContAAm" class="form-label">Celular:</label>
-                                        <%--<input type="tel" name="name" value="" id="txtCelContAAm" class="form-control" />--%>
+                                        <asp:Label ID="lblCelContAAm" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
                                         <asp:TextBox ID="txtCelContAAm" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                                     </div>
 

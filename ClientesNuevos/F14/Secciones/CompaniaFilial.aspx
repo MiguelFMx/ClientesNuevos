@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompaniaFilial.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.CompaniaFilial" %>
+﻿<%@ Page Title="Compañia filial" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompaniaFilial.aspx.cs" Inherits="ClientesNuevos.F14.Seccioness.CompaniaFilial" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-
 
     <style type="text/css">
         .hiddencol {
@@ -20,42 +18,42 @@
                     <li>
                         <asp:HyperLink ID="step1" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx" CssClass="done">
                             <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso1 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc1 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step2" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
                             <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso2 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub2" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc2 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step3" runat="server" NavigateUrl="#" CssClass="selected">
                             <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso3 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub3" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc3 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
                             <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <asp:Label ID="lblDesc4" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso4 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub4" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc4 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
                             <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso5 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub5" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc5 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                 </ul>
@@ -70,7 +68,8 @@
                     <div class="card-header cabezal">
                         <div class="row">
                             <div class="col-auto">
-                                <h4>Información de compañia filial
+                                <h4>
+                                    <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc3 %>"></asp:Literal>
                     <span style="font-size: 15px;">
                         <i class="bi bi-question-circle"
                             data-bs-toggle="tooltip"
@@ -87,15 +86,14 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <asp:HiddenField ID="hfID" runat="server" />
-
-                                    <label for="txtNombreCompaniaFilial" class="form-label">Nombre de la compañia:</label>
+                                    <asp:Label ID="lblNombreCompanaiFilal" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania %>"></asp:Label>
                                     <asp:TextBox ID="txtNombreCompaniaFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombreCompaniaFilial"></asp:RequiredFieldValidator>
 
                                     <span id="NombreCompaniaFilial" style="color: red;"></span>
                                 </div>
                                 <div class="col-sm">
-                                    <label for="txtNombrComFilial" class="form-label">Nombre comercial:</label>
+                                    <asp:Label ID="lblNombreComFilial" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreComercial %>"></asp:Label>
                                     <asp:TextBox ID="txtNombrComFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrComFilial"></asp:RequiredFieldValidator>
 
@@ -105,7 +103,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-9">
-                                    <label for="txtDirecFiscalComFilial" class="form-label">Dirección fiscal:</label>
+                                    <asp:Label ID="lblDirecFiscalComFilial" runat="server" Text="<%$Resources:InformacionCompania,lblDireccionFiscal %>"></asp:Label>
                                     <asp:TextBox ID="txtDirecFiscalComFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtDirecFiscalComFilial"></asp:RequiredFieldValidator>
 
@@ -115,7 +113,7 @@
 
                                 <div class="col-md-3">
 
-                                    <asp:Label Text="RFC:" ID="lblRFC" runat="server" />
+                                    <asp:Label ID="lblRFC" CssClass="form-label" runat="server" Text="RFC"></asp:Label>
                                     <asp:TextBox ID="txtRfcComFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtRfcComFilial"></asp:RequiredFieldValidator>
 
@@ -126,21 +124,19 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label for="cbPaisComFilial" class="form-label">Pais:</label>
+                                    <asp:Label ID="lblPais" runat="server" Text="<%$Resources:InformacionCompania, lblPais %>"></asp:Label>
                                     <asp:DropDownList ID="ddPaisComFilial" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPaisComFilial_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="cboEstadoComFilial" class="form-label">Estado:</label>
-
+                                    <asp:Label ID="lblEstado" runat="server" CssClass="form-label" Text="<%$Resources:AgentesAduanales, lblEstado %>"></asp:Label>
                                     <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="cbCiudadComFilial" class="form-label">Ciudad:</label>
-
+                                    <asp:Label ID="lblCiudad" runat="server" CssClass="form-label" Text="<%$Resources:AgentesAduanales,lblCiudad %>"></asp:Label>
                                     <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="txtCPComFIlial" class="form-label" runat="server" id="lblCP">CP:</label>
+                                    <asp:Label ID="lblCPComFilial" runat="server" CssClass="form-label" Text="<%$Resources:InformacionCompania, lblCP %>"></asp:Label>
                                     <asp:TextBox ID="txtCPComFIlial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCPComFIlial"></asp:RequiredFieldValidator>
                                     <span id="CPComFIlial" style="color: red;"></span>
@@ -151,7 +147,8 @@
                     <div class="card-header cabezal">
                         <div class="row">
                             <div class="col">
-                                <h5>Contacto
+                                <h5>
+                                    <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:AgentesAduanales,lblContacto %>"></asp:Literal>
                         <span style="font-size: 15px;">
                             <i class="bi bi-question-circle"
                                 data-bs-toggle="tooltip"

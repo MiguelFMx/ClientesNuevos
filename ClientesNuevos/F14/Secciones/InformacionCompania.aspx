@@ -56,40 +56,40 @@
                     <li>
                         <asp:HyperLink ID="step1" runat="server" CssClass="selected">
                             <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso1 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub1" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc1 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step2" runat="server" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
                             <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso2 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub2" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc2 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx">
                             <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso3 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub3" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc3 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx">
                             <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <asp:Label ID="lblDesc4" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso4 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub4" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc4 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
                             <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="<%$Resources:AgentesAduanales,lblPaso5 %>"></asp:Label>
                             <br />
                             <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
@@ -104,25 +104,25 @@
         <fieldset>
             <div class="card border-primary">
                 <div class="card-header cabezal">
-                    <asp:Label ID="lblTitulo_infoCom" runat="server" Text="Información de la compañia"></asp:Label>
+                    <asp:Label ID="lblTitulo_infoCom" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc1 %>"></asp:Label>
                 </div>
                 <div class="card-body">
                     <div id="contenedorComp">
                         <div class="row">
                             <div class="col-sm">
-                                <asp:Label ID="lblNombreCompania" runat="server" Text="Nombre de la compañia:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblNombreCompania" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreCompania %>" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtNombreCompania" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                    ErrorMessage="*Especifique el nombre completo de la compañia"
+                                    ErrorMessage="<%$Resources:InformacionCompania,lblErrorNombreEmpresa %>"
                                     ControlToValidate="txtNombreCompania"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm">
-                                <asp:Label ID="lblNombreComercial" runat="server" Text="Nombre comercial:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblNombreComercial" runat="server" Text="<%$Resources:AgentesAduanales, lblNombreComercial %>" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                    ErrorMessage="*Especifique el nombre comercial de la compañia"
+                                    ErrorMessage="<%$Resources:InformacionCompania,lblErrorNombreComercial  %>"
                                     ControlToValidate="txtNombrCom"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -133,12 +133,11 @@
                             <div class="col-md">
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
-                                        <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo de persona:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblTipoPersona" runat="server" Text="<%$Resources:InformacionCompania, lblRegimen %>" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
-                                    <asp:ListItem Text="..." Value="" />
-                                    <asp:ListItem Text="Extranjero" Value="2" />
-                                    <asp:ListItem Text="Moral" Value="0" />
-                                    <asp:ListItem Text="Fisica" Value="1" />
+                                    <asp:ListItem Text="<%$Resources:InformacionCompania, lblPersonaExtranjera %>" Value="2" />
+                                    <asp:ListItem Text="<%$Resources:InformacionCompania, lblPersonaMoral %>" Value="0" />
+                                    <asp:ListItem Text="<%$Resources: InformacionCompania, lblPersonaFisica %>" Value="1" />
                                 </asp:DropDownList>
                                     </ContentTemplate>
                                     <Triggers>
@@ -152,13 +151,13 @@
                             <div class="col-md">
                                 <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                     <ContentTemplate>
-                                <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblRFC" runat="server" Text="<%$Resources:InformacionCompania,lblRFC %>" CssClass="form-label"></asp:Label>
 
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                                 <asp:TextBox ID="txtRfc" style="text-transform:uppercase" runat="server" CssClass="form-control" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                    ErrorMessage="*Especifique el RFC o W9"
+                                    ErrorMessage="<%$Resources:InformacionCompania, lblErrorRFC %>"
                                     ControlToValidate="txtRfc"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -175,10 +174,10 @@
                                 </asp:UpdatePanel>
                             </div>
                             <div class="col-md">
-                                <asp:Label ID="lblAnosNegocio" runat="server" Text="Años de negocio:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblAnosNegocio" runat="server" Text="<%$Resources:InformacionCompania, lblAnioNegocio %>" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtAnosNegocio" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                    ErrorMessage="*Especifique los años de servico que tiene el negocio"
+                                    ErrorMessage="<%$Resources:InformacionCompania, lblErrorAnios %>"
                                     ControlToValidate="txtAnosNegocio"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -188,19 +187,19 @@
                         <br />
                         <div class="row">
                             <div class="col-md-8">
-                                <asp:Label ID="lblDirecFiscal" runat="server" Text="Dirección fiscal:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblDirecFiscal" runat="server" Text="<%$Resources:InformacionCompania, lblDireccionFiscal %>" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtDirecFiscal" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                    ErrorMessage="*Especifique una direccion"
+                                    ErrorMessage="<%$Resources:InformacionCompania, lblErrorDireccion %>"
                                     ControlToValidate="txtDirecFiscal"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>
                             <div class="col-md-4">
-                                <asp:Label ID="lblCP" runat="server" Text="CP:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblCP" runat="server" Text="<%$Resources:InformacionCompania, lblCP %>" CssClass="form-label"></asp:Label>
                                 <asp:TextBox ID="txtCP" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                                    ErrorMessage="*Especifique el codigo postal"
+                                    ErrorMessage="<%$Resources:InformacionCompania,lblErrorCP %>"
                                     ControlToValidate="txtCP"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
@@ -211,18 +210,18 @@
                                 <ContentTemplate>
                         <div class="row">
                             <div class="col-sm">
-                                <asp:Label ID="lblPais" runat="server" Text="Pais:" CssClass="form-label"></asp:Label>                                
+                                <asp:Label ID="lblPais" runat="server" Text="<%$Resources:InformacionCompania,lblPais %>" CssClass="form-label"></asp:Label>                                
                                 <asp:DropDownList ID="ddPais" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddPais_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                             </div>
                             <div class="col-sm">
-                                <asp:Label ID="lblEstado" runat="server" Text="Estado:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblEstado" runat="server" Text="<%$Resources:AgentesAduanales, lblEstado %>" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddEstado" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstado_SelectedIndexChanged">
                                     <asp:ListItem Text="..." Value="0" Enabled="false" />
                                 </asp:DropDownList>
                             </div>
                             <div class="col-sm">
-                                <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:" CssClass="form-label"></asp:Label>
+                                <asp:Label ID="lblCiudad" runat="server" Text="<%$Resources:AgentesAduanales, lblCiudad %>" CssClass="form-label"></asp:Label>
 
                                 <asp:DropDownList ID="ddCiudad" runat="server" CssClass="form-select"></asp:DropDownList>
 
@@ -249,12 +248,12 @@
                         <div class="card-header cabezal">
                             <div class="col">
                                 <h6 style="font-weight: bold;">
-                                    <asp:Label ID="lblTitulo_DatosFra" runat="server" Text="Datos de facturacion"></asp:Label>
+                                    <asp:Label ID="lblTitulo_DatosFra" runat="server" Text="<%$Resources:InformacionCompania,lblDatosFra %>"></asp:Label>
                                 </h6>
 
                                 <div class="form-check ">
                                     <asp:CheckBox ID="chkDireccionIgual" runat="server" OnCheckedChanged="chkDireccionIgual_CheckedChanged" AutoPostBack="True" />
-                                    <asp:Label ID="lblDireccionIgual" runat="server" Text="Direccion de facturacion es diferente a direccion fiscal" Font-Size="13px" CssClass="form-check-label"></asp:Label>
+                                    <asp:Label ID="lblDireccionIgual" runat="server" Text="<%$Resources:InformacionCompania,lblDireccionIgual %>" Font-Size="13px" CssClass="form-check-label"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -262,27 +261,27 @@
                             <div class="card-body" id="DirFra">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Label ID="lblDirecFacturacion" runat="server" Text="Dirección facturación:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblDirecFacturacion" runat="server" Text="<%$Resources:InformacionCompania, lblDirFra %>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtDirecFacturacion" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <asp:Label ID="lblPaisFact" runat="server" Text="Pais:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblPaisFact" runat="server" Text="<%$Resources:InformacionCompania, lblPais %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddPaisFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddPaisFra_SelectedIndexChanged"></asp:DropDownList>
                                     </div>
                                     <div class="col">
-                                        <asp:Label ID="lblEstadoFra" runat="server" Text="Estado:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblEstadoFra" runat="server" Text="<%$Resources:AgentesAduanales, lblEstado %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddEstadoFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoFra_SelectedIndexChanged"></asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <asp:Label ID="lblCiudadFact" runat="server" Text="Ciudad:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblCiudadFact" runat="server" Text="<%$Resources: AgentesAduanales, lblCiudad %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddCiudadFra" runat="server" CssClass="form-select"></asp:DropDownList>
                                     </div>
                                     <div class="col">
-                                        <asp:Label ID="lblCPFact" runat="server" Text="CP:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblCPFact" runat="server" Text="<%$Resources:InformacionCompania, lblCP %>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtCPFra" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
@@ -302,14 +301,14 @@
                                     <ContentTemplate>
                     <div class="card border-primary">
                         <h6 class="card-header cabezal">
-                            <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="Datos bancarios"></asp:Label>
+                            <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="<%$Resources:InformacionCompania, lblDatosBancarios %>"></asp:Label>
                         </h6>
                         <asp:Panel runat="server" ID="pDatosBancarios">
 
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <asp:Label ID="lblMetodoPago" runat="server" Text="Metodo de pago:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblMetodoPago" runat="server" Text="<%$Resources:InformacionCompania, lblMetodoPago %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddMetodoPago" runat="server" CssClass="form-select" AutoPostBack="False">
                                             <asp:ListItem Text="..." Value="0" Selected="False" />
                                             <asp:ListItem Text="PUE-Pago en Una sola Exhibición" Value="PUE" Selected="False" />
@@ -318,15 +317,14 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                       
-                                        
-                                        <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago:" CssClass="form-label"></asp:Label>
+                                                                              
+                                        <asp:Label ID="lblFormaPago" runat="server" Text="<%$Resources:informacionCompania,lblFormaPago %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddFormaPago" runat="server" CssClass="form-select">
                                         </asp:DropDownList>
                                         
                                     </div>
                                     <div class="col-md-3">
-                                        <asp:Label ID="lblMoneda" runat="server" Text="Moneda"></asp:Label>
+                                        <asp:Label ID="lblMoneda" runat="server" Text="<%$Resources:InformacionCompania, lblMoneda %>"></asp:Label>
                                         <asp:DropDownList ID="ddMoneda" runat="server" CssClass="form-select">
                                             <asp:ListItem Text="..." Value="x" />
                                             <asp:ListItem Text="MXN" Value="MXN" />
@@ -346,19 +344,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <asp:Label ID="lblBanco" runat="server" Text="Nombre del banco:"></asp:Label>
+                                        <asp:Label ID="lblBanco" runat="server" Text="<%$Resources:InformacionCompania,lblBanco %>"></asp:Label>
                                         <asp:TextBox ID="txtBanco" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
-                                            ErrorMessage="*Especifique el nombre del banco"
+                                            ErrorMessage="<%$Resources:InformacionCompania, lblErrorBanco %>"
                                             ControlToValidate="txtBanco"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col">
-                                        <asp:Label ID="lblRFCBanco" runat="server" Text="RFC del banco:"></asp:Label>
+                                        <asp:Label ID="lblRFCBanco" runat="server" Text="<%$Resources:InformacionCompania,lblRFCBAnco %>"></asp:Label>
                                         <asp:TextBox ID="txtBancoRFC" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                            ErrorMessage="*Especifique el RFC del banco"
+                                            ErrorMessage="<%$Resources:InformacionCompania,lblErrorRFCBanco %>"
                                             ControlToValidate="txtBancoRFC"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -366,19 +364,19 @@
                                 </div>
                                 <div class="row" style="padding-bottom: 1.3rem;">
                                     <div class="col">
-                                        <asp:Label ID="lblNoCuenta" runat="server" Text="Numero de cuenta:" CssClass="form-label"></asp:Label>
+                                        <asp:Label ID="lblNoCuenta" runat="server" Text="<%$Resources:InformacionCompania, lblNoCuenta %>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtNoCuenta" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
-                                            ErrorMessage="*Ingrese un numero de cuenta bancaria"
+                                            ErrorMessage="<%$Resources: InformacionCompania, lblErrorNoCuenta %>"
                                             ControlToValidate="txtNoCuenta"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col">
-                                        <asp:Label ID="lblClaveBancaria" runat="server" Text="Clabe bancaria:"></asp:Label>
+                                        <asp:Label ID="lblClaveBancaria" runat="server" Text="<%$Resources:InformacionCompania,lblClabe %>"></asp:Label>
                                         <asp:TextBox ID="txtClaveBancaria" runat="server" CssClass="form-control" MaxLength="20"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                                            ErrorMessage="*Ingrese la CLABE bancaria"
+                                            ErrorMessage="<%$Resources:InformacionCompania, lblErrorClabe %>"
                                             ControlToValidate="txtClaveBancaria"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                             
@@ -399,20 +397,17 @@
              <asp:UpdatePanel ID="UpdatePanel6" runat="server">
          <ContentTemplate>
  <div class="row">
-
-   
-
-         
                 <div class="col-md-6">
                     <div id="contactoCompania1" class="card border-primary">
                         <h6 class="card-header cabezal">
-                            <asp:Label ID="Label1" runat="server" Text="Datos de contacto"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text="<%$Resources:InformacionCompania,lblDatosContacto %>"></asp:Label>
 
                             <asp:Label ID="Label2" runat="server" Text="">
                                  <span><i class="bi bi-question-circle"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom"
-                                    title="Llene los campos necesarios y haga clic en el boton 'Registrar contacto' "></i></span>
+                                    title= "Llene los campos requeridos y a continuacion, haga clic en el boton 'agreagar contacto'"
+                                     ></i></span>
                             </asp:Label>
 
                             <asp:Label ID="Label3" runat="server" Visible="false">
@@ -429,12 +424,12 @@
                                 <div class="col-sm">
                                     <asp:HiddenField ID="hfIDComp" runat="server" />
                                     <asp:HiddenField ID="hfIdC" runat="server" />
-                                    <asp:Label ID="Label4" runat="server" Text="Nombre:"></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
                                     <asp:TextBox ID="txtNombreC" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
                                 <div class="col-sm">
-                                    <asp:Label ID="Label5" runat="server" Text="Puesto:"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC %>"></asp:Label>
                                     <asp:TextBox ID="txtPuestoC" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
@@ -442,7 +437,7 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="Label6" runat="server" Text="Correo:" CssClass="form-label"></asp:Label>
+                                    <asp:Label ID="Label6" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>" CssClass="form-label"></asp:Label>
                                     <asp:TextBox ID="txtCorreoC" runat="server" CssClass="form-control"></asp:TextBox>
 
 
@@ -452,27 +447,27 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check">
-                                        <asp:CheckBox ID="chFactura" runat="server" CssClass="form-check" Text="&nbsp;Enviar factura" />
+                                        <asp:CheckBox ID="chFactura" runat="server" CssClass="form-check" Text="<%$Resources:InformacionCompania,lblCheckbox %>" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <asp:Label ID="Label8" runat="server" Text="Telefono:" CssClass="form-label"></asp:Label>
+                                    <asp:Label ID="Label8" runat="server" Text="<%$Resources:AgentesAduanales, lblTelefono %>" CssClass="form-label"></asp:Label>
                                     <asp:TextBox ID="txtTelC" runat="server" CssClass="form-control" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
 
 
 
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:Label ID="Label9" runat="server" Text="Extensión:"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text="Extension"></asp:Label>
                                     <asp:TextBox ID="txtExt" runat="server" TextMode="Phone" CssClass="form-control"></asp:TextBox>
 
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <asp:Label ID="Label10" runat="server" Text="Celular:"></asp:Label>
+                                    <asp:Label ID="Label10" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
 
                                     <asp:TextBox ID="txtCelC" runat="server" CssClass="form-control" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
 
@@ -485,7 +480,7 @@
                             <div class="row">
                                 <div class="col">
                                     <asp:Panel ID="Panel_Contacto" runat="server" Visible="false">
-                                        <asp:Label ID="Label7" runat="server" Text="Actualizar contacto:"></asp:Label>
+                                        <asp:Label ID="Label7" runat="server" Text="<%$Resources:InformacionCompania, lblEditContacto %>"></asp:Label>
                                         <asp:LinkButton ID="btnAproveC" runat="server" CssClass="btn btn-success btn-sm" OnClick="btnAproveC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
                                         <asp:LinkButton ID="btnCancelC" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnCancelC_Click"><i class="bi bi-x-lg"></i></asp:LinkButton>
 
@@ -496,7 +491,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col d-flex justify-content-end">
-                                    <asp:Button ID="btnRegistrarC" runat="server" Text="Registrar contacto" CssClass="btn btn-primary" OnClick="btnRegistrarC_Click" />
+                                    <asp:Button ID="btnRegistrarC" runat="server" Text="<%$Resources:InformacionCompania, lblBotonRegistrar %>" CssClass="btn btn-primary" OnClick="btnRegistrarC_Click" />
 
                                 </div>
                             </div>
@@ -513,18 +508,18 @@
                                         <HeaderStyle CssClass="hiddencol"></HeaderStyle>
                                         <ItemStyle CssClass="hiddencol"></ItemStyle>
                                     </asp:BoundField> 
-                                    <asp:BoundField HeaderText="Nombre" DataField="Nombre"></asp:BoundField>
-                                    <asp:BoundField HeaderText="Puesto" DataField="Puesto"></asp:BoundField>
-                                    <asp:BoundField HeaderText="Correo" DataField="Correo"></asp:BoundField>
-                                    <asp:BoundField HeaderText="Telefono" DataField="Telefono"></asp:BoundField>
+                                    <asp:BoundField HeaderText="<%$Resources:AgentesAduanales,lblNombreC %>" DataField="Nombre"></asp:BoundField>
+                                    <asp:BoundField HeaderText="<%$Resources:AgentesAduanales,lblPuestoC %>" DataField="Puesto"></asp:BoundField>
+                                    <asp:BoundField HeaderText="<%$Resources:AgentesAduanales,lblCorreo %>" DataField="Correo"></asp:BoundField>
+                                    <asp:BoundField HeaderText="<%$Resources:AgentesAduanales,lblTelefono %>" DataField="Telefono"></asp:BoundField>
                                     <asp:TemplateField HeaderText="Ext.">
                                         <ItemTemplate>
                                             <asp:Label ID="lblExtG" runat="server" Text='<%# Eval("Extension").Equals("&nbsp;") ? "" : Eval("Extension") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:BoundField HeaderText="Celular" DataField="Celular"></asp:BoundField>
-                                    <asp:TemplateField HeaderText="Facturacion">
+                                    <asp:BoundField HeaderText="<%$Resources:AgentesAduanales,lblCelular %>" DataField="Celular"></asp:BoundField>
+                                    <asp:TemplateField HeaderText="<%$Resources:AgentesAduanales, lblFra %>">
                                         <ItemTemplate>
                                             <%# Eval("Tipo").Equals("Fra") ? "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='flexCheckCheckedDisabled' checked disabled></div>" : "" %>
                                             
@@ -542,7 +537,7 @@
                                         <HeaderStyle CssClass="hiddencol"></HeaderStyle>
                                         <ItemStyle CssClass="hiddencol"></ItemStyle>
                                     </asp:BoundField>
-                                    <asp:TemplateField HeaderText="Acciones">
+                                    <asp:TemplateField HeaderText="<%$Resources:AgentesAduanales, lblAcciones %>">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="btnEditarC" runat="server" CssClass="btn btn-warning btn-sm text-white" OnClick="btnEditarC_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDelC" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDelC_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                         </ItemTemplate>

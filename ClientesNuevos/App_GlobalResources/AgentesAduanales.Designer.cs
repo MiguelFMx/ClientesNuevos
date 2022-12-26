@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClientesNuevos.App_LocalResources {
+namespace ClientesNuevos.App_GlobalResources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ClientesNuevos.App_LocalResources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClientesNuevos.App_LocalResources.AgentesAduanales", typeof(AgentesAduanales).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClientesNuevos.App_GlobalResources.AgentesAduanales", typeof(AgentesAduanales).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace ClientesNuevos.App_LocalResources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Acciones.
+        /// </summary>
+        public static string lblAcciones {
+            get {
+                return ResourceManager.GetString("lblAcciones", resourceCulture);
             }
         }
         
@@ -97,6 +106,15 @@ namespace ClientesNuevos.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contacto.
+        /// </summary>
+        public static string lblContacto {
+            get {
+                return ResourceManager.GetString("lblContacto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Correo.
         /// </summary>
         public static string lblCorreo {
@@ -106,7 +124,7 @@ namespace ClientesNuevos.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Codigo postal.
+        ///   Busca una cadena traducida similar a Código postal.
         /// </summary>
         public static string lblCP {
             get {
@@ -115,7 +133,52 @@ namespace ClientesNuevos.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Direccion.
+        ///   Busca una cadena traducida similar a Informacion de la compañia.
+        /// </summary>
+        public static string lblDesc1 {
+            get {
+                return ResourceManager.GetString("lblDesc1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Agentes aduanales.
+        /// </summary>
+        public static string lblDesc2 {
+            get {
+                return ResourceManager.GetString("lblDesc2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Informacion de compañia filial.
+        /// </summary>
+        public static string lblDesc3 {
+            get {
+                return ResourceManager.GetString("lblDesc3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo de servicio requerido.
+        /// </summary>
+        public static string lblDesc4 {
+            get {
+                return ResourceManager.GetString("lblDesc4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Acreditación en programa de seguridad.
+        /// </summary>
+        public static string lblDesc5 {
+            get {
+                return ResourceManager.GetString("lblDesc5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dirección.
         /// </summary>
         public static string lblDireccion {
             get {
@@ -129,6 +192,24 @@ namespace ClientesNuevos.App_LocalResources {
         public static string lblEstado {
             get {
                 return ResourceManager.GetString("lblEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Facturación.
+        /// </summary>
+        public static string lblFra {
+            get {
+                return ResourceManager.GetString("lblFra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Información.
+        /// </summary>
+        public static string lblInfo {
+            get {
+                return ResourceManager.GetString("lblInfo", resourceCulture);
             }
         }
         
@@ -169,6 +250,51 @@ namespace ClientesNuevos.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Paso 1.
+        /// </summary>
+        public static string lblPaso1 {
+            get {
+                return ResourceManager.GetString("lblPaso1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paso 2.
+        /// </summary>
+        public static string lblPaso2 {
+            get {
+                return ResourceManager.GetString("lblPaso2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paso 3.
+        /// </summary>
+        public static string lblPaso3 {
+            get {
+                return ResourceManager.GetString("lblPaso3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paso 4.
+        /// </summary>
+        public static string lblPaso4 {
+            get {
+                return ResourceManager.GetString("lblPaso4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paso 5.
+        /// </summary>
+        public static string lblPaso5 {
+            get {
+                return ResourceManager.GetString("lblPaso5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Puesto.
         /// </summary>
         public static string lblPuestoC {
@@ -178,7 +304,7 @@ namespace ClientesNuevos.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Telefono.
+        ///   Busca una cadena traducida similar a Teléfono.
         /// </summary>
         public static string lblTelefono {
             get {

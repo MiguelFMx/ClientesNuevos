@@ -1960,10 +1960,20 @@
     <Compile Include="App_Code\clsF14.cs" />
     <Compile Include="App_Code\clsHerramientaBD.cs" />
     <Compile Include="App_Code\clsUserIndex.cs" />
-    <Compile Include="App_LocalResources\AgentesAduanales.Designer.cs">
+    <Compile Include="App_GlobalResources\AgentesAduanales.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AgentesAduanales.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InformacionCompania.en.designer.cs">
+      <DependentUpon>InformacionCompania.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InformacionCompania.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformacionCompania.resx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -2161,6 +2171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_LocalResources\" />
     <Folder Include="archivos\" />
   </ItemGroup>
   <ItemGroup>
@@ -2198,11 +2209,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\AgentesAduanales.resx">
+    <Content Include="App_GlobalResources\AgentesAduanales.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AgentesAduanales.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_LocalResources\AgentesAduanales.en.resx" />
+    <Content Include="App_GlobalResources\AgentesAduanales.en.resx" />
+    <Content Include="App_GlobalResources\InformacionCompania.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InformacionCompania.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InformacionCompania.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InformacionCompania.en.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>
     </EmbeddedResource>
