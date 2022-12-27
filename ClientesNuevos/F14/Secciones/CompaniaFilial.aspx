@@ -163,26 +163,26 @@
                         <div class="row">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="txtNombrContFilial" class="form-label">Nombre:</label>
+                                    <asp:Label ID="lblNombreCOntFilial" runat="server" Text="<%$Resources:AgentesAduanales, lblNombreC %>"></asp:Label>
                                     <asp:TextBox ID="txtNombrContFilial" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="validador1" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtNombrContFilial"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="validador1" runat="server" ErrorMessage="<%$Resources:AgentesAduanales, lblErrorNombreC %>" CssClass="text-danger" ControlToValidate="txtNombrContFilial"></asp:RequiredFieldValidator>
                                     <span id="NombrContFilial" style="color: red;"></span>
 
                                 </div>
 
                                 <div class="col-md-3">
-                                    <label for="txtPuestoContFilial" class="form-label">Puesto:</label>
+                                    <asp:Label ID="lblPuesto" runat="server" Text="<%$Resources:AgentesAduanales, lblPuestoC %>"></asp:Label>
                                     <asp:TextBox ID="txtPuestoContFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                        ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtPuestoContFilial"></asp:RequiredFieldValidator>
+                                        ErrorMessage="<%$Resources:AgentesAduanales, lblErrorPuesto %>" CssClass="text-danger" ControlToValidate="txtPuestoContFilial"></asp:RequiredFieldValidator>
 
                                     <span id="PuestoContFilial" style="color: red;"></span>
 
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="txtCorreoContFilial" class="form-label">Correo:</label>
+                                    <asp:Label ID="lblCorreo" runat="server" Text="<%$Resources:AgentesAduanales, lblCorreo %>"></asp:Label>
                                     <asp:TextBox ID="txtCorreoContFilial" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCorreoContFilial"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="<%$Resources:AgentesAduanales, lblErrorPuesto %>" CssClass="text-danger" ControlToValidate="txtCorreoContFilial"></asp:RequiredFieldValidator>
 
                                     <span id="CorreoContFilial" style="color: red;"></span>
 
@@ -190,21 +190,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="txtTelContFilial" class="form-label">Telefono:</label>
+                                    <asp:Label ID="lblTelefono" runat="server" Text="<%$Resources:AgentesAduanales, lblTelefono %>"></asp:Label>
                                     <asp:TextBox ID="txtTelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtTelContFilial"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="<%$Resources:AgentesAduanales, lblErrorPuesto %>" CssClass="text-danger" ControlToValidate="txtTelContFilial"></asp:RequiredFieldValidator>
 
                                     <span id="TelContFilial" style="color: red;"></span>
 
                                 </div>
                                 <div class="col-md-2">
-                                    <label for="txtExtContFilial" class="form-label">Extension:</label>
+                                    <label for="txtExtContFilial" class="form-label">Extension</label>
                                     <asp:TextBox ID="txtExtContFilial" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="txtCelContFilial" class="form-label">Celular:</label>
+                                    <asp:Label ID="Label2" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
                                     <asp:TextBox ID="txtCelContFilial" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Este campo es obligatorio." CssClass="text-danger" ControlToValidate="txtCelContFilial"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="<%$Resources:AgentesAduanales, lblErrorPuesto %>" CssClass="text-danger" ControlToValidate="txtCelContFilial"></asp:RequiredFieldValidator>
 
                                     <span id="CelContFilial" style="color: red;"></span>
 
@@ -256,21 +256,21 @@
                                             <HeaderStyle CssClass="hiddencol" />
                                             <ItemStyle CssClass="hiddencol" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
-                                        <asp:BoundField DataField="Nombre_comercial" HeaderText="Nombre comercial"></asp:BoundField>
-                                        <asp:BoundField DataField="RFC" HeaderText="RFC"></asp:BoundField>
-                                        <asp:BoundField DataField="Direccion" HeaderText="Direccion"></asp:BoundField>
-                                        <asp:BoundField DataField="Pais" HeaderText="Pais"></asp:BoundField>
-                                        <asp:BoundField DataField="Estado" HeaderText="Estado"></asp:BoundField>
-                                        <asp:BoundField DataField="Ciudad" HeaderText="Ciudad"></asp:BoundField>
-                                        <asp:BoundField DataField="CP" HeaderText="CP"></asp:BoundField>
-                                        <asp:BoundField DataField="Nombre_contacto" HeaderText="Contacto"></asp:BoundField>
-                                        <asp:BoundField DataField="Puesto_contacto" HeaderText="Puesto"></asp:BoundField>
-                                        <asp:BoundField DataField="Correo" HeaderText="Correo"></asp:BoundField>
-                                        <asp:BoundField DataField="Telefono" HeaderText="Telefono"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre" HeaderText="<%$Resources:AgentesAduanales, lblNombreCompania %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre_comercial" HeaderText="<%$Resources:AgentesAduanales, lblNombreComercial %>"></asp:BoundField>
+                                        <asp:BoundField DataField="RFC" HeaderText="RFC/W9"></asp:BoundField>
+                                        <asp:BoundField DataField="Direccion" HeaderText="<%$Resources:AgentesAduanales, lblDireccion %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Pais" HeaderText="<%$Resources:InformacionCompania, lblPais %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Estado" HeaderText="<%$Resources:AgentesAduanales, lblEstado %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Ciudad" HeaderText="<%$Resources:AgentesAduanales, lblCiudad %>"></asp:BoundField>
+                                        <asp:BoundField DataField="CP" HeaderText="<%$Resources:InformacionCompania, lblCP %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre_contacto" HeaderText="<%$Resources:AgentesAduanales, lblNombreC %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Puesto_contacto" HeaderText="<%$Resources:AgentesAduanales, lblPuestoC %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Correo" HeaderText="<%$Resources:AgentesAduanales, lblCorreo %>"></asp:BoundField>
+                                        <asp:BoundField DataField="Telefono" HeaderText="<%$Resources:AgentesAduanales, lblTelefono %>"></asp:BoundField>
                                         <asp:BoundField DataField="Extension" HeaderText="Extension"></asp:BoundField>
-                                        <asp:BoundField DataField="Celular" HeaderText="Celular"></asp:BoundField>
-                                        <asp:TemplateField HeaderText="Acciones">
+                                        <asp:BoundField DataField="Celular" HeaderText="<%$Resources:AgentesAduanales, lblCelular %>"></asp:BoundField>
+                                        <asp:TemplateField HeaderText="<%$Resources:AgentesAduanales, lblAcciones %>">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-warning text-white btn-sm" OnClick="btnEdit_Click" CausesValidation="false"><i class="bi bi-pencil-square"></i></asp:LinkButton><asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnDel_Click" CausesValidation="false"><i class="bi bi-trash-fill"></i></asp:LinkButton>
                                             </ItemTemplate>

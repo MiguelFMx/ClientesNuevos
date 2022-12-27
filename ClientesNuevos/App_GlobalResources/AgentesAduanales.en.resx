@@ -159,6 +159,12 @@
   <data name="lblDireccion" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="lblErrorNombreC" xml:space="preserve">
+    <value>*This field is required</value>
+  </data>
+  <data name="lblErrorPuesto" xml:space="preserve">
+    <value>*This field is required</value>
+  </data>
   <data name="lblEstado" xml:space="preserve">
     <value>State</value>
   </data>
@@ -200,5 +206,8 @@
   </data>
   <data name="lblTelefono" xml:space="preserve">
     <value>Phone</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

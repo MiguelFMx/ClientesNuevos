@@ -1965,6 +1965,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgentesAduanales.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Certificacion.en.designer.cs">
+      <DependentUpon>Certificacion.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Certificacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Certificacion.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\InformacionCompania.en.designer.cs">
       <DependentUpon>InformacionCompania.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1974,6 +1984,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InformacionCompania.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Servicios.en.designer.cs">
+      <DependentUpon>Servicios.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Servicios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Servicios.resx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -2221,6 +2241,22 @@
     <Content Include="App_GlobalResources\InformacionCompania.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>InformacionCompania.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Servicios.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Servicios.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Servicios.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Servicios.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Certificacion.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Certificacion.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Certificacion.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Certificacion.en.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>

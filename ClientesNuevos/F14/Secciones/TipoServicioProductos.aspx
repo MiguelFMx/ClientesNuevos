@@ -13,42 +13,42 @@
                     <li>
                         <asp:HyperLink ID="step1" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx" CssClass="done">
                             <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso1 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc1 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step2" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
                             <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso2 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub2" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc2 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx" CssClass="done">
                             <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso3 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub3" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc3 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step4" runat="server" NavigateUrl="#" CssClass="selected">
                             <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <asp:Label ID="lblDesc4" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso4 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub4" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc4 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step5" runat="server" NavigateUrl="~/F14/Secciones/InformacionCadenaSuministro.aspx">
                             <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso5 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub5" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc5 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                 </ul>
@@ -68,7 +68,8 @@
                 <div class="col">
                     <div class="card border-primary">
                         <div class="card-header cabezal">
-                            <h5>Tipo de servicio requerido</h5>
+                            <h5>
+                                <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc4 %>"></asp:Literal></h5>
                         </div>
                         <div class="card-body">
 
@@ -77,9 +78,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkAlmacenaje">
-                                            <label class="form-check-label" for="chkAlmacenaje">
-                                                Almacenaje
-                                            </label>
+                                          
+                                            <asp:Label ID="lblAlmacenaje" runat="server" CssClass="form-check-label"  Text="<%$Resources:Servicios, lblAlmacenaje %>"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
@@ -88,9 +88,8 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkADAlmacenaje">
-                                                <label class="form-check-label" for="chkADAlmacenaje">
-                                                    Almacen de deposito
-                                                </label>
+                                                
+                                                <asp:Label ID="lblAlmacenDeposito" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblAlmacenDeposito %>"></asp:Label>
                                             </div>
                                         </li>
                                         <li>
@@ -104,26 +103,24 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkMPAlmacenaje">
-                                                <label class="form-check-label" for="chkMPAlmacenaje">
-                                                    Material peligroso
-                                                </label>
+                                               
+                                                <asp:Label ID="lblMpA" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblMaterialPeligroso %>"></asp:Label>
+
                                             </div>
                                             <div>
                                                 <ul style="list-style: none; display: none;" id="MPAlmacenaje">
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPQuimicosAlmacenaje">
-                                                            <label class="form-check-label" for="chkMPQuimicosExpo">
-                                                                Quimicos
-                                                            </label>
+                                                                <asp:Label ID="lblQuimicosA" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblQuimicos %>"></asp:Label>
+                                                            
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPCarbonAlmacenaje">
-                                                            <label class="form-check-label" for="chkMPCarbonExpo">
-                                                                Carbon
-                                                            </label>
+                                                                <asp:Label ID="lblCarbon" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCarbon %>"></asp:Label>
+                                                            
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -133,9 +130,9 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkTransbordoAlmacenaje">
-                                                <label class="form-check-label" for="chkTransbordoAlmacenaje">
-                                                    Transbordo
-                                                </label>
+                                               
+                                                <asp:Label ID="lblTransbordoA" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblTransbordo %>"></asp:Label>
+
                                             </div>
                                         </li>
                                     </ul>
@@ -147,9 +144,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkExportacion">
-                                            <label class="form-check-label" for="chkExportacion">
-                                                Exportación
-                                            </label>
+                                              <asp:Label ID="lblExportacion" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblExportacion %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -158,17 +154,15 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkExpoCS">
-                                                <label class="form-check-label" for="chkExpoCS">
-                                                    Carga seca
-                                                </label>
+                                                   <asp:Label ID="lblCSE" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCargaSeca %>"></asp:Label>
+                                                
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkFrrExpo">
-                                                <label class="form-check-label" for="chkFrrExpo">
-                                                    Ferrocarril
-                                                </label>
+                                                 <asp:Label ID="lblFerroE" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblFerrocarril %>"></asp:Label>
+
                                             </div>
                                         </li>
                                         <li>
@@ -182,27 +176,22 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkMPExpo">
-                                                <label class="form-check-label" for="chkMPExpo">
-                                                    Material peligroso
-                                                </label>
+                                                 <asp:Label ID="lblMPe" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblMaterialPeligroso %>"></asp:Label>
+
                                             </div>
                                             <div>
                                                 <ul style="list-style: none; display: none;" id="MPExpo">
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPQuimicosExpo">
-                                                            <label class="form-check-label" for="chkMPQuimicosExpo">
-                                                                Quimicos
-                                                            </label>
-                                                        </div>
+                                                            <asp:Label ID="lblQuimicosE" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblQuimicos %>"></asp:Label>
+                                                       </div>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPCarbonExpo">
-                                                            <label class="form-check-label" for="chkMPCarbonExpo">
-                                                                Carbon
-                                                            </label>
-                                                        </div>
+                                                                <asp:Label ID="lblCarbonE" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCarbon %>"></asp:Label>
+                                                            </div>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -217,9 +206,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkImportacion">
-                                            <label class="form-check-label" for="chkImportacion">
-                                                Importación
-                                            </label>
+                                            <asp:Label ID="lblImpo" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblImportacion %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -228,17 +216,15 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkImpoCS">
-                                                <label class="form-check-label" for="chkImpoCS">
-                                                    Carga seca
-                                                </label>
+                                                 <asp:Label ID="lblCSI" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCargaSeca %>"></asp:Label>
+
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkFrrImpo">
-                                                <label class="form-check-label" for="chkFrrImpo">
-                                                    Ferrocarril
-                                                </label>
+                                                 <asp:Label ID="lblFerroI" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblFerrocarril %>"></asp:Label>
+
                                             </div>
                                         </li>
                                         <li>
@@ -252,26 +238,23 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkMPImpo">
-                                                <label class="form-check-label" for="chkMPImpo">
-                                                    Material peligroso
-                                                </label>
+                                                   <asp:Label ID="lblMPI" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblMaterialPeligroso %>"></asp:Label>
+                                                
                                             </div>
                                             <div>
                                                 <ul style="list-style: none; display: none" id="MPImpo">
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPQuimicosImpo">
-                                                            <label class="form-check-label" for="chkMPQuimicosImpo">
-                                                                Quimicos
-                                                            </label>
+                                                                <asp:Label ID="lblQuimicosI" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblQuimicos %>"></asp:Label>
+                                                            
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPCarbonImpo">
-                                                            <label class="form-check-label" for="chkMPCarbonImpo">
-                                                                Carbon
-                                                            </label>
+                                                            <asp:Label ID="lblCarbonI" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCarbon %>"></asp:Label>
+
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -288,9 +271,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkRE">
-                                            <label class="form-check-label" for="chkRE">
-                                                Renta de equipo
-                                            </label>
+                                            <asp:Label ID="lblRE" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblRentaEquipo %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -299,17 +281,15 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkRntaCajas">
-                                                <label class="form-check-label" for="chkRntaCajas">
-                                                    Cajas
-                                                </label>
+                                                <asp:Label ID="lblCajas" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCajas %>"></asp:Label>
+                                                
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkRentaSD">
-                                                <label class="form-check-label" for="chkRentaSD">
-                                                    Servicio dedicado
-                                                </label>
+                                                 <asp:Label ID="lblSD" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblServicioDedicado %>"></asp:Label>
+                                                
                                             </div>
                                         </li>
                                     </ul>
@@ -321,9 +301,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkTransportacion">
-                                            <label class="form-check-label" for="chkTransportacion">
-                                                Transportación
-                                            </label>
+                                               <asp:Label ID="lblTransport" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblTransportacion %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -332,9 +311,8 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkTransportCS">
-                                                <label class="form-check-label" for="chkTransportCS">
-                                                    Carga seca
-                                                </label>
+                                                 <asp:Label ID="lblCSTransport" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCargaSeca %>"></asp:Label>
+                                               
                                             </div>
                                         </li>
                                         <li>
@@ -348,26 +326,23 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="chkMPTransport">
-                                                <label class="form-check-label" for="chkMPTransport">
-                                                    Material peligroso
-                                                </label>
+                                                <asp:Label ID="lblMPTransport" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblMaterialPeligroso %>"></asp:Label>
+
                                             </div>
                                             <div>
                                                 <ul style="list-style: none; display: none;" id="MPTransport">
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPQuimicosTransport">
-                                                            <label class="form-check-label" for="chkMPQuimicosTransport">
-                                                                Quimicos
-                                                            </label>
+                                                             <asp:Label ID="lblQuimicosTransport" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblQuimicos %>"></asp:Label>
+
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" id="chkMPCarbonTransport">
-                                                            <label class="form-check-label" for="chkMPCarbonTransport">
-                                                                Carbon
-                                                            </label>
+                                                                <asp:Label ID="lblCarbonTransport" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblCarbon %>"></asp:Label>
+                                                            
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -383,9 +358,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkAgnciaAduanalMexicana">
-                                            <label class="form-check-label" for="chkAgnciaAduanalMexicana">
-                                                Agencia aduanal mexicana
-                                            </label>
+                                             <asp:Label ID="lblAAMex" CssClass="form-check-label" runat="server" Text="<%$Resources:AgentesAduanales, lblAgenteMexicano %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -396,9 +370,8 @@
                                     <div class="col">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="chkLogistica">
-                                            <label class="form-check-label" for="chkLogistica">
-                                                Logistica
-                                            </label>
+                                             <asp:Label ID="lblLogistica" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblLogistica %>"></asp:Label>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -407,14 +380,14 @@
                                 <div class="row">
                                     <div class="col">
                                         <input class="form-check-input" type="checkbox" value="" id="chkOtro">
-                                        <label class="form-check-label" for="chkOtro">
-                                            Otro
-                                        </label>
+                                          <asp:Label ID="lblOtro" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblOtro %>"></asp:Label>
+
                                     </div>
 
                                 </div>
                                 <div class="row " id="textoOtro" style="padding-left: 40px; display: none;">
-                                    <label class="form-check-label" for="chkOtro">¿Cúal?</label>
+                                 <asp:Label ID="lblPregunta" CssClass="form-check-label" runat="server" Text="<%$Resources:Servicios, lblPregunta %>"></asp:Label>
+
                                     <div class="col-3">
                                         <input type="text" name="txtOtro" id="txtOtro" value="" class="form-control" />
                                     </div>
@@ -431,15 +404,18 @@
             <div class="col">
                 <span id="error"></span>
                 <fieldset>
-                    <legend style="font-size: 20px;">Información de productos</legend>
+                    <legend style="font-size: 20px;">
+                        <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Servicios,lblInfoProd %>"></asp:Literal></legend>
                     <div class="card">
                         <div class="table-responsive">
                             <table class="table table-hover" id="tProductos">
                                 <thead class="cabezal">
                                     <tr>
                                         <th>#</th>
-                                        <th>Descripción de mercancia</th>
-                                        <th>Comentarios</th>
+                                        <th>
+                                            <asp:Literal ID="Literal3" Text="<%$Resources:Servicios, lblDescripcion %>" runat="server"></asp:Literal></th>
+                                        <th>
+                                            <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:Servicios, lblComentarios %>"></asp:Literal></th>
                                         <th></th>
                                     </tr>
                                 </thead>

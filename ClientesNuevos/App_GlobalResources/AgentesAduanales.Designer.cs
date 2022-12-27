@@ -187,6 +187,24 @@ namespace ClientesNuevos.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a *This field is required.
+        /// </summary>
+        public static string lblErrorNombreC {
+            get {
+                return ResourceManager.GetString("lblErrorNombreC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a *This field is required.
+        /// </summary>
+        public static string lblErrorPuesto {
+            get {
+                return ResourceManager.GetString("lblErrorPuesto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
         public static string lblEstado {

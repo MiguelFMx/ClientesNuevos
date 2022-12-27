@@ -117,94 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblAcciones" xml:space="preserve">
-    <value>Acciones</value>
+  <data name="lblCertificado" xml:space="preserve">
+    <value>Certificado</value>
   </data>
-  <data name="lblAgenteMexicano" xml:space="preserve">
-    <value>Agente aduanal mexicano</value>
+  <data name="lblCertificadoNoVal" xml:space="preserve">
+    <value>Certificado no validado</value>
   </data>
-  <data name="lblAgenteUSA" xml:space="preserve">
-    <value>Agente aduanal americano</value>
+  <data name="lblCertificadoValidado" xml:space="preserve">
+    <value>Certificado validado</value>
   </data>
-  <data name="lblCelular" xml:space="preserve">
-    <value>Celular</value>
+  <data name="lblCodigo" xml:space="preserve">
+    <value>Código de certificacion</value>
   </data>
-  <data name="lblCiudad" xml:space="preserve">
-    <value>Ciudad</value>
+  <data name="lblDescripcion" xml:space="preserve">
+    <value>Nombre del programa de seguridad</value>
   </data>
-  <data name="lblContacto" xml:space="preserve">
-    <value>Contacto</value>
+  <data name="lblEditar" xml:space="preserve">
+    <value>Editar</value>
   </data>
-  <data name="lblCorreo" xml:space="preserve">
-    <value>Correo</value>
+  <data name="lblEliminar" xml:space="preserve">
+    <value>Eliminar</value>
   </data>
-  <data name="lblCP" xml:space="preserve">
-    <value>Código postal</value>
+  <data name="lblErrorDesc" xml:space="preserve">
+    <value>*Este campo es requerido</value>
   </data>
-  <data name="lblDesc1" xml:space="preserve">
-    <value>Informacion de la compañia</value>
+  <data name="lblErrorOpcion" xml:space="preserve">
+    <value>*Seleccione una opción</value>
   </data>
-  <data name="lblDesc2" xml:space="preserve">
-    <value>Agentes aduanales</value>
+  <data name="lblFecha" xml:space="preserve">
+    <value>Fecha de validación</value>
   </data>
-  <data name="lblDesc3" xml:space="preserve">
-    <value>Informacion de compañia filial</value>
+  <data name="lblNinguno" xml:space="preserve">
+    <value>Ninguno</value>
   </data>
-  <data name="lblDesc4" xml:space="preserve">
-    <value>Tipo de servicio requerido</value>
+  <data name="lblNodata" xml:space="preserve">
+    <value>No hay registros</value>
   </data>
-  <data name="lblDesc5" xml:space="preserve">
-    <value>Acreditación en programa de seguridad</value>
+  <data name="lblPregunta" xml:space="preserve">
+    <value>¿Cuenta con certificación en otros programas de seguridad equivalente a C-TPAT/WCO?</value>
   </data>
-  <data name="lblDireccion" xml:space="preserve">
-    <value>Dirección</value>
+  <data name="lblPrograma" xml:space="preserve">
+    <value>Programa de seguridad</value>
   </data>
-  <data name="lblErrorNombreC" xml:space="preserve">
-    <value>*This field is required</value>
-  </data>
-  <data name="lblErrorPuesto" xml:space="preserve">
-    <value>*This field is required</value>
-  </data>
-  <data name="lblEstado" xml:space="preserve">
-    <value>Estado</value>
-  </data>
-  <data name="lblFra" xml:space="preserve">
-    <value>Facturación</value>
-  </data>
-  <data name="lblInfo" xml:space="preserve">
-    <value>Información</value>
-  </data>
-  <data name="lblNombreC" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="lblNombreComercial" xml:space="preserve">
-    <value>Nombre comercial</value>
-  </data>
-  <data name="lblNombreCompania" xml:space="preserve">
-    <value>Nombre de la compañia</value>
-  </data>
-  <data name="lblNoPatente" xml:space="preserve">
-    <value>Numero de patente</value>
-  </data>
-  <data name="lblPaso1" xml:space="preserve">
-    <value>Paso 1</value>
-  </data>
-  <data name="lblPaso2" xml:space="preserve">
-    <value>Paso 2</value>
-  </data>
-  <data name="lblPaso3" xml:space="preserve">
-    <value>Paso 3</value>
-  </data>
-  <data name="lblPaso4" xml:space="preserve">
-    <value>Paso 4</value>
-  </data>
-  <data name="lblPaso5" xml:space="preserve">
-    <value>Paso 5</value>
-  </data>
-  <data name="lblPuestoC" xml:space="preserve">
-    <value>Puesto</value>
-  </data>
-  <data name="lblTelefono" xml:space="preserve">
-    <value>Teléfono</value>
+  <data name="lblSI" xml:space="preserve">
+    <value>Si</value>
   </data>
 </root>

@@ -124,12 +124,12 @@ namespace ClientesNuevos.F14.Seccioness
             if(ddPaisComFilial.SelectedItem.Value == "231")
             {
                 lblRFC.Text = "W9:";
-                lblCP.InnerText = "Zip code:";
+                lblCPComFilial.Text = "Zip code:";
             }
             else
             {
                 lblRFC.Text = "RFC:";
-                lblCP.InnerText = "CP:";
+                lblCPComFilial.Text = "CP:";
             }
             llenarCB(ddEstadoComFilial, "estado", index);
         }

@@ -22,42 +22,42 @@
                     <li>
                         <asp:HyperLink ID="step1" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx" CssClass="done">
                             <asp:Label ID="lblstep1" runat="server" Text="1" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc1" runat="server" Text="Paso 1"></asp:Label>
+                            <asp:Label ID="lblDesc1" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso1 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub1" runat="server" Text="Información de la compañia" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc1 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step2" runat="server" CssClass="done" NavigateUrl="~/F14/Secciones/AgentesAduanales.aspx">
                             <asp:Label ID="lblstep2" runat="server" Text="2" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc2" runat="server" Text="Paso 2"></asp:Label>
+                            <asp:Label ID="lblDesc2" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso2 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub2" runat="server" Text="Información de agentes aduanales" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub2" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc2 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step3" runat="server" NavigateUrl="~/F14/Secciones/CompaniaFilial.aspx" CssClass="done">
                             <asp:Label ID="lblstep3" runat="server" Text="3" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc3" runat="server" Text="Paso 3"></asp:Label>
+                            <asp:Label ID="lblDesc3" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso3 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub3" runat="server" Text="Informacion de compañia filial" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub3" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc3 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step4" runat="server" NavigateUrl="~/F14/Secciones/TipoServicioProductos.aspx" CssClass="done">
                             <asp:Label ID="lblstep4" runat="server" Text="4" CssClass="step_no"></asp:Label>
 
-                            <asp:Label ID="lblDesc4" runat="server" Text="Paso 4"></asp:Label>
+                            <asp:Label ID="lblDesc4" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso4 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub4" runat="server" Text="Tipo de servicio requerido" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub4" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc4 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                     <li>
                         <asp:HyperLink ID="step5" runat="server" NavigateUrl="#" CssClass="selected">
                             <asp:Label ID="lblstep5" runat="server" Text="5" CssClass="step_no"></asp:Label>
-                            <asp:Label ID="lblDesc5" runat="server" Text="Paso 5"></asp:Label>
+                            <asp:Label ID="lblDesc5" runat="server" Text="<%$Resources:AgentesAduanales, lblPaso5 %>"></asp:Label>
                             <br />
-                            <asp:Label ID="lblsub5" runat="server" Text="Acreditación en programa de seguridad" Font-Size="Smaller"></asp:Label>
+                            <asp:Label ID="lblsub5" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc5 %>" Font-Size="Smaller"></asp:Label>
                         </asp:HyperLink>
                     </li>
                 </ul>
@@ -92,7 +92,8 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header cabezal">
-                        <span>Información de cadena de suministro</span>
+                        <span>
+                            <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc5 %>"></asp:Literal></span>
                     </div>
                     <div class="card-body">
 
@@ -103,15 +104,15 @@
                                         <label for="ddstatus" class="form-label">C-TPAT status:</label>
 
                                         <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddstatus_SelectedIndexChanged">
-                                            <asp:ListItem Value="0">Ninguno</asp:ListItem>
-                                            <asp:ListItem Value="1">Certificado no validado</asp:ListItem>
-                                            <asp:ListItem Value="2">Certificado validado</asp:ListItem>
+                                            <asp:ListItem Value="0" Text="<%$Resources:Certificacion, lblNinguno %>"></asp:ListItem>
+                                            <asp:ListItem Value="1" Text="<%$Resources:Certificacion, lblCertificadoNoVal %>"></asp:ListItem>
+                                            <asp:ListItem Value="2" Text="<%$Resources:Certificacion, lblCertificadoValidado %>"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="row" id="divFecha" runat="server" >
                                     <div class="col-4">
-                                        <label for="txtCTPATCuenta">Numero de cuenta:</label>
+                                        <label for="txtCTPATCuenta">C-TPAT SVI</label>
                                         <%--<input type="text" name="txtCTPATSVI" value="" id="txtCTPATSVI" class="form-control" />--%>
                                         <asp:TextBox ID="txtCTPATCuenta" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:Label ID="lblcuentaVal" Visible="false" runat="server" CssClass="text-danger" Text="*Llene este campo"></asp:Label>
@@ -128,19 +129,17 @@
                         <div class="row">
                             <div class="col">
                                 <asp:HiddenField ID="hfOpcion" runat="server" />
-                                <label>
-                                    ¿Cuenta con certificación en otros programas de seguridad equivalente a C-TPAT/WCO?
-                                </label>
+                                <asp:Label ID="lblPregunta" runat="server" Text="<%$Resources:Certificacion, lblPregunta %>"></asp:Label>>
                                 <br />
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="radCertificado" value="si" id="radCertificadoSi" class="form-check-input" runat="server" />
-                                    <label for="radCertificadoSi">Si</label>
+                                    <asp:Label ID="lblSI" runat="server" Text="<%$Resources:Certificacion, lblSI %>"></asp:Label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="radCertificado" value="no" id="radCertificadoNo" class="form-check-input" runat="server" />
                                     <label for="radCertificadoNo">No</label>
                                 </div>
-                                <asp:Label Text="*Seleccione una opcion" ID="lblOpciones" ForeColor="Red" Visible="false" runat="server" />
+                                <asp:Label Text="<%$Resources:Certificacion, lblErrorOpcion %>" ID="lblOpciones" ForeColor="Red" Visible="false" runat="server" />
                             </div>
                         </div>
                         <div class="row">
@@ -159,9 +158,9 @@
                                 <div class="col-md">
                                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                         <ContentTemplate>
-                                            <asp:Label ID="lblDescripcion" runat="server" Text="Nombre del programa de seguridad:" CssClass="form-label"></asp:Label>
+                                            <asp:Label ID="lblDescripcion" runat="server" Text="<%$Resources:Certificacion,lblDescripcion %>" CssClass="form-label"></asp:Label>
                                             <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Llene este campo" ControlToValidate="txtDescripcion" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="<%$Resources:Certificacion, lblErrorDesc %>" ControlToValidate="txtDescripcion" ValidationGroup="documento"></asp:RequiredFieldValidator>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
 
@@ -169,9 +168,9 @@
                                 <div class="col-md">
                                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                         <ContentTemplate>
-                                            <asp:Label ID="lblCodigo" runat="server" Text="Codigo:" CssClass="form-label"></asp:Label>
+                                            <asp:Label ID="lblCodigo" runat="server" Text="<%$Resources:Certificacion, lblCodigo %>" CssClass="form-label"></asp:Label>
                                             <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*LLene este campo" ControlToValidate="txtCodigo" ValidationGroup="documento"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="<%$Resources:Certificacion,lblErrorDesc %>" ControlToValidate="txtCodigo" ValidationGroup="documento"></asp:RequiredFieldValidator>
                                         
                                     <asp:HiddenField ID="hfID" runat="server" />
                                     <asp:HiddenField ID="hfRuta" runat="server" />
@@ -183,7 +182,7 @@
                                 <div class="col-md">
                                     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                         <ContentTemplate>
-                                    <asp:Label ID="lblCertificado" runat="server" Text="Certificado:" CssClass="form-label"></asp:Label>
+                                    <asp:Label ID="lblCertificado" runat="server" Text="<%$Resources:Certificacion,lblCertificado %>" CssClass="form-label"></asp:Label>
                                     <asp:FileUpload ID="fileCertificado" runat="server" CssClass="form-control" accept="application/pdf"/>
                                              </ContentTemplate>
                                         <Triggers>
@@ -228,29 +227,29 @@
                                                                 <HeaderStyle CssClass="hiddencol" />
                                                                 <ItemStyle CssClass="hiddencol" />
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="Descripcion" HeaderText="Programa de seguridad" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
+                                                            <asp:BoundField DataField="Descripcion" HeaderText="<%$Resources:Certificacion, lblPrograma %>" SortExpression="Descripcion" HeaderStyle-CssClass="cabezal">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="codigo_certificacion" HeaderText="Codigo de certificaci&#243;n" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
+                                                            <asp:BoundField DataField="codigo_certificacion" HeaderText="<%$Resources:Certificacion, lblCodigo %>" SortExpression="codigo_certificacion" HeaderStyle-CssClass="cabezal">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                             </asp:BoundField>
                                                             <asp:BoundField DataField="ruta" HeaderText="url">
                                                                 <HeaderStyle CssClass="hiddencol"></HeaderStyle>
                                                                 <ItemStyle CssClass="hiddencol"></ItemStyle>
                                                             </asp:BoundField>
-                                                            <asp:TemplateField HeaderText="Certificado">
+                                                            <asp:TemplateField HeaderText="<%$Resources:Certificacion, lblCertificado %>">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="btnVer" runat="server" OnClick="btnVer_Click1">Ver</asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Editar" HeaderStyle-CssClass="cabezal">
+                                                            <asp:TemplateField HeaderText="<%$Resources:Certificacion, lblEditar %>" HeaderStyle-CssClass="cabezal">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="btnEdit" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="bi bi-pencil-square"></i></asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Elimar" HeaderStyle-CssClass="cabezal" InsertVisible="False">
+                                                            <asp:TemplateField HeaderText="<%$Resources:Certificacion, lblEliminar %>" HeaderStyle-CssClass="cabezal" InsertVisible="False">
                                                                 <HeaderStyle BackColor="#0169C2" ForeColor="White"></HeaderStyle>
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-danger"><i class="bi bi-trash"></i></asp:LinkButton>
@@ -260,7 +259,7 @@
                                                         <PagerSettings Mode="NumericFirstLast" PageButtonCount="3" />
                                                         <EmptyDataTemplate>
                                                             <div class="d-flex justify-content-center">
-                                                                No hay registros
+                                                                <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Certificacion, lblNodata %>"></asp:Literal>
                                                             </div>
                                                         </EmptyDataTemplate>
                                                     </asp:GridView>
