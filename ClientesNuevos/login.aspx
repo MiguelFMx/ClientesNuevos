@@ -45,14 +45,6 @@
                     </div>
                 </asp:Panel>
 
-
-                <%--<div class="row justify-content-center">
-                    <div class="col-md-6 text-center mb-5">
-                        <h3 class="heading-section">
-                            <asp:Label Text="Bienvenido a Hungaro's Transportistas" runat="server" ID="lblHeading" />
-                        </h3>
-                    </div>
-                </div>--%>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-12 col-lg-10">
                         <div class="wrap d-md-flex">
@@ -77,7 +69,7 @@
                                     <asp:Label ID="lblPass" runat="server" Text="Password" CssClass="form-label"></asp:Label>
                                     <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control" placeholder="password"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPass" ErrorMessage="*Este campo es requerido" ForeColor="Red" ValidationGroup="Login1" ToolTip="La contrase&#241;a es obligatoria." ID="PasswordRequired"></asp:RequiredFieldValidator>
-
+                                    <br />
 
                                     <asp:Label ID="lbltest" runat="server" Text="" ForeColor="#ff0000"></asp:Label>
                                 </div>

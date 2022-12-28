@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -309,6 +310,48 @@ namespace ClientesNuevos.admin.consulta
         }
 
 
+        [WebMethod]
+        public string RegistrarContacto(string RFC, string nombre, string puesto, string mail, string tipo, string tel, string ext, string cel)
+        {
+            string resultado;
+            string sqlStr = "Master_TablaContacto";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
 
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", RFC);
+                cmd.Parameters.AddWithValue("@Nombre", nombre);
+                cmd.Parameters.AddWithValue("@Puesto", puesto);
+                cmd.Parameters.AddWithValue("@Telefono", tel);
+                cmd.Parameters.AddWithValue("@Extension", ext);
+                cmd.Parameters.AddWithValue("@Tipo", tipo);
+                cmd.Parameters.AddWithValue("@Celular", cel);
+                cmd.Parameters.AddWithValue("@Correo", mail);
+                cmd.Parameters.AddWithValue("@accion", "insert");
+
+
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+
+
+                cmd.ExecuteNonQuery();
+                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
+
+                resultado = " " + res;
+            }
+            catch (SqlException e)
+            {
+                resultado = e.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return "";
+        }
     }
 }

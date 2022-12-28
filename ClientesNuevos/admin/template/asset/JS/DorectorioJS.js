@@ -4,13 +4,6 @@
 NProgress.start();
 
 $(document).ready(function () {
-
-    
-
-   
-
-    
-
     const CorreoIndividual = document.getElementById('CorreoIndividual')
     CorreoIndividual.addEventListener('show.bs.modal', event => {
         // Button that triggered the modal
@@ -100,7 +93,7 @@ $(document).ready(function () {
             }
         });
 
-        if (asunto != '' && cuerpo != '' && mail.length > 0) {
+        if (asunto != '' && cuerpo != '' && mail.length > 1) {
                 swal.fire({
                 showConfirmButton: false,
                 title: 'Enviando correo',
@@ -155,6 +148,26 @@ $(document).ready(function () {
            
     });
 
+
+    $('#btnRegistrarC').click(function () {
+        let rfc = $('#MainContent_ddSocios option:selected').val();
+        var nombre = $('#MainContent_txtNombreC').val();
+        var puesto = $('#MainContent_txtPuestoC').val();
+        var mail = $('#MainContent_txtCorreoC').val();
+        var tel = $('#MainContent_txtTelC').val();
+        var cel = $('#MainContent_txtCelC').val();
+        var ext = $('#MainContent_txtExt').val();
+        var tipo = '';
+        if ($('#MainContent_chFactura').is(':checked')) {
+            tipo = 'Fra'
+        } else {
+            tipo='Comp'
+        }
+
+
+    });
+
+
     ObtenerContacto();
 
     CargarDirectorio();
@@ -200,7 +213,11 @@ function ObtenerContacto() {
                     "<td>" + lstTabla[i].Extension + "</td>" +
                     "<td>" + lstTabla[i].Celular + "</td>" +
                     "<td>" + tipo +"</td>" +
-                    "<td><button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#CorreoIndividual' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre+"'><i class='bi bi-envelope'></i></button></td>" +
+                    "<td>" +
+                    "<button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm me-1' data-bs-toggle='modal' data-bs-target='#CorreoIndividual' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre + "'><i class='bi bi-envelope'></i></button>" +
+                    "<button id='btnEdit' type='button' name='Editar' class='btn btn-warning btn-sm text-white'><i class='bi bi-pencil-square'></i></button>" +
+
+                    "</td>" +
                     "</tr>"
                     );
                 }
@@ -252,21 +269,6 @@ function CargarDirectorio() {
                     "</tr>"
                 )
                 }
-                //directorio.append(
-                //    "<div class='row'>" +
-                //    "<div class='col'>" +
-                //    "<div class='form-check'>" +
-                //    "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault' name='check'>" +
-                //    "<label class='form-check-label' for='flexCheckDefault'>" +
-                //    "<span><label name='contacto'>" + lstTabla[i].Nombre + "</label> (" + lstTabla[i].Puesto + ")<br>" +
-                //    "<small><label name='correo'>" + lstTabla[i].Correo + "</label></small><br>" +
-                //    "<small>" + tipo + "</small>" +
-                //    "</span>" +
-                //    "</label>" +
-                //    "</div>" +
-                //    "</div>" +
-                //    "</div> <hr>"
-                //);
             }
         }
     });

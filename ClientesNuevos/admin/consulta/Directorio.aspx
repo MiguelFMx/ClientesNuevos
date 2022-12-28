@@ -16,30 +16,42 @@
                         <table id="tDirectorio" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Socio de negocios</th>
-                                    <th>Nombre y puesto</th>
+                                    <th>Nombre comercial
+                                        <br />
+                                        <small class="text-secondary">RFC</small></th>
+                                    <th>Nombre
+                                        <br />
+                                        <small class="text-secondary">Puesto</small>
+                                    </th>
                                     <th>Correo</th>
                                     <th>Telefono</th>
                                     <th>Ext</th>
                                     <th>Celular</th>
                                     <th>Tipo</th>
-                                    <th>Accion</th>
+                                    <th width="10%">Accion</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#MailModal">
+                <div class="card-footer d-flex justify-content-end">
+                    <button type="button" class="btn btn-secondary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#MailModal">
                         nuevo correo
                     </button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ResgitrarContacto">
+                        registrar contacto
+                    </button>
+
                 </div>
             </div>
         </div>
-</div>
+    </div>
+
+
     <!-- Modal -->
-    <div class="modal fade" id="CorreoIndividual" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+    <div class="modal fade" id="CorreoIndividual"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -128,7 +140,70 @@
         </div>
     </div>
 
-    
+    <!-- modal registro -->
+    <div class="modal fade" id="ResgitrarContacto" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="RegistrolLabel">Nuevo contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <asp:Label ID="lblSocios" runat="server" Text="Cliente/Proveedor" CssClass="form-label"></asp:Label>
+                            <asp:DropDownList ID="ddSocios" runat="server" CssClass="form-select form-select-sm">
+                                <asp:ListItem Text="..." />
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm">
+                            <asp:Label ID="Label4" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
+                            <asp:TextBox ID="txtNombreC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                        </div>
+                        <div class="col-sm">
+                            <asp:Label ID="Label5" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC %>"></asp:Label>
+                            <asp:TextBox ID="txtPuestoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <asp:Label ID="Label6" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>" CssClass="form-label"></asp:Label>
+                            <asp:TextBox ID="txtCorreoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="form-check">
+                                <asp:CheckBox ID="chFactura" runat="server" CssClass="form-check" Text="<%$Resources:InformacionCompania,lblCheckbox %>" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4">
+                            <asp:Label ID="Label8" runat="server" Text="<%$Resources:AgentesAduanales, lblTelefono %>" CssClass="form-label"></asp:Label>
+                            <asp:TextBox ID="txtTelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:Label ID="Label9" runat="server" Text="Extension"></asp:Label>
+                            <asp:TextBox ID="txtExt" runat="server" TextMode="Phone" CssClass="form-control form-control-sm"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:Label ID="Label10" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
+                            <asp:TextBox  ID="txtCelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
+                        </div>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btnRegistrarC">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
