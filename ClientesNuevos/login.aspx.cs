@@ -43,7 +43,7 @@ namespace ClientesNuevos
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             List<wsLogin.Usuario> lstuser = new List<wsLogin.Usuario>();
-            string usuario = txtUser.Text;
+            string usuario = txtUser.Text.ToUpper();
             string password = txtPass.Text;
             string ID = "", Rol = "", Empresa = "", subdom="";
             bool persistente = false;

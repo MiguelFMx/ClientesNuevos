@@ -135,6 +135,7 @@
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../template/vendors/nprogress/nprogress.js"></script>
+    <script src="../template/asset/JS/TemplateJS.js"></script>
     <script src="../../Scripts/sweetalert2.all.min.js"></script>
     <script src="../template/asset/JS/DorectorioJS.js"></script>
 </asp:Content>
