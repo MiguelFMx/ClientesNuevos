@@ -53,7 +53,7 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <title><%: Page.Title %> Hungaro's</title>
+    <title><%: Page.Title %> </title>
 
 </head>
 <body>

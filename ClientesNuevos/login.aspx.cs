@@ -109,7 +109,7 @@ namespace ClientesNuevos
                                     lblPass.Text = "Usuario sin rol asignado";
                                     break;
                             }
-                        }
+                        }                        
                         else
                         {
                             //El usuario existe pero no tiene un rol asignado en el dominio
