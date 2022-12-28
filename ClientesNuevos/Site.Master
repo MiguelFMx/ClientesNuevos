@@ -81,7 +81,7 @@
                                     <hr class="dropdown-divider" />
                                 </li>
                                 <li>
-                                    <asp:HyperLink ID="hlConfig" runat="server" CssClass="dropdown-item" NavigateUrl="~/usuario/user_config.aspx" ForeColor="Black">Configuracion</asp:HyperLink>
+                                    <asp:HyperLink ID="hlConfig" runat="server" CssClass="dropdown-item" NavigateUrl="~/usuario/user_config.aspx" ForeColor="Black" Text="<%$Resources:Certificacion, lblConfig %>"></asp:HyperLink>
 
                                 </li>
                             </ul>

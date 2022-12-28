@@ -58,6 +58,7 @@ namespace ClientesNuevos.App_Code
                 //Guardo la ruta completa para ser alamacenada en la base de datos
                 string ruta = fname.ToString();
 
+                
                 strRsultado = clsF14.Insertar_Documento(IDcompania,Descripcion, ruta, "revision");
                 
             }

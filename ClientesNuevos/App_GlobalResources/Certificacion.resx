@@ -129,6 +129,9 @@
   <data name="lblCodigo" xml:space="preserve">
     <value>Código de certificacion</value>
   </data>
+  <data name="lblConfig" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
   <data name="lblDescripcion" xml:space="preserve">
     <value>Nombre del programa de seguridad</value>
   </data>

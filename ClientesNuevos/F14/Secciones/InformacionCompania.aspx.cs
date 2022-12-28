@@ -360,7 +360,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void LlenarEstado(DropDownList dropDown, int id)
             {
-                lstPais = new List<wsUbicacion.ListaPais>();
+            lstPais = new List<wsUbicacion.ListaPais>();
                 lstPais = wsUbicacion.llenarCbEstados(id);
 
                 for (int i = 0; i < lstPais.Count; i++)
@@ -373,6 +373,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void LlenarCiudad(DropDownList dropDownList, int id)
         {
+            
             lstPais = new List<wsUbicacion.ListaPais>();
 
             lstPais = wsUbicacion.llenarCbCiudades(id);
@@ -415,13 +416,17 @@ namespace ClientesNuevos.F14.Seccioness
                ddTipoDePersona.Enabled = false;
                 ddTipoDePersona.Items.FindByValue(id).Selected = false;
                 ddTipoDePersona.Items.FindByValue("2").Selected = true;
-                lblRFC.Text = "W9:";
-                lblCP.Text = "Zip code:";
+                lblRFC.Text = "W9/Tax ID";
+                lblCP.Text = "Zip code";
                 pDatosBancarios.Enabled = false;
                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
                 txtCURP.Enabled = false;
+                Response.Cookies.Add(new HttpCookie("tipo", "extranjero"));
 
-               RequiredFieldValidator7.Enabled = false;
+                
+
+
+                RequiredFieldValidator7.Enabled = false;
                 RequiredFieldValidator8.Enabled = false;
                 RequiredFieldValidator9.Enabled = false;
                 RequiredFieldValidator10.Enabled = false;   
@@ -432,7 +437,12 @@ namespace ClientesNuevos.F14.Seccioness
                 pDatosBancarios.BackColor = System.Drawing.Color.White;
 
                 ddTipoDePersona.Enabled = true;
-                lblCP.Text = "CP:";
+                ddTipoDePersona.Items.FindByValue(id).Selected = false;
+                ddTipoDePersona.Items.FindByValue("0").Selected = true;
+                Response.Cookies.Add(new HttpCookie("tipo", "moral"));
+
+
+                lblCP.Text = "CP";
                 lblRFC.Text = "RFC";
                 RequiredFieldValidator7.Enabled = true;
                 RequiredFieldValidator8.Enabled = true;
@@ -487,19 +497,53 @@ namespace ClientesNuevos.F14.Seccioness
         protected void ddTipoDePersona_SelectedIndexChanged(object sender, EventArgs e)
             {
                 int regimen = Convert.ToInt32(ddTipoDePersona.SelectedValue);
+            string id = ddPais.SelectedItem.Value;
+            ddEstado.Items.Clear();
+            ddEstado.Items.Add(new ListItem("..."));
+            ddCiudad.Items.Clear();
+            ddCiudad.Items.Add(new ListItem("..."));
 
-                if (regimen == 2)
+            if (regimen == 2)
                 {
                    // Context.Response.Write("<script language=javascript>alert('Opción invalida');</script>");
-                    Response.Cookies.Add(new HttpCookie("tipo", "extranjero"));
-               
+                   
+                lblRFC.Text = "W9/Tax ID";
+                lblCP.Text = "Zip code";
+                pDatosBancarios.Enabled = false;
+                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                txtCURP.Enabled = false;
+                Response.Cookies.Add(new HttpCookie("tipo", "extranjero"));
+
+                ddPais.Items.FindByValue(id).Selected = false;
+                ddPais.Items.FindByValue("231").Selected = true;
+                LlenarEstado(ddEstado, 231);
+
+                RequiredFieldValidator7.Enabled = false;
+                RequiredFieldValidator8.Enabled = false;
+                RequiredFieldValidator9.Enabled = false;
+                RequiredFieldValidator10.Enabled = false;
+
+
+
 
             }
             else
                 {
-                    if (regimen == 0)
+                pDatosBancarios.Enabled = true;
+                pDatosBancarios.BackColor = System.Drawing.Color.White;
+
+                lblCP.Text = "CP";
+                lblRFC.Text = "RFC";
+                RequiredFieldValidator7.Enabled = true;
+                RequiredFieldValidator8.Enabled = true;
+                RequiredFieldValidator9.Enabled = true;
+                RequiredFieldValidator10.Enabled = true;
+                ddPais.Items.FindByValue(id).Selected = false;
+                ddPais.Items.FindByValue("142").Selected = true;
+                LlenarEstado(ddEstado, 142);
+                if (regimen == 0)
                     {
-                        txtCURP.Enabled = false;
+                    txtCURP.Enabled = false;
                         Response.Cookies.Add(new HttpCookie("tipo", "moral"));
 
                 }

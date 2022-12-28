@@ -118,19 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblCertificado" xml:space="preserve">
-    <value>Certified</value>
+    <value>Certificate</value>
   </data>
   <data name="lblCertificadoNoVal" xml:space="preserve">
-    <value>Certified no validated</value>
+    <value>No validated</value>
   </data>
   <data name="lblCertificadoValidado" xml:space="preserve">
-    <value>Certificado validado</value>
+    <value>Validated</value>
   </data>
   <data name="lblCodigo" xml:space="preserve">
-    <value>Código de certificacion</value>
+    <value>Certificate number</value>
+  </data>
+  <data name="lblConfig" xml:space="preserve">
+    <value>Configuration</value>
   </data>
   <data name="lblDescripcion" xml:space="preserve">
-    <value>Nombre del programa de seguridad</value>
+    <value>Security program</value>
   </data>
   <data name="lblEditar" xml:space="preserve">
     <value>Edit</value>
@@ -148,16 +151,16 @@
     <value>Validation date</value>
   </data>
   <data name="lblNinguno" xml:space="preserve">
-    <value>Ninguno</value>
+    <value>None</value>
   </data>
   <data name="lblNodata" xml:space="preserve">
-    <value>No hay registros</value>
+    <value>No data</value>
   </data>
   <data name="lblPregunta" xml:space="preserve">
-    <value>¿Cuenta con certificación en otros programas de seguridad equivalente a C-TPAT/WCO?</value>
+    <value>Are you certified in a CT-PAT equivalent/WCO?</value>
   </data>
   <data name="lblPrograma" xml:space="preserve">
-    <value>Programa de seguridad</value>
+    <value>Security program</value>
   </data>
   <data name="lblSI" xml:space="preserve">
     <value>Yes</value>

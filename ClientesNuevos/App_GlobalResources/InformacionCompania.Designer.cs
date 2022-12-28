@@ -88,6 +88,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Agregar.
+        /// </summary>
+        internal static string lblbtnAddCF {
+            get {
+                return ResourceManager.GetString("lblbtnAddCF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anterior.
+        /// </summary>
+        internal static string lblBtnAtras {
+            get {
+                return ResourceManager.GetString("lblBtnAtras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Siguiente.
+        /// </summary>
+        internal static string lblBtnContinuar {
+            get {
+                return ResourceManager.GetString("lblBtnContinuar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar.
+        /// </summary>
+        internal static string lblBtnFinish {
+            get {
+                return ResourceManager.GetString("lblBtnFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Uso de CFDI.
         /// </summary>
         internal static string lblCFDI {
@@ -363,6 +399,15 @@ namespace Resources {
         internal static string lblRegimen {
             get {
                 return ResourceManager.GetString("lblRegimen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registrar.
+        /// </summary>
+        internal static string lblRegistrar {
+            get {
+                return ResourceManager.GetString("lblRegistrar", resourceCulture);
             }
         }
         

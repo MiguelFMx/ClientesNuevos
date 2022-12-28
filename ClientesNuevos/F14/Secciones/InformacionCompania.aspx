@@ -135,6 +135,7 @@
                                     <ContentTemplate>
                                         <asp:Label ID="lblTipoPersona" runat="server" Text="<%$Resources:InformacionCompania, lblRegimen %>" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddTipoDePersona" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddTipoDePersona_SelectedIndexChanged">
+                                    <asp:ListItem Text="..."  />                                    
                                     <asp:ListItem Text="<%$Resources:InformacionCompania, lblPersonaExtranjera %>" Value="2" />
                                     <asp:ListItem Text="<%$Resources:InformacionCompania, lblPersonaMoral %>" Value="0" />
                                     <asp:ListItem Text="<%$Resources: InformacionCompania, lblPersonaFisica %>" Value="1" />
@@ -217,13 +218,16 @@
                             <div class="col-sm">
                                 <asp:Label ID="lblEstado" runat="server" Text="<%$Resources:AgentesAduanales, lblEstado %>" CssClass="form-label"></asp:Label>
                                 <asp:DropDownList ID="ddEstado" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstado_SelectedIndexChanged">
-                                    <asp:ListItem Text="..." Value="0" Enabled="false" />
+                                    <asp:ListItem Text="..."  />
                                 </asp:DropDownList>
                             </div>
                             <div class="col-sm">
                                 <asp:Label ID="lblCiudad" runat="server" Text="<%$Resources:AgentesAduanales, lblCiudad %>" CssClass="form-label"></asp:Label>
 
-                                <asp:DropDownList ID="ddCiudad" runat="server" CssClass="form-select"></asp:DropDownList>
+                                <asp:DropDownList ID="ddCiudad" runat="server" CssClass="form-select">
+                                        <asp:ListItem Text="..." />
+
+                                </asp:DropDownList>
 
                                 <asp:Button ID="btnPrueba" runat="server" Text="prueba" OnClick="btnPrueba_Click" Visible="false" />
                                 <asp:Label ID="lblresultado" runat="server" Text="Label" Visible="false"></asp:Label>
@@ -587,7 +591,7 @@
                     <%--<asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />--%>
 
                     <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">
-                        <asp:Label ID="lbl_btnNext" runat="server" Text="Siguiente"></asp:Label><i class="bi bi-chevron-right"></i>
+                        <asp:Label ID="lbl_btnNext" runat="server" Text="<%$Resources:InformacionCompania,lblBtnContinuar %>"></asp:Label><i class="bi bi-chevron-right"></i>
                     </asp:LinkButton>
 
                 </asp:Panel>

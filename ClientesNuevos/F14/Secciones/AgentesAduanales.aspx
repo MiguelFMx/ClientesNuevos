@@ -276,7 +276,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="txtCorreoContAAm" class="form-label">Correo:</label>
                                         <asp:Label ID="lblCorreoAAm" CssClass="form-label" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>"></asp:Label>
                                         <asp:TextBox ID="txtCorreoContAAm" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                                     </div>
@@ -309,13 +308,14 @@
             <div class="col" style="display: flex; justify-content: flex-end;">
 
                 <asp:Panel ID="pUser" runat="server">
-                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> <asp:Literal ID="Literal6" runat="server" Text="<%$Resources:InformacionCompania,lblBtnAtras %>"></asp:Literal></asp:LinkButton>&nbsp;&nbsp;
                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
 
-                <asp:LinkButton ID="btnSiguiente" runat="server" CssClass="btn btn-primary" OnClick="btnSiguiente_Click">Siguiente<i class="bi bi-chevron-right"></i></asp:LinkButton>
+                <asp:LinkButton ID="btnSiguiente" runat="server" CssClass="btn btn-primary" OnClick="btnSiguiente_Click">
+                    <asp:Literal ID="Literal7" runat="server" Text="<%$Resources:InformacionCompania, lblBtnContinuar %>"></asp:Literal><i class="bi bi-chevron-right"></i></asp:LinkButton>
                     <!-- <button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button> -->
                     <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Continuar</button>--%>
                 </asp:Panel>

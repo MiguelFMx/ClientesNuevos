@@ -436,13 +436,13 @@
 
             <div class="col" style="display: flex; justify-content: flex-end">
                 <asp:Panel runat="server" ID="pUser">
-                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:InformacionCompania,lblBtnAtras %>"></asp:Literal></asp:LinkButton>
                 &nbsp;&nbsp;
                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-                <button id="btnContinuar" class="btn btn-primary" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
+                <button id="btnContinuar" class="btn btn-primary" type="button"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:InformacionCompania, lblBtnContinuar %>"></asp:Literal> <i class="bi bi-chevron-right"></i></button>
             
                 </asp:Panel>
                 

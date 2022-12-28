@@ -129,11 +129,15 @@
                                 </div>
                                 <div class="col-md-3">
                                     <asp:Label ID="lblEstado" runat="server" CssClass="form-label" Text="<%$Resources:AgentesAduanales, lblEstado %>"></asp:Label>
-                                    <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddEstadoComFilial" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoComFilial_SelectedIndexChanged">
+                                        
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
                                     <asp:Label ID="lblCiudad" runat="server" CssClass="form-label" Text="<%$Resources:AgentesAduanales,lblCiudad %>"></asp:Label>
-                                    <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddCiudadComFilial" runat="server" CssClass="form-select">
+
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
                                     <asp:Label ID="lblCPComFilial" runat="server" CssClass="form-label" Text="<%$Resources:InformacionCompania, lblCP %>"></asp:Label>
@@ -229,7 +233,7 @@
                                         </div>
                                     </div>
                                 </asp:Panel>
-                                <asp:Button ID="btnAddCF" runat="server" Text="Agregar" CssClass="btn btn-success" OnClick="btnAddCF_Click" />
+                                <asp:Button ID="btnAddCF" runat="server" Text="<%$Resources:InformacionCompania,lblbtnAddCF %>" CssClass="btn btn-success" OnClick="btnAddCF_Click" />
                                 <button type="button" name="btnAgregarComFilial" class=" btn btn-primary" id="btnAgregarComFilial" hidden>Registrar compañia</button>
                             </div>
                         </div>
@@ -289,14 +293,15 @@
         <div class="row">
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUsrControl" runat="server">
-                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click" CausesValidation="false"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning" ForeColor="White" OnClick="btnAnterior_Click" CausesValidation="false"><i class="bi bi-chevron-left"></i> <asp:Literal ID="Literal3" runat="server" Text="<%$Resources:InformacionCompania, lblBtnAtras %>"></asp:Literal></asp:LinkButton>&nbsp;&nbsp;
                 <button id="btnHomie" class="btn btn-secondary" type="button"><i class="bi bi-house-door"></i></button>
                     <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Guardar y salir" OnClick="btnHome_Click"
                         Visible="false"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-                <button id="btnContinuar" class="btn btn-primary" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>
+                <button id="btnContinuar" class="btn btn-primary" type="button">
+                    <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:InformacionCompania, lblBtnContinuar %>"></asp:Literal><i class="bi bi-chevron-right"></i></button>
                 </asp:Panel>
 
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">

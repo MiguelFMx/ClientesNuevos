@@ -101,7 +101,7 @@
                             <ContentTemplate>
                                 <div class="row">
                                     <div class="col-4">
-                                        <label for="ddstatus" class="form-label">C-TPAT status:</label>
+                                        <label for="ddstatus" class="form-label">C-TPAT status</label>
 
                                         <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddstatus_SelectedIndexChanged">
                                             <asp:ListItem Value="0" Text="<%$Resources:Certificacion, lblNinguno %>"></asp:ListItem>
@@ -118,7 +118,7 @@
                                         <asp:Label ID="lblcuentaVal" Visible="false" runat="server" CssClass="text-danger" Text="*Llene este campo"></asp:Label>
                                     </div>
                                     <div class="col-4">
-                                        <label for="dtFechaVal">Fecha de validacion:</label>
+                                        <asp:Label ID="Label1" CssClass="form-label" runat="server" Text="<%$Resources:Certificacion,lblFecha %>"></asp:Label>
                                         <asp:TextBox ID="dtFechaVal" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
                                         <asp:Label ID="lblfechaVal" Visible="false" runat="server" CssClass="text-danger" Text="*El año no puede ser menor del 2000"></asp:Label>
                                     </div>
@@ -129,7 +129,7 @@
                         <div class="row">
                             <div class="col">
                                 <asp:HiddenField ID="hfOpcion" runat="server" />
-                                <asp:Label ID="lblPregunta" runat="server" Text="<%$Resources:Certificacion, lblPregunta %>"></asp:Label>>
+                                <asp:Label ID="lblPregunta" runat="server" Text="<%$Resources:Certificacion, lblPregunta %>"></asp:Label>
                                 <br />
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="radCertificado" value="si" id="radCertificadoSi" class="form-check-input" runat="server" />
@@ -144,7 +144,8 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <asp:LinkButton ID="btnRgistrar" runat="server" CssClass="btn btn-success" OnClick="btnRgistrar_Click">guardar</asp:LinkButton>
+                                <asp:LinkButton ID="btnRgistrar" runat="server" CssClass="btn btn-success" OnClick="btnRgistrar_Click">
+                                    <asp:Literal ID="Literal3" runat="server" Text="<%$Resources:InformacionCompania,lblRegistrar  %>"></asp:Literal></asp:LinkButton>
                                 <asp:LinkButton ID="btnAdminSave" runat="server" Visible="false" OnClick="btnAdminSave_Click1"
                                     CssClass="btn btn-success">registrar</asp:LinkButton>
                             </div>
@@ -288,7 +289,7 @@
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUser" runat="server">
 
-                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> Anterior</asp:LinkButton>
+                    <asp:LinkButton ID="btnAnterior" runat="server" CssClass="btn btn-warning text-white" OnClick="btnAnterior_Click"><i class="bi bi-chevron-left"></i> <asp:Literal ID="Literal4" Text="<%$Resources:InformacionCompania, lblBtnAtras %>" runat="server"></asp:Literal></asp:LinkButton>
 
                     <button type="button" class="btn btn-secondary" id="btnHome" hidden
                         data-bs-toggle="tooltip"
@@ -305,7 +306,8 @@
 
                     <button id="btnContinuar" type="button" class="btn btn-success" hidden>Continuar <i class="bi bi-chevron-double-right"></i></button>
 
-                    <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">Finalizar<i class="bi bi-chevron-double-right"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnModal" runat="server" CssClass="btn btn-primary" OnClick="btnModal_Click">
+                        <asp:Literal ID="Literal5" Text="<%$Resources:InformacionCompania,lblBtnFinish %>" runat="server"></asp:Literal><i class="bi bi-chevron-double-right"></i></asp:LinkButton>
                     <button id="btnModalJS" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" hidden>Continuar<i class="bi bi-chevron-double-right"></i></button>
 
                 </asp:Panel>

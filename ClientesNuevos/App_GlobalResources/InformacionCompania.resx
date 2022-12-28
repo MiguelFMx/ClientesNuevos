@@ -126,6 +126,18 @@
   <data name="lblBotonRegistrar" xml:space="preserve">
     <value>Registrar contacto</value>
   </data>
+  <data name="lblbtnAddCF" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="lblBtnAtras" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="lblBtnContinuar" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="lblBtnFinish" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
   <data name="lblCFDI" xml:space="preserve">
     <value>Uso de CFDI</value>
   </data>
@@ -218,6 +230,9 @@
   </data>
   <data name="lblRegimen" xml:space="preserve">
     <value>Régimen fiscal</value>
+  </data>
+  <data name="lblRegistrar" xml:space="preserve">
+    <value>Registrar</value>
   </data>
   <data name="lblRFC" xml:space="preserve">
     <value>RFC</value>

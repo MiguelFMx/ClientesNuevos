@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Configuración.
+        /// </summary>
+        internal static string lblConfig {
+            get {
+                return ResourceManager.GetString("lblConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre del programa de seguridad.
         /// </summary>
         internal static string lblDescripcion {

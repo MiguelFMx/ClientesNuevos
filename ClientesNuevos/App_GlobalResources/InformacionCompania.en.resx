@@ -126,6 +126,18 @@
   <data name="lblBotonRegistrar" xml:space="preserve">
     <value>Add contact</value>
   </data>
+  <data name="lblbtnAddCF" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="lblBtnAtras" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="lblBtnContinuar" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="lblBtnFinish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
   <data name="lblCFDI" xml:space="preserve">
     <value>CFDI use</value>
   </data>
@@ -219,8 +231,11 @@
   <data name="lblRegimen" xml:space="preserve">
     <value>Tax regime</value>
   </data>
+  <data name="lblRegistrar" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="lblRFC" xml:space="preserve">
-    <value>W9</value>
+    <value>W9/Tax ID</value>
   </data>
   <data name="lblRFCBAnco" xml:space="preserve">
     <value>Bank RFC</value>
