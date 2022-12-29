@@ -52,6 +52,7 @@ namespace ClientesNuevos.admin.consulta
             public string Extension { get; set; }
             public string Celular { get; set; }
             public string Tipo { get; set; }
+            public string ID { get; set; }
         }
 
         public class Roles : Registros
@@ -83,10 +84,12 @@ namespace ClientesNuevos.admin.consulta
                             Extension = row["Extension"].ToString(),
                             Celular = row["Celular"].ToString(),
                             Tipo = row["Tipo"].ToString(),
-                             Estatus="",
-                             Fecha_registro="",
-                             Nombre_comp ="",
-                             Tipo_persona = ""
+                            Estatus="",
+                            Fecha_registro="",
+                            Nombre_comp ="",
+                            Tipo_persona = "",
+                            ID = row["ID"].ToString()
+                             
                         };
                         list.Add(objContacto);
                     }
@@ -353,5 +356,67 @@ namespace ClientesNuevos.admin.consulta
             }
             return resultado;
         }
+
+        [WebMethod]
+        public string EditarContacto(string rfc, string nombre, string puesto, string mail, string tipo, string tel, string ext, string cel, string id)
+        {
+            string resultado;
+            string sqlStr = "Master_TablaContacto";
+            SqlConnection con = new SqlConnection(clsHerramientaBD.strConnction);
+
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ID_compania", rfc);
+                cmd.Parameters.AddWithValue("@Nombre", nombre);
+                cmd.Parameters.AddWithValue("@Puesto", puesto);
+                cmd.Parameters.AddWithValue("@Telefono", tel);
+                cmd.Parameters.AddWithValue("@Extension", ext);
+                cmd.Parameters.AddWithValue("@Tipo", tipo);
+                cmd.Parameters.AddWithValue("@Celular", cel);
+                cmd.Parameters.AddWithValue("@Correo", mail);
+                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@accion", "update3");
+
+
+                cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 10000).Direction = ParameterDirection.Output;
+
+
+                cmd.ExecuteNonQuery();
+                string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
+
+                resultado = res;
+            }
+            catch (SqlException e)
+            {
+                resultado = e.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public string BorrarContacto(string id)
+        {
+            string res = "";
+            res = clsHerramientaBD.ExecuteSql("DELETE FROM Table_Contacto WHERE ID ='" + id + "'");
+
+            if(res == "")
+            {
+                return "Contacto eliminado correctamente";
+            }
+            else
+            {
+                return res;
+            }
+        }
+
     }
 }

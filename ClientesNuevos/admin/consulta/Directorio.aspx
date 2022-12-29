@@ -16,6 +16,7 @@
                         <table id="tDirectorio" class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th style="display:none">ID</th>
                                     <th>Nombre comercial
                                         <br />
                                         <small class="text-secondary">RFC</small></th>
@@ -141,7 +142,7 @@
     </div>
 
     <!-- modal registro -->
-    <div class="modal fade" id="ResgitrarContacto" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    <div class="modal fade" id="ResgitrarContacto" tabindex="-1" aria-labelledby="RegistrolLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -157,6 +158,7 @@
                                 <asp:ListItem Text="..." />
                             </asp:DropDownList>
                         </div>
+                        <asp:HiddenField ID="hfID" runat="server" />
                     </div>
                     <div class="row mt-2">
                         <div class="col-sm">
@@ -204,12 +206,38 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <div id="registro">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary btn-sm" id="btnRegistrarC">Registrar</button>
+                    </div>
+                    <div id="edicion">
+
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btnEditarContacto">Editar</button>
+                    <button type="button" class="btn btn-danger btn-sm" id="btnEliminarContacto">Eliminar</button>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!--Modal de edicion -->
+    <div class="modal fade" id="editarContacto" tabindex="-1"  aria-labelledby="EditarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="EditarLabel">Editar contacto</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="txtTest"/>
+                </div>
+                <div class="modal-footer"></div>                
+           </div>
+        </div>
+    </div>
+        
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>

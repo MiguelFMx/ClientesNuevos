@@ -94,7 +94,7 @@ $(document).ready(function () {
             }
         });
 
-        if (asunto != '' && cuerpo != '' && mail.length > 1) {
+        if (asunto != '' && cuerpo != '' && mail.length >=1) {
                 swal.fire({
                 showConfirmButton: false,
                 title: 'Enviando correo',
@@ -129,10 +129,10 @@ $(document).ready(function () {
                 
            
         } else {
-            if (mail.length == 0) {
+            if (mail.length < 1) {
                 swal.fire(
                     "Error",
-                    "Falta de datos:Seleccione al menos un correo", 
+                    "Falta de datos:Seleccione al menos dos correo", 
                     "error"
                 )
             }
@@ -149,6 +149,11 @@ $(document).ready(function () {
 
 
     $('#btnRegistrarC').click(function () {
+        $('#ErrorContacto').hide();
+        $('#ErrorPuesto').hide();
+        $('#ErrorCorreo').hide();
+        $('#ErrorNumero').hide();
+
         let rfc = $('#MainContent_ddSocios option:selected').val();
         var nombre = $('#MainContent_txtNombreC');
         var puesto = $('#MainContent_txtPuestoC');
@@ -163,9 +168,9 @@ $(document).ready(function () {
             tipo='Comp'
         }
 
-        if (nombre != '' || puesto != '' || mail != '' ) {
+        if ( nombre.val() != '' && puesto.val() != '' && mail.val() != '' ) {
            // alert('No hay error');
-            if ((tel != '' && cel == '') || (tel == '' && cel != '') || (tel != '' && cel != '')) {
+            if ((tel.val() != '' && cel.val() == '') || (tel.val() == '' && cel.val() != '') || (tel.val() != '' && cel.val() != '')) {
          
                 swal.fire({
                     showConfirmButton: false,
@@ -180,10 +185,10 @@ $(document).ready(function () {
                                 "nombre:'" + nombre.val() +"',"+
                                 "puesto:'" + puesto.val() + "'," +
                                 "mail:'" + mail.val() + "'," +
-                                "tipo:'" + tipo.val() + "'," +
+                                "tipo:'" + tipo + "'," +
                                 "tel:'" + tel.val() + "'," +
                                 "ext:'" + ext.val() + "'," +
-                                "cel:'" + cel.val() + "'}",                
+                                "cel:'" + cel.val() + "'}",
                             dataType: "json",
                             async: false,
                             contentType: "application/json; charset=utf-8",
@@ -191,16 +196,12 @@ $(document).ready(function () {
                                 swal.fire({
                                     title: 'Exito!',
                                     text: result.d,
-                                    icon: 'success'
+                                    icon: 'success',
+                                    timer:3000
+                                }).then((res) => {
+                                    document.location.reload();
                                 })
-                                console.log(result.d);
-                                nombre.val('');
-                                puesto.val('');
-                                mail.val('');
-                                tipo.val('');
-                                tel.val('');
-                                ext.val('');
-                                cel.val('');
+
                             },
                             failure: function (XMLHttpRequest, textStatus, errorThrown) {
                                 if (errorThrown !== "") {
@@ -210,41 +211,235 @@ $(document).ready(function () {
                         });
                     }
                 });
+                console.log('listo');
             } else {
                 $('#ErrorNumero').show();
             }
         } else {
             //manejo de mensaje de error
-            if (nombre == '') {
+            if (nombre.val() == '') {
                 $('#ErrorContacto').show();
             } 
 
-            if (puesto == '') {
+            if (puesto.val() == '') {
                 $('#ErrorPuesto').show();
             } 
-            if (mail == '') {
+            if (mail.val() == '') {
                 $('#ErrorCorreo').show();
-            } 
+            }
+            if (tel.val() == '' || cel.val()) {
+                $('#ErrorNumero').show();
+
+            }
         }
+    });
+            const myModalEl = document.getElementById('ResgitrarContacto')
+            myModalEl.addEventListener('hidden.bs.modal', event => {
 
-        //Quitar mensaje se escribe algo
+                $('#MainContent_txtNombreC').val('');
+                $('#MainContent_txtPuestoC').val('');
+                $('#MainContent_txtCorreoC').val('');
+                $('#MainContent_txtTelC').val('');
+                $('#MainContent_txtCelC').val('');
+                $('#MainContent_txtExt').val('');
 
+                $('#registro').show();
+                $('#edicion').hide();
+                $('#RegistrolLabel').html('Registrar contacto');
+
+
+            })
+
+    $(document).on('click', '#btnEdit', function(){
+        let id = $(this).closest('tr').find('.id').text();
+        let comp = $(this).closest('tr').find('.comp').text();
+        let contacto = $(this).closest('tr').find('.contacto').text();
+        let puesto = $(this).closest('tr').find('.puesto').text(); 
+        let correo = $(this).closest('tr').find('.correo').text(); 
+        let ext = $(this).closest('tr').find('.ext').text(); 
+        let celular = $(this).closest('tr').find('.celular').text(); 
+        let tipo = $(this).closest('tr').find('.tipo').text();
+        let telefono = $(this).closest('tr').find('.telefono').text();
+
+        //cambios a modal
+        $('#registro').hide();
+        $('#edicion').show();
+        $('#RegistrolLabel').html('Editar contacto');
+        document.getElementById('MainContent_ddSocios').value = comp;
+        $('#MainContent_txtNombreC').val(contacto);
+        $('#MainContent_txtPuestoC').val(puesto);
+        $('#MainContent_txtCorreoC').val(correo);
+        $('#MainContent_txtTelC').val(telefono)
+        $('#MainContent_txtExt').val(ext);
+        $('#MainContent_txtCelC').val(celular);
+        $('#MainContent_hfID').val(id);
+        switch (tipo) {
+            case 'Facturacion':
+                $('#MainContent_chFactura').prop('checked', true);
+                break;
+            case 'Compañia':
+                $('#MainContent_chFactura').prop('checked', false);
+                break;
+            default:
+                $('#MainContent_chFactura').prop('checked', false);
+                break;
+        }
 
     });
 
+    $('#btnEditarContacto').click(function () {
+        $('#ErrorContacto').hide();
+        $('#ErrorPuesto').hide();
+        $('#ErrorCorreo').hide();
+        $('#ErrorNumero').hide();
 
-    ObtenerContacto();
+        let rfc = $('#MainContent_ddSocios option:selected').val();
+        var nombre = $('#MainContent_txtNombreC');
+        var puesto = $('#MainContent_txtPuestoC');
+        var mail = $('#MainContent_txtCorreoC');
+        var tel = $('#MainContent_txtTelC');
+        var cel = $('#MainContent_txtCelC');
+        var ext = $('#MainContent_txtExt');
+        var index = $('#MainContent_hfID');
+        var tipo = '';
+        if ($('#MainContent_chFactura').is(':checked')) {
+            tipo = 'Fra'
+        } else {
+            tipo = 'Comp'
+        }
 
-    CargarDirectorio();
+        if (nombre.val() != '' && puesto.val() != '' && mail.val() != '') {
+            // alert('No hay error');
+            if ((tel.val() != '' && cel.val() == '') || (tel.val() == '' && cel.val() != '') || (tel.val() != '' && cel.val() != '')) {
 
-    var table = $('#tDirectorio').DataTable();
-    var tdir = $('#tDir').DataTable();
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Registro en proceso',
+                    allowOutsideClick: false,
+                    willOpen: () => {
+                        Swal.showLoading()
+                        $.ajax({
+                            type: "POST",
+                            url: "wsConsultas.asmx/EditarContacto",
+                            data: "{rfc:'" + rfc + "'," +
+                                "nombre:'" + nombre.val() + "'," +
+                                "puesto:'" + puesto.val() + "'," +
+                                "mail:'" + mail.val() + "'," +
+                                "tipo:'" + tipo + "'," +
+                                "tel:'" + tel.val() + "'," +
+                                "ext:'" + ext.val() + "'," +
+                                "id:'" + index.val() + "'," +
+                                "cel:'" + cel.val() + "'}",
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                swal.fire({
+                                    title: 'Exito!',
+                                    text: result.d,
+                                    icon: 'success',
+                                    timer: 3000
+                                }).then((res) => {
+                                    document.location.reload();
+                                })
+
+                            },
+                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
+                                if (errorThrown !== "") {
+                                    alert("Error en Post: " + errorThrown);
+                                }
+                            }
+                        });
+                    }
+                });
+                console.log('listo');
+            } else {
+                $('#ErrorNumero').show();
+            }
+        } else {
+            //manejo de mensaje de error
+            if (nombre.val() == '') {
+                $('#ErrorContacto').show();
+            }
+
+            if (puesto.val() == '') {
+                $('#ErrorPuesto').show();
+            }
+            if (mail.val() == '') {
+                $('#ErrorCorreo').show();
+            }
+            if (tel.val() == '' || cel.val()) {
+                $('#ErrorNumero').show();
+
+            }
+        }
+    });
+
+    $('#btnEliminarContacto').click(function () {
+        var id = $('#MainContent_hfID').val();
+
+        Swal.fire({
+
+            text: "¿Está seguro de que desea eliminar este contacto de forma permanente?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //SI
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Eliminando registro',
+                    allowOutsideClick: false,
+                    willOpen: () => {
+                        Swal.showLoading()
+                        $.ajax({
+                            type: "POST",
+                            url: "wsConsultas.asmx/BorrarContacto",
+                            data: "{id:'" + id + "'}",
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                swal.fire({
+                                    title: 'Exito!',
+                                    text: result.d,
+                                    icon: 'success',
+                                    timer: 3000
+                                }).then((res) => {
+                                    document.location.reload();
+                                })
+
+                            },
+                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
+                                if (errorThrown !== "") {
+                                    alert("Error en Post: " + errorThrown);
+                                }
+                            }
+                        });
+                        //--------
+                    }
+                })
+
+            }
+        })
+     });
+
+                ObtenerContacto();
+
+                CargarDirectorio();
+
+                var table = $('#tDirectorio').DataTable();
+                var tdir = $('#tDir').DataTable();
 
 
-    NProgress.done();
-    NProgress.remove();
+                NProgress.done();
+                NProgress.remove();
 
-});
+            
+    });
 
 function ObtenerContacto() {
     var tbl = $('#tDirectorio tbody');
@@ -270,18 +465,17 @@ function ObtenerContacto() {
                 if (lstTabla[i].Correo != '') { 
                 tbl.append(
                     "<tr>" +
-                    "<td>" + lstTabla[i].Nombre_comercial+"<br><small>"+ lstTabla[i].ID_compania + "</small></td>" +
-                    //"<td>" + lstTabla[i].Nombre_comercial + "</td>" +
-                    "<td>" + lstTabla[i].Nombre + "<br><small>" + lstTabla[i].Puesto + "</small></td>" +
-                    "<td>" + lstTabla[i].Correo + "</td>" +
-                    "<td>" + lstTabla[i].Telefono + "</td>" +
-                    "<td>" + lstTabla[i].Extension + "</td>" +
-                    "<td>" + lstTabla[i].Celular + "</td>" +
-                    "<td>" + tipo +"</td>" +
+                    "<td style='display:none;'><span class='id'>" + lstTabla[i].ID+"</span></td>"+
+                    "<td>" + lstTabla[i].Nombre_comercial + "<br><small><span class='comp'>" + lstTabla[i].ID_compania + "</span></small></td>" +
+                    "<td><span class='contacto'>" + lstTabla[i].Nombre + "</span><br><small><span class='puesto'>" + lstTabla[i].Puesto + "</span></small></td>" +
+                    "<td><span class='correo'>" + lstTabla[i].Correo + "</span></td>" +
+                    "<td><span class='telefono'>" + lstTabla[i].Telefono + "</span></td>" +
+                    "<td><span class='ext'>" + lstTabla[i].Extension + "</span></td>" +
+                    "<td><span class='celular'>" + lstTabla[i].Celular + "</span></td>" +
+                    "<td><span class='tipo'>" + tipo +"</span></td>" +
                     "<td>" +
                     "<button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm me-1' data-bs-toggle='modal' data-bs-target='#CorreoIndividual' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre + "'><i class='bi bi-envelope'></i></button>" +
-                    "<button id='btnEdit' type='button' name='Editar' class='btn btn-warning btn-sm text-white'><i class='bi bi-pencil-square'></i></button>" +
-
+                    "<button id='btnEdit' type='button' name='Editar' class='btn btn-warning btn-sm text-white' data-bs-toggle='modal' data-bs-target='#ResgitrarContacto'><i class='bi bi-pencil-square' ></i></button>" +
                     "</td>" +
                     "</tr>"
                     );

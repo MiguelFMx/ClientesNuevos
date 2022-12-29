@@ -33,6 +33,15 @@ namespace ClientesNuevos.admin.consulta
         protected global::System.Web.UI.WebControls.DropDownList ddSocios;
 
         /// <summary>
+        /// Control hfID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfID;
+
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
