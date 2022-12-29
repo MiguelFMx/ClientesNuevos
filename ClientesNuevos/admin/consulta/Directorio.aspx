@@ -162,16 +162,21 @@
                         <div class="col-sm">
                             <asp:Label ID="Label4" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
                             <asp:TextBox ID="txtNombreC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                            <span id="ErrorContacto" style="color:red; display:none" >*Este campo es necesario</span>
                         </div>
                         <div class="col-sm">
                             <asp:Label ID="Label5" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC %>"></asp:Label>
                             <asp:TextBox ID="txtPuestoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                            <span id="ErrorPuesto" style="color:red; display:none">*Este campo es necesario</span>
+
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col">
                             <asp:Label ID="Label6" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>" CssClass="form-label"></asp:Label>
                             <asp:TextBox ID="txtCorreoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                            <span id="ErrorCorreo" style="color:red; display:none">*Este campo es necesario</span>
+                            
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -185,6 +190,7 @@
                         <div class="col-sm-4">
                             <asp:Label ID="Label8" runat="server" Text="<%$Resources:AgentesAduanales, lblTelefono %>" CssClass="form-label"></asp:Label>
                             <asp:TextBox ID="txtTelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
+
                         </div>
                         <div class="col-sm-4">
                             <asp:Label ID="Label9" runat="server" Text="Extension"></asp:Label>
@@ -194,7 +200,7 @@
                             <asp:Label ID="Label10" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
                             <asp:TextBox  ID="txtCelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
                         </div>
-                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                            <span id="ErrorNumero" style="color:red; display:none">*Es necesario un número de teléfono o celular</span>                        
                     </div>
                 </div>
                 <div class="modal-footer">

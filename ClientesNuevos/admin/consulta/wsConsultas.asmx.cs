@@ -311,7 +311,7 @@ namespace ClientesNuevos.admin.consulta
 
 
         [WebMethod]
-        public string RegistrarContacto(string RFC, string nombre, string puesto, string mail, string tipo, string tel, string ext, string cel)
+        public string RegistrarContacto(string id, string nombre, string puesto, string mail, string tipo, string tel, string ext, string cel)
         {
             string resultado;
             string sqlStr = "Master_TablaContacto";
@@ -324,7 +324,7 @@ namespace ClientesNuevos.admin.consulta
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.AddWithValue("@ID_compania", RFC);
+                cmd.Parameters.AddWithValue("@ID_compania", id);
                 cmd.Parameters.AddWithValue("@Nombre", nombre);
                 cmd.Parameters.AddWithValue("@Puesto", puesto);
                 cmd.Parameters.AddWithValue("@Telefono", tel);
@@ -341,7 +341,7 @@ namespace ClientesNuevos.admin.consulta
                 cmd.ExecuteNonQuery();
                 string res = Convert.ToString(cmd.Parameters["@Msg"].Value);
 
-                resultado = " " + res;
+                resultado = res;
             }
             catch (SqlException e)
             {
@@ -351,7 +351,7 @@ namespace ClientesNuevos.admin.consulta
             {
                 con.Close();
             }
-            return "";
+            return resultado;
         }
     }
 }

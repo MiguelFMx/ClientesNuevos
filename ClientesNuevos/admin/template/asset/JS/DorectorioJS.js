@@ -46,6 +46,7 @@ $(document).ready(function () {
                             'subject': subject,
                             'cuerpo': cuerpo
                         },
+
                         cache: false,
                         success: function (response) {
                             swal.fire({
@@ -57,7 +58,7 @@ $(document).ready(function () {
                         failure: function (response) {
                             swal.fire(
                                 "Error interno",
-                                "", // had a missing comma
+                                "", 
                                 "error"
                             )
                         }
@@ -98,7 +99,6 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 title: 'Enviando correo',
                 allowOutsideClick: false,
-                showSpinner: true,
                 willOpen: () => {
                     Swal.showLoading()
                     $.ajax({
@@ -107,7 +107,6 @@ $(document).ready(function () {
                         data:
                             JSON.stringify({ correo: mail, remitente: remitente, subject: asunto, cuerpo: cuerpo }),
                         contentType: "application/json; charset=utf-8",
-                        dataType: "json",
                         success: function (result) {
                             swal.fire({
                                 title: 'Exito!',
@@ -119,7 +118,7 @@ $(document).ready(function () {
                         failure: function () {
                             swal.fire(
                                 "Error interno",
-                                "D:", // had a missing comma
+                                "D:", // 
                                 "error"
                             )
                             alert('Hay un error')
@@ -133,14 +132,14 @@ $(document).ready(function () {
             if (mail.length == 0) {
                 swal.fire(
                     "Error",
-                    "Falta de datos:Seleccione al menos un correo", // had a missing comma
+                    "Falta de datos:Seleccione al menos un correo", 
                     "error"
                 )
             }
             if (asunto == '' || cuerpo == '') {                
                     swal.fire(
                         "Error",
-                        "Falta de datos para el correo", // had a missing comma
+                        "Falta de datos para el correo", 
                         "error"
                     )
                 }
@@ -151,18 +150,84 @@ $(document).ready(function () {
 
     $('#btnRegistrarC').click(function () {
         let rfc = $('#MainContent_ddSocios option:selected').val();
-        var nombre = $('#MainContent_txtNombreC').val();
-        var puesto = $('#MainContent_txtPuestoC').val();
-        var mail = $('#MainContent_txtCorreoC').val();
-        var tel = $('#MainContent_txtTelC').val();
-        var cel = $('#MainContent_txtCelC').val();
-        var ext = $('#MainContent_txtExt').val();
+        var nombre = $('#MainContent_txtNombreC');
+        var puesto = $('#MainContent_txtPuestoC');
+        var mail = $('#MainContent_txtCorreoC');
+        var tel = $('#MainContent_txtTelC');
+        var cel = $('#MainContent_txtCelC');
+        var ext = $('#MainContent_txtExt');
         var tipo = '';
         if ($('#MainContent_chFactura').is(':checked')) {
             tipo = 'Fra'
         } else {
             tipo='Comp'
         }
+
+        if (nombre != '' || puesto != '' || mail != '' ) {
+           // alert('No hay error');
+            if ((tel != '' && cel == '') || (tel == '' && cel != '') || (tel != '' && cel != '')) {
+         
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Registro en proceso',
+                    allowOutsideClick: false,
+                    willOpen: () => {
+                        Swal.showLoading()
+                        $.ajax({
+                            type: "POST",
+                            url: "wsConsultas.asmx/RegistrarContacto",
+                            data: "{id:'" + rfc + "'," +
+                                "nombre:'" + nombre.val() +"',"+
+                                "puesto:'" + puesto.val() + "'," +
+                                "mail:'" + mail.val() + "'," +
+                                "tipo:'" + tipo.val() + "'," +
+                                "tel:'" + tel.val() + "'," +
+                                "ext:'" + ext.val() + "'," +
+                                "cel:'" + cel.val() + "'}",                
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                swal.fire({
+                                    title: 'Exito!',
+                                    text: result.d,
+                                    icon: 'success'
+                                })
+                                console.log(result.d);
+                                nombre.val('');
+                                puesto.val('');
+                                mail.val('');
+                                tipo.val('');
+                                tel.val('');
+                                ext.val('');
+                                cel.val('');
+                            },
+                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
+                                if (errorThrown !== "") {
+                                    alert("Error en Post: " + errorThrown);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $('#ErrorNumero').show();
+            }
+        } else {
+            //manejo de mensaje de error
+            if (nombre == '') {
+                $('#ErrorContacto').show();
+            } 
+
+            if (puesto == '') {
+                $('#ErrorPuesto').show();
+            } 
+            if (mail == '') {
+                $('#ErrorCorreo').show();
+            } 
+        }
+
+        //Quitar mensaje se escribe algo
 
 
     });
