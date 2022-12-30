@@ -205,5 +205,63 @@ namespace ClientesNuevos.admin.usuarios
 
             return lista;
         }
+
+
+        [WebMethod]
+        public string BorrarUsuario(string id)
+        {
+            string eliminar = "", delete = "";
+            DataTable dtUser, dtDetalles, dtLogin;
+            string error = "Ocurio un error al intentar eliminar el usuario";
+            dtUser = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE Id = '" + id + "'", clsHerramientaBD.strConnAdmon);
+            dtDetalles = clsHerramientaBD.Existe("SELECT * FROM [user_detalles] WHERE RFC='" + dtUser.Rows[0]["RFC"].ToString()+"'", clsHerramientaBD.strConnAdmon);
+            dtLogin = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC='" + dtUser.Rows[0]["RFC"].ToString() + "'", clsHerramientaBD.strConnAdmon);
+            //Eliminar roles
+
+            if (dtLogin.Rows.Count > 0)
+            {
+                eliminar = clsHerramientaBD.ExecuteSql("DELETE FROM Logins WHERE RFC='"+ dtUser.Rows[0]["RFC"].ToString() + "'",clsHerramientaBD.strConnAdmon);
+                if(eliminar != "")
+                {
+                    return "Error: " + eliminar;
+                }
+            }
+            if (dtDetalles.Rows.Count > 0)
+            {
+                eliminar = clsHerramientaBD.ExecuteSql("DELETE FROM [user_detalles] WHERE RFC='" + dtUser.Rows[0]["RFC"].ToString() + "'", clsHerramientaBD.strConnAdmon);
+                
+                if(eliminar == "")
+                {
+                    delete = clsHerramientaBD.ExecuteSql("DELETE FROM Usuarios WHERE Id='" + id + "'", clsHerramientaBD.strConnAdmon);
+
+                    if(delete == "")
+                    {
+                        return "Usuario eliminado con exito";
+                    }
+                    else
+                    {
+                        return error;
+                    }
+
+                }
+                else
+                {
+                    return error;
+                }
+            }
+            else
+            {
+                //no hay roles
+                delete = clsHerramientaBD.ExecuteSql("DELETE FROM Usuarios WHERE Id='" + id + "'", clsHerramientaBD.strConnAdmon);
+                if (delete == "")
+                {
+                    return "Usuario eliminado con exito";
+                }
+                else
+                {
+                    return error;
+                }
+            }
+        }
     }
 }

@@ -124,6 +124,7 @@ namespace ClientesNuevos.admin
             public string Detalles { get; set; }
             public string Fecha { get; set; }
             public string Status { get; set; }
+            public string LoginCount { get; set; }
 
         }
 
@@ -143,7 +144,8 @@ namespace ClientesNuevos.admin
                     RFC = row["RFC"].ToString(),
                     Detalles = row["Detalles"].ToString(),
                     Fecha = row["Fecha_registro"].ToString().Substring(0,10),
-                    Status = row["status"].ToString()
+                    Status = row["status"].ToString(),
+                    LoginCount = row["loginCount"].ToString()
                 };
                 lst.Add(objR);
             }
@@ -185,6 +187,7 @@ namespace ClientesNuevos.admin
                             RFC = dt.Rows[i]["RFC"].ToString(),
                             Fecha = dt.Rows[i]["Fecha_registro"].ToString().Substring(0, 10),
                             Status = dt.Rows[i]["status"].ToString()
+                            
                         };
                         lst.Add(objU);
                     }
@@ -235,6 +238,33 @@ namespace ClientesNuevos.admin
             }
 
             return list;
+        }
+
+        [WebMethod]
+        public string CambioPass()
+        {
+            DataTable dt = new DataTable();
+            string RFC = "", res ="";
+            if(Context.Request.Cookies.Get("id") != null)
+            {
+                dt = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE Id='" + Context.Request.Cookies.Get("id").Value + "'", clsHerramientaBD.strConnAdmon);
+                RFC = dt.Rows[0]["RFC"].ToString();
+
+                dt = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC='"+RFC+"'", clsHerramientaBD.strConnAdmon);
+                if(dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["PasswordChanged"].ToString() == "0")
+                    {
+                        res= "0";
+                    }
+                    else
+                    {
+                        res= "1";
+                    }
+                }
+            }
+
+            return res;
         }
 
     }

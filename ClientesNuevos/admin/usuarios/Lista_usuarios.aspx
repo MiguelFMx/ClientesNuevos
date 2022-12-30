@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Lista" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
+﻿<%@ Page Title="Lista de usuarios" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -20,6 +20,8 @@
                                     <th>Roles</th>
                                     <th>Fecha de registro</th>
                                     <th>Status</th>
+                                    <th>Inicio sesión</th>
+
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -59,10 +61,8 @@
                             </div>
                         </div>
                     </div>
-                </div>              
+                </div>
             </div>
-
-
         </div>
     </div>
 
@@ -72,5 +72,6 @@
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/DataTables/datatables.min.js"></script>
     <script src="../template/vendors/nprogress/nprogress.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
     <script src="../template/asset/JS/lstUsuarios.js"></script>
 </asp:Content>

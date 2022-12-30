@@ -16,7 +16,7 @@
                         <table id="tDirectorio" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th style="display:none">ID</th>
+                                    <th style="display: none">ID</th>
                                     <th>Nombre comercial
                                         <br />
                                         <small class="text-secondary">RFC</small></th>
@@ -164,12 +164,12 @@
                         <div class="col-sm">
                             <asp:Label ID="Label4" runat="server" Text="<%$Resources:AgentesAduanales,lblNombreC %>"></asp:Label>
                             <asp:TextBox ID="txtNombreC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
-                            <span id="ErrorContacto" style="color:red; display:none" >*Este campo es necesario</span>
+                            <span id="ErrorContacto" style="color: red; display: none">*Este campo es necesario</span>
                         </div>
                         <div class="col-sm">
                             <asp:Label ID="Label5" runat="server" Text="<%$Resources:AgentesAduanales,lblPuestoC %>"></asp:Label>
                             <asp:TextBox ID="txtPuestoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
-                            <span id="ErrorPuesto" style="color:red; display:none">*Este campo es necesario</span>
+                            <span id="ErrorPuesto" style="color: red; display: none">*Este campo es necesario</span>
 
                         </div>
                     </div>
@@ -177,8 +177,8 @@
                         <div class="col">
                             <asp:Label ID="Label6" runat="server" Text="<%$Resources:AgentesAduanales,lblCorreo %>" CssClass="form-label"></asp:Label>
                             <asp:TextBox ID="txtCorreoC" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
-                            <span id="ErrorCorreo" style="color:red; display:none">*Este campo es necesario</span>
-                            
+                            <span id="ErrorCorreo" style="color: red; display: none">*Este campo es necesario</span>
+
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -200,22 +200,20 @@
                         </div>
                         <div class="col-sm-4">
                             <asp:Label ID="Label10" runat="server" Text="<%$Resources:AgentesAduanales, lblCelular %>"></asp:Label>
-                            <asp:TextBox  ID="txtCelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
+                            <asp:TextBox ID="txtCelC" runat="server" CssClass="form-control form-control-sm" placeholder="ex. 6311001010" TextMode="Phone"></asp:TextBox>
                         </div>
-                            <span id="ErrorNumero" style="color:red; display:none">*Es necesario un número de teléfono o celular</span>                        
+                        <span id="ErrorNumero" style="color: red; display: none">*Es necesario un número de teléfono o celular</span>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div id="registro">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btn-sm" id="btnRegistrarC">Registrar</button>
-                    </div>
-                    <div id="edicion">
-
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btn-sm" id="btnEditarContacto">Editar</button>
-                    <button type="button" class="btn btn-danger btn-sm" id="btnEliminarContacto">Eliminar</button>
-
+                        <button type="button" class="btn btn-primary btn-sm" id="btnRegistrarC">Registrar</button>
+                    </div>
+                    <div id="edicion" style="display: none;">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btnEditarContacto">Editar</button>
+                        <button type="button" class="btn btn-danger btn-sm" id="btnEliminarContacto">Eliminar</button>
                     </div>
                 </div>
             </div>
@@ -223,7 +221,7 @@
     </div>
 
     <!--Modal de edicion -->
-    <div class="modal fade" id="editarContacto" tabindex="-1"  aria-labelledby="EditarLabel" aria-hidden="true">
+    <div class="modal fade" id="editarContacto" tabindex="-1" aria-labelledby="EditarLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -231,13 +229,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="txtTest"/>
+                    <input type="text" id="txtTest" />
                 </div>
-                <div class="modal-footer"></div>                
-           </div>
+                <div class="modal-footer"></div>
+            </div>
         </div>
     </div>
-        
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>

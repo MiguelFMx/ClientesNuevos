@@ -7,6 +7,7 @@ using System.Web.Optimization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClientesNuevos.App_Code;
+using System.Data;
 
 namespace ClientesNuevos
 {
@@ -43,8 +44,8 @@ namespace ClientesNuevos
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             List<wsLogin.Usuario> lstuser = new List<wsLogin.Usuario>();
-            string usuario = txtUser.Text.ToUpper();
-            string password = txtPass.Text;
+            string usuario = txtUser.Text.ToUpper().Trim();
+            string password = txtPass.Text.Trim();
             string ID = "", Rol = "", Empresa = "", subdom="";
             bool persistente = false;
             HttpCookie cUserID;
@@ -64,6 +65,9 @@ namespace ClientesNuevos
                 if (lstuser.Count > 0)
                 {
                     int aux = 0;
+
+                    ActualizarLogin(usuario);
+
 
                     for (int i = 0; i < lstuser.Count; i++)
                     {
@@ -134,6 +138,20 @@ namespace ClientesNuevos
                 //La conexion a la base de datos fallo
                 lbltest.Text = "No se pudo establecer una conexion con el servidor";
             }            
+        }
+
+        private void ActualizarLogin(string rfc)
+        {
+            DataTable Dtact = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC='" + rfc + "'", clsHerramientaBD.strConnAdmon);
+            int cant = 0;
+            string act = "";
+            if(Dtact.Rows.Count > 0)
+            {
+                cant = Convert.ToInt32(Dtact.Rows[0]["loginCount"].ToString());
+                cant++;
+
+                act = clsHerramientaBD.ExecuteSql("UPDATE Logins SET loginCount = '"+cant+"' WHERE RFC='"+rfc+"'", clsHerramientaBD.strConnAdmon);
+            }
         }
 
         private void ChecarUsuario()

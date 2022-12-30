@@ -31,7 +31,6 @@ namespace ClientesNuevos
 
         }
                
-
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
             //Se el asigna el rol en el sistema para ser evaluado por Web.Config

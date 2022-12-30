@@ -24,8 +24,6 @@ namespace ClientesNuevos.admin.usuarios
                 ObtenerRoles();
                 ObtenerEmpresa();
 
-                //llenartabla();
-                //BindData();
 
             }
         }
@@ -65,21 +63,14 @@ namespace ClientesNuevos.admin.usuarios
             }
         }
 
-        protected void BindData()
-        {
-            //DataTable dt = new DataTable();
-            //dt = clsHerramientaBD.Existe("SELECT * FROM usuarios");
-            //gvRoles.DataSource = dtRoles;
-            //gvRoles.DataBind();
-        }
+       
 
         protected void RegistrarUsuario(string RFC, string pass)
         {
             string connection = clsHerramientaBD.VerificarConexion(clsHerramientaBD.strConnAdmon);
             string fecha = DateTime.Now.ToString("dd/MM/yyyy");
             DataTable dt;
-            string registro = "";
-
+            string registro = "", loginr = "";
             lblErrEmpresa.Text = "";
             lblError.Text = "";
             if (connection == "true")
@@ -125,6 +116,11 @@ namespace ClientesNuevos.admin.usuarios
                             }
                         }
 
+                        loginr = clsHerramientaBD.ExecuteSql("INSERT INTO [Logins] ([RFC],[loginCount],[PasswordChanged]) VALUES ('"+RFC+"','0','0')", clsHerramientaBD.strConnAdmon);
+                        if(loginr != "")
+                        {
+                            lblError.Text = "Error: " + loginr;
+                        }
                         btnAddUser.Visible = false;
                         btnNuevo.Visible = true;
                         hlExiste.Visible = false;

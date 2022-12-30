@@ -5,6 +5,7 @@ $(document).ready(function() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
+    cookies();
 
     var tipo = "";
     const UploadDoc = document.getElementById('UploadDoc');
@@ -54,6 +55,39 @@ $(document).ready(function() {
     /*bienvenido();*/
 });
 
+function cookies() {
+    var lista = document.cookie.split(";");
+    var busca;
+    var micookie = '';
+    for (i in lista) {
+        busca = lista[i].search("ignore");
+        if (busca > -1) { micookie = lista[i] }
+    }
+    if (micookie == '') {
+        CambioDePass();
+    }
+}
+function CambioDePass() {
+    GetAjax("wsAdminIndex.asmx/CambioPass", "", false, function (res) {
+        if (res == "0") {
+            Swal.fire({
+                text: "Es necesario que cambie su contraseña",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Cambiar contraseña',
+                cancelButtonText: 'Ignorar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../usuario/user_config.aspx';
+                } else {
+                    document.cookie = "ignore=si";
+                }
+            })
+        }
+    });
+}
 
 function limpiar() {
     $("div").remove(".drop-zone__thumb");

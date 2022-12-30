@@ -11,7 +11,7 @@
                     <div class="col">
                         <asp:HiddenField ID="hfID" runat="server" />
                         <asp:Label ID="lblRFC" runat="server" Text="RFC/W9:" CssClass="form-label"></asp:Label>
-                        <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtRFC" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
 
                         <br />
                         <asp:Label ID="lblFecha" runat="server" Text="Registrado el "></asp:Label>

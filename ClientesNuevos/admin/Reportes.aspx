@@ -199,7 +199,6 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
                                     <asp:HyperLink ID="hlSinOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=6" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
-
                                 </div>
                             </div>
                         </div>

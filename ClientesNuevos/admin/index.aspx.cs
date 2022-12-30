@@ -21,7 +21,7 @@ namespace ClientesNuevos.admin
                     clsConfiguracion.ActualizarOP();
                 }
 
-
+                //ELiminacion de cookies
                 if (Request.Cookies.Get("id_comp")!= null)
                 {
                     HttpCookie cookie = new HttpCookie("id_comp")
@@ -46,12 +46,14 @@ namespace ClientesNuevos.admin
                     };
                     Response.Cookies.Add(cookie);
                 }
+
+
+                
+
             }
 
 
 
         }
-
-       
     }
 }

@@ -385,7 +385,8 @@ $(document).ready(function () {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si'
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
                 //SI
@@ -404,7 +405,6 @@ $(document).ready(function () {
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
                                 swal.fire({
-                                    title: 'Exito!',
                                     text: result.d,
                                     icon: 'success',
                                     timer: 3000
@@ -419,7 +419,6 @@ $(document).ready(function () {
                                 }
                             }
                         });
-                        //--------
                     }
                 })
 

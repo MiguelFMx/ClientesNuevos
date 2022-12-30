@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Index" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ClientesNuevos.admin.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -54,11 +53,14 @@
         </div>
     </div>
 
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
 
     <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../Scripts/DataTables/datatables.min.js"></script>
+    <script src="../Scripts/sweetalert2.all.min.js"></script>
     <script src="index_admin.js"></script>
 
 </asp:Content>
