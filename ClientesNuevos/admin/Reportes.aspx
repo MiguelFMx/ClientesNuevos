@@ -169,7 +169,9 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
-                                    <asp:HyperLink ID="hlActOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=5" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                                    <asp:HyperLink ID="hlActOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=5" CssClass="btn btn-secondary btn-sm me-1" runat="server">Detalles</asp:HyperLink>
+                                    <asp:Button ID="btnAviso" CssClass="btn btn-primary btn-sm"  runat="server" OnClientClick="return false;" Text="Crear aviso" data-bs-toggle="modal" data-bs-target="#EmailModal" />
+
                                     <%--<asp:Button ID="btnDetSin" runat="server" Text="Detalles" CssClass="btn btn-secondary btn-sm" />--%>
                                 </div>
                             </div>
@@ -198,19 +200,124 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
-                                    <asp:HyperLink ID="hlSinOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=6" CssClass="btn btn-secondary btn-sm" runat="server">Detalles</asp:HyperLink>
+                                    <asp:HyperLink ID="hlSinOP" NavigateUrl="~/admin/consulta/consulta.aspx?type=6" CssClass="btn btn-secondary btn-sm me-1" runat="server">Detalles</asp:HyperLink>
+                                    <button id="btnSInOp" type="button" class="btn btn-primary btn-sm"  data-bs-toggle="modal" data-bs-target="#EmailSinOPModal">Crear solicitud
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
 
                 </div>
             </div>
         </div>
     </div>
+    <!-- ==================Modal======================= -->
+    <div class="modal fade" id="EmailModal" tabindex="-1" aria-labelledby="EmailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fs-5" id="EmailModalLabel">Enviar aviso</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-7">                     
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                                <table id="tCorreos" class="table table-hover"> 
+                                    <thead>                                        
+                                        <tr>
+                                            <th>Correo</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-5">
+                  <div class="form-group">
+                      <asp:Label ID="lblASunto" runat="server" Text="Asunto" CssClass="form-label">
+                      </asp:Label><asp:TextBox ID="txtAsunto" runat="server" CssClass="form-control" Text="Actualización de opinion positiva"></asp:TextBox>
+                  </div>
+                  <div class="form-group">
+                      <asp:Label ID="lblMensaje" runat="server" Text="Mensaje"></asp:Label>
+                      <asp:TextBox ID="txtMensaje" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10" 
+                          Text="Mensaje para solicitar la actualizacion de opinion positiva"
+                          ></asp:TextBox>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="btnEnviarCorreo" class="btn btn-primary btn-sm">Enviar correos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ==================Modal======================= -->
+    <div class="modal fade" id="EmailSinOPModal" tabindex="-1" aria-labelledby="EmailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fs-5" id="EmailSInOPModalLabel">Enviar aviso</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-7">                     
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                                <table id="tCorreosSinOP" class="table table-hover"> 
+                                    <thead>                                        
+                                        <tr>
+                                            <th>Correo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-5">
+                  <div class="form-group">
+                      <asp:Label ID="Label2" runat="server" Text="Asunto" CssClass="form-label">
+                      </asp:Label><asp:TextBox ID="txtAsuntoSinOP" runat="server" CssClass="form-control" Text="Solicitud de opinion positiva"></asp:TextBox>
+                  </div>
+                  <div class="form-group">
+                      <asp:Label ID="Label3" runat="server" Text="Mensaje"></asp:Label>
+                      <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10" 
+                          Text="Mensaje para solicitar que se suba la opinion positiva"
+                          ></asp:TextBox>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="btnEnviarCorreoSinOP" class="btn btn-primary btn-sm">Enviar correos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/DataTables/datatables.min.js"></script>
+    <script src="../Scripts/sweetalert2.all.min.js"></script>
+    <script src="template/asset/JS/ReportesJS.js"></script>
 </asp:Content>

@@ -33,6 +33,7 @@ $(document).ready(function () {
 
     $('#MainContent_txtRFC').keyup(function () {
         var texto = $('#MainContent_txtRFC').val();
+        
 
         GetAjax("../usuarios/wsUsuarios.asmx/ExisteRFC", "'rfc':'" + texto + "'", false, function (res) {
             if (res == "si") {
@@ -41,8 +42,8 @@ $(document).ready(function () {
                 $('#sExtiste').empty();
 
             }
+            $('#MainContent_txtPass').val(texto);
         });
-
     });
 
     $('#test').click(function () {

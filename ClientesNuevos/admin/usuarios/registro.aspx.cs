@@ -116,7 +116,7 @@ namespace ClientesNuevos.admin.usuarios
                             }
                         }
 
-                        loginr = clsHerramientaBD.ExecuteSql("INSERT INTO [Logins] ([RFC],[loginCount],[PasswordChanged]) VALUES ('"+RFC+"','0','0')", clsHerramientaBD.strConnAdmon);
+                        loginr = clsHerramientaBD.ExecuteSql("INSERT INTO [Logins] ([RFC],[lastlogin],[PasswordChanged]) VALUES ('" + RFC+"','','0')", clsHerramientaBD.strConnAdmon);
                         if(loginr != "")
                         {
                             lblError.Text = "Error: " + loginr;

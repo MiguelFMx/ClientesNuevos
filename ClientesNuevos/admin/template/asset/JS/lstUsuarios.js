@@ -114,10 +114,10 @@ function cargarUsuarios() {
             for (var i = 0; i < lstUser.length; i++) {
                 RFC = lstUser[i].RFC;
 
-                if (lstUser[i].LoginCount != '0') {
-                    login = "<label class='bg-success' title='Cantidad:" + lstUser[i].LoginCount +"'  style='color:white; border-radius:4rem; height:30px;width:29px; text-align:center; font-size:20px;'><i class='bi bi-check2-circle'></i></label>";
+                if (lstUser[i].LoginCount != '') {
+                    login = "<label>" + lstUser[i].LoginCount +"</label>";
                 } else {
-                    login = "<label class='bg-danger' title='Este usuario no ha iniciado sesión' style='color:white; border-radius:4rem; height:30px;width:29px; text-align:center; font-size:20px;'><i class='bi bi-x-circle'></i></label>";
+                    login = "<label class='bg-danger' style='color:white; border-radius:4rem; height:20px;width:20px; text-align:center; font-size:15px;'><i class='bi bi-x-circle'></i></label>";
                 }
 
                 if (lstUser[i].Status == 'activo') {
@@ -137,7 +137,7 @@ function cargarUsuarios() {
                         "<td >" + detalles + "</td>" +
                         "<td>" + lstUser[i].Fecha + "</td>" +
                         "<td>" + estatus + "</td>" +
-                        "<td>" + login+"</label></td>"+
+                        "<td>" + login  + "</td>"+
                         "<td>" +
                         "<a href='EditarUsuario.aspx?id=" + lstUser[i].Id + "' class='btn btn-secondary btn-sm'><i class='bi bi-pencil-square'></i></a>"+
                         "<button type='button' id='btnEliminar' class='btn btn-danger btn-sm ms-1'><i class='bi bi-trash'></i></button>" +

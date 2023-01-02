@@ -15,6 +15,7 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using MimeKit.Text;
 using System.Web.Services.Description;
+using System.Data;
 
 namespace ClientesNuevos.usuario
 {
@@ -84,6 +85,7 @@ namespace ClientesNuevos.usuario
 
                     if (affectedRow > 0)
                     {
+                        CambiarEstadoPass(this.Page.User.Identity.Name);
                         lblPass.ForeColor = Color.Green;
                         lblPass.Text = "La contraseña ha sido actualizada";
 
@@ -151,6 +153,14 @@ namespace ClientesNuevos.usuario
         protected void btnTest_Click(object sender, EventArgs e)
         {
             EnviarCorreo("test");
+        }
+
+        protected void CambiarEstadoPass(string RFC)
+        {
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+            int PassChange = Convert.ToInt32(dt.Rows[0]["PasswordChanged"].ToString());
+            PassChange++;
+            string cambios = clsHerramientaBD.ExecuteSql("UPDATE Logins SET [PasswordChanged] = '" + PassChange + "' WHERE RFC='"+RFC+"'", clsHerramientaBD.strConnAdmon);
         }
     }
 }

@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 10%;">RFC</th>
-                                            <th style="width: 30%;">Empresa</th>
+                                            <th style="width: 30%;">Nombre completo<br><small class="text-secondary">Nombre comercial</small></th>
                                             <th style="width: 10%;">Fecha de registro</th>
                                             <th style="width: 20%;">Cumplimiento</th>
                                             <th>Estatus</th>

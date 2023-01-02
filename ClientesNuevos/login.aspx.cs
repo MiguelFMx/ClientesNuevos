@@ -142,15 +142,13 @@ namespace ClientesNuevos
 
         private void ActualizarLogin(string rfc)
         {
-            DataTable Dtact = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC='" + rfc + "'", clsHerramientaBD.strConnAdmon);
-            int cant = 0;
+            DataTable Dtact = clsHerramientaBD.Existe("SELECT * FROM [Logins] WHERE RFC='" + rfc + "'", clsHerramientaBD.strConnAdmon);
+            
             string act = "";
             if(Dtact.Rows.Count > 0)
             {
-                cant = Convert.ToInt32(Dtact.Rows[0]["loginCount"].ToString());
-                cant++;
-
-                act = clsHerramientaBD.ExecuteSql("UPDATE Logins SET loginCount = '"+cant+"' WHERE RFC='"+rfc+"'", clsHerramientaBD.strConnAdmon);
+                DateTime tiempo = DateTime.Now;
+                act = clsHerramientaBD.ExecuteSql("UPDATE [Logins] SET lastlogin = '" + tiempo+"' WHERE RFC='"+rfc+"'", clsHerramientaBD.strConnAdmon);
             }
         }
 

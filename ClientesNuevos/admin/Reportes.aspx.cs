@@ -11,7 +11,7 @@ namespace ClientesNuevos.admin
 {
     public partial class Reportes : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -41,18 +41,18 @@ namespace ClientesNuevos.admin
 
             foreach (DataRow row in dt.Rows)
             {
-                
+
 
                 nombre = row["Nombre_comp"].ToString();
                 nombreCompleto = row["Nombre_comercial"].ToString();
                 fecha = row["Fecha_registro"].ToString().Substring(0, 10);
                 estatus = row["Estatus"].ToString();
 
-                if(row["Estatus"].ToString() == "activo")
+                if (row["Estatus"].ToString() == "activo")
                 {
                     clase = "etiqueta";
                 }
-                else if(row["Estatus"].ToString() == "inactivo")
+                else if (row["Estatus"].ToString() == "inactivo")
                 {
                     clase = "etiqueta peligro";
                 }
@@ -77,8 +77,8 @@ namespace ClientesNuevos.admin
             }
 
 
-           // gvComp.DataSource = dt_Display;
-           // gvComp.DataBind();
+            // gvComp.DataSource = dt_Display;
+            // gvComp.DataBind();
 
         }
 
@@ -88,15 +88,15 @@ namespace ClientesNuevos.admin
             int cant = 0;
             int inac = 0;
             int op = 0;
-            string fecha="";
+            string fecha = "";
             string mes = "";
             dtRegistros = clsHerramientaBD.Existe("SELECT * FROM Table_compania");
 
-            if(dtRegistros.Rows.Count > 0)
+            if (dtRegistros.Rows.Count > 0)
             {
                 for (int i = 0; i < dtRegistros.Rows.Count; i++)
                 {
-                    
+
                     if (dtRegistros.Rows[i]["Estatus"].ToString() == "activo")
                     {
                         cant++;
@@ -106,9 +106,9 @@ namespace ClientesNuevos.admin
                         inac++;
                     }
                     //if(dtRegistros.Rows[i]["Fecha_registro"].ToString().Substring())
-                    
+
                 }
-            }           
+            }
 
             lblActivos.Text = cant.ToString();
             lblInactivos.Text = inac.ToString();
@@ -119,6 +119,9 @@ namespace ClientesNuevos.admin
                     mes = DateTime.Now.ToString("MM");
          
          */
+
+
+
         protected void ContadorOP()
         {
             DataTable dtComp = new DataTable();
@@ -128,9 +131,9 @@ namespace ClientesNuevos.admin
             int OPdes = 0;
             int cantidad = 0;
             string lapso = "";
-
+            string update = "";
             dtActDoc = clsHerramientaBD.Existe("SELECT * FROM Act_Docs WHERE Documento='OP'");
-            if(dtActDoc.Rows.Count > 0)
+            if (dtActDoc.Rows.Count > 0)
             {
                 cantidad = Convert.ToInt32(dtActDoc.Rows[0]["cantidad"].ToString());
                 lapso = dtActDoc.Rows[0]["lapso"].ToString();
@@ -164,14 +167,34 @@ namespace ClientesNuevos.admin
                                     FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
                                     if (FechaRegistrada.Month == fechaActualizacion.Month)
                                     {
-                                        OPdes++;
+                                        update = CambiarEstado(id);
+                                        if(update != "")
+                                        {
+                                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+update+"')", true);
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            OPdes++;
+
+                                        }
+
                                     }
                                     break;
                                 case "anual":
                                     FechaRegistrada = FechaRegistrada.AddYears(cantidad);
                                     if (FechaRegistrada.Year == fechaActualizacion.Year)
                                     {
-                                        OPdes++;
+                                        update = CambiarEstado(id);
+                                        if (update != "")
+                                        {
+                                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + update + "')", true);
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            OPdes++;
+                                        }
                                     }
                                     break;
                             }
@@ -179,13 +202,26 @@ namespace ClientesNuevos.admin
                         else
                         {
                             sinOP++;
-                        } 
+                        }
                     }
                 }
             }
-
             lblOP.Text = OPdes.ToString();
             lblSinOP.Text = sinOP.ToString();
         }
+
+        public string CambiarEstado(string rfc)
+        {
+            string accion = clsHerramientaBD.ExecuteSql("UPDATE Table_Documentos SET Estatus = 'act' WHERE ID_compania='" + rfc + "'");
+            if(accion != "")
+            {
+                return "Error: " + accion;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
     }
 }

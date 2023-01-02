@@ -145,7 +145,7 @@ namespace ClientesNuevos.admin
                     Detalles = row["Detalles"].ToString(),
                     Fecha = row["Fecha_registro"].ToString().Substring(0,10),
                     Status = row["status"].ToString(),
-                    LoginCount = row["loginCount"].ToString()
+                    LoginCount = row["lastlogin"].ToString()
                 };
                 lst.Add(objR);
             }

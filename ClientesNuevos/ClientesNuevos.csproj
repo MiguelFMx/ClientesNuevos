@@ -146,6 +146,7 @@
     <Content Include="admin\template\asset\JS\carpetillaJS.js" />
     <Content Include="admin\template\asset\JS\consultaJS.js" />
     <Content Include="admin\template\asset\JS\DorectorioJS.js" />
+    <Content Include="admin\template\asset\JS\ReportesJS.js" />
     <Content Include="admin\template\asset\JS\lstUsuarios.js" />
     <Content Include="admin\template\asset\JS\TemplateJS.js" />
     <Content Include="admin\template\asset\JS\usuariosJS.js" />
@@ -1254,6 +1255,7 @@
     <Content Include="admin\usuarios\registro.aspx" />
     <Content Include="admin\usuarios\wsUsuarios.asmx" />
     <Content Include="admin\wsAdminIndex.asmx" />
+    <Content Include="admin\wsReportes.asmx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -1955,6 +1957,10 @@
     </Compile>
     <Compile Include="admin\wsAdminIndex.asmx.cs">
       <DependentUpon>wsAdminIndex.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="admin\wsReportes.asmx.cs">
+      <DependentUpon>wsReportes.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\clsAuth.cs" />
