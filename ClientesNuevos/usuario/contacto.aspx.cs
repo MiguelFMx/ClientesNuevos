@@ -32,7 +32,7 @@ namespace ClientesNuevos.usuario
             //Hector
             message.To.Add(new MailboxAddress("Sistemas", "sistemas@hungaros.com"));
             //Miguel
-            message.To.Add(new MailboxAddress("Sistemas", "freyde.miguel@gmail.com"));
+            message.To.Add(new MailboxAddress("Sistemas", "sistemas.aux@hungaros.com"));
 
             //message.To.Add(new MailboxAddress("Certificaciones", "freyde.miguel@gmail.com"));
             //sistemas@hungaros.com 
