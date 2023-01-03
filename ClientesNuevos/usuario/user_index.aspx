@@ -28,9 +28,9 @@
                 <div class="col-6">
                     <div classs="card border-primary">
                         <div class="table-responsive">
-                            <asp:Table ID="tInfo" runat="server" CssClass="table border-primary">
+                            <asp:Table ID="tInfo" runat="server" CssClass="table border-primary" BorderWidth="1px">
                                 <asp:TableRow>
-                                    <asp:TableCell CssClass="bg-primary text-white">
+                                    <asp:TableCell BackColor="#0169C2" ForeColor="White">
                                         <asp:Label ID="lblcomp" runat="server" Text="Compañia"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>

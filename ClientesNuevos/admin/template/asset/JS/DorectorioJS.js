@@ -36,7 +36,7 @@ $(document).ready(function () {
                 allowOutsideClick: false,
                 showSpinner: true,
                 willOpen: () => {
-                    Swal.showLoading()
+                    Swal.showLoading();
                     $.ajax({
                         type: "POST",
                         url: "../wsAdminIndex.asmx/EnviarCorreo",
@@ -46,12 +46,11 @@ $(document).ready(function () {
                             'subject': subject,
                             'cuerpo': cuerpo
                         },
-
                         cache: false,
                         success: function (response) {
                             swal.fire({
                                 title: 'Exito!',
-                                text: 'Correo enviado a ' + correo,
+                                text: 'Correo enviado a ' + response,
                                 icon: 'success'
                             })
                         },

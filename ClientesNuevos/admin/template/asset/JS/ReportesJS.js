@@ -115,6 +115,7 @@ $(document).ready(function () {
                     title: 'Enviando correo',
                     allowOutsideClick: false,
                     willOpen: () => {
+
                         Swal.showLoading();
                         $.ajax({
                             type: "POST",
@@ -129,7 +130,6 @@ $(document).ready(function () {
                                     icon: 'success',
                                     timer: 3000
                                 }).then((res) => {
-                                    //document.location.reload();
                                     $('.form-check').each(function () {
                                         let checked = $(this).find($('[name=check]'));
 
