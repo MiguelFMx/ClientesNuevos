@@ -36,43 +36,75 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="d-flex">
-            <div class="fondo-primary p-3" id="sidebar-container">
+           <%-- <div class="fondo-primary p-3" id="sidebar-container">
                 <div class="logo">
-                    <%--<h4 class="text-light ">Hungaros</h4>--%>
-                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/template/assets/img/logo/HungarosTexto.png" style="width:100%;" />
+                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/template/assets/img/logo/HungarosTexto.png" Style="width: 100%;" />
                 </div>
-                <div class="menu">
-                    <div class="menu-item">
-                        <asp:HyperLink ID="hl1" runat="server" CssClass="d-block text-light p-3" NavigateUrl="~/admin/index.aspx"><i class="bi bi-house m-3 lead"></i> Home</asp:HyperLink>
-                    </div>
-                    <div class="menu-item">
-                        <asp:HyperLink ID="hl3" runat="server" CssClass="d-block text-light p-3" NavigateUrl="~/admin/Reportes.aspx"><i class="bi bi-bar-chart-fill m-3 lead" ></i> Reportes</asp:HyperLink>
-                    </div>
-                    <div class="menu-item">
-                        <asp:HyperLink ID="hl4" runat="server" CssClass="d-block text-light p-3" NavigateUrl="~/admin/configuracion/configuracion.aspx"><i class="bi bi-gear-fill m-3 lead"></i> Configuracion</asp:HyperLink>
-                    </div>
-                    <div>
-                        <div class="accordion accordion-flush d-block text-light" id="accordionFlushExample">
-                            <div class="accordion-item" style="background-color: #0169C2;">
-                                <h3 class="accordion-header btn-menu" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" style="background-color: #0169C2; color:white;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <i class="bi bi-person-fill ms-2 me-4 lead"></i>Usuarios
-                                    </button>
-                                </h3>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="submenu ms-4 mt-1 rounded-2">
-                                        <asp:HyperLink ID="hlRegistro" runat="server" CssClass="d-block text-light p-2" NavigateUrl="~/admin/usuarios/registro.aspx"><i class="bi bi-person-plus m-3 lead"></i>Registrar usuario</asp:HyperLink>
 
-                                    </div>
-                                    <div class="submenu ms-4 mt-1 rounded-2">
-                                        <asp:HyperLink ID="hlTodos" runat="server" CssClass="d-block text-light p-2" NavigateUrl="~/admin/usuarios/Lista_usuarios.aspx"><i class="bi bi-person-lines-fill m-3 lead"></i> Lista de usuarios</asp:HyperLink>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+            </div>--%>
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 fondo-primary">
+                <div class="logo">
+                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/template/assets/img/logo/HungarosTexto.png" Style="width: 100%;" />
+                </div>
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class=" align-middle px-0 text-white">
+                            <i class=" bi-house m-3"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class=" align-middle px-0 text-white">
+                            <i class=" bi bi-bar-chart-fill m-3 "></i> <span class="ms-1 d-none d-sm-inline">Reportes</span>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle text-white">
+                            <i class=" bi bi-gear-fill m-3 "></i> <span class="ms-1 d-none d-sm-inline">Configuración</span></a>
+                    </li>
+                   
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                             <i class=" bi-people ms-3"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">loser</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
             <div class="w-100">
                 <nav class="navbar navbar-expand-lg bg-light border-bottom">
                     <div class="container">
@@ -80,7 +112,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <%--<a class="navbar-brand"></a>--%>
-                       
+
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown">
@@ -118,8 +150,7 @@
             </div>
         </div>
 
-        <div>
-        </div>
+
     </form>
 
     <!-- js -->
@@ -131,16 +162,13 @@
 
     <script src="../../Scripts/umd/popper.min.js"></script>
 
-    <script src="../Scripts/DataTables/datatables.min.js"></script>   
+    <script src="../Scripts/DataTables/datatables.min.js"></script>
     <!-- NProgress -->
     <script src="template/vendors/nprogress/nprogress.js"></script>
 
     <script src="template/asset/JS/TemplateJS.js"></script>
 
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
-
-
-
     </asp:ContentPlaceHolder>
 </body>
 </html>

@@ -26,3 +26,27 @@
   }) // forEach
 }); 
 // DOMContentLoaded  end
+
+
+$('#btnCollapse').click(function () {
+    $('#btnCollapse').hide()
+
+    closeNav();
+    $('#btnOpenNav').show();
+});
+$('#btnOpenNav').click(function () {
+    $('#btnOpenNav').hide();
+
+    openNav();
+    $('#btnCollapse').show()
+});
+
+function openNav() {
+    document.getElementById("sidebar-container").style.width = "15rem";
+    //document.getElementById("main").style.marginLeft = "0px";
+}
+
+function closeNav() {
+    document.getElementById("sidebar-container").style.width = "0";
+    //document.getElementById("main").style.marginLeft = "0";
+}

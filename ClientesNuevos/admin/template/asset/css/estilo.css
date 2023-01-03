@@ -99,11 +99,7 @@ a {
     background-color: #158dcf;
 }
 
-@media (max-width:768px) {
-    #sidebar-container {
-        display: none;
-    }
-}
+
 
 /*.cabezal {
     background-color: #0169C2;
