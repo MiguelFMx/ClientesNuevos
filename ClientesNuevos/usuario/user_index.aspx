@@ -25,9 +25,22 @@
 
             <!-----------------------------------Nombre de la empresa---------------------------------- -->
             <div class="row">
-                <div class="col">
-                    <asp:Label ID="lblcomp" runat="server" Text="Compañia:"></asp:Label>
-                    <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
+                <div class="col-6">
+                    <div classs="card border-primary">
+                        <div class="table-responsive">
+                            <asp:Table ID="tInfo" runat="server" CssClass="table border-primary">
+                                <asp:TableRow>
+                                    <asp:TableCell CssClass="bg-primary text-white">
+                                        <asp:Label ID="lblcomp" runat="server" Text="Compañia"></asp:Label>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </div >
+                    </div>
+                    
                 </div>
             </div>
             <br />
