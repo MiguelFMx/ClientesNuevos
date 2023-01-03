@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../../../scripts/datatables/datatables.min.js" />
 
+
 $(document).ready(function () {
     ObtenerCorreosOP();
 
@@ -12,10 +13,14 @@ $(document).ready(function () {
         var txtMensaje = $('#MainContent_txtMensaje');
         var correo = [];
         var email = [];
-
+        var aux = 0;
 
         if (txtAsunto.val() == '' || txtMensaje.val() == '') {
-            alert('Llene los campos');
+                swal.fire(
+                    "Error ",
+                    "Falta de datos", 
+                    "error"
+                )            
         } else {
             $('.form-check').each(function () {
                 let checked = $(this).find($('[name=check]'));
@@ -24,42 +29,135 @@ $(document).ready(function () {
 
                 if (checked.is(':checked')) {
                     correo.push(mailTemp.html() + ';' + contactTemp.html());
+                    aux++;
+
                 }
             });
+            if (aux > 0) {
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Enviando correo',
+                    allowOutsideClick: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                        $.ajax({
+                            type: "POST",
+                            url: "wsReportes.asmx/EnviarCorreos",
+                            data: JSON.stringify({ Info: correo, asunto: txtAsunto.val(), cuerpo: txtMensaje.val() }),
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                swal.fire({
+                                    text: result.d,
+                                    icon: 'success',
+                                    timer: 3000
+                                }).then((res) => {
+                                    //document.location.reload();
+                                    $('.form-check').each(function () {
+                                        let checked = $(this).find($('[name=check]'));
 
-            $.ajax({
-                type: "POST",
-                url: "wsReportes.asmx/EnviarCorreos",
-                data: JSON.stringify({ Info: correo, asunto: txtAsunto.val(), cuerpo: txtMensaje.val() }),
-                dataType: "json",
-                async: false,
-                contentType: "application/json; charset=utf-8",
-                success: function (result) {
-                    swal.fire({
-                        text: result.d,
-                        icon: 'success',
-                        timer: 3000
-                    }).then((res) => {
-                        //document.location.reload();
-                        $('.form-check').each(function () {
-                            let checked = $(this).find($('[name=check]'));
-                            
-                            if (checked.is(':checked')) {
-                                checked.prop('checked', false);
+                                        if (checked.is(':checked')) {
+                                            checked.prop('checked', false);
+                                        }
+                                    });
+                                })
+
+                            },
+                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
+                                if (errorThrown !== "") {
+                                    alert("Error en Post: " + errorThrown);
+                                }
                             }
                         });
-                    })
-
-                },
-                failure: function (XMLHttpRequest, textStatus, errorThrown) {
-                    if (errorThrown !== "") {
-                        alert("Error en Post: " + errorThrown);
                     }
+                });
+            } else {
+                swal.fire(
+                    "Error ",
+                    "Seleccione al menos un correo", 
+                    "error"
+                )  
+            }
+        }
+    });
+
+
+    $('#btnEnviarCorreoSinOP').click(function () {
+        var txtAsunto = $('#MainContent_txtAsuntoSinOP');
+        var txtMensaje = $('#MainContent_txtBodySinOP');
+        var correo = [];
+        var email = [];
+        var aux = 0;
+
+        if (txtAsunto.val() == '' || txtMensaje.val() == '') {
+            swal.fire(
+                "Error ",
+                "Falta de datos",
+                "error"
+            )
+        } else {
+
+
+            $('.form-check').each(function () {
+                let checked = $(this).find($('[name=check]'));
+                let mailTemp = $(this).find($('[name=correo]'));
+                let contactTemp = $(this).find($('[name=contacto]'));
+
+                if (checked.is(':checked')) {
+                    correo.push(mailTemp.html() + ';' + contactTemp.html());
+                    aux++;
                 }
             });
+            if (aux > 0) {
+                swal.fire({
+                    showConfirmButton: false,
+                    title: 'Enviando correo',
+                    allowOutsideClick: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                        $.ajax({
+                            type: "POST",
+                            url: "wsReportes.asmx/EnviarCorreos",
+                            data: JSON.stringify({ Info: correo, asunto: txtAsunto.val(), cuerpo: txtMensaje.val() }),
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                swal.fire({
+                                    text: result.d,
+                                    icon: 'success',
+                                    timer: 3000
+                                }).then((res) => {
+                                    //document.location.reload();
+                                    $('.form-check').each(function () {
+                                        let checked = $(this).find($('[name=check]'));
+
+                                        if (checked.is(':checked')) {
+                                            checked.prop('checked', false);
+                                        }
+                                    });
+                                })
+
+                            },
+                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
+                                if (errorThrown !== "") {
+                                    alert("Error en Post: " + errorThrown);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                swal.fire(
+                    "Error ",
+                    "Seleccione al menos un correo",
+                    "error"
+                )  
+            }
         }
-        console.log(correo);
     });
+
 
 });
 
@@ -73,7 +171,6 @@ function ObtenerCorreosOP() {
             tabla.empty;
             for (var i = 0; i < correo.length; i++) {
                 if (correo[i].OP == 'si') {
-                    console.log(correo[i].Nombre);
                     $('#tCorreos tbody').append(
                         "<tr>" +
                         "<td>" +
@@ -84,7 +181,7 @@ function ObtenerCorreosOP() {
                         "<label class='form-check-label' for='flexCheckDefault'>" +
                         "<span><label name='contacto'>" + correo[i].Nombre + "</label> (" + correo[i].Puesto + ")<br>" +
                         "<small><label name='correo'>" + correo[i].Correo + "</label></small><br>" +
-                        //"<small>" + tipo + "</small><br><small>" + correo[i].Nombre_comercial + "</small>" +
+                        "<small>" + correo[i].Compania + "</small>" +
                         "</span>" +
                         "</label>" +
                         "</div>" +
@@ -93,7 +190,6 @@ function ObtenerCorreosOP() {
                         "</tr>"
                     );
                 } else {
-                    console.log(correo[i].Nombre);
                     $('#tCorreosSinOP tbody').append(
                         "<tr>" +
                         "<td>" +
@@ -104,7 +200,7 @@ function ObtenerCorreosOP() {
                         "<label class='form-check-label' for='flexCheckDefault'>" +
                         "<span><label name='contacto'>" + correo[i].Nombre + "</label> (" + correo[i].Puesto + ")<br>" +
                         "<small><label name='correo'>" + correo[i].Correo + "</label></small><br>" +
-                        //"<small>" + tipo + "</small><br><small>" + correo[i].Nombre_comercial + "</small>" +
+                        "<small>" + correo[i].Compania + "</small>" +
                         "</span>" +
                         "</label>" +
                         "</div>" +

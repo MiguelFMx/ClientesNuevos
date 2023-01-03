@@ -163,14 +163,6 @@ namespace ClientesNuevos.admin.usuarios
 
             return res;
         }
-        /*
-          //Contacto
-                    //Puesto
-                    //Correo
-                    //Telefono
-                    //Extension
-                    //Celular
-                    //Tipo de contacto*/
         public class Directorio
         {
             public string Contacto { get; set; }

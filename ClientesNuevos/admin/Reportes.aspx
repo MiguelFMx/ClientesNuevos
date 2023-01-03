@@ -294,7 +294,7 @@
                   </div>
                   <div class="form-group">
                       <asp:Label ID="Label3" runat="server" Text="Mensaje"></asp:Label>
-                      <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10" 
+                      <asp:TextBox ID="txtBodySinOP" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10" 
                           Text="Mensaje para solicitar que se suba la opinion positiva"
                           ></asp:TextBox>
                   </div>

@@ -33,6 +33,7 @@ namespace ClientesNuevos.admin
             public string Correo { get; set; }
             public string OP { get; set; }
             public string RFC { get; set; }
+            public string Compania { get; set; }
 
         }
         [WebMethod]
@@ -57,7 +58,10 @@ namespace ClientesNuevos.admin
             List<ListaCorreo> lstCorreo = new List<ListaCorreo>();
             ListaCorreo objC;
 
+            //Selecciono el archivo que quiero comparar en este caso OP(opinion positiva)
             dtActDoc = clsHerramientaBD.Existe("SELECT * FROM Act_Docs WHERE Documento='OP'");
+
+            //Se encontro, obtengo la cantidad de mes/anios 
             if (dtActDoc.Rows.Count > 0)
             {
                 cantidad = Convert.ToInt32(dtActDoc.Rows[0]["cantidad"].ToString());
@@ -65,15 +69,23 @@ namespace ClientesNuevos.admin
 
             }
 
+            //obtengo las empresas registradas
             dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
             if (dtComp.Rows.Count > 0)
             {
+                //Recorro la tabla
                 for (int i = 0; i < dtComp.Rows.Count; i++)
                 {
+                    //obtengo RFC
                     string id = dtComp.Rows[i]["ID_compania"].ToString();
+
+                    //Checo si el tipo de persona no es extranjero
                     if (dtComp.Rows[i]["Tipo_persona"].ToString() != "2")
                     {
+                        //Veo si esta registrada la opinion positiva en la tabla de documentos.
                         dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
+                        
+                        //si count es mayor a 0, significa que si esta registrado
                         if (dtDoc.Rows.Count > 0)
                         {
                             string mesA = DateTime.Now.ToString("MM");
@@ -104,7 +116,8 @@ namespace ClientesNuevos.admin
                                                 Correo = dtContacto.Rows[index]["Correo"].ToString(),
                                                 OP = "si",
                                                 Nombre = dtContacto.Rows[index]["Nombre"].ToString(),
-                                                Puesto = dtContacto.Rows[index]["Puesto"].ToString()
+                                                Puesto = dtContacto.Rows[index]["Puesto"].ToString(),
+                                                Compania = dtComp.Rows[index]["Nombre_comercial"].ToString()
                                             };
                                             lstCorreo.Add(objC);
                                         }
@@ -133,6 +146,8 @@ namespace ClientesNuevos.admin
                         }
                         else
                         {
+                            dtContacto = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id + "' AND (Tipo='Comp' OR Tipo='Fra')");
+                            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania ='" + id + "'");
                             for (int index = 0; index < dtContacto.Rows.Count; index++)
                             {
                                 objC = new ListaCorreo
@@ -141,7 +156,9 @@ namespace ClientesNuevos.admin
                                     Correo = dtContacto.Rows[index]["Correo"].ToString(),
                                     OP = "no",
                                     Nombre = dtContacto.Rows[index]["Nombre"].ToString(),
-                                    Puesto = dtContacto.Rows[index]["Puesto"].ToString()
+                                    Puesto = dtContacto.Rows[index]["Puesto"].ToString(),
+                                    Compania = dtComp.Rows[0]["Nombre_comercial"].ToString()
+
                                 };
                                 lstCorreo.Add(objC);
                             }
