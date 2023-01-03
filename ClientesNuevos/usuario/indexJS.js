@@ -68,7 +68,7 @@ function cookies() {
     }
 }
 function CambioDePass() {
-    GetAjax("wsAdminIndex.asmx/CambioPass", "", false, function (res) {
+    GetAjax("wsUserIndex.asmx/CambioPass", "", false, function (res) {
         if (res == "0") {
             Swal.fire({
                 text: "Es necesario que cambie su contraseña",

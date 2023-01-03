@@ -1536,6 +1536,7 @@
     <Content Include="template\assets\js\loginJS.js" />
     <Content Include="usuario\contacto.aspx" />
     <Content Include="usuario\user_config.aspx" />
+    <Content Include="usuario\wsUserIndex.asmx" />
     <Content Include="Viewer.aspx" />
     <Content Include="wsLogin.asmx" />
     <Content Include="F14\FileUploadHandler.ashx" />
@@ -2177,6 +2178,10 @@
     </Compile>
     <Compile Include="usuario\user_index.aspx.designer.cs">
       <DependentUpon>user_index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\wsUserIndex.asmx.cs">
+      <DependentUpon>wsUserIndex.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Viewer.aspx.cs">
       <DependentUpon>Viewer.aspx</DependentUpon>

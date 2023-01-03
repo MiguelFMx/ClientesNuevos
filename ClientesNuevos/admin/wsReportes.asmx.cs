@@ -117,7 +117,7 @@ namespace ClientesNuevos.admin
                                                 OP = "si",
                                                 Nombre = dtContacto.Rows[index]["Nombre"].ToString(),
                                                 Puesto = dtContacto.Rows[index]["Puesto"].ToString(),
-                                                Compania = dtComp.Rows[index]["Nombre_comercial"].ToString()
+                                                Compania = dtComp.Rows[i]["Nombre_comercial"].ToString()
                                             };
                                             lstCorreo.Add(objC);
                                         }
@@ -147,7 +147,7 @@ namespace ClientesNuevos.admin
                         else
                         {
                             dtContacto = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + id + "' AND (Tipo='Comp' OR Tipo='Fra')");
-                            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania ='" + id + "'");
+                            //dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania ='" + id + "'");
                             for (int index = 0; index < dtContacto.Rows.Count; index++)
                             {
                                 objC = new ListaCorreo
@@ -157,7 +157,7 @@ namespace ClientesNuevos.admin
                                     OP = "no",
                                     Nombre = dtContacto.Rows[index]["Nombre"].ToString(),
                                     Puesto = dtContacto.Rows[index]["Puesto"].ToString(),
-                                    Compania = dtComp.Rows[0]["Nombre_comercial"].ToString()
+                                    Compania = dtComp.Rows[i]["Nombre_comercial"].ToString()
 
                                 };
                                 lstCorreo.Add(objC);
