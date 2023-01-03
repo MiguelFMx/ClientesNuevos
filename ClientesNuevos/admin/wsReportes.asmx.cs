@@ -183,9 +183,11 @@ namespace ClientesNuevos.admin
                     string correo = separado[0];
                     string remitente = separado[1];
 
-                    result += EnviarCorreo(correo, remitente, asunto, cuerpo);
+                    result += EnviarCorreo(correo, remitente, asunto, cuerpo)+",";
+                   
                     
                 }
+                result = "Correo enviado a " + result;
             }
             else
             {
@@ -223,7 +225,7 @@ namespace ClientesNuevos.admin
                 return ex.Message;
             }
 
-            return "Correo enviado a " + correo;
+            return correo;
         }
 
     }
