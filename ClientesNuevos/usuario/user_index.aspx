@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="user_index.aspx.cs" Inherits="ClientesNuevos.usuario.Index" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="user_index.aspx.cs" Inherits="ClientesNuevos.usuario.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -31,7 +31,7 @@
                             <asp:Table ID="tInfo" runat="server" CssClass="table border-primary" BorderWidth="1px">
                                 <asp:TableRow>
                                     <asp:TableCell BackColor="#0169C2" ForeColor="White">
-                                        <asp:Label ID="lblcomp" runat="server" Text="Compañia"></asp:Label>
+                                        <asp:Label ID="lblcomp" runat="server" Text="<%$Resources:Carpetilla, lblCompania %>"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblCompania" runat="server" Text="Label"></asp:Label>
@@ -58,19 +58,31 @@
                         <div class="table-responsive">
                             <asp:Table ID="Table1" runat="server" CssClass="table table-hover">
                                 <asp:TableHeaderRow TableSection="TableHeader" CssClass="cabezal">
-                                    <asp:TableHeaderCell>Documento</asp:TableHeaderCell>
-                                    <asp:TableHeaderCell>Estatus</asp:TableHeaderCell>
-                                    <asp:TableHeaderCell>Fecha de entrega</asp:TableHeaderCell>
-                                    <asp:TableHeaderCell>Acciones</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                        <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: Carpetilla,lblDocumento  %>">
+
+                                        </asp:Literal></asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                        <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Carpetilla,lblEstatus %>"></asp:Literal>
+
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                        <asp:Literal ID="Literal3" runat="server" Text="<%$Resources:Carpetilla,lblFecha %>"></asp:Literal>
+
+                                    </asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>
+                                        <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:Carpetilla,lblAcciones %>"></asp:Literal>
+                                    </asp:TableHeaderCell>
                                 </asp:TableHeaderRow>
 
                                 <%-- Cambio  --%>
 
                                 <%-- =========================Acta constitutiva ================== --%>
                                 <asp:TableRow ID="row_AC">
-                                    <asp:TableCell>Acta constitutiva</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblAC_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:Carpetilla, lblAC %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblAC_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -90,7 +102,7 @@
                                 <asp:TableRow ID="row_W9">
                                     <asp:TableCell>W9</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblW9_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblW9_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -111,9 +123,9 @@
                                 </asp:TableRow>
                                 <%-- ============RFC============================================== --%>
                                 <asp:TableRow ID="row_RFC">
-                                    <asp:TableCell>RFC</asp:TableCell>
+                                    <asp:TableCell>RFC/CIF</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblRFC_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblRFC_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblRFC_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -134,7 +146,7 @@
                                         CURP
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblCURP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Label ID="lblCURP_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblCURP_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -151,9 +163,12 @@
                                 </asp:TableRow>
                                 <%-- =============== CNAP ============================= --%>
                                 <asp:TableRow ID="row_CNAP">
-                                    <asp:TableCell>Carta de no antecedentes penales</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblCNAP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal6" runat="server" Text="<%$Resources:Carpetilla, lblCNAP %>"></asp:Literal>
+
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCNAP_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblCNAP_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -172,9 +187,10 @@
                                 </asp:TableRow>
                                 <%-- ============================= Comprobante de domicilio ============ --%>
                                 <asp:TableRow ID="row_CompDom">
-                                    <asp:TableCell>Comprobante de domicilio</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblCompDom_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal7" runat="server" Text="<%$Resources:Carpetilla,lblComprobanteDom %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCompDom_estatus" runat="server" Text="<%$Resources: Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblCompDom_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -193,9 +209,10 @@
                                 </asp:TableRow>
                                 <%-- ============== Identificacion de representante legal =========== --%>
                                 <asp:TableRow ID="row_IRL">
-                                    <asp:TableCell>Identificacion de representante legal</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblIRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal8" runat="server" Text="<%$Resources:Carpetilla,lblIRL %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblIRL_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblIRL_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -212,9 +229,10 @@
                                 </asp:TableRow>
                                 <%-- ============== Poder de representante legal ============================= --%>
                                 <asp:TableRow ID="row_PRL">
-                                    <asp:TableCell>Poder de representante legal</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblPRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal9" runat="server" Text="<%$Resources:Carpetilla,lblPRL %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblPRL_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -234,9 +252,10 @@
                                 </asp:TableRow>
                                 <%-- ==================== Opinion positiva===================== --%>
                                 <asp:TableRow ID="row_OP">
-                                    <asp:TableCell>Opinion positiva</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblOP_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal10" runat="server" Text="<%$Resources:Carpetilla,lblOpinionPositiva %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblOP_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Label ID="lblOP_fecha" runat="server" Text="--/--/----"></asp:Label>
@@ -255,9 +274,10 @@
                                 </asp:TableRow>
                                 <%-- ===================== CTPAT============================= --%>
                                 <asp:TableRow ID="row_CTPAT">
-                                    <asp:TableCell>Certificacion C-TPAT</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblCTPAT_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal11" runat="server" Text="<%$Resources:Carpetilla,lblCTPAT %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblCTPAT_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -277,9 +297,10 @@
                                 </asp:TableRow>
                                 <%-- ============ OEA ==================================== --%>
                                 <asp:TableRow ID="row_OEA">
-                                    <asp:TableCell>Certificacion OEA</asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:Label ID="lblOEA_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                        <asp:Literal ID="Literal12" runat="server" Text="<%$Resources: Carpetilla,lblOEA %>"></asp:Literal></asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Label ID="lblOEA_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -313,17 +334,21 @@
                             <table class="table table-hover">
                                 <thead class="cabezal">
                                     <tr>
-                                        <th>Formulario</th>
-                                        <th>Estatus</th>
-                                        <th>Fecha de actualizacion</th>
+                                        <th>
+                                            <asp:Literal ID="Literal13" runat="server" Text="<%$Resources:Carpetilla,lblForm %>"></asp:Literal></th>
+                                        <th>
+                                            <asp:Literal ID="Literal14" runat="server" Text="<%$Resources:Carpetilla,lblEstatus %>"></asp:Literal></th>
+                                        <th>
+                                            <asp:Literal ID="Literal15" runat="server" Text="<%$Resources:Carpetilla, lblFecha %>"></asp:Literal></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Admision de cliente nuevo (F-14)</td>
                                         <td>
-                                            <asp:Label ID="lblF14_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                            <asp:Literal ID="Literal16" runat="server" Text="<%$Resources:Carpetilla,lblF14 %>"></asp:Literal></td>
+                                        <td>
+                                            <asp:Label ID="lblF14_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                         </td>
                                         <td>
@@ -332,59 +357,63 @@
 
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnRegistro" runat="server" Text="Llenar formulario" CssClass="btn btn-success" OnClick="btnRegistro_Click" />
+                                            <asp:Button ID="btnRegistro" runat="server" Text="<%$Resources:Carpetilla, lblbtnLlenar %>" CssClass="btn btn-success" OnClick="btnRegistro_Click" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Mapeo de flujo de carga (F-43)</td>
                                         <td>
-                                            <asp:Label ID="lblF43_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                            <asp:Literal ID="Literal20" runat="server" Text="<%$Resources:Carpetilla,lblF43 %>"></asp:Literal></td>
+                                        <td>
+                                            <asp:Label ID="lblF43_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
 
                                         </td>
                                         <td>
                                             <asp:Label ID="lblF43_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnMapeo" runat="server" Text="Llenar formulario" CssClass="btn btn-success" OnClick="btnMapeo_Click" />
+                                            <asp:Button ID="btnMapeo" runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" CssClass="btn btn-success" OnClick="btnMapeo_Click" />
                                             <%--<button id="btnMapeo" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Evaluacion de seguridad (F-5)</td>
                                         <td>
-                                            <asp:Label ID="lblF5_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                            <asp:Literal ID="Literal19" runat="server" Text="<%$Resources:Carpetilla, lblF5 %>"></asp:Literal></td>
+                                        <td>
+                                            <asp:Label ID="lblF5_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblF5_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
                                             <%--<button id="btnEvaluacion" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
-                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnEvaluacion_Click" />
+                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnEvaluacion_Click" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Carta compromiso (F-12)</td>
                                         <td>
-                                            <asp:Label ID="lblF12_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                            <asp:Literal ID="Literal18" runat="server" Text="<%$Resources:Carpetilla, lblF12 %>"></asp:Literal></td>
+                                        <td>
+                                            <asp:Label ID="lblF12_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="Llenar formulario" OnClick="btnCartaCompromiso_Click" Enabled ="false" />
+                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnCartaCompromiso_Click" Enabled ="false" />
 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Criterios minimos de seguridad C-TPAT (F-20)</td>
                                         <td>
-                                            <asp:Label ID="lblF20_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                            <asp:Literal ID="Literal17" runat="server" Text="<%$Resources: Carpetilla,lblF20 %>"></asp:Literal></td>
+                                        <td>
+                                            <asp:Label ID="lblF20_estatus" runat="server" Text="<%$Resources:Carpetilla, lblPendiente %>" CssClass="etiqueta pendiente"></asp:Label>
                                         </td>
                                         <td>
                                             <asp:Label ID="lblF20_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCriteriosMinimos" CssClass="btn btn-success " runat="server" Text="    Leer criterios    " OnClick="btnCriteriosMinimos_Click" />
+                                            <asp:Button ID="btnCriteriosMinimos" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla, lblCriterios %>" OnClick="btnCriteriosMinimos_Click" />
 
                                         </td>
                                     </tr>

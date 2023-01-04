@@ -1974,6 +1974,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgentesAduanales.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Carpetilla.en.designer.cs">
+      <DependentUpon>Carpetilla.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Carpetilla.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Carpetilla.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Certificacion.en.designer.cs">
       <DependentUpon>Certificacion.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1993,6 +2003,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InformacionCompania.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Mapeoflujo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mapeoflujo.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Servicios.en.designer.cs">
       <DependentUpon>Servicios.en.resx</DependentUpon>
@@ -2270,6 +2285,18 @@
     <Content Include="App_GlobalResources\Certificacion.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Certificacion.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Carpetilla.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Carpetilla.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Carpetilla.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Carpetilla.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Mapeoflujo.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Mapeoflujo.Designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>

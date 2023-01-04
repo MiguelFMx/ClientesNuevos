@@ -87,6 +87,42 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
+        /// Control Literal1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
+
+        /// <summary>
+        /// Control Literal2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal2;
+
+        /// <summary>
+        /// Control Literal3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal3;
+
+        /// <summary>
+        /// Control Literal4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal4;
+
+        /// <summary>
         /// Control row_AC.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableRow row_AC;
+
+        /// <summary>
+        /// Control Literal5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal5;
 
         /// <summary>
         /// Control lblAC_estatus.
@@ -312,6 +357,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TableRow row_CNAP;
 
         /// <summary>
+        /// Control Literal6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal6;
+
+        /// <summary>
         /// Control lblCNAP_estatus.
         /// </summary>
         /// <remarks>
@@ -364,6 +418,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableRow row_CompDom;
+
+        /// <summary>
+        /// Control Literal7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal7;
 
         /// <summary>
         /// Control lblCompDom_estatus.
@@ -420,6 +483,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TableRow row_IRL;
 
         /// <summary>
+        /// Control Literal8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal8;
+
+        /// <summary>
         /// Control lblIRL_estatus.
         /// </summary>
         /// <remarks>
@@ -472,6 +544,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableRow row_PRL;
+
+        /// <summary>
+        /// Control Literal9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal9;
 
         /// <summary>
         /// Control lblPRL_estatus.
@@ -528,6 +609,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TableRow row_OP;
 
         /// <summary>
+        /// Control Literal10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal10;
+
+        /// <summary>
         /// Control lblOP_estatus.
         /// </summary>
         /// <remarks>
@@ -580,6 +670,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableRow row_CTPAT;
+
+        /// <summary>
+        /// Control Literal11.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal11;
 
         /// <summary>
         /// Control lblCTPAT_estatus.
@@ -636,6 +735,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.TableRow row_OEA;
 
         /// <summary>
+        /// Control Literal12.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal12;
+
+        /// <summary>
         /// Control lblOEA_estatus.
         /// </summary>
         /// <remarks>
@@ -681,6 +789,42 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.LinkButton OEA_ver;
 
         /// <summary>
+        /// Control Literal13.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal13;
+
+        /// <summary>
+        /// Control Literal14.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal14;
+
+        /// <summary>
+        /// Control Literal15.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal15;
+
+        /// <summary>
+        /// Control Literal16.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal16;
+
+        /// <summary>
         /// Control lblF14_estatus.
         /// </summary>
         /// <remarks>
@@ -706,6 +850,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegistro;
+
+        /// <summary>
+        /// Control Literal20.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal20;
 
         /// <summary>
         /// Control lblF43_estatus.
@@ -735,6 +888,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Button btnMapeo;
 
         /// <summary>
+        /// Control Literal19.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal19;
+
+        /// <summary>
         /// Control lblF5_estatus.
         /// </summary>
         /// <remarks>
@@ -762,6 +924,15 @@ namespace ClientesNuevos.usuario
         protected global::System.Web.UI.WebControls.Button btnEvaluacion;
 
         /// <summary>
+        /// Control Literal18.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal18;
+
+        /// <summary>
         /// Control lblF12_estatus.
         /// </summary>
         /// <remarks>
@@ -787,6 +958,15 @@ namespace ClientesNuevos.usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCartaCompromiso;
+
+        /// <summary>
+        /// Control Literal17.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal17;
 
         /// <summary>
         /// Control lblF20_estatus.

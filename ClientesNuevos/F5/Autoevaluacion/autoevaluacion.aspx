@@ -26,7 +26,7 @@
         <!-- Tabla -->
 
         <div class="row" >
-            <span class="text-secondary font-weight-bolder">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
+            <span class="font-weight-bolder" style="font-weight:bolder">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
             <div class="col">
                 <div class="card mb-3" style="width:100%;">
                     <div class="table-responsive">

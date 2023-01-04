@@ -137,29 +137,29 @@ namespace ClientesNuevos.usuario
                         f14= true;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblF14_estatus.Text = "completado";
+                            lblF14_estatus.Text = Resources.Carpetilla.lblCompletado ;
                             lblF14_estatus.CssClass = "etiqueta";
 
 
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblF14_estatus.Text = "en revision";
+                            lblF14_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblF14_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblF14_estatus.Text = "actualizar";
+                            lblF14_estatus.Text = Resources.Carpetilla.lblAct;
                             lblF14_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblF14_estatus.Text = "actualizado";
+                            lblF14_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblF14_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblF14_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblF14_estatus.Text = Resources.Carpetilla.lblPendiente+": " + Docs[i].Estatus;
                         }
 
                         lblF14_fecha.Text = Docs[i].Fecha.Substring(0, 10);
@@ -170,27 +170,27 @@ namespace ClientesNuevos.usuario
                     {
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblF43_estatus.Text = "completado";
+                            lblF43_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblF43_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblF43_estatus.Text = "en revision";
+                            lblF43_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblF43_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblF43_estatus.Text = "actualizar";
+                            lblF43_estatus.Text = Resources.Carpetilla.lblAct;
                             lblF43_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblF43_estatus.Text = "actualizado";
+                            lblF43_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblF43_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblF43_estatus.Text = "Pendiente";
+                            lblF43_estatus.Text = Resources.Carpetilla.lblPendiente;
                         }
                         lblF43_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
@@ -200,36 +200,36 @@ namespace ClientesNuevos.usuario
                         f5 = true;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblF5_estatus.Text = "completado";
+                            lblF5_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblF5_estatus.CssClass = "etiqueta";
-                            btnEvaluacion.Text = "Ver resultados";
+                            btnEvaluacion.Text = Resources.Carpetilla.lblResultados ;
 
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblF5_estatus.Text = "en revision";
+                            lblF5_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblF5_estatus.CssClass = "etiqueta revision";
-                            btnEvaluacion.Text = "Ver resultados";
+                            btnEvaluacion.Text = Resources.Carpetilla.lblResultados;
                             
 
 
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblF5_estatus.Text = "actualizar";
+                            lblF5_estatus.Text = Resources.Carpetilla.lblAct;
                             lblF5_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblF5_estatus.Text = "actualizado";
+                            lblF5_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblF5_estatus.CssClass = "etiqueta updated";
-                            btnEvaluacion.Text = "Ver resultados";
+                            btnEvaluacion.Text = Resources.Carpetilla.lblResultados;
 
 
                         }
                         else
                         {
-                            lblF5_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblF5_estatus.Text = Resources.Carpetilla.lblPendiente+": " + Docs[i].Estatus;
                         }
                         lblF5_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
@@ -238,27 +238,27 @@ namespace ClientesNuevos.usuario
                     {
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblF12_estatus.Text = "completado";
+                            lblF12_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblF12_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblF12_estatus.Text = "en revision";
+                            lblF12_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblF12_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblF12_estatus.Text = "actualizar";
+                            lblF12_estatus.Text = Resources.Carpetilla.lblAct;
                             lblF12_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblF12_estatus.Text = "actualizado";
+                            lblF12_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblF12_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblF12_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblF12_estatus.Text = Resources.Carpetilla.lblPendiente + " :" + Docs[i].Estatus;
                         }
                         lblF12_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }
@@ -268,27 +268,27 @@ namespace ClientesNuevos.usuario
                         txtRFC.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblRFC_estatus.Text = "completado";
+                            lblRFC_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblRFC_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblRFC_estatus.Text = "en revision";
+                            lblRFC_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblRFC_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblRFC_estatus.Text = "actualizar";
+                            lblRFC_estatus.Text = Resources.Carpetilla.lblAct ;
                             lblRFC_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblRFC_estatus.Text = "actualizado";
+                            lblRFC_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblRFC_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblRFC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblRFC_estatus.Text = Resources.Carpetilla.lblPendiente + " :" + Docs[i].Estatus;
                         }
                         lblRFC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                         RFC_ver.Enabled = true;
@@ -303,32 +303,28 @@ namespace ClientesNuevos.usuario
                         txtCURP.Text = Docs[i].Ruta;    
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblCURP_estatus.Text = "completado";
+                            lblCURP_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblCURP_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblCURP_estatus.Text = "en revision";
+                            lblCURP_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblCURP_estatus.CssClass = "etiqueta revision";
                         }
+                        
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblCURP_estatus.Text = "actualizar";
-                            lblCURP_estatus.CssClass = "etiqueta actualizar";
-                        }
-                        else if (Docs[i].Estatus == "act")
-                        {
-                            lblCURP_estatus.Text = "actualizar";
+                            lblCURP_estatus.Text = Resources.Carpetilla.lblAct;
                             lblCURP_estatus.CssClass = "etiqueta actualizar";
                         } 
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblCURP_estatus.Text = "actualizado";
+                            lblCURP_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblCURP_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblCURP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblCURP_estatus.Text = Resources.Carpetilla.lblPendiente+" :" + Docs[i].Estatus;
                         }
                         lblCURP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                         CURP_ver.Enabled = true;
@@ -343,27 +339,27 @@ namespace ClientesNuevos.usuario
                         txtCNAP.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblCNAP_estatus.Text = "completado";
+                            lblCNAP_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblCNAP_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblCNAP_estatus.Text = "en revision";
+                            lblCNAP_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblCNAP_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblCNAP_estatus.Text = "actualizar";
+                            lblCNAP_estatus.Text = Resources.Carpetilla.lblAct;
                             lblCNAP_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblCNAP_estatus.Text = "actualizado";
+                            lblCNAP_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblCNAP_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblCNAP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblCNAP_estatus.Text = Resources.Carpetilla.lblPendiente + " :" + Docs[i].Estatus;
                         }
                         lblCNAP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -379,27 +375,27 @@ namespace ClientesNuevos.usuario
                         txtCompDom.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblCompDom_estatus.Text = "completado";
+                            lblCompDom_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblCompDom_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblCompDom_estatus.Text = "en revision";
+                            lblCompDom_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblCompDom_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblCompDom_estatus.Text = "actualizar";
+                            lblCompDom_estatus.Text = Resources.Carpetilla.lblAct;
                             lblCompDom_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblCompDom_estatus.Text = "actualizado";
+                            lblCompDom_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblCompDom_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblCompDom_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblCompDom_estatus.Text = Resources.Carpetilla.lblPendiente + " :" + Docs[i].Estatus;
                         }
                         lblCompDom_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -415,27 +411,27 @@ namespace ClientesNuevos.usuario
                         txtIRL.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblIRL_estatus.Text = "completado";
+                            lblIRL_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblIRL_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblIRL_estatus.Text = "en revision";
+                            lblIRL_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblIRL_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblIRL_estatus.Text = "actualizar";
+                            lblIRL_estatus.Text = Resources.Carpetilla.lblAct;
                             lblIRL_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblIRL_estatus.Text = "actualizado";
+                            lblIRL_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblIRL_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblIRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblIRL_estatus.Text = Resources.Carpetilla.lblPendiente + ": " + Docs[i].Estatus;
                         }
                         lblIRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -450,27 +446,27 @@ namespace ClientesNuevos.usuario
                         txtPRL.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblPRL_estatus.Text = "completado";
+                            lblPRL_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblPRL_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblPRL_estatus.Text = "en revision";
+                            lblPRL_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblPRL_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblPRL_estatus.Text = "actualizar";
+                            lblPRL_estatus.Text = Resources.Carpetilla.lblAct;
                             lblPRL_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblPRL_estatus.Text = "actualizado";
+                            lblPRL_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblPRL_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblPRL_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblPRL_estatus.Text = Resources.Carpetilla.lblPendiente + ": " + Docs[i].Estatus;
                         }
                         lblPRL_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -486,27 +482,27 @@ namespace ClientesNuevos.usuario
                         txtOP.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblOP_estatus.Text = "completado";
+                            lblOP_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblOP_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblOP_estatus.Text = "en revision";
+                            lblOP_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblOP_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblOP_estatus.Text = "actualizar";
+                            lblOP_estatus.Text = Resources.Carpetilla.lblAct;
                             lblOP_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblOP_estatus.Text = "actualizado";
+                            lblOP_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblOP_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblOP_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblOP_estatus.Text = Resources.Carpetilla.lblPendiente + ":" + Docs[i].Estatus;
                         }
                         lblOP_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                         OP_borrar.Enabled = true;
@@ -521,27 +517,27 @@ namespace ClientesNuevos.usuario
                         txtCTPAT.Text=Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblCTPAT_estatus.Text = "completado";
+                            lblCTPAT_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblCTPAT_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblCTPAT_estatus.Text = "en revision";
+                            lblCTPAT_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblCTPAT_estatus.CssClass = "etiqueta revision";
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblCTPAT_estatus.Text = "actualizar";
+                            lblCTPAT_estatus.Text = Resources.Carpetilla.lblAct;
                             lblCTPAT_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblCTPAT_estatus.Text = "actualizado";
+                            lblCTPAT_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblCTPAT_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblCTPAT_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblCTPAT_estatus.Text = Resources.Carpetilla.lblPendiente + ":" + Docs[i].Estatus;
                         }
                         lblCTPAT_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -557,28 +553,28 @@ namespace ClientesNuevos.usuario
                         txtOEA.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblOEA_estatus.Text = "completado";
+                            lblOEA_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblOEA_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblOEA_estatus.Text = "en revision";
+                            lblOEA_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblOEA_estatus.CssClass = "etiqueta revision";
 
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblOEA_estatus.Text = "actualizar";
+                            lblOEA_estatus.Text = Resources.Carpetilla.lblAct;
                             lblOEA_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblOEA_estatus.Text = "actualizado";
+                            lblOEA_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblOEA_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblOEA_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblOEA_estatus.Text = Resources.Carpetilla.lblPendiente+ ":" + Docs[i].Estatus;
                         }
                         lblOEA_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -594,28 +590,28 @@ namespace ClientesNuevos.usuario
                         txtW9.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblW9_estatus.Text = "completado";
+                            lblW9_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblW9_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblW9_estatus.Text = "en revision";
+                            lblW9_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblW9_estatus.CssClass = "etiqueta revision";
 
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblW9_estatus.Text = "actualizar";
+                            lblW9_estatus.Text = Resources.Carpetilla.lblAct;
                             lblW9_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblW9_estatus.Text = "actualizado";
+                            lblW9_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblW9_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblW9_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblW9_estatus.Text = Resources.Carpetilla.lblPendiente + " :" + Docs[i].Estatus;
                         }
                         lblW9_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -632,28 +628,28 @@ namespace ClientesNuevos.usuario
                         txtAC.Text = Docs[i].Ruta;
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblAC_estatus.Text = "completado";
+                            lblAC_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblAC_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblAC_estatus.Text = "en revision";
+                            lblAC_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblAC_estatus.CssClass = "etiqueta revision";
 
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblAC_estatus.Text = "actualizar";
+                            lblAC_estatus.Text = Resources.Carpetilla.lblAct;
                             lblAC_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblAC_estatus.Text = "actualizado";
+                            lblAC_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblAC_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblAC_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblAC_estatus.Text = Resources.Carpetilla.lblPendiente + ":" + Docs[i].Estatus;
                         }
                         lblAC_fecha.Text = Docs[i].Fecha.Substring(0, 10);
 
@@ -668,28 +664,28 @@ namespace ClientesNuevos.usuario
                     {
                         if (Docs[i].Estatus == "100%")
                         {
-                            lblF20_estatus.Text = "completado";
+                            lblF20_estatus.Text = Resources.Carpetilla.lblCompletado;
                             lblF20_estatus.CssClass = "etiqueta";
                         }
                         else if (Docs[i].Estatus == "revision")
                         {
-                            lblF20_estatus.Text = "en revision";
+                            lblF20_estatus.Text = Resources.Carpetilla.lblRevision;
                             lblF20_estatus.CssClass = "etiqueta revision";
 
                         }
                         else if (Docs[i].Estatus == "act")
                         {
-                            lblF20_estatus.Text = "actualizar";
+                            lblF20_estatus.Text = Resources.Carpetilla.lblAct;
                             lblF20_estatus.CssClass = "etiqueta actualizar";
                         }
                         else if (Docs[i].Estatus == "updated")
                         {
-                            lblF20_estatus.Text = "actualizado";
+                            lblF20_estatus.Text = Resources.Carpetilla.lblActualizado;
                             lblF20_estatus.CssClass = "etiqueta updated";
                         }
                         else
                         {
-                            lblF20_estatus.Text = "Pendiente:" + Docs[i].Estatus;
+                            lblF20_estatus.Text = Resources.Carpetilla.lblPendiente+ ":" + Docs[i].Estatus;
                         }
                         lblF20_fecha.Text = Docs[i].Fecha.Substring(0, 10);
                     }

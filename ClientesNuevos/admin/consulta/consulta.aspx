@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="consulta.aspx.cs" Inherits="ClientesNuevos.admin.reportes.consulta" %>
+﻿<%@ Page Title="Consulta" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="consulta.aspx.cs" Inherits="ClientesNuevos.admin.reportes.consulta" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

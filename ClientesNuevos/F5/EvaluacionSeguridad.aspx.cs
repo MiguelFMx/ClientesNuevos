@@ -238,8 +238,6 @@ namespace ClientesNuevos.cliente.F5
 
             lbluno.Text = res;
 
-
-
             doc = wsBaseDatos.InsertarDocumento(GetID(), "F5", "", "50%");
             Registrar_F5();
             lbluno.Text = doc;
