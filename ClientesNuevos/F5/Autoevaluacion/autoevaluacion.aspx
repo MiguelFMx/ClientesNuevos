@@ -28,7 +28,9 @@
         <!-- Tabla -->
 
         <div class="row" >
-            <span class="font-weight-bolder" style="font-weight:bolder">*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</span>
+            <span class="font-weight-bolder" style="font-weight:bolder">
+                <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: autoevaluacion, lblInstrucciones %>"></asp:Literal>
+            </span>
             <div class="col">
                 <div class="card mb-3" style="width:100%;">
                     <div class="table-responsive">
@@ -36,10 +38,14 @@
                             <caption>1 de 8</caption>
                             <thead class="table-primary border-primary">
                                 <tr>
-                                    <th>Numero</th>
-                                    <th>Pregunta</th>
-                                    <th colspan="4">Opciones</th>
-                                    <th style="width: 300px;">Observaciones</th>
+                                    <th>
+                                        <asp:Literal ID="Literal2" runat="server" Text="<%$Resources: autoevaluacion,lblNumero %>"></asp:Literal></th>
+                                    <th>
+                                        <asp:Literal ID="Literal3" runat="server" Text="<%$Resources: autoevaluacion, lblPregunta %>"></asp:Literal></th>
+                                    <th colspan="4">
+                                        <asp:Literal ID="Literal4" runat="server" Text="<%$Resources: autoevaluacion,lblOpciones  %>"></asp:Literal></th>
+                                    <th style="width: 300px;">
+                                        <asp:Literal ID="Literal5" runat="server" Text="<%$Resources: autoevaluacion, lblObservaciones %>"></asp:Literal></th>
                                 </tr>
                             </thead>
                             <tbody class="border-primary">
@@ -75,10 +81,11 @@
         <!-- Botones -->
         <div class="row">
             <div class="col" style="display: flex; justify-content: flex-start;">
-                <button class="btn btn-secondary" id="btnAnterior" type="button"><i class="bi bi-chevron-left"></i>Anterior</button>
+                <button class="btn btn-secondary" id="btnAnterior" type="button"><i class="bi bi-chevron-left"></i> <asp:Literal ID="Literal7" runat="server" Text="<%$Resources: InformacionCompania, lblBtnAtras %>"></asp:Literal></button>
             </div>
             <div class="col" style="display: flex; justify-content: flex-end;">
-                <button class="btn btn-warning text-white" id="btnSiguiente" type="button">Siguiente <i class="bi bi-chevron-right"></i></button>
+                <button class="btn btn-warning text-white" id="btnSiguiente" type="button">
+                    <asp:Literal ID="Literal6" runat="server" Text="<%$Resources:InformacionCompania, lblBtnContinuar %>"></asp:Literal> <i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
 

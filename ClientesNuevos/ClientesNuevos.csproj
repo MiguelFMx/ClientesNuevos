@@ -1974,6 +1974,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgentesAduanales.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\autoevaluacion.en.designer.cs">
+      <DependentUpon>autoevaluacion.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\autoevaluacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>autoevaluacion.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Carpetilla.en.designer.cs">
       <DependentUpon>Carpetilla.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2324,6 +2334,14 @@
     <Content Include="App_GlobalResources\Evaluacion.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Evaluacion.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\autoevaluacion.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>autoevaluacion.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\autoevaluacion.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>autoevaluacion.en.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>
