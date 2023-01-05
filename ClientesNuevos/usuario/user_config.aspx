@@ -10,8 +10,8 @@
             <div class="col-md-4">
                 <asp:Label ID="lblIdioma" runat="server" Text="Idioma" CssClass="form-label"></asp:Label>
                 <asp:DropDownList ID="ddIdioma" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddIdioma_SelectedIndexChanged">
-                    <asp:ListItem Text="Español" Value="Es" />
-                    <asp:ListItem Text="English" Value="En" />
+                    <asp:ListItem Text="Español" Value="es-MX" />
+                    <asp:ListItem Text="English" Value="en-US" />
                 </asp:DropDownList>
             </div>
         </div>

@@ -13,7 +13,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-        
+
+        <asp:HiddenField ID="hfCultura" runat="server" />
+
         <!-- barra de progreso -->
         <div class="row">
             <div class="col">

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using ClientesNuevos.App_Code;
 using System.Globalization;
+using System.Threading;
 
 namespace ClientesNuevos.F43
 {
@@ -17,7 +18,7 @@ namespace ClientesNuevos.F43
         {
             if (!IsPostBack)
             {
-                hfLocalizacion.Value = CultureInfo.CurrentUICulture.NativeName;
+                hfLocalizacion.Value = CultureInfo.CurrentCulture.Name;
 
                 if(User.IsInRole("1") || User.IsInRole("2"))
                 {
