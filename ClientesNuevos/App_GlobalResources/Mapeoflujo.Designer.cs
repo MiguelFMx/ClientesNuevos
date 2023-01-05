@@ -61,15 +61,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Auditor.
-        /// </summary>
-        internal static string lblAuditor {
-            get {
-                return ResourceManager.GetString("lblAuditor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Cliente.
         /// </summary>
         internal static string lblCliente {
@@ -115,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Movimineto de carga.
+        ///   Busca una cadena traducida similar a Movimiento de carga.
         /// </summary>
         internal static string lblMC {
             get {
@@ -198,18 +189,18 @@ namespace Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Identificación de clientes y procesos.
         /// </summary>
-        internal static string lblsubtitutlo {
+        internal static string lblsubtitulo {
             get {
-                return ResourceManager.GetString("lblsubtitutlo", resourceCulture);
+                return ResourceManager.GetString("lblsubtitulo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Mapeo de flujo de carga y socios.
         /// </summary>
-        internal static string lblTitutlo {
+        internal static string lblTitulo {
             get {
-                return ResourceManager.GetString("lblTitutlo", resourceCulture);
+                return ResourceManager.GetString("lblTitulo", resourceCulture);
             }
         }
     }

@@ -140,13 +140,13 @@ function dynamic_field(number) {
     html += '<td>' +
         '<div class="col">' +
             '<select name="in_movimiento" class="form-select">' +
-                '<option value="si">Si</option>'+
+                '<option value="si">Si/Yes</option>'+
                 '<option value="no">No</option>'+
                 '<option value="na">N/A</option>' +
             '</select>' +
         '</div>' +
         '</td>';
-    html += '<td><div class="col"><textarea type="text" name="in_detalles" class="form-control"><span class="badge text-bg-secondary">4</span></textarea></div></td>';
+    html += '<td><div class="col"><textarea type="text" name="in_detalles" class="form-control"></textarea></div></td>';
     html += '<td><div class="col"><textarea type="text" name="in_dias" class="form-control"></textarea></div></td>';
     html += '<td><div class="col"><textarea name="in_modo" class="form-control" ></textarea></div></td>';
     html += '<td><div class="col"><textarea name="in_pregunta" class="form-control" ></textarea></div></td>';

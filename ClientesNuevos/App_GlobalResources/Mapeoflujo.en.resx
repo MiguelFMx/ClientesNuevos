@@ -121,48 +121,48 @@
     <value>Cliente</value>
   </data>
   <data name="lblDate" xml:space="preserve">
-    <value>Fecha</value>
+    <value>Date</value>
   </data>
   <data name="lblDetalles" xml:space="preserve">
-    <value>Detalles de proveedor</value>
+    <value>Provider details</value>
   </data>
   <data name="lblDias" xml:space="preserve">
-    <value>Días en que el cargamento está en reposo</value>
+    <value>Cargo rest days</value>
   </data>
   <data name="lblDiasHint" xml:space="preserve">
     <value>dias</value>
   </data>
   <data name="lblMC" xml:space="preserve">
-    <value>Movimiento de carga</value>
+    <value>Cargo movement</value>
   </data>
   <data name="lblModo" xml:space="preserve">
-    <value>Modo de transporte</value>
+    <value>Transport mode</value>
   </data>
   <data name="lblModoHint" xml:space="preserve">
     <value>modo</value>
   </data>
   <data name="lblPregunta" xml:space="preserve">
-    <value>Si la enteidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?</value>
+    <value>If the entity manage the cargo physically, who does selected like a provider?</value>
   </data>
   <data name="lblPreguntaHint" xml:space="preserve">
     <value>pregunta</value>
   </data>
   <data name="lblProceso" xml:space="preserve">
-    <value>Proceso</value>
+    <value>Process</value>
   </data>
   <data name="lblProcesoHint" xml:space="preserve">
     <value>hint</value>
   </data>
   <data name="lblProveedor" xml:space="preserve">
-    <value>Proveedor</value>
+    <value>Provider</value>
   </data>
   <data name="lblProveedorHint" xml:space="preserve">
     <value>hint</value>
   </data>
   <data name="lblsubtitulo" xml:space="preserve">
-    <value>Identificación de clientes y procesos</value>
+    <value>Clients and processes identification</value>
   </data>
   <data name="lblTitulo" xml:space="preserve">
-    <value>Mapeo de flujo de carga y socios</value>
+    <value>Load fload Analysis</value>
   </data>
 </root>

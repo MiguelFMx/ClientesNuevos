@@ -196,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Si.
+        ///   Busca una cadena traducida similar a SI.
         /// </summary>
         internal static string lblSI {
             get {

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblCertificado" xml:space="preserve">
-    <value>Certificate</value>
+    <value>Certified</value>
   </data>
   <data name="lblCertificadoNoVal" xml:space="preserve">
-    <value>No validated</value>
+    <value>Certified, no validated</value>
   </data>
   <data name="lblCertificadoValidado" xml:space="preserve">
-    <value>Validated</value>
+    <value>Certified, validated</value>
   </data>
   <data name="lblCodigo" xml:space="preserve">
     <value>Certificate number</value>
@@ -163,6 +163,6 @@
     <value>Security program</value>
   </data>
   <data name="lblSI" xml:space="preserve">
-    <value>Yes</value>
+    <value>YES</value>
   </data>
 </root>

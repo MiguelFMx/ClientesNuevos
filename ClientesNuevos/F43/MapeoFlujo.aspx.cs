@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using ClientesNuevos.App_Code;
+using System.Globalization;
 
 namespace ClientesNuevos.F43
 {
@@ -16,6 +17,8 @@ namespace ClientesNuevos.F43
         {
             if (!IsPostBack)
             {
+                hfLocalizacion.Value = CultureInfo.CurrentUICulture.NativeName;
+
                 if(User.IsInRole("1") || User.IsInRole("2"))
                 {
                     pAdmin.Visible = true;

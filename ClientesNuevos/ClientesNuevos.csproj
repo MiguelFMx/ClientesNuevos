@@ -1994,6 +1994,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Certificacion.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Evaluacion.en.designer.cs">
+      <DependentUpon>Evaluacion.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Evaluacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Evaluacion.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\InformacionCompania.en.designer.cs">
       <DependentUpon>InformacionCompania.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2003,6 +2013,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InformacionCompania.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Mapeoflujo.en.designer.cs">
+      <DependentUpon>Mapeoflujo.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="App_GlobalResources\Mapeoflujo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2297,6 +2312,18 @@
     <Content Include="App_GlobalResources\Mapeoflujo.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Mapeoflujo.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Mapeoflujo.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Mapeoflujo.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Evaluacion.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Evaluacion.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Evaluacion.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Evaluacion.en.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>

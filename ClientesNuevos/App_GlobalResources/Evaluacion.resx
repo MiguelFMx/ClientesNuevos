@@ -117,52 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblCliente" xml:space="preserve">
-    <value>Cliente</value>
+  <data name="lbl100" xml:space="preserve">
+    <value>Nuestra compañía</value>
   </data>
-  <data name="lblDate" xml:space="preserve">
-    <value>Fecha</value>
+  <data name="lbl1001" xml:space="preserve">
+    <value>ya esta certificada </value>
   </data>
-  <data name="lblDetalles" xml:space="preserve">
-    <value>Detalles de proveedor</value>
+  <data name="lbl1002" xml:space="preserve">
+    <value>en C-TPAT y nuestro SVI es:</value>
   </data>
-  <data name="lblDias" xml:space="preserve">
-    <value>Días en que el cargamento está en reposo</value>
+  <data name="lbl120" xml:space="preserve">
+    <value>Nuestra compañía </value>
   </data>
-  <data name="lblDiasHint" xml:space="preserve">
-    <value>dias</value>
+  <data name="lbl1201" xml:space="preserve">
+    <value>ES</value>
   </data>
-  <data name="lblMC" xml:space="preserve">
-    <value>Movimiento de carga</value>
+  <data name="lbl1202" xml:space="preserve">
+    <value>elegible para ser miembro de C-TPAT</value>
   </data>
-  <data name="lblModo" xml:space="preserve">
-    <value>Modo de transporte</value>
+  <data name="lbl130" xml:space="preserve">
+    <value>Es miembro o está en proceso de ser miembro C-TPAT</value>
   </data>
-  <data name="lblModoHint" xml:space="preserve">
-    <value>modo</value>
+  <data name="lbl131" xml:space="preserve">
+    <value>Si la respuesta a la pregunta 1.3.0 es</value>
   </data>
-  <data name="lblPregunta" xml:space="preserve">
-    <value>Si la enteidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?</value>
+  <data name="lbl1312" xml:space="preserve">
+    <value>Estatus de cuenta</value>
   </data>
-  <data name="lblPreguntaHint" xml:space="preserve">
-    <value>pregunta</value>
+  <data name="lbl1313" xml:space="preserve">
+    <value>Estatus de revisión de su perfil de seguridad:</value>
   </data>
-  <data name="lblProceso" xml:space="preserve">
-    <value>Proceso</value>
+  <data name="lbl1321" xml:space="preserve">
+    <value>No esta interesada en aplicar por el momento</value>
   </data>
-  <data name="lblProcesoHint" xml:space="preserve">
-    <value>hint</value>
+  <data name="lbl1322" xml:space="preserve">
+    <value>Esta interesada y desea recibir más información</value>
   </data>
-  <data name="lblProveedor" xml:space="preserve">
-    <value>Proveedor</value>
+  <data name="lbl140" xml:space="preserve">
+    <value>Nuestra compañía comprende las normas mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</value>
   </data>
-  <data name="lblProveedorHint" xml:space="preserve">
-    <value>hint</value>
+  <data name="lbl150" xml:space="preserve">
+    <value>Nuestra compañía</value>
   </data>
-  <data name="lblsubtitulo" xml:space="preserve">
-    <value>Identificación de clientes y procesos</value>
+  <data name="lbl1501" xml:space="preserve">
+    <value>NO ES ELEGIBLE PARA SER MIEBRO C-TPAT</value>
+  </data>
+  <data name="lbl1502" xml:space="preserve">
+    <value>pero está de acuerdo en cumplir con los lineamientos de seguridad</value>
+  </data>
+  <data name="lbl160" xml:space="preserve">
+    <value>¿Esta usted respondiendo por todas las entidades de negocio de su compañía?</value>
+  </data>
+  <data name="lblActualizado" xml:space="preserve">
+    <value>Actualizado</value>
+  </data>
+  <data name="lblEnRevision" xml:space="preserve">
+    <value>En revisión</value>
+  </data>
+  <data name="lblError" xml:space="preserve">
+    <value>*Elija una opción</value>
+  </data>
+  <data name="lblInstrucciones" xml:space="preserve">
+    <value>Por favor, responda las siguientes preguntas.</value>
   </data>
   <data name="lblTitulo" xml:space="preserve">
-    <value>Mapeo de flujo de carga y socios</value>
+    <value>Cuestionario C-TPAT para SOCIO COMERCIAL</value>
   </data>
 </root>

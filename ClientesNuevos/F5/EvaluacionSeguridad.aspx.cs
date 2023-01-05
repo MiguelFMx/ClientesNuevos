@@ -153,7 +153,7 @@ namespace ClientesNuevos.cliente.F5
         protected void radioMiembro_SelectedIndexChanged(object sender, EventArgs e)
         {
             string radio = radio130.SelectedValue;
-            if (radio == "SI")
+            if (radio == "SI" || radio =="YES")
             {
                 PanelSi.Visible = true;
                 PanelNo.Visible = false;

@@ -6,9 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
+        <asp:HiddenField ID="hfLocalizacion" runat="server" />
         <div class="row">
             <div class="col">
-                <h4>Mapeo de flujo de carga y socios</h4>
+                <h4>
+                    <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: Mapeoflujo, lblTitulo %>"></asp:Literal>
+                </h4>
             </div>
         </div>
         <div class="row">
@@ -25,20 +28,25 @@
                             <thead style="text-align: center">
 
                                 <tr class="table-warning">
-                                    <th colspan="9">Identificacion de clientes y procesos</th>
+                                    <th colspan="9">
+                                        <asp:Literal ID="Literal2" runat="server" Text="<%$Resources: Mapeoflujo, lblsubtitulo %>"></asp:Literal>
+                                    </th>
                                 </tr>
                                 <tr style="text-align: left;">
                                     <td colspan="5">
-                                        <asp:Label ID="lblCliente" runat="server" Text="Cliente: " Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="lblCLientelabel" runat="server" Text="<%$Resources: Carpetilla, lblCompania %>" Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="lblCliente" runat="server" Text=":"></asp:Label>
                                     </td>
                                     <td colspan="1"></td>
                                     <td colspan="3">
-                                        <asp:Label ID="lblFecha" runat="server" Text="Fecha: " Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text="<%$Resources: Mapeoflujo, lblDate %>" Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="lblFecha" runat="server" Text=":" Font-Bold="True"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr class="table-warning" >
                                     <th>#</th>
-                                    <th>Proveedor
+                                    <th>
+                                        <asp:Literal ID="Literal3" runat="server" Text="<%$Resources:Mapeoflujo,lblProveedor %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -46,7 +54,8 @@
                                             title="Proveedor: Nombre de socio de negocio que provee el servicio"></i>
                                     </span>
                                     </th>
-                                    <th>Proceso
+                                    <th>
+                                        <asp:Literal ID="Literal5" runat="server" Text="<%$Resources: Mapeoflujo, lblProceso %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -54,9 +63,8 @@
                                             title="proceso: Parte del proceso de importación/exportación de mercancía que elabora el cliente"></i>
                                     </span>
                                     </th>
-                                    <th>Movimiento
-                                        <br />
-                                        de carga
+                                    <th>
+                                        <asp:Literal ID="Literal4" runat="server" Text="<%$Resources: Mapeoflujo, lblMC %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -64,9 +72,8 @@
                                             title="Movimiento de carga: Aclarar si en esta parte del proceso se hace algún movimiento de carga"></i>
                                     </span>
                                     </th>
-                                    <th width="20%">Detalles
-                                        <br />
-                                        de proveedor
+                                    <th width="20%">
+                                        <asp:Literal ID="Literal6" runat="server" Text="<%$Resources: Mapeoflujo, lblDetalles %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -74,7 +81,8 @@
                                             title="Detalles del proveedor: Anotar información relevante del proveedor. Por ejemplo: dirección, nombre de contacto, años trabajando con ellos, etc."></i>
                                     </span>
                                     </th>
-                                    <th width="5%">Dias en que el cargamento esta en reposo
+                                    <th width="5%">
+                                        <asp:Literal ID="Literal7" runat="server" Text="<%$Resources: Mapeoflujo, lblDias %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -82,9 +90,8 @@
                                             title="Días en reposo: Anotar los días en reposo de la carga. Días en reposo son los días que la carga se encuentra sin movimiento. En caso de no aplicar poner N/A"></i>
                                     </span>
                                     </th>
-                                    <th>Modo
-                                        <br />
-                                        de transporte
+                                    <th>
+                                        <asp:Literal ID="Literal8" runat="server" Text="<%$Resources: Mapeoflujo,lblModo %>"></asp:Literal>
                                     <span>
                                         <i class="bi bi-question-circle"
                                             data-bs-toggle="tooltip"
@@ -92,7 +99,8 @@
                                             title="Modo de transporte: Escriba el modo (o los modos de transporte) para mover las cargas. Por jemplo: avión, tractocamión, barco, etc."></i>
                                     </span>
                                     </th>
-                                    <th>Si la entidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?</th>
+                                    <th>
+                                        <asp:Literal ID="Literal9" runat="server" Text="<%$Resources: Mapeoflujo, lblPregunta %>"></asp:Literal></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -123,7 +131,8 @@
                         <i class="bi bi-house-door"></i>
                     </button>
                     &nbsp;&nbsp;
-                <button class="btn btn-success" id="btnContinuar" type="button">Continuar <i class="bi bi-chevron-double-right"></i></button>
+                <button class="btn btn-success" id="btnContinuar" type="button">
+                    <asp:Literal ID="Literal10" runat="server" Text="<%$Resources: InformacionCompania, lblBtnContinuar %>"></asp:Literal> <i class="bi bi-chevron-double-right"></i></button>
                 </asp:Panel>
 
                 <asp:Panel ID="pAdmin" runat="server" Visible="false">

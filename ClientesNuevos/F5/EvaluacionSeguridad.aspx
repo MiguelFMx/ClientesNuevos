@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EvaluacionSeguridad.aspx.cs" Inherits="ClientesNuevos.cliente.F5.EvaluacionSeguridadRiesgoBussinessPartner" %>
+﻿<%@ Page Title="Evaluacion de seguridad" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EvaluacionSeguridad.aspx.cs" Inherits="ClientesNuevos.cliente.F5.EvaluacionSeguridadRiesgoBussinessPartner" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -6,14 +6,16 @@
 
         <div class="row">
             <div class="col">
-                <span class="text-secondary">Por favor responda las preguntas, en caso de que su empresa ya ha sido certificada C-TPAT, unicamente verifque que su numero de cuenta sea el correcto y de clic en el boton siguiente.</span>
+                <span class="text-secondary">
+                    <asp:Literal ID="Literal22" runat="server" Text="<%$Resources: Evaluacion, lblInstrucciones %>"></asp:Literal></span>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
                 <div id="formulario" class="card border-primary">
-                    <h6 style="text-align: center;" class="card-header cabezal">Cuestionario C-TPAT para SOCIO COMERCIAL </h6>
+                    <h6 style="text-align: center;" class="card-header cabezal">
+                        <asp:Literal ID="Literal21" runat="server" Text="<%$Resources: Evaluacion, lblTitulo %>"></asp:Literal></h6>
 
                     <div class="card-body">
                         <section id="portada">
@@ -26,7 +28,9 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <span style="padding-top: 10px;">Nuestra compañia <strong>ya esta certificada</strong>  en C-TPAT y nuestro numero de cuenta es:</span>
+                                            <span style="padding-top: 10px;">
+                                                <asp:Literal ID="Literal4" runat="server" Text="<%$Resources: Evaluacion, lbl100 %>"></asp:Literal> <strong>
+                                                    <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:Evaluacion, lbl1001 %>"></asp:Literal></strong>  <asp:Literal ID="Literal6" runat="server" Text="<%$Resources: Evaluacion,lbl1002 %>"></asp:Literal></span>
                                         </div>
                                         <div class="col-md-5">
                                             <asp:TextBox ID="txt100" runat="server" CssClass="form-control"></asp:TextBox>
@@ -44,19 +48,20 @@
 
 
                                 <div class="col">
-                                    <span>Nuestra Compañía <strong>ES</strong> elegible para ser miembro C-TPAT</span>
+                                    <span>
+                                        <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: Evaluacion, lbl120 %>"></asp:Literal><strong><asp:Literal ID="Literal3" runat="server" Text="<%$Resources: Evaluacion,lbl1201 %>"></asp:Literal></strong> <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Evaluacion, lbl1202 %>"></asp:Literal></span>
                                     <div class="row">
 
                                         <div class="col-auto">
                                             <asp:RadioButtonList ID="radio120" runat="server" RepeatDirection="Horizontal" CssClass="spaced" RepeatLayout="Flow">
-                                                <asp:ListItem Text="SI" />
+                                                <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                 <asp:ListItem Text="NO" />
                                                 <asp:ListItem Text="N/A" />
                                             </asp:RadioButtonList>
 
                                         </div>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                            ErrorMessage="*Elija una opcion"
+                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio120"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -70,16 +75,17 @@
                                 </div>
                                 <div class="col">
                                     <div class="row">
-                                        <span>Es miembro o está en proceso de ser Miembro C-TPAT</span>
+                                        <span>
+                                            <asp:Literal ID="Literal7" runat="server" Text="<%$Resources:Evaluacion,lbl130 %>"></asp:Literal></span>
                                         <div class="col-auto">
                                             <asp:RadioButtonList ID="radio130" runat="server" CssClass="spaced" RepeatDirection="Horizontal" RepeatLayout="Flow" OnSelectedIndexChanged="radioMiembro_SelectedIndexChanged" AutoPostBack="true">
-                                                <asp:ListItem Text="SI" />
+                                                <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                 <asp:ListItem Text="NO" />
                                                 <asp:ListItem Text="N/A" />
                                             </asp:RadioButtonList>
                                         </div>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                            ErrorMessage="*Elija una opcion"
+                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio130"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -95,7 +101,8 @@
                                             <span>1.3.1&nbsp;&nbsp;&nbsp;</span>
                                         </div>
                                         <div class="col" style="padding-bottom: 15px;">
-                                            <span>Si la respuesta a la pregunta 1.3.0 es <strong>SI</strong> :</span>
+                                            <span>
+                                                <asp:Literal ID="Literal8" runat="server" Text="<%$Resources: Evaluacion, lbl131 %>"></asp:Literal> <strong><asp:Literal ID="Literal9" runat="server" Text="<%$Resources: Certificacion, lblSI %>"></asp:Literal></strong> :</span>
                                         </div>
                                     </div>
                                     <hr style="width: 70%;">
@@ -106,7 +113,7 @@
                                         <div class="col">
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <span>Número de Cuenta C-TPAT:</span>
+                                                    <span>C-TPAT SVI:</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <asp:TextBox ID="txt1311" runat="server" CssClass="form-control"></asp:TextBox>
@@ -124,13 +131,14 @@
                                         <div class="col">
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <span>Estatus de cuenta:</span>
+                                                    <span>
+                                                        <asp:Literal ID="Literal10" runat="server" Text="<%$Resources:Evaluacion, lbl1312 %>"></asp:Literal></span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <asp:DropDownList ID="cb1312" runat="server" CssClass="form-select">
-                                                        <asp:ListItem Text="Certificado" Value="0" />
-                                                        <asp:ListItem Text="Certificado validado" Value="1" />
-                                                        <asp:ListItem Text="Certificado no validado" Value="2" />
+                                                        <asp:ListItem Text="<%$Resources: Certificacion, lblCertificado %>" Value="0" />
+                                                        <asp:ListItem Text="<%$Resources: Certificacion, lblCertificadoValidado %>" Value="1" />
+                                                        <asp:ListItem Text="<%$Resources: Certificacion, lblCertificadoNoVal %>" Value="2" />
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -145,12 +153,13 @@
                                         <div class="col">
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <span>Estatus de revisión de su perfil de seguridad:</span>
+                                                    <span>
+                                                        <asp:Literal ID="Literal19" runat="server" Text="<%$Resources: Evaluacion,lbl1313 %>"></asp:Literal></span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <asp:DropDownList ID="cb1313" runat="server" CssClass="form-select">
-                                                        <asp:ListItem Text="Actualizado" Value="1" />
-                                                        <asp:ListItem Text="En Revision" Value="2" />
+                                                        <asp:ListItem Text="<%$Resources: Evaluacion,lblActualizado %>" Value="1" />
+                                                        <asp:ListItem Text="<%$Resources: Evaluacion,lblEnRevision %>" Value="2" />
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -168,7 +177,8 @@
                                             <span>1.3.2&nbsp;&nbsp;&nbsp;</span>
                                         </div>
                                         <div class="col" style="padding-bottom: 15px;">
-                                            <span>Si la respuesta a la pregunta 1.3.0 es <strong>NO o N/A</strong> :</span>
+                                            <span>
+                                                <asp:Literal ID="Literal11" runat="server" Text="<%$Resources:Evaluacion,lbl131 %>"></asp:Literal> <strong>NO o N/A</strong> :</span>
                                         </div>
                                     </div>
                                     <hr style="width: 50%;">
@@ -181,13 +191,14 @@
                                             <div class="row">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <span>No esta interesada en aplicar por el momento</span>
+                                                        <span>
+                                                            <asp:Literal ID="Literal12" runat="server" Text="<%$Resources: Evaluacion,lbl1321 %>"></asp:Literal></span>
                                                     </div>
                                                 </div>
                                                 <div class="row row-cols-auto">
                                                     <div class="col">
                                                         <asp:RadioButtonList ID="radio1321" runat="server" RepeatLayout="Flow" CssClass="spaced" RepeatDirection="Horizontal">
-                                                            <asp:ListItem Text="SI" />
+                                                            <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                             <asp:ListItem Text="NO" />
                                                             <asp:ListItem Text="N/A" />
                                                         </asp:RadioButtonList>
@@ -204,12 +215,13 @@
                                         </div>
                                         <div class="col">
                                             <div class="row">
-                                                <span>Esta interesada y desea recibir más información</span>
+                                                <span>
+                                                    <asp:Literal ID="Literal13" runat="server" Text="<%$Resources: Evaluacion, lbl1322 %>"></asp:Literal></span>
                                                 <div class="row row-cols-auto">
 
                                                     <div class="col">
                                                         <asp:RadioButtonList ID="radio1322" runat="server" CssClass="spaced" RepeatLayout="Flow" RepeatDirection="Horizontal">
-                                                            <asp:ListItem Text="SI" />
+                                                            <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                             <asp:ListItem Text="NO" />
                                                             <asp:ListItem Text="N/A" />
                                                         </asp:RadioButtonList>
@@ -230,13 +242,14 @@
                                     <div class="row">
                                         <div class="row">
                                             <div class="col">
-                                                <span>Nuestra compañía comprende las normas mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</span>
+                                                <span>
+                                                    <asp:Literal ID="Literal14" runat="server" Text="<%$Resources: Evaluacion, lbl140 %>"></asp:Literal></span>
                                             </div>
                                         </div>
                                         <div class="row row-cols-auto">
                                             <div class="col">
                                                 <asp:RadioButtonList ID="radio140" runat="server" RepeatDirection="Horizontal" CssClass="spaced" RepeatLayout="Flow">
-                                                    <asp:ListItem Text="SI" />
+                                                    <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                     <asp:ListItem Text="NO" />
                                                     <asp:ListItem Text="N/A" />
                                                 </asp:RadioButtonList>
@@ -244,7 +257,7 @@
 
                                         </div>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                            ErrorMessage="*Elija una opcion"
+                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio140"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -260,20 +273,23 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <span>Nuestra compañía <strong>NO ES ELEGIBLE PARA SER MIEMBRO C-TPAT </strong>pero está de acuerdo en cumplir con los lineamientos de seguridad</span>
+                                            <span>
+                                                <asp:Literal ID="Literal15" runat="server" Text="<%$Resources:Evaluacion,lbl150 %>"></asp:Literal> <strong>
+                                                    <asp:Literal ID="Literal16" runat="server" Text="<%$Resources:Evaluacion,lbl1501 %>"></asp:Literal> </strong>
+                                                <asp:Literal ID="Literal17" runat="server" Text="<%$Resources:Evaluacion,lbl1502 %>"></asp:Literal></span>
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-auto">
                                             <asp:RadioButtonList ID="radio150" runat="server" RepeatDirection="Horizontal" CssClass="spaced" RepeatLayout="Flow">
-                                                <asp:ListItem Text="SI" />
+                                                <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                 <asp:ListItem Text="NO" />
                                                 <asp:ListItem Text="N/A" />
                                             </asp:RadioButtonList>
                                         </div>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                            ErrorMessage="*Elija una opcion"
+                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio150"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -291,20 +307,21 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <span>¿Esta usted respondiendo por todas las entidades de negocio de su compañía?</span>
+                                            <span>
+                                                <asp:Literal ID="Literal18" runat="server" Text="<%$Resources:Evaluacion,lbl160 %>"></asp:Literal></span>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-auto">
                                             <asp:RadioButtonList ID="radio160" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CssClass="spaced">
-                                                <asp:ListItem Text="SI" />
+                                                <asp:ListItem Text="<%$Resources: Certificacion, lblSI %>" />
                                                 <asp:ListItem Text="NO" />
                                                 <asp:ListItem Text="N/A" />
                                             </asp:RadioButtonList>
                                         </div>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                            ErrorMessage="*Elija una opcion"
+                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio160"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                         </asp:RequiredFieldValidator>
@@ -326,7 +343,8 @@
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-                    <asp:LinkButton ID="btnContinue" runat="server" OnClick="btnContinue_Click" CssClass="btn btn-success">Siguiente<i class="bi bi-chevron-right"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnContinue" runat="server" OnClick="btnContinue_Click" CssClass="btn btn-success">
+                        <asp:Literal ID="Literal20" runat="server" Text="<%$Resources: InformacionCompania,lblBtnContinuar %>"></asp:Literal><i class="bi bi-chevron-right"></i></asp:LinkButton>
               
             </div>
         </div>
