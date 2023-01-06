@@ -506,7 +506,7 @@
                     <div class="card">
                         <div class="table-responsive">
                             
-                            <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="True" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal" Caption="Contactos registrados" EmptyDataText="No hay registros">
+                            <asp:GridView ID="gvContactos" runat="server" ShowHeaderWhenEmpty="True" CssClass="table table-hover table-bordered" AutoGenerateColumns="false" HeaderStyle-CssClass="cabezal"  EmptyDataText="No hay registros">
                                 <Columns>
                                     <asp:BoundField HeaderText="ID" DataField="ID" >
                                         <HeaderStyle CssClass="hiddencol"></HeaderStyle>
@@ -579,16 +579,10 @@
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUserControl" runat="server">
 
-                    <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOpciones">
-                    ojo
-                </button>--%>
                     <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary" OnClick="btnHome_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Guardar y salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
-
-                <%--<button id="btnContinuar" class="btn btn-success" type="button">Siguiente<i class="bi bi-chevron-right"></i></button>--%>
-                    <%--<asp:Button ID="btnNext" runat="server" Text="Next" CssClass="btn btn-success" OnClick="btnNext_Click" UseSubmitBehavior="False" />--%>
 
                     <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">
                         <asp:Label ID="lbl_btnNext" runat="server" Text="<%$Resources:InformacionCompania,lblBtnContinuar %>"></asp:Label><i class="bi bi-chevron-right"></i>

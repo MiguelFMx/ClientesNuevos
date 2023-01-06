@@ -65,7 +65,9 @@ namespace ClientesNuevos.usuario
 
         protected void CambiarPass_ChangingPassword(object sender, LoginCancelEventArgs e)
         {
-            if(CambiarPass.CurrentPassword != CambiarPass.NewPassword)
+
+            lblPass.Text = "";
+            if (CambiarPass.CurrentPassword != CambiarPass.NewPassword)
             {
                 int affectedRow = 0;
                 string SqlStr = "UPDATE [Usuarios] SET [Password] = @NewPass WHERE [RFC] = @RFC AND [Password] = @CurrentPass";
@@ -88,8 +90,10 @@ namespace ClientesNuevos.usuario
                         CambiarEstadoPass(this.Page.User.Identity.Name);
                         lblPass.ForeColor = Color.Green;
                         lblPass.Text = "La contraseña ha sido actualizada";
-
                         Response.Redirect("~/login.aspx?pass=success");
+
+                        //CambiarPass.SuccessTemplate.InstantiateIn(CambiarPass);
+                        //CambiarPass.ChangePasswordTemplateContainer.Visible = false;
                     }
                     else
                     {
@@ -161,6 +165,17 @@ namespace ClientesNuevos.usuario
             int PassChange = Convert.ToInt32(dt.Rows[0]["PasswordChanged"].ToString());
             PassChange++;
             string cambios = clsHerramientaBD.ExecuteSql("UPDATE Logins SET [PasswordChanged] = '" + PassChange + "' WHERE RFC='"+RFC+"'", clsHerramientaBD.strConnAdmon);
+        }
+
+        protected void CambiarPass_ChangedPassword(object sender, EventArgs e)
+        {
+            Response.Redirect("~/login.aspx?pass=success");
+        }
+
+        protected void CambiarPass_ContinueButtonClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/login.aspx?pass=success");
+
         }
     }
 }
