@@ -51,6 +51,9 @@ namespace ClientesNuevos.cliente.F5
                 case "SI":
                     radio120.SelectedValue = "SI";
                     break;
+                case "YES":
+                    radio120.SelectedValue = "YES";
+                    break;
                 case "NO":
                     radio120.SelectedValue = "NO";
                     break;
@@ -58,9 +61,17 @@ namespace ClientesNuevos.cliente.F5
                     radio120.SelectedValue = "N/A";
                     break;
             }
-            if (dtF5.Rows[0]["p130"].ToString()=="SI")
+            if (dtF5.Rows[0]["p130"].ToString()=="SI" || dtF5.Rows[0]["p130"].ToString() == "YES")
             {
-                radio130.SelectedValue = "SI";
+                if(dtF5.Rows[0]["p130"].ToString() == "SI")
+                {
+                    radio130.SelectedValue = "SI";
+
+                }
+                else if(dtF5.Rows[0]["p130"].ToString() == "YES") {
+                    radio130.SelectedValue = "YES";
+
+                }
                 PanelSi.Visible = true;
                 PanelNo.Visible = false;
 
@@ -89,6 +100,9 @@ namespace ClientesNuevos.cliente.F5
 
                 switch (dtF5.Rows[0]["p1321"].ToString())
                 {
+                    case "YES":
+                        radio1321.SelectedValue = "YES";
+                        break;
                     case "SI":
                         radio1321.SelectedValue = "SI";
                         break;
@@ -104,6 +118,9 @@ namespace ClientesNuevos.cliente.F5
                     case "SI":
                         radio1322.SelectedValue = "SI";
                         break;
+                    case "YES":
+                        radio1322.SelectedValue = "YES";
+                        break;
                     case "NO":
                         radio1322.SelectedValue = "NO";
                         break;
@@ -117,6 +134,9 @@ namespace ClientesNuevos.cliente.F5
                 case "SI":
                     radio140.SelectedValue = "SI";
                     break;
+                case "YES":
+                    radio140.SelectedValue = "YES";
+                    break;
                 case "NO":
                     radio140.SelectedValue = "NO";
                     break;
@@ -129,6 +149,9 @@ namespace ClientesNuevos.cliente.F5
                 case "SI":
                     radio150.SelectedValue = "SI";
                     break;
+                case "YES":
+                    radio150.SelectedValue = "YES";
+                    break;
                 case "NO":
                     radio150.SelectedValue = "NO";
                     break;
@@ -140,6 +163,9 @@ namespace ClientesNuevos.cliente.F5
             {
                 case "SI":
                     radio160.SelectedValue = "SI";
+                    break;
+                case "YES":
+                    radio160.SelectedValue = "YES";
                     break;
                 case "NO":
                     radio160.SelectedValue = "NO";
@@ -159,6 +185,8 @@ namespace ClientesNuevos.cliente.F5
                 PanelNo.Visible = false;
                 radio1321.ClearSelection();
                 radio1322.ClearSelection();
+
+                RequiredFieldValidator6.Enabled = false;
 
             }
             else if (radio == "NO" || radio == "N/A")
@@ -224,7 +252,7 @@ namespace ClientesNuevos.cliente.F5
             p1312 = cb1312.SelectedValue;
             p1313 = cb1313.SelectedValue;
 
-            if (rad130 == "SI")
+            if (rad130 == "SI" || rad130 == "YES")
             {
                 //Si la respuesta a 1.3.0 es si
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, p1311, p1312, p1313, "", "");
@@ -271,34 +299,7 @@ namespace ClientesNuevos.cliente.F5
             p1312 = cb1312.SelectedValue;
             p1313 = cb1313.SelectedValue;
 
-            if(rad120 == "YES")
-            {
-                rad120 = "SI";
-            }
-            if(rad130 == "YES")
-            {
-                rad130 = "SI";
-            }
-            if(rad140 == "YES")
-            {
-                rad140 = "SI";
-            }
-            if(rad150 == "YES")
-            {
-                rad150 = "SI";
-            }
-            if(rad160 == "YES")
-            {
-                rad160 = "SI";
-            }
-            if(rad1321 == "YES")
-            {
-                rad1321 = "SI";
-            }
-            if(rad1322 == "YES")
-            {
-                rad1322 = "SI";
-            }
+
 
 
             if (rad130 == "SI" || rad130=="YES")

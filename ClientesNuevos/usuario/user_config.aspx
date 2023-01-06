@@ -7,14 +7,14 @@
     <div class="container" style="height: 70vh;">
         <%-- ======================Idioma========================================== --%>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col">
                 <asp:Label ID="lblIdioma" runat="server" Text="<%$Resources:config,lblIdioma %>" CssClass="form-label"></asp:Label>
-                <asp:DropDownList ID="ddIdioma" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddIdioma_SelectedIndexChanged">
+                <asp:DropDownList ID="ddIdioma" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddIdioma_SelectedIndexChanged" Width="25%" AutoPostBack="True">
                     <asp:ListItem Text="<%$Resources:config, lblSpanish %>" Value="es-MX" />
                     <asp:ListItem Text="<%$Resources:config,lblEnglish %>" Value="en-US" />
                 </asp:DropDownList>
                 <br />
-                <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary btn-sm" Text="Guardar cambios" />
+                <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary btn-sm" OnClick="btnGuardar_Click" Text="<%$Resources: config, lblGuardarCambio %>" />
             </div>
         </div>
         <%-- ===================== Cambio de contraseña  ====================== --%>

@@ -132,13 +132,13 @@ namespace ClientesNuevos.cliente.F5
         protected global::System.Web.UI.WebControls.RadioButtonList radio130;
 
         /// <summary>
-        /// Control RequiredFieldValidator2.
+        /// Control FieldValidator130.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FieldValidator130;
 
         /// <summary>
         /// Control PanelSi.
@@ -249,6 +249,15 @@ namespace ClientesNuevos.cliente.F5
         protected global::System.Web.UI.WebControls.RadioButtonList radio1321;
 
         /// <summary>
+        /// Control RequiredFieldValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+
+        /// <summary>
         /// Control Literal13.
         /// </summary>
         /// <remarks>
@@ -265,6 +274,15 @@ namespace ClientesNuevos.cliente.F5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList radio1322;
+
+        /// <summary>
+        /// Control RequiredFieldValidator7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
         /// Control Literal14.

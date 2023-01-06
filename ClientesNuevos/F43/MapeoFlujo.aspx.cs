@@ -31,7 +31,7 @@ namespace ClientesNuevos.F43
                         DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE ID_compania='"+ Request.QueryString["rfc"] + "'");
                         if(dt.Rows.Count > 0)
                         {                            
-                            lblCliente.Text ="Cliente/Proveedor: "+ dt.Rows[0]["Nombre_comercial"].ToString();
+                            lblCliente.Text =""+ dt.Rows[0]["Nombre_comercial"].ToString();
                         }
                     }
                     else if(Request.QueryString["rfc"] != null || Request.QueryString["accion"] != null)

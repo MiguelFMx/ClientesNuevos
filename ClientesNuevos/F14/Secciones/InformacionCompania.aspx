@@ -162,6 +162,10 @@
                                     ControlToValidate="txtRfc"
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                    ErrorMessage="Solo letras y numeros" ControlToValidate="txtRfc" ValidationExpression="/^[0-9a-zA-Z]+$/">                                   
+                                </asp:RegularExpressionValidator>
+                                
                                 <span id="sExtiste" style="color:red;"></span>
                             </div>
                             <div class="col-md">

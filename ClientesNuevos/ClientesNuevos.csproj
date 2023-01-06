@@ -2004,6 +2004,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Certificacion.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\config.en.designer.cs">
+      <DependentUpon>config.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\config.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2351,6 +2356,10 @@
     <Content Include="App_GlobalResources\config.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>config.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\config.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>config.en.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>

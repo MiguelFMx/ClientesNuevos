@@ -29,8 +29,10 @@
                                     <div class="row">
                                         <div class="col-auto">
                                             <span style="padding-top: 10px;">
-                                                <asp:Literal ID="Literal4" runat="server" Text="<%$Resources: Evaluacion, lbl100 %>"></asp:Literal> <strong>
-                                                    <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:Evaluacion, lbl1001 %>"></asp:Literal></strong>  <asp:Literal ID="Literal6" runat="server" Text="<%$Resources: Evaluacion,lbl1002 %>"></asp:Literal></span>
+                                                <asp:Literal ID="Literal4" runat="server" Text="<%$Resources: Evaluacion, lbl100 %>"></asp:Literal>
+                                                <strong>
+                                                    <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:Evaluacion, lbl1001 %>"></asp:Literal></strong>
+                                                <asp:Literal ID="Literal6" runat="server" Text="<%$Resources: Evaluacion,lbl1002 %>"></asp:Literal></span>
                                         </div>
                                         <div class="col-md-5">
                                             <asp:TextBox ID="txt100" runat="server" CssClass="form-control"></asp:TextBox>
@@ -49,7 +51,8 @@
 
                                 <div class="col">
                                     <span>
-                                        <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: Evaluacion, lbl120 %>"></asp:Literal><strong><asp:Literal ID="Literal3" runat="server" Text="<%$Resources: Evaluacion,lbl1201 %>"></asp:Literal></strong> <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Evaluacion, lbl1202 %>"></asp:Literal></span>
+                                        <asp:Literal ID="Literal1" runat="server" Text="<%$Resources: Evaluacion, lbl120 %>"></asp:Literal><strong><asp:Literal ID="Literal3" runat="server" Text="<%$Resources: Evaluacion,lbl1201 %>"></asp:Literal></strong>
+                                        <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Evaluacion, lbl1202 %>"></asp:Literal></span>
                                     <div class="row">
 
                                         <div class="col-auto">
@@ -83,8 +86,9 @@
                                                 <asp:ListItem Text="NO" />
                                                 <asp:ListItem Text="N/A" />
                                             </asp:RadioButtonList>
+
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                        <asp:RequiredFieldValidator ID="FieldValidator130" runat="server"
                                             ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
                                             ControlToValidate="radio130"
                                             Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
@@ -102,7 +106,9 @@
                                         </div>
                                         <div class="col" style="padding-bottom: 15px;">
                                             <span>
-                                                <asp:Literal ID="Literal8" runat="server" Text="<%$Resources: Evaluacion, lbl131 %>"></asp:Literal> <strong><asp:Literal ID="Literal9" runat="server" Text="<%$Resources: Certificacion, lblSI %>"></asp:Literal></strong> :</span>
+                                                <asp:Literal ID="Literal8" runat="server" Text="<%$Resources: Evaluacion, lbl131 %>"></asp:Literal>
+                                                <strong>
+                                                    <asp:Literal ID="Literal9" runat="server" Text="<%$Resources: Certificacion, lblSI %>"></asp:Literal></strong> :</span>
                                         </div>
                                     </div>
                                     <hr style="width: 70%;">
@@ -178,7 +184,8 @@
                                         </div>
                                         <div class="col" style="padding-bottom: 15px;">
                                             <span>
-                                                <asp:Literal ID="Literal11" runat="server" Text="<%$Resources:Evaluacion,lbl131 %>"></asp:Literal> <strong>NO o N/A</strong> :</span>
+                                                <asp:Literal ID="Literal11" runat="server" Text="<%$Resources:Evaluacion,lbl131 %>"></asp:Literal>
+                                                <strong>NO o N/A</strong> :</span>
                                         </div>
                                     </div>
                                     <hr style="width: 50%;">
@@ -202,6 +209,11 @@
                                                             <asp:ListItem Text="NO" />
                                                             <asp:ListItem Text="N/A" />
                                                         </asp:RadioButtonList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
+                                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
+                                                            ControlToValidate="radio1321"
+                                                            Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
+                                                        </asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,6 +237,11 @@
                                                             <asp:ListItem Text="NO" />
                                                             <asp:ListItem Text="N/A" />
                                                         </asp:RadioButtonList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
+                                                            ErrorMessage="<%$Resources:Evaluacion, lblerror%>"
+                                                            ControlToValidate="radio1322"
+                                                            Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
+                                                        </asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,8 +291,10 @@
                                     <div class="row">
                                         <div class="col">
                                             <span>
-                                                <asp:Literal ID="Literal15" runat="server" Text="<%$Resources:Evaluacion,lbl150 %>"></asp:Literal> <strong>
-                                                    <asp:Literal ID="Literal16" runat="server" Text="<%$Resources:Evaluacion,lbl1501 %>"></asp:Literal> </strong>
+                                                <asp:Literal ID="Literal15" runat="server" Text="<%$Resources:Evaluacion,lbl150 %>"></asp:Literal>
+                                                <strong>
+                                                    <asp:Literal ID="Literal16" runat="server" Text="<%$Resources:Evaluacion,lbl1501 %>"></asp:Literal>
+                                                </strong>
                                                 <asp:Literal ID="Literal17" runat="server" Text="<%$Resources:Evaluacion,lbl1502 %>"></asp:Literal></span>
                                         </div>
 
@@ -338,14 +357,15 @@
         <asp:Label ID="lbluno" runat="server" Text="Label" Visible="false"></asp:Label>
 
         <div class="row">
-            <div class="col" style="display:flex; justify-content:flex-end;">
-                 <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
+            <div class="col" style="display: flex; justify-content: flex-end;">
+                <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Guardar y salir" OnClick="btnHome_Click"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
                     <asp:LinkButton ID="btnContinue" runat="server" OnClick="btnContinue_Click" CssClass="btn btn-success">
-                        <asp:Literal ID="Literal20" runat="server" Text="<%$Resources: InformacionCompania,lblBtnContinuar %>"></asp:Literal><i class="bi bi-chevron-right"></i></asp:LinkButton>
-              
+                        <asp:Literal ID="Literal20" runat="server" Text="<%$Resources: InformacionCompania,lblBtnContinuar %>"></asp:Literal><i class="bi bi-chevron-right"></i>
+                </asp:LinkButton>
+
             </div>
         </div>
 
