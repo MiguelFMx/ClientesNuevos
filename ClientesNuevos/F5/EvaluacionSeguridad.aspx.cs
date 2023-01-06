@@ -258,6 +258,7 @@ namespace ClientesNuevos.cliente.F5
             id_evaluacion = id + "F5E";
 
             //asignacion de valores
+            
             no_cuenta = txt100.Text;
             rad120 = radio120.SelectedValue;
             rad130 = radio130.SelectedValue;
@@ -270,7 +271,37 @@ namespace ClientesNuevos.cliente.F5
             p1312 = cb1312.SelectedValue;
             p1313 = cb1313.SelectedValue;
 
-            if (rad130 == "SI")
+            if(rad120 == "YES")
+            {
+                rad120 = "SI";
+            }
+            if(rad130 == "YES")
+            {
+                rad130 = "SI";
+            }
+            if(rad140 == "YES")
+            {
+                rad140 = "SI";
+            }
+            if(rad150 == "YES")
+            {
+                rad150 = "SI";
+            }
+            if(rad160 == "YES")
+            {
+                rad160 = "SI";
+            }
+            if(rad1321 == "YES")
+            {
+                rad1321 = "SI";
+            }
+            if(rad1322 == "YES")
+            {
+                rad1322 = "SI";
+            }
+
+
+            if (rad130 == "SI" || rad130=="YES")
             {
                 //Si la respuesta a la pregunta es 1.3.0 es si.
                 res = Guardar_respuestas(id_custionario, no_cuenta, rad120, rad130, rad140, rad150, rad160, p1311, p1312, p1313, "", "");
