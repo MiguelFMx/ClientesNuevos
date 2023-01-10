@@ -315,7 +315,7 @@
 
                                 <div class="form-check ">
                                     <asp:CheckBox ID="chNTS" runat="server" OnCheckedChanged="chNTS_CheckedChanged" AutoPostBack="True" />
-                                    <asp:Label ID="lblNTS" runat="server" Text="Trabajamos por medio de NTS" Font-Size="13px" CssClass="form-check-label"></asp:Label>
+                                    <asp:Label ID="lblNTS" runat="server" Text="Trabajamos por medio de Nogales Trasportation Service (NTS)" Font-Size="13px" CssClass="form-check-label"></asp:Label>
                                 </div>
 
                         </div>

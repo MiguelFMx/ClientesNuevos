@@ -121,7 +121,7 @@
     <value>Cliente</value>
   </data>
   <data name="lblDate" xml:space="preserve">
-    <value>Fecha</value>
+    <value>Fecha:</value>
   </data>
   <data name="lblDetalles" xml:space="preserve">
     <value>Detalles de proveedor</value>

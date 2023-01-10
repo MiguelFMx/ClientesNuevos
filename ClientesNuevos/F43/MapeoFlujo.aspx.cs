@@ -44,7 +44,7 @@ namespace ClientesNuevos.F43
                 {
                     hfRol.Value = "user"; //Engloba cliente y proveedor
 
-                    lblFecha.Text += DateTime.Now.ToString("dd/MM/yyyy");
+                    lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     lblCliente.Text += Obtener_Nombre();
                 }
                

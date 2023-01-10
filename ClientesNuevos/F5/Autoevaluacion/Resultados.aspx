@@ -97,7 +97,9 @@
                                                 <asp:TableCell>
                                                     <asp:Label ID="lbl1322c" runat="server" Text=".."></asp:Label></asp:TableCell>
                                             </asp:TableRow>
-
+                                            <asp:TableRow CssClass="cabezal" >
+                                                <asp:TableCell ColumnSpan="3" ></asp:TableCell>
+                                            </asp:TableRow>
                                             <asp:TableRow>
                                                 <asp:TableCell>1.4.0.</asp:TableCell>
                                                 <asp:TableCell>Nuestra Compañía comprende las Normas Mínimas de Seguridad C-TPAT y certifica que sus operaciones están acordes con dichas normas.</asp:TableCell>

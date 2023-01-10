@@ -40,7 +40,7 @@
                                     <td colspan="1"></td>
                                     <td colspan="3">
                                         <asp:Label ID="Label1" runat="server" Text="<%$Resources: Mapeoflujo, lblDate %>" Font-Bold="True"></asp:Label>
-                                        <asp:Label ID="lblFecha" runat="server" Text=":" Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="lblFecha" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr class="table-warning" >

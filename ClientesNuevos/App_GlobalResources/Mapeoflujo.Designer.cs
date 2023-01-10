@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha.
+        ///   Busca una cadena traducida similar a Fecha:.
         /// </summary>
         internal static string lblDate {
             get {
