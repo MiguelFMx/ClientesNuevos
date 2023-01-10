@@ -143,7 +143,7 @@
                                             <thead class="cabezal">
                                                 <tr>
                                                     <th>Pregunta</th>
-                                                    <th>Opcion</th>
+                                                    <th>Opción</th>
                                                     <th>Observaciones</th>
                                                 </tr>
                                             </thead>
@@ -211,7 +211,7 @@
                                     <th>N.R.</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>f
                                 <tr class="table-primary">
                                     <td>1.0.0.</td>
                                     <td>Requerimientos  de los socios comerciales</td>
@@ -647,9 +647,9 @@
                             </tr>
                         </thead>
                         <tr>
-                            <td style="background-color: #ff0000;"><span>Nivel 3. Risgo alto: 0 a 49% de cumplimiento</span></td>
-                            <td style="background-color: #eddb11;"><span>Nivel 2. Risgo medio: 50% a 74% de cumplimiento</span></td>
-                            <td style="background-color: #39c922;"><span>Nivel 1. Risgo bajo: 75% a 100% de cumplimiento</span></td>
+                            <td style="background-color: #ff0000;"><span>Nivel 3. Riesgo alto: 0 a 49% de cumplimiento</span></td>
+                            <td style="background-color: #eddb11;"><span>Nivel 2. Riesgo medio: 50% a 74% de cumplimiento</span></td>
+                            <td style="background-color: #39c922;"><span>Nivel 1. Riesgo bajo: 75% a 100% de cumplimiento</span></td>
                         </tr>
                     </table>
                 </div>

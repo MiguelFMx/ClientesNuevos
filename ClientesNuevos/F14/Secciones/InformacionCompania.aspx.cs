@@ -111,8 +111,28 @@ namespace ClientesNuevos.F14.Seccioness
 
                                 if (dtBanco.Rows[0]["Nombre_banco"].ToString() != "")
                                 {
-                                    llenarCampos(dt, dtBanco);
+                                    if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "NTS")
+                                    {
+                                        chNTS.Checked = true;
+                                        //deshabilitar campos               
+                                        pDatosBancarios.Enabled = false;
+                                        pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+                                        //Deshabilito los validadores
+                                        RequiredFieldValidator7.Enabled = false;
+                                        RequiredFieldValidator8.Enabled = false;
+                                        RequiredFieldValidator9.Enabled = false;
+                                        RequiredFieldValidator10.Enabled = false;
+
+                                        llenarCampos(dt, new DataTable());
+                                    }
+                                    else
+                                    {
+                                        llenarCampos(dt, dtBanco);
+                                    }
+                                   
                                 }
+                                
                                 else
                                 {
                                     llenarCampos(dt, new DataTable());
@@ -197,7 +217,25 @@ namespace ClientesNuevos.F14.Seccioness
                         
                         if(dtBanco.Rows.Count > 0)
                         {
-                            llenarCampos(dt, dtBanco);
+                            if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "NTS")
+                            {
+                                chNTS.Checked = true;
+                                llenarCampos(dt, new DataTable());
+                                //deshabilitar campos               
+                                pDatosBancarios.Enabled = false;
+                                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+                                //Deshabilito los validadores
+                                RequiredFieldValidator7.Enabled = false;
+                                RequiredFieldValidator8.Enabled = false;
+                                RequiredFieldValidator9.Enabled = false;
+                                RequiredFieldValidator10.Enabled = false;
+                            }
+                            else
+                            {
+                                llenarCampos(dt, dtBanco);
+
+                            }
 
                         }
                         else
@@ -491,7 +529,7 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     pFra.Enabled = false;
                     pFra.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
-                }
+               }
             }
 
         protected void ddTipoDePersona_SelectedIndexChanged(object sender, EventArgs e)
@@ -522,9 +560,6 @@ namespace ClientesNuevos.F14.Seccioness
                 RequiredFieldValidator8.Enabled = false;
                 RequiredFieldValidator9.Enabled = false;
                 RequiredFieldValidator10.Enabled = false;
-
-
-
 
             }
             else
@@ -887,7 +922,12 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 try
                 {
-                    if (boolbanco) { 
+                        if (chNTS.Checked)
+                        {
+                            banco += clsF14.Insertar_info_bancaria(ID_compania, "NTS", "NTS", "NTS", "NTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+
+                        }
+                        else if (boolbanco) { 
                    banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
                     }
                     documento += clsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
@@ -1111,6 +1151,42 @@ namespace ClientesNuevos.F14.Seccioness
 
             Panel_Contacto.Visible = false;
             btnRegistrarC.Visible = true;
+        }
+
+        protected void chNTS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chNTS.Checked)
+            {
+                //Deshabilito las opciones de banco, deshabilito los validadores y limpio campos.
+                //Limpiar campos
+                txtBanco.Text = "";
+                txtBancoRFC.Text = "";
+                txtNoCuenta.Text = "";
+                txtClaveBancaria.Text = "";
+
+                //deshabilitar campos               
+                pDatosBancarios.Enabled = false;
+                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);              
+
+                //Deshabilito los validadores
+                RequiredFieldValidator7.Enabled = false;
+                RequiredFieldValidator8.Enabled = false;
+                RequiredFieldValidator9.Enabled = false;
+                RequiredFieldValidator10.Enabled = false;
+
+            }
+            else
+            {
+                //habilito opciones
+                pDatosBancarios.Enabled = true;
+                pDatosBancarios.BackColor = System.Drawing.Color.White;
+                //Habilito validadores
+                RequiredFieldValidator7.Enabled = true;
+                RequiredFieldValidator8.Enabled = true;
+                RequiredFieldValidator9.Enabled = true;
+                RequiredFieldValidator10.Enabled = true;
+
+            }
         }
 
         protected void btnAdminNext_Click(object sender, EventArgs e)

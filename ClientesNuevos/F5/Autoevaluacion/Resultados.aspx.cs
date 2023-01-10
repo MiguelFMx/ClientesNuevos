@@ -82,62 +82,131 @@ namespace ClientesNuevos.F5.Autoevaluacion
 
             if(dtCuestionario.Rows.Count > 0)
             {
-                lbl100c.Text = dtCuestionario.Rows[0]["p100"].ToString();
-                lbl120c.Text = dtCuestionario.Rows[0]["p120"].ToString();
-                lbl130c.Text = dtCuestionario.Rows[0]["p130"].ToString();
-                if(lbl130c.Text == "SI")
+                //Mostrar respuesta en la tabla
+
+                //Numero SVI
+                if(dtCuestionario.Rows[0]["p100"].ToString() != "")
                 {
+                    lbl100c.Text = dtCuestionario.Rows[0]["p100"].ToString();
+
+                }
+                else
+                {
+                    lbl100c.Text = "-----";
+                }
+
+                //Nuestra compania es elegible para ser miembro ctpat
+                if (dtCuestionario.Rows[0]["p120"].ToString() == "YES" || dtCuestionario.Rows[0]["p120"].ToString() == "SI")
+                {
+                    lbl120c.Text = Resources.Certificacion.lblSI;
+                }
+                else
+                {
+                    lbl120c.Text = dtCuestionario.Rows[0]["p120"].ToString();
+                }
+
+                //Es miembro o esta en proceso de ser miembro ctpat
+                if (dtCuestionario.Rows[0]["p130"].ToString() == "YES" || dtCuestionario.Rows[0]["p130"].ToString() == "SI")
+                {
+                    lbl130c.Text = Resources.Certificacion.lblSI;
+                    //-------------Muestro las preguntas correspodientes al bloque si.
                     preguntaDinamicaSi.Visible = true;
                     tr1311c.Visible = true;
                     lbl1311c.Text = dtCuestionario.Rows[0]["p1311"].ToString();
 
-                   
+
                     tr1313c.Visible = true;
                     string res1312 = "";
                     switch (dtCuestionario.Rows[0]["p1312"].ToString())
                     {
                         case "0":
-                            res1312 = "Certificado";
+                            res1312 = Resources.Certificacion.lblCertificado ;
                             break;
                         case "1":
-                            res1312 = "Certificado validado";
+                            res1312 = Resources.Certificacion.lblCertificadoValidado;
                             break;
                         case "2":
-                            res1312 = "Certificado no validado";
+                            res1312 = Resources.Certificacion.lblCertificadoNoVal;
                             break;
                         default:
                             break;
                     }
-                    lbl1312c.Text = res1312 ;
+                    lbl1312c.Text = res1312;
 
                     string res1313 = "";
                     switch (dtCuestionario.Rows[0]["p1313"].ToString())
                     {
                         case "0":
-                            res1313 = "Actualizado";
+                            res1313 = Resources.Evaluacion.lblActualizado;
                             break;
                         case "1":
-                            res1313 = "En revision";
+                            res1313 = Resources.Evaluacion.lblEnRevision;
                             break;
-                       
+
                         default:
                             break;
                     }
                     lbl1313c.Text = res1313;
 
+
                 }
                 else
                 {
+                    lbl130c.Text = dtCuestionario.Rows[0]["p130"].ToString();
+
+                    //Respuestas al bloque de no
                     preguntaDinamicaNo.Visible = true;
                     tr1321c.Visible = true;
-                    lbl1321c.Text = dtCuestionario.Rows[0]["p1321"].ToString();
+                    if (dtCuestionario.Rows[0]["p1321"].ToString() == "YES" || dtCuestionario.Rows[0]["p1321"].ToString() == "SI")
+                    {
+                        lbl1321c.Text = Resources.Certificacion.lblSI;
+                    }
+                    else
+                    {
+                        lbl1321c.Text = dtCuestionario.Rows[0]["p1321"].ToString();
+                    }
 
                     tr1322c.Visible = true;
-                    lbl1322c.Text = dtCuestionario.Rows[0]["p1322"].ToString();
+                    if (dtCuestionario.Rows[0]["p1322"].ToString() == "YES" || dtCuestionario.Rows[0]["p1322"].ToString() == "SI")
+                    {
+                        lbl1322c.Text = Resources.Certificacion.lblSI;
+                    }
+                    else
+                    {
+                        lbl1322c.Text = dtCuestionario.Rows[0]["p1322"].ToString();
+                    }
                 }
-                lbl140c.Text = dtCuestionario.Rows[0]["p140"].ToString();
-                lbl150c.Text = dtCuestionario.Rows[0]["p150"].ToString();
-                lbl160c.Text = dtCuestionario.Rows[0]["p160"].ToString();
+                //Nuestra compania comprende las normas minimas de seguridad ctpat y
+                //certifica que sis operaciones estan acordes con dichas normas
+                if (dtCuestionario.Rows[0]["p140"].ToString() == "YES" || dtCuestionario.Rows[0]["p140"].ToString() == "SI")
+                {
+                    lbl140c.Text = Resources.Certificacion.lblSI;
+                }
+                else
+                {
+                    lbl140c.Text = dtCuestionario.Rows[0]["p140"].ToString();
+                }
+
+                //Nuestra compania no es elegible para ser miembro  ctpat pero 
+                //esta de acuerdo en cumplir con los lineamientos de seguridad ctpat
+                if (dtCuestionario.Rows[0]["p150"].ToString() == "YES" || dtCuestionario.Rows[0]["p150"].ToString() == "SI")
+                {
+                    lbl150c.Text = Resources.Certificacion.lblSI;
+                }
+                else
+                {
+                    lbl150c.Text = dtCuestionario.Rows[0]["p150"].ToString();
+                }
+
+                //Esta usted respondiendo por todas las unidades de negocio de su compania
+                if (dtCuestionario.Rows[0]["p160"].ToString() == "YES" || dtCuestionario.Rows[0]["p160"].ToString() == "SI")
+                {
+                    lbl160c.Text = Resources.Certificacion.lblSI;
+                }
+                else
+                {
+                    lbl160c.Text = dtCuestionario.Rows[0]["p160"].ToString();
+                }
 
 
 

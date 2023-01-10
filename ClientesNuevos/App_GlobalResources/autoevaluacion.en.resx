@@ -117,19 +117,145 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbl100" xml:space="preserve">
+    <value>Requerimientos de los socios comerciales</value>
+  </data>
+  <data name="lbl110" xml:space="preserve">
+    <value>Procedimientos de seguridad</value>
+  </data>
+  <data name="lbl120" xml:space="preserve">
+    <value>Punto de origen</value>
+  </data>
+  <data name="lbl130" xml:space="preserve">
+    <value>Participación / Certificación en programas de seguridad de la cadena de abastecimiento de administraciones aduanales extranjeras</value>
+  </data>
+  <data name="lbl140" xml:space="preserve">
+    <value>Procedimientos de Seguridad</value>
+  </data>
+  <data name="lbl200" xml:space="preserve">
+    <value>Seguridad de Contenedores y Remolques</value>
+  </data>
+  <data name="lbl210" xml:space="preserve">
+    <value>Inspección de los contenedores</value>
+  </data>
+  <data name="lbl220" xml:space="preserve">
+    <value>Inspección del Remolque</value>
+  </data>
+  <data name="lbl230" xml:space="preserve">
+    <value>Sellos de los remolques y contenedores</value>
+  </data>
+  <data name="lbl240" xml:space="preserve">
+    <value>Almacenamiento de contenedores y remolques</value>
+  </data>
+  <data name="lbl300" xml:space="preserve">
+    <value>Controles de acceso físico</value>
+  </data>
+  <data name="lbl310" xml:space="preserve">
+    <value>Control de empleados</value>
+  </data>
+  <data name="lbl320" xml:space="preserve">
+    <value>Control de visitantes</value>
+  </data>
+  <data name="lbl330" xml:space="preserve">
+    <value>Control de Entregas (incluyendo la correspondencia)</value>
+  </data>
+  <data name="lbl340" xml:space="preserve">
+    <value>Abordaje y remoción de personas no autorizadas</value>
+  </data>
+  <data name="lbl400" xml:space="preserve">
+    <value>Seguridad del personal</value>
+  </data>
+  <data name="lbl410" xml:space="preserve">
+    <value>Verificación previa a la contratación</value>
+  </data>
+  <data name="lbl420" xml:space="preserve">
+    <value>Verificación / investigación</value>
+  </data>
+  <data name="lbl430" xml:space="preserve">
+    <value>Procedimientos deteerminación de relaciones laborales</value>
+  </data>
+  <data name="lbl500" xml:space="preserve">
+    <value>Seguridad de los Procesos</value>
+  </data>
+  <data name="lbl510" xml:space="preserve">
+    <value>Procesamiento de la documentación</value>
+  </data>
+  <data name="lbl520" xml:space="preserve">
+    <value>Procedimientos de declaración</value>
+  </data>
+  <data name="lbl530" xml:space="preserve">
+    <value>Embarque y recepción</value>
+  </data>
+  <data name="lbl540" xml:space="preserve">
+    <value>Discrepancias de la carga</value>
+  </data>
+  <data name="lbl600" xml:space="preserve">
+    <value>Seguridad Física</value>
+  </data>
+  <data name="lbl610" xml:space="preserve">
+    <value>Cercado</value>
+  </data>
+  <data name="lbl620" xml:space="preserve">
+    <value>Puertas y casetas de vigilancia</value>
+  </data>
+  <data name="lbl630" xml:space="preserve">
+    <value>Estacionamiento</value>
+  </data>
+  <data name="lbl640" xml:space="preserve">
+    <value>Estructura del edificio</value>
+  </data>
+  <data name="lbl650" xml:space="preserve">
+    <value>Dispositivos de cierre y control de llaves</value>
+  </data>
+  <data name="lbl660" xml:space="preserve">
+    <value>Iluminación</value>
+  </data>
+  <data name="lbl670" xml:space="preserve">
+    <value>Sistemas de alrma y cámaras de vigilancia por video</value>
+  </data>
+  <data name="lbl700" xml:space="preserve">
+    <value>Seguridad de Tecnologías de la Información</value>
+  </data>
+  <data name="lbl710" xml:space="preserve">
+    <value>Protección de contraseñas</value>
+  </data>
+  <data name="lbl720" xml:space="preserve">
+    <value>Responsabilidad</value>
+  </data>
+  <data name="lbl800" xml:space="preserve">
+    <value>Entrenamiento de seguridad y concintización de amenazas</value>
+  </data>
   <data name="lblInstrucciones" xml:space="preserve">
-    <value>*Answer the questions. Select an option is required, observation field is optional*</value>
+    <value>*Responda las preguntas. Es obligatorio seleccionar una opción, pero el campo de observaciones es opcional*</value>
+  </data>
+  <data name="lblNivel1" xml:space="preserve">
+    <value>Nivel 1. Riesgo bajo: 75% a 100% de cumplimiento</value>
+  </data>
+  <data name="lblNivel2" xml:space="preserve">
+    <value>Nivel 2. Riesgo medio: 50% a 74% de cumplimiento</value>
+  </data>
+  <data name="lblNivel3" xml:space="preserve">
+    <value>Nivel 3. Riesgo alto: 0 a 49% de cumplimiento</value>
+  </data>
+  <data name="lblNivelesRiesgo" xml:space="preserve">
+    <value>Niveles de riesgo</value>
+  </data>
+  <data name="lblNR" xml:space="preserve">
+    <value>Nivel de Riesgo (N.R.)</value>
   </data>
   <data name="lblNumero" xml:space="preserve">
-    <value>Number</value>
+    <value>Numero</value>
   </data>
   <data name="lblObservaciones" xml:space="preserve">
-    <value>Observations</value>
+    <value>Observaciones</value>
   </data>
   <data name="lblOpciones" xml:space="preserve">
-    <value>Options</value>
+    <value>Opciones</value>
   </data>
   <data name="lblPregunta" xml:space="preserve">
-    <value>Question</value>
+    <value>Pregunta</value>
+  </data>
+  <data name="lblPromedio" xml:space="preserve">
+    <value>Promedio de cumplimiento</value>
   </data>
 </root>

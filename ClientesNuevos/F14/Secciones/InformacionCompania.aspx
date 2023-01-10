@@ -163,7 +163,7 @@
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                    ErrorMessage="Solo letras y numeros" ControlToValidate="txtRfc" ValidationExpression="/^[0-9a-zA-Z]+$/">                                   
+                                    ErrorMessage="Solo letras y numeros" ControlToValidate="txtRfc" ValidationExpression="^[0-9A-Z]+$">                                   
                                 </asp:RegularExpressionValidator>
                                 
                                 <span id="sExtiste" style="color:red;"></span>
@@ -308,9 +308,17 @@
                      <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                     <ContentTemplate>
                     <div class="card border-primary">
-                        <h6 class="card-header cabezal">
+                        <div class="card-header cabezal">
+                        <h6>
                             <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="<%$Resources:InformacionCompania, lblDatosBancarios %>"></asp:Label>
                         </h6>
+
+                                <div class="form-check ">
+                                    <asp:CheckBox ID="chNTS" runat="server" OnCheckedChanged="chNTS_CheckedChanged" AutoPostBack="True" />
+                                    <asp:Label ID="lblNTS" runat="server" Text="Trabajamos por medio de NTS" Font-Size="13px" CssClass="form-check-label"></asp:Label>
+                                </div>
+
+                        </div>
                         <asp:Panel runat="server" ID="pDatosBancarios">
 
                             <div class="card-body">

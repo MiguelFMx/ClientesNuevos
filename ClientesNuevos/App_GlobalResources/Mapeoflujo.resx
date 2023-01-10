@@ -142,7 +142,7 @@
     <value>modo</value>
   </data>
   <data name="lblPregunta" xml:space="preserve">
-    <value>Si la enteidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?</value>
+    <value>Si la entidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?</value>
   </data>
   <data name="lblPreguntaHint" xml:space="preserve">
     <value>pregunta</value>

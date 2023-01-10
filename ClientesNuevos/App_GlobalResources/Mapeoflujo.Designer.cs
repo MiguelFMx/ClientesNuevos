@@ -133,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Si la enteidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?.
+        ///   Busca una cadena traducida similar a Si la entidad maneja la carga fisicamente,¿quién lo selecciona como proveedor?.
         /// </summary>
         internal static string lblPregunta {
             get {

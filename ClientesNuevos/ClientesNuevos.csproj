@@ -2349,10 +2349,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>autoevaluacion.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\autoevaluacion.en.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>autoevaluacion.en.designer.cs</LastGenOutput>
-    </Content>
     <Content Include="App_GlobalResources\config.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>config.Designer.cs</LastGenOutput>
@@ -2360,6 +2356,10 @@
     <Content Include="App_GlobalResources\config.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>config.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\autoevaluacion.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>autoevaluacion.en.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="F14\wsBaseDatos.asmx.resx">
       <DependentUpon>wsBaseDatos.asmx.cs</DependentUpon>

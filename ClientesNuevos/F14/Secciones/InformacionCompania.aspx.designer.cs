@@ -726,6 +726,24 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Label lblTitulo_DatosBancarios;
 
         /// <summary>
+        /// Control chNTS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chNTS;
+
+        /// <summary>
+        /// Control lblNTS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNTS;
+
+        /// <summary>
         /// Control pDatosBancarios.
         /// </summary>
         /// <remarks>
