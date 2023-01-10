@@ -322,7 +322,7 @@ function ObtenerMapeoInfo() {
         });
     GetAjax("MapeoBD.asmx/ObtenerInfoMapeo", "'ID_Mapeo':'" + comp + "'", false, function (infoMapeo) {
         if (infoMapeo.length > 0) {
-            $('#MainContent_lblFecha').html('Fecha: ' + infoMapeo[0].Fecha);
+            $('#MainContent_lblFecha').html( infoMapeo[0].Fecha);
             $('#txtAuditor').val(infoMapeo[0].Auditor);
 
             MostrarMapeo(infoMapeo[0].ID_Mapeo);
@@ -337,7 +337,7 @@ function ObtenerMapeoInfoAdmin(rfc) {
    
     GetAjax("MapeoBD.asmx/ObtenerInfoMapeo", "'ID_Mapeo':'" + rfc + "'", false, function (infoMapeo) {
         if (infoMapeo.length > 0) {
-            $('#MainContent_lblFecha').html('Fecha: ' + infoMapeo[0].Fecha);
+            $('#MainContent_lblFecha').html( infoMapeo[0].Fecha);
             $('#txtAuditor').val(infoMapeo[0].Auditor);
 
             MostrarMapeo(infoMapeo[0].ID_Mapeo);
