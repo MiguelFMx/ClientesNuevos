@@ -213,7 +213,7 @@
                                     <th>N.R.</th>
                                 </tr>
                             </thead>
-                            <tbody>f
+                            <tbody>
                                 <tr class="table-primary">
                                     <td>1.0.0.</td>
                                     <td>Requerimientos  de los socios comerciales</td>
