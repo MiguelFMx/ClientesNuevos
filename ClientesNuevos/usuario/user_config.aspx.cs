@@ -155,10 +155,18 @@ namespace ClientesNuevos.usuario
 
         protected void CambiarEstadoPass(string RFC)
         {
-            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
-            int PassChange = Convert.ToInt32(dt.Rows[0]["PasswordChanged"].ToString());
-            PassChange++;
-            string cambios = clsHerramientaBD.ExecuteSql("UPDATE Logins SET [PasswordChanged] = '" + PassChange + "' WHERE RFC='"+RFC+"'", clsHerramientaBD.strConnAdmon);
+            /* DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC ='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+             int PassChange = Convert.ToInt32(dt.Rows[0]["PasswordChanged"].ToString());
+             PassChange++;
+             string cambios = clsHerramientaBD.ExecuteSql("UPDATE Logins SET [PasswordChanged] = '" + PassChange + "' WHERE RFC='"+RFC+"'", clsHerramientaBD.strConnAdmon);
+             */
+            string cambios = "";
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE RFC = '" + RFC + "'", clsHerramientaBD.strConnAdmon);
+            if( dt.Rows.Count > 0)
+            {
+                cambios = clsHerramientaBD.ExecuteSql("UPDATE Usuarios SET password_changed = 1 WHERE RFC='" + RFC + "'", clsHerramientaBD.strConnAdmon);
+            }
+
         }
 
         protected void CambiarPass_ChangedPassword(object sender, EventArgs e)

@@ -23,16 +23,15 @@ namespace ClientesNuevos.usuario
         public string CambioPass()
         {
             DataTable dt = new DataTable();
-            string RFC = "", res = "";
+            string  res = "";
             if (Context.Request.Cookies.Get("id") != null)
             {
                 dt = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE Id='" + Context.Request.Cookies.Get("id").Value + "'", clsHerramientaBD.strConnAdmon);
-                RFC = dt.Rows[0]["RFC"].ToString();
 
-                dt = clsHerramientaBD.Existe("SELECT * FROM Logins WHERE RFC='" + RFC + "'", clsHerramientaBD.strConnAdmon);
                 if (dt.Rows.Count > 0)
                 {
-                    if (dt.Rows[0]["PasswordChanged"].ToString() == "0")
+                    bool cant = (bool)dt.Rows[0]["password_changed"];
+                    if (!cant)
                     {
                         res = "0";
                     }
