@@ -11,10 +11,19 @@ namespace ClientesNuevos.admin.configuracion
 {
     public partial class configuracion : System.Web.UI.Page
     {
+        clsSMTP clsSMTP = new clsSMTP();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                //txtRemitente.Text=clsSMTP.Remitente;
+                //txtCorreo.Text = clsSMTP.Correo;
+                //txtPort.Text = clsSMTP.PuertoSMTP.ToString();
+                //txtHostSMTP.Text = clsSMTP.HostSMTP;
+                //txtUsername.Text = clsSMTP.UsernameSMTP;
+                ObtenerInfo();
+
                 LLenarEmpresa();
                 BindData_roles();
                 BindData_sub();
@@ -516,6 +525,54 @@ namespace ClientesNuevos.admin.configuracion
                 llenarDropdown("anual", ddTiempo_is);
                 lblTiempo_is.Text = "año(s)";
             }
+        }
+
+        protected void btnProbarCon_Click(object sender, EventArgs e)
+        {
+            //literalTest.Text = "<div><i class='bi bi-check-circle-fill'></i></div>";
+            //literalTest.Text = clsSMTP.path;
+        }
+
+        protected void btnSMTP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Remitente = txtRemitente.Text;
+                string Correo = txtCorreo.Text;
+                string PuertoSMTP = txtPort.Text;
+                string HostSMTP = txtHostSMTP.Text;
+                string UsernameSMTP = txtUsername.Text;
+                string PasswordSMTP = txtPassword.Text;
+
+                clsSMTP.ActualizarInfo(Correo, Remitente, UsernameSMTP, PasswordSMTP, HostSMTP, PuertoSMTP);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        protected void ObtenerInfo()
+        {
+            Array array = clsSMTP.ObtenerDatos();
+            string str="";
+            string[] arreglo;
+            char[] separators = new char[] {',','{','}','=' };
+            foreach (Object i in array)
+            {
+                str += i;
+            }
+            arreglo = str.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            txtRemitente.Text = arreglo[3].Trim();
+            txtCorreo.Text = arreglo[1].Trim();
+            txtHostSMTP.Text = arreglo[9].Trim();
+            txtPort.Text = arreglo[11].Trim();
+            txtUsername.Text = arreglo[5].Trim();
+            
+
         }
     }
 }

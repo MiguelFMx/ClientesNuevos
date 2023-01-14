@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<servidor>
+  <datos>
+    <id>0</id>
+    <correo>postmaster@hungaros.com</correo>
+    <remitente>NoRe:Hungaros</remitente>
+    <UsernameSMTP>postmaster@hungaros.com</UsernameSMTP>
+    <PasswordSMTP>12345</PasswordSMTP>
+    <HostSMTP>mailc76.carrierzone.com</HostSMTP>
+    <PuertoSMTP>587</PuertoSMTP>
+  </datos>
+</servidor>

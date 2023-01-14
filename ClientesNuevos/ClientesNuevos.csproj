@@ -1256,6 +1256,7 @@
     <Content Include="admin\usuarios\wsUsuarios.asmx" />
     <Content Include="admin\wsAdminIndex.asmx" />
     <Content Include="admin\wsReportes.asmx" />
+    <Content Include="App_Code\XMLsmtp.xml" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -1892,6 +1893,7 @@
     <Compile Include="admin\carpetilla\carpetilla.aspx.designer.cs">
       <DependentUpon>carpetilla.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\configuracion\clsSMTP.cs" />
     <Compile Include="admin\configuracion\configuracion.aspx.cs">
       <DependentUpon>configuracion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

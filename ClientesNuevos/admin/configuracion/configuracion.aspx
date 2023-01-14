@@ -318,34 +318,64 @@
                     </div>
 
                     <div class="mt-3">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>                          
                         <div class="card">
                             <div class="card-header">
                                 Servicio de correo
                             </div>
                             <div class="card-body">
-                                <div class="form-group">
-                                    <div class="row">                                       
+                                <div class="form-group mt-2">
+                                    <div class="row">
                                         <div class="col">
                                             <asp:Label ID="lblRemitente" runat="server" Text="Remitente" CssClass="form-label"></asp:Label>
-                                            <asp:TextBox ID="txtRemitente" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtRemitente" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
                                         </div>
                                         <div class="col">
                                             <asp:Label ID="lblCorreo" runat="server" Text="Correo" CssClass="form-label"></asp:Label>
-                                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control form-control-sm" TextMode="Email"></asp:TextBox>
                                         </div>
                                     </div>
+                                </div>
+                                <hr />
+                                <div class="form-group mt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                    <asp:Label ID="lblSMTP" runat="server" Text="Host SMTP"></asp:Label>
+                                    <asp:TextBox ID="txtHostSMTP" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
 
+                                        </div>
+                                        <div class="col">
+                                    <asp:Label ID="lblPort" runat="server" Text="Puerto SMTP"></asp:Label>
+
+                                    <asp:TextBox ID="txtPort" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <asp:Label ID="lblPass" runat="server" Text="Contraseña" CssClass="form-label"></asp:Label>
-                                    <asp:TextBox ID="txtPass" runat="server" CssClass="form-control"></asp:TextBox>
+                                <div class="form-group mt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Label ID="lblusername" runat="server" Text="Usuario" CssClass="form-label"></asp:Label>
+                                            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
+                                        </div>
+                                        <div class="col">
+                                             <asp:Label ID="lblPassword" runat="server" Text="Contraseña" CssClass="form-label"></asp:Label>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-sm" TextMode="Password"></asp:TextBox>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <asp:Label ID="Label17" runat="server" Text="Label"></asp:Label>
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                <div class="row mt-2">
+                                    <asp:LinkButton ID="btnProbarCon" runat="server" OnClick="btnProbarCon_Click">probar conexión</asp:LinkButton>
+                                    <asp:Literal ID="literalTest" runat="server"></asp:Literal>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <asp:Button ID="btnSMTP" runat="server" Text="Guardar cambios" CssClass="btn btn-primary btn-sm" OnClick="btnSMTP_Click" />
+                            </div>
                         </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
 
                     <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
