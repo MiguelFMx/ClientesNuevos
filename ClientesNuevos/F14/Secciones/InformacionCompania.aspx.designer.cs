@@ -636,6 +636,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.TextBox txtDirecFacturacion;
 
         /// <summary>
+        /// Control RFValidator_DirFra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFValidator_DirFra;
+
+        /// <summary>
         /// Control lblPaisFact.
         /// </summary>
         /// <remarks>
@@ -652,6 +661,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddPaisFra;
+
+        /// <summary>
+        /// Control RFValidator_PaisFra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFValidator_PaisFra;
 
         /// <summary>
         /// Control lblEstadoFra.
@@ -672,6 +690,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.DropDownList ddEstadoFra;
 
         /// <summary>
+        /// Control RFValidator_EstadoFra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFValidator_EstadoFra;
+
+        /// <summary>
         /// Control lblCiudadFact.
         /// </summary>
         /// <remarks>
@@ -690,6 +717,15 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.DropDownList ddCiudadFra;
 
         /// <summary>
+        /// Control RFValidator_CiudadFra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFValidator_CiudadFra;
+
+        /// <summary>
         /// Control lblCPFact.
         /// </summary>
         /// <remarks>
@@ -706,6 +742,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCPFra;
+
+        /// <summary>
+        /// Control RFValidator_CPFra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFValidator_CPFra;
 
         /// <summary>
         /// Control UpdatePanel2.

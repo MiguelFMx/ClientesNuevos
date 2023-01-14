@@ -96,9 +96,12 @@ namespace ClientesNuevos.F14.Seccioness
 
                             dtFra = clsHerramientaBD.Existe("SELECT * FROM Table_DireccionFra WHERE ID_compania ='" + Request.QueryString["rfc"] + "'");
 
-                            if (dt.Rows[0]["Direccion"].ToString() != dtFra.Rows[0]["Direccion_fra"].ToString())
+                            if (dt.Rows[0]["Direccion"].ToString() != dtFra.Rows[0]["Direccion_fra"].ToString() )
                             {
-                                LlenarFra(dtFra);
+                                if (dtFra.Rows[0]["Direccion_fra"].ToString() != "")
+                                {
+                                    LlenarFra(dtFra); 
+                                }
                             }
 
                             dtBanco = new DataTable();
@@ -272,6 +275,7 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if(dt.Rows.Count > 0)
             {
+                if(dt.Rows[0]["Estado_fra"].ToString() != "0") { 
                 txtDirecFacturacion.Text = dt.Rows[0]["Direccion_fra"].ToString();
                 txtCPFra.Text = dt.Rows[0]["CP_fra"].ToString();
 
@@ -290,7 +294,7 @@ namespace ClientesNuevos.F14.Seccioness
                 chFactura.Checked = true;
                 pFra.Enabled = true;
                 pFra.BackColor = System.Drawing.Color.White;
-
+                }
             }
         }
 
@@ -523,13 +527,24 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     pFra.Enabled = true;
                     pFra.BackColor = System.Drawing.Color.White;
+                    RFValidator_DirFra.Enabled = true;
+                    RFValidator_PaisFra.Enabled = true;
+                    RFValidator_EstadoFra.Enabled = true;
+                    RFValidator_EstadoFra.Enabled = true;
+                    RFValidator_CPFra.Enabled = true;
 
-                }
+
+            }
                 else
                 {
                     pFra.Enabled = false;
                     pFra.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
-               }
+                RFValidator_DirFra.Enabled = false;
+                RFValidator_PaisFra.Enabled = false;
+                RFValidator_EstadoFra.Enabled = false;
+                RFValidator_EstadoFra.Enabled = false;
+                RFValidator_CPFra.Enabled = false;
+            }
             }
 
         protected void ddTipoDePersona_SelectedIndexChanged(object sender, EventArgs e)

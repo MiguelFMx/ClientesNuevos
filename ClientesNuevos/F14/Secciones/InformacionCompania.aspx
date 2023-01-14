@@ -271,26 +271,32 @@
                                     <div class="col-md-12">
                                         <asp:Label ID="lblDirecFacturacion" runat="server" Text="<%$Resources:InformacionCompania, lblDirFra %>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtDirecFacturacion" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RFValidator_DirFra" ForeColor="Red" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDirecFacturacion" Enabled="false"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <asp:Label ID="lblPaisFact" runat="server" Text="<%$Resources:InformacionCompania, lblPais %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddPaisFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddPaisFra_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RFValidator_PaisFra" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddPaisFra" ForeColor="Red"  Enabled="false"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col">
                                         <asp:Label ID="lblEstadoFra" runat="server" Text="<%$Resources:AgentesAduanales, lblEstado %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddEstadoFra" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddEstadoFra_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RFValidator_EstadoFra" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddEstadoFra"  Enabled="false"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <asp:Label ID="lblCiudadFact" runat="server" Text="<%$Resources: AgentesAduanales, lblCiudad %>" CssClass="form-label"></asp:Label>
                                         <asp:DropDownList ID="ddCiudadFra" runat="server" CssClass="form-select"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RFValidator_CiudadFra" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddCiudadFra"  Enabled="false"></asp:RequiredFieldValidator>
                                     </div>
+
                                     <div class="col">
                                         <asp:Label ID="lblCPFact" runat="server" Text="<%$Resources:InformacionCompania, lblCP %>" CssClass="form-label"></asp:Label>
                                         <asp:TextBox ID="txtCPFra" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ControlToValidate="txtCPFra"  Enabled="false" ID="RFValidator_CPFra" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="row">

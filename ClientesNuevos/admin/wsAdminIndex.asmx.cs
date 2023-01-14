@@ -220,7 +220,7 @@ namespace ClientesNuevos.admin
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Error:"+ex.Message;
             }
 
             return "Correo enviado a "+correo;

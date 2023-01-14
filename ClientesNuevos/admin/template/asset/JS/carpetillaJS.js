@@ -88,7 +88,6 @@ $(document).ready(function () {
             showConfirmButton: false,
             title: 'Enviando correo',
             allowOutsideClick: false,
-            showSpinner: true,
             willOpen: () => {
                 Swal.showLoading()
         $.ajax({
@@ -99,35 +98,44 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (result) {
-                swal.fire({
-                    title: 'Exito!',
-                    text: result.d,
-                    icon: 'success'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        switch (documento) {
-                            case '(F-5) Evaluacion de seguridad':
-                                documento = 'F5'
-                                break;
-                            case '(F-14) Admision de cliente':
-                                documento = 'F14'
-                                break;
-                            case '(F-12) Política de seguridad C-TPAT':
-                                documento = 'F12';
-                                break;
-                            case '(F-43) Mapeo de flujo de carga':
-                                documento = 'F43';
-                                break;
-                        }
 
-                        GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
-                            //ModalAlert
-                            console.log(cambio);
-                            location.reload();
-                        });
-                    }
-                })
-                console.log(result.d)
+                if (result.length >= 1 && result[0].substring(0,4) != 'Error') {
+                    swal.fire({
+                        title: 'Exito!',
+                        text: result.d,
+                        icon: 'success'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            switch (documento) {
+                                case '(F-5) Evaluacion de seguridad':
+                                    documento = 'F5'
+                                    break;
+                                case '(F-14) Admision de cliente':
+                                    documento = 'F14'
+                                    break;
+                                case '(F-12) Política de seguridad C-TPAT':
+                                    documento = 'F12';
+                                    break;
+                                case '(F-43) Mapeo de flujo de carga':
+                                    documento = 'F43';
+                                    break;
+                            }
+
+                            GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
+                                //ModalAlert
+                                console.log(cambio);
+                                location.reload();
+                            });
+                        }
+                    })
+                    console.log(result.d)
+                } else {
+                    swal.fire(
+                        "Error interno",
+                        "Oh no! "+result.d, // had a missing comma
+                        "error"
+                    )
+                }
             },
             failure: function () {
                 swal.fire(
