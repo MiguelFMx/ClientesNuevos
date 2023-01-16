@@ -98,8 +98,9 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (result) {
-
-                if (result.length >= 1 && result[0].substring(0,4) != 'Error') {
+                var res = String(result.d);
+                var subs = res.substring(0, 5);
+                if (subs!= 'Error') {
                     swal.fire({
                         title: 'Exito!',
                         text: result.d,

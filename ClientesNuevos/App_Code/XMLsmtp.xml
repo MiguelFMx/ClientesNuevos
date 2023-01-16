@@ -2,11 +2,11 @@
 <servidor>
   <datos>
     <id>0</id>
-    <correo>postmaster@hungaros.com</correo>
+    <correo>migue9835@hotmail.com</correo>
     <remitente>NoRe:Hungaros</remitente>
-    <UsernameSMTP>postmaster@hungaros.com</UsernameSMTP>
-    <PasswordSMTP>12345</PasswordSMTP>
-    <HostSMTP>mailc76.carrierzone.com</HostSMTP>
+    <UsernameSMTP>migue9835@hotmail.com</UsernameSMTP>
+    <PasswordSMTP>@Ang3lit01998*</PasswordSMTP>
+    <HostSMTP>smtp.office365.com</HostSMTP>
     <PuertoSMTP>587</PuertoSMTP>
   </datos>
 </servidor>

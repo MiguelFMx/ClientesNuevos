@@ -23,55 +23,52 @@ $(document).ready(function () {
         modalRemitente.value = correo[1];
     });
 
-    //string correo, string remitente, string subject, string cuerpo
     $('#btnSend').click(function () {
         var correo = $('#txtCorreo').val();
         var remitente = $('#txtRemitente').val();
         var subject = $('#txtAsunto').val();
         var cuerpo = $('#txtCuerpo').val();
+
         if (subject != '' && cuerpo != '') {
             swal.fire({
                 showConfirmButton: false,
                 title: 'Enviando correo',
                 allowOutsideClick: false,
-                showSpinner: true,
                 willOpen: () => {
                     Swal.showLoading();
-                    $.ajax({
-                        type: "POST",
-                        url: "../wsAdminIndex.asmx/EnviarCorreo",
-                        data: {
-                            'correo': correo,
-                            'remitente': remitente,
-                            'subject': subject,
-                            'cuerpo': cuerpo
-                        },
-                        cache: false,
-                        success: function (response) {
-                            swal.fire({
-                                title: 'Exito!',
-                                text: 'Correo enviado a ' + response,
-                                icon: 'success'
-                            })
-                        },
-                        failure: function (response) {
-                            swal.fire(
-                                "Error interno",
-                                "", 
-                                "error"
-                            )
-                        }
-                    });
-                }
-            });
-        } else {
+
+                    GetAjax("../wsAdminIndex.asmx/EnviarCorreo",
+                        "'correo':'" + correo + "'," +
+                        "'remitente':'" + remitente + "'," + 
+                        "'subject':'" + subject + "'," +
+                        "'cuerpo':'" + cuerpo + "'",
+                        false,
+                        function (resultado) {
+                            if (resultado == 'Correo enviado') {
+                                swal.fire({
+                                    title: 'Exito!',
+                                    text: 'Correo enviado',
+                                    icon: 'success'
+                                })
+                                console.log(resultado);
+                            } else {
+                                swal.fire(
+                                    "Error interno",
+                                    "Oh no! " + resultado,
+                                    "error"
+                                )
+                            }
+                        })
+                     }
+                 });
+            } else {
             swal.fire(
                 "Error ",
                 "Falta de datos", // had a missing comma
                 "error"
             )
         }
-     
+
     });
 
     $('#btnSendAll').click(function () {

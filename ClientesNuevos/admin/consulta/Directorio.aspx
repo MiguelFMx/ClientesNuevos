@@ -24,7 +24,7 @@
                                         <br />
                                         <small class="text-secondary">Puesto</small>
                                     </th>
-                                    <th>Correo</th>
+                                    <th width="10%">Correo</th>
                                     <th>Telefono</th>
                                     <th>Ext</th>
                                     <th>Celular</th>

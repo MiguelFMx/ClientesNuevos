@@ -17,11 +17,7 @@ namespace ClientesNuevos.admin.configuracion
         {
             if (!IsPostBack)
             {
-                //txtRemitente.Text=clsSMTP.Remitente;
-                //txtCorreo.Text = clsSMTP.Correo;
-                //txtPort.Text = clsSMTP.PuertoSMTP.ToString();
-                //txtHostSMTP.Text = clsSMTP.HostSMTP;
-                //txtUsername.Text = clsSMTP.UsernameSMTP;
+                
                 ObtenerInfo();
 
                 LLenarEmpresa();
@@ -332,9 +328,7 @@ namespace ClientesNuevos.admin.configuracion
             else
             {
                 ddEmpresa.Items.Add(new ListItem("No hay dominios registrados", "0", false));
-            }
-
-            
+            }            
         }
 
         //Subdominios===========================================================
@@ -529,8 +523,28 @@ namespace ClientesNuevos.admin.configuracion
 
         protected void btnProbarCon_Click(object sender, EventArgs e)
         {
-            //literalTest.Text = "<div><i class='bi bi-check-circle-fill'></i></div>";
-            //literalTest.Text = clsSMTP.path;
+            wsAdminIndex wsA = new wsAdminIndex();
+            string Remitente = txtRemitente.Text;
+            string Correo = txtCorreo.Text;
+            string PuertoSMTP = txtPort.Text;
+            string HostSMTP = txtHostSMTP.Text;
+            string UsernameSMTP = txtUsername.Text;
+            string PasswordSMTP = txtPassword.Text;
+
+            string res = wsA.EnviarCorreoPrueba(PuertoSMTP, HostSMTP, UsernameSMTP, PasswordSMTP);
+
+            if(res== "good")
+            {
+                literalTest.Text = "<div><i class='bi bi-check-circle-fill'></i></div>";
+
+            }
+            else
+            {
+                literalTest.Text = "<div><i class='bi bi-x-lg'></i></div>";
+
+            }
+
+
         }
 
         protected void btnSMTP_Click(object sender, EventArgs e)
@@ -546,33 +560,28 @@ namespace ClientesNuevos.admin.configuracion
 
                 clsSMTP.ActualizarInfo(Correo, Remitente, UsernameSMTP, PasswordSMTP, HostSMTP, PuertoSMTP);
 
+                literalTest.Text = "Cambios guardados";
+
             }
             catch (Exception ex)
             {
+                literalTest.Text = "Error: "+ex.Message;
 
-                throw;
             }
         }
 
         protected void ObtenerInfo()
-        {
-            Array array = clsSMTP.ObtenerDatos();
-            string str="";
-            string[] arreglo;
-            char[] separators = new char[] {',','{','}','=' };
-            foreach (Object i in array)
+        {           
+            List<clsSMTP> datos = clsSMTP.ObtenerObjeto();
+            if(datos.Count > 0)
             {
-                str += i;
+                txtCorreo.Text = datos[0].Correo;
+                txtHostSMTP.Text = datos[0].HostSMTP;
+                txtPort.Text = datos[0].PuertoSMTP;
+                txtRemitente.Text = datos[0].Remitente;
+                txtUsername.Text = datos[0].UsernameSMTP;
+                txtPassword.Text = datos[0].PasswordSMTP;
             }
-            arreglo = str.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-
-            txtRemitente.Text = arreglo[3].Trim();
-            txtCorreo.Text = arreglo[1].Trim();
-            txtHostSMTP.Text = arreglo[9].Trim();
-            txtPort.Text = arreglo[11].Trim();
-            txtUsername.Text = arreglo[5].Trim();
-            
-
         }
     }
 }

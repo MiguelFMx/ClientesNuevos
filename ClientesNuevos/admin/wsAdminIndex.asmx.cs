@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using ClientesNuevos.admin.configuracion;
 using ClientesNuevos.App_Code;
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -200,9 +201,13 @@ namespace ClientesNuevos.admin
         [WebMethod]
         public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)
         {
+            clsSMTP clsSMTP = new clsSMTP();
+            List<clsSMTP> datos = clsSMTP.ObtenerObjeto();
+
+            
             //Metodo para enviar correo por medio de MailKit
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("No Re:Hungaros.", "postmaster@hungaros.com"));
+            message.From.Add(new MailboxAddress(datos[0].Remitente, datos[0].Correo));
             message.To.Add(new MailboxAddress(remitente,correo));
 
             message.Subject = subject;
@@ -213,8 +218,8 @@ namespace ClientesNuevos.admin
             SmtpClient client = new SmtpClient();
             try
             {
-                client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
+                client.Connect(datos[0].HostSMTP, Convert.ToInt32(datos[0].PuertoSMTP), MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate(datos[0].UsernameSMTP, datos[0].PasswordSMTP);
                 client.Send(message);
                 client.Disconnect(true);
             }
@@ -223,7 +228,7 @@ namespace ClientesNuevos.admin
                 return "Error:"+ex.Message;
             }
 
-            return "Correo enviado a "+correo;
+            return "Correo enviado";
         }
 
         [WebMethod]
@@ -266,6 +271,39 @@ namespace ClientesNuevos.admin
 
             return res;
         }
+
+
+        public string EnviarCorreoPrueba(string PuertoSMTP, string HostSMTP, string UserSMTP, string passSMTP )
+        {
+            
+
+
+            //Metodo para enviar correo por medio de MailKit
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("prueba", "migue9835@hotmail.com"));
+            message.To.Add(new MailboxAddress("prueba", "freyde.miguel@gmail.com"));
+
+            message.Subject = "test";
+            message.Body = new TextPart(TextFormat.Plain)
+            {
+                Text = "tes"
+            };
+            SmtpClient client = new SmtpClient();
+            try
+            {
+                client.Connect(HostSMTP, Convert.ToInt32(PuertoSMTP), MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate(UserSMTP, passSMTP);
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            catch (Exception ex)
+            {
+                return "Error:" + ex.Message;
+            }
+
+            return "good";
+        }
+
 
     }
 }

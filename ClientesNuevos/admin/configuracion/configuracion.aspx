@@ -361,7 +361,7 @@
                                         </div>
                                         <div class="col">
                                              <asp:Label ID="lblPassword" runat="server" Text="Contraseña" CssClass="form-label"></asp:Label>
-                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-sm" TextMode="Password"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-sm" ></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>

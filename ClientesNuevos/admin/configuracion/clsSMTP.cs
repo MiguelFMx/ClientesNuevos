@@ -11,19 +11,19 @@ namespace ClientesNuevos.admin.configuracion
 {
     public class clsSMTP
     {
-        private string Correo = "postmaster@hungaros.com";
-        private string Remitente = "No Re:Hungaros";
-        private string UsernameSMTP = "postmaster@hungaros.com";
-        private string PasswordSMTP = "Hungaro5.Mai1!";
-        private string HostSMTP = "mailc76.carrierzone.com";
-        private int PuertoSMTP = 587;
+        public string Correo { get; set; }
+        public string Remitente { get; set; }
+        public string UsernameSMTP { get; set; }
+        public string PasswordSMTP { get; set; }
+        public string HostSMTP { get; set; }
+        public string PuertoSMTP { get; set; }
 
         XDocument XDocument;
          string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Code/XMLsmtp.xml");
 
         public clsSMTP() { }
 
-        public clsSMTP(string correo, string remitente, string usernameSMTP, string passwordSMTP, string hostSMTP, int puertoSMTP)
+        public clsSMTP(string correo, string remitente, string usernameSMTP, string passwordSMTP, string hostSMTP, string puertoSMTP)
         {
             Correo = correo;
             Remitente = remitente;
@@ -32,7 +32,6 @@ namespace ClientesNuevos.admin.configuracion
             HostSMTP = hostSMTP;
             PuertoSMTP = puertoSMTP;
         }
-
 
         public string ActualizarInfo(string correo, string remitente, string usernameSMTP, string passwordSMTP, string hostSMTP, string puertoSMTP)
         {
@@ -80,5 +79,38 @@ namespace ClientesNuevos.admin.configuracion
                            };
             return datos.ToArray();
         }
+
+        public List<clsSMTP> ObtenerObjeto()
+        {
+            List<clsSMTP> datos = new List<clsSMTP>();
+            clsSMTP objSMTP;
+
+            /*  */
+            Array array = ObtenerDatos();
+            string str="";
+            string[] arreglo;
+            char[] separators = new char[] {',','{','}','=' };
+            foreach (Object i in array)
+            {
+                str += i;
+            }
+            arreglo = str.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            objSMTP = new clsSMTP
+            {
+                Correo = arreglo[1].Trim(),
+                HostSMTP = arreglo[9].Trim(),
+                PuertoSMTP = arreglo[11].Trim(),
+                Remitente = arreglo[3].Trim(),
+                UsernameSMTP = arreglo[5].Trim(),
+                PasswordSMTP = arreglo[7].Trim()
+            };
+            datos.Add(objSMTP);
+
+            return datos;
+        }
+             
+            
+        
     }
 }
