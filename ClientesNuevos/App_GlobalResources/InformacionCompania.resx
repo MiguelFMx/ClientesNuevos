@@ -163,7 +163,7 @@
     <value>Dirección fiscal</value>
   </data>
   <data name="lblDireccionIgual" xml:space="preserve">
-    <value>La dirección de facturación es igual a la dirección fiscal</value>
+    <value>La dirección de facturación es diferente a la dirección fiscal</value>
   </data>
   <data name="lblDirFra" xml:space="preserve">
     <value>Dirección de facturación</value>
@@ -235,7 +235,7 @@
     <value>Registrar</value>
   </data>
   <data name="lblRFC" xml:space="preserve">
-    <value>RFC</value>
+    <value>RFC/W9</value>
   </data>
   <data name="lblRFCBAnco" xml:space="preserve">
     <value>RFC del banco</value>

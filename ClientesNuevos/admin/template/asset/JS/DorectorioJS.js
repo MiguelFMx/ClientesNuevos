@@ -283,6 +283,40 @@ $(document).ready(function () {
 
     });
 
+    $('#btnHref').click(function () {
+        var mail1 = new Array();
+        var remitente1 = new Array();
+
+        var asunto1 = $('#txtAsuntoAll').val();
+        var cuerpo1 = $('#txtBody').val();
+
+        $('.form-check').each(function () {
+            let checked = $(this).find($('[name=check]'));
+            let mailTemp = $(this).find($('[name=correo]'));
+            let contactTemp = $(this).find($('[name=contacto]'));
+            if (checked.is(":checked")) {
+                //Correo.push(mail.text() + ";" + contact.text());
+                mail1.push(mailTemp.text());
+                remitente1.push(contactTemp.text());
+            }
+        });
+
+        var listaMail='mailto:';
+        for (var i = 0; i < mail1.length; i++) {
+                listaMail += mail1[i] + ";";
+        }
+        listaMail = listaMail.substring(0, listaMail.length - 1);
+        listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1; 
+
+        $("#btntest").attr("href", listaMail);
+
+
+        $('#btntest')[0].click();
+
+        console.log(listaMail);
+    });
+
+
     $('#btnEditarContacto').click(function () {
         $('#ErrorContacto').hide();
         $('#ErrorPuesto').hide();
@@ -463,7 +497,10 @@ function ObtenerContacto() {
                     "<td style='display:none;'><span class='id'>" + lstTabla[i].ID+"</span></td>"+
                     "<td>" + lstTabla[i].Nombre_comercial + "<br><small><span class='comp'>" + lstTabla[i].ID_compania + "</span></small></td>" +
                     "<td><span class='contacto'>" + lstTabla[i].Nombre + "</span><br><small><span class='puesto'>" + lstTabla[i].Puesto + "</span></small></td>" +
-                    "<td><span class='correo'>" + lstTabla[i].Correo + "</span></td>" +
+                    "<td><span class='correo'>" +
+                    "<a href='mailto:" + lstTabla[i].Correo + "?" +
+                    "subject=test&body=Cuerpo prueba'>" + lstTabla[i].Correo + "</a>"
+                    + "</span></td>" +
                     "<td><span class='telefono'>" + lstTabla[i].Telefono + "</span></td>" +
                     "<td><span class='ext'>" + lstTabla[i].Extension + "</span></td>" +
                     "<td><span class='celular'>" + lstTabla[i].Celular + "</span></td>" +
@@ -471,6 +508,8 @@ function ObtenerContacto() {
                     "<td>" +
                     "<button id='btnMensaje' type='button' name='correo' class='btn btn-secondary btn-sm me-1' data-bs-toggle='modal' data-bs-target='#CorreoIndividual' data-bs-whatever='" + lstTabla[i].Correo + ";" + lstTabla[i].Nombre + "'><i class='bi bi-envelope'></i></button>" +
                     "<button id='btnEdit' type='button' name='Editar' class='btn btn-warning btn-sm text-white' data-bs-toggle='modal' data-bs-target='#ResgitrarContacto'><i class='bi bi-pencil-square' ></i></button>" +
+                    
+
                     "</td>" +
                     "</tr>"
                     );

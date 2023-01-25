@@ -154,6 +154,39 @@ $(document).ready(function () {
 
     });
 
+    $('#btnEnviarMail').click(function () {
+        var mail1 = new Array();
+        var remitente1 = new Array();
+
+        var asunto1 = $('#MainContent_txtAsunto').val();
+        var cuerpo1 = $('#MainContent_txtMensaje').val();
+
+        $('.form-check').each(function () {
+            let checked = $(this).find($('[name=check]'));
+            let mailTemp = $(this).find($('[name=correo]'));
+            let contactTemp = $(this).find($('[name=contacto]'));
+            if (checked.is(":checked")) {
+                //Correo.push(mail.text() + ";" + contact.text());
+                mail1.push(mailTemp.text());
+                remitente1.push(contactTemp.text());
+            }
+        });
+
+        var listaMail = 'mailto:';
+        for (var i = 0; i < mail1.length; i++) {
+            listaMail += mail1[i] + ";";
+        }
+        listaMail = listaMail.substring(0, listaMail.length - 1);
+        listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1;
+
+        $("#anchorMail").attr("href", listaMail);
+
+
+        $('#anchorMail')[0].click();
+
+        console.log(listaMail);
+    });
+
     ObtenerRoles();
     ListaContactos();
 

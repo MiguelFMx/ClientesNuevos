@@ -196,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La dirección de facturación es igual a la dirección fiscal.
+        ///   Busca una cadena traducida similar a La dirección de facturación es diferente a la dirección fiscal.
         /// </summary>
         internal static string lblDireccionIgual {
             get {
@@ -412,7 +412,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a RFC.
+        ///   Busca una cadena traducida similar a RFC/W9.
         /// </summary>
         internal static string lblRFC {
             get {

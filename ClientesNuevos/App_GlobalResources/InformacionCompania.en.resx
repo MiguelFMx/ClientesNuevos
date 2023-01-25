@@ -235,7 +235,7 @@
     <value>Save</value>
   </data>
   <data name="lblRFC" xml:space="preserve">
-    <value>W9/Tax ID</value>
+    <value>W9/Tax ID/RFC</value>
   </data>
   <data name="lblRFCBAnco" xml:space="preserve">
     <value>Bank RFC</value>
