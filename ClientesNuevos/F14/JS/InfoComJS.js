@@ -11,7 +11,9 @@ $(document).ready(function () {
     
        
     var contador = 0;
-
+    $('#MainContent_btnSimularJS').click(function () {
+        alert("Diste click :D");
+    })
 
     //Alamcenar informacion de contacto
     $('#btnContactoCompania').on('click', function () {
@@ -357,10 +359,6 @@ function fillComboCiudad(id_ciudad, combo_c) {
 }
 
 
-function alertameEsta() {
-    alert('esta 😆🤙');
-}
-
 function CargarContactos() {
     var tabla = $('#tContactoCom tbody');
     var check;
@@ -416,10 +414,32 @@ function CargarContactos() {
 }
 
 
-function Mensaje() {
-    Swal.fire(
-        'Registro',
-        'Informacion de la compañia registrada',
-        'success'
-    )
+function MensajeError() {
+    
+    Swal.fire({
+        icon: 'warning',
+        html: 'No has registrado ningun contacto <br> ¿Deseas continuar?',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'si',
+        cancelButtonText: 'no'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../Secciones/AgentesAduanales.aspx';
+        }
+    });    
+}
+function MensajeSucces() {
+
+    Swal.fire({
+        icon: 'success',
+        html: 'Informacion registrada con exito',
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        willClose: () => {
+            window.location.href = '../Secciones/AgentesAduanales.aspx';
+        }
+        })
 }

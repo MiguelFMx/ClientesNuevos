@@ -1380,6 +1380,8 @@
     <Content Include="Scripts\DataTables\datatables.js" />
     <Content Include="Scripts\DataTables\datatables.min.css" />
     <Content Include="Scripts\DataTables\datatables.min.js" />
+    <Content Include="Scripts\DataTables\responsivedt\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\responsivedt\responsive.dataTables.min.css" />
     <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap.css" />
     <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap.min.css" />
     <Content Include="Scripts\DataTables\Responsive-2.3.0\css\responsive.bootstrap4.css" />

@@ -23,54 +23,84 @@ $(document).ready(function () {
         modalRemitente.value = correo[1];
     });
 
+    //$('#btnSend').click(function () {
+    //    var correo = $('#txtCorreo').val();
+    //    var remitente = $('#txtRemitente').val();
+    //    var subject = $('#txtAsunto').val();
+    //    var cuerpo = $('#txtCuerpo').val();
+
+    //    if (subject != '' && cuerpo != '') {
+    //        swal.fire({
+    //            showConfirmButton: false,
+    //            title: 'Enviando correo',
+    //            allowOutsideClick: false,
+    //            willOpen: () => {
+    //                Swal.showLoading();
+
+    //                GetAjax("../wsAdminIndex.asmx/EnviarCorreo",
+    //                    "'correo':'" + correo + "'," +
+    //                    "'remitente':'" + remitente + "'," + 
+    //                    "'subject':'" + subject + "'," +
+    //                    "'cuerpo':'" + cuerpo + "'",
+    //                    false,
+    //                    function (resultado) {
+    //                        if (resultado == 'Correo enviado') {
+    //                            swal.fire({
+    //                                title: 'Exito!',
+    //                                text: 'Correo enviado',
+    //                                icon: 'success'
+    //                            })
+    //                            console.log(resultado);
+    //                        } else {
+    //                            swal.fire(
+    //                                "Error interno",
+    //                                "Oh no! " + resultado,
+    //                                "error"
+    //                            )
+    //                        }
+    //                    })
+    //                 }
+    //             });
+    //        } else {
+    //        swal.fire(
+    //            "Error ",
+    //            "Falta de datos", // had a missing comma
+    //            "error"
+    //        )
+    //    }
+
+    //});
     $('#btnSend').click(function () {
         var correo = $('#txtCorreo').val();
         var remitente = $('#txtRemitente').val();
         var subject = $('#txtAsunto').val();
         var cuerpo = $('#txtCuerpo').val();
 
+        $("#anchorMail").attr("href", "mailto:" + correo + "?subject=" + subject + "&body=correo para " + remitente +"%0A" + cuerpo);
+
         if (subject != '' && cuerpo != '') {
             swal.fire({
-                showConfirmButton: false,
                 title: 'Enviando correo',
-                allowOutsideClick: false,
-                willOpen: () => {
-                    Swal.showLoading();
+                html: 'Envie el correo por outlook <br> Outlook se abrira automaticamente',
+                icon:'info'                    
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //--cierro modal
+                    $('#CorreoIndividual').modal('hide');
 
-                    GetAjax("../wsAdminIndex.asmx/EnviarCorreo",
-                        "'correo':'" + correo + "'," +
-                        "'remitente':'" + remitente + "'," + 
-                        "'subject':'" + subject + "'," +
-                        "'cuerpo':'" + cuerpo + "'",
-                        false,
-                        function (resultado) {
-                            if (resultado == 'Correo enviado') {
-                                swal.fire({
-                                    title: 'Exito!',
-                                    text: 'Correo enviado',
-                                    icon: 'success'
-                                })
-                                console.log(resultado);
-                            } else {
-                                swal.fire(
-                                    "Error interno",
-                                    "Oh no! " + resultado,
-                                    "error"
-                                )
-                            }
-                        })
-                     }
-                 });
-            } else {
+                    $('#anchorMail')[0].click();
+
+                }
+            })
+        } else {
             swal.fire(
                 "Error ",
-                "Falta de datos", // had a missing comma
+                "Falta de datos",
                 "error"
             )
         }
 
     });
-
     $('#btnSendAll').click(function () {
         
         var mail = new Array();
@@ -295,23 +325,64 @@ $(document).ready(function () {
             let mailTemp = $(this).find($('[name=correo]'));
             let contactTemp = $(this).find($('[name=contacto]'));
             if (checked.is(":checked")) {
-                //Correo.push(mail.text() + ";" + contact.text());
                 mail1.push(mailTemp.text());
                 remitente1.push(contactTemp.text());
             }
         });
-
-        var listaMail='mailto:';
-        for (var i = 0; i < mail1.length; i++) {
+        if (mail1.length > 0 && asunto1 != "" && cuerpo1 != "") {
+            var listaMail = 'mailto:';
+            for (var i = 0; i < mail1.length; i++) {
                 listaMail += mail1[i] + ";";
+            }
+            listaMail = listaMail.substring(0, listaMail.length - 1);
+            listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1;
+
+            $("#btntest").attr("href", listaMail);
+
+            Swal.fire({
+                html: "Envie el mensaje por medio de outlook <br> Outlook se abrira automaticamente",
+                icon: 'info',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //--cierro modal
+                    $('#MailModal').modal('hide');
+
+                    $('#btntest')[0].click();
+                }
+            })
+        } else {
+            if (mail1.length == 0 && asunto1 != "" && cuerpo1 != "") {
+                //----alerta de error
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Seleccione un correo",
+                    icon: "error"
+                });
+            } else if (asunto1 == "" && cuerpo1 != "" && mail1.length > 0 ) {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Escriba el asunto del correo",
+                    icon: "error"
+                });
+            } else if (cuerpo1 == "" && asunto1 != "" && mail1.length > 0) {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Escriba el cuerpo del correo",
+                    icon: "error"
+                }); 
+            } else {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Falta de datos",
+                    icon: "error"
+                });
+            }
         }
-        listaMail = listaMail.substring(0, listaMail.length - 1);
-        listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1; 
-
-        $("#btntest").attr("href", listaMail);
 
 
-        $('#btntest')[0].click();
 
         console.log(listaMail);
     });
@@ -460,8 +531,20 @@ $(document).ready(function () {
 
                 CargarDirectorio();
 
-                var table = $('#tDirectorio').DataTable();
-                var tdir = $('#tDir').DataTable();
+    $('#tDirectorio').DataTable({        
+        responsive: true,
+        autoWidth: true,
+        columnDefs: [{
+            target: 0,
+            visible: false,
+            searchable: false,
+        }]
+        //{ responsivePriority: 1, targets: 1 },
+        //    { responsivePriority: 10001, targets: 3 }
+        //   ]
+    });
+
+        var tdir = $('#tDir').DataTable();
 
 
                 NProgress.done();
@@ -498,8 +581,7 @@ function ObtenerContacto() {
                     "<td>" + lstTabla[i].Nombre_comercial + "<br><small><span class='comp'>" + lstTabla[i].ID_compania + "</span></small></td>" +
                     "<td><span class='contacto'>" + lstTabla[i].Nombre + "</span><br><small><span class='puesto'>" + lstTabla[i].Puesto + "</span></small></td>" +
                     "<td><span class='correo'>" +
-                    "<a href='mailto:" + lstTabla[i].Correo + "?" +
-                    "subject=test&body=Cuerpo prueba'>" + lstTabla[i].Correo + "</a>"
+                    "<a href='mailto:" + lstTabla[i].Correo + "'>" + lstTabla[i].Correo + "</a>"
                     + "</span></td>" +
                     "<td><span class='telefono'>" + lstTabla[i].Telefono + "</span></td>" +
                     "<td><span class='ext'>" + lstTabla[i].Extension + "</span></td>" +

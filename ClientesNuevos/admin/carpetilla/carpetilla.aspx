@@ -317,7 +317,7 @@
                                                         data-bs-toggle="modal"
                                                         data-bs-placement="top"
                                                         data-bs-target="#CorreoAct"
-                                                        data-bs-type="Identificación de representante legal"
+                                                        data-bs-type="Identificacion de representante legal"
                                                         title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
                                                     <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm" runat="server"
@@ -426,7 +426,7 @@
                                                         data-bs-toggle="modal"
                                                         data-bs-placement="top"
                                                         data-bs-target="#CorreoAct"
-                                                        data-bs-type="(F-14) Admision de cliente"
+                                                        data-bs-type="Certificación OEA"
                                                         title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
                                                     <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm" runat="server"
@@ -766,8 +766,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                    <button type="button" id="btnEnviar" class="btn btn-primary">enviar</button>
-                    <a href="#" id="btnEnviarMail">Enviar correo</a>
+                    <button type="button" id="btnEnviar" class="btn btn-primary" hidden>enviar</button>
+                    <a href="#" id="btnEnviarMail" class="btn btn-primary">Enviar correo</a>
                     <a href="#" hidden id="anchorMail"></a>
 
                     <%--<asp:Button ID="btnActMail" runat="server" Text="enviar" CssClass="btn btn-primary" Visible="false"/>--%>

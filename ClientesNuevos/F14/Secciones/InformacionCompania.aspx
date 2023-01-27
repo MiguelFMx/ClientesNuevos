@@ -596,15 +596,27 @@
             <br />
             <div class="col" style="display: flex; justify-content: flex-end;">
                 <asp:Panel ID="pUserControl" runat="server">
-
-                    <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary" OnClick="btnHome_Click"
+                    <div class="row">
+                        <div class="col">
+                            <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                        <ContentTemplate>
+<asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-secondary" OnClick="btnHome_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Guardar y salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>&nbsp;&nbsp;
+                        title="Guardar y salir"> <i class="bi bi-house-door"></i></asp:LinkButton>
+                        
 
-                    <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">
-                        <asp:Label ID="lbl_btnNext" runat="server" Text="<%$Resources:InformacionCompania,lblBtnContinuar %>"></asp:Label><i class="bi bi-chevron-right"></i>
-                    </asp:LinkButton>
+                            <asp:LinkButton ID="bntNext" runat="server" OnClick="btnNext_Click" CssClass="btn btn-primary">
+                                <asp:Label ID="lbl_btnNext" runat="server" Text="<%$Resources:InformacionCompania,lblBtnContinuar %>"></asp:Label><i class="bi bi-chevron-right"></i>
+                            </asp:LinkButton>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;
+
+                    
+                    
 
                 </asp:Panel>
                 <asp:Label ID="lblAct" runat="server" Text=""></asp:Label>

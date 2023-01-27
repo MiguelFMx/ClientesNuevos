@@ -12,6 +12,7 @@ using System.IO;
 using System.Web.Security;
 using static System.Net.Mime.MediaTypeNames;
 using ClientesNuevos.F5.Autoevaluacion;
+using System.Diagnostics;
 
 namespace ClientesNuevos.F14.Seccioness
 {
@@ -30,7 +31,7 @@ namespace ClientesNuevos.F14.Seccioness
         string id_user = HttpContext.Current.Request.Cookies.Get("id").Value;
 
         protected void Page_Load(object sender, EventArgs e)
-        {          
+            {          
                 //BloquearOpcion(ref ddTipoDePersona, "2");
 
             if (!IsPostBack)
@@ -52,6 +53,7 @@ namespace ClientesNuevos.F14.Seccioness
                 //Administrador y usuario
                 if(User.IsInRole("1") || User.IsInRole("2"))
                 {
+
                     pAdminControl.Visible = true;
                     pUserControl.Visible = false;
 
@@ -195,6 +197,8 @@ namespace ClientesNuevos.F14.Seccioness
                         step4.Visible = false;
                         lblDesc5.Text = "Paso 2";
                         lblstep5.Text = "2";
+                        DeshabilitarDatosBancarios(1);
+
                     }
 
                     dt = wsBaseDatos.Existe("SELECT * FROM Table_compania WHERE ID_user = '" + id_user + "'");
@@ -206,14 +210,9 @@ namespace ClientesNuevos.F14.Seccioness
                         {
 
                             lblRFC.Text = "W9:";
-                            pDatosBancarios.Enabled = false;
-                            pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                            
                             txtCURP.Enabled = false;
-
-                            RequiredFieldValidator7.Enabled = false;
-                            RequiredFieldValidator8.Enabled = false;
-                            RequiredFieldValidator9.Enabled = false;
-                            RequiredFieldValidator10.Enabled = false;
+                            DeshabilitarDatosBancarios(1);
                         }
                         dtBanco = new DataTable();
                         dtBanco = wsBaseDatos.Existe("SELECT * FROM Table_infoBancaria WHERE ID_compania = '" + dt.Rows[0]["ID_compania"].ToString() + "'");
@@ -225,14 +224,16 @@ namespace ClientesNuevos.F14.Seccioness
                                 chNTS.Checked = true;
                                 llenarCampos(dt, new DataTable());
                                 //deshabilitar campos               
-                                pDatosBancarios.Enabled = false;
-                                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+                                /* pDatosBancarios.Enabled = false;
+                                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
 
-                                //Deshabilito los validadores
-                                RequiredFieldValidator7.Enabled = false;
-                                RequiredFieldValidator8.Enabled = false;
-                                RequiredFieldValidator9.Enabled = false;
-                                RequiredFieldValidator10.Enabled = false;
+                                 //Deshabilito los validadores
+                                 RequiredFieldValidator7.Enabled = false;
+                                 RequiredFieldValidator8.Enabled = false;
+                                 RequiredFieldValidator9.Enabled = false;
+                                 RequiredFieldValidator10.Enabled = false;*/
+                                DeshabilitarDatosBancarios(1);
+
                             }
                             else
                             {
@@ -371,17 +372,24 @@ namespace ClientesNuevos.F14.Seccioness
 
             string resultado = RegistrarInfo();           //lblresultado.Text = resultado;
 
-            if (User.IsInRole("3"))
+            if(resultado == "error2")
             {
-                
-                Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?res=" + resultado);
-
-
+                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
             }
-            else
-            {
-                Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?res=" + resultado);
+            else if(resultado=="succes1"){
+
+                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
+
+                //if (User.IsInRole("3"))
+                //{
+                //    Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?res=" + resultado);
+                //}
+                //else
+                //{
+                //    Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?res=" + resultado);
+                //}
             }
+            
 
 
         }
@@ -738,6 +746,9 @@ namespace ClientesNuevos.F14.Seccioness
                     lblstep5.Text = "2";
 
                     Response.Cookies.Add(new HttpCookie("ctipo", "proveedor"));
+
+                    DeshabilitarDatosBancarios(1);
+
                     break;
             }
         }
@@ -863,8 +874,7 @@ namespace ClientesNuevos.F14.Seccioness
             Forma_pago = ddFormaPago.SelectedValue;
             Moneda = ddMoneda.SelectedValue;
 
-            if (gvContactos.Rows.Count > 0)
-            {
+           
                 try
             {
 
@@ -874,7 +884,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                     if (dt.Rows.Count >0)
                     {//Ya existe un regsitro con el RFC especificado
-                        return "existe";
+                        return "error1"; //Existe
                     }
                     else
                     {
@@ -915,19 +925,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
 
 
-                    if (Request.Cookies.Get("id_comp") == null)
-                    {
-                        HttpCookie cookie = new HttpCookie("id_comp")
-                        {
-                            Value = ID_compania,
-                            Expires = DateTime.Now.AddMinutes(60d)
-                        };
-                        Response.Cookies.Add(cookie);
-                    }
-                    else
-                    {
-                        Request.Cookies.Get("id_comp").Value = ID_compania;
-                    }
+                    
             }
             catch (Exception ex)
             {
@@ -953,19 +951,38 @@ namespace ClientesNuevos.F14.Seccioness
                     error += ex.Message;
                 }
             }
-            
-
                 if (error != "")
                 {
                     resultado = error;
                 }
                 else
                 {
-                    resultado = "Informacion de empresa registrada con exito";
+                    if(gvContactos.Rows.Count > 0)
+                    {
+                    resultado = "succes1";  //"Informacion de empresa registrada con exito";
+
+                }
+                else
+                    {
+                    resultado = "error2"; //"Registre un contacto";
+
                 }
             }
-            else {
-                resultado = "Registre un contacto";
+            
+
+            //Creo la cookie
+            if (Request.Cookies.Get("id_comp") == null)
+            {
+                HttpCookie cookie = new HttpCookie("id_comp")
+                {
+                    Value = ID_compania,
+                    Expires = DateTime.Now.AddMinutes(60d)
+                };
+                Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                Request.Cookies.Get("id_comp").Value = ID_compania;
             }
 
             return resultado;
@@ -1103,6 +1120,7 @@ namespace ClientesNuevos.F14.Seccioness
 
         protected void btnDelC_Click(object sender, EventArgs e)
         {
+            lblRes.Text = "";
             int rowIndex = ((GridViewRow)((sender as Control)).NamingContainer).RowIndex;
             string id = gvContactos.Rows[rowIndex].Cells[0].Text;
 
@@ -1172,35 +1190,11 @@ namespace ClientesNuevos.F14.Seccioness
         {
             if (chNTS.Checked)
             {
-                //Deshabilito las opciones de banco, deshabilito los validadores y limpio campos.
-                //Limpiar campos
-                txtBanco.Text = "";
-                txtBancoRFC.Text = "";
-                txtNoCuenta.Text = "";
-                txtClaveBancaria.Text = "";
-
-                //deshabilitar campos               
-                pDatosBancarios.Enabled = false;
-                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);              
-
-                //Deshabilito los validadores
-                RequiredFieldValidator7.Enabled = false;
-                RequiredFieldValidator8.Enabled = false;
-                RequiredFieldValidator9.Enabled = false;
-                RequiredFieldValidator10.Enabled = false;
-
+                DeshabilitarDatosBancarios(1);
             }
             else
             {
-                //habilito opciones
-                pDatosBancarios.Enabled = true;
-                pDatosBancarios.BackColor = System.Drawing.Color.White;
-                //Habilito validadores
-                RequiredFieldValidator7.Enabled = true;
-                RequiredFieldValidator8.Enabled = true;
-                RequiredFieldValidator9.Enabled = true;
-                RequiredFieldValidator10.Enabled = true;
-
+                DeshabilitarDatosBancarios(2);
             }
         }
 
@@ -1224,6 +1218,8 @@ namespace ClientesNuevos.F14.Seccioness
                 Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?rfc=" + Request.QueryString["rfc"]);
             }
         }
+
+        
 
         protected void Traducir()
         {
@@ -1308,6 +1304,40 @@ namespace ClientesNuevos.F14.Seccioness
             
         }
         */
+
+        private void DeshabilitarDatosBancarios(int tipo)
+        {
+            if (tipo == 1)
+            {
+                //Deshabilito las opciones de banco, deshabilito los validadores y limpio campos.
+                //Limpiar campos
+                txtBanco.Text = "";
+                txtBancoRFC.Text = "";
+                txtNoCuenta.Text = "";
+                txtClaveBancaria.Text = "";
+
+                //deshabilitar campos               
+                pDatosBancarios.Enabled = false;
+                pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+                //Deshabilito los validadores
+                RequiredFieldValidator7.Enabled = false;
+                RequiredFieldValidator8.Enabled = false;
+                RequiredFieldValidator9.Enabled = false;
+                RequiredFieldValidator10.Enabled = false;
+            }
+            else
+            {
+                //habilito opciones
+                pDatosBancarios.Enabled = true;
+                pDatosBancarios.BackColor = System.Drawing.Color.White;
+                //Habilito validadores
+                RequiredFieldValidator7.Enabled = true;
+                RequiredFieldValidator8.Enabled = true;
+                RequiredFieldValidator9.Enabled = true;
+                RequiredFieldValidator10.Enabled = true;
+            }
+        }
 
     }
 }

@@ -172,19 +172,140 @@ $(document).ready(function () {
             }
         });
 
-        var listaMail = 'mailto:';
-        for (var i = 0; i < mail1.length; i++) {
-            listaMail += mail1[i] + ";";
+        //----Checo si hay mails seleccionados 
+        if (mail1.length > 0 && asunto1!="" && cuerpo1!="") {
+
+            var listaMail = 'mailto:';
+            for (var i = 0; i < mail1.length; i++) {
+                listaMail += mail1[i] + ";";
+            }
+            listaMail = listaMail.substring(0, listaMail.length - 1);
+            listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1;
+
+            //Le implemento un cambio de href al boton oculto
+            $("#anchorMail").attr("href", listaMail);
+
+            //Ejecuto el click de boton oculto
+           
+            //----------Actualizacion de estado a act
+            //Actualizar_Estado(string ID_compania, string Documento, string Estatus)
+            var documento = $('#MainContent_lblDoc').text().trim();
+            let urlParams = new URLSearchParams(window.location.search);
+            let acomp = urlParams.get('id');
+            let _label = '';
+            switch (documento) {
+                case '(F-5) Evaluacion de seguridad':
+                    documento = 'F5';
+                    _label = '#MainContent_lblF5_estatus';
+
+                    break;
+                case '(F-14) Admision de cliente':
+                    documento = 'F14';
+                    _label = '#MainContent_lblF14_estatus';
+
+                    break;
+                case '(F-12) Política de seguridad C-TPAT':
+                    documento = 'F12';
+                    _label = '#MainContent_lblF12_estatus';
+
+                    break;
+                case '(F-43) Mapeo de flujo de carga':
+                    documento = 'F43';
+                    _label = '#MainContent_lblF43_estatus';
+
+                    break;
+                case 'Acta constitutiva':
+                    _label = '#MainContent_lblAC_estatus';
+                    break;
+                case 'RFC':
+                    _label ='#MainContent_lblRFC_estatus'
+                    break;
+                case 'CURP':
+                    _label = '#MainContent_lblCURP_estatus'
+                    break;
+                case 'Carta de no antecedentes penales':
+                    _label = '#MainContent_lblCNAP_estatus'
+                    break;
+                case 'Comprobante de domicilio':
+                    _label = '#MainContent_lblCompDom_estatus'
+                    break;
+                case 'Identificacion de representante legal':
+                    _label = '#MainContent_lblIRL_estatus'
+                    break;
+                case 'Poder del representante legal':
+                    _label = '#MainContent_lblPRL_estatus'
+                    break;
+                case 'Certificación de C-TPAT':
+                    _label = '#MainContent_lblCTPAT_estatus'
+                    break;
+                case 'Certificación OEA"':
+                    _label = '#MainContent_lblOEA_estatus'
+                    break;
+                case 'Opinion positiva':
+                    _label = '#MainContent_lblOP_estatus'
+                    break;
+                case 'W9':
+                    _label = '#MainContent_lblW9_estatus'
+                    break;
+            }
+            GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
+                //ModalAlert
+                console.log(cambio);
+
+                $(_label).attr('class', 'etiqueta actualizar');
+                $(_label).html('actualizar');
+
+                //ejecuto alert
+                Swal.fire({
+                    html: "Envie el mensaje por medio de outlook <br> Outlook se abrira automaticamente",
+                    icon: 'info',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        //--cierro modal
+                        $('#CorreoAct').modal('hide');
+
+                        $('#anchorMail')[0].click();
+
+                    }
+                })
+
+                
+
+                //location.reload();
+            });
+            console.log(listaMail);
+
+        } else {
+            if (mail1.length == 0) {
+                //----alerta de error
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Seleccione un correo",
+                    icon: "error"
+                });
+            } else if (asunto1 == "") {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Escriba el asunto del correo",
+                    icon: "error"
+                });
+            } else if (cuerpo1 == "") {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Escriba el cuerpo del correo",
+                    icon: "error"
+                });
+            } else {
+                swal.fire({
+                    title: "Error",
+                    html: "Oh no! <br> Falta de datos",
+                    icon: "error"
+                });
+            }
         }
-        listaMail = listaMail.substring(0, listaMail.length - 1);
-        listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1;
-
-        $("#anchorMail").attr("href", listaMail);
-
-
-        $('#anchorMail')[0].click();
-
-        console.log(listaMail);
     });
 
     ObtenerRoles();

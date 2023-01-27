@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Directorio" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Directorio.aspx.cs" Inherits="ClientesNuevos.admin.consulta.Directorio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/r-2.4.0/sc-2.0.7/datatables.min.css"/>
+ 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -11,12 +13,12 @@
                     <div class="card-header cabezal">
                         <h5>Directorio</h5>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="tDirectorio" class="table table-hover">
+                    <div class="modal-body ">
+                        <div class="table-responsive mt-3">
+                            <table id="tDirectorio" class="table table-hover" style="font-size:12px;" >
                                 <thead>
                                     <tr>
-                                        <th style="display: none">ID</th>
+                                        <th>ID</th>
                                         <th>Nombre comercial
                                         <br />
                                             <small class="text-secondary">RFC</small></th>
@@ -24,7 +26,7 @@
                                         <br />
                                             <small class="text-secondary">Puesto</small>
                                         </th>
-                                        <th width="10%">Correo</th>
+                                        <th >Correo</th>
                                         <th>Telefono</th>
                                         <th>Ext</th>
                                         <th>Celular</th>
@@ -78,6 +80,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <a href="#" hidden id="anchorMail"></a>
+
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
                         <button type="button" class="btn btn-primary" id="btnSend">enviar correo <i class="bi bi-forward"></i></button>
                     </div>
@@ -242,7 +246,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
-    <script src="../../Scripts/DataTables/datatables.min.js"></script>
+    
+<%--    <script src="../../Scripts/DataTables/responsivedt/dataTables.responsive.min.js"></script>
+<script src="../../Scripts/DataTables/datatables.min.js"></script>--%>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/r-2.4.0/sc-2.0.7/datatables.min.js"></script>
+
+
+  
     <script src="../template/vendors/nprogress/nprogress.js"></script>
     <script src="../template/asset/JS/TemplateJS.js"></script>
     <script src="../../Scripts/sweetalert2.all.min.js"></script>
