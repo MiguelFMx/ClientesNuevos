@@ -662,7 +662,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_CURP")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "CURP", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_CURP")
             {
@@ -703,7 +703,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_RFC")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "RFC", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_RFC")
             {
@@ -730,7 +730,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_CNAP")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Carta de no antecedentes penales", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_CNAP")
             {
@@ -757,7 +757,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_CompDom")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Comprobante de domicilio", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_CompDom")
             {
@@ -784,7 +784,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_IRL")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Identificacion de representante legal", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_IRL")
             {
@@ -811,7 +811,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_AC")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Acta constitutiva", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_AC")
             {
@@ -844,7 +844,7 @@ namespace ClientesNuevos.admin.carpetilla
             {
 
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "W9", "act");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
         }
 
@@ -865,7 +865,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_PRL")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Poder de representante legal", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_PRL")
             {
@@ -892,7 +892,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_CTPAT")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Certificación C-TPAT", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_CTPAT")
             {
@@ -919,7 +919,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_OEA")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Certificación OEA", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_OEA")
             {
@@ -946,7 +946,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_OP")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Opinion positiva", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_OP")
             {
@@ -975,7 +975,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_F5")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F5", "100%");
-                Response.Redirect(Request.RawUrl);
+               // Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_F5")
             {
@@ -1000,7 +1000,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_F14")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F14", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_F14")
             {
@@ -1027,7 +1027,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_F12")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F12", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             else if (buttonId == "btnActualizar_F12")
             {
@@ -1054,7 +1054,7 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_F43")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
             }
             //else if (buttonId == "btnActualizar_F43")
             //{
@@ -1068,7 +1068,7 @@ namespace ClientesNuevos.admin.carpetilla
             id_comp = Request.QueryString["id"].ToString();
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
             lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F16", "100%");
-            Response.Redirect(Request.RawUrl);
+            //Response.Redirect(Request.RawUrl);
         }
 
         protected void btnVer_F16_Click(object sender, EventArgs e)
