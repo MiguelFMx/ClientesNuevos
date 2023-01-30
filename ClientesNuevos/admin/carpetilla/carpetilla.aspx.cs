@@ -71,6 +71,12 @@ namespace ClientesNuevos.admin.carpetilla
                     }
                 }
             }
+            else
+            {
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
+            }
+
         }
         private void Ocultar(string tipo)
         {

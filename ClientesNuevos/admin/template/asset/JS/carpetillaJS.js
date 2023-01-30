@@ -218,34 +218,34 @@ $(document).ready(function () {
                     _label = '#MainContent_lblAC_estatus';
                     break;
                 case 'RFC':
-                    _label ='#MainContent_lblRFC_estatus'
+                    _label = '#MainContent_lblRFC_estatus';
                     break;
                 case 'CURP':
-                    _label = '#MainContent_lblCURP_estatus'
+                    _label = '#MainContent_lblCURP_estatus';
                     break;
                 case 'Carta de no antecedentes penales':
-                    _label = '#MainContent_lblCNAP_estatus'
+                    _label = '#MainContent_lblCNAP_estatus';
                     break;
                 case 'Comprobante de domicilio':
-                    _label = '#MainContent_lblCompDom_estatus'
+                    _label = '#MainContent_lblCompDom_estatus';
                     break;
                 case 'Identificacion de representante legal':
-                    _label = '#MainContent_lblIRL_estatus'
+                    _label = '#MainContent_lblIRL_estatus';
                     break;
                 case 'Poder del representante legal':
-                    _label = '#MainContent_lblPRL_estatus'
+                    _label = '#MainContent_lblPRL_estatus';
                     break;
                 case 'Certificación de C-TPAT':
-                    _label = '#MainContent_lblCTPAT_estatus'
+                    _label = '#MainContent_lblCTPAT_estatus';
                     break;
-                case 'Certificación OEA"':
-                    _label = '#MainContent_lblOEA_estatus'
+                case 'Certificación OEA':
+                    _label = '#MainContent_lblOEA_estatus';
                     break;
                 case 'Opinion positiva':
-                    _label = '#MainContent_lblOP_estatus'
+                    _label = '#MainContent_lblOP_estatus';
                     break;
                 case 'W9':
-                    _label = '#MainContent_lblW9_estatus'
+                    _label = '#MainContent_lblW9_estatus';
                     break;
             }
             GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {

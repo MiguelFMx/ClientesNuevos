@@ -552,12 +552,10 @@
                             </asp:Panel>
                             <%--<!-- =============================================================Certificacion OEA======================================== -->--%>
                             <asp:Panel ID="row_OEA" runat="server" CssClass="hvr-sweep-to-right">
-                                <asp:UpdatePanel ID="UpdatePanel11" runat="server" UpdateMode="Conditional">
+                                <asp:UpdatePanel ID="UpdatePanel11" runat="server" UpdateMode="Conditional" >
                                     <ContentTemplate>
                                         <div class="row">
-                                            <div class="col-3">
-                                                Certificación OEA
-                                            </div>
+                                            <div class="col-3">Certificación OEA</div>
                                             <div class="col-3">
                                                 <div style="display: flex; justify-content: center">
                                                     <asp:Label ID="lblOEA_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
@@ -641,7 +639,7 @@
 
                                     </ContentTemplate>
                                     <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_OP" EventName="click" />
+                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_OP" EventName="Click" />
                                     </Triggers>
                                 </asp:UpdatePanel>
 
