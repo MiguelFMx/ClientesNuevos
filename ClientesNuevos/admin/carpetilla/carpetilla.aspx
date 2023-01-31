@@ -22,7 +22,7 @@
                 right: 0;
                 bottom: 0;
                 z-index: -1;
-                background: #dddddda0;
+                background: #ffc10736;
                 border-top: 1.5px solid #d4b50ac5;
                 border-bottom: 1.5px solid #d4b50ac5;
                 transform: scaleX(0);
@@ -53,73 +53,75 @@
                             <h5>Informacion</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="label" runat="server" Text="Nombre completo:" CssClass="text-secondary"></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
-                                </div>
-                            </div>
-
-                            <div class="row pt-2">
-                                <div class="col">
-                                    <asp:Label ID="Label1" runat="server" Text="Fecha de registro:" CssClass="text-secondary"></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblFechaReg" runat="server" Text="..."></asp:Label>
-                                </div>
-                            </div>
-                            <div class="row pt-2">
-                                <asp:Label ID="Label2" runat="server" Text="Direccion:" CssClass="text-secondary"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblDireccion" runat="server" Text="..."></asp:Label>
-                            </div>
-                            <div class="row pt-2">
-                                <asp:Label ID="label4" runat="server" Text="Ubicación:" CssClass="text-secondary"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblUbicacion" runat="server" Text="..."></asp:Label>
-                            </div>
-
-                            <div class="row pt-4">
-                                <div class="col">
-                                    <asp:Label ID="label5" runat="server" Text="Porcentaje de cumplimiento:" CssClass="text-secondary"></asp:Label>
-                                    <div class="progress">
-                                        <div runat="server" class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div>
+                                <div class="row">
+                                    <div class="col">
+                                        <asp:Label ID="label" runat="server" Text="Nombre completo:" CssClass="text-secondary"></asp:Label>
+                                        <br />
+                                        <asp:Label ID="lblNombreComp" runat="server" Text="..."></asp:Label>
                                     </div>
-                                    <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
                                 </div>
-                            </div>
 
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <div class="row">
-                                        <div class="col">
-                                            <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
+                                <div class="row pt-2">
+                                    <div class="col">
+                                        <asp:Label ID="Label1" runat="server" Text="Fecha de registro:" CssClass="text-secondary"></asp:Label>
+                                        <br />
+                                        <asp:Label ID="lblFechaReg" runat="server" Text="..."></asp:Label>
+                                    </div>
+                                </div>
+                                <div class="row pt-2">
+                                    <asp:Label ID="Label2" runat="server" Text="Direccion:" CssClass="text-secondary"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblDireccion" runat="server" Text="..."></asp:Label>
+                                </div>
+                                <div class="row pt-2">
+                                    <asp:Label ID="label4" runat="server" Text="Ubicación:" CssClass="text-secondary"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblUbicacion" runat="server" Text="..."></asp:Label>
+                                </div>
 
-                                            <label class="switch"
-                                                title="Activar o desactivar">
-                                                <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
-                                                <span class="slider round"></span>
-                                            </label>
-
+                                <div class="row pt-4">
+                                    <div class="col">
+                                        <asp:Label ID="label5" runat="server" Text="Porcentaje de cumplimiento:" CssClass="text-secondary"></asp:Label>
+                                        <div class="progress">
+                                            <div runat="server" class="progress-bar bg-warning" id="pbProgress" role="progressbar" aria-label="Warning example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="col">
-                                            <div class="d-flex justify-content-end">
-                                                <asp:Label ID="lblEstatusA" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                                        <asp:Label ID="lblPorcentaje" runat="server" Text="..." CssClass="" Font-Size="Smaller"></asp:Label>
+                                    </div>
+                                </div>
+
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <div class="row">
+                                            <div class="col">
+                                                <asp:Label ID="lblStatus" runat="server" Text="Status:" CssClass="form-label mt-1 me-1"></asp:Label>
+
+                                                <label class="switch"
+                                                    title="Activar o desactivar">
+                                                    <asp:CheckBox ID="chkEstatus" runat="server" Checked="true" AutoPostBack="True" OnCheckedChanged="chkEstatus_CheckedChanged" />
+                                                    <span class="slider round"></span>
+                                                </label>
+
                                             </div>
+                                            <div class="col">
+                                                <div class="d-flex justify-content-end">
+                                                    <asp:Label ID="lblEstatusA" runat="server" Text="activo" CssClass="etiqueta"></asp:Label>
+                                                </div>
+                                            </div>
+                                            <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
                                         </div>
-                                        <asp:Label ID="lblCambio" runat="server" Text=""></asp:Label>
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                            <br />
-                            <div class="row">
-                                <div class="col">
-                                    <div id="Rol">
-                                    </div>
-                                    <div id="Regimen">
-                                        <asp:HiddenField ID="hfRegimen" runat="server" />
-                                    </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
 
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <div id="Rol">
+                                        </div>
+                                        <div id="Regimen">
+                                            <asp:HiddenField ID="hfRegimen" runat="server" />
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
