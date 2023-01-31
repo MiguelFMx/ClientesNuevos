@@ -2,34 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .renglon-hover:hover {
-            background-color: #ffe75fa0;
-        }
-
-
-        .subrayar {
-            position: relative;
-        }
-
-            .subrayar::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 4px;
-                border-radius: 4px;
-                background-color: #ffe75fa0;
-                bottom: 0;
-                left: 0;
-                transform-origin: right;
-                transform: scaleX(0);
-                transition: transform .3s ease-in-out;
-            }
-
-            .subrayar:hover::before {
-                transform-origin: left;
-                transform: scaleX(1);
-            }
-
+       
+        .disabled {
+    pointer-events: none;
+}
 
         .hvr-sweep-to-right {
             padding: 0.5rem;
@@ -66,7 +42,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Label ID="lblPrueba" runat="server" Text="..."></asp:Label>
+    <asp:Label ID="lblPrueba" runat="server" Text=""></asp:Label>
     <link href="../../template/assets/css/dropzone.css" rel="stylesheet" />
     <div class="row">
         <div class="col-md-4 mb-3">
@@ -173,7 +149,7 @@
                             </div>
                             <%--<!-- =============================================================Acta constitutiva======================================== -->--%>
                             <asp:Panel ID="row_AC" runat="server" CssClass="hvr-sweep-to-right">
-                                <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
+                                <asp:UpdatePanel ID="UpdatePanel_AC" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div class="row">
                                             <div class="col-3">
@@ -196,12 +172,12 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnAC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_AC" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_AC" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
                                                     data-bs-type="Acta constitutiva"
-                                                    title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
+                                                    title="Solicitar actualizacion" ><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
                                                 <asp:LinkButton ID="btnCheck_AC" CssClass="btn btn-success btn-sm" runat="server"
                                                     data-bs-toggle="tooltip"
@@ -244,7 +220,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnRFC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_RFC" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_RFC" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -292,7 +268,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnClick"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_CURP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_CURP" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -339,7 +315,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_CNAP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_CNAP" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -386,7 +362,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_CompDom" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_CompDom" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -419,7 +395,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <div style="display: flex; justify-content: center">
-                                                    <asp:Label ID="lblIRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente"></asp:Label>
+                                                    <asp:Label ID="lblIRL_estatus" runat="server" Text="pendiente" CssClass="etiqueta pendiente" ></asp:Label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
@@ -433,7 +409,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnIRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_IRL" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_IRL" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -450,14 +426,14 @@
                                             </div>
                                         </div>
                                     </ContentTemplate>
-                                    <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_IRL" EventName="click" />
-                                    </Triggers>
+                                     <Triggers>
+                                         <asp:AsyncPostBackTrigger ControlID="btnCheck_IRL" EventName="click" />
+                                     </Triggers>
                                 </asp:UpdatePanel>
                             </asp:Panel>
                             <%--<!-- =============================================================poder de representante legal======================================== -->--%>
                             <asp:Panel ID="row_PRL" runat="server" CssClass="hvr-sweep-to-right">
-                                <asp:UpdatePanel ID="UpdatePanel9" runat="server" UpdateMode="Conditional">
+                                <asp:UpdatePanel ID="UpdatePanel_PRL" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div class="row">
                                             <div class="col-3">
@@ -479,7 +455,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnPRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_PRL" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_PRL" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -527,7 +503,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_CTPAT" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_CTPAT" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -545,7 +521,7 @@
                                         </div>
                                     </ContentTemplate>
                                     <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_CTPAT" EventName="click" />
+                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_CTPAT" EventName="Click" />
                                     </Triggers>
                                 </asp:UpdatePanel>
 
@@ -573,7 +549,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnOEA_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_OEA" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_OEA" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -620,7 +596,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnOP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_OP" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_OP" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -638,9 +614,7 @@
                                         </div>
 
                                     </ContentTemplate>
-                                    <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="btnCheck_OP" EventName="Click" />
-                                    </Triggers>
+                                    
                                 </asp:UpdatePanel>
 
                             </asp:Panel>
@@ -669,7 +643,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnW9_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_W9" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_W9" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -715,7 +689,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF5_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_F5" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_F5" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -760,7 +734,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF14_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_F14" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_F14" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -803,7 +777,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF12_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_F12" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_F12" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     data-bs-placement="top"
                                                     data-bs-target="#CorreoAct"
@@ -846,7 +820,7 @@
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF43_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnActualizar_F43" CssClass="btn btn-warning btn-sm me-1" runat="server" ForeColor="White"
+                                                <asp:LinkButton ID="btnActualizar_F43" CssClass="btn btn-warning btn-sm me-1 disabled" runat="server" ForeColor="White"
                                                     data-bs-toggle="modal"
                                                     title="Solicitar actualizacion"
                                                     data-bs-target="#CorreoAct"
@@ -886,12 +860,12 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_F16" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm"
+                                                <asp:LinkButton ID="btnVer_F16" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
-                                                <button type="button" class="btn btn-warning btn-sm text-white" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
+                                                <button type="button" class="btn btn-warning btn-sm text-white me-1" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
                                                 <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm" runat="server"
                                                     data-bs-toggle="tooltip"

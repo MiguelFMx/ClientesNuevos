@@ -71,11 +71,7 @@ namespace ClientesNuevos.admin.carpetilla
                     }
                 }
             }
-            else
-            {
-                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
-
-            }
+            
 
         }
         private void Ocultar(string tipo)
@@ -147,7 +143,9 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF5_estatus.CssClass = "etiqueta pendiente";
                         }
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
-                        btnVer_F5.Enabled= true;    
+                        btnVer_F5.Enabled= true; 
+                        btnActualizar_F5.CssClass = btnActualizar_F5.CssClass.Replace("disabled", "");
+
                     }
 
                     //==================================================W9
@@ -185,6 +183,8 @@ namespace ClientesNuevos.admin.carpetilla
                         txtW9.Text = fila["Ruta"].ToString();
 
                         btnVer_W9.Enabled = true;
+                        btnActualizar_W9.CssClass = btnActualizar_W9.CssClass.Replace("disabled", "");
+
                     }
                     //==================================================F43
                     if (fila["Documento"].ToString() == "F43")
@@ -216,6 +216,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_F43.Enabled = true;
                         lblF43_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_F43.CssClass = btnActualizar_F43.CssClass.Replace("disabled", "");
+
                     }
                     //==================================================F12
                     if (fila["Documento"].ToString() == "F12")
@@ -247,6 +249,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_F12.Enabled = true;
                         lblF12_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_F12.CssClass = btnActualizar_F12.CssClass.Replace("disabled", "");
+
                     }
                     //==================================================F14
                     if (fila["Documento"].ToString() == "F14")
@@ -279,6 +283,8 @@ namespace ClientesNuevos.admin.carpetilla
                             btnVer_F14.Enabled= true;   
 
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_F14.CssClass = btnActualizar_F14.CssClass.Replace("disabled", "");
+
                     }
                     //==================================================RFC
                     if (fila["Documento"].ToString() == "RFC")
@@ -310,6 +316,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_RFC.Enabled = true;
                         lblRFC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_RFC.CssClass = btnActualizar_RFC.CssClass.Replace("disabled", "");
+
                     }
                     //=================================================CURP                
                     if (fila["Documento"].ToString() == "CURP")
@@ -341,6 +349,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CURP.Enabled = true;
                         lblCURP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_CURP.CssClass = btnActualizar_CURP.CssClass.Replace("disabled", "");
+
                     }
                     //=================================================CNAP
                     if (fila["Documento"].ToString() == "Carta de no antecedentes penales")
@@ -372,6 +382,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CNAP.Enabled = true;
                         lblCNAP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_CNAP.CssClass = btnActualizar_CNAP.CssClass.Replace("disabled", "");
+
                     }
                     //==============================================CompDom
                     if (fila["Documento"].ToString() == "Comprobante de domicilio")
@@ -403,6 +415,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CompDom.Enabled = true;
                         lblCompDom_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_CompDom.CssClass = btnActualizar_CompDom.CssClass.Replace("disabled", "");
+
                     }
                     //===================================================IRL
                     if (fila["Documento"].ToString() == "Identificacion de representante legal")
@@ -434,6 +448,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_IRL.Enabled = true;
                         lblIRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_IRL.CssClass = btnActualizar_IRL.CssClass.Replace("disabled", "");
+
                     }
                     //====================================Poder de representante legal
                     if (fila["Documento"].ToString() == "Poder de representante legal")
@@ -465,6 +481,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_PRL.Enabled = true;
                         lblPRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_PRL.CssClass = btnActualizar_PRL.CssClass.Replace("disabled", "");
+
                     }
                     //==================================================OP
                     if (fila["Documento"].ToString() == "Opinion positiva")
@@ -496,6 +514,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_OP.Enabled = true;
                         lblOP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_OP.CssClass = btnActualizar_OP.CssClass.Replace("disabled", "");
+
                     }
                     //===================================================CTPAT
                     if (fila["Documento"].ToString() == "Certificación C-TPAT")
@@ -527,6 +547,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CTPAT.Enabled = true;
                         lblCTPAT_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_CTPAT.CssClass = btnActualizar_CTPAT.CssClass.Replace("disabled", "");
+
                     }
                     //===================================================OEA
                     if (fila["Documento"].ToString() == "Certificación OEA")
@@ -558,6 +580,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_OEA.Enabled = true;
                         lblOEA_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnActualizar_OEA.CssClass = btnActualizar_OEA.CssClass.Replace("disabled", "");
+
                     }
                     //===================================================F16
                     if (fila["Documento"].ToString() == "F16")
@@ -591,7 +615,6 @@ namespace ClientesNuevos.admin.carpetilla
                         txtF16.Text = fila["Ruta"].ToString();
                         btnVer_F16.Enabled = true;
                     }
-
                     //====================Acta constitutiva====================
                     if (fila["Documento"].ToString() == "Acta constitutiva")
                     {
@@ -623,6 +646,7 @@ namespace ClientesNuevos.admin.carpetilla
 
                         txtAC.Text = fila["Ruta"].ToString();
                         btnVer_AC.Enabled = true;
+                        btnActualizar_AC.CssClass = btnActualizar_AC.CssClass.Replace("disabled", "");
                     }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)
@@ -710,6 +734,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "RFC", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_RFC")
             {
@@ -737,6 +763,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Carta de no antecedentes penales", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_CNAP")
             {
@@ -764,6 +792,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Comprobante de domicilio", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_CompDom")
             {
@@ -791,6 +821,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Identificacion de representante legal", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_IRL")
             {
@@ -818,6 +850,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Acta constitutiva", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_AC")
             {
@@ -844,7 +878,9 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_W9")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "W9", "100%");
-                Response.Redirect(Request.RawUrl);
+                //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_W9")
             {
@@ -872,6 +908,9 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Poder de representante legal", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
+
             }
             else if (buttonId == "btnActualizar_PRL")
             {
@@ -899,6 +938,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Certificación C-TPAT", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_CTPAT")
             {
@@ -926,6 +967,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Certificación OEA", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_OEA")
             {
@@ -953,6 +996,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "Opinion positiva", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_OP")
             {
@@ -981,7 +1026,9 @@ namespace ClientesNuevos.admin.carpetilla
             else if (buttonId == "btnCheck_F5")
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F5", "100%");
-               // Response.Redirect(Request.RawUrl);
+                // Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_F5")
             {
@@ -1007,6 +1054,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F14", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_F14")
             {
@@ -1034,6 +1083,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F12", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             else if (buttonId == "btnActualizar_F12")
             {
@@ -1061,6 +1112,8 @@ namespace ClientesNuevos.admin.carpetilla
             {
                 lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F43", "100%");
                 //Response.Redirect(Request.RawUrl);
+                Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
             }
             //else if (buttonId == "btnActualizar_F43")
             //{
@@ -1075,6 +1128,8 @@ namespace ClientesNuevos.admin.carpetilla
             wsBaseDatos wsBaseDatos = new wsBaseDatos();
             lblPrueba.Text = wsBaseDatos.Actualizar_Estado(id_comp, "F16", "100%");
             //Response.Redirect(Request.RawUrl);
+            Obtener_Documentos(Request.QueryString["id"].ToString(), id_user);
+
         }
 
         protected void btnVer_F16_Click(object sender, EventArgs e)

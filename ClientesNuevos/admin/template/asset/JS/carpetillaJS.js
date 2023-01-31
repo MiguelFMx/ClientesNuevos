@@ -248,6 +248,7 @@ $(document).ready(function () {
                     _label = '#MainContent_lblW9_estatus';
                     break;
             }
+
             GetAjax("../../F14/wsBaseDatos.asmx/Actualizar_Estado", "'ID_compania':'" + acomp + "','Documento':'" + documento + "','Estatus':'act'", false, function (cambio) {
                 //ModalAlert
                 console.log(cambio);

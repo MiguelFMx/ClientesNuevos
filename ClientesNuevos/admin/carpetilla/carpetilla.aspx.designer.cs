@@ -195,13 +195,13 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Panel row_AC;
 
         /// <summary>
-        /// Control UpdatePanel3.
+        /// Control UpdatePanel_AC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_AC;
 
         /// <summary>
         /// Control lblAC_estatus.
@@ -627,13 +627,13 @@ namespace ClientesNuevos.admin.carpetilla
         protected global::System.Web.UI.WebControls.Panel row_PRL;
 
         /// <summary>
-        /// Control UpdatePanel9.
+        /// Control UpdatePanel_PRL.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel9;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_PRL;
 
         /// <summary>
         /// Control lblPRL_estatus.
