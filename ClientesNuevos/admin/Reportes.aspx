@@ -256,6 +256,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" id="btnEnviarCorreo" class="btn btn-primary btn-sm">Enviar correos</button>
+          <a href="#" id="lbcorreo" hidden>correo</a>
       </div>
     </div>
   </div>
@@ -304,6 +305,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" id="btnEnviarCorreoSinOP" class="btn btn-primary btn-sm">Enviar correos</button>
+          <a href="#" id="anchorMail" hidden>mensaje</a>
       </div>
     </div>
   </div>

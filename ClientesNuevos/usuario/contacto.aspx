@@ -66,12 +66,12 @@
                                     <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ForeColor="#cc3300" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="*Se requiere un nombre"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class="form-group mb-1">
+                                <%--<div class="form-group mb-1">
                                     <asp:Label ID="lblMail" CssClass="form-label" runat="server" Text="Correo:"></asp:Label>
                                     <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ForeColor="#cc3300" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*Se requiere un correo"></asp:RequiredFieldValidator>
 
-                                </div>
+                                </div>--%>
                                 <div class="form-group mb-1">
                                     <asp:Label ID="lblAsunto" CssClass="form-label" runat="server" Text="Asunto:"></asp:Label>
                                     <asp:TextBox ID="txtAsunto" CssClass="form-control" runat="server"></asp:TextBox>
@@ -92,7 +92,8 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn btn-primary" OnClick="btnEnviar_Click" />
+                        <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn btn-primary" />
+                        
                     </div>
                     </ContentTemplate>
                                 <Triggers>
@@ -109,4 +110,5 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../template/assets/js/contactoJS.js"></script>
 </asp:Content>

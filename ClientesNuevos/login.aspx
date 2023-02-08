@@ -86,7 +86,8 @@
 
                                     </div>
                                     <div class="w-50 text-md-right">
-                                        <asp:LinkButton ID="btnPasswordOlvidado" runat="server" OnClientClick="return false;">Olvidé la contraseña</asp:LinkButton>
+                                        <a href="#" id="btnPasswordOlvidado" hidden>Olvidé la contraseña</a>
+                                        <asp:LinkButton ID="btnPasswordOlvidado1" runat="server" OnClientClick="return false;" >Olvidé la contraseña</asp:LinkButton>
                                     </div>
                                 </div>
                                 <div>

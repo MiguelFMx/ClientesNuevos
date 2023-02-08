@@ -24,6 +24,7 @@ namespace ClientesNuevos.App_Code
             try
             {
                 da.Fill(dt);
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -48,6 +49,8 @@ namespace ClientesNuevos.App_Code
             {
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
+
+                conn.Close();
             }
             catch (SqlException ex)
             {
@@ -68,6 +71,7 @@ namespace ClientesNuevos.App_Code
             try
             {
                 da.Fill(dt);
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -109,6 +113,7 @@ namespace ClientesNuevos.App_Code
             {
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
             catch (SqlException ex)
             {

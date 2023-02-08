@@ -137,6 +137,7 @@ namespace ClientesNuevos
             {
                 //La conexion a la base de datos fallo
                 lbltest.Text = "No se pudo establecer una conexion con el servidor";
+                Page.Response.Write("<script>console.log('" + connection + "');</script>");
             }            
         }
 

@@ -19,7 +19,7 @@ namespace ClientesNuevos.usuario
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-           lblEnviado.Text= EnviarCorreo(txtCorreo.Text, txtNombre.Text, txtAsunto.Text, txtCuerpo.Text);
+           //lblEnviado.Text= EnviarCorreo(txtCorreo.Text, txtNombre.Text, txtAsunto.Text, txtCuerpo.Text);
         }
 
         public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)

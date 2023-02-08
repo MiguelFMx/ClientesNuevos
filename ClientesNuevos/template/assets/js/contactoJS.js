@@ -1,6 +1,20 @@
 ﻿$(document).ready(function () {
     window.initMap = initMap;
 
+
+    $('#MainContent_btnEnviar').click(function () {
+        var nombre = $('#MainContent_txtNombre').val();
+        var subject = $('#MainContent_txtAsunto').val();
+        var body = $('#MainContent_txtCuerpo').val();
+        var aux = ''
+        var splitted = body.split("\n");
+
+        for (var i = 0; i < splitted.length; i++) {
+            aux += splitted[i] + '%0A';
+        }
+        window.location = "mailto:certificaciones@hungaros.com?cc=sistemas.aux@hungaros.com;sistemas@hungaros.com&subject="+subject+"&body="+aux+"%0A-"+nombre;
+    });
+
 });
 
 // Initialize and add the map
@@ -18,3 +32,5 @@ function initMap() {
         map: map,
     });
 }
+
+

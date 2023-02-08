@@ -5,20 +5,32 @@ $(document).ready(function () {
     NProgress.remove();
 });
 
-$('#btnPasswordOlvidado').click(function () {
+$('#btnPasswordOlvidado1').click(function () {
   
     var existe;
     Swal.fire({
-        title: 'Ingrese un correo',
+        text: 'Ingrese su RFC/W9 con el que esta registrado',
         input: 'text',
         inputAttributes: {
             autocapitalize: 'off'
         },
         showCancelButton: true,
-        confirmButtonText: 'Buscar',
+        confirmButtonText: 'okay',
         showLoaderOnConfirm: true,
-        preConfirm: (correo) => {          
-            $.ajax({
+        preConfirm: (correo) => {      
+            if (correo != '') {
+
+                existe = 'mailto:certificaciones@hungaros.com?cc=sistemas.aux@hungaros.com&subject=Olvide%20mi%20contrasena&body=Solicito%20la%20recuperacion%20de%20mi%20contrasena%0Ami%20RFC%20es:%0A' + correo;
+                $('#btnPasswordOlvidado').attr('href', existe);
+                $('#btnPasswordOlvidado')[0].click();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ingrese el RFC/W9 con el que esta registrado'
+                })
+            }
+          /*  $.ajax({
                 url: "wsLogin.asmx/GetMail",
                 type: "POST",
                 data:  "{'email':'" + correo + "'}" ,
@@ -51,7 +63,7 @@ $('#btnPasswordOlvidado').click(function () {
                 Error: function (err) {
                     console.log(err);
                 }
-            })          
+            }) */         
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
