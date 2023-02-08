@@ -622,21 +622,33 @@
                 <asp:Label ID="lblAct" runat="server" Text=""></asp:Label>
                 <%-- ========================= Botonones de administrador: solo visibles si eres admin =========== --%>
                 <asp:Panel ID="pAdminControl" runat="server" Visible="false">
+                    <div class="row">
+                        <div class="col">
+                            <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                        <ContentTemplate>
                     <asp:LinkButton ID="btnAdminBack" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnAdminBack_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Atras"><i class="bi bi-arrow-left-short"></i></asp:LinkButton>
+                           
                 <asp:LinkButton ID="btnAdminH" runat="server" CssClass="btn btn-primary" OnClick="btnAdminH_Click"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>            
+                    title="Salir"> <i class="bi bi-house-door"></i> </asp:LinkButton>
+                            
+                  
+                    <asp:LinkButton ID="btnAdinSave" runat="server" CssClass="btn btn-success" OnClick="btnAdinSave_Click">Editar</asp:LinkButton>
 
-                <asp:LinkButton ID="btnAdinSave" runat="server" OnClick="btnAdinSave_Click" CssClass="btn btn-success"  >Editar</asp:LinkButton>
-
+                        
+                           
                     <asp:LinkButton ID="btnAdminNext" runat="server" CssClass="btn btn-secondary" OnClick="btnAdminNext_Click"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Siguiente" CausesValidation="False"><i class="bi bi-arrow-right-short"></i></asp:LinkButton>
+</ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                        </div>
                 </asp:Panel>
             </div>
             <br />

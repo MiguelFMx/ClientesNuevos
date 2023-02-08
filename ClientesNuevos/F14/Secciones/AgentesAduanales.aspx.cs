@@ -48,6 +48,14 @@ namespace ClientesNuevos.F14.Seccioness
                     else if(Request.QueryString["rfc"] != null)
                     {
                         //Si solo esta el rfc, significa que es consulta.
+                        if(Request.Cookies.Get("ctipo") != null)
+                        {
+                            if(Request.Cookies.Get("ctipo").Value == "proveedor")
+                            {
+                                Response.Redirect("~/F14/Secciones/informacioncadenasuministro.aspx?rfc=" + Request.QueryString["rfc"]);
+                            }
+                        }
+
                         btnAdminNext.Text = "<i class=\"bi bi-arrow-right\"></i>";
                         btnAdminSave.Text = "actualizar";
 

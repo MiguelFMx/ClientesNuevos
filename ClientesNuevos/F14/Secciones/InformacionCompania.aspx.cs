@@ -93,6 +93,10 @@ namespace ClientesNuevos.F14.Seccioness
                                 RequiredFieldValidator8.Enabled = false;
                                 RequiredFieldValidator9.Enabled = false;
                                 RequiredFieldValidator10.Enabled = false;
+                            }else if (dt.Rows[0]["Tipo_persona"].ToString() == "0")
+                            {
+                                TipoRegistro("proveedor");
+
                             }
 
 
@@ -380,14 +384,7 @@ namespace ClientesNuevos.F14.Seccioness
 
                 ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
 
-                //if (User.IsInRole("3"))
-                //{
-                //    Response.Redirect("~/f14/secciones/AgentesAduanales.aspx?res=" + resultado);
-                //}
-                //else
-                //{
-                //    Response.Redirect("~/f14/secciones/InformacionCadenaSuministro.aspx?res=" + resultado);
-                //}
+                
             }
             
 
@@ -563,6 +560,7 @@ namespace ClientesNuevos.F14.Seccioness
             ddEstado.Items.Add(new ListItem("..."));
             ddCiudad.Items.Clear();
             ddCiudad.Items.Add(new ListItem("..."));
+            string TipoRegistro = cbTipoRegistro.SelectedValue;
 
             if (regimen == 2)
                 {
@@ -587,15 +585,18 @@ namespace ClientesNuevos.F14.Seccioness
             }
             else
                 {
-                pDatosBancarios.Enabled = true;
-                pDatosBancarios.BackColor = System.Drawing.Color.White;
-
                 lblCP.Text = "CP";
                 lblRFC.Text = "RFC";
-                RequiredFieldValidator7.Enabled = true;
-                RequiredFieldValidator8.Enabled = true;
-                RequiredFieldValidator9.Enabled = true;
-                RequiredFieldValidator10.Enabled = true;
+
+                if (TipoRegistro != "proveedor")
+                {
+                    pDatosBancarios.Enabled = true;
+                    pDatosBancarios.BackColor = System.Drawing.Color.White;
+                    RequiredFieldValidator7.Enabled = true;
+                    RequiredFieldValidator8.Enabled = true;
+                    RequiredFieldValidator9.Enabled = true;
+                    RequiredFieldValidator10.Enabled = true; 
+                }
                 ddPais.Items.FindByValue(id).Selected = false;
                 ddPais.Items.FindByValue("142").Selected = true;
                 LlenarEstado(ddEstado, 142);
@@ -737,6 +738,8 @@ namespace ClientesNuevos.F14.Seccioness
                     lblDesc5.Text = "Paso 5";
                     lblstep5.Text = "5";
                     Response.Cookies.Add(new HttpCookie("ctipo", "cliente"));
+                    DeshabilitarDatosBancarios(2);
+
                     break;
                 case "proveedor":
                     step2.Visible = false;
@@ -772,21 +775,33 @@ namespace ClientesNuevos.F14.Seccioness
                 try
                 {
                    string res = RegistrarInfo();
-                    if(res == "existe")
+                    if(res == "error1")
                     {
-                        lblRegf14.Text = "Ya existe un registro con el RFC especificado";
+                        //ExisteRFC()
+                        ScriptManager.RegisterStartupScript(UpdatePanel7, typeof(string), "Simular", "ExisteRFC()", true);
+
                     }
                     else
                     {
                         string registro;
                         registro = RegistrarInfo();
-                        lblSinContacto.Text = registro;
+                        //lblSinContacto.Text = registro;
                         //Response.Write('<script>alert(''+mensaje+'');</script>');
-
-                        if(registro != "Registre un contacto")
+                        if (registro == "error2")
                         {
-                            Response.Write("<script>Mensaje();</script>");
+                            ScriptManager.RegisterStartupScript(UpdatePanel7, typeof(string), "Simular", "MensajeError()", true);
                         }
+                        else if (registro == "succes1")
+                        {
+
+                            ScriptManager.RegisterStartupScript(UpdatePanel7, typeof(string), "Simular", "MensajeSucces()", true);
+
+
+                        }
+                        //if (registro != "Registre un contacto")
+                        //{
+                        //    Response.Write("<script>Mensaje();</script>");
+                        //}
                         //Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
 
                     }
@@ -797,15 +812,26 @@ namespace ClientesNuevos.F14.Seccioness
                 }
             }else if (Request.QueryString["rfc"] != null)
             {
-               lblSinContacto.Text= RegistrarInfo();
+               //lblSinContacto.Text= RegistrarInfo();
                 string registro;
                 registro = RegistrarInfo();
-                lblSinContacto.Text = registro;
+                //lblSinContacto.Text = registro;
                 //Response.Write('<script>alert(''+mensaje+'');</script>');
 
-                if (registro != "Registre un contacto")
+                //if (registro != "Registre un contacto")
+                //{
+                //    Response.Write("<script>Mensaje();</script>");
+                //}
+                if (registro == "error2")
                 {
-                    Response.Write("<script>Mensaje();</script>");
+                    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
+                }
+                else if (registro == "succes1")
+                {
+
+                    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
+
+
                 }
             }
         }
