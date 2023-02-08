@@ -180,7 +180,13 @@ $(document).ready(function () {
                 listaMail += mail1[i] + ";";
             }
             listaMail = listaMail.substring(0, listaMail.length - 1);
-            listaMail += "?subject=" + asunto1 + "&body=" + cuerpo1;
+
+            var splitted = cuerpo1.split("\n");
+            var aux = '';
+            for (var i = 0; i < splitted.length; i++) {
+                aux += splitted[i] + '%0A';
+            }
+            listaMail += "?subject=" + asunto1 + "&body=" + aux;
 
             //Le implemento un cambio de href al boton oculto
             $("#anchorMail").attr("href", listaMail);
