@@ -280,8 +280,8 @@ namespace ClientesNuevos.admin
 
             //Metodo para enviar correo por medio de MailKit
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("prueba", "migue9835@hotmail.com"));
-            message.To.Add(new MailboxAddress("prueba", "freyde.miguel@gmail.com"));
+            message.From.Add(new MailboxAddress("prueba", "mi@hotmail.com"));
+            message.To.Add(new MailboxAddress("prueba", "fre@gmail.com"));
 
             message.Subject = "test";
             message.Body = new TextPart(TextFormat.Plain)

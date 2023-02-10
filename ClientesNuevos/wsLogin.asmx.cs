@@ -123,9 +123,8 @@ namespace ClientesNuevos
 
                 //Metodo para enviar correo por medio de MailKit
                 MimeMessage message = new MimeMessage();
-                message.From.Add(new MailboxAddress("No Re: Hungaros", "postmaster@hungaros.com"));
+                message.From.Add(new MailboxAddress("No Re: Hungaros", "er@hungaros.com"));
                 message.To.Add(new MailboxAddress("", email));
-                //message.To.Add(new MailboxAddress("Certificaciones", "freyde.miguel@gmail.com"));
 
                 message.Subject = "Contacto";
                 message.Body = new TextPart(TextFormat.Html)
@@ -136,7 +135,7 @@ namespace ClientesNuevos
                 try
                 {
                     client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
+                    client.Authenticate("er@hungaros.com", "");
                     client.Send(message);
                     client.Disconnect(true);
                     resultado = "Correo enviado";

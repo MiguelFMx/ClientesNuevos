@@ -2,10 +2,10 @@
 <servidor>
   <datos>
     <id>0</id>
-    <correo>migue9835@hotmail.com</correo>
+    <correo>m@hotmail.com</correo>
     <remitente>NoRe:Hungaros</remitente>
-    <UsernameSMTP>migue9835@hotmail.com</UsernameSMTP>
-    <PasswordSMTP>@Ang3lit01998*</PasswordSMTP>
+    <UsernameSMTP>m@hotmail.com</UsernameSMTP>
+    <PasswordSMTP>@*</PasswordSMTP>
     <HostSMTP>smtp.office365.com</HostSMTP>
     <PuertoSMTP>587</PuertoSMTP>
   </datos>
