@@ -48,8 +48,8 @@
         <div class="col-md-4 mb-3">
             <div class="row">
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-header cabezal">
+                    <div class="card shadow-sm rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <h5>Informacion</h5>
                         </div>
                         <div class="card-body">
@@ -135,15 +135,15 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="card">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <h5>
                                 <asp:Label ID="lblCompania" runat="server" Text="Carpetilla de "></asp:Label>
                             </h5>
                         </div>
 
                         <div class="card-body">
-                            <div class="row justify-content-center" style="border-bottom: 2px solid blue;">
+                            <div class="row justify-content-center" style="border-bottom: 2px solid #4a5494;">
                                 <div class="col d-flex justify-content-center">Documento</div>
                                 <div class="col d-flex justify-content-center">Estatus</div>
                                 <div class="col">Fecha</div>

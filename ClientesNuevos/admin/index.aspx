@@ -15,8 +15,8 @@
 
             <div class="row">
                 <div class="col">
-                    <div class="card">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <div class="row mt-2">
                                 <div class="col">
                                     <h5 >Listado de clientes</h5>
