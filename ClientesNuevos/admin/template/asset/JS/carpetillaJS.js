@@ -264,7 +264,7 @@ $(document).ready(function () {
 
                 //ejecuto alert
                 Swal.fire({
-                    html: "Envie el mensaje por medio de outlook <br> Outlook se abrira automaticamente",
+                    html: "Su aplicacion de correo se abrira automaticamente",
                     icon: 'info',
                     showCancelButton: false,
                     confirmButtonColor: '#3085d6',

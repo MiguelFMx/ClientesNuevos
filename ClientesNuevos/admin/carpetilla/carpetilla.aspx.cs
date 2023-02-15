@@ -143,8 +143,11 @@ namespace ClientesNuevos.admin.carpetilla
                             lblF5_estatus.CssClass = "etiqueta pendiente";
                         }
                         lblF5_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
-                        btnVer_F5.Enabled= true; 
+                        btnVer_F5.Enabled= true;
+                        btnVer_F5.CssClass = btnVer_F5.CssClass.Replace("disabled", "");
                         btnActualizar_F5.CssClass = btnActualizar_F5.CssClass.Replace("disabled", "");
+                        btnCheck_F5.CssClass = btnCheck_F5.CssClass.Replace("disabled", "");
+
 
                     }
 
@@ -183,7 +186,9 @@ namespace ClientesNuevos.admin.carpetilla
                         txtW9.Text = fila["Ruta"].ToString();
 
                         btnVer_W9.Enabled = true;
+                        btnVer_W9.CssClass = btnVer_W9.CssClass.Replace("disabled", "");
                         btnActualizar_W9.CssClass = btnActualizar_W9.CssClass.Replace("disabled", "");
+                        btnCheck_W9.CssClass = btnCheck_W9.CssClass.Replace("disabled", "");
 
                     }
                     //==================================================F43
@@ -216,6 +221,7 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_F43.Enabled = true;
                         lblF43_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnCheck_F43.CssClass = btnCheck_F43.CssClass.Replace("disabled", "");
                         btnActualizar_F43.CssClass = btnActualizar_F43.CssClass.Replace("disabled", "");
 
                     }
@@ -249,6 +255,8 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_F12.Enabled = true;
                         lblF12_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_F12.CssClass = btnVer_F12.CssClass.Replace("disabled", "");
+                        btnCheck_F12.CssClass = btnCheck_F12.CssClass.Replace("disabled", "");
                         btnActualizar_F12.CssClass = btnActualizar_F12.CssClass.Replace("disabled", "");
 
                     }
@@ -283,7 +291,9 @@ namespace ClientesNuevos.admin.carpetilla
                             btnVer_F14.Enabled= true;   
 
                         lblF14_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_F14.CssClass = btnVer_F14.CssClass.Replace("disabled", "");
                         btnActualizar_F14.CssClass = btnActualizar_F14.CssClass.Replace("disabled", "");
+                        btnCheck_F14.CssClass = btnCheck_F14.CssClass.Replace("disabled", "");
 
                     }
                     //==================================================RFC
@@ -316,7 +326,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_RFC.Enabled = true;
                         lblRFC_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_RFC.CssClass = btnVer_RFC.CssClass.Replace("disabled", "");
                         btnActualizar_RFC.CssClass = btnActualizar_RFC.CssClass.Replace("disabled", "");
+                        btnCheck_RFC.CssClass = btnCheck_RFC.CssClass.Replace("disabled", "");
 
                     }
                     //=================================================CURP                
@@ -350,6 +362,8 @@ namespace ClientesNuevos.admin.carpetilla
                         btnVer_CURP.Enabled = true;
                         lblCURP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
                         btnActualizar_CURP.CssClass = btnActualizar_CURP.CssClass.Replace("disabled", "");
+                        btnVer_CURP.CssClass = btnVer_CURP.CssClass.Replace("disabled", "");
+                        btnCheck_CURP.CssClass = btnCheck_CURP.CssClass.Replace("disabled", "");
 
                     }
                     //=================================================CNAP
@@ -382,7 +396,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CNAP.Enabled = true;
                         lblCNAP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_CNAP.CssClass = btnVer_CNAP.CssClass.Replace("disabled", "");
                         btnActualizar_CNAP.CssClass = btnActualizar_CNAP.CssClass.Replace("disabled", "");
+                        btnCheck_CNAP.CssClass = btnCheck_CNAP.CssClass.Replace("disabled", "");
 
                     }
                     //==============================================CompDom
@@ -415,7 +431,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CompDom.Enabled = true;
                         lblCompDom_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_CompDom.CssClass = btnVer_CompDom.CssClass.Replace("disabled", "");
                         btnActualizar_CompDom.CssClass = btnActualizar_CompDom.CssClass.Replace("disabled", "");
+                        btnCheck_CompDom.CssClass = btnCheck_CompDom.CssClass.Replace("disabled", "");
 
                     }
                     //===================================================IRL
@@ -448,7 +466,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_IRL.Enabled = true;
                         lblIRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_IRL.CssClass = btnVer_IRL.CssClass.Replace("disabled", "");
                         btnActualizar_IRL.CssClass = btnActualizar_IRL.CssClass.Replace("disabled", "");
+                        btnCheck_IRL.CssClass = btnCheck_IRL.CssClass.Replace("disabled", "");
 
                     }
                     //====================================Poder de representante legal
@@ -481,7 +501,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_PRL.Enabled = true;
                         lblPRL_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_PRL.CssClass = btnVer_PRL.CssClass.Replace("disabled", "");
                         btnActualizar_PRL.CssClass = btnActualizar_PRL.CssClass.Replace("disabled", "");
+                        btnCheck_PRL.CssClass = btnCheck_PRL.CssClass.Replace("disabled", "");
 
                     }
                     //==================================================OP
@@ -514,7 +536,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_OP.Enabled = true;
                         lblOP_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_OP.CssClass = btnVer_OP.CssClass.Replace("disabled", "");
                         btnActualizar_OP.CssClass = btnActualizar_OP.CssClass.Replace("disabled", "");
+                        btnCheck_OP.CssClass = btnCheck_OP.CssClass.Replace("disabled", "");
 
                     }
                     //===================================================CTPAT
@@ -547,7 +571,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_CTPAT.Enabled = true;
                         lblCTPAT_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_CTPAT.CssClass = btnVer_CTPAT.CssClass.Replace("disabled", "");
                         btnActualizar_CTPAT.CssClass = btnActualizar_CTPAT.CssClass.Replace("disabled", "");
+                        btnCheck_CTPAT.CssClass = btnCheck_CTPAT.CssClass.Replace("disabled", "");
 
                     }
                     //===================================================OEA
@@ -580,7 +606,9 @@ namespace ClientesNuevos.admin.carpetilla
                         }
                         btnVer_OEA.Enabled = true;
                         lblOEA_fecha.Text = fila["Fecha_creacion"].ToString().Substring(0, 10);
+                        btnVer_OEA.CssClass = btnVer_OEA.CssClass.Replace("disabled", "");
                         btnActualizar_OEA.CssClass = btnActualizar_OEA.CssClass.Replace("disabled", "");
+                        btnCheck_OEA.CssClass = btnCheck_OEA.CssClass.Replace("disabled", "");
 
                     }
                     //===================================================F16
@@ -614,6 +642,9 @@ namespace ClientesNuevos.admin.carpetilla
                         
                         txtF16.Text = fila["Ruta"].ToString();
                         btnVer_F16.Enabled = true;
+                        btnVer_F16.CssClass = btnVer_F16.CssClass.Replace("disabled", "");
+                        btnCheck_F16.CssClass = btnCheck_F16.CssClass.Replace("disabled", "");
+
                     }
                     //====================Acta constitutiva====================
                     if (fila["Documento"].ToString() == "Acta constitutiva")
@@ -646,7 +677,9 @@ namespace ClientesNuevos.admin.carpetilla
 
                         txtAC.Text = fila["Ruta"].ToString();
                         btnVer_AC.Enabled = true;
+                        btnVer_AC.CssClass = btnVer_AC.CssClass.Replace("disabled", "");
                         btnActualizar_AC.CssClass = btnActualizar_AC.CssClass.Replace("disabled", "");
+                        btnCheck_AC.CssClass = btnCheck_AC.CssClass.Replace("disabled", "");
                     }
                     //===================================================F20
                     if (fila["Documento"].ToString() == "F20" && fila["ID_compania"].ToString() == id_user)

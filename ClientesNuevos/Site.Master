@@ -16,10 +16,11 @@
     <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-
+    
     <!-- Favicons -->
-    <link href="template/assets/img/favicon.png" rel="icon" />
-    <link href="template/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="template/assets/img/icon/apple-touch-icon.png" rel="apple-touch-icon" type="image/png" sizes="180x180" />
+    <link href="template/assets/img/icon/icon/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+    <link href="template/assets/img/icon/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />

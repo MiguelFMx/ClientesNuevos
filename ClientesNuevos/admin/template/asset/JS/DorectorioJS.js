@@ -81,7 +81,7 @@ $(document).ready(function () {
         if (subject != '' && cuerpo != '') {
             swal.fire({
                 title: 'Enviando correo',
-                html: 'Envie el correo por outlook <br> Outlook se abrira automaticamente',
+                html: 'Su aplicacion de correo se abrira automaticamente',
                 icon:'info'                    
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -340,7 +340,7 @@ $(document).ready(function () {
             $("#btntest").attr("href", listaMail);
 
             Swal.fire({
-                html: "Envie el mensaje por medio de outlook <br> Outlook se abrira automaticamente",
+                html: "Su aplicacion de correo se abrira automaticamente",
                 icon: 'info',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',

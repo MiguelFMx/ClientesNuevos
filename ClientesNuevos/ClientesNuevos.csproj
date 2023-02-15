@@ -1530,6 +1530,12 @@
     <Content Include="template\assets\css\paginacion.css" />
     <Content Include="template\assets\css\style_f5.css" />
     <Content Include="template\assets\img\edit-pen-3.png" />
+    <Content Include="template\assets\img\icon\android-chrome-192x192.png" />
+    <Content Include="template\assets\img\icon\android-chrome-512x512.png" />
+    <Content Include="template\assets\img\icon\apple-touch-icon.png" />
+    <Content Include="template\assets\img\icon\favicon-16x16.png" />
+    <Content Include="template\assets\img\icon\favicon-32x32.png" />
+    <Content Include="template\assets\img\icon\favicon.ico" />
     <Content Include="template\assets\img\logo\4Matildes-sinfondo.png" />
     <Content Include="template\assets\img\logo\Hungaros.png" />
     <Content Include="template\assets\img\logo\HungarosTexto.png" />

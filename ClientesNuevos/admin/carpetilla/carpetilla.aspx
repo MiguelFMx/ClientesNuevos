@@ -169,7 +169,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtAC" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_AC" runat="server" Enabled="false" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_AC" runat="server" Enabled="false" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnAC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -181,7 +181,7 @@
                                                     data-bs-type="Acta constitutiva"
                                                     title="Solicitar actualizacion" ><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_AC" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_AC" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnAC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -217,7 +217,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtRFC" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_RFC" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_RFC" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnRFC_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -229,7 +229,7 @@
                                                     data-bs-type="RFC"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_RFC" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_RFC" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnRFC_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -265,7 +265,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtCURP" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_CURP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_CURP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnClick"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -277,7 +277,7 @@
                                                     data-bs-type="CURP"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_CURP" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnClick"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -312,7 +312,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtCNAP" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_CNAP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_CNAP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCNAP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -324,7 +324,7 @@
                                                     data-bs-type="Carta de no antecedentes penales"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_CNAP" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnCNAP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -359,7 +359,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtCompDom" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_CompDom" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_CompDom" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCompDom_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -371,7 +371,7 @@
                                                     data-bs-type="Comprobante de domicilio"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_CompDom" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnCompDom_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -406,7 +406,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtIRL" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_IRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_IRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnIRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -418,7 +418,7 @@
                                                     data-bs-type="Identificacion de representante legal"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_IRL" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnIRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -452,7 +452,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtPRL" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_PRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_PRL" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnPRL_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -464,7 +464,7 @@
                                                     data-bs-type="Poder del representante legal"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_PRL" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnPRL_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -500,7 +500,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtCTPAT" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_CTPAT" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_CTPAT" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnCTPAT_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -512,7 +512,7 @@
                                                     data-bs-type="Certificación de C-TPAT"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_CTPAT" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnCTPAT_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -546,7 +546,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtOEA" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_OEA" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_OEA" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnOEA_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -558,7 +558,7 @@
                                                     data-bs-type="Certificación OEA"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_OEA" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnOEA_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -593,7 +593,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtOP" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_OP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_OP" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnOP_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -605,7 +605,7 @@
                                                     data-bs-type="Opinion positiva"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_OP" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnOP_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -640,7 +640,7 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtW9" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_W9" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_W9" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnW9_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -652,7 +652,7 @@
                                                     data-bs-type="W9"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_W9" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_W9" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnW9_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -686,7 +686,7 @@
 
                                             </div>
                                             <div class="col-4">
-                                                <asp:LinkButton ID="btnVer_F5" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_F5" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF5_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -699,7 +699,7 @@
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
 
-                                                <asp:LinkButton ID="btnCheck_F5" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                                <asp:LinkButton ID="btnCheck_F5" CssClass="btn btn-success btn-sm me-1 disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnF5_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -731,7 +731,8 @@
 
                                             </div>
                                             <div class="col-4">
-                                                <asp:LinkButton ID="btnVer_F14" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_F14" Enabled="false" runat="server"
+                                                    CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF14_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -743,7 +744,7 @@
                                                     data-bs-type="(F-14) Admision de cliente"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_F14" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                                <asp:LinkButton ID="btnCheck_F14" CssClass="btn btn-success btn-sm me-1 disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnF14_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -774,7 +775,7 @@
                                                 <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----" CssClass=""></asp:Label>
                                             </div>
                                             <div class="col-4">
-                                                <asp:LinkButton ID="btnVer_F12" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_F12" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnF12_Click"><i class="bi bi-eye"></i></asp:LinkButton>
@@ -786,7 +787,7 @@
                                                     data-bs-type="(F-12) Política de seguridad C-TPAT"
                                                     title="Solicitar actualizacion"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_F12" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                                <asp:LinkButton ID="btnCheck_F12" CssClass="btn btn-success btn-sm me-1 disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnF12_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -828,7 +829,7 @@
                                                     data-bs-target="#CorreoAct"
                                                     data-bs-type="(F-43) Mapeo de flujo de carga"><i class="bi bi-arrow-repeat"></i></asp:LinkButton>
 
-                                                <asp:LinkButton ID="btnCheck_F43" CssClass="btn btn-success btn-sm me-1" runat="server"
+                                                <asp:LinkButton ID="btnCheck_F43" CssClass="btn btn-success btn-sm me-1 disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnF43_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
@@ -862,14 +863,14 @@
                                             <div class="col-4">
                                                 <asp:TextBox ID="txtF16" runat="server" Visible="false"></asp:TextBox>
 
-                                                <asp:LinkButton ID="btnVer_F16" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1"
+                                                <asp:LinkButton ID="btnVer_F16" Enabled="false" runat="server" CssClass="btn btn-secondary btn-sm me-1 disabled"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Ver" OnClick="btnVer_F16_Click"><i class="bi bi-eye"></i></asp:LinkButton>
 
                                                 <button type="button" class="btn btn-warning btn-sm text-white me-1" title="Subir PDF" data-bs-toggle="modal" data-bs-target="#UploadDoc" data-bs-type="Evaluacion In-situ"><i class="bi bi-upload"></i></button>
 
-                                                <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm" runat="server"
+                                                <asp:LinkButton ID="btnCheck_F16" CssClass="btn btn-success btn-sm disabled" runat="server"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
                                                     title="Aprobar" OnClick="btnCheck_F16_Click"><i class="bi bi-check-lg"></i></asp:LinkButton>
