@@ -90,8 +90,8 @@
         <!-- ============================= fieldset Información de programa de cadena de suministro=================================================== -->
         <div class="row">
             <div class="col">
-                <div class="card">
-                    <div class="card-header cabezal">
+                <div class="card rounded-0">
+                    <div class="card-header cabezal rounded-0">
                         <span>
                             <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc5 %>"></asp:Literal></span>
                     </div>
@@ -103,7 +103,7 @@
                                     <div class="col-4">
                                         <label for="ddstatus" class="form-label">C-TPAT status</label>
 
-                                        <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddstatus_SelectedIndexChanged">
+                                        <asp:DropDownList ID="ddstatus" runat="server" CssClass="form-select rounded-0" AutoPostBack="True" OnSelectedIndexChanged="ddstatus_SelectedIndexChanged">
                                             <asp:ListItem Value="0" Text="<%$Resources:Certificacion, lblNinguno %>"></asp:ListItem>
                                             <asp:ListItem Value="1" Text="<%$Resources:Certificacion, lblCertificadoNoVal %>"></asp:ListItem>
                                             <asp:ListItem Value="2" Text="<%$Resources:Certificacion, lblCertificadoValidado %>"></asp:ListItem>
@@ -212,7 +212,7 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <div class="card">
+                                            <div class="card rounded-0">
                                                 <div class="table-responsive">
                                                     <asp:GridView ID="gvProgramas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
                                                         OnRowEditing="gvProgramas_RowEditing"

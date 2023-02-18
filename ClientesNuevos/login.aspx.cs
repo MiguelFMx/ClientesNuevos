@@ -66,8 +66,9 @@ namespace ClientesNuevos
                 {
                     int aux = 0;
 
-                    ActualizarLogin(usuario);
+                    //ActualizarLogin(usuario);
 
+                    ActListaLogin(usuario);
 
                     for (int i = 0; i < lstuser.Count; i++)
                     {
@@ -153,10 +154,71 @@ namespace ClientesNuevos
             }
         }
 
-        private void ChecarUsuario()
+        private void ActListaLogin(object usuario)
         {
-          
+            string Fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string strCmd = "", strRes = "";
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM lstLogin WHERE RFC ='" + usuario + "'", clsHerramientaBD.strConnAdmon);
+            int dtRows = dt.Rows.Count;
+
+            if (dtRows == 0)
+            {
+                //Primer login
+                strCmd = clsHerramientaBD.ExecuteSql("INSERT INTO lstLogin([RFC],[login_no],[Fecha],[Estado]) VALUES ('" + usuario + "','1','" + Fecha + "','0')", clsHerramientaBD.strConnAdmon);
+            }
+            else
+            {
+                if (dtRows >= 1)
+                {
+                    if (dtRows < 10)
+                    {
+                        string fecha, login_no, Estado, id;
+                        //DateTime date;
+                        fecha = dt.Rows[dtRows - 1]["Fecha"].ToString();
+                        fecha = Convert.ToDateTime(fecha).ToString("yyyy-MM-dd HH:mm:ss");
+                        login_no = dt.Rows[dtRows - 1]["login_no"].ToString();
+                        Estado = dt.Rows[dtRows - 1]["Estado"].ToString();
+                        id = dt.Rows[dtRows - 1]["ID"].ToString();
+                        int num = dtRows + 1;
+
+
+
+                        //Actualizo el login anterior
+                        strCmd = clsHerramientaBD.ExecuteSql("UPDATE lstLogin SET login_no='" + num + "' WHERE ID='" + id + "'", clsHerramientaBD.strConnAdmon);
+
+                        //Inserto el nuevo login
+                        strCmd = clsHerramientaBD.ExecuteSql("INSERT INTO lstLogin([RFC],[login_no],[Fecha],[Estado]) VALUES ('" + usuario + "','1','" + Fecha + "','0')", clsHerramientaBD.strConnAdmon);
+                    }
+                    else
+                    {
+                        string fecha, login_no, Estado, id;
+                        //DateTime date;
+                        fecha = dt.Rows[dtRows - 1]["Fecha"].ToString();
+                        fecha = Convert.ToDateTime(fecha).ToString("yyyy-MM-dd HH:mm:ss");
+                        login_no = dt.Rows[dtRows - 1]["login_no"].ToString();
+                        Estado = dt.Rows[dtRows - 1]["Estado"].ToString();
+                        id = dt.Rows[dtRows - 1]["ID"].ToString();
+                        int num = dtRows + 1;
+
+                        //strCmd = clsHerramientaBD.ExecuteSql("INSERT INTO lstLogin([RFC],[login_no],[Fecha],[Estado]) VALUES ('" + usuario + "','1','" + Fecha + "','0')", clsHerramientaBD.strConnAdmon);
+                        for (int i = 0; i < dtRows; i++)
+                        {
+                            int strAux = Convert.ToInt32(dt.Rows[i]["login_no"]);
+                            strAux = strAux + 1;
+                            //if (strAux != 11)
+                            //{
+                            strCmd = clsHerramientaBD.ExecuteSql("UPDATE lstLogin SET login_no='" + strAux + "' WHERE ID='" + dt.Rows[i]["ID"] + "'", clsHerramientaBD.strConnAdmon);
+                            //}
+                        }
+                        strCmd = clsHerramientaBD.ExecuteSql("DELETE FROM lstLogin WHERE login_no='11' AND RFC='" + usuario + "'", clsHerramientaBD.strConnAdmon);
+
+                        strCmd = clsHerramientaBD.ExecuteSql("INSERT INTO lstLogin([RFC],[login_no],[Fecha],[Estado]) VALUES ('" + usuario + "','1','" + Fecha + "','0')", clsHerramientaBD.strConnAdmon);
+
+                    }
+                }
+            }
         }
+
 
         protected void btnPrueba_Click(object sender, EventArgs e)
         {

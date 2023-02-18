@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="user_index.aspx.cs" Inherits="ClientesNuevos.usuario.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .largo{
+            width: 10rem;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -26,11 +31,11 @@
             <!-----------------------------------Nombre de la empresa---------------------------------- -->
             <div class="row">
                 <div class="col-6">
-                    <div classs="card border-primary">
+                    <div classs="card ">
                         <div class="table-responsive">
-                            <asp:Table ID="tInfo" runat="server" CssClass="table border-primary" BorderWidth="1px">
+                            <asp:Table ID="tInfo" runat="server" CssClass="table" BorderColor="#4a5494" BorderWidth="1px">
                                 <asp:TableRow>
-                                    <asp:TableCell BackColor="#0169C2" ForeColor="White">
+                                    <asp:TableCell BackColor="#4a5494" ForeColor="White">
                                         <asp:Label ID="lblcomp" runat="server" Text="<%$Resources:Carpetilla, lblCompania %>"></asp:Label>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -54,7 +59,7 @@
                 <ContentTemplate>
             <div class="row" style="margin-bottom: 1em;">
                 <div class="col">
-                    <div class="card border-primary">
+                    <div class="card rounded-0">
                         <div class="table-responsive">
                             <asp:Table ID="Table1" runat="server" CssClass="table table-hover">
                                 <asp:TableHeaderRow TableSection="TableHeader" CssClass="cabezal">
@@ -329,7 +334,7 @@
             <!--Formularios-->
             <div class="row">
                 <div class="col">
-                    <div class="card border-primary">
+                    <div class="card rounded-0">
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="cabezal">
@@ -357,7 +362,7 @@
 
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnRegistro" runat="server" Text="<%$Resources:Carpetilla, lblbtnLlenar %>" CssClass="btn btn-success" OnClick="btnRegistro_Click" />
+                                            <asp:Button ID="btnRegistro" runat="server" Text="<%$Resources:Carpetilla, lblbtnLlenar %>" CssClass="btn btn-success largo" OnClick="btnRegistro_Click" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -371,7 +376,7 @@
                                             <asp:Label ID="lblF43_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnMapeo" runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" CssClass="btn btn-success" OnClick="btnMapeo_Click" />
+                                            <asp:Button ID="btnMapeo" runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" CssClass="btn btn-success largo" OnClick="btnMapeo_Click" />
                                             <%--<button id="btnMapeo" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
                                         </td>
                                     </tr>
@@ -386,7 +391,7 @@
                                         </td>
                                         <td>
                                             <%--<button id="btnEvaluacion" class="btn btn-success btn-sm" type="button">Llenar formulario</button>--%>
-                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnEvaluacion_Click" />
+                                            <asp:Button ID="btnEvaluacion" CssClass="btn btn-success largo" runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnEvaluacion_Click" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -399,7 +404,7 @@
                                             <asp:Label ID="lblF12_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnCartaCompromiso_Click" Enabled ="false" />
+                                            <asp:Button ID="btnCartaCompromiso" CssClass="btn btn-success largo" runat="server" Text="<%$Resources:Carpetilla,lblbtnLlenar %>" OnClick="btnCartaCompromiso_Click" Enabled ="false" />
 
                                         </td>
                                     </tr>
@@ -413,7 +418,7 @@
                                             <asp:Label ID="lblF20_fecha" runat="server" Text="--/--/----"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:Button ID="btnCriteriosMinimos" CssClass="btn btn-success " runat="server" Text="<%$Resources:Carpetilla, lblCriterios %>" OnClick="btnCriteriosMinimos_Click" />
+                                            <asp:Button ID="btnCriteriosMinimos" CssClass="btn btn-success largo" runat="server" Text="<%$Resources:Carpetilla, lblCriterios %>" OnClick="btnCriteriosMinimos_Click" />
 
                                         </td>
                                     </tr>

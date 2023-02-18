@@ -261,7 +261,7 @@
     </div>
   </div>
 </div>
-
+    <asp:UpdatePanel ID="upScript" runat="server"></asp:UpdatePanel>
   <!-- ==================Modal======================= -->
     <div class="modal fade" id="EmailSinOPModal" tabindex="-1" aria-labelledby="EmailModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">

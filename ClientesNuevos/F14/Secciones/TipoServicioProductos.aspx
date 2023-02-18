@@ -66,8 +66,8 @@
         <div class="row" id="ServicioRqurido">
             <div class="row">
                 <div class="col">
-                    <div class="card border-primary">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <h5>
                                 <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:AgentesAduanales, lblDesc4 %>"></asp:Literal></h5>
                         </div>
@@ -406,7 +406,7 @@
                 <fieldset>
                     <legend style="font-size: 20px;">
                         <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:Servicios,lblInfoProd %>"></asp:Literal></legend>
-                    <div class="card">
+                    <div class="card rounded-0">
                         <div class="table-responsive">
                             <table class="table table-hover" id="tProductos">
                                 <thead class="cabezal">

@@ -6,8 +6,8 @@
 
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="card-header cabezal">
+            <div class="card rounded-0">
+                <div class="card-header cabezal rounded-0">
                     <h5>Usuarios registrados</h5>
                 </div>
                 <div class="card-body">
@@ -39,8 +39,8 @@
             <br />
             <div class="row">
                 <div class="col">
-                    <div class="card">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <h5>Usuarios sin roles asignados</h5>
                         </div>
                         <div class="card-body">

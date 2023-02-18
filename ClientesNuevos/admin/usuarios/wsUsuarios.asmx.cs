@@ -1,7 +1,9 @@
 ﻿using Antlr.Runtime.Tree;
 using ClientesNuevos.App_Code;
 using ClientesNuevos.F5.Autoevaluacion;
+using Org.BouncyCastle.Asn1.Crmf;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -19,7 +21,7 @@ namespace ClientesNuevos.admin.usuarios
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-     [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class wsUsuarios : System.Web.Services.WebService
     {
 
@@ -35,9 +37,9 @@ namespace ClientesNuevos.admin.usuarios
             DataTable dt = new DataTable();
             DataTable detalles = new DataTable();
 
-            detalles = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE RFC='"+rfc+"' AND subdominio ='"+subdom+"' AND ID_Empresa='"+ID_empresa+"'",clsHerramientaBD.strConnAdmon);
+            detalles = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE RFC='" + rfc + "' AND subdominio ='" + subdom + "' AND ID_Empresa='" + ID_empresa + "'", clsHerramientaBD.strConnAdmon);
 
-            if(id != "")
+            if (id != "")
             {
                 dt = clsHerramientaBD.Existe("SELECT * FROM user_detalles WHERE Id='" + id + "'", sqlCon);
             }
@@ -103,7 +105,7 @@ namespace ClientesNuevos.admin.usuarios
             List<Roles> lst = new List<Roles>();
             Roles objR;
             DataTable dt = new DataTable();
-            dt = clsHerramientaBD.Existe("exec Master_UserRols @accion='getroles', @RFC='"+id+"'", clsHerramientaBD.strConnAdmon);
+            dt = clsHerramientaBD.Existe("exec Master_UserRols @accion='getroles', @RFC='" + id + "'", clsHerramientaBD.strConnAdmon);
 
             foreach (DataRow Row in dt.Rows)
             {
@@ -159,7 +161,7 @@ namespace ClientesNuevos.admin.usuarios
         public string Borrar_Rol(string id)
         {
             string res = "";
-            res = clsHerramientaBD.ExecuteSql("DELETE FROM user_detalles WHERE Id = '" + id + "'", clsHerramientaBD.strConnAdmon);            
+            res = clsHerramientaBD.ExecuteSql("DELETE FROM user_detalles WHERE Id = '" + id + "'", clsHerramientaBD.strConnAdmon);
 
             return res;
         }
@@ -178,7 +180,7 @@ namespace ClientesNuevos.admin.usuarios
         public List<Directorio> ObtenerContactos(string RFC)
         {
             List<Directorio> lista = new List<Directorio>();
-            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '"+RFC+"'");
+            DataTable dt = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania = '" + RFC + "'");
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -197,7 +199,6 @@ namespace ClientesNuevos.admin.usuarios
 
             return lista;
         }
-
 
         [WebMethod]
         public string BorrarUsuario(string id)

@@ -35,6 +35,7 @@ namespace ClientesNuevos.App_Code
             return dt;
         }
 
+
         public static string ExecuteSql(string strSql)
         {
             string strError = "";

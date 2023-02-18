@@ -150,6 +150,15 @@ namespace ClientesNuevos.admin
         protected global::System.Web.UI.WebControls.TextBox txtMensaje;
 
         /// <summary>
+        /// Control upScript.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upScript;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>

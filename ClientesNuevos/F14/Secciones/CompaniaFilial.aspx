@@ -64,8 +64,8 @@
         <br />
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <div class="card border-primary">
-                    <div class="card-header cabezal">
+                <div class="card rounded-0">
+                    <div class="card-header cabezal rounded-0">
                         <div class="row">
                             <div class="col-auto">
                                 <h4>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-header cabezal">
+                    <div class="card-header cabezal rounded-0">
                         <div class="row">
                             <div class="col">
                                 <h5>

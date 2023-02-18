@@ -88,8 +88,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md">
-                        <div class="card h-100">
-                            <h5 class="card-header cabezal">
+                        <div class="card h-100 rounded-0">
+                            <h5 class="card-header cabezal rounded-0">
                                 <asp:Literal ID="Literal2" runat="server" Text="<%$Resources:AgentesAduanales,lblInfo%>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">
@@ -148,8 +148,8 @@
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="card h-100">
-                            <h5 class="cabezal card-header ">Contacto</h5>
+                        <div class="card h-100 rounded-0">
+                            <h5 class="cabezal card-header rounded-0">Contacto</h5>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
@@ -199,8 +199,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md">
-                        <div class="card h-100">
-                            <h5 class="card-header cabezal">
+                        <div class="card h-100 rounded-0">
+                            <h5 class="card-header cabezal rounded-0">
                                 <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:AgentesAduanales,lblInfo%>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">
@@ -260,8 +260,8 @@
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="card  h-100">
-                            <h5 class="cabezal card-header">
+                        <div class="card  h-100 rounded-0">
+                            <h5 class="cabezal card-header rounded-0">
                                 <asp:Literal ID="Literal5" runat="server" Text="<%$Resources:AgentesAduanales, lblContacto %>"></asp:Literal></h5>
                             <div class="card-body">
                                 <div class="row">

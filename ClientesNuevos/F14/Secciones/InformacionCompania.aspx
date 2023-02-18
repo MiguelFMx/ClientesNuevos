@@ -102,8 +102,8 @@
         <br />
         <!------------------------------------------------- Informacion de compañia------------------------------->
         <fieldset>
-            <div class="card border-primary">
-                <div class="card-header cabezal">
+            <div class="card rounded-0">
+                <div class="card-header cabezal rounded-0">
                     <asp:Label ID="lblTitulo_infoCom" runat="server" Text="<%$Resources:AgentesAduanales,lblDesc1 %>"></asp:Label>
                 </div>
                 <div class="card-body">
@@ -252,8 +252,8 @@
                 
                 <asp:UpdatePanel ID="UPDatosFra" runat="server">
                     <ContentTemplate>                    
-                    <div class="card border-primary">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                             <div class="col">
                                 <h6 style="font-weight: bold;">
                                     <asp:Label ID="lblTitulo_DatosFra" runat="server" Text="<%$Resources:InformacionCompania,lblDatosFra %>"></asp:Label>
@@ -313,8 +313,8 @@
                 <div class="col-md">
                      <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                     <ContentTemplate>
-                    <div class="card border-primary">
-                        <div class="card-header cabezal">
+                    <div class="card rounded-0">
+                        <div class="card-header cabezal rounded-0">
                         <h6>
                             <asp:Label ID="lblTitulo_DatosBancarios" runat="server" Text="<%$Resources:InformacionCompania, lblDatosBancarios %>"></asp:Label>
                         </h6>
@@ -420,8 +420,8 @@
          <ContentTemplate>
  <div class="row">
                 <div class="col-md-6">
-                    <div id="contactoCompania1" class="card border-primary">
-                        <h6 class="card-header cabezal">
+                    <div id="contactoCompania1" class="card rounded-0">
+                        <h6 class="card-header cabezal rounded-0">
                             <asp:Label ID="Label1" runat="server" Text="<%$Resources:InformacionCompania,lblDatosContacto %>"></asp:Label>
 
                             <asp:Label ID="Label2" runat="server" Text="">

@@ -304,7 +304,32 @@ namespace ClientesNuevos.admin
             return "good";
         }
 
+        public class LstLogin
+        {
+            public string no_login { get; set; }
+            public string fecha { get; set; }
+            public string rfc { get; set; }
+        }
 
+        [WebMethod]
+        public List<LstLogin> ListaLogin(string id)
+        {
+            List<LstLogin> lstLogins = new List<LstLogin>();
+
+            DataTable dt = clsHerramientaBD.Existe("exec Master_User @rfc='" + id + "', @Accion='lstLogin'", clsHerramientaBD.strConnAdmon);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                LstLogin objLogin = new LstLogin
+                {
+                    no_login = dr["login_no"].ToString(),
+                    fecha = dr["Fecha"].ToString(),
+                    rfc = dr["RFC"].ToString()
+                };
+                lstLogins.Add(objLogin);
+            }
+            return lstLogins;
+        }
     }
 }
     

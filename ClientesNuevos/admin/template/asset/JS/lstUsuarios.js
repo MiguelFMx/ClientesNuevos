@@ -108,17 +108,18 @@ function cargarUsuarios() {
     var detalles = '';
     var login = '';
     var estatus;
+    var lstLogin;
+
     GetAjax("../wsAdminIndex.asmx/Obtener_UD", "", false, function (lstUser) {
           if (lstUser.length > 0) {
             tablas.empty();
-            for (var i = 0; i < lstUser.length; i++) {
+              for (var i = 0; i < lstUser.length; i++) {
+                  lstLogin = new Array();
                 RFC = lstUser[i].RFC;
 
-                if (lstUser[i].LoginCount != '') {
-                    login = "<label>" + lstUser[i].LoginCount +"</label>";
-                } else {
-                    login = "<label class='bg-danger' style='color:white; border-radius:4rem; height:20px;width:20px; text-align:center; font-size:15px;'><i class='bi bi-x-circle'></i></label>";
-                }
+               
+                  login = "<select class='form-select-sm border-0'>" + LoadLogins(RFC) +"</select>";
+               
 
                 if (lstUser[i].Status == 'activo') {
                     estatus = "<label class='etiqueta'>" + lstUser[i].Status +"</label>"
@@ -172,4 +173,29 @@ function cargarUsuarios() {
             }
         }
     });
+}
+//ListaLogin(string id)
+function LoadLogins(rfc) {
+    var ddopciones = '';
+
+    GetAjax("../wsAdminIndex.asmx/ListaLogin", "'id':'" + rfc + "'", false, function (lista) {
+
+        if (lista.length > 0) {
+            for (var i = 0; i < lista.length; i++) {
+                if (i == 0) {
+                    ddopciones += "<option value='" + lista[i].no_login + "'>último inicio : " + lista[i].fecha + "</option>";
+
+                } else {
+                    ddopciones += "<option value='" + lista[i].no_login + "' disabled>" +i + ": " + lista[i].fecha + "</option>";
+
+                }
+            }
+        } else {
+            ddopciones = "<option value='0' selected disabled>sin inicio de sesión</option>";
+
+        }
+
+    });
+
+    return ddopciones;
 }

@@ -170,7 +170,9 @@ namespace ClientesNuevos.admin
                                         update = CambiarEstado(id);
                                         if(update != "")
                                         {
-                                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+update+"')", true);
+                                            ScriptManager.RegisterStartupScript(upScript, typeof(string), "Simular", "alert('" + update + "')", true);
+
+                                           // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+update+"')", true);
                                             break;
                                         }
                                         else
@@ -212,7 +214,7 @@ namespace ClientesNuevos.admin
 
         public string CambiarEstado(string rfc)
         {
-            string accion = clsHerramientaBD.ExecuteSql("UPDATE Table_Documentos SET Estatus = 'act' WHERE ID_compania='" + rfc + "'");
+            string accion = clsHerramientaBD.ExecuteSql("UPDATE Table_Documentos SET Estatus = 'act' WHERE ID_compania='" + rfc + "' AND Documento='Opinion positiva'");
             if(accion != "")
             {
                 return "Error: " + accion;
