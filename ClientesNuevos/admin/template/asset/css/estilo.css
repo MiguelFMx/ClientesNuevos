@@ -11,6 +11,7 @@ body {
     color: var(--primary);
 }
 
+
 .fondo-primary {
     background-color: #0169C2 !important;
 }
@@ -104,9 +105,9 @@ a {
         display: none;
     }
 }
-
-/*.cabezal {
-    background-color: #0169C2;
+/*
+.cabezal {
+    background-color: #0169C2 !important;
     color: white;
     font-weight: bold;
 }*/
@@ -277,9 +278,8 @@ input:checked + .slider:before {
 }
 
 .cabezal {
-    color: white;
-    background: #4a5494;
-    /*background: linear-gradient(0deg, rgba(5,0,87,1) 6%, rgba(9,17,121,1) 19%, rgba(9,68,255,1) 100%);*/
+    color: white !important;
+    background: #4a5494 !important;
 }
 
 .cabezal-danger {

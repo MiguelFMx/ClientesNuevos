@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Reportes" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Reportes.aspx.cs" Inherits="ClientesNuevos.admin.Reportes" %>
+﻿<%@ Page Title="Reportes" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="Reportes.aspx.cs" Inherits="ClientesNuevos.admin.Reportes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -136,7 +136,7 @@
                     <br />
                 </div>
                 <div class="card-footer">
-                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/Directorio.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Ver</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/admin/consulta/contactos.aspx" CssClass="btn btn-secondary btn-sm" runat="server">Ver</asp:HyperLink>
                 </div>
             </div>
         </div>
@@ -314,12 +314,12 @@
 
 
 
-
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/DataTables/datatables.min.js"></script>
     <script src="../Scripts/sweetalert2.all.min.js"></script>
     <script src="template/asset/JS/ReportesJS.js"></script>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsContent" runat="server">
+    
 </asp:Content>

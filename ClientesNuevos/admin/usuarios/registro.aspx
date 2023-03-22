@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registro" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="registro.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.registro" %>
+﻿<%@ Page Title="Registro" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="registro.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.registro" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Registrar usuario</title>

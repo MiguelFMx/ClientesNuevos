@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Index" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ClientesNuevos.admin.index" %>
+﻿<%@ Page Title="Index" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ClientesNuevos.admin.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -22,8 +22,11 @@
                                     <h5 >Listado de clientes</h5>
                                 </div>
                                 <div class="col my-1 me-3 d-flex justify-content-end">
-                                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-secondary btn-sm"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
-                                </div>
+                                    <asp:HyperLink ID="hlNuevoRegistro" runat="server" NavigateUrl="~/F14/Secciones/InformacionCompania.aspx?accion=new" CssClass="btn btn-secondary btn-sm me-1"><i class="bi bi-plus-circle"></i> Nuevo registro</asp:HyperLink>
+                                    <asp:HyperLink ID="linkDirectorio" runat="server" NavigateUrl="~/admin/consulta/contactos.aspx" CssClass="btn btn-secondary btn-sm"><i class="bi bi-book"></i> Directorio</asp:HyperLink>
+                               
+                                    </div>
+                                
                             </div>
                         </div>
                         <div class="card-body">

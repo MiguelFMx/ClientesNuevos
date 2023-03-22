@@ -136,15 +136,20 @@
   <ItemGroup>
     <Content Include="admin\carpetilla\carpetilla.aspx" />
     <Content Include="admin\configuracion\configuracion.aspx" />
+    <Content Include="admin\consulta\contactos.aspx" />
     <Content Include="admin\consulta\Directorio.aspx" />
+    <Content Include="admin\consulta\editarcontacto.aspx" />
     <Content Include="admin\consulta\wsConsultas.asmx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\index_admin.js" />
     <Content Include="admin\Reportes.aspx" />
     <Content Include="admin\consulta\consulta.aspx" />
     <Content Include="admin\template\asset\css\estilo.css" />
+    <Content Include="admin\template\asset\css\otros.css" />
+    <Content Include="admin\template\asset\css\sidebarStyle.css" />
     <Content Include="admin\template\asset\JS\carpetillaJS.js" />
     <Content Include="admin\template\asset\JS\consultaJS.js" />
+    <Content Include="admin\template\asset\JS\contactosJS.js" />
     <Content Include="admin\template\asset\JS\DorectorioJS.js" />
     <Content Include="admin\template\asset\JS\ReportesJS.js" />
     <Content Include="admin\template\asset\JS\lstUsuarios.js" />
@@ -1787,6 +1792,7 @@
     <Content Include="Content\bootstrap-reboot.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="admin\AdminTemplate.Master" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap\css\bootstrap-grid.min.css" />
@@ -1894,6 +1900,13 @@
     <Compile Include="admin\Admint.Master.designer.cs">
       <DependentUpon>Admint.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin\AdminTemplate.Master.cs">
+      <DependentUpon>AdminTemplate.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminTemplate.Master.designer.cs">
+      <DependentUpon>AdminTemplate.Master</DependentUpon>
+    </Compile>
     <Compile Include="admin\carpetilla\carpetilla.aspx.cs">
       <DependentUpon>carpetilla.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1909,12 +1922,26 @@
     <Compile Include="admin\configuracion\configuracion.aspx.designer.cs">
       <DependentUpon>configuracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\consulta\contactos.aspx.cs">
+      <DependentUpon>contactos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\consulta\contactos.aspx.designer.cs">
+      <DependentUpon>contactos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\consulta\Directorio.aspx.cs">
       <DependentUpon>Directorio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\consulta\Directorio.aspx.designer.cs">
       <DependentUpon>Directorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\consulta\editarcontacto.aspx.cs">
+      <DependentUpon>editarcontacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\consulta\editarcontacto.aspx.designer.cs">
+      <DependentUpon>editarcontacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\consulta\wsConsultas.asmx.cs">
       <DependentUpon>wsConsultas.asmx</DependentUpon>

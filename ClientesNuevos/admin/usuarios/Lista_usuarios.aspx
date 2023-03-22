@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Lista de usuarios" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
+﻿<%@ Page Title="Lista de usuarios" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="Lista_usuarios.aspx.cs" Inherits="ClientesNuevos.admin.usuarios.Lista_usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <br />
-            <div class="row">
+            <div class="row" id="sinrol" hidden>
                 <div class="col">
                     <div class="card rounded-0">
                         <div class="card-header cabezal rounded-0">

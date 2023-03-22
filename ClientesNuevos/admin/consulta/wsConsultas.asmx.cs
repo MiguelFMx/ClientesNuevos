@@ -164,7 +164,7 @@ namespace ClientesNuevos.admin.consulta
             DataTable dtDoc = new DataTable();
             int sinOP = 0;
             int OPdes = 0;
-            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
+            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo' AND Tipo_persona!='2'");
             if (dtComp.Rows.Count > 0)
             {
                 for (int i = 0; i < dtComp.Rows.Count; i++)

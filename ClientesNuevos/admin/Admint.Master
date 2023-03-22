@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Admin</title>
 
 
@@ -37,7 +38,7 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div class="d-flex">
+        <div class="d-flex" style="width: 100%;">
             <div class="fondo-primary p-3" id="sidebar-container">
                 <div class="logo">
                     <%--<h4 class="text-light ">Hungaros</h4>--%>
@@ -84,25 +85,25 @@
                         <%--<a class="navbar-brand"></a>--%>
                        
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
-                                        <asp:LoginName ID="LoginName1" runat="server" />
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="dropdown-item" />
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider" />
-                                        </li>
-                                        <li>
-                                            <asp:HyperLink ID="hlConfig" CssClass="dropdown-item" runat="server" NavigateUrl="~/usuario/user_config.aspx">Configuracion</asp:HyperLink>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
+                           
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown drop">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
+                                            <asp:LoginName ID="LoginName1" runat="server" />
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="dropdown-item" />
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <asp:HyperLink ID="hlConfig" CssClass="dropdown-item" runat="server" NavigateUrl="~/usuario/user_config.aspx">Configuracion</asp:HyperLink>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                           
                         </div>
                     </div>
                 </nav>
@@ -140,9 +141,6 @@
     <script src="template/asset/JS/TemplateJS.js"></script>
 
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
-
-
-
     </asp:ContentPlaceHolder>
 </body>
 </html>

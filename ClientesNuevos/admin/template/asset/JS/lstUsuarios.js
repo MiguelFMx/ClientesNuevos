@@ -75,6 +75,8 @@ function cargarSinRol() {
     var accioones = '';
     GetAjax("../wsAdminIndex.asmx/ObtnerSinRol", "", false, function (lstRol) {
         if (lstRol.length > 0) {
+            $('#sinrol').show();
+
             tabla.empty();
             for (var i = 0; i < lstRol.length; i++) {
                 if (lstRol[i].Status == 'activo') {
@@ -96,7 +98,7 @@ function cargarSinRol() {
                     "</tr>"
                 );
             }
-        }
+        } 
     });
     
 }

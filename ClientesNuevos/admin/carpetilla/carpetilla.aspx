@@ -1,10 +1,8 @@
-﻿<%@ Page Title="Carpetilla" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="carpetilla.aspx.cs" Inherits="ClientesNuevos.admin.carpetilla.carpetilla1" %>
+﻿<%@ Page Title="Carpetilla" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="carpetilla.aspx.cs" Inherits="ClientesNuevos.admin.carpetilla.carpetilla1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
        
-        
-
         .disabled {
     pointer-events: none;
 }
@@ -39,7 +37,6 @@
                     transform: scaleX(1);
                 }
     </style>
-
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

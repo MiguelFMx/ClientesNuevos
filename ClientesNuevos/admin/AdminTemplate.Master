@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminTemplate.master.cs" Inherits="ClientesNuevos.admin.AdminTemplate" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <!-- Favicons -->
+    <link href="../template/assets/img/icon/apple-touch-icon.png" rel="apple-touch-icon" type="image/png" sizes="180x180" />
+    <link href="../template/assets/img/icon/icon/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+    <link href="../template/assets/img/icon/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
+
+    <!-- Estilo -->
+    <link href="template/asset/css/sidebarStyle.css" rel="stylesheet" />
+    <link href="template/asset/css/estilo.css" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="../template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="template/vendors/nprogress/nprogress.css" rel="stylesheet" />
+
+    <link href="../Scripts/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="../Content/sweetalert2.min.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <nav class="sidebar">
+            <div class="logo_content">
+                <div class="logoImg">
+                    <%--<img src="../template/assets/img/logo/HungarosTexto.png" style="width: 100%;"/>--%>
+                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/template/assets/img/logo/HungarosTexto.png" Style="width: 100%;" />
+
+                </div>
+
+                <i class="bi bi-chevron-double-right" id="btnMenu"></i>
+
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <asp:HyperLink ID="linkHome" NavigateUrl="~/admin/index.aspx" runat="server">
+                       <i class="bi bi-house"></i>
+                        <span class="link_name">Home</span>
+
+                    </asp:HyperLink>
+
+                    <ul class="sub-menu blank">
+                        <li>
+                            <asp:HyperLink ID="lnHome" runat="server" NavigateUrl="~/admin/index.aspx" CssClass="link_name">Home</asp:HyperLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <asp:HyperLink ID="linkReportes" runat="server" NavigateUrl="~/admin/Reportes.aspx"> 
+                        <i class="bi bi-clipboard-data"></i>
+                        <span class="link_name">Reportes</span>
+                    </asp:HyperLink>
+
+                    <ul class="sub-menu blank">
+                        <li>
+                            <asp:HyperLink ID="subReportes" NavigateUrl="~/admin/Reportes.aspx" CssClass="link_name" runat="server">Reportes</asp:HyperLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <asp:HyperLink ID="linkConfig" runat="server" NavigateUrl="~/admin/configuracion/configuracion.aspx">
+                        <i class="bi bi-gear"></i>
+                        <span class="link_name">Configuracion</span>
+                    </asp:HyperLink>
+
+
+                    <ul class="sub-menu blank">
+                        <li>
+                            <asp:HyperLink ID="subConfig" CssClass="link_name" NavigateUrl="~/admin/configuracion/configuracion.aspx" runat="server">Configuracion</asp:HyperLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="bi bi-people"></i>
+                            <span class="link_name">Usuarios</span>
+                        </a>
+                        <i class="bi bi-chevron-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#" class="link_name">Usuarios</a>
+
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="subRegistrar" runat="server" NavigateUrl="~/admin/usuarios/registro.aspx">
+                                <i class="bi bi-person-plus-fill"></i>Registrar usuario
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="subListaUser" runat="server" NavigateUrl="~/admin/usuarios/Lista_usuarios.aspx">
+                                <i class="bi bi-person-lines-fill"></i>Lista de usuarios
+                            </asp:HyperLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <div class="profile-details">
+                        <%--<div class="profile-content">
+                            <img src="default-user.png" />
+                        </div>--%>
+                        <div class="name-job">
+                            <div class="name">
+                                <asp:LoginName ID="LoginName1" runat="server" />
+                            </div>
+                            <div class="job">
+                                <asp:Label ID="lblTrabajo" runat="server" Text="Otro" Visible="false"></asp:Label>
+
+                            </div>
+                        </div>
+
+                        <i class="bi bi-box-arrow-left" id="log_out" title="cerrar sesion"></i>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+
+        <section class="barra">
+            <nav class="navbar navbar-expand-lg bg-light border-bottom">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <%--<a class="navbar-brand"></a>--%>
+                       
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                           
+                                <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 70vw;">
+                                    <li class="nav-item dropdown drop">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i>
+                                            <asp:LoginName ID="LoginName2" runat="server" />
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="dropdown-item" />
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <asp:HyperLink ID="hlConfig" CssClass="dropdown-item" runat="server" NavigateUrl="~/usuario/user_config.aspx">Configuracion</asp:HyperLink>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>                           
+                        </div>
+                    </div>
+                </nav>
+        </section>
+
+        <div class="contenedor">
+            <section class="py-3 bg-gray ">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+        </div>
+    </form>
+
+    <!-- js -->
+    <!-- jquery -->
+    <script src="../Scripts/jquery-3.6.0.js"></script>
+    <script src="../../Scripts/JS/ajax.js"></script>
+
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+    <script src="../../Scripts/umd/popper.min.js"></script>
+
+    <script src="../Scripts/DataTables/datatables.min.js"></script>
+    <!-- NProgress -->
+    <script src="template/vendors/nprogress/nprogress.js"></script>
+
+    <script src="template/asset/JS/TemplateJS.js"></script>
+
+    <script src="../Scripts/sweetalert2.all.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        let btn = document.querySelector("#btnMenu");
+        let sidebar = document.querySelector(".sidebar");
+        let logout = document.querySelector("#log_out");
+
+        btn.onclick = function () {
+            sidebar.classList.toggle("close");
+        }
+
+        logout.onclick = function () {
+            Swal.fire({
+                html: "Seguro que quiere cerrar sesion?",
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText:'cancelar',
+                confirmButtonText: 'Si'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "../login.aspx";
+                }
+            })
+        }
+
+        let arrow = document.querySelectorAll('.arrow');
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;
+                console.log(arrowParent);
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+
+
+    </script>
+</body>
+</html>

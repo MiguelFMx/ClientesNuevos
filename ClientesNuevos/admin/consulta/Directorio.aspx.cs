@@ -30,7 +30,7 @@ namespace ClientesNuevos.admin.consulta
                 dt = clsHerramientaBD.Existe("SELECT * FROM Table_compania");
                 foreach (DataRow row in dt.Rows)
                 {
-                    ddSocios.Items.Add(new ListItem(row["Nombre_comercial"].ToString(), row["RFC"].ToString()));
+                    ddSocios.Items.Add(new ListItem(row["Nombre_comp"].ToString(), row["RFC"].ToString()));
                 }
             }
             catch (Exception)

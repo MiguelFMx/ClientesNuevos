@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Configuracion" Language="C#" MasterPageFile="~/admin/Admint.Master" AutoEventWireup="true" CodeBehind="configuracion.aspx.cs" Inherits="ClientesNuevos.admin.configuracion.configuracion" %>
+﻿<%@ Page Title="Configuracion" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="configuracion.aspx.cs" Inherits="ClientesNuevos.admin.configuracion.configuracion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Configuracion</title>
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header cabezal">
                             Periodo en el que se deben actualizar los documentos
                         </div>
                         <div class="card-body">
@@ -216,7 +216,7 @@
 
                     <div class="mt-3">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header cabezal">
                                 Administracion de subdominios
                             </div>
                             <div class="card-body">
@@ -270,7 +270,7 @@
 
                     <div class="mt-3">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header cabezal">
                                 Administracion de empresas
                             </div>
                             <div class="card-body">
@@ -317,11 +317,11 @@
                         </div>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="mt-3" style="display:none;">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>                          
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header cabezal">
                                 Servicio de correo
                             </div>
                             <div class="card-body">

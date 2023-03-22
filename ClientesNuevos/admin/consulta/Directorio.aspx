@@ -98,7 +98,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                         <div class="row">
                             <div class="col-5">
                                 <br />
@@ -135,7 +136,8 @@
                                 <label id="lblRes"></label>
                             </div>
                         </div>
-
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-primary" id="btnHref">Enviar correo </a>
