@@ -9,129 +9,57 @@ $(document).ready(function () {
 
     var tabla2 = $('#tCorreosSinOP').DataTable();
 
-    $('#btnEnviarCorreo').click(function () {
-        var txtAsunto = $('#MainContent_txtAsunto');
-        var txtMensaje = $('#MainContent_txtMensaje');
-        var correo = new Array();
+    const ModalCorreo = document.getElementById('CrearCorreo')
+    ModalCorreo.addEventListener('hidden.bs.modal', event => {
 
-        $('.form-check').each(function () {
-                let checked = $(this).find($('[name=check]'));
-                let mailTemp = $(this).find($('[name=correo]'));
+        $('#MainContent_txtPara').val('');
+        $('#MainContent_txtAsuntos').val('');
+        $('#MainContent_txtMensajes').val('');
 
-                if (checked.is(':checked')) {
-                    correo.push(mailTemp.html());
+    });
+
+    //Enviar correo
+    $('#btnSendAll').click(function () {
+
+        var mails = $('#MainContent_txtPara').val().trimEnd();
+        var asunto = $('#MainContent_txtAsuntos').val();
+        var cuerpo = $('#MainContent_txtMensajes').val();
+        var str = [];
+        str = cuerpo.split('\n').join('%0A');
+
+        if (asunto != '' && cuerpo != '' && mails != '') {
+            $("#anchorMail").attr("href", "mailto:" + mails + "?subject=" + asunto + "&body=" + str);
+
+            swal.fire({
+                title: 'Enviando correo',
+                html: 'Su aplicacion de correo se abrira automaticamente',
+                icon: 'info'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //--cierro modal
+                    $('#CrearCorreo').modal('hide');
+
+                    $('#anchorMail')[0].click();
+
                 }
-        });
-        if (correo.length > 0 && txtAsunto.val() != '' && txtMensaje.val() != '') {
-
-            var listaMail = 'mailto:';
-            for (var i = 0; i < correo.length; i++) {
-                listaMail += correo[i] + ";";
-            }
-            listaMail = listaMail.substring(0, listaMail.length - 1);
-            listaMail += "?subject=" + txtAsunto.val() + "&body=" + txtMensaje.val();
-            $('#lbcorreo').attr("href", listaMail);
-
-            $('#lbcorreo')[0].click();
-
+            })
         } else {
-            if (correo.length == 0) {
-                //----alerta de error
-                swal.fire({
-                    title: "Error",
-                    html: "Oh no! <br> Seleccione un correo",
-                    icon: "error"
-                });
-            } else if (txtAsunto.val() == "") {
-                swal.fire({
-                    title: "Error",
-                    html: "Oh no! <br> Escriba el asunto del correo",
-                    icon: "error"
-                });
-            } else if (txtMensaje.val() == "") {
-                swal.fire({
-                    title: "Error",
-                    html: "Oh no! <br> Escriba el cuerpo del correo",
-                    icon: "error"
-                });
-            } else {
-                swal.fire({
-                    title: "Error",
-                    html: "Oh no! <br> Falta de datos",
-                    icon: "error"
-                });
+            if (mails == '') {
+                swal.fire(
+                    "Error",
+                    "Falta de datos:Seleccione al menos dos correo",
+                    "error"
+                )
+            }
+            if (asunto == '' || cuerpo == '') {
+                swal.fire(
+                    "Error",
+                    "Falta de datos para el correo",
+                    "error"
+                )
             }
         }
 
-        //var email = [];
-        //var aux = 0;
-
-        //if (txtAsunto.val() == '' || txtMensaje.val() == '') {
-        //    swal.fire(
-        //        "Error ",
-        //        "Falta de datos",
-        //        "error"
-        //    )
-        //} else {
-        //    $('.form-check').each(function () {
-        //        let checked = $(this).find($('[name=check]'));
-        //        let mailTemp = $(this).find($('[name=correo]'));
-        //        let contactTemp = $(this).find($('[name=contacto]'));
-
-        //        if (checked.is(':checked')) {
-        //            correo.push(mailTemp.html() + ';' + contactTemp.html());
-        //            aux++;
-
-        //        }
-        //    });
-        //    /*
-        //    if (aux > 0) {
-        //        swal.fire({
-        //            showConfirmButton: false,
-        //            title: 'Enviando correo',
-        //            allowOutsideClick: false,
-        //            willOpen: () => {
-        //                Swal.showLoading();
-        //                $.ajax({
-        //                    type: "POST",
-        //                    url: "wsReportes.asmx/EnviarCorreos",
-        //                    data: JSON.stringify({ Info: correo, asunto: txtAsunto.val(), cuerpo: txtMensaje.val() }),
-        //                    dataType: "json",
-        //                    async: false,
-        //                    contentType: "application/json; charset=utf-8",
-        //                    success: function (result) {
-        //                        swal.fire({
-        //                            text: result.d,
-        //                            icon: 'success',
-        //                            timer: 3000
-        //                        }).then((res) => {
-        //                            //document.location.reload();
-        //                            $('.form-check').each(function () {
-        //                                let checked = $(this).find($('[name=check]'));
-
-        //                                if (checked.is(':checked')) {
-        //                                    checked.prop('checked', false);
-        //                                }
-        //                            });
-        //                        })
-
-        //                    },
-        //                    failure: function (XMLHttpRequest, textStatus, errorThrown) {
-        //                        if (errorThrown !== "") {
-        //                            alert("Error en Post: " + errorThrown);
-        //                        }
-        //                    }
-        //                });
-        //            }
-        //        });
-        //    } else {
-        //        swal.fire(
-        //            "Error ",
-        //            "Seleccione al menos un correo",
-        //            "error"
-        //        )
-        //    }        */
-        //}
     });
 
     $('#btnEnviarCorreoSinOP').click(function () {
@@ -168,81 +96,9 @@ $(document).ready(function () {
     });
 
 
-    //    $('#btnEnviarCorreoSinOP').click(function () {
-    //        var txtAsunto = $('#MainContent_txtAsuntoSinOP');
-    //        var txtMensaje = $('#MainContent_txtBodySinOP');
-    //        var correo = [];
-    //        var email = [];
-    //        var aux = 0;
+   
 
-    //        if (txtAsunto.val() == '' || txtMensaje.val() == '') {
-    //            swal.fire(
-    //                "Error ",
-    //                "Falta de datos",
-    //                "error"
-    //            )
-    //        } else {
-
-    //            $('.form-check').each(function () {
-    //                let checked = $(this).find($('[name=check]'));
-    //                let mailTemp = $(this).find($('[name=correo]'));
-    //                let contactTemp = $(this).find($('[name=contacto]'));
-
-    //                if (checked.is(':checked')) {
-    //                    correo.push(mailTemp.html() + ';' + contactTemp.html());
-    //                    aux++;
-    //                }
-    //            });
-    //            if (aux > 0) {
-    //                swal.fire({
-    //                    showConfirmButton: false,
-    //                    title: 'Enviando correo',
-    //                    allowOutsideClick: false,
-    //                    willOpen: () => {
-    //                        Swal.showLoading();
-    //                        $.ajax({
-    //                            type: "POST",
-    //                            url: "wsReportes.asmx/EnviarCorreos",
-    //                            data: JSON.stringify({ Info: correo, asunto: txtAsunto.val(), cuerpo: txtMensaje.val() }),
-    //                            dataType: "json",
-    //                            async: false,
-    //                            contentType: "application/json; charset=utf-8",
-    //                            success: function (result) {
-    //                                swal.fire({
-    //                                    text: result.d,
-    //                                    icon: 'success',
-    //                                    timer: 3000
-    //                                }).then((res) => {
-    //                                    $('.form-check').each(function () {
-    //                                        let checked = $(this).find($('[name=check]'));
-
-    //                                        if (checked.is(':checked')) {
-    //                                            checked.prop('checked', false);
-    //                                        }
-    //                                    });
-    //                                })
-
-    //                            },
-    //                            failure: function (XMLHttpRequest, textStatus, errorThrown) {
-    //                                if (errorThrown !== "") {
-    //                                    alert("Error en Post: " + errorThrown);
-    //                                }
-    //                            }
-    //                        });
-    //                    }
-    //                });
-    //            } else {
-    //                swal.fire(
-    //                    "Error ",
-    //                    "Seleccione al menos un correo",
-    //                    "error"
-    //                )  
-    //            }
-    //        }
-    //    });
-
-
-    });
+});
 
 
     function ObtenerCorreosOP() {

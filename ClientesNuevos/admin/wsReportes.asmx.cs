@@ -70,7 +70,7 @@ namespace ClientesNuevos.admin
             }
 
             //obtengo las empresas registradas
-            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo'");
+            dtComp = clsHerramientaBD.Existe("SELECT * FROM Table_compania WHERE Estatus='activo' AND Tipo_persona!='2'");
             if (dtComp.Rows.Count > 0)
             {
                 //Recorro la tabla
@@ -84,13 +84,11 @@ namespace ClientesNuevos.admin
                     {
                         //Veo si esta registrada la opinion positiva en la tabla de documentos.
                         dtDoc = clsHerramientaBD.Existe("SELECT * FROM Table_Documentos WHERE Documento='Opinion positiva' AND ID_compania='" + id + "'");
-                        
+
                         //si count es mayor a 0, significa que si esta registrado
                         if (dtDoc.Rows.Count > 0)
                         {
-                            string mesA = DateTime.Now.ToString("MM");
-                            string anioA = DateTime.Now.ToString("yyyy");
-                            //08/12/2022
+
                             int mesDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(3, 2));
                             int anioDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(6, 4));
                             int diaDoc = Convert.ToInt32(dtDoc.Rows[0]["Fecha_creacion"].ToString().Substring(0, 2));
@@ -106,7 +104,7 @@ namespace ClientesNuevos.admin
                                 case "mensual": //year, month, day
                                                 //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
                                     FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
-                                    if (FechaRegistrada.Month == fechaActualizacion.Month)
+                                    if (FechaRegistrada.Month <= fechaActualizacion.Month )
                                     {
                                         for (int index = 0; index < dtContacto.Rows.Count; index++)
                                         {
@@ -226,6 +224,36 @@ namespace ClientesNuevos.admin
             }
 
             return correo;
+        }
+
+
+        public DataTable getTabla()
+        {
+            List<ListaCorreo> listaCorreos = ContadorOP();
+            DataTable result = new DataTable();
+            //Agregamos las columnas
+            /*
+              public string Nombre { get; set; }
+            public string Puesto { get; set; }
+            public string Correo { get; set; }
+            public string OP { get; set; }
+            public string RFC { get; set; }
+            public string Compania { get; set; }
+             */
+            result.Columns.Add("Nombre");
+            result.Columns.Add("Puesto");
+            result.Columns.Add("Correo");
+            result.Columns.Add("OP");
+            result.Columns.Add("RFC");
+            result.Columns.Add("Compania");
+
+            for (int i = 0; i < listaCorreos.Count; i++)
+            {
+                result.Rows.Add(new Object[] { listaCorreos[i].Nombre, listaCorreos[i].Puesto, listaCorreos[i].Correo, listaCorreos[i].OP,
+                listaCorreos[i].RFC, listaCorreos[i].Compania} );
+            }
+
+            return result;
         }
 
     }

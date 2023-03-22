@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,6 +20,7 @@ namespace ClientesNuevos.admin
                 //llenarGrid();
                 ActivosInactivos();
                 ContadorOP();
+                BindGrid();
             }
         }
 
@@ -165,7 +167,7 @@ namespace ClientesNuevos.admin
                                 case "mensual": //year, month, day
                                                 //si es la fecha actual es mayor que la fecha del documento significa que esta actualizado
                                     FechaRegistrada = FechaRegistrada.AddMonths(cantidad);
-                                    if (FechaRegistrada.Month == fechaActualizacion.Month)
+                                    if (FechaRegistrada.Month == fechaActualizacion.Month || FechaRegistrada.Month < fechaActualizacion.Month)
                                     {
                                         update = CambiarEstado(id);
                                         if(update != "")
@@ -223,6 +225,67 @@ namespace ClientesNuevos.admin
             {
                 return "";
             }
+        }
+
+        protected void ddCorreo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            (lvCorreo.FindControl("DataPager2") as DataPager).PageSize = Convert.ToInt32(ddCorreo.SelectedValue);
+            BindGrid();
+        }
+
+        protected void btnBuscarCorreo_Click(object sender, EventArgs e)
+        {
+            string tipo = btnBuscarCorreo.Attributes["data-accion"].ToString(); //data-accion="buscar"
+            if (tipo == "buscar")
+            {
+                btnBuscarCorreo.Attributes["data-accion"] = "limpiar";
+                btnBuscarCorreo.Text = "<i class='bi bi-x-lg'></i>";
+            }
+            else
+            {
+                btnBuscarCorreo.Attributes["data-accion"] = "buscar";
+                btnBuscarCorreo.Text = "<i class='bi bi-search'></i>";
+                txtBuscarCorreo.Text = "";
+            }
+            BindGrid();
+        }
+
+        protected void lvCorreo_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Mail")
+            {
+                txtPara.Text += e.CommandArgument.ToString() + ", ";
+            }
+        }
+
+        protected void lvCorreo_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
+        {
+
+        }
+
+        protected void lvCorreo_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            (lvCorreo.FindControl("DataPager2") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            BindGrid();
+        }
+
+        private void BindGrid()
+        {
+            wsReportes wsReportes = new wsReportes();
+            DataTable data = wsReportes.getTabla();
+            if (txtBuscarCorreo.Text != "")
+            {
+                string dato = txtBuscarCorreo.Text;
+                
+                string consulta = "Nombre LIKE '%"+dato+"%' or Puesto LIKE '%"+dato+"%' or Correo LIKE '%"+dato+"%' or Compania LIKE '%"+dato+"%'";
+                //DataRow[] founds  = data.Select(consulta, "Compania");
+                data.DefaultView.RowFilter = consulta;
+            }
+
+            data.DefaultView.Sort = "Compania";
+            lvCorreo.DataSource = data;
+            lvCorreo.DataBind();
+           
         }
 
     }

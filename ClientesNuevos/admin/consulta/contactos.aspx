@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="contactos.aspx.cs" Inherits="ClientesNuevos.admin.consulta.contactos" %>
+﻿<%@ Page Title="Directorio" Language="C#" MasterPageFile="~/admin/AdminTemplate.Master" AutoEventWireup="true" CodeBehind="contactos.aspx.cs" Inherits="ClientesNuevos.admin.consulta.contactos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
