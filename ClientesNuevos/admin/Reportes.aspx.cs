@@ -21,6 +21,7 @@ namespace ClientesNuevos.admin
                 ActivosInactivos();
                 ContadorOP();
                 BindGrid();
+                BindGridSinOP();
             }
         }
 
@@ -267,17 +268,19 @@ namespace ClientesNuevos.admin
         {
             (lvCorreo.FindControl("DataPager2") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             BindGrid();
+
         }
+
 
         private void BindGrid()
         {
             wsReportes wsReportes = new wsReportes();
-            DataTable data = wsReportes.getTabla();
+            DataTable data = wsReportes.getTabla("si");
             if (txtBuscarCorreo.Text != "")
             {
                 string dato = txtBuscarCorreo.Text;
                 
-                string consulta = "Nombre LIKE '%"+dato+"%' or Puesto LIKE '%"+dato+"%' or Correo LIKE '%"+dato+"%' or Compania LIKE '%"+dato+"%'";
+                string consulta = "Nombre LIKE '%"+dato+"%' or Puesto LIKE '%"+dato+"%' or Correo LIKE '%"+dato+"%' or Compania LIKE '%"+dato+ "%' ";
                 //DataRow[] founds  = data.Select(consulta, "Compania");
                 data.DefaultView.RowFilter = consulta;
             }
@@ -285,8 +288,71 @@ namespace ClientesNuevos.admin
             data.DefaultView.Sort = "Compania";
             lvCorreo.DataSource = data;
             lvCorreo.DataBind();
-           
+
+            (lvCorreo.FindControl("lblCountConOP") as Label).Text = "Total: "+(lvCorreo.FindControl("DataPager2") as DataPager).TotalRowCount+" regs.";
         }
 
+        private void BindGridSinOP()
+        {
+            wsReportes wsReportes = new wsReportes();
+            DataTable data = wsReportes.getTabla("no");
+            if (txtBuscarCorreo.Text != "")
+            {
+                string dato = txtBuscarCorreo.Text;
+
+                string consulta = "Nombre LIKE '%" + dato + "%' or Puesto LIKE '%" + dato + "%' or Correo LIKE '%" + dato + "%' or Compania LIKE '%" + dato + "%' ";
+                //DataRow[] founds  = data.Select(consulta, "Compania");
+                data.DefaultView.RowFilter = consulta;
+            }
+
+            data.DefaultView.Sort = "Compania";
+            lvSinOP.DataSource = data;
+            lvSinOP.DataBind();
+
+            (lvSinOP.FindControl("lblCountConOP") as Label).Text = "Total: " + (lvSinOP.FindControl("DataPagerSinOP") as DataPager).TotalRowCount + " regs.";
+        }
+
+
+        protected void ddSinOP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            (lvSinOP.FindControl("DataPagerSinOP") as DataPager).PageSize = Convert.ToInt32(ddSinOP.SelectedValue);
+            BindGridSinOP();
+        }
+
+        protected void btnBuscarSinOP_Click(object sender, EventArgs e)
+        {
+            string tipo = btnBuscarSinOP.Attributes["data-accion"].ToString(); //data-accion="buscar"
+            if (tipo == "buscar")
+            {
+                btnBuscarSinOP.Attributes["data-accion"] = "limpiar";
+                btnBuscarSinOP.Text = "<i class='bi bi-x-lg'></i>";
+            }
+            else
+            {
+                btnBuscarCorreo.Attributes["data-accion"] = "buscar";
+                btnBuscarSinOP.Text = "<i class='bi bi-search'></i>";
+                txtBuscarSinOP.Text = "";
+            }
+            BindGridSinOP();
+        }
+
+        protected void lvSinOP_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Mail")
+            {
+                txtDestinatarios.Text += e.CommandArgument.ToString() + ", ";
+            }
+        }
+
+        protected void lvSinOP_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
+        {
+            
+        }
+
+        protected void lvSinOP_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            (lvSinOP.FindControl("DataPagerSinOP") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            BindGridSinOP();
+        }
     }
 }

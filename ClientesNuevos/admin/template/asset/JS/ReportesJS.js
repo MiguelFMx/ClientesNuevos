@@ -3,7 +3,6 @@
 
 
 $(document).ready(function () {
-    ObtenerCorreosOP();
 
     var tabla = $('#tCorreos').DataTable();
 
@@ -38,7 +37,7 @@ $(document).ready(function () {
                 if (result.isConfirmed) {
                     //--cierro modal
                     $('#CrearCorreo').modal('hide');
-
+                    $(".modal-backdrop").remove();
                     $('#anchorMail')[0].click();
 
                 }
@@ -63,36 +62,44 @@ $(document).ready(function () {
     });
 
     $('#btnEnviarCorreoSinOP').click(function () {
-        
-        var txtAsunto = $('#MainContent_txtAsuntoSinOP');
-        var txtMensaje = $('#MainContent_txtBodySinOP');
-        var correo = new Array();
-            $('.form-check').each(function () {
-                let checked = $(this).find($('[name=check]'));
-                let mailTemp = $(this).find($('[name=correo]'));
+        var correos = $('#MainContent_txtDestinatarios').val().trimEnd();
+        var asunto = $('#MainContent_txtAsuntoSinOP').val();
+        var cuerpo = $('#MainContent_txtBodySinOP').val();
+        var str = [];
+        str = cuerpo.split('\n').join('%0A');
 
-                if (checked.is(':checked')) {
-                    correo.push(mailTemp.html());
+        if (asunto != '' && cuerpo != '' && correos != '') {
+            $("#anchorSinOp").attr("href", "mailto:" + correos + "?subject=" + asunto + "&body=" + str);
+
+            swal.fire({
+                title: 'Enviando correo',
+                html: 'Su aplicacion de correo se abrira automaticamente',
+                icon: 'info'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //--cierro modal
+                    $('#EmailSinOPModal').modal('hide');
+                    $(".modal-backdrop").remove();
+                    $('#anchorSinOp')[0].click();
+
                 }
-            });
-        if (correo.length > 0 && txtAsunto.val() != "" && txtMensaje.val() != "") {
-            var _listaMail = 'mailto:';
-            for (var i = 0; i < correo.length; i++) {
-                _listaMail += correo[i] + ";";
-            }
-            _listaMail = _listaMail.substring(0, _listaMail.length - 1);
-            _listaMail += "?subject=" + txtAsunto.val() + "&body=" + txtMensaje.val();
-
-            //Le implemento un cambio de href al boton oculto
-            $("#anchorMail").attr("href", _listaMail);
-
-            $("#anchorMail")[0].click();
+            })
         } else {
-
+            if (correos == '') {
+                swal.fire(
+                    "Error",
+                    "Falta de datos:Seleccione al menos dos correo",
+                    "error"
+                )
+            }
+            if (asunto == '' || cuerpo == '') {
+                swal.fire(
+                    "Error",
+                    "Falta de datos para el correo",
+                    "error"
+                )
+            }
         }
-            
-       
-
     });
 
 

@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <title>Directorio</title>
     <style type="text/css">
         .contacto {
             background-color: #fff;

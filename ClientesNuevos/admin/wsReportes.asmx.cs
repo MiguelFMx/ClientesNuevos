@@ -227,7 +227,7 @@ namespace ClientesNuevos.admin
         }
 
 
-        public DataTable getTabla()
+        public DataTable getTabla(string tipo)
         {
             List<ListaCorreo> listaCorreos = ContadorOP();
             DataTable result = new DataTable();
@@ -246,11 +246,27 @@ namespace ClientesNuevos.admin
             result.Columns.Add("OP");
             result.Columns.Add("RFC");
             result.Columns.Add("Compania");
+            
 
             for (int i = 0; i < listaCorreos.Count; i++)
             {
-                result.Rows.Add(new Object[] { listaCorreos[i].Nombre, listaCorreos[i].Puesto, listaCorreos[i].Correo, listaCorreos[i].OP,
-                listaCorreos[i].RFC, listaCorreos[i].Compania} );
+                if(tipo == "si" )
+                {
+                    if (listaCorreos[i].OP == "si")
+                    {
+                        result.Rows.Add(new Object[] { listaCorreos[i].Nombre, listaCorreos[i].Puesto, listaCorreos[i].Correo, listaCorreos[i].OP,
+                listaCorreos[i].RFC, listaCorreos[i].Compania});
+                    }
+                }
+                else
+                {
+                    if(listaCorreos[i].OP == "no")
+                    {
+                        result.Rows.Add(new Object[] { listaCorreos[i].Nombre, listaCorreos[i].Puesto, listaCorreos[i].Correo, listaCorreos[i].OP,
+                listaCorreos[i].RFC, listaCorreos[i].Compania});
+                    }
+                }
+                
             }
 
             return result;
