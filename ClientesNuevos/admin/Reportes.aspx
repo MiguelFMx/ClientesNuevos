@@ -436,6 +436,7 @@
 
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/DataTables/datatables.min.js"></script>
     <script src="../Scripts/sweetalert2.all.min.js"></script>
     <script src="template/asset/JS/ReportesJS.js"></script>
