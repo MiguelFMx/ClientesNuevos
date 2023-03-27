@@ -118,11 +118,11 @@
                         <div class="col-8">
                             <div class="number">
                                 <p class="text-sm-right mb-0 text-uppercase font-weight-bold">
-                                    Directorio
+                                    Contactos
                                 </p>
                                 <br />
                                 <h5 class="font-weight-bolder">
-                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblContactos" runat="server" Text="..."></asp:Label>
                                 </h5>
 
                             </div>
@@ -297,15 +297,15 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <asp:Label ID="lblPara" runat="server" Text="Para" CssClass="form-label"></asp:Label>
-                                        <asp:TextBox ID="txtPara" CssClass="form-control" TextMode="MultiLine" Rows="4" Font-Size="Small" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtPara" CssClass="form-control" Placeholder="Seleccione al menos un correo de la lista" TextMode="MultiLine" Rows="4" Font-Size="Small" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:Label ID="Label4" runat="server" Text="Asunto" CssClass="form-label"></asp:Label>
-                                        <asp:TextBox ID="txtAsuntos" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtAsuntos" runat="server" Placeholder="Escriba el asunto del correo" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:Label ID="Label5" runat="server" Text="Mensaje" CssClass="form-label"></asp:Label>
-                                        <asp:TextBox ID="txtMensajes" runat="server" CssClass="form-control" Font-Size="Small" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                                        <asp:TextBox ID="txtMensajes" runat="server" CssClass="form-control" Placeholder="Escriba el mensaje" Font-Size="Small" TextMode="MultiLine" Rows="10"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

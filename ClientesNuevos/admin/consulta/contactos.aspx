@@ -90,45 +90,6 @@
                                     DataKeyNames="ID" GroupItemCount="3" GroupPlaceholderID="GroupPlaceHolderlst"
                                     OnItemCommand="lstContactos_ItemCommand">
 
-                                    <AlternatingItemTemplate>
-                                        <td runat="server" class="p-2">
-                                            <div class="card contacto rounded-0">
-                                                <div class="card-body">
-
-                                                    <div class="row">
-                                                        <div class="col text-center">
-                                                            <span>
-                                                                <%# Eval("Nombre") %>
-                                                                <br />
-                                                                <label style="font-size: small"><%# (Eval("Puesto").ToString()!= "")?"("+Eval("Puesto")+")" : "" %></label>
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <asp:LinkButton ID="btnAIT" runat="server" CommandName="Editar" CommandArgument='<%# Eval("ID") %>' CssClass="btn btn-warning btn-sm text-white">
-                                                                    <i class="bi bi-pencil-square"></i>
-                                                            </asp:LinkButton>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="pt-2">
-                                                        <span><i class="bi bi-building"></i>&nbsp; <%# Eval("Nombre_comp") %></span>
-                                                        <br />
-                                                        <span><i class="bi bi-envelope-fill"></i>&nbsp; <a href="mailto:<%# Eval("Correo") %>"><%# Eval("Correo") %></a></span>
-
-                                                        <br />
-                                                        <span><i class="bi bi-telephone-fill pe-2"></i>
-                                                            <label><%# (Eval("Extension").ToString() != "") ?  "Ext(" + Eval("Extension") + ")" : "" %><%# (Eval("Telefono").ToString() != "")? Eval("Telefono") : "-" %></label></span>
-
-                                                        <br />
-                                                        <span><i class="bi bi-phone-fill"></i>&nbsp; <%# (Eval("Celular").ToString() != "") ? Eval("Celular") : "-" %></span>
-                                                        <br />
-                                                    </div>
-                                                    <asp:Label CssClass="text-secondary" Text='<%# (Eval("Tipo").ToString() == "Fra") ? "Facturacion" : "Compañia" %>' runat="server" ID="TipoLabel" /><br />
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </AlternatingItemTemplate>
                                     <EditItemTemplate>
                                         <td runat="server" style="background-color: #999999;">ID:
                                      <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel1" /><br />
@@ -196,10 +157,10 @@
 
                                                     <div class="row">
                                                         <div class="col text-center">
-                                                            <span>
-                                                                <label class="nombre"><%# Eval("Nombre") %></label>
+                                                            <span style="text-transform:uppercase;">
+                                                                <asp:Label ID="lblNombre" CssClass="nombre"  runat="server" Text='<%# Eval("Nombre") %>' Font-Bold="True"></asp:Label>
                                                                 <br />
-                                                                <label class="puesto" style="font-size: small"><%# (Eval("Puesto").ToString()!= "")?"("+Eval("Puesto")+")" : "" %></label>
+                                                                <asp:Label ID="lblPuesto" CssClass="puesto" Font-Size="Small" runat="server" Text='<%# (Eval("Puesto").ToString()!= "")?"("+Eval("Puesto")+")" : "" %>'></asp:Label>
                                                             </span>
                                                         </div>
                                                         <div class="col-auto">
@@ -209,15 +170,18 @@
                                                         </div>
                                                     </div>
                                                     <div class="pt-2">
-                                                        <span><i class="bi bi-building"></i>&nbsp; <%# Eval("Nombre_comp") %></span>
+                                                        <span><i class="bi bi-building me-1"></i>
+                                                            <asp:Label ID="lblCompania" runat="server" Text='<%# Eval("Nombre_comp") %>'></asp:Label>
+                                                            </span>
                                                         <br />
 
-                                                        <span><i class="bi bi-envelope-fill"></i>&nbsp; <a href="mailto:<%# Eval("Correo") %>"><%# (Eval("Correo").ToString() != "")? Eval("Correo") : "-" %></a></span>
+                                                        <span><i class="bi bi-envelope-fill me-1"></i>
+                                                            <a href="mailto:<%# Eval("Correo") %>"><%# (Eval("Correo").ToString() != "")? Eval("Correo") : "-" %></a></span>
                                                         <br />
                                                         <span><i class="bi bi-telephone-fill pe-2"></i>
                                                             <label><%# (Eval("Extension").ToString() != "") ?  "Ext(" + Eval("Extension") + ")" : "" %><%# (Eval("Telefono").ToString() != "")? Eval("Telefono") : "-" %></label></span>
                                                         <br />
-                                                        <span><i class="bi bi-phone-fill"></i>&nbsp; <%# (Eval("Celular").ToString() != "") ? Eval("Celular") : "-" %></span>
+                                                        <span><i class="bi bi-phone-fill me-1"></i> <%# (Eval("Celular").ToString() != "") ? Eval("Celular") : "-" %></span>
                                                         <br />
                                                     </div>
                                                     <asp:Label CssClass="text-secondary" Text='<%# (Eval("Tipo").ToString() == "Fra") ? "Facturacion" : "Compañia" %>' runat="server" ID="TipoLabel" /><br />

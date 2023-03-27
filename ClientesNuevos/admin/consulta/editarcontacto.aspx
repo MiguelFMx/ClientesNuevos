@@ -65,7 +65,7 @@
                             <asp:LinkButton ID="btnEliminar" runat="server" CssClass="btn btn-danger m-1" OnClick="btnEliminar_Click"><i class="bi bi-trash me-1"></i>Eliminar</asp:LinkButton>
                         </div>
                     </div>
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>

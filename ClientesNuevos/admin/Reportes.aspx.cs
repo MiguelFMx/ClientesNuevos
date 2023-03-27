@@ -22,6 +22,7 @@ namespace ClientesNuevos.admin
                 ContadorOP();
                 BindGrid();
                 BindGridSinOP();
+                Contactos();
             }
         }
 
@@ -124,7 +125,12 @@ namespace ClientesNuevos.admin
          */
 
 
+        protected void Contactos()
+        {
+            DataTable dtC = clsHerramientaBD.Existe("SELECT COUNT(*) as TOTAL FROM Table_Contacto WHERE Nombre!='' ");
 
+            lblContactos.Text = dtC.Rows[0][0].ToString() + " registros";
+        }
         protected void ContadorOP()
         {
             DataTable dtComp = new DataTable();
