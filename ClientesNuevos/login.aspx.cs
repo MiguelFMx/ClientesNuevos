@@ -131,7 +131,7 @@ namespace ClientesNuevos
                 else
                 {
                     //Usuario o password incorrecto
-                    lbltest.Text = "Usuario o contraseña inconrrectas";
+                    lbltest.Text = "Usuario o contraseña incorrectas";
                 }
             }
             else
