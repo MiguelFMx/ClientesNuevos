@@ -204,6 +204,9 @@
   <data name="lblFormaPago" xml:space="preserve">
     <value>Paymet form </value>
   </data>
+  <data name="lblHelpDBA" xml:space="preserve">
+    <value>In case you dont have DBA, please write the name of your company. Avoid the use of periods and commas.</value>
+  </data>
   <data name="lblHint" xml:space="preserve">
     <value>Llene los campos necesarios y haga clic en el boton 'Registrar contacto'</value>
   </data>

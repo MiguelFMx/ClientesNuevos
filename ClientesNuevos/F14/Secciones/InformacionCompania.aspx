@@ -120,10 +120,13 @@
                             </div>
                             <div class="col-sm">
                                 <asp:Label ID="lblNombreComercial" runat="server" Text="<%$Resources:AgentesAduanales, lblNombreComercial %>" CssClass="form-label"></asp:Label>
-                                <asp:TextBox ID="txtNombrCom" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtNombrCom" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')" aria-labelledby="ComercialHelpBlock" runat="server" CssClass="form-control"></asp:TextBox>
+                                <div id="passwordHelpBlock" class="form-text">
+                                    <asp:Literal runat="server" Text="<%$ Resources:InformacionCompania, lblHelpDBA%>" />                                    
+                                </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
                                     ErrorMessage="<%$Resources:InformacionCompania,lblErrorNombreComercial  %>"
-                                    ControlToValidate="txtNombrCom"
+                                    ControlToValidate="txtNombrCom" 
                                     Display="Dynamic" ValidateRequestMode="Enabled" ForeColor="#ff0000">
                                 </asp:RequiredFieldValidator>
                             </div>

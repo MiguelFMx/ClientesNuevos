@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a En caso de no tener, escriba el nombre de su compañia. Evite el uso de puntos y comas.
+        /// </summary>
+        internal static string lblHelpDBA {
+            get {
+                return ResourceManager.GetString("lblHelpDBA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Llene los campos necesarios y haga clic en el boton &apos;Registrar contacto&apos;.
         /// </summary>
         internal static string lblHint {

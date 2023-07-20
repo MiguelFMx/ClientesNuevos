@@ -204,6 +204,9 @@
   <data name="lblFormaPago" xml:space="preserve">
     <value>Forma de pago</value>
   </data>
+  <data name="lblHelpDBA" xml:space="preserve">
+    <value>En caso de no tener, escriba el nombre de su compañia. Evite el uso de puntos y comas</value>
+  </data>
   <data name="lblHint" xml:space="preserve">
     <value>Llene los campos necesarios y haga clic en el boton 'Registrar contacto'</value>
   </data>
