@@ -475,7 +475,8 @@
     
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ScriptsContent" runat="server">
-    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/jquery-3.7.0.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.js"></script>
     <script src="../Scripts/sweetalert2.all.min.js"></script>
     <script src="indexJS.js"></script>
 </asp:Content>
