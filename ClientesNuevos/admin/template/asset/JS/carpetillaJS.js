@@ -154,6 +154,42 @@ $(document).ready(function () {
 
     });
 
+    $('#btnInfoBanco').click(function () {
+        var banco = $('#MainContent_hfBanco').val();
+        switch (banco) {
+            case 'NTS':
+                Swal.fire({
+                   
+                    html: "Este socio comercial trabaja por medio de <strong>Nogales Transportation Service</strong>",
+                    icon: "info"
+                });
+                break;
+            case 'HTS':
+                Swal.fire({
+                    
+                    html: "Este socio comercial trabaja por medio de <strong>Hungaros Freight Systems</strong>",
+                    icon:"info"
+                });
+                break;
+            default:
+                $('#divimprimir').printThis({
+                    pageTitle: "Caratula bancaria",
+                    header: "<img src='admin/template/asset/img/CaratulaBancaria_header.png' height='100' style='display:block; margin:auto;'/><br>",
+                    beforePrint: function () {
+                        $('#divimprimir').css("display", "block");
+                    },
+                    afterPrint: function () {
+                        // Volver a ocultar la tabla después de imprimir
+                        $('#divimprimir').css("display", "none");
+                    }
+
+                });
+                break;
+        }
+       
+            
+    });
+
     $('#btnEnviarMail').click(function () {
         var mail1 = new Array();
         var remitente1 = new Array();
@@ -328,7 +364,6 @@ function limpiar() {
     $('#MainContent_inputFile').val("");
     $("#dropzone").append("<span class='drop-zone__prompt'>Suelte el archivo o haga click aqui</span>");
 }
-
 
 function guardarDocumento(tipo) {
     var data = new FormData();

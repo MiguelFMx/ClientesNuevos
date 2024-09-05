@@ -117,6 +117,7 @@
                                         <div id="Rol">
                                         </div>
                                         <div id="Regimen">
+                                            <asp:HiddenField ID="hfBanco" runat="server" />
                                             <asp:HiddenField ID="hfRegimen" runat="server" />
                                         </div>
 
@@ -901,6 +902,17 @@
                                     <div class="col-4"></div>
                                 </div>
                             </asp:Panel>
+                            <asp:Panel ID="InfBancaria" runat="server" CssClass="hvr-sweep-to-right">
+                                <div class="row">
+                                    <div class="col-3">
+                                        Datos bancarios
+                                    </div>
+                                    <div class="col">
+                                        <button id="btnInfoBanco" type="button" class="btn btn-sm btn-secondary"><i class="bi bi-printer"></i> Imprimir informacion</button>
+                                    </div>
+                                </div>
+                            </asp:Panel>
+                            
                             <div class="table-responsive" style="display: none;">
                                 <asp:Table ID="tDocumentos" runat="server" CssClass="table table-striped  table-hover">
                                     <asp:TableHeaderRow HorizontalAlign="Center" TableSection="TableHeader">
@@ -923,6 +935,96 @@
 
         </div>
     </div>
+    <asp:Panel ID="Panel1" runat="server">
+        <div id="divimprimir" class="printable" style="display:none">
+        <div class="row">
+            <div class="col">
+            <table id="tBanco" class="table">
+                <tr>
+                    <th>NOMBRE DE LA EMPRESA</th>
+                    <td>
+                        <asp:Label ID="lblBanco1" runat="server" Text="n/a"></asp:Label>
+                    </td>                   
+                </tr>
+                <tr>
+                    <th>RFC</th>
+                    <td>
+                        <asp:Label ID="lblBanco2" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>DIRECCION</th>
+                    <td>
+                        <asp:Label ID="lblBanco3" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CODIGO POSTAL</th>
+                    <td>
+                        <asp:Label ID="lblBanco4" runat="server" Text="n/a"></asp:Label>
+                    </td>                   
+                </tr>
+                <tr>
+                    <th>METODO DE PAGO</th>
+                    <td>
+                        <asp:Label ID="lblBanco5" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>FORMA DE PAGO</th>
+                    <td>
+                        <asp:Label ID="lblBanco6" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>MONEDA DE PAGO</th>
+                    <td>
+                        <asp:Label ID="lblBanco7" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>USO DE CFDI</th>
+                    <td>
+                        <asp:Label ID="lblBanco8" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>BANCO</th>
+                    <td>
+                        <asp:Label ID="lblBanco9" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>FRC DEL BANCO</th>
+                    <td>
+                        <asp:Label ID="lblBanco10" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CUENTA</th>
+                    <td>
+                        <asp:Label ID="lblBanco11" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CLAVE INTERBANCARIA</th>
+                    <td>
+                        <asp:Label ID="lblBanco12" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>REGIMEN FISCAL</th>
+                    <td>
+                        <asp:Label ID="lblBanco13" runat="server" Text="n/a"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        </div>
+    </asp:Panel>
+
+
     <a href="../index.aspx" class="btn btn-secondary mb-3 d-flex" style="position: fixed; bottom: 3px;"><i class="bi bi-chevron-left"></i>Regresar</a>
 
     <!------------------------------------------------------------------- Modal --------------------------------------->
@@ -1037,6 +1139,7 @@
     <script src="../../template/assets/js/dropjs.js"></script>
     <script src="../template/vendors/nprogress/nprogress.js"></script>
     <script src="../../Scripts/sweetalert2.all.min.js"></script>
+    <script src="../../Scripts/printThis.js"></script>
     <script src="../template/asset/JS/carpetillaJS.js"></script>
 
 

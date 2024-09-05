@@ -146,6 +146,15 @@
                             <br />
                                 <br />
                             </li>
+                            <li>
+                                <strong>Trabajo forzoso  </strong>
+                                <br />
+                                   Los socios nuevos y los ya existentes de CTPAT tienen que cumplir algunos criterios rigurosos destinados a eliminar el uso de trabajo forzoso en las cadenas de suministro.
+                                <br />
+                                    El cual implica adopatar medidas concretas y efectivas para garantizar que personal mayor o menor de edad, bajo condiciones de esclavitud o condiciones laborales involuntarias este presente en la cadena de suministro o en las operaciones de una empresa.
+                                <br />
+                                <br />
+                            </li>
                         </ol>
 
                         <p>

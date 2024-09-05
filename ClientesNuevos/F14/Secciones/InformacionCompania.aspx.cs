@@ -14,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 using ClientesNuevos.F5.Autoevaluacion;
 using System.Diagnostics;
 
+
 namespace ClientesNuevos.F14.Seccioness
 {
 
@@ -135,6 +136,21 @@ namespace ClientesNuevos.F14.Seccioness
 
                                         llenarCampos(dt, new DataTable());
                                     }
+                                    if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "HTS")
+                                    {
+                                        chHTS.Checked = true;
+                                        //deshabilitar campos               
+                                        pDatosBancarios.Enabled = false;
+                                        pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+                                        //Deshabilito los validadores
+                                        RequiredFieldValidator7.Enabled = false;
+                                        RequiredFieldValidator8.Enabled = false;
+                                        RequiredFieldValidator9.Enabled = false;
+                                        RequiredFieldValidator10.Enabled = false;
+
+                                        llenarCampos(dt, new DataTable());
+                                    }
                                     else
                                     {
                                         llenarCampos(dt, dtBanco);
@@ -227,15 +243,6 @@ namespace ClientesNuevos.F14.Seccioness
                             {
                                 chNTS.Checked = true;
                                 llenarCampos(dt, new DataTable());
-                                //deshabilitar campos               
-                                /* pDatosBancarios.Enabled = false;
-                                 pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
-
-                                 //Deshabilito los validadores
-                                 RequiredFieldValidator7.Enabled = false;
-                                 RequiredFieldValidator8.Enabled = false;
-                                 RequiredFieldValidator9.Enabled = false;
-                                 RequiredFieldValidator10.Enabled = false;*/
                                 DeshabilitarDatosBancarios(1);
 
                             }
@@ -376,19 +383,14 @@ namespace ClientesNuevos.F14.Seccioness
 
             string resultado = RegistrarInfo();           //lblresultado.Text = resultado;
 
-            if(resultado == "error2")
+            if(resultado != "succes1")
             {
-                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
+                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError('"+resultado+"')", true);
             }
-            else if(resultado=="succes1"){
+            else /*if(resultado=="succes1")*/{
 
-                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
-
-                
-            }
-            
-
-
+                ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);                
+            }          
         }
 
         protected void LlenarPaisCB(DropDownList dropDown){
@@ -822,16 +824,21 @@ namespace ClientesNuevos.F14.Seccioness
                 //{
                 //    Response.Write("<script>Mensaje();</script>");
                 //}
-                if (registro == "error2")
+                //if (registro == "error2")
+                //{
+                //    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
+                //}
+                //else if (registro == "succes1")
+                //{
+                // ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
+                //}
+                if(registro == "succes1")
                 {
-                    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
-                }
-                else if (registro == "succes1")
-                {
-
                     ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
-
-
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError("+registro+")", true);
                 }
             }
         }
@@ -961,12 +968,15 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 try
                 {
-                        if (chNTS.Checked)
-                        {
-                            banco += clsF14.Insertar_info_bancaria(ID_compania, "NTS", "NTS", "NTS", "NTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+                    if (chNTS.Checked)
+                    {
+                        banco += clsF14.Insertar_info_bancaria(ID_compania, "NTS", "NTS", "NTS", "NTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
 
-                        }
-                        else if (boolbanco) { 
+                    }else if (chHTS.Checked)
+                    {
+                        banco += clsF14.Insertar_info_bancaria(ID_compania, "HTS", "HTS", "HTS", "HTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+                    }
+                    else if (boolbanco) { 
                    banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
                     }
                     documento += clsF14.Insertar_Documento(ID_compania, "F14", "null", "20%");
@@ -983,16 +993,26 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else
                 {
-                    if(gvContactos.Rows.Count > 0)
-                    {
-                    resultado = "succes1";  //"Informacion de empresa registrada con exito";
-
+                string listaContactos = ContactosCheckList(ID_compania);
+                if(listaContactos == "")
+                {
+                    resultado = "succes1";
                 }
                 else
-                    {
-                    resultado = "error2"; //"Registre un contacto";
-
+                {
+                    resultado = listaContactos;
                 }
+                //if (gvContactos.Rows.Count > 0)
+                //    {
+                //    ContactosCheckList(ID_compania);
+                //    resultado = "succes1";  //"Informacion de empresa registrada con exito";
+
+                //    }
+                //    else
+                //    {
+                //    resultado = "error2"; //"Registre un contacto";
+
+                    //}
             }
             
 
@@ -1049,7 +1069,7 @@ namespace ClientesNuevos.F14.Seccioness
             string ID_compania = "", Nombre = "", Puesto = "", Telefono = "", Extension = "", Celular = "", Tipo = "", Correo = "";
             ID_compania = txtRfc.Text;
             Nombre = txtNombreC.Text;
-            Puesto = txtPuestoC.Text;
+            Puesto = ddTipoContacto.SelectedValue;
             Telefono = txtTelC.Text;
             Extension = txtExt.Text;
             Celular = txtCelC.Text;
@@ -1082,7 +1102,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
                 else
                 {
-                    lblRes.Text = "*Debe contar un numero de telefo o de celular";
+                    lblRes.Text = "*Debe contar un numero de telefono o de celular";
 
                 }
 
@@ -1144,6 +1164,65 @@ namespace ClientesNuevos.F14.Seccioness
             btnRegistrarC.Visible = false;
         }
 
+        protected string ContactosCheckList(string ID_compania)
+        {
+            string missingcontacts = "";
+
+            // Declaración del diccionario
+            Dictionary<string, bool> contactos = new Dictionary<string, bool>()
+        {
+            { "Contabilidad", false },
+            { "Facturacion", false },
+            { "Gerencia", false },
+            { "Operaciones", false },
+            { "Referencia", false }
+        };
+            DataTable tContactos = clsHerramientaBD.Existe("SELECT * FROM Table_Contacto WHERE ID_compania='"+ID_compania+"'");
+            if (tContactos.Rows.Count > 0)
+            {
+                foreach (DataRow row in tContactos.Rows)
+                {
+                    switch (row["Puesto"].ToString())
+                    {
+                        case "Contabilidad":
+                            contactos["Contabilidad"] = true;
+                            break;
+                        case "Facturacion":
+                            contactos["Facturacion"] = true;
+                            break; 
+                        case "Gerencia":
+                            contactos["Gerencia"] = true;
+                            break;
+                        case "Operaciones":
+                            contactos["Operaciones"] = true;
+                            break;
+                        case "Referencia":
+                            contactos["Referencia"] = true;
+                            break;                           
+                    }
+                }
+                //Recorro diccionario e busca de valores falsos
+                foreach (KeyValuePair<string, bool> contacto in contactos)
+                {
+                    if (contacto.Value == false)
+                    {
+                        if(missingcontacts == "")
+                        {
+                            missingcontacts = "Debe registrar al menos un contacto de:<br>";
+                        }
+                        missingcontacts += contacto.Key+"<br>";
+                    }
+                }
+
+            }
+            else
+            {
+                missingcontacts = "Debe registrar al menos un contacto de facturacion, contabilidad, operaciones, gerencia y referencia";
+            }
+
+            return missingcontacts;
+        }
+
         protected void btnDelC_Click(object sender, EventArgs e)
         {
             lblRes.Text = "";
@@ -1177,7 +1256,7 @@ namespace ClientesNuevos.F14.Seccioness
                 tipo = "Comp";
             }
 
-            lblRes.Text = clsF14.Insertar_contacto(hfIDComp.Value, txtNombreC.Text, txtPuestoC.Text, txtTelC.Text, txtExt.Text, txtCelC.Text, tipo, txtCorreoC.Text, hfIdC.Value);
+            lblRes.Text = clsF14.Insertar_contacto(hfIDComp.Value, txtNombreC.Text, ddTipoContacto.SelectedValue, txtTelC.Text, txtExt.Text, txtCelC.Text, tipo, txtCorreoC.Text, hfIdC.Value);
 
 
             hfIdC.Value = "";
@@ -1217,6 +1296,7 @@ namespace ClientesNuevos.F14.Seccioness
             if (chNTS.Checked)
             {
                 DeshabilitarDatosBancarios(1);
+                chHTS.Checked = false;  
             }
             else
             {
@@ -1245,7 +1325,18 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
-        
+        protected void chHTS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chHTS.Checked)
+            {
+                DeshabilitarDatosBancarios(1);
+                chNTS.Checked = false;
+            }
+            else
+            {
+                DeshabilitarDatosBancarios(2);
+            }
+        }
 
         protected void Traducir()
         {

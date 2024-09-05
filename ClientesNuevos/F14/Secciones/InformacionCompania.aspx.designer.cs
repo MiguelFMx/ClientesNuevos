@@ -789,6 +789,24 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Label lblNTS;
 
         /// <summary>
+        /// Control chHTS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chHTS;
+
+        /// <summary>
+        /// Control lblHTS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHTS;
+
+        /// <summary>
         /// Control pDatosBancarios.
         /// </summary>
         /// <remarks>
@@ -1075,6 +1093,15 @@ namespace ClientesNuevos.F14.Seccioness
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPuestoC;
+
+        /// <summary>
+        /// Control ddTipoContacto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddTipoContacto;
 
         /// <summary>
         /// Control Label6.

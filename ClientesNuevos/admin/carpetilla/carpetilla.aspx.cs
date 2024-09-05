@@ -69,6 +69,10 @@ namespace ClientesNuevos.admin.carpetilla
                     Response.Cookies.Add(new HttpCookie("id_comp", id_comp));
                     Response.Cookies.Add(new HttpCookie("tipo", Request.QueryString["type"].ToString()));
                     }
+
+                    //-----------------cargar info bancaria------------------
+                    Obtener_infoBancaria(Request.QueryString["id"].ToString());
+                    
                 }
             }
             
@@ -742,6 +746,29 @@ namespace ClientesNuevos.admin.carpetilla
             data = clsHerramientaBD.Existe("exec select_compania @id_comp='" + id + "', @accion='compania'");
 
             return data;
+        }
+        private void Obtener_infoBancaria(string id)
+        {
+            DataTable data;
+
+            data = clsHerramientaBD.Existe("exec Master_TablaInfoBancaria @ID_compania='" + id + "', @accion='infobanco'");
+            if (data.Rows.Count > 0)
+            {
+                hfBanco.Value = data.Rows[0]["Nombre_banco"].ToString();
+                lblBanco1.Text = data.Rows[0]["Nombre"].ToString();
+                lblBanco2.Text = data.Rows[0]["RFC"].ToString();
+                lblBanco3.Text = data.Rows[0]["Direccion"].ToString();
+                lblBanco4.Text = data.Rows[0]["CP_fra"].ToString();
+                lblBanco5.Text = data.Rows[0]["MetodoPago"].ToString();
+                lblBanco6.Text = data.Rows[0]["FormaPago"].ToString();
+                lblBanco7.Text = data.Rows[0]["Moneda"].ToString();
+                lblBanco8.Text = data.Rows[0]["UsoCFDI"].ToString();
+                lblBanco9.Text = data.Rows[0]["Nombre_banco"].ToString();
+                lblBanco10.Text = data.Rows[0]["rfc_banco"].ToString();
+                lblBanco11.Text = data.Rows[0]["no_cuenta"].ToString();
+                lblBanco12.Text = data.Rows[0]["clabe_bancaria"].ToString();
+                lblBanco13.Text = data.Rows[0]["regimen"].ToString();
+            }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)

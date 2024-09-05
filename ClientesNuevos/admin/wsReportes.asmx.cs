@@ -7,11 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
-using MailKit;
-using MailKit.Net;
-using MimeKit.Text;
-using MimeKit;
-using MailKit.Net.Smtp;
+
 
 namespace ClientesNuevos.admin
 {
@@ -167,65 +163,6 @@ namespace ClientesNuevos.admin
             }
             return lstCorreo;
         }
-
-        [WebMethod]
-        public string EnviarCorreos(string[] Info, string asunto, string cuerpo)
-        {
-            string result = "";
-
-            if (Info.Length > 0)
-            {
-                for (int i = 0; i < Info.Length; i++)
-                {
-                    string[] separado = Info[i].Split(';');
-                    string correo = separado[0];
-                    string remitente = separado[1];
-
-                    result += EnviarCorreo(correo, remitente, asunto, cuerpo)+",";
-                   
-                    
-                }
-                result = "Correo enviado a " + result;
-            }
-            else
-            {
-                result = "x";
-            }
-
-            return result;
-        }
-
-
-
-        [WebMethod]
-        public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)
-        {
-            //Metodo para enviar correo por medio de MailKit
-            MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("No Re:Hungaros.", "postmaster@hungaros.com"));
-            message.To.Add(new MailboxAddress(remitente, correo));
-
-            message.Subject = subject;
-            message.Body = new TextPart(TextFormat.Plain)
-            {
-                Text = cuerpo
-            };
-            SmtpClient client = new SmtpClient();
-            try
-            {
-                client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
-                client.Send(message);
-                client.Disconnect(true);
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-
-            return correo;
-        }
-
 
         public DataTable getTabla(string tipo)
         {

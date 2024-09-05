@@ -523,26 +523,26 @@ namespace ClientesNuevos.admin.configuracion
 
         protected void btnProbarCon_Click(object sender, EventArgs e)
         {
-            wsAdminIndex wsA = new wsAdminIndex();
-            string Remitente = txtRemitente.Text;
-            string Correo = txtCorreo.Text;
-            string PuertoSMTP = txtPort.Text;
-            string HostSMTP = txtHostSMTP.Text;
-            string UsernameSMTP = txtUsername.Text;
-            string PasswordSMTP = txtPassword.Text;
+            //wsAdminIndex wsA = new wsAdminIndex();
+            //string Remitente = txtRemitente.Text;
+            //string Correo = txtCorreo.Text;
+            //string PuertoSMTP = txtPort.Text;
+            //string HostSMTP = txtHostSMTP.Text;
+            //string UsernameSMTP = txtUsername.Text;
+            //string PasswordSMTP = txtPassword.Text;
 
-            string res = wsA.EnviarCorreoPrueba(PuertoSMTP, HostSMTP, UsernameSMTP, PasswordSMTP);
+            //string res = wsA.EnviarCorreoPrueba(PuertoSMTP, HostSMTP, UsernameSMTP, PasswordSMTP);
 
-            if(res== "good")
-            {
-                literalTest.Text = "<div><i class='bi bi-check-circle-fill'></i></div>";
+            //if(res== "good")
+            //{
+            //    literalTest.Text = "<div><i class='bi bi-check-circle-fill'></i></div>";
 
-            }
-            else
-            {
-                literalTest.Text = "<div><i class='bi bi-x-lg'></i></div>";
+            //}
+            //else
+            //{
+            //    literalTest.Text = "<div><i class='bi bi-x-lg'></i></div>";
 
-            }
+            //}
 
 
         }

@@ -7,9 +7,7 @@ using System.Web;
 using System.Web.Services;
 using ClientesNuevos.admin.configuracion;
 using ClientesNuevos.App_Code;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MimeKit.Text;
+
 
 namespace ClientesNuevos.admin
 {
@@ -198,52 +196,7 @@ namespace ClientesNuevos.admin
 
         }
 
-        [WebMethod]
-        public string EnviarCorreo(string correo, string remitente, string subject, string cuerpo)
-        {
-            clsSMTP clsSMTP = new clsSMTP();
-            List<clsSMTP> datos = clsSMTP.ObtenerObjeto();
-
-            
-            //Metodo para enviar correo por medio de MailKit
-            MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress(datos[0].Remitente, datos[0].Correo));
-            message.To.Add(new MailboxAddress(remitente,correo));
-
-            message.Subject = subject;
-            message.Body = new TextPart(TextFormat.Plain)
-            {
-                Text = cuerpo
-            };
-            SmtpClient client = new SmtpClient();
-            try
-            {
-                client.Connect(datos[0].HostSMTP, Convert.ToInt32(datos[0].PuertoSMTP), MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate(datos[0].UsernameSMTP, datos[0].PasswordSMTP);
-                client.Send(message);
-                client.Disconnect(true);
-            }
-            catch (Exception ex)
-            {
-                return "Error:"+ex.Message;
-            }
-
-            return "Correo enviado";
-        }
-
-        [WebMethod]
-        public List<string> EnviarMultiplesCorreos(List<string> correo, List<string>remitente, string subject, string cuerpo)
-        {
-            string result = "";
-            List<string> list = new List<string>();
-            for (int i = 0; i < correo.Count; i++)
-            {
-                result = EnviarCorreo(correo[i], remitente[i], subject, cuerpo);
-                list.Add(result);
-            }
-
-            return list;
-        }
+       
 
         [WebMethod]
         public string CambioPass()
@@ -270,38 +223,6 @@ namespace ClientesNuevos.admin
             }
 
             return res;
-        }
-
-
-        public string EnviarCorreoPrueba(string PuertoSMTP, string HostSMTP, string UserSMTP, string passSMTP )
-        {
-            
-
-
-            //Metodo para enviar correo por medio de MailKit
-            MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("prueba", "mi@hotmail.com"));
-            message.To.Add(new MailboxAddress("prueba", "fre@gmail.com"));
-
-            message.Subject = "test";
-            message.Body = new TextPart(TextFormat.Plain)
-            {
-                Text = "tes"
-            };
-            SmtpClient client = new SmtpClient();
-            try
-            {
-                client.Connect(HostSMTP, Convert.ToInt32(PuertoSMTP), MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate(UserSMTP, passSMTP);
-                client.Send(message);
-                client.Disconnect(true);
-            }
-            catch (Exception ex)
-            {
-                return "Error:" + ex.Message;
-            }
-
-            return "good";
         }
 
         public class LstLogin

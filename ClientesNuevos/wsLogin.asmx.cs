@@ -6,11 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using MailKit.Net;
-using MailKit;
-using MimeKit.Text;
-using MimeKit;
-using MailKit.Net.Smtp;
 
 namespace ClientesNuevos
 {
@@ -107,50 +102,50 @@ namespace ClientesNuevos
         {
             string resultado="";
 
-            string rfc="", pass="";
+            //string rfc="", pass="";
 
-            DataTable table = clsHerramientaBD.Existe("Select * from Table_Contacto WHERE Correo='" + email + "'");
-            if (table.Rows.Count > 0)
-            {
-                rfc = table.Rows[0]["ID_compania"].ToString();
+            //DataTable table = clsHerramientaBD.Existe("Select * from Table_Contacto WHERE Correo='" + email + "'");
+            //if (table.Rows.Count > 0)
+            //{
+            //    rfc = table.Rows[0]["ID_compania"].ToString();
 
-                DataTable dtInfo = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE RFC ='"+rfc+"'", clsHerramientaBD.strConnAdmon);
+            //    DataTable dtInfo = clsHerramientaBD.Existe("SELECT * FROM Usuarios WHERE RFC ='"+rfc+"'", clsHerramientaBD.strConnAdmon);
 
-                if(dtInfo.Rows.Count > 0)
-                {
-                    pass = dtInfo.Rows[0]["Password"].ToString();
-                }
+            //    if(dtInfo.Rows.Count > 0)
+            //    {
+            //        pass = dtInfo.Rows[0]["Password"].ToString();
+            //    }
 
-                //Metodo para enviar correo por medio de MailKit
-                MimeMessage message = new MimeMessage();
-                message.From.Add(new MailboxAddress("No Re: Hungaros", "er@hungaros.com"));
-                message.To.Add(new MailboxAddress("", email));
+            //    //Metodo para enviar correo por medio de MailKit
+            //    MimeMessage message = new MimeMessage();
+            //    message.From.Add(new MailboxAddress("No Re: Hungaros", "er@hungaros.com"));
+            //    message.To.Add(new MailboxAddress("", email));
 
-                message.Subject = "Contacto";
-                message.Body = new TextPart(TextFormat.Html)
-                {
-                    Text = "<div>Usuario con RFC:" + rfc + "<br><br>Por medio del correo de " + email + " solicito su contraseña <br><br> Contraseña:" + pass + "<br><br><br>Por favor, ingrese a su cuenta y actulice su contraseña<br></div>"
-                };
-                SmtpClient client = new SmtpClient();
-                try
-                {
-                    client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    client.Authenticate("er@hungaros.com", "");
-                    client.Send(message);
-                    client.Disconnect(true);
-                    resultado = "Correo enviado";
-                }               
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
+            //    message.Subject = "Contacto";
+            //    message.Body = new TextPart(TextFormat.Html)
+            //    {
+            //        Text = "<div>Usuario con RFC:" + rfc + "<br><br>Por medio del correo de " + email + " solicito su contraseña <br><br> Contraseña:" + pass + "<br><br><br>Por favor, ingrese a su cuenta y actulice su contraseña<br></div>"
+            //    };
+            //    SmtpClient client = new SmtpClient();
+            //    try
+            //    {
+            //        client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+            //        client.Authenticate("er@hungaros.com", "");
+            //        client.Send(message);
+            //        client.Disconnect(true);
+            //        resultado = "Correo enviado";
+            //    }               
+            //    catch (Exception ex)
+            //    {
+            //        return ex.Message;
+            //    }
 
 
-            }
-            else
-            {
-                resultado = "No se encontro el correo";
-            }
+            //}
+            //else
+            //{
+            //    resultado = "No se encontro el correo";
+            //}
 
            
 

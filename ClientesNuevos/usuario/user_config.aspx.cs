@@ -11,9 +11,6 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MimeKit.Text;
 using System.Web.Services.Description;
 using System.Data;
 using System.Globalization;
@@ -48,8 +45,6 @@ namespace ClientesNuevos.usuario
                     break;
             }
 
-            
-            //Response.Cookies.Add(new HttpCookie("lang", ddIdioma.SelectedItem.Value));
         }
 
         protected void CambiarPass_CancelButtonClick(object sender, EventArgs e)
@@ -113,44 +108,10 @@ namespace ClientesNuevos.usuario
             CambiarPass.Attributes.Clear();
         }
 
-        protected void EnviarCorreo(string pass)
-        {
-            MimeMessage correo = new MimeMessage();
-            correo.From.Add(new MailboxAddress("Hungaros", "postmaster@hungaros.com"));
-            correo.To.Add(new MailboxAddress("Miguel", "freyde.miguel@gmail.com"));
-
-
-            string mb = "<div>Aviso de cambio de contraseña</div><br><br>" +
-                        "<div>Su contraseña ha sido actualizada con exito, por favor inicie sesion nuevamente. <br></div>" +
-                        "<br><br><div>Este correo ha sido generado automaticamente</div>";
-
-            correo.Subject = "Cambio de contraseña";
-
-            BodyBuilder bodyBuilder = new BodyBuilder
-            {
-                HtmlBody = String.Format(@mb)
-            };
-
-
-            correo.Body = bodyBuilder.ToMessageBody();
-
-            SmtpClient client = new SmtpClient();
-            try
-            {
-                client.Connect("mailc76.carrierzone.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("postmaster@hungaros.com", "Hungaro5.Mai1!");
-                client.Send(correo);
-                client.Disconnect(true);
-            }
-            catch (Exception ex)
-            {            
-                lblPass.Text = ex.Message;
-            }
-        }
+        
 
         protected void btnTest_Click(object sender, EventArgs e)
         {
-            EnviarCorreo("test");
         }
 
         protected void CambiarEstadoPass(string RFC)

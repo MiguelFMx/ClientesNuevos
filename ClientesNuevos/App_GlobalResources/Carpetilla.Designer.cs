@@ -115,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Compañia.
+        ///   Busca una cadena traducida similar a Compañía.
         /// </summary>
         internal static string lblComp {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Compañía.
+        ///   Busca una cadena traducida similar a Portal de socios comerciales .
         /// </summary>
         internal static string lblCompania {
             get {

@@ -414,43 +414,48 @@ function CargarContactos() {
 }
 
 
-function MensajeError() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let acomp = urlParams.get('rfc');
-    let accion = urlParams.get('accion');
-    var rfc = $('MainContent_txtRfc').val();
+function MensajeError(mensaje) {
+    //let urlParams = new URLSearchParams(window.location.search);
+    //let acomp = urlParams.get('rfc');
+    //let accion = urlParams.get('accion');
+    //var rfc = $('MainContent_txtRfc').val();
     Swal.fire({
-        icon: 'warning',
-        html: 'No has registrado ningun contacto <br> ¿Deseas continuar?',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'si',
-        cancelButtonText: 'no'
-    }).then((result) => {
-        if (result.isConfirmed) {
+        icon: "error",
+        title: "Oops...",
+        html: mensaje
+    });
+    //Swal.fire({
+    //    icon: 'warning',
+    //    html: mensaje,
+    //    showCancelButton: true,
+    //    confirmButtonColor: '#3085d6',
+    //    cancelButtonColor: '#d33',
+    //    confirmButtonText: 'si',
+    //    cancelButtonText: 'no'
+    //}).then((result) => {
+    //    if (result.isConfirmed) {
 
-            if (acomp == null) {
-                if (accion == null) {
-                    window.location.href = '../Secciones/AgentesAduanales.aspx';
+    //        if (acomp == null) {
+    //            if (accion == null) {
+    //                window.location.href = '../Secciones/AgentesAduanales.aspx';
 
-                } else {
-                    window.location.href = '../Secciones/AgentesAduanales.aspx?rfc=' + rfc;
+    //            } else {
+    //                window.location.href = '../Secciones/AgentesAduanales.aspx?rfc=' + rfc;
 
-                }
+    //            }
 
-            } else {
-                if (accion == null) {
-                    window.location.href = '../Secciones/AgentesAduanales.aspx?rfc=' + acomp;
+    //        } else {
+    //            if (accion == null) {
+    //                window.location.href = '../Secciones/AgentesAduanales.aspx?rfc=' + acomp;
 
-                } else {
-                    window.location.href = '../Secciones/AgentesAduanales.aspx?accion=new&rfc=' + acomp;
+    //            } else {
+    //                window.location.href = '../Secciones/AgentesAduanales.aspx?accion=new&rfc=' + acomp;
 
-                }
+    //            }
 
-            }
-        }
-    });    
+    //        }
+    //    }
+    //});    
 }
 
 function ExisteRFC() {
