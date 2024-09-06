@@ -264,17 +264,6 @@ namespace ClientesNuevos.F14.Seccioness
 
                     }
                 }
-
-                /*
-
-                if (Request.Cookies.Get("lang") != null)
-                {
-                    if (Request.Cookies.Get("lang").Value == "en")
-                    {
-                        Traducir();
-                    }
-                }    */              
-
                 
             }
         }
@@ -791,8 +780,7 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         string registro;
                         registro = RegistrarInfo();
-                        //lblSinContacto.Text = registro;
-                        //Response.Write('<script>alert(''+mensaje+'');</script>');
+                        
                         if (registro == "error2")
                         {
                             ScriptManager.RegisterStartupScript(UpdatePanel7, typeof(string), "Simular", "MensajeError()", true);
@@ -804,12 +792,7 @@ namespace ClientesNuevos.F14.Seccioness
 
 
                         }
-                        //if (registro != "Registre un contacto")
-                        //{
-                        //    Response.Write("<script>Mensaje();</script>");
-                        //}
-                        //Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
-
+                       
                     }
                 }
                 catch (Exception ex)
@@ -821,21 +804,7 @@ namespace ClientesNuevos.F14.Seccioness
                //lblSinContacto.Text= RegistrarInfo();
                 string registro;
                 registro = RegistrarInfo();
-                //lblSinContacto.Text = registro;
-                //Response.Write('<script>alert(''+mensaje+'');</script>');
-
-                //if (registro != "Registre un contacto")
-                //{
-                //    Response.Write("<script>Mensaje();</script>");
-                //}
-                //if (registro == "error2")
-                //{
-                //    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
-                //}
-                //else if (registro == "succes1")
-                //{
-                // ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
-                //}
+                
                 if(registro == "succes1")
                 {
                     ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
@@ -1006,17 +975,7 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     resultado = listaContactos;
                 }
-                //if (gvContactos.Rows.Count > 0)
-                //    {
-                //    ContactosCheckList(ID_compania);
-                //    resultado = "succes1";  //"Informacion de empresa registrada con exito";
-
-                //    }
-                //    else
-                //    {
-                //    resultado = "error2"; //"Registre un contacto";
-
-                    //}
+                
             }
             
 
@@ -1342,90 +1301,7 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
-        protected void Traducir()
-        {
-            //cbBox
-            lblRegistro.Text = "Business partner type:";
-            cbClient.Text = "Customer";
-            cbProv.Text = "Provider";
-
-            //Wizard
-            lblDesc1.Text = "Step 1";
-            lblDesc2.Text = "Step 2";
-            lblDesc3.Text = "Step 3";
-            lblDesc4.Text = "Step 4";
-            lblDesc5.Text = "Step 5";
-            lblsub1.Text = "Company information";
-            lblsub2.Text = "Customs broker";
-            lblsub3.Text = "Foreign manufacturing company information";
-            lblsub4.Text = "Requested service type";
-            lblsub5.Text = "Supply chain security program information";
-
-            //Infromacion de la compañia
-            lblTitulo_infoCom.Text = "Company information";
-            lblNombreComercial.Text = "Doing business as:";
-            lblNombreCompania.Text = "Name of the company:";
-            lblTipoPersona.Text = "Person type (SAT):";
-            lblRFC.Text = "RFC or W9 number:";
-            lblAnosNegocio.Text = "Years in business:";
-            lblCURP.Text = "CURP (Mexico):";
-            lblDirecFiscal.Text = "Fiscal address:";
-            lblCP.Text = "Postal code:";
-            lblCiudad.Text = "City:";
-            lblEstado.Text = "State";
-            lblPais.Text = "Country";
-
-            //informacion de fra
-            lblTitulo_DatosFra.Text = "Billing information(bill to party):";
-            lblDireccionIgual.Text = "Billing address and fiscal address are different";
-            lblDirecFacturacion.Text = "Billing address:";
-            lblPaisFact.Text = "Country";
-            lblEstadoFra.Text = "State";
-            lblCiudadFact.Text = "City:";
-
-            //Datos bancarios
-            lblTitulo_DatosBancarios.Text = "Bank details";
-            lblBanco.Text = "Bank name:";
-            lblMoneda.Text = "Currency:";
-            lblNoCuenta.Text = "Account number";
-            lblClaveBancaria.Text = "Bank code:";
-
-
-            //Contacto
-           /* lblTitulo_DatosContacto.Text = "Contac details";
-            lblNombreCont.Text = "Name:";
-            lblpuestoCont.Text = "Tittle:";
-            lblCorreoCont.Text = "E-mail:";
-            lblFactura.Text = "Send invoice";
-            lblTelCont.Text = "Phone:";
-            lblCelCont.Text = "Celphone:";
-            lblExtension.Text = "Extension:";
-            pInfo_en.Visible = true;
-            pInfo_es.Visible = false;
-
-            lbl_tNombre.Text = "Name";
-            lbl_tPuesto.Text = "Titlte";
-            lbl_tCorreo.Text = "E-mail";
-            lbl_tTel.Text = "Phone";
-            lbl_tCel.Text = "Cephone";
-            lbl_tFra.Text = "Invoice";
-
-            btnContact.Text = "Add contact";
-            lbl_tCaption.Text = "Registered contacts";
-
-            lbl_btnNext.Text = "Next";*/
-        }
-        /*
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-            if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
-            {
-                MasterPageFile = "../../admin/Admint.Master";
-            }
-            
-        }
-        */
-
+       
         private void DeshabilitarDatosBancarios(int tipo)
         {
             if (tipo == 1)

@@ -230,7 +230,6 @@ $(document).ready(function () {
             //Ejecuto el click de boton oculto
            
             //----------Actualizacion de estado a act
-            //Actualizar_Estado(string ID_compania, string Documento, string Estatus)
             var documento = $('#MainContent_lblDoc').text().trim();
             let urlParams = new URLSearchParams(window.location.search);
             let acomp = urlParams.get('id');
@@ -315,9 +314,6 @@ $(document).ready(function () {
                     }
                 })
 
-                
-
-                //location.reload();
             });
             console.log(listaMail);
 
