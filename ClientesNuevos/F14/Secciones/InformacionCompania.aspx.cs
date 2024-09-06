@@ -135,8 +135,7 @@ namespace ClientesNuevos.F14.Seccioness
                                         RequiredFieldValidator10.Enabled = false;
 
                                         llenarCampos(dt, new DataTable());
-                                    }
-                                    if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "HTS")
+                                    }else if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "HTS")
                                     {
                                         chHTS.Checked = true;
                                         //deshabilitar campos               
@@ -245,6 +244,11 @@ namespace ClientesNuevos.F14.Seccioness
                                 llenarCampos(dt, new DataTable());
                                 DeshabilitarDatosBancarios(1);
 
+                            }else if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "HTS")
+                            {
+                                chHTS.Checked = true;
+                                llenarCampos(dt, new DataTable());
+                                DeshabilitarDatosBancarios(1);
                             }
                             else
                             {
