@@ -71,6 +71,7 @@ namespace ClientesNuevos.F14.Seccioness
                             if (tabla.Rows[0]["ID_rol"].ToString() == "4")
                             {
                                 TipoRegistro("proveedor");
+                                PanelProveedor.Visible = true; //borrar
 
                             }                           
                             
@@ -97,7 +98,7 @@ namespace ClientesNuevos.F14.Seccioness
                             }else if (dt.Rows[0]["Tipo_persona"].ToString() == "0")
                             {
                                 TipoRegistro("proveedor");
-
+                                PanelProveedor.Visible = true;
                             }
 
 
@@ -138,6 +139,21 @@ namespace ClientesNuevos.F14.Seccioness
                                     }else if (dtBanco.Rows[0]["Nombre_banco"].ToString() == "HTS")
                                     {
                                         chHTS.Checked = true;
+                                        //deshabilitar campos               
+                                        pDatosBancarios.Enabled = false;
+                                        pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
+
+                                        //Deshabilito los validadores
+                                        RequiredFieldValidator7.Enabled = false;
+                                        RequiredFieldValidator8.Enabled = false;
+                                        RequiredFieldValidator9.Enabled = false;
+                                        RequiredFieldValidator10.Enabled = false;
+
+                                        llenarCampos(dt, new DataTable());
+                                    }
+                                    else if (dtBanco.Rows[0]["Nombre_banco"].ToString().Trim() == "Proveedor" || dtBanco.Rows[0]["Nombre_banco"].ToString().Trim() == "PROVEEDOR")
+                                    {
+                                        chProveedor.Checked = true;
                                         //deshabilitar campos               
                                         pDatosBancarios.Enabled = false;
                                         pDatosBancarios.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
@@ -250,6 +266,12 @@ namespace ClientesNuevos.F14.Seccioness
                                 llenarCampos(dt, new DataTable());
                                 DeshabilitarDatosBancarios(1);
                             }
+                            else if (dtBanco.Rows[0]["Nombre_banco"].ToString().Trim() == "Proveedor" || dtBanco.Rows[0]["Nombre_banco"].ToString().Trim() == "PROVEEDOR")
+                            {
+                                chProveedor.Checked = true;
+                                llenarCampos(dt, new DataTable());
+                                DeshabilitarDatosBancarios(1);
+                            }
                             else
                             {
                                 llenarCampos(dt, dtBanco);
@@ -265,17 +287,6 @@ namespace ClientesNuevos.F14.Seccioness
                     }
                 }
 
-                /*
-
-                if (Request.Cookies.Get("lang") != null)
-                {
-                    if (Request.Cookies.Get("lang").Value == "en")
-                    {
-                        Traducir();
-                    }
-                }    */              
-
-                
             }
         }
 
@@ -322,7 +333,7 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 txtRfc.Enabled = false;
                 txtRfc.Text = table.Rows[0]["ID_compania"].ToString();
-
+                txtNombreCompania.Enabled = false;
                 txtNombreCompania.Text = table.Rows[0]["Nombre_comp"].ToString();
 
                 ddTipoDePersona.Items.FindByValue(table.Rows[0]["Tipo_persona"].ToString()).Selected = true;
@@ -334,6 +345,7 @@ namespace ClientesNuevos.F14.Seccioness
                 }
 
                 txtNombrCom.Text = table.Rows[0]["Nombre_comercial"].ToString();
+                txtNombrCom.Enabled = false;
 
                 txtCURP.Text = table.Rows[0]["CURP"].ToString();
 
@@ -362,22 +374,30 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 if (dtBanco.Rows[0]["Nombre_banco"].ToString() != "")
                 {
-               
-                ddUsoCFDI.Items.FindByValue(dtBanco.Rows[0]["Uso_CFDI"].ToString()).Selected = true;
+                    //Limpio de dropdowns y asigno valores
+                    string UsoCFDI = ddUsoCFDI.SelectedValue;
+                    ddUsoCFDI.Items.FindByValue(UsoCFDI).Selected = false;
+                    ddUsoCFDI.Items.FindByValue(dtBanco.Rows[0]["Uso_CFDI"].ToString()).Selected = true;
 
-                ddMoneda.Items.FindByValue(dtBanco.Rows[0]["Moneda"].ToString()).Selected = true;
+                    string Moneda = ddMoneda.SelectedValue;
+                    ddMoneda.Items.FindByValue(Moneda).Selected = false;
+                    ddMoneda.Items.FindByValue(dtBanco.Rows[0]["Moneda"].ToString()).Selected = true;
 
-                ddFormaPago.Items.FindByValue(dtBanco.Rows[0]["Forma_pago"].ToString()).Selected = true;
+                    string FormaPago = ddFormaPago.SelectedValue;
+                    ddFormaPago.Items.FindByValue(FormaPago).Selected = false;
+                    ddFormaPago.Items.FindByValue(dtBanco.Rows[0]["Forma_pago"].ToString()).Selected = true;
 
-                ddMetodoPago.Items.FindByValue(dtBanco.Rows[0]["Metodo_pago"].ToString()).Selected = true;
+                    string MetodoPago = ddMetodoPago.SelectedValue;
+                    ddMetodoPago.Items.FindByValue(MetodoPago).Selected = false;
+                    ddMetodoPago.Items.FindByValue(dtBanco.Rows[0]["Metodo_pago"].ToString()).Selected = true;
 
-                txtBanco.Text = dtBanco.Rows[0]["Nombre_banco"].ToString();
+                    txtBanco.Text = dtBanco.Rows[0]["Nombre_banco"].ToString().Trim();
 
-                txtBancoRFC.Text = dtBanco.Rows[0]["rfc_banco"].ToString();
+                    txtBancoRFC.Text = dtBanco.Rows[0]["rfc_banco"].ToString().Trim();
 
-                txtNoCuenta.Text = dtBanco.Rows[0]["no_cuenta"].ToString();
+                    txtNoCuenta.Text = dtBanco.Rows[0]["no_cuenta"].ToString().Trim();
 
-                txtClaveBancaria.Text = dtBanco.Rows[0]["clabe_bancaria"].ToString();
+                    txtClaveBancaria.Text = dtBanco.Rows[0]["clabe_bancaria"].ToString().Trim();
 
                 }
             }
@@ -545,17 +565,17 @@ namespace ClientesNuevos.F14.Seccioness
                     RFValidator_CPFra.Enabled = true;
 
 
-            }
+                }
                 else
                 {
                     pFra.Enabled = false;
                     pFra.BackColor = System.Drawing.Color.FromArgb(233, 236, 239);
-                RFValidator_DirFra.Enabled = false;
-                RFValidator_PaisFra.Enabled = false;
-                RFValidator_EstadoFra.Enabled = false;
-                RFValidator_EstadoFra.Enabled = false;
-                RFValidator_CPFra.Enabled = false;
-            }
+                    RFValidator_DirFra.Enabled = false;
+                    RFValidator_PaisFra.Enabled = false;
+                    RFValidator_EstadoFra.Enabled = false;
+                    RFValidator_EstadoFra.Enabled = false;
+                    RFValidator_CPFra.Enabled = false;
+                }
             }
 
         protected void ddTipoDePersona_SelectedIndexChanged(object sender, EventArgs e)
@@ -570,7 +590,6 @@ namespace ClientesNuevos.F14.Seccioness
 
             if (regimen == 2)
                 {
-                   // Context.Response.Write("<script language=javascript>alert('Opción invalida');</script>");
                    
                 lblRFC.Text = "W9/Tax ID";
                 lblCP.Text = "Zip code";
@@ -658,8 +677,8 @@ namespace ClientesNuevos.F14.Seccioness
             nombre_comercial = txtNombrCom.Text;
             rfc = txtRfc.Text.ToUpper();
             CURP = txtCURP.Text.ToUpper();
-            direccion = txtDirecFiscal.Text;
-            cp = txtCP.Text;
+            direccion = txtDirecFiscal.Text.Trim();
+            cp = txtCP.Text.Trim();
             tipo_persona = Convert.ToInt32(ddTipoDePersona.SelectedValue);
             tiempo_negocio = Convert.ToInt32(txtAnosNegocio.Text);
             fecha_registro = DateTime.Now.ToString("yyyy-MM-dd");
@@ -671,7 +690,7 @@ namespace ClientesNuevos.F14.Seccioness
             resultado = clsF14.Insertar_info_compania(ID_compania, nombre_comp, nombre_comercial, tipo_persona, rfc, CURP, tiempo_negocio, direccion, cp, pais, estado, ciudad, fecha_registro, id_user);
             if (chkDireccionIgual.Checked)
             {
-               resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text, txtCPFra.Text, ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
+               resDir = clsF14.Insertar_dir_fra(ID_compania, txtDirecFacturacion.Text.Trim(), txtCPFra.Text.Trim(), ddPaisFra.SelectedValue, ddEstadoFra.SelectedValue, ddCiudadFra.SelectedValue);
             }
             else
             {
@@ -697,9 +716,9 @@ namespace ClientesNuevos.F14.Seccioness
         protected void btnBanco_Click(object sender, EventArgs e){
             string ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda;
             ID_compania = txtRfc.Text;
-            Nombre_banco = txtBanco.Text;
-            rfc_banco = txtBancoRFC.Text;
-            no_cuenta = txtNoCuenta.Text;
+            Nombre_banco = txtBanco.Text.Trim();
+            rfc_banco = txtBancoRFC.Text.Trim();
+            no_cuenta = txtNoCuenta.Text.Trim();
             clave_bancaria = txtClaveBancaria.Text;
             Uso_CFDI = ddUsoCFDI.SelectedValue;
             Metodo_pago = ddMetodoPago.SelectedValue;
@@ -743,6 +762,8 @@ namespace ClientesNuevos.F14.Seccioness
                     step4.Visible = true;
                     lblDesc5.Text = "Paso 5";
                     lblstep5.Text = "5";
+                    PanelProveedor.Visible = false;
+
                     Response.Cookies.Add(new HttpCookie("ctipo", "cliente"));
                     DeshabilitarDatosBancarios(2);
 
@@ -753,7 +774,7 @@ namespace ClientesNuevos.F14.Seccioness
                     step4.Visible = false;
                     lblDesc5.Text = "Paso 2";
                     lblstep5.Text = "2";
-
+                    PanelProveedor.Visible = true;
                     Response.Cookies.Add(new HttpCookie("ctipo", "proveedor"));
 
                     DeshabilitarDatosBancarios(1);
@@ -791,8 +812,6 @@ namespace ClientesNuevos.F14.Seccioness
                     {
                         string registro;
                         registro = RegistrarInfo();
-                        //lblSinContacto.Text = registro;
-                        //Response.Write('<script>alert(''+mensaje+'');</script>');
                         if (registro == "error2")
                         {
                             ScriptManager.RegisterStartupScript(UpdatePanel7, typeof(string), "Simular", "MensajeError()", true);
@@ -804,11 +823,6 @@ namespace ClientesNuevos.F14.Seccioness
 
 
                         }
-                        //if (registro != "Registre un contacto")
-                        //{
-                        //    Response.Write("<script>Mensaje();</script>");
-                        //}
-                        //Response.Redirect("~/F14/Secciones/AgentesAduanales.aspx?accion=new&rfc=" + txtRfc.Text);
 
                     }
                 }
@@ -818,24 +832,9 @@ namespace ClientesNuevos.F14.Seccioness
                 }
             }else if (Request.QueryString["rfc"] != null)
             {
-               //lblSinContacto.Text= RegistrarInfo();
                 string registro;
                 registro = RegistrarInfo();
-                //lblSinContacto.Text = registro;
-                //Response.Write('<script>alert(''+mensaje+'');</script>');
-
-                //if (registro != "Registre un contacto")
-                //{
-                //    Response.Write("<script>Mensaje();</script>");
-                //}
-                //if (registro == "error2")
-                //{
-                //    ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeError()", true);
-                //}
-                //else if (registro == "succes1")
-                //{
-                // ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
-                //}
+               
                 if(registro == "succes1")
                 {
                     ScriptManager.RegisterStartupScript(UpdatePanel8, typeof(string), "Simular", "MensajeSucces()", true);
@@ -888,13 +887,13 @@ namespace ClientesNuevos.F14.Seccioness
 
             int tipo_persona, tiempo_negocio;
 
-            ID_compania = txtRfc.Text.ToUpper();
-            nombre_comp = txtNombreCompania.Text;
-            nombre_comercial = txtNombrCom.Text;
-            rfc = txtRfc.Text.ToUpper();
-            CURP = txtCURP.Text.ToUpper();
-            direccion = txtDirecFiscal.Text;
-            cp = txtCP.Text;
+            ID_compania = txtRfc.Text.ToUpper().Trim();
+            nombre_comp = txtNombreCompania.Text.Trim();
+            nombre_comercial = txtNombrCom.Text.Trim(); //poner  if si el nombre es N/A poner nombre comp
+            rfc = txtRfc.Text.ToUpper().Trim();
+            CURP = txtCURP.Text.ToUpper().Trim();
+            direccion = txtDirecFiscal.Text.Trim();
+            cp = txtCP.Text.Trim();
             tipo_persona = Convert.ToInt32(ddTipoDePersona.SelectedValue);
             tiempo_negocio = Convert.ToInt32(txtAnosNegocio.Text);
             fecha_registro = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
@@ -902,10 +901,10 @@ namespace ClientesNuevos.F14.Seccioness
             ciudad = ddCiudad.SelectedValue;
             estado = ddEstado.SelectedValue;
             id_user = Request.Cookies.Get("id").Value;
-            Nombre_banco = txtBanco.Text;
-            rfc_banco = txtBancoRFC.Text;
-            no_cuenta = txtNoCuenta.Text;
-            clave_bancaria = txtClaveBancaria.Text;
+            Nombre_banco = txtBanco.Text.Trim();
+            rfc_banco = txtBancoRFC.Text.Trim();
+            no_cuenta = txtNoCuenta.Text.Trim();
+            clave_bancaria = txtClaveBancaria.Text.Trim();
             Uso_CFDI = ddUsoCFDI.SelectedValue;
             Metodo_pago = ddMetodoPago.SelectedValue;
             Forma_pago = ddFormaPago.SelectedValue;
@@ -974,11 +973,15 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     if (chNTS.Checked)
                     {
-                        banco += clsF14.Insertar_info_bancaria(ID_compania, "NTS", "NTS", "NTS", "NTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+                        banco += clsF14.Insertar_info_bancaria(ID_compania, "NTS", "NTS", "NTS", "NTS", "P01", "PUE", "01", "USD");
 
                     }else if (chHTS.Checked)
                     {
-                        banco += clsF14.Insertar_info_bancaria(ID_compania, "HTS", "HTS", "HTS", "HTS", Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
+                        banco += clsF14.Insertar_info_bancaria(ID_compania, "HTS", "HTS", "HTS", "HTS", "P01", "PUE", "01", "USD");
+                    }
+                    else if (chProveedor.Checked)
+                    {
+                        banco += clsF14.Insertar_info_bancaria(ID_compania, "Proveedor", "Proveedor", "Proveefor", "Proveedor", "P01", "PUE", "01", "USD");
                     }
                     else if (boolbanco) { 
                    banco += clsF14.Insertar_info_bancaria(ID_compania, Nombre_banco, rfc_banco, no_cuenta, clave_bancaria, Uso_CFDI, Metodo_pago, Forma_pago, Moneda);
@@ -1006,17 +1009,6 @@ namespace ClientesNuevos.F14.Seccioness
                 {
                     resultado = listaContactos;
                 }
-                //if (gvContactos.Rows.Count > 0)
-                //    {
-                //    ContactosCheckList(ID_compania);
-                //    resultado = "succes1";  //"Informacion de empresa registrada con exito";
-
-                //    }
-                //    else
-                //    {
-                //    resultado = "error2"; //"Registre un contacto";
-
-                    //}
             }
             
 
@@ -1300,7 +1292,8 @@ namespace ClientesNuevos.F14.Seccioness
             if (chNTS.Checked)
             {
                 DeshabilitarDatosBancarios(1);
-                chHTS.Checked = false;  
+                chHTS.Checked = false;
+                chProveedor.Checked = false;
             }
             else
             {
@@ -1335,6 +1328,7 @@ namespace ClientesNuevos.F14.Seccioness
             {
                 DeshabilitarDatosBancarios(1);
                 chNTS.Checked = false;
+                chProveedor.Checked = false;
             }
             else
             {
@@ -1342,89 +1336,20 @@ namespace ClientesNuevos.F14.Seccioness
             }
         }
 
-        protected void Traducir()
+        protected void chProveedor_CheckedChanged(object sender, EventArgs e)
         {
-            //cbBox
-            lblRegistro.Text = "Business partner type:";
-            cbClient.Text = "Customer";
-            cbProv.Text = "Provider";
-
-            //Wizard
-            lblDesc1.Text = "Step 1";
-            lblDesc2.Text = "Step 2";
-            lblDesc3.Text = "Step 3";
-            lblDesc4.Text = "Step 4";
-            lblDesc5.Text = "Step 5";
-            lblsub1.Text = "Company information";
-            lblsub2.Text = "Customs broker";
-            lblsub3.Text = "Foreign manufacturing company information";
-            lblsub4.Text = "Requested service type";
-            lblsub5.Text = "Supply chain security program information";
-
-            //Infromacion de la compañia
-            lblTitulo_infoCom.Text = "Company information";
-            lblNombreComercial.Text = "Doing business as:";
-            lblNombreCompania.Text = "Name of the company:";
-            lblTipoPersona.Text = "Person type (SAT):";
-            lblRFC.Text = "RFC or W9 number:";
-            lblAnosNegocio.Text = "Years in business:";
-            lblCURP.Text = "CURP (Mexico):";
-            lblDirecFiscal.Text = "Fiscal address:";
-            lblCP.Text = "Postal code:";
-            lblCiudad.Text = "City:";
-            lblEstado.Text = "State";
-            lblPais.Text = "Country";
-
-            //informacion de fra
-            lblTitulo_DatosFra.Text = "Billing information(bill to party):";
-            lblDireccionIgual.Text = "Billing address and fiscal address are different";
-            lblDirecFacturacion.Text = "Billing address:";
-            lblPaisFact.Text = "Country";
-            lblEstadoFra.Text = "State";
-            lblCiudadFact.Text = "City:";
-
-            //Datos bancarios
-            lblTitulo_DatosBancarios.Text = "Bank details";
-            lblBanco.Text = "Bank name:";
-            lblMoneda.Text = "Currency:";
-            lblNoCuenta.Text = "Account number";
-            lblClaveBancaria.Text = "Bank code:";
-
-
-            //Contacto
-           /* lblTitulo_DatosContacto.Text = "Contac details";
-            lblNombreCont.Text = "Name:";
-            lblpuestoCont.Text = "Tittle:";
-            lblCorreoCont.Text = "E-mail:";
-            lblFactura.Text = "Send invoice";
-            lblTelCont.Text = "Phone:";
-            lblCelCont.Text = "Celphone:";
-            lblExtension.Text = "Extension:";
-            pInfo_en.Visible = true;
-            pInfo_es.Visible = false;
-
-            lbl_tNombre.Text = "Name";
-            lbl_tPuesto.Text = "Titlte";
-            lbl_tCorreo.Text = "E-mail";
-            lbl_tTel.Text = "Phone";
-            lbl_tCel.Text = "Cephone";
-            lbl_tFra.Text = "Invoice";
-
-            btnContact.Text = "Add contact";
-            lbl_tCaption.Text = "Registered contacts";
-
-            lbl_btnNext.Text = "Next";*/
-        }
-        /*
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-            if (Request.QueryString["admin"] != null && Request.QueryString["id"] != null)
+            if (chHTS.Checked)
             {
-                MasterPageFile = "../../admin/Admint.Master";
+                DeshabilitarDatosBancarios(1);
+                chNTS.Checked = false;
+                chHTS.Checked = false;
             }
-            
+            else
+            {
+                DeshabilitarDatosBancarios(2);
+            }
         }
-        */
+
 
         private void DeshabilitarDatosBancarios(int tipo)
         {

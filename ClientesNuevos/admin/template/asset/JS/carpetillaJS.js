@@ -171,6 +171,21 @@ $(document).ready(function () {
                     icon:"info"
                 });
                 break;
+
+            case 'Proveedor':
+                Swal.fire({
+
+                    html: "Este socio comercial es <strong>proveedor</strong>",
+                    icon: "info"
+                });
+                break;
+            case 'PROVEEDOR':
+                Swal.fire({
+
+                    html: "Este socio comercial es <strong>proveedor</strong>",
+                    icon: "info"
+                });
+                break;
             default:
                 $('#divimprimir').printThis({
                     pageTitle: "Caratula bancaria",

@@ -331,6 +331,14 @@
                                         <asp:CheckBox ID="chHTS" runat="server" OnCheckedChanged="chHTS_CheckedChanged" AutoPostBack="True" />
                                         <asp:Label ID="lblHTS" runat="server" Text="Trabajamos por medio Hungaros Freight Systems" Font-Size="10px" CssClass="form-check-label"></asp:Label>
                                     </div>
+                                    <asp:UpdatePanel ID="PanelProveedor" runat="server">
+                                        <ContentTemplate>
+                                         <div class="form-check ">
+                                            <asp:CheckBox ID="chProveedor" runat="server" OnCheckedChanged="chProveedor_CheckedChanged" AutoPostBack="True" />
+                                            <asp:Label ID="lblProveedor" runat="server" Text="Es proveedor" Font-Size="10px" CssClass="form-check-label"></asp:Label>
+                                        </div>
+                                            </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </div>
                                 <asp:Panel runat="server" ID="pDatosBancarios">
 
@@ -339,9 +347,9 @@
                                             <div class="col-md-5">
                                                 <asp:Label ID="lblMetodoPago" runat="server" Text="<%$Resources:InformacionCompania, lblMetodoPago %>" CssClass="form-label"></asp:Label>
                                                 <asp:DropDownList ID="ddMetodoPago" runat="server" CssClass="form-select" AutoPostBack="False">
-                                                    <asp:ListItem Text="..." Value="0" Selected="False" />
-                                                    <asp:ListItem Text="PUE-Pago en Una sola Exhibición" Value="PUE" Selected="False" />
-                                                    <asp:ListItem Text="PPD-Pago en Parcialidades o Diferido" Value="PPD" Selected="False" />
+                                                    <asp:ListItem Text="..." Value="0" />
+                                                    <asp:ListItem Text="PUE-Pago en Una sola Exhibición" Value="PUE" Selected="True"  />
+                                                    <asp:ListItem Text="PPD-Pago en Parcialidades o Diferido" Value="PPD"  />
                                                 </asp:DropDownList>
 
                                             </div>
@@ -356,11 +364,12 @@
                                                 <asp:Label ID="lblMoneda" runat="server" Text="<%$Resources:InformacionCompania, lblMoneda %>"></asp:Label>
                                                 <asp:DropDownList ID="ddMoneda" runat="server" CssClass="form-select">
                                                     <asp:ListItem Text="..." Value="x" />
-                                                    <asp:ListItem Text="MXN" Value="MXN" />
+                                                    <asp:ListItem Text="MXN" Value="MXN" Selected="True" />
                                                     <asp:ListItem Text="USD" Value="USD" />
                                                 </asp:DropDownList>
                                             </div>
-                                        </div>
+                                    </div>                                   
+                                        
                                         <div class="row">
                                             <div class="col">
 
@@ -416,7 +425,7 @@
                                     </div>
                                 </asp:Panel>
 
-                            </div>
+                            </div>        
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -465,7 +474,7 @@
                                                 <asp:ListItem Text="Facturacion" Value="Facturacion" />
                                                 <asp:ListItem Text="Gerencia" Value="Gerencia" />
                                                 <asp:ListItem Text="Operaciones" Value="Operaciones" />
-                                                <asp:ListItem Text="Referencia" Selected Value="Referencia" />
+                                                <asp:ListItem Text="Referencia" Value="Referencia" />
                                             </asp:DropDownList>
                                         </div>
                                     </div>

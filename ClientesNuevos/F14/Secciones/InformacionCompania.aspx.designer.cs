@@ -807,6 +807,33 @@ namespace ClientesNuevos.F14.Seccioness
         protected global::System.Web.UI.WebControls.Label lblHTS;
 
         /// <summary>
+        /// Control PanelProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PanelProveedor;
+
+        /// <summary>
+        /// Control chProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chProveedor;
+
+        /// <summary>
+        /// Control lblProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProveedor;
+
+        /// <summary>
         /// Control pDatosBancarios.
         /// </summary>
         /// <remarks>

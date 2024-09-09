@@ -754,7 +754,7 @@ namespace ClientesNuevos.admin.carpetilla
             data = clsHerramientaBD.Existe("exec Master_TablaInfoBancaria @ID_compania='" + id + "', @accion='infobanco'");
             if (data.Rows.Count > 0)
             {
-                hfBanco.Value = data.Rows[0]["Nombre_banco"].ToString();
+                hfBanco.Value = data.Rows[0]["Nombre_banco"].ToString().Trim();
                 lblBanco1.Text = data.Rows[0]["Nombre"].ToString();
                 lblBanco2.Text = data.Rows[0]["RFC"].ToString();
                 lblBanco3.Text = data.Rows[0]["Direccion"].ToString();
